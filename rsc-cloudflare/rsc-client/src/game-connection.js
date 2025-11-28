@@ -81,10 +81,16 @@ class GameConnection extends GameShell {
                 'Connecting to server'
             );
 
-            this.packetStream = new PacketStream(
-                await this.createSocket(this.server, this.port),
-                this
-            );
+            if (this.server instanceof Worker) {
+                const socket = new Socket(this.server);
+                await socket.connect();
+                this.packetStream = new PacketStream(socket, this);
+            } else {
+                this.packetStream = new PacketStream(
+                    await this.createSocket(this.server, this.port),
+                    this
+                );
+            }
 
             const encodedUsername = Utility.usernameToHash(username);
 
