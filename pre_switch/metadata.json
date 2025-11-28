@@ -1,0 +1,7 @@
+{
+  "name": "Copy of RSC Evolution AI",
+  "description": "A RuneScape Classic style 'Zero to Hero' evolution prototype using Three.js and a simulated AI backend.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

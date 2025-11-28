@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LM Studio Connection Test</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #0f0;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        pre {
+            background: #000;
+            padding: 10px;
+            border: 1px solid #0f0;
+        }
+
+        .error {
+            color: #f00;
+        }
+
+        .success {
+            color: #0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🤖 LM Studio Connection Test</h1>
+
+    <button onclick="testConnection()">Test Connection</button>
+    <button onclick="testModels()">List Models</button>
+    <button onclick="testChat()">Test Chat</button>
+
+    <h2>Results:</h2>
+    <pre id="output">Click a button to test...</pre>
+
+    <script>
+        const BASE_URL = 'http://172.16.0.2:1234/v1';
+        const output = document.getElementById('output');
+
+        async function testConnection() {
+            output.innerHTML = '🔍 Testing connection to LM Studio...\n';
+
+            try {
+                const response = await fetch(`${BASE_URL}/models`, {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    output.innerHTML += `<span class="success">✅ Connected! Server is running.</span>\n`;
+                    output.innerHTML += `Response: ${JSON.stringify(data, null, 2)}\n`;
+                } else {
+                    output.innerHTML += `<span class="error">❌ Error: ${response.status} ${response.statusText}</span>\n`;
+                }
+            } catch (error) {
+                output.innerHTML += `<span class="error">❌ Connection failed: ${error.message}</span>\n`;
+                output.innerHTML += `Make sure:\n`;
+                output.innerHTML += `1. LM Studio is running\n`;
+                output.innerHTML += `2. Local server is enabled in LM Studio\n`;
+                output.innerHTML += `3. CORS is enabled (Settings → Server → Enable CORS)\n`;
+            }
+        }
+
+        async function testModels() {
+            output.innerHTML = '📋 Fetching models...\n';
+
+            try {
+                const response = await fetch(`${BASE_URL}/models`);
+                const data = await response.json();
+
+                output.innerHTML += `<span class="success">Models available:</span>\n`;
+                if (data.data && data.data.length > 0) {
+                    data.data.forEach(model => {
+                        output.innerHTML += `  - ${model.id}\n`;
+                    });
+                } else {
+                    output.innerHTML += `<span class="error">No models loaded! Load a model in LM Studio.</span>\n`;
+                }
+            } catch (error) {
+                output.innerHTML += `<span class="error">❌ Failed: ${error.message}</span>\n`;
+            }
+        }
+
+        async function testChat() {
+            output.innerHTML = '💬 Testing chat completion...\n';
+
+            try {
+                const response = await fetch(`${BASE_URL}/chat/completions`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        messages: [
+                            { role: 'system', content: 'You are Gronk, a caveman companion.' },
+                            { role: 'user', content: 'Say hi!' }
+                        ],
+                        temperature: 0.8,
+                        max_tokens: 50
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.choices && data.choices[0]) {
+                    const reply = data.choices[0].message.content;
+                    output.innerHTML += `<span class="success">✅ Gronk says: "${reply}"</span>\n`;
+                } else {
+                    output.innerHTML += `<span class="error">❌ Unexpected response format</span>\n`;
+                    output.innerHTML += `${JSON.stringify(data, null, 2)}\n`;
+                }
+            } catch (error) {
+                output.innerHTML += `<span class="error">❌ Chat failed: ${error.message}</span>\n`;
+            }
+        }
+    </script>
+</body>
+
+</html>

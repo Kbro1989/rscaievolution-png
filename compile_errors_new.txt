@@ -1,0 +1,120 @@
+examples/hybridGeneratorExamples.ts(7,33): error TS2307: Cannot find module './services/backend/hybridContentGenerator' or its corresponding type declarations.
+libs/rsmv/src/3d/jmat.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+libs/rsmv/src/cache/compression.ts(115,17): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/cache/fscache.ts(16,20): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/cache/fscache.ts(18,13): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/cache/sqlite.ts(66,16): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/cache/sqlitewasm.ts(81,17): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/cache/sqlitewasm.ts(86,30): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/clientscript/index.ts(19,102): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<ClientScriptFunction>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: ClientScriptFunction; }'.
+libs/rsmv/src/cliparser.ts(10,10): error TS2865: Import 'FileRange' conflicts with local value, so must be declared with a type-only import when 'isolatedModules' is enabled.
+libs/rsmv/src/headless/api.ts(18,10): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+libs/rsmv/src/headless/api.ts(106,9): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/headless/cli.ts(5,48): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+libs/rsmv/src/libs/sqlite3wrap.ts(6,18): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/libs/yieldparser.ts(118,41): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+libs/rsmv/src/libs/yieldparser.ts(119,52): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+libs/rsmv/src/opcode_reader.ts(838,3): error TS2322: Type '() => { const: unknown; }' is not assignable to type '() => JSONSchema6Definition'.
+  Type '{ const: unknown; }' is not assignable to type 'JSONSchema6Definition'.
+    Type '{ const: unknown; }' is not assignable to type 'JSONSchema6'.
+      Types of property 'const' are incompatible.
+        Type 'unknown' is not assignable to type 'JSONSchema6Type'.
+libs/rsmv/src/opdecoder.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+libs/rsmv/src/scripts/indexoverview.ts(3,33): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+libs/rsmv/src/viewer/commoncontrols.tsx(5,29): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+libs/rsmv/src/viewer/commoncontrols.tsx(6,36): error TS2307: Cannot find module 'scripts/filetypes' or its corresponding type declarations.
+libs/rsmv/src/viewer/commoncontrols.tsx(102,66): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type '"enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | "identitykit" | "structs" | ... 33 more ... | "clientscriptops"'.
+  Type 'string' is not assignable to type '"enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | "identitykit" | "structs" | ... 33 more ... | "clientscriptops"'.
+libs/rsmv/src/viewer/commoncontrols.tsx(229,11): error TS2322: Type '{ onChange: any; value: any; defaultValue: string | number | readonly string[]; ref: string | ((el: HTMLInputElement) => void) | RefObject<HTMLInputElement>; ... 291 more ...; onTransitionEndCapture?: TransitionEventHandler<...>; }' is not assignable to type 'DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>'.
+  Type '{ onChange: any; value: any; defaultValue: string | number | readonly string[]; ref: string | ((el: HTMLInputElement) => void) | RefObject<HTMLInputElement>; ... 291 more ...; onTransitionEndCapture?: TransitionEventHandler<...>; }' is not assignable to type 'InputHTMLAttributes<HTMLInputElement>'.
+    The types of 'style.alignmentBaseline' are incompatible between these types.
+      Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+        Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/maincomponents.tsx(210,19): error TS2304: Cannot find name 'showDirectoryPicker'.
+libs/rsmv/src/viewer/maincomponents.tsx(231,39): error TS2339: Property 'requestPermission' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/viewer/maincomponents.tsx(247,14): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+libs/rsmv/src/viewer/maincomponents.tsx(248,35): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+libs/rsmv/src/viewer/maincomponents.tsx(256,36): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/viewer/maincomponents.tsx(402,35): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/viewer/scenenodes.tsx(107,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(108,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(116,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(117,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(127,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(128,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(137,11): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(138,13): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(141,11): error TS2322: Type '{ gridTemplateColumns: string; accentColor?: Property.AccentColor | undefined; alignContent?: Property.AlignContent | undefined; ... 821 more ...; vectorEffect?: Property.VectorEffect | undefined; }' is not assignable to type 'CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(156,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(157,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(168,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(169,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(551,6): error TS2322: Type 'string | number' is not assignable to type 'number'.
+  Type 'string' is not assignable to type 'number'.
+libs/rsmv/src/viewer/scenenodes.tsx(1981,77): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(2103,84): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(2132,104): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scriptsui.tsx(63,35): error TS2339: Property 'entries' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/viewer/scriptsui.tsx(374,28): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scriptsui.tsx(537,21): error TS2304: Cannot find name 'showDirectoryPicker'.
+libs/rsmv/src/viewer/threejsrender.ts(3,31): error TS2307: Cannot find module 'three/examples/jsm/controls/OrbitControls' or its corresponding type declarations.
+libs/rsmv/src/viewer/threejsrender.ts(7,30): error TS2307: Cannot find module 'three/examples/jsm/exporters/GLTFExporter' or its corresponding type declarations.
+libs/rsmv/src/viewer/threejsrender.ts(8,29): error TS2307: Cannot find module 'three/examples/jsm/exporters/STLExporter' or its corresponding type declarations.
+services/gameBackend.ts(524,36): error TS2339: Property 'notifyAction' does not exist on type 'AIArchitect'.
+services/gameBackend.ts(534,32): error TS2339: Property 'notifyAction' does not exist on type 'AIArchitect'.
+services/gameBackend.ts(552,32): error TS2339: Property 'notifyAction' does not exist on type 'AIArchitect'.
+services/gameBackend.ts(633,36): error TS2339: Property 'notifyAction' does not exist on type 'AIArchitect'.

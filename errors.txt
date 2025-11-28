@@ -1,0 +1,2 @@
+components/WorldScene.tsx(355,99): error TS2322: Type '{ args: [number, number, number, number]; rotation: number[]; }' is not assignable to type 'ExtendedColors<Overwrite<Partial<TorusGeometry>, NodeProps<TorusGeometry, typeof TorusGeometry>>>'.
+  Property 'rotation' does not exist on type 'ExtendedColors<Overwrite<Partial<TorusGeometry>, NodeProps<TorusGeometry, typeof TorusGeometry>>>'.

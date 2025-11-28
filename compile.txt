@@ -1,0 +1,6 @@
+pre_switch/components/BootScreen.tsx(80,62): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+pre_switch/components/BootScreen.tsx(83,57): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+pre_switch/components/LoginScreen.tsx(139,29): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+working_backup/components/BootScreen.tsx(80,62): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+working_backup/components/BootScreen.tsx(83,57): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+working_backup/components/LoginScreen.tsx(139,29): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
