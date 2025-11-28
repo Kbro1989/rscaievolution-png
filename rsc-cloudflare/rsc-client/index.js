@@ -11,10 +11,22 @@ if (typeof window === 'undefined') {
 
     window.mcOptions = mc.options;
 
-    // Detect if user is on a mobile/touch device
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
-        || ('ontouchstart' in window) 
-        || (navigator.maxTouchPoints > 0);
+    // Detect if user is on a mobile/touch device (conservative approach)
+    // Only enable mobile mode if user agent indicates mobile AND not a desktop OS
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+    const isDesktopOS = /win|mac|linux|cros/i.test(userAgent);
+    
+    // Allow URL parameter to override: ?mobile=true or ?mobile=false
+    const urlParams = new URLSearchParams(window.location.search);
+    const mobileParam = urlParams.get('mobile');
+    
+    let isMobile;
+    if (mobileParam !== null) {
+        isMobile = mobileParam === 'true';
+    } else {
+        isMobile = isMobileUA && !isDesktopOS;
+    }
 
     Object.assign(mc.options, {
         middleClickCamera: true,
