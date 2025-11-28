@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "echo 'Using pre-built RSC client in rsc-cloudflare/public'",
     "preview": "vite preview",
     "validate-setup": "tsx scripts/validate-setup.ts",
     "generate-models": "tsx scripts/generate-models.ts",
