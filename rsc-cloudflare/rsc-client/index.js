@@ -56,15 +56,14 @@ if (typeof window === 'undefined') {
     fullscreen.onclick = () => {
         mcContainer.requestFullscreen();
     };
-    document.body.appendChild(fullscreen);
+    mcContainer.appendChild(fullscreen);
 
     // Keyboard toggle button
     const keyboardToggle = document.createElement('div');
     keyboardToggle.innerHTML = '&#9650;'; // Up arrow
     keyboardToggle.style.position = 'absolute';
     keyboardToggle.style.bottom = '10px';
-    keyboardToggle.style.left = '50%';
-    keyboardToggle.style.transform = 'translateX(-50%)';
+    keyboardToggle.style.right = '10px'; // Bottom right
     keyboardToggle.style.width = '40px';
     keyboardToggle.style.height = '40px';
     keyboardToggle.style.background = 'rgba(0, 0, 0, 0.5)';
@@ -94,11 +93,17 @@ if (typeof window === 'undefined') {
                 height: '50px',
                 opacity: '0' // Keep it invisible but focusable
             });
+            
+            // Explicitly focus the input to trigger native keyboard
+            if (mc.mobileInput) {
+                mc.mobileInput.focus();
+            }
+
             keyboardToggle.innerHTML = '&#9660;'; // Down arrow
             keyboardOpen = true;
         }
     };
-    document.body.appendChild(keyboardToggle);
+    mcContainer.appendChild(keyboardToggle);
 
     await mc.startApplication(512, 346, 'Runescape by Andrew Gower');
 })();
