@@ -1,0 +1,11 @@
+{
+  "name": "rsc-authentic-client",
+  "version": "1.0.0",
+  "description": "Authentic RuneScape Classic Client Deployment",
+  "scripts": {
+    "deploy": "wrangler pages deploy public"
+  },
+  "dependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

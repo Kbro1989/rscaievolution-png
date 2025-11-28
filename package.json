@@ -9,9 +9,11 @@
     "preview": "vite preview",
     "validate-setup": "tsx scripts/validate-setup.ts",
     "generate-models": "tsx scripts/generate-models.ts",
-    "create-placeholders": "tsx scripts/create-placeholders.ts"
+    "create-placeholders": "tsx scripts/create-placeholders.ts",
+    "deploy": "wrangler pages deploy"
   },
   "dependencies": {
+    "wrangler": "^3.0.0",
     "@2003scape/rsc-sounds": "^1.0.1",
     "@google/generative-ai": "^0.24.1",
     "@react-three/drei": "^9.114.3",
