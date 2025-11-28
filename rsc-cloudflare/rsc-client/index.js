@@ -75,5 +75,35 @@ if (typeof window === 'undefined') {
     };
     mcContainer.appendChild(fullscreen);
 
+    // Mobile input helper - only show if mobile mode is enabled
+    if (isMobile) {
+        const inputHelper = document.createElement('button');
+        inputHelper.innerText = '⌨️ Tap to Type';
+        inputHelper.style.position = 'absolute';
+        inputHelper.style.bottom = '10px';
+        inputHelper.style.left = '50%';
+        inputHelper.style.transform = 'translateX(-50%)';
+        inputHelper.style.padding = '10px 20px';
+        inputHelper.style.background = 'rgba(0, 0, 0, 0.7)';
+        inputHelper.style.color = '#fff';
+        inputHelper.style.border = '2px solid #fff';
+        inputHelper.style.borderRadius = '5px';
+        inputHelper.style.fontSize = '16px';
+        inputHelper.style.zIndex = '1001';
+        inputHelper.style.cursor = 'pointer';
+        
+        inputHelper.onclick = () => {
+            const text = prompt('Enter text:');
+            if (text !== null && mc.focusControlIndex >= 0) {
+                // Send text to the focused control
+                for (let i = 0; i < text.length; i++) {
+                    mc.keyPressed({ keyCode: text.charCodeAt(i), key: text[i] });
+                }
+            }
+        };
+        
+        mcContainer.appendChild(inputHelper);
+    }
+
     await mc.startApplication(512, 346, 'Runescape by Andrew Gower');
 })();
