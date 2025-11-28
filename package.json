@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "cd rsc-cloudflare/rsc-client && npm install && npm run build-dev && cp dist/index.bundle.js ../public/index.bundle.js",
+    "build": "cd rsc-cloudflare/rsc-client && npm install && mkdir -p dist && npm run build-dev && cp dist/index.bundle.js ../public/index.bundle.js",
     "preview": "vite preview",
     "validate-setup": "tsx scripts/validate-setup.ts",
     "generate-models": "tsx scripts/generate-models.ts",
