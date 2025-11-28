@@ -125,10 +125,10 @@ if (typeof window === 'undefined') {
         
         document.body.appendChild(keyboard);
         
-        // Toggle button
+        // Toggle button (inside game container like fullscreen button)
         const toggleBtn = document.createElement('button');
         toggleBtn.innerText = '⌨️';
-        toggleBtn.style.position = 'fixed';
+        toggleBtn.style.position = 'absolute';
         toggleBtn.style.bottom = '10px';
         toggleBtn.style.right = '10px';
         toggleBtn.style.width = '50px';
@@ -138,7 +138,7 @@ if (typeof window === 'undefined') {
         toggleBtn.style.border = '2px solid #fff';
         toggleBtn.style.borderRadius = '50%';
         toggleBtn.style.fontSize = '24px';
-        toggleBtn.style.zIndex = '2001';
+        toggleBtn.style.zIndex = '1000';
         toggleBtn.style.cursor = 'pointer';
         
         let keyboardVisible = false;
@@ -148,7 +148,7 @@ if (typeof window === 'undefined') {
             toggleBtn.innerText = keyboardVisible ? '✕' : '⌨️';
         };
         
-        document.body.appendChild(toggleBtn);
+        mcContainer.appendChild(toggleBtn);
     }
 
     await mc.startApplication(512, 346, 'Runescape by Andrew Gower');
