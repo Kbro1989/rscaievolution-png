@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useMemo, useLayoutEffect } from 'react';
 import { Canvas, useFrame, extend } from '@react-three/fiber';
 import { OrbitControls, Html, Stars, Sparkles } from '@react-three/drei';
 import * as THREE from 'three';
-import { Perlin } from '../libs/noise';
+import { Perlin } from '../src/utils/noise';
 import { GlobeState, SceneType } from '../types';
 import { X, MapPin } from 'lucide-react';
 import { CONTINENT_BOUNDARIES } from '../data/continentBoundaries';
