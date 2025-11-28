@@ -37,6 +37,17 @@ if (typeof window === 'undefined') {
         mobile: isMobile
     });
 
+    // Ensure audio initializes on first user click (browser autoplay requirement)
+    const initAudio = () => {
+        if (mc.audioPlayer) {
+            console.log('Audio already initialized');
+        } else {
+            console.log('Attempting to initialize audio...');
+        }
+        document.removeEventListener('click', initAudio);
+    };
+    document.addEventListener('click', initAudio, { once: true });
+
     mc.members = args[0] === 'members';
     
     if (!args[1]) {
