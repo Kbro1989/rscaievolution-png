@@ -75,34 +75,80 @@ if (typeof window === 'undefined') {
     };
     mcContainer.appendChild(fullscreen);
 
-    // Mobile input helper - only show if mobile mode is enabled
+    // Virtual keyboard for mobile
     if (isMobile) {
-        const inputHelper = document.createElement('button');
-        inputHelper.innerText = '⌨️ Tap to Type';
-        inputHelper.style.position = 'absolute';
-        inputHelper.style.bottom = '10px';
-        inputHelper.style.left = '50%';
-        inputHelper.style.transform = 'translateX(-50%)';
-        inputHelper.style.padding = '10px 20px';
-        inputHelper.style.background = 'rgba(0, 0, 0, 0.7)';
-        inputHelper.style.color = '#fff';
-        inputHelper.style.border = '2px solid #fff';
-        inputHelper.style.borderRadius = '5px';
-        inputHelper.style.fontSize = '16px';
-        inputHelper.style.zIndex = '1001';
-        inputHelper.style.cursor = 'pointer';
+        const keyboard = document.createElement('div');
+        keyboard.style.position = 'fixed';
+        keyboard.style.bottom = '-300px';
+        keyboard.style.left = '0';
+        keyboard.style.width = '100%';
+        keyboard.style.background = 'rgba(30, 30, 30, 0.95)';
+        keyboard.style.padding = '10px';
+        keyboard.style.transition = 'bottom 0.3s ease';
+        keyboard.style.zIndex = '2000';
+        keyboard.style.display = 'grid';
+        keyboard.style.gridTemplateColumns = 'repeat(10, 1fr)';
+        keyboard.style.gap = '5px';
+        keyboard.style.maxWidth = '600px';
+        keyboard.style.margin = '0 auto';
         
-        inputHelper.onclick = () => {
-            const text = prompt('Enter text:');
-            if (text !== null && mc.focusControlIndex >= 0) {
-                // Send text to the focused control
-                for (let i = 0; i < text.length; i++) {
-                    mc.keyPressed({ keyCode: text.charCodeAt(i), key: text[i] });
+        const keys = [
+            '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+            'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+            'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '⌫',
+            'z', 'x', 'c', 'v', 'b', 'n', 'm', '@', '.', '↵'
+        ];
+        
+        keys.forEach(key => {
+            const btn = document.createElement('button');
+            btn.innerText = key;
+            btn.style.padding = '15px 5px';
+            btn.style.background = '#444';
+            btn.style.color = '#fff';
+            btn.style.border = '1px solid #666';
+            btn.style.borderRadius = '5px';
+            btn.style.fontSize = '18px';
+            btn.style.cursor = 'pointer';
+            
+            btn.onclick = () => {
+                if (key === '⌫') {
+                    mc.keyPressed({ keyCode: 8 }); // Backspace
+                } else if (key === '↵') {
+                    mc.keyPressed({ keyCode: 13 }); // Enter
+                } else {
+                    mc.keyPressed({ key: key, keyCode: key.charCodeAt(0) });
                 }
-            }
+            };
+            
+            keyboard.appendChild(btn);
+        });
+        
+        document.body.appendChild(keyboard);
+        
+        // Toggle button
+        const toggleBtn = document.createElement('button');
+        toggleBtn.innerText = '⌨️';
+        toggleBtn.style.position = 'fixed';
+        toggleBtn.style.bottom = '10px';
+        toggleBtn.style.right = '10px';
+        toggleBtn.style.width = '50px';
+        toggleBtn.style.height = '50px';
+        toggleBtn.style.background = 'rgba(0, 0, 0, 0.7)';
+        toggleBtn.style.color = '#fff';
+        toggleBtn.style.border = '2px solid #fff';
+        toggleBtn.style.borderRadius = '50%';
+        toggleBtn.style.fontSize = '24px';
+        toggleBtn.style.zIndex = '2001';
+        toggleBtn.style.cursor = 'pointer';
+        
+        let keyboardVisible = false;
+        toggleBtn.onclick = () => {
+            keyboardVisible = !keyboardVisible;
+            keyboard.style.bottom = keyboardVisible ? '0' : '-300px';
+            toggleBtn.innerText = keyboardVisible ? '✕' : '⌨️';
         };
         
-        mcContainer.appendChild(inputHelper);
+        document.body.appendChild(toggleBtn);
     }
 
     await mc.startApplication(512, 346, 'Runescape by Andrew Gower');
