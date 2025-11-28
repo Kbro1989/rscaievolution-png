@@ -11,13 +11,18 @@ if (typeof window === 'undefined') {
 
     window.mcOptions = mc.options;
 
+    // Detect if user is on a mobile/touch device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+        || ('ontouchstart' in window) 
+        || (navigator.maxTouchPoints > 0);
+
     Object.assign(mc.options, {
         middleClickCamera: true,
         mouseWheel: true,
         resetCompass: true,
         zoomCamera: true,
         accountManagement: true,
-        mobile: true
+        mobile: isMobile
     });
 
     mc.members = args[0] === 'members';
