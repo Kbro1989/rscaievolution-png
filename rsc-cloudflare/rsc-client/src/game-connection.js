@@ -3,6 +3,7 @@ const Font = require('./lib/graphics/font');
 const GameShell = require('./game-shell');
 const Long = require('long');
 const PacketStream = require('./packet-stream');
+const Socket = require('./lib/net/socket');
 const Utility = require('./utility');
 const clientOpcodes = require('./opcodes/client');
 const sleep = require('sleep-promise');
