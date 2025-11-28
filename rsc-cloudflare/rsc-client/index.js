@@ -21,8 +21,26 @@ if (typeof window === 'undefined') {
     });
 
     mc.members = args[0] === 'members';
-    mc.server = args[1] ? args[1] : '127.0.0.1';
-    mc.port = args[2] && !isNaN(+args[2]) ? +args[2] : 43595;
+    
+    if (!args[1]) {
+        console.log('Initializing standalone server worker...');
+        const serverWorker = new Worker('./server.bundle.min.js');
+        serverWorker.postMessage({
+            type: 'start',
+            config: {
+                worldID: 1,
+                version: 204,
+                members: false,
+                experienceRate: 1,
+                fatigue: true,
+                rememberCombatStyle: false
+            }
+        });
+        mc.server = serverWorker;
+    } else {
+        mc.server = args[1];
+        mc.port = args[2] && !isNaN(+args[2]) ? +args[2] : 43595;
+    }
 
     mc.threadSleep = 10;
 

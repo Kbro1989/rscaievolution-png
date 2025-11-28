@@ -7,42 +7,16 @@
     <title>Runescape by Andrew Gower</title>
     <style>
         body {
-            background-color: #000;
-            margin: 0;
-        }
+            < !doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Runescape by Andrew Gower</title><style>body {
+                background-color: #000;
+                margin: 0;
+            }
     </style>
 </head>
 
 <body>
-    <canvas id="mudclient-canvas" width="512" height="346"></canvas>
     <script src="./index.bundle.js"></script>
-    <script>
-        const mudclient = require('@2003scape/rsc-client');
-        const mc = new mudclient(document.getElementById('mudclient-canvas'));
-
-        // Initialize the server worker
-        const serverWorker = new Worker('./server.bundle.min.js');
-        serverWorker.postMessage({
-            type: 'start',
-            config: {
-                worldID: 1,
-                version: 204,
-                members: false,
-                experienceRate: 1,
-                fatigue: true,
-                rememberCombatStyle: false
-            }
-        });
-
-        // Connect client to the worker server
-        mc.server = serverWorker;
-        mc.members = false;
-        mc.threadSleep = 10;
-
-        (async () => {
-            await mc.startApplication(512, 346, 'Runescape by Andrew Gower');
-        })();
-    </script>
 </body>
+
 
 </html>
