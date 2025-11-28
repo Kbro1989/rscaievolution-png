@@ -13,7 +13,6 @@
     "deploy": "wrangler pages deploy"
   },
   "dependencies": {
-    "wrangler": "^3.0.0",
     "@2003scape/rsc-sounds": "^1.0.1",
     "@google/generative-ai": "^0.24.1",
     "@react-three/drei": "^9.114.3",

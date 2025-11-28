@@ -1,2 +1,5 @@
 name = "rsc-authentic-client"
 pages_build_output_dir = "rsc-cloudflare/public"
+
+[build]
+command = "echo 'Using pre-built RSC client'"
