@@ -298,6 +298,11 @@ class GameShell {
             this.mobileInputEl.style[name] = value;
         }
 
+        // Immediately focus to trigger native keyboard on mobile
+        setTimeout(() => {
+            this.mobileInputEl.focus();
+        }, 10);
+
         this.keyboardUpdateInterval = setInterval(() => {
             this.mobileKeyboardUpdate();
         }, 125);
