@@ -29,6 +29,20 @@ Players access different "globes" (game worlds) through a **web launcher**, with
 KV: globe-1  KV: globe-2  KV: globe-3   KV: globe-n
 ```
 
+### Important: Globe = Cosmetic Navigation
+
+The **3D globe is purely cosmetic** - it's a visual navigation interface, not the actual game world.
+
+- 🖼️ **Globe View** = World selector / travel screen (cosmetic UI)
+- 🎮 **Game View** = Actual gameplay (2D isometric RSC, RS2, etc.)
+
+Players use the globe to:
+- Choose which server/zone to enter
+- Navigate between eras via boat animation
+- See where other zones are located
+
+**Gameplay happens in the traditional 2D/isometric view** once you "dock" at a zone.
+
 ## The Big Picture
 
 Players navigate a **3D globe** where different regions represent different time periods and game versions. Your character, skills, and core progression persist across all zones, but each zone has its own unique content, graphics, and items.
@@ -173,14 +187,16 @@ Each era is a **different landmass** on the 3D globe. Travel between zones is li
 
 ### The Magic
 
-The globe isn't just decorative - it's your **world selector** disguised as immersive travel:
+The globe isn't a playable world - it's your **navigation interface** disguised as immersive travel:
 
-- **Landmasses** = Different game zones/eras
-- **Ocean travel** = Loading/transition
-- **Boat** = Time machine
-- **Docking** = Zone entrance
+- **Landmasses** = Different game zones/eras (markers)
+- **Ocean travel** = Loading/transition (animation)
+- **Boat** = Zone selector (UI element)
+- **Docking** = Zone entrance (loads actual game)
 
-This turns technical world-switching into **gameplay**.
+**Actual gameplay** happens in traditional 2D isometric view (RSC style) after you "enter" a zone.
+
+This turns technical world-switching into **cinematic navigation**.
 
 ## Development Phases
 
