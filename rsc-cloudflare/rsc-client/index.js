@@ -38,6 +38,7 @@ if (typeof window === 'undefined') {
     });
 
     // Ensure audio initializes on first user click (browser autoplay requirement)
+    // Ensure audio initializes on first user click (browser autoplay requirement)
     const initAudio = () => {
         if (mc.audioPlayer) {
             console.log('%c Audio Player Active ', 'background: #222; color: #00ff00; font-size: 16px');
@@ -47,12 +48,14 @@ if (typeof window === 'undefined') {
                     console.log('Audio context resumed');
                 });
             }
+            // Only remove listener once we've successfully found and initialized the player
+            document.removeEventListener('click', initAudio);
         } else {
-            console.log('%c Initializing Audio Player... ', 'background: #222; color: #ffaa00; font-size: 16px');
+            console.log('%c Waiting for Audio Player... ', 'background: #222; color: #ffaa00; font-size: 16px');
+            // Do NOT remove listener yet, try again on next click
         }
-        document.removeEventListener('click', initAudio);
     };
-    document.addEventListener('click', initAudio, { once: true });
+    document.addEventListener('click', initAudio);
 
     mc.members = args[0] === 'members';
     
