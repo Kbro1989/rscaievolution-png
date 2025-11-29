@@ -63,11 +63,9 @@ class BrowserDataClient {
         // Cache of loaded players { username: playerObj }
         this.players = new Map();
         console.log('BrowserDataClient instance:', this);
-        console.log('BrowserDataClient prototype:', Object.getPrototypeOf(this));
     }
 
     async init() {
-        // No-op: we don't load all players anymore
         log.info('BrowserDataClient initialized (KV mode)');
         console.log('%c RSC KV STORAGE MODE ACTIVE ', 'background: #222; color: #bada55; font-size: 20px');
     }
@@ -77,13 +75,13 @@ class BrowserDataClient {
     }
 
     async save() {
-        // No-op: we save individual players now
+        // No-op
     }
 
     async savePlayer(player) {
         // We need the password to save it back
         const cached = this.players.get(player.username.toLowerCase());
-        if (cached) {
+        if (cached && cached.password && !player.password) {
             player.password = cached.password;
         }
 
@@ -109,18 +107,19 @@ class BrowserDataClient {
                 player.id = Math.floor(Math.random() * 1000000); // Random ID for now
 
                 try {
-                    const res = await fetch('/api/player/register', {
+                    // We use the save endpoint to register new users too, effectively
+                    const res = await fetch('/api/player/save', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(player)
                     });
-                    const data = await res.json();
                     
-                    if (data.success) {
+                    if (res.ok) {
                         this.players.set(player.username, player);
+                        return { success: true, player };
+                    } else {
+                         return { success: false, code: 3 };
                     }
-                    
-                    return data;
                 } catch (err) {
                     console.error('Register error:', err);
                     return { success: false, code: 3 };
@@ -270,6 +269,6 @@ class BrowserDataClient {
         // For now, basic implementation
     }
 }
-// Force rebuild: 2025-11-29 (No Minification)
 
 module.exports = BrowserDataClient;
+
