@@ -267,5 +267,6 @@ class BrowserDataClient {
         // For now, basic implementation
     }
 }
+// Force rebuild: 2025-11-29
 
 module.exports = BrowserDataClient;
