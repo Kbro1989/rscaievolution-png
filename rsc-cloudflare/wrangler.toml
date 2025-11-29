@@ -1,2 +1,6 @@
 name = "rsc-authentic-client"
 pages_build_output_dir = "public"
+
+[[kv_namespaces]]
+binding = "PLAYERS"
+id = "REPLACE_WITH_YOUR_KV_ID"

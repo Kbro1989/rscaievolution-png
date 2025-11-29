@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Authentic RuneScape Classic Client Deployment",
   "scripts": {
-    "deploy": "wrangler pages deploy public"
+    "build": "cd rsc-server && npm install && npm run build-browser && cp dist/browser.bundle.min.js ../public/server.bundle.min.js",
+    "deploy": "npm run build && wrangler pages deploy public"
   },
   "dependencies": {
     "wrangler": "^3.0.0"
