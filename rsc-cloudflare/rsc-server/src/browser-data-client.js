@@ -66,6 +66,7 @@ class BrowserDataClient {
     async init() {
         // No-op: we don't load all players anymore
         log.info('BrowserDataClient initialized (KV mode)');
+        console.log('%c RSC KV STORAGE MODE ACTIVE ', 'background: #222; color: #bada55; font-size: 20px');
     }
 
     async load() {
