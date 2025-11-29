@@ -8,7 +8,7 @@ export async function onRequestPost(context) {
             return new Response(JSON.stringify({ success: false, code: 3 }), { status: 400 });
         }
 
-        const playerJson = await env.PLAYERS.get(username.toLowerCase());
+        const playerJson = await env.KV.get(username.toLowerCase());
 
         if (!playerJson) {
             return new Response(JSON.stringify({ success: false, code: 3 }), { status: 200 });

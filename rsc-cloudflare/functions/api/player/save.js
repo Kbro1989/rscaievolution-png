@@ -7,7 +7,7 @@ export async function onRequestPost(context) {
         // Ensure sound is saved as enabled
         player.soundOn = 1;
 
-        await env.PLAYERS.put(username, JSON.stringify(player));
+        await env.KV.put(username, JSON.stringify(player));
 
         return new Response(JSON.stringify({ success: true }), { status: 200 });
     } catch (e) {
