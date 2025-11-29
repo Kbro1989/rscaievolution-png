@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Recipe, InventoryItem } from '../types';
 import { X, Hammer, Flame, ChefHat } from 'lucide-react';
+import { soundManager } from '../services/soundManager';
 
 interface CraftingModalProps {
     skillName: string;
@@ -13,6 +14,11 @@ interface CraftingModalProps {
 
 export const CraftingModal: React.FC<CraftingModalProps> = ({ skillName, recipes, onClose, onCraft, inventory, level }) => {
     const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
+
+    useEffect(() => {
+        soundManager.init();
+        soundManager.play('UI_CLICK');
+    }, []);
 
     // Group recipes by category or just list them
     // For now, simple grid
@@ -116,7 +122,10 @@ export const CraftingModal: React.FC<CraftingModalProps> = ({ skillName, recipes
                                 </div>
 
                                 <button
-                                    onClick={() => onCraft(selectedRecipe.id)}
+                                    onClick={() => {
+                                        soundManager.play(skillName === 'Smithing' ? 'SMITH' : skillName === 'Cooking' ? 'COOK' : 'UI_CLICK');
+                                        onCraft(selectedRecipe.id);
+                                    }}
                                     disabled={!hasIngredients(selectedRecipe) || level < selectedRecipe.levelReq}
                                     className={`w-full py-3 font-bold text-lg rounded border-b-4 active:border-b-0 active:translate-y-1 transition-all
                                         ${hasIngredients(selectedRecipe) && level >= selectedRecipe.levelReq

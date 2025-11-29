@@ -1,5 +1,6 @@
 import React from 'react';
 import { InventoryItem } from '../types';
+import { soundManager } from '../services/soundManager';
 
 interface DualInventoryProps {
     playerInventory: InventoryItem[];
@@ -19,6 +20,8 @@ export const DualInventory: React.FC<DualInventoryProps> = ({ playerInventory, a
         if (!data) return;
         const { source, itemId, amount } = JSON.parse(data);
         if (source !== target) {
+            soundManager.init();
+            soundManager.play('DROP_OBJECT');
             onTransfer(source, itemId, amount);
         }
     };

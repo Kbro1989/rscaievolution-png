@@ -5,6 +5,7 @@ import { Check, User, ChevronRight, ChevronLeft, RotateCcw } from 'lucide-react'
 import { Canvas } from '@react-three/fiber';
 import { PlayerModel } from './WorldRenderers';
 import { OrbitControls } from '@react-three/drei';
+import { soundManager } from '../services/soundManager';
 
 const DEFAULTS: Appearance = {
     gender: 'MALE',
@@ -38,7 +39,7 @@ export const CharacterCreator: React.FC<CharacterCreatorProps> = ({ initialAppea
             </div>
             <div className="flex gap-2 items-center">
                 <button
-                    onClick={() => update(field, Math.max(0, (app[field] as number) - 1))}
+                    onClick={() => { soundManager.init(); soundManager.play('UI_CLICK'); update(field, Math.max(0, (app[field] as number) - 1)); }}
                     className="w-6 h-6 bg-zinc-800 hover:bg-zinc-700 border border-zinc-600 flex items-center justify-center text-white"
                 >
                     <ChevronLeft size={12} />
@@ -52,7 +53,7 @@ export const CharacterCreator: React.FC<CharacterCreatorProps> = ({ initialAppea
                 </div>
 
                 <button
-                    onClick={() => update(field, Math.min(max, (app[field] as number) + 1))}
+                    onClick={() => { soundManager.play('UI_CLICK'); update(field, Math.min(max, (app[field] as number) + 1)); }}
                     className="w-6 h-6 bg-zinc-800 hover:bg-zinc-700 border border-zinc-600 flex items-center justify-center text-white"
                 >
                     <ChevronRight size={12} />
@@ -198,7 +199,7 @@ export const CharacterCreator: React.FC<CharacterCreatorProps> = ({ initialAppea
                             <RotateCcw size={16} />
                         </button>
                         <button
-                            onClick={() => onComplete(app)}
+                            onClick={() => { soundManager.play('LEVEL_UP'); onComplete(app); }}
                             className="flex-1 bg-green-700 hover:bg-green-600 text-white font-bold py-3 flex items-center justify-center gap-2 shadow-lg transition-all border border-green-500"
                         >
                             <Check size={20} /> FINALISE CHARACTER

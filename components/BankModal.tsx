@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { InventoryItem } from '../types';
 import { X, Lock, Unlock, Plus } from 'lucide-react';
+import { soundManager } from '../services/soundManager';
 
 interface BankModalProps {
     bankStorage: InventoryItem[];
@@ -31,6 +32,11 @@ export const BankModal: React.FC<BankModalProps> = ({
 }) => {
     const [selectedTab, setSelectedTab] = useState<number | 'all'>('all');
     const [placeholderMode, setPlaceholderMode] = useState(false);
+
+    useEffect(() => {
+        soundManager.init();
+        soundManager.play('BANK');
+    }, []);
 
     // Filter items by tab
     const filteredBankStorage = selectedTab === 'all'
@@ -154,7 +160,7 @@ export const BankModal: React.FC<BankModalProps> = ({
                         {/* Bank Storage */}
                         <div>
                             <h3 className="text-center mb-2 text-[#ff981f] font-bold text-sm">BANK STORAGE</h3>
-                            {renderGrid(filteredBankStorage, (item) => onWithdraw(item.id, 1, placeholderMode), onContextMenu, 56)}
+                            {renderGrid(filteredBankStorage, (item) => { soundManager.play('TAKE_OBJECT'); onWithdraw(item.id, 1, placeholderMode); }, onContextMenu, 56)}
                             <div className="mt-2 text-center">
                                 <span className="text-xs text-zinc-400">Right-click for options</span>
                             </div>
@@ -163,7 +169,7 @@ export const BankModal: React.FC<BankModalProps> = ({
                         {/* Player Inventory */}
                         <div>
                             <h3 className="text-center mb-2 text-[#ff981f] font-bold text-sm">YOUR INVENTORY</h3>
-                            {renderGrid(playerInventory, (item) => onDeposit('player', item.id, 1), onInventoryContextMenu, 28)}
+                            {renderGrid(playerInventory, (item) => { soundManager.play('DROP_OBJECT'); onDeposit('player', item.id, 1); }, onInventoryContextMenu, 28)}
                             <div className="mt-2 text-center">
                                 <span className="text-xs text-zinc-400">Right-click to deposit</span>
                             </div>
@@ -172,7 +178,7 @@ export const BankModal: React.FC<BankModalProps> = ({
                         {/* AI Inventory */}
                         <div>
                             <h3 className="text-center mb-2 text-[#ff981f] font-bold text-sm">COMPANION INVENTORY</h3>
-                            {renderGrid(aiInventory, (item) => onDeposit('ai', item.id, 1), onInventoryContextMenu, 28)}
+                            {renderGrid(aiInventory, (item) => { soundManager.play('DROP_OBJECT'); onDeposit('ai', item.id, 1); }, onInventoryContextMenu, 28)}
                             <div className="mt-2 text-center">
                                 <span className="text-xs text-zinc-400">Right-click to deposit</span>
                             </div>
