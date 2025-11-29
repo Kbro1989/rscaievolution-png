@@ -53,5 +53,8 @@
   },
   "overrides": {
     "canvas": "^2.11.2"
+  },
+  "browser": {
+    "@2003scape/rsc-captcha": "./src/captcha-mock.js"
   }
 }
