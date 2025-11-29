@@ -448,10 +448,6 @@ class Player extends Character {
 
     // play sound (only for members clients)
     sendSound(soundName) {
-        if (!this.world.members) {
-            return;
-        }
-
         this.send({ type: 'sound', soundName });
     }
 

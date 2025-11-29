@@ -150,7 +150,7 @@ async function onUseWithGameObject(player, gameObject, item) {
         }
     } else {
         player.inventory.add(burntID);
-        player.message(`@que@You accidentally burn the ${cookedName}`);
+        player.message(`@que@You accidentially burn the ${cookedName}`);
     }
 
     return true;

@@ -155,7 +155,7 @@ async function onUseWithGameObject(player, gameObject, item) {
 
     player.addExperience('smithing', experience);
     player.inventory.add(resultBarID);
-    player.message(`@que@You retrieve a bar of ${metalName}`);
+    player.message(`@que@You retrive a bar of ${metalName}`);
 
     return true;
 }
