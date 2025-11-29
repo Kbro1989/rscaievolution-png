@@ -169,6 +169,31 @@ class BrowserDataClient {
                     return { success: false, code: 3 };
                 }
             }
+            case 'playerUpdate': {
+                delete message.handler;
+
+                if (!message.username && message.id) {
+                    message.username = this.playerUsernames.get(message.id);
+                }
+
+                if (!message.username) {
+                    console.error('playerUpdate missing username', message);
+                    return { success: false };
+                }
+
+                message.loginDate = Date.now();
+
+                const existing = this.players.get(message.username.toLowerCase());
+                if (existing) {
+                    if (!message.password) message.password = existing.password;
+                    Object.assign(existing, message);
+                    await this.savePlayer(existing);
+                } else {
+                    await this.savePlayer(message);
+                }
+
+                return { success: true };
+            }
             case 'playerLogout': {
                 const username = message.username.toLowerCase();
                 const player = this.players.get(username);
