@@ -236,6 +236,22 @@ class BrowserDataClient {
         }
     }
 
+    async playerRegister(username, password) {
+        return this.sendAndReceive({
+            handler: 'playerRegister',
+            username,
+            password
+        });
+    }
+
+    async playerLogin(username, password) {
+        return this.sendAndReceive({
+            handler: 'playerLogin',
+            username,
+            password
+        });
+    }
+
     playerLogout(username) {
         // Called by server when socket closes
         const player = this.players.get(username.toLowerCase());
