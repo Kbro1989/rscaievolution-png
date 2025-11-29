@@ -48,6 +48,7 @@ const DEFAULT_PLAYER = {
         agility: { current: 1, experience: 0 },
         thieving: { current: 1, experience: 0 }
     },
+    cache: {},
     loginIP: null,
     world: 0
 };
