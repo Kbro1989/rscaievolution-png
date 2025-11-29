@@ -107,8 +107,7 @@ class BrowserDataClient {
                 player.id = Math.floor(Math.random() * 1000000); // Random ID for now
 
                 try {
-                    // We use the save endpoint to register new users too, effectively
-                    const res = await fetch('/api/player/save', {
+                    const res = await fetch('/api/player/register', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(player)
@@ -118,6 +117,16 @@ class BrowserDataClient {
                         this.players.set(player.username, player);
                         return { success: true, player };
                     } else {
+                         // 3 usually means "Invalid credentials" but here we use it for "Registration failed" (e.g. taken)
+                         // The client might expect specific codes. 
+                         // Code 2 = "Already logged in"
+                         // Code 3 = "Invalid username/password"
+                         // Code 4 = "Username taken" (in some versions)
+                         // Let's assume generic failure for now or check status
+                         if (res.status === 409) {
+                             // Username taken
+                             return { success: false, code: 4 }; // Assuming 4 is appropriate for "taken" or generic error
+                         }
                          return { success: false, code: 3 };
                     }
                 } catch (err) {
