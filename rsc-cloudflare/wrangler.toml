@@ -3,4 +3,4 @@ pages_build_output_dir = "public"
 
 [[kv_namespaces]]
 binding = "PLAYERS"
-id = "REPLACE_WITH_YOUR_KV_ID"
+id = "883369c71eea44ac934ae1e5f0f366af"
