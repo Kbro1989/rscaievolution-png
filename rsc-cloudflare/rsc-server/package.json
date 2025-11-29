@@ -6,7 +6,7 @@
   "scripts": {
     "start": "./src/bin.js | garnish",
     "build-browser-dev": "mkdir -p dist && browserify -t brfs src/browser-index.js > dist/browser.bundle.js",
-    "build-browser": "npm run build-browser-dev && uglifyjs dist/browser.bundle.js > dist/browser.bundle.min.js"
+    "build-browser": "npm run build-browser-dev && cp dist/browser.bundle.js dist/browser.bundle.min.js"
   },
   "repository": {
     "type": "git",

@@ -62,6 +62,8 @@ class BrowserDataClient {
         this.playerUsernames = new Map();
         // Cache of loaded players { username: playerObj }
         this.players = new Map();
+        console.log('BrowserDataClient instance:', this);
+        console.log('BrowserDataClient prototype:', Object.getPrototypeOf(this));
     }
 
     async init() {
@@ -267,6 +269,6 @@ class BrowserDataClient {
         // For now, basic implementation
     }
 }
-// Force rebuild: 2025-11-29
+// Force rebuild: 2025-11-29 (No Minification)
 
 module.exports = BrowserDataClient;
