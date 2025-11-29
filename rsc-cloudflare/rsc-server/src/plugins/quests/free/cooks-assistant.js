@@ -147,7 +147,7 @@ async function onTalkToNPC(player, npc) {
 
             player.questStages.cooksAssistant = -1;
             player.addQuestPoints(1);
-            player.message('@gre@You haved gained 1 quest point!');
+            player.message('@gre@You have gained 1 quest point!');
         } else {
             await player.say('I have found some of the things you asked for:');
 

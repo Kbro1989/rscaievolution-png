@@ -74,6 +74,7 @@ async function onGameObjectCommand(player, gameObject) {
 
     player.message(`@que@You swing your ${axeName} at the tree...`);
     player.sendBubble(bestAxeID);
+    player.sendSound('prospect'); // Using prospect sound as closest match for chopping
 
     await world.sleepTicks(3);
 
