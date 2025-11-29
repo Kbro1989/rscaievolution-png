@@ -2,7 +2,32 @@
 
 ## Core Concept
 
-A time-traveling MMORPG that combines **all versions of RuneScape** (Classic, RS2, RS3) with **real-world historical locations** into one interconnected gameplay experience with persistent player progression across all eras.
+A **multi-globe MMORPG platform** where players can choose between different game worlds, each with varying levels of modification - from pure RuneScape Classic preservation to fully custom evolution systems. All globes share the same game engine but maintain separate player progression.
+
+## The Multi-Globe Architecture
+
+Players access different "globes" (game worlds) through a **web launcher**, with each globe having its own:
+- Cloudflare endpoint
+- KV namespace (isolated player data)
+- Feature set (pure vs modded)
+- Asset library
+
+```
+        Player Account (Master Login)
+                  ↓
+        ┌────── Web Launcher ──────┐
+        │  "Which world to play?"  │
+        └──────────┬───────────────┘
+                   ↓
+    ┌──────────────┼──────────────┬──────────────┐
+    │              │              │              │
+┌───▼────┐   ┌────▼───┐   ┌──────▼───┐   ┌─────▼────┐
+│Globe 1 │   │Globe 2 │   │ Globe 3  │   │ Globe N  │
+│Pure RSC│   │Enhanced│   │Full Evo  │   │ Custom   │
+└────────┘   └────────┘   └──────────┘   └──────────┘
+   ↓             ↓             ↓              ↓
+KV: globe-1  KV: globe-2  KV: globe-3   KV: globe-n
+```
 
 ## The Big Picture
 
@@ -24,7 +49,42 @@ Players navigate a **3D globe** where different regions represent different time
     Skills | Items | Quests | Achievements
 ```
 
-## Example Gameplay Flow
+### Example Globe Configurations
+
+**Globe 1: "Preservation"**
+- Pure RuneScape Classic (2001-2004)
+- No modifications, authentic experience
+- Original typos preserved
+- For purists and historians
+
+**Globe 2: "Enhanced Classic"**  
+- RSC gameplay + quality of life
+- AI companion systems
+- All eras accessible via boat travel
+- For players who want RSC with modern touches
+
+**Globe 3: "Full Evolution"**
+- All RuneScape eras (RSC, RS2, RS3)
+- Real-world historical zones
+- Cross-era economy
+- For explorers who want everything
+
+**Globe N: "Your Custom World"**
+- Experimental features
+- Game jam ideas
+- Community mods
+- For creators and testers
+
+## Per-Globe Benefits
+
+Each globe independently offers:
+
+1. **Pure Experience** - Play the exact version you want (RSC pure, modded, etc.)
+2. **Isolated Progress** - Your choices in one globe don't affect another
+3. **Easy Switching** - Try mods, come back to pure anytime
+4. **Shared Engine** - One codebase powers all worlds
+
+## Example Player Journey
 
 1. **Start**: Player spawns in Lumbridge (RSC)
 2. **Progress**: Complete Cook's Assistant, reach level 10 cooking
@@ -198,7 +258,71 @@ This turns technical world-switching into **gameplay**.
 - **RS2 Engine**: Port or rebuild RS2 logic
 - **RS3 Engine**: Port or rebuild RS3 logic (abilities, EoC)
 - **Real World**: Custom quests/NPCs with RS mechanics
+- **Web Launcher**: Globe selection website
 - **Browser 3D**: WebGL for all zones
+
+## Web Launcher Implementation
+
+### Landing Page
+
+```
+┌─────────────────────────────────────┐
+│   RuneScape Through Time            │
+│                                     │
+│   Choose Your World:                │
+│                                     │
+│   [🏛️ Globe 1: Preservation]       │
+│   Pure RSC - No mods                │
+│   Players: 42 online                │
+│                                     │
+│   [⚡ Globe 2: Enhanced Classic]    │
+│   RSC + AI Systems                  │
+│   Players: 18 online                │
+│                                     │
+│   [🌍 Globe 3: Full Evolution]      │
+│   All Eras + Real World             │
+│   Players: 7 online                 │
+│                                     │
+│   Username: _____________           │
+│   Password: _____________           │
+│   [Login to Selected Globe]         │
+└─────────────────────────────────────┘
+```
+
+### Technical Flow
+
+```javascript
+// User clicks "Globe 2: Enhanced Classic"
+const globeConfig = {
+  endpoint: 'https://globe2.yoursite.com',
+  kvNamespace: 'globe-2',
+  features: ['ai-systems', 'evolution', 'multi-era'],
+  assetPath: '/globe2-assets/'
+};
+
+// Pass config to game engine
+window.location.href = `${globeConfig.endpoint}?kv=${globeConfig.kvNamespace}`;
+```
+
+### Per-Globe KV Isolation
+
+Each globe has its own KV namespace:
+```
+Cloudflare KV:
+├── globe-1 (Preservation)
+│   ├── player:alice → { skills, inventory, ... }
+│   └── player:bob → { skills, inventory, ... }
+│
+├── globe-2 (Enhanced)  
+│   ├── player:alice → { different progress }
+│   └── player:bob → { different progress }
+│
+└── globe-3 (Full Evolution)
+    ├── player:alice → { different progress }
+    └── player:bob → { different progress }
+```
+
+Alice can play on all 3 globes with the same username, but each has independent progression.
 
 ## Data Model Evolution
 
