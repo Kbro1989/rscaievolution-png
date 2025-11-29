@@ -58,6 +58,70 @@ Each zone is a **superset** of previous zones:
 
 If you enter a zone that doesn't have your item in its definitions, it's **temporarily invisible** but still in your KV storage.
 
+## Zone Travel System: Globe as World Map
+
+### The Elegant Solution
+
+Each era is a **different landmass** on the 3D globe. Travel between zones is literally sailing between continents.
+
+```
+        🌍 Your Existing Globe
+           
+   Gielinor (RSC)    Gielinor (RS2)    Gielinor (RS3)
+        🏰                🏰                🏰
+         \                 |                /
+          \       ~~~~~🚢~~~~~       ~~~~~
+           \     /                  /
+     Ancient Rome              Egypt
+         🏛️                     🏺
+```
+
+### Implementation
+
+**Already Built:**
+- ✅ 3D globe with voxel terrain
+- ✅ City/location markers
+- ✅ Click navigation
+- ✅ Player position tracking
+
+**Just Add:**
+- Boat entity (3D model or sprite)
+- Sailing animation between markers
+- Zone transition on arrival  
+- Loading screen during travel
+
+### Travel Options
+
+**Option 1: Instant Travel**
+```
+1. Click "Varrock (RS2)" marker on globe
+2. Boat sails from current → destination (animation)
+3. Fade to loading screen
+4. Load RS2 zone assets
+5. Spawn in Varrock (RS2)
+```
+
+**Option 2: Real-Time Sailing**
+```
+1. Interact with dock in RSC zone
+2. Globe view activates
+3. Player controls boat across ocean
+4. Approach RS2 landmass
+5. Dock prompt appears
+6. Transition into RS2 zone
+```
+
+### The Magic
+
+The globe isn't just decorative - it's your **world selector** disguised as immersive travel:
+
+- **Landmasses** = Different game zones/eras
+- **Ocean travel** = Loading/transition
+- **Boat** = Time machine
+- **Docking** = Zone entrance
+
+This turns technical world-switching into **gameplay**.
+
 ## Development Phases
 
 ### Phase 1: RSC Pure (Current)
