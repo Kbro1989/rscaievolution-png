@@ -202,31 +202,179 @@ This turns technical world-switching into **gameplay**.
 
 ## Data Model Evolution
 
-### Current (RSC Pure)
+### The Anti-Exploit Design: Per-Zone Isolation
+
+To prevent players from exploiting zone differences (e.g., mining in RSC, switching to RS3 to smith), each zone maintains its **own isolated state** while sharing only core progression.
+
+**What's Shared (Global):**
+- Username & password
+- Skill levels (the numbers)
+- Quest completions
+- Bank storage (accessible from any zone's bank)
+
+**What's Isolated (Per-Zone):**
+- Appearance (hair, skin, clothes)
+- Current position (x, z coordinates)
+- Inventory contents
+- Equipment (what you're wearing)
+- Zone-specific progress
+
+### Data Structure
+
 ```typescript
 interface PlayerState {
+  // GLOBAL (shared across all zones)
   username: string;
-  skills: SkillMap;
-  inventory: Item[];
-  quests: QuestState;
-  // ... RSC fields
+  password: string;
+  skills: {
+    attack: number;
+    defense: number;
+    // ... all skill levels
+  };
+  bank: Item[]; // Accessible from any zone's bank NPC
+  
+  // PER-ZONE STATES (isolated)
+  zones: {
+    rsc: {
+      appearance: {
+        hair: number;
+        skin: number;
+        gender: number;
+      };
+      position: { x: number; z: number };
+      inventory: Item[]; // Only RSC items
+      equipment: Item[];
+      tutorialComplete: boolean;
+      quests: QuestState; // RSC quests only
+    };
+    
+    rs2: {
+      appearance: { /* Can be different! */ };
+      position: { x: number; z: number };
+      inventory: Item[]; // Only RS2 items
+      equipment: Item[];
+      tutorialComplete: boolean;
+      quests: QuestState; // RS2 quests
+      slayerTasks: Task[];
+    };
+    
+    rs3: {
+      appearance: { /* Can be different! */ };
+      position: { x: number; z: number };
+      inventory: Item[];
+      equipment: Item[];
+      tutorialComplete: boolean;
+      quests: QuestState;
+      abilities: Ability[];
+    };
+    
+    realWorld: {
+      appearance: { /* Can be different! */ };
+      position: { x: number; z: number };
+      inventory: Item[];
+      equipment: Item[];
+      historicalQuests: Quest[];
+    };
+  };
+  
+  currentZone: 'rsc' | 'rs2' | 'rs3' | 'realWorld';
 }
 ```
 
-### Future (Multi-Zone)
-```typescript
-interface PlayerState {
-  username: string;
-  currentZone: 'rsc' | 'rs2' | 'rs3' | 'rome' | ...
-  skills: SkillMap; // Shared across all zones
-  inventory: Item[]; // Items tagged with era
-  zoneProgress: {
-    rsc: { quests: QuestState };
-    rs2: { quests: QuestState; slayerTasks: Task[] };
-    rs3: { quests: QuestState; abilities: Ability[] };
-    realWorld: { historicalQuests: Quest[] };
-  }
-}
+### How It Prevents Exploits
+
+**Scenario: Player tries to game the system**
+
+❌ **Doesn't Work:**
+1. Mine copper in RSC (cheap, easy)
+2. Instantly swap to RS3
+3. Smith in RS3 (better rewards)
+
+✅ **What Actually Happens:**
+1. Mine copper in RSC → ore goes to **RSC inventory**
+2. Take boat to RS3 (travel time = commitment)
+3. Arrive in RS3 → **empty RS3 inventory** (ore is back in RSC)
+4. Access bank in RS3 → can withdraw RSC copper
+5. Smith in RS3 → uses RS3 inventory
+6. Result: Same as if you mined in RS3 directly
+
+**The Key:** Boat travel creates a **time cost** that makes zone-hopping for exploits pointless.
+
+### First Entry to New Zone
+
+When entering a zone for the first time:
+1. **Character Creator** - Set appearance for this zone
+2. **Tutorial** - Optional (skip if `tutorialComplete` in another zone)
+3. **Starting Position** - Zone's spawn point
+4. **Empty Inventory** - Fresh start
+5. **Shared Skills** - Your levels carry over
+6. **Bank Access** - Can withdraw items from global bank
+
+### Zone Navigation Flow
+
+```
+Player in RSC with inventory: [Bronze Ore x 10]
+         ↓
+   Walks to dock
+         ↓
+   "Travel to RS2?" prompt
+         ↓
+   Globe view activates
+         ↓
+   Boat sails (30-60 second journey)
+         ↓
+   Arrive at RS2 dock
+         ↓
+   First time? → Character Creator + Tutorial
+         ↓
+   Load RS2 zone at lastPosition
+         ↓
+   RS2 inventory loads: [empty]
+   (Bronze Ore is still in RSC, or in bank)
+```
+
+## Asset Extraction Strategy
+
+### Source: Jagex Cache
+
+- **Location**: `C:\ProgramData\Jagex\RuneScape`
+- **Contains**: RS3 models, textures, items, NPCs
+- **Tool**: RSMV (already in project)
+- **License**: Fair use for preservation/education
+
+### Extraction Process
+
+```bash
+1. Run RSMV on Jagex cache
+2. Export models → .glb format
+3. Export textures → .png format
+4. Export item definitions → .json format
+5. Store in project: public/rs3/
+6. Update item registry
+7. Delete cache copy (keep originals in Jagex folder)
+```
+
+### Per-Zone Assets
+
+```
+project/
+├── public/
+│   ├── rsc/          # RuneScape Classic assets
+│   │   ├── models/
+│   │   ├── textures/
+│   │   └── sounds/
+│   ├── rs2/          # RuneScape 2 assets (future)
+│   │   ├── models/
+│   │   └── textures/
+│   └── rs3/          # RuneScape 3 assets (future)
+│       ├── models/
+│       └── textures/
+│
+└── services/
+    └── assets/
+        ├── rscDefinitions.ts
+        ├── rs2Definitions.ts  # Future
+        └── rs3Definitions.ts  # Future
 ```
 
 ## Why This Is Possible
