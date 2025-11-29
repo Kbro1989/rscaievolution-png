@@ -238,15 +238,16 @@ class BrowserDataClient {
         }
     }
 
-    async playerRegister(username, password) {
+    async playerRegister({ username, password, ip }) {
         return this.sendAndReceive({
             handler: 'playerRegister',
             username,
-            password
+            password,
+            ip
         });
     }
 
-    async playerLogin(username, password) {
+    async playerLogin({ username, password }) {
         return this.sendAndReceive({
             handler: 'playerLogin',
             username,
