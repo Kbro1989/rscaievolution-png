@@ -40,9 +40,15 @@ if (typeof window === 'undefined') {
     // Ensure audio initializes on first user click (browser autoplay requirement)
     const initAudio = () => {
         if (mc.audioPlayer) {
-            console.log('Audio already initialized');
+            console.log('%c Audio Player Active ', 'background: #222; color: #00ff00; font-size: 16px');
+            // Resume audio context if it's suspended (browser autoplay policy)
+            if (mc.audioPlayer.audioContext && mc.audioPlayer.audioContext.state === 'suspended') {
+                mc.audioPlayer.audioContext.resume().then(() => {
+                    console.log('Audio context resumed');
+                });
+            }
         } else {
-            console.log('Attempting to initialize audio...');
+            console.log('%c Initializing Audio Player... ', 'background: #222; color: #ffaa00; font-size: 16px');
         }
         document.removeEventListener('click', initAudio);
     };
