@@ -806,7 +806,7 @@ class Player extends Character {
             // sic
             this.message(
                 `@gre@You just advanced ${levelDelta} ` +
-                    `${formatSkillName(skill).toLowerCase()} level!`
+                `${formatSkillName(skill).toLowerCase()} level!`
             );
 
             this.sendStats();
@@ -893,19 +893,28 @@ class Player extends Character {
     }
 
     // https://classic.runescape.wiki/w/Combat_level
+    // RSC Formula (different from OSRS/RS3):
+    // - Attack, Strength, Defense, Hits: 1 level = 0.25 combat
+    // - Magic, Prayer: 1 level = 0.125 combat
+    // - Ranged: if ranged*1.5 >= attack+strength, ranged*0.375 replaces melee
     getCombatLevel() {
-        const offence =
+        const melee =
             (this.skills.attack.base + this.skills.strength.base) * 0.25;
 
-        const defense =
+        const base =
             (this.skills.defense.base + this.skills.hits.base) * 0.25;
 
         const magic =
             (this.skills.prayer.base + this.skills.magic.base) * 0.125;
 
-        const ranged = this.skills.ranged.base * 0.375;
+        const rangedOffense = this.skills.ranged.base * 0.375;
 
-        return Math.floor(defense + magic + Math.max(offence, ranged));
+        // use ranged if ranged*1.5 >= attack+strength
+        const useRanged =
+            this.skills.ranged.base * 1.5 >=
+            this.skills.attack.base + this.skills.strength.base;
+
+        return Math.floor(base + magic + (useRanged ? rangedOffense : melee));
     }
 
     // get the total drain rate from all of the enabled prayers. this is added
@@ -1243,7 +1252,7 @@ class Player extends Character {
         if (this.skills.prayer.current <= 0) {
             this.message(
                 'You have run out of prayer points. Return to a church to ' +
-                    'recharge'
+                'recharge'
             );
 
             for (let i = 0; i < this.prayers.length; i += 1) {
