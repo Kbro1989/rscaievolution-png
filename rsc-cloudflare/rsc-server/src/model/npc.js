@@ -105,13 +105,12 @@ class NPC extends Character {
     }
 
     getCombatLevel() {
-        return Math.floor(
-            (this.skills.attack.base +
-                this.skills.defense.base +
-                this.skills.strength.base +
-                this.skills.hits.base) /
-                4
-        );
+        return (
+            this.skills.attack.base +
+            this.skills.defense.base +
+            this.skills.strength.base +
+            this.skills.hits.base
+        ) / 4;
     }
 
     die() {

@@ -34,6 +34,9 @@ async function login(socket, message) {
     const { dataClient, config, world } = socket.server;
     const { reconnecting, version, username, password } = message;
 
+    console.error(`[LOGIN DEBUG] Attempting login for user: '${username}' (len=${username.length}) with password: '${password}' (len=${password.length})`);
+    console.error(`[LOGIN DEBUG] Version: ${version}, Config Version: ${config.version}`);
+
     if (version !== config.version) {
         socket.send(Buffer.from([5]));
         process.nextTick(() => socket.close());

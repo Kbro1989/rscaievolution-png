@@ -16,11 +16,11 @@ if (typeof window === 'undefined') {
     const userAgent = navigator.userAgent.toLowerCase();
     const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
     const isDesktopOS = /win|mac|linux|cros/i.test(userAgent);
-    
+
     // Allow URL parameter to override: ?mobile=true or ?mobile=false
     const urlParams = new URLSearchParams(window.location.search);
     const mobileParam = urlParams.get('mobile');
-    
+
     let isMobile;
     if (mobileParam !== null) {
         isMobile = mobileParam === 'true';
@@ -57,8 +57,9 @@ if (typeof window === 'undefined') {
     };
     document.addEventListener('click', initAudio);
 
-    mc.members = args[0] === 'members';
-    
+    // Force members mode enabled by default
+    mc.members = true; // args[0] === 'members';
+
     if (!args[1]) {
         console.log('Initializing standalone server worker...');
         const serverWorker = new Worker('./server.bundle.min.js');
@@ -67,7 +68,7 @@ if (typeof window === 'undefined') {
             config: {
                 worldID: 1,
                 version: 204,
-                members: false,
+                members: true,
                 experienceRate: 1,
                 fatigue: true,
                 rememberCombatStyle: false
@@ -110,14 +111,14 @@ if (typeof window === 'undefined') {
     keyboard.style.gap = '5px';
     keyboard.style.maxWidth = '600px';
     keyboard.style.margin = '0 auto';
-    
+
     const keys = [
         '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
         'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
         'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '⌫',
         'z', 'x', 'c', 'v', 'b', 'n', 'm', '@', '.', '↵'
     ];
-    
+
     keys.forEach(key => {
         const btn = document.createElement('button');
         btn.innerText = key;
@@ -128,7 +129,7 @@ if (typeof window === 'undefined') {
         btn.style.borderRadius = '5px';
         btn.style.fontSize = '18px';
         btn.style.cursor = 'pointer';
-        
+
         btn.onclick = () => {
             if (key === '⌫') {
                 mc.keyPressed({ keyCode: 8 }); // Backspace
@@ -138,12 +139,12 @@ if (typeof window === 'undefined') {
                 mc.keyPressed({ key: key, keyCode: key.charCodeAt(0) });
             }
         };
-        
+
         keyboard.appendChild(btn);
     });
-    
+
     document.body.appendChild(keyboard);
-    
+
     // Keyboard toggle button (mirrors fullscreen button at top-left)
     const toggleBtn = document.createElement('button');
     toggleBtn.innerText = 'Keyboard';
@@ -152,14 +153,14 @@ if (typeof window === 'undefined') {
     toggleBtn.style.left = '10px';
     toggleBtn.style.zIndex = '1000';
     toggleBtn.style.cursor = 'pointer';
-    
+
     let keyboardVisible = false;
     toggleBtn.onclick = () => {
         keyboardVisible = !keyboardVisible;
         keyboard.style.bottom = keyboardVisible ? '0' : '-300px';
         toggleBtn.innerText = keyboardVisible ? 'Hide Keyboard' : 'Keyboard';
     };
-    
+
     mcContainer.appendChild(toggleBtn);
 
     await mc.startApplication(512, 346, 'Runescape by Andrew Gower');

@@ -597,7 +597,7 @@ class Character extends Entity {
     }
 
     getCombatExperience() {
-        return this.combatLevel * 8 + 80;
+        return Math.floor(this.combatLevel) * 8 + 80;
     }
 }
 

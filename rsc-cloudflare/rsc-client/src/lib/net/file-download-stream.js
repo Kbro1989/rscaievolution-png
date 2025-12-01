@@ -17,6 +17,7 @@ class FileDownloadStream {
             this.xhr.onerror = e => reject(e);
 
             this.xhr.onload = () => {
+                console.log(`FileDownloadStream: Loaded ${this.url}, status ${this.xhr.status}`);
                 if (!/^2/.test(this.xhr.status)) {
                     reject(new Error(`unable to download ${this.url}.
                         status code = ${this.xhr.status}`));
@@ -25,6 +26,7 @@ class FileDownloadStream {
                 }
             };
 
+            console.log(`FileDownloadStream: Requesting ${this.url}`);
             this.xhr.send();
         });
     }

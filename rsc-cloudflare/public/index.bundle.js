@@ -12,32 +12,157 @@ if (typeof window === 'undefined') {
 
     window.mcOptions = mc.options;
 
+    // Detect if user is on a mobile/touch device (conservative approach)
+    // Only enable mobile mode if user agent indicates mobile AND not a desktop OS
+    const userAgent = navigator.userAgent.toLowerCase();
+    const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+    const isDesktopOS = /win|mac|linux|cros/i.test(userAgent);
+
+    // Allow URL parameter to override: ?mobile=true or ?mobile=false
+    const urlParams = new URLSearchParams(window.location.search);
+    const mobileParam = urlParams.get('mobile');
+
+    let isMobile;
+    if (mobileParam !== null) {
+        isMobile = mobileParam === 'true';
+    } else {
+        isMobile = isMobileUA && !isDesktopOS;
+    }
+
     Object.assign(mc.options, {
         middleClickCamera: true,
         mouseWheel: true,
         resetCompass: true,
         zoomCamera: true,
         accountManagement: true,
-        mobile: false
+        mobile: isMobile
     });
 
-    mc.members = args[0] === 'members';
-    mc.server = args[1] ? args[1] : '127.0.0.1';
-    mc.port = args[2] && !isNaN(+args[2]) ? +args[2] : 43595;
+    // Ensure audio initializes on first user click (browser autoplay requirement)
+    // Ensure audio initializes on first user click (browser autoplay requirement)
+    const initAudio = () => {
+        if (mc.audioPlayer) {
+            console.log('%c Audio Player Active ', 'background: #222; color: #00ff00; font-size: 16px');
+            // Resume audio context if it's suspended (browser autoplay policy)
+            if (mc.audioPlayer.audioContext && mc.audioPlayer.audioContext.state === 'suspended') {
+                mc.audioPlayer.audioContext.resume().then(() => {
+                    console.log('Audio context resumed');
+                });
+            }
+            // Only remove listener once we've successfully found and initialized the player
+            document.removeEventListener('click', initAudio);
+        } else {
+            console.log('%c Waiting for Audio Player... ', 'background: #222; color: #ffaa00; font-size: 16px');
+            // Do NOT remove listener yet, try again on next click
+        }
+    };
+    document.addEventListener('click', initAudio);
+
+    // Force members mode enabled by default
+    mc.members = true; // args[0] === 'members';
+
+    if (!args[1]) {
+        console.log('Initializing standalone server worker...');
+        const serverWorker = new Worker('./server.bundle.min.js');
+        serverWorker.postMessage({
+            type: 'start',
+            config: {
+                worldID: 1,
+                version: 204,
+                members: true,
+                experienceRate: 1,
+                fatigue: true,
+                rememberCombatStyle: false
+            }
+        });
+        mc.server = serverWorker;
+    } else {
+        mc.server = args[1];
+        mc.port = args[2] && !isNaN(+args[2]) ? +args[2] : 43595;
+    }
 
     mc.threadSleep = 10;
 
     document.body.appendChild(mcContainer);
 
+    // Fullscreen button
     const fullscreen = document.createElement('button');
-
     fullscreen.innerText = 'Fullscreen';
-
+    fullscreen.style.position = 'absolute';
+    fullscreen.style.top = '10px';
+    fullscreen.style.right = '10px';
+    fullscreen.style.zIndex = '1000';
     fullscreen.onclick = () => {
         mcContainer.requestFullscreen();
     };
+    mcContainer.appendChild(fullscreen);
 
-    document.body.appendChild(fullscreen);
+    // Virtual keyboard (always available for testing)
+    const keyboard = document.createElement('div');
+    keyboard.style.position = 'fixed';
+    keyboard.style.bottom = '-300px';
+    keyboard.style.left = '0';
+    keyboard.style.width = '100%';
+    keyboard.style.background = 'rgba(30, 30, 30, 0.95)';
+    keyboard.style.padding = '10px';
+    keyboard.style.transition = 'bottom 0.3s ease';
+    keyboard.style.zIndex = '2000';
+    keyboard.style.display = 'grid';
+    keyboard.style.gridTemplateColumns = 'repeat(10, 1fr)';
+    keyboard.style.gap = '5px';
+    keyboard.style.maxWidth = '600px';
+    keyboard.style.margin = '0 auto';
+
+    const keys = [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+        'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+        'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', '⌫',
+        'z', 'x', 'c', 'v', 'b', 'n', 'm', '@', '.', '↵'
+    ];
+
+    keys.forEach(key => {
+        const btn = document.createElement('button');
+        btn.innerText = key;
+        btn.style.padding = '15px 5px';
+        btn.style.background = '#444';
+        btn.style.color = '#fff';
+        btn.style.border = '1px solid #666';
+        btn.style.borderRadius = '5px';
+        btn.style.fontSize = '18px';
+        btn.style.cursor = 'pointer';
+
+        btn.onclick = () => {
+            if (key === '⌫') {
+                mc.keyPressed({ keyCode: 8 }); // Backspace
+            } else if (key === '↵') {
+                mc.keyPressed({ keyCode: 13 }); // Enter
+            } else {
+                mc.keyPressed({ key: key, keyCode: key.charCodeAt(0) });
+            }
+        };
+
+        keyboard.appendChild(btn);
+    });
+
+    document.body.appendChild(keyboard);
+
+    // Keyboard toggle button (mirrors fullscreen button at top-left)
+    const toggleBtn = document.createElement('button');
+    toggleBtn.innerText = 'Keyboard';
+    toggleBtn.style.position = 'absolute';
+    toggleBtn.style.top = '10px';
+    toggleBtn.style.left = '10px';
+    toggleBtn.style.zIndex = '1000';
+    toggleBtn.style.cursor = 'pointer';
+
+    let keyboardVisible = false;
+    toggleBtn.onclick = () => {
+        keyboardVisible = !keyboardVisible;
+        keyboard.style.bottom = keyboardVisible ? '0' : '-300px';
+        toggleBtn.innerText = keyboardVisible ? 'Hide Keyboard' : 'Keyboard';
+    };
+
+    mcContainer.appendChild(toggleBtn);
 
     await mc.startApplication(512, 346, 'Runescape by Andrew Gower');
 })();
@@ -37836,6 +37961,7 @@ const Font = require('./lib/graphics/font');
 const GameShell = require('./game-shell');
 const Long = require('long');
 const PacketStream = require('./packet-stream');
+const Socket = require('./lib/net/socket');
 const Utility = require('./utility');
 const clientOpcodes = require('./opcodes/client');
 const sleep = require('sleep-promise');
@@ -37913,10 +38039,16 @@ class GameConnection extends GameShell {
                 'Connecting to server'
             );
 
-            this.packetStream = new PacketStream(
-                await this.createSocket(this.server, this.port),
-                this
-            );
+            if (this.server instanceof Worker) {
+                const socket = new Socket(this.server);
+                await socket.connect();
+                this.packetStream = new PacketStream(socket, this);
+            } else {
+                this.packetStream = new PacketStream(
+                    await this.createSocket(this.server, this.port),
+                    this
+                );
+            }
 
             const encodedUsername = Utility.usernameToHash(username);
 
@@ -38080,10 +38212,16 @@ class GameConnection extends GameShell {
                 );
             }
 
-            this.packetStream = new PacketStream(
-                await this.createSocket(this.server, this.port),
-                this
-            );
+            if (this.server instanceof Worker) {
+                const socket = new Socket(this.server);
+                await socket.connect();
+                this.packetStream = new PacketStream(socket, this);
+            } else {
+                this.packetStream = new PacketStream(
+                    await this.createSocket(this.server, this.port),
+                    this
+                );
+            }
 
             this.packetStream.maxReadTries = GameConnection.maxReadTries;
 
@@ -38308,10 +38446,16 @@ class GameConnection extends GameShell {
         this.showLoginScreenStatus('Please wait...', 'Connecting to server');
 
         try {
-            this.packetStream = new PacketStream(
-                await this.createSocket(this.server, this.port),
-                this
-            );
+            if (this.server instanceof Worker) {
+                const socket = new Socket(this.server);
+                await socket.connect();
+                this.packetStream = new PacketStream(socket, this);
+            } else {
+                this.packetStream = new PacketStream(
+                    await this.createSocket(this.server, this.port),
+                    this
+                );
+            }
 
             this.packetStream.maxReadTries = this.maxReadTries;
             this.packetStream.newPacket();
@@ -38324,7 +38468,7 @@ class GameConnection extends GameShell {
             if (response === 0) {
                 this.showLoginScreenStatus(
                     'Sorry, the recovery questions for this user have not ' +
-                        'been set',
+                    'been set',
                     ''
                 );
 
@@ -38351,7 +38495,7 @@ class GameConnection extends GameShell {
             if (this.recentRecoverFail) {
                 this.showLoginScreenStatus(
                     'Sorry, you have already attempted 1 recovery, try again ' +
-                        'later',
+                    'later',
                     ''
                 );
 
@@ -38363,13 +38507,13 @@ class GameConnection extends GameShell {
             this.panelRecoverUser.updateText(
                 this.controlRecoverInfo1,
                 '@yel@To prove this is your account please provide the ' +
-                    'answers to'
+                'answers to'
             );
 
             this.panelRecoverUser.updateText(
                 this.controlRecoverInfo2,
                 '@yel@your security questions. You will then be able to ' +
-                    'reset your password'
+                'reset your password'
             );
 
             for (let i = 0; i < 5; i++) {
@@ -38627,7 +38771,7 @@ class GameConnection extends GameShell {
 
         this.showServerMessage(
             `@pri@${Utility.hashToUsername(encodedUsername)} has been ` +
-                'removed from your friends list'
+            'removed from your friends list'
         );
     }
 
@@ -38657,7 +38801,7 @@ GameConnection.maxSocialListSize = 100;
 
 module.exports = GameConnection;
 
-},{"./game-shell":235,"./lib/graphics/color":236,"./lib/graphics/font":237,"./opcodes/client":244,"./packet-stream":274,"./utility":309,"long":167,"sleep-promise":209}],233:[function(require,module,exports){
+},{"./game-shell":235,"./lib/graphics/color":236,"./lib/graphics/font":237,"./lib/net/socket":241,"./opcodes/client":244,"./packet-stream":274,"./utility":309,"long":167,"sleep-promise":209}],233:[function(require,module,exports){
 const Utility = require('./utility');
 const ndarray = require('ndarray');
 
@@ -40707,7 +40851,7 @@ class GameShell {
         this._canvas.addEventListener('keydown', this.keyPressed.bind(this));
         this._canvas.addEventListener('keyup', this.keyReleased.bind(this));
 
-        window.addEventListener('beforeunload', () => this.onClosing());
+        //window.addEventListener('beforeunload', () => this.onClosing());
 
         if (this.options.mobile) {
             this.toggleKeyboard = false;
@@ -40772,6 +40916,10 @@ class GameShell {
         for (const [name, value] of Object.entries(style)) {
             this.mobileInputEl.style[name] = value;
         }
+
+        // Focus immediately (synchronously) to trigger native keyboard on mobile
+        // Must happen within the user action context or browsers will block it
+        this.mobileInputEl.focus();
 
         this.keyboardUpdateInterval = setInterval(() => {
             this.mobileKeyboardUpdate();
@@ -41312,6 +41460,7 @@ class GameShell {
         file = `./data204/${file}`;
 
         this.showLoadingProgress(percent, `Loading ${description} - 0%`);
+        console.log(`GameShell: Reading data file ${file}`);
 
         const fileDownloadStream = Utility.openFile(file);
 
@@ -41346,8 +41495,8 @@ class GameShell {
             this.showLoadingProgress(
                 percent,
                 `Loading ${description} - ` +
-                    ((5 + (read * 95) / archiveSizeCompressed) | 0) +
-                    '%'
+                ((5 + (read * 95) / archiveSizeCompressed) | 0) +
+                '%'
             );
         }
 
@@ -41633,6 +41782,7 @@ class FileDownloadStream {
             this.xhr.onerror = e => reject(e);
 
             this.xhr.onload = () => {
+                console.log(`FileDownloadStream: Loaded ${this.url}, status ${this.xhr.status}`);
                 if (!/^2/.test(this.xhr.status)) {
                     reject(new Error(`unable to download ${this.url}.
                         status code = ${this.xhr.status}`));
@@ -41641,6 +41791,7 @@ class FileDownloadStream {
                 }
             };
 
+            console.log(`FileDownloadStream: Requesting ${this.url}`);
             this.xhr.send();
         });
     }

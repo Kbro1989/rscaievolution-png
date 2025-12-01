@@ -16,6 +16,10 @@ export async function onRequestPost(context) {
 
         // Ensure sound is saved as enabled
         player.soundOn = 1;
+        // Force members status for all new accounts
+        player.members = true;
+        // Grant admin rank (3 = administrator) for private server
+        player.rank = 3;
         // Ensure loginDate is 0/null for new players so they get the appearance screen
         player.loginDate = 0;
 

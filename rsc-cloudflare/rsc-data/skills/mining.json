@@ -16,7 +16,7 @@
     "rocks": {
         "100": {
             "level": 1,
-            "experience": 70,
+            "experience": 17.5,
             "ore": 150,
             "respawn": 5400,
             "depleted": 9
@@ -24,7 +24,7 @@
         "101": { "reference": 100 },
         "102": {
             "level": 15,
-            "experience": 140,
+            "experience": 35,
             "roll": [110, 350],
             "ore": 151,
             "respawn": { "min": 4000, "max": 7000 },
@@ -33,7 +33,7 @@
         "103": { "reference": 102 },
         "104": {
             "level": 1,
-            "experience": 70,
+            "experience": 17.5,
             "ore": 202,
             "respawn": 5400,
             "depleted": 9
@@ -41,7 +41,7 @@
         "105": { "reference": 104 },
         "106": {
             "level": 55,
-            "experience": 320,
+            "experience": 80,
             "ore": 153,
             "respawn": { "min": 110000, "max": 130000 },
             "depleted": 29
@@ -49,7 +49,7 @@
         "107": { "reference": 106 },
         "108": {
             "level": 70,
-            "experience": 380,
+            "experience": 95,
             "ore": 154,
             "respawn": { "min": 180000, "max": 220000 },
             "depleted": 49
@@ -57,7 +57,7 @@
         "109": { "reference": 108 },
         "110": {
             "level": 30,
-            "experience": 200,
+            "experience": 50,
             "ore": 155,
             "respawn": 25000,
             "depleted": 19
@@ -65,7 +65,7 @@
         "111": { "reference": 110 },
         "112": {
             "level": 40,
-            "experience": 260,
+            "experience": 65,
             "roll": [7, 75],
             "ore": 152,
             "respawn": { "min": 50000, "max": 70000 },
@@ -74,7 +74,7 @@
         "113": { "reference": 112 },
         "114": {
             "level": 1,
-            "experience": 20,
+            "experience": 5,
             "ore": 149,
             "respawn": 2400,
             "depleted": 9
@@ -83,13 +83,13 @@
         "176": {
             "level": 10,
             "ore": 266,
-            "experience": 70,
+            "experience": 17.5,
             "respawn": { "min": 511000, "max": 513000 },
             "depleted": 9
         },
         "195": {
             "level": 20,
-            "experience": 160,
+            "experience": 40,
             "roll": [25, 200],
             "ore": 383,
             "respawn": { "min": 50000, "max": 70000 },
@@ -98,7 +98,7 @@
         "196": { "reference": 195 },
         "210": {
             "level": 85,
-            "experience": 500,
+            "experience": 125,
             "roll": [1, 18],
             "ore": 409,
             "respawn": { "min": 720000, "max": 900000 },
@@ -108,7 +108,7 @@
         "315": { "reference": 112 },
         "588": {
             "level": 40,
-            "experience": 200,
+            "experience": 50,
             "ore": [
                 { "id": 891, "weight": 60 },
                 { "id": 890, "weight": 30 },

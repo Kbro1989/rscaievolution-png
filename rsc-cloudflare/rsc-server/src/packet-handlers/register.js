@@ -5,11 +5,11 @@ async function register(socket, message) {
     const { version, username, password } = message;
     const ip = socket.getIPAddress();
 
-    // only free-to-play worlds support registration
-    if (socket.server.world.members) {
-        socket.send(Buffer.from([15]));
-        return;
-    }
+    // Allow registration on members servers (modified for private server)
+    // if (socket.server.world.members) {
+    //     socket.send(Buffer.from([15]));
+    //     return;
+    // }
 
     if (version !== config.version) {
         socket.send(Buffer.from([5]));

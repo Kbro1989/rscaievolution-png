@@ -254,10 +254,16 @@ class GameConnection extends GameShell {
                 );
             }
 
-            this.packetStream = new PacketStream(
-                await this.createSocket(this.server, this.port),
-                this
-            );
+            if (this.server instanceof Worker) {
+                const socket = new Socket(this.server);
+                await socket.connect();
+                this.packetStream = new PacketStream(socket, this);
+            } else {
+                this.packetStream = new PacketStream(
+                    await this.createSocket(this.server, this.port),
+                    this
+                );
+            }
 
             this.packetStream.maxReadTries = GameConnection.maxReadTries;
 
@@ -482,10 +488,16 @@ class GameConnection extends GameShell {
         this.showLoginScreenStatus('Please wait...', 'Connecting to server');
 
         try {
-            this.packetStream = new PacketStream(
-                await this.createSocket(this.server, this.port),
-                this
-            );
+            if (this.server instanceof Worker) {
+                const socket = new Socket(this.server);
+                await socket.connect();
+                this.packetStream = new PacketStream(socket, this);
+            } else {
+                this.packetStream = new PacketStream(
+                    await this.createSocket(this.server, this.port),
+                    this
+                );
+            }
 
             this.packetStream.maxReadTries = this.maxReadTries;
             this.packetStream.newPacket();
@@ -498,7 +510,7 @@ class GameConnection extends GameShell {
             if (response === 0) {
                 this.showLoginScreenStatus(
                     'Sorry, the recovery questions for this user have not ' +
-                        'been set',
+                    'been set',
                     ''
                 );
 
@@ -525,7 +537,7 @@ class GameConnection extends GameShell {
             if (this.recentRecoverFail) {
                 this.showLoginScreenStatus(
                     'Sorry, you have already attempted 1 recovery, try again ' +
-                        'later',
+                    'later',
                     ''
                 );
 
@@ -537,13 +549,13 @@ class GameConnection extends GameShell {
             this.panelRecoverUser.updateText(
                 this.controlRecoverInfo1,
                 '@yel@To prove this is your account please provide the ' +
-                    'answers to'
+                'answers to'
             );
 
             this.panelRecoverUser.updateText(
                 this.controlRecoverInfo2,
                 '@yel@your security questions. You will then be able to ' +
-                    'reset your password'
+                'reset your password'
             );
 
             for (let i = 0; i < 5; i++) {
@@ -801,7 +813,7 @@ class GameConnection extends GameShell {
 
         this.showServerMessage(
             `@pri@${Utility.hashToUsername(encodedUsername)} has been ` +
-                'removed from your friends list'
+            'removed from your friends list'
         );
     }
 

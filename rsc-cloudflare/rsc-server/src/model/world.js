@@ -29,7 +29,7 @@ const entityConstructors = {
 const TICK_INTERVAL = 640;
 
 // ms between each global player save
-const PLAYER_SAVE_INTERVAL = 1000 * 60 * 5; // (5 mins)
+const PLAYER_SAVE_INTERVAL = 1000 * 60 * 1; // (1 min)
 
 // when is a player's drop visible to other players?
 const DROP_OWNER_TIMEOUT = 1000 * 60; // 1 min
@@ -115,11 +115,11 @@ class World {
         this.landscape.loadJag(
             fs.readFileSync(
                 __dirname +
-                    '/../../node_modules/@2003scape/rsc-data/landscape/land63.jag'
+                '/../../node_modules/@2003scape/rsc-data/landscape/land63.jag'
             ),
             fs.readFileSync(
                 __dirname +
-                    '/../../node_modules/@2003scape/rsc-data/landscape/maps63.jag'
+                '/../../node_modules/@2003scape/rsc-data/landscape/maps63.jag'
             )
         );
 
@@ -127,11 +127,11 @@ class World {
             this.landscape.loadMem(
                 fs.readFileSync(
                     __dirname +
-                        '/../../node_modules/@2003scape/rsc-data/landscape/land63.mem'
+                    '/../../node_modules/@2003scape/rsc-data/landscape/land63.mem'
                 ),
                 fs.readFileSync(
                     __dirname +
-                        '/../../node_modules/@2003scape/rsc-data/landscape/maps63.mem'
+                    '/../../node_modules/@2003scape/rsc-data/landscape/maps63.mem'
                 )
             );
         }
@@ -317,7 +317,7 @@ class World {
         } else {
             log.warn(
                 'captcha disabled as OffscreenCanvas was not found. enable ' +
-                    'in about:config on firefox'
+                'in about:config on firefox'
             );
         }
     }

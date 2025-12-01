@@ -841,6 +841,7 @@ class GameShell {
         file = `./data204/${file}`;
 
         this.showLoadingProgress(percent, `Loading ${description} - 0%`);
+        console.log(`GameShell: Reading data file ${file}`);
 
         const fileDownloadStream = Utility.openFile(file);
 
@@ -875,8 +876,8 @@ class GameShell {
             this.showLoadingProgress(
                 percent,
                 `Loading ${description} - ` +
-                    ((5 + (read * 95) / archiveSizeCompressed) | 0) +
-                    '%'
+                ((5 + (read * 95) / archiveSizeCompressed) | 0) +
+                '%'
             );
         }
 

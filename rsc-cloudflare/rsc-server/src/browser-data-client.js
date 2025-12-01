@@ -3,7 +3,7 @@ const log = require('bole')('data-client');
 const DEFAULT_PLAYER = {
     username: '',
     password: '',
-    group: 0,
+    group: 1, // 0=free, 1=member, 2+=staff
     x: 213,
     y: 436,
     fatigue: 0,
@@ -32,7 +32,7 @@ const DEFAULT_PLAYER = {
         attack: { current: 1, experience: 0 },
         defense: { current: 1, experience: 0 },
         strength: { current: 1, experience: 0 },
-        hits: { current: 10, experience: 1154 },
+        hits: { current: 9, experience: 737 }, // RSC starts at level 9 (184.25 displayed XP)
         ranged: { current: 1, experience: 0 },
         prayer: { current: 1, experience: 0 },
         magic: { current: 1, experience: 0 },
@@ -112,22 +112,22 @@ class BrowserDataClient {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(player)
                     });
-                    
+
                     if (res.ok) {
                         this.players.set(player.username, player);
                         return { success: true, player };
                     } else {
-                         // 3 usually means "Invalid credentials" but here we use it for "Registration failed" (e.g. taken)
-                         // The client might expect specific codes. 
-                         // Code 2 = "Already logged in"
-                         // Code 3 = "Invalid username/password"
-                         // Code 4 = "Username taken" (in some versions)
-                         // Let's assume generic failure for now or check status
-                         if (res.status === 409) {
-                             // Username taken
-                             return { success: false, code: 4 }; // Assuming 4 is appropriate for "taken" or generic error
-                         }
-                         return { success: false, code: 3 };
+                        // 3 usually means "Invalid credentials" but here we use it for "Registration failed" (e.g. taken)
+                        // The client might expect specific codes. 
+                        // Code 2 = "Already logged in"
+                        // Code 3 = "Invalid username/password"
+                        // Code 4 = "Username taken" (in some versions)
+                        // Let's assume generic failure for now or check status
+                        if (res.status === 409) {
+                            // Username taken
+                            return { success: false, code: 4 }; // Assuming 4 is appropriate for "taken" or generic error
+                        }
+                        return { success: false, code: 3 };
                     }
                 } catch (err) {
                     console.error('Register error:', err);
@@ -147,9 +147,9 @@ class BrowserDataClient {
                     const res = await fetch('/api/player/login', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ 
-                            username: message.username, 
-                            password: message.password 
+                        body: JSON.stringify({
+                            username: message.username,
+                            password: message.password
                         })
                     });
                     const data = await res.json();
@@ -159,7 +159,7 @@ class BrowserDataClient {
                     }
 
                     const player = data.player;
-                    
+
                     if (player.world) {
                         // Force reset world if stuck
                         player.world = 0;
@@ -169,7 +169,7 @@ class BrowserDataClient {
                     this.playerUsernames.set(player.id, player.username);
 
                     player.world = 1;
-                    
+
                     return {
                         success: true,
                         code: 0, // 0 = success

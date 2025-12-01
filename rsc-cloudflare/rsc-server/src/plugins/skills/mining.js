@@ -73,7 +73,7 @@ async function mineRock(player, gameObject) {
 
     player.message('@que@You swing your pick at the rock...');
     player.sendBubble(bestPickaxeID);
-    player.sendSound('chisel'); // Best approximation if 'mine' sound doesn't exist
+    player.sendSound('mine');
 
     await player.world.sleepTicks(3);
 

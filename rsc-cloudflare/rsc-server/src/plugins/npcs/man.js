@@ -157,5 +157,6 @@ module.exports = {
     imFine,
     askingForFight,
     niceWeather,
-    onTalkToNPC
+    onTalkToNPC,
+    onNPCCommand: () => false // Let thieving plugin handle pickpocket command
 };

@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Authentic RuneScape Classic Client Deployment",
   "scripts": {
+    "dev": "wrangler pages dev public --port 8790 --kv KV",
     "build": "cd rsc-server && npm install && npm run build-browser && cp dist/browser.bundle.min.js ../public/server.bundle.min.js",
-    "deploy": "npm run build && wrangler pages deploy public"
+    "deploy": "npm run build && wrangler pages deploy public",
+    "load-save": "node scripts/load-save.js"
   },
   "dependencies": {
     "wrangler": "^3.0.0"

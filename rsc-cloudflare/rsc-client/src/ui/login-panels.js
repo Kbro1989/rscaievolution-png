@@ -7,82 +7,48 @@ function createLoginPanels() {
     let y = 40;
     const click = this.options.mobile ? 'Tap' : 'Click';
 
-    if (!this.members) {
-        this.panelLoginWelcome.addTextCentre(
-            x,
-            200 + y,
-            `${click} on an option`,
-            5,
-            true
-        );
+    // Always show New User and Existing User options
+    this.panelLoginWelcome.addTextCentre(
+        x,
+        200 + y,
+        `${click} on an option`,
+        5,
+        true
+    );
 
-        this.panelLoginWelcome.addButtonBackground(x - 100, 240 + y, 120, 35);
+    this.panelLoginWelcome.addButtonBackground(x - 100, 240 + y, 120, 35);
 
-        this.panelLoginWelcome.addTextCentre(
-            x - 100,
-            240 + y,
-            'New User',
-            5,
-            false
-        );
+    this.panelLoginWelcome.addTextCentre(
+        x - 100,
+        240 + y,
+        'New User',
+        5,
+        false
+    );
 
-        this.controlWelcomeNewUser = this.panelLoginWelcome.addButton(
-            x - 100,
-            240 + y,
-            120,
-            35
-        );
+    this.controlWelcomeNewUser = this.panelLoginWelcome.addButton(
+        x - 100,
+        240 + y,
+        120,
+        35
+    );
 
-        this.panelLoginWelcome.addButtonBackground(x + 100, 240 + y, 120, 35);
+    this.panelLoginWelcome.addButtonBackground(x + 100, 240 + y, 120, 35);
 
-        this.panelLoginWelcome.addTextCentre(
-            x + 100,
-            240 + y,
-            'Existing User',
-            5,
-            false
-        );
+    this.panelLoginWelcome.addTextCentre(
+        x + 100,
+        240 + y,
+        'Existing User',
+        5,
+        false
+    );
 
-        this.controlWelcomeExistingUser = this.panelLoginWelcome.addButton(
-            x + 100,
-            240 + y,
-            120,
-            35
-        );
-    } else {
-        this.panelLoginWelcome.addTextCentre(
-            x,
-            200 + y,
-            'Welcome to RuneScape',
-            4,
-            true
-        );
-
-        this.panelLoginWelcome.addTextCentre(
-            x,
-            215 + y,
-            'You need a members account to use this server',
-            4,
-            true
-        );
-
-        this.panelLoginWelcome.addButtonBackground(x, 250 + y, 200, 35);
-
-        this.panelLoginWelcome.addTextCentre(
-            x,
-            250 + y,
-            `${click} here to login`,
-            5,
-            false
-        );
-
-        this.controlWelcomeExistingUser = this.panelLoginWelcome.addButton(
-            x,
-            250 + y,
-            200,
-            35
-        );
-    }
+    this.controlWelcomeExistingUser = this.panelLoginWelcome.addButton(
+        x + 100,
+        240 + y,
+        120,
+        35
+    );
 
     this.panelLoginNewUser = new Panel(this.surface, 50);
 
@@ -476,7 +442,7 @@ function renderLoginScreenViewports() {
     // runescape logo
     this.surface._drawSprite_from3(
         ((this.gameWidth / 2) | 0) -
-            ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
+        ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
         15,
         this.spriteMedia + 10
     );
@@ -525,7 +491,7 @@ function renderLoginScreenViewports() {
 
     this.surface._drawSprite_from3(
         ((this.gameWidth / 2) | 0) -
-            ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
+        ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
         15,
         this.spriteMedia + 10
     );
@@ -588,7 +554,7 @@ function renderLoginScreenViewports() {
 
     this.surface._drawSprite_from3(
         ((this.gameWidth / 2) | 0) -
-            ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
+        ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
         15,
         this.spriteMedia + 10
     );
@@ -714,7 +680,7 @@ async function handleLoginScreenInput() {
                 this.panelLoginNewUser.updateText(
                     this.controlRegisterStatus,
                     'To create an account please enter all the requested ' +
-                        'details'
+                    'details'
                 );
             }
         }
@@ -817,7 +783,7 @@ async function handleLoginScreenInput() {
                     this.panelLoginNewUser.updateText(
                         this.controlRegisterStatus,
                         '@yel@Please fill in ALL requested information to ' +
-                            'continue!'
+                        'continue!'
                     );
 
                     return;
@@ -827,7 +793,7 @@ async function handleLoginScreenInput() {
                     this.panelLoginNewUser.updateText(
                         this.controlRegisterStatus,
                         '@yel@The two passwords entered are not the same as ' +
-                            'each other!'
+                        'each other!'
                     );
 
                     return;
@@ -850,7 +816,7 @@ async function handleLoginScreenInput() {
                     this.panelLoginNewUser.updateText(
                         this.controlRegisterStatus,
                         '@yel@You must agree to the terms+conditions to ' +
-                            'continue'
+                        'continue'
                     );
 
                     return;
