@@ -182,7 +182,44 @@ async function npcAttack({ player }, { index }) {
     };
 }
 
-// noop for now
-async function npcCommand() {}
+async function npcCommand({ player }, { index, command }) {
+    if (player.locked) {
+        return;
+    }
+
+    player.walkAction = false;
+
+    player.endWalkFunction = async () => {
+        const { world } = player;
+        const npc = await getNPC(player, index);
+
+        if (!npc) {
+            return;
+        }
+
+        if (npc.interlocutor || npc.opponent || npc.locked) {
+            player.unlock();
+            return;
+        }
+
+        npc.lock();
+
+        const blocked = await world.callPlugin(
+            'onNPCCommand',
+            player,
+            npc,
+            command
+        );
+
+        if (blocked) {
+            return;
+        }
+
+        player.unlock();
+        npc.unlock();
+
+        player.message('Nothing interesting happens');
+    };
+}
 
 module.exports = { npcTalk, useWithNPC, npcAttack, npcCommand };
