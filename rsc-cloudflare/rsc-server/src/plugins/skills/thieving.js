@@ -5,6 +5,16 @@ const { rollSkillSuccess } = require('../../rolls');
 const PICKPOCKET_NPCS = thieving.pickpocket;
 const PICKPOCKET_NPC_IDS = new Set(Object.keys(PICKPOCKET_NPCS).map(Number));
 
+const STALLS = thieving.stalls;
+const STALL_IDS = new Set(Object.keys(STALLS).map(Number));
+
+const CHESTS = thieving.chests;
+const CHEST_IDS = new Set(Object.keys(CHESTS).map(Number));
+
+const DOORS = thieving.doors;
+const DOOR_IDS = new Set(Object.keys(DOORS).map(Number));
+
+// === NPC Pickpocket ===
 async function onNPCCommand(player, npc, command) {
     if (command !== 'pickpocket' || !PICKPOCKET_NPC_IDS.has(npc.id)) {
         return false;
@@ -28,41 +38,154 @@ async function pickpocketNPC(player, npc) {
     player.message(`@que@You attempt to pick the ${npc.definition.name}'s pocket`);
     await player.world.sleepTicks(2);
 
-    // Verify NPC is still near (optional but good practice)
-    
     const success = rollSkillSuccess(def.roll[0], def.roll[1], thievingLevel);
 
     if (success) {
         player.addExperience('thieving', def.experience);
-        
-        // Handle Loot
-        // Assuming def.loot is array of { id, amount, chance? } or similar
-        // For simplicity, taking first item or coins
-        if (def.loot) {
-             // Simple loot logic - can be expanded based on data structure
-             const lootItem = def.loot[0]; // Placeholder
-             if (lootItem) {
-                 player.inventory.add(lootItem.id, lootItem.amount || 1);
-                 player.message('@que@You pick the pocket and find some loot');
-             } else {
-                 player.inventory.add(10, 3); // Default 3 coins
-                 player.message('@que@You pick the pocket and find some coins');
-             }
-        } else {
-             player.inventory.add(10, 3); // Default 3 coins
-             player.message('@que@You pick the pocket and find some coins');
+
+        if (def.items && def.items.length > 0) {
+            const lootItem = def.items[0];
+            player.inventory.add(lootItem.id, lootItem.amount || 1);
+            player.message('@que@You successfully pick the pocket');
         }
-        
     } else {
         player.message(`@que@You fail to pick the ${npc.definition.name}'s pocket`);
-        player.message(`@que@${npc.definition.name}: What do you think you're doing?`);
-        
-        // Stun player
+        if (def.exclaimation) {
+            player.message(`@que@${npc.definition.name}: ${def.exclaimation}`);
+        }
         player.damage(def.stunDamage || 1);
-        player.sendSound('combat1b'); // Hit sound
-        // TODO: Apply stun (busy wait or block movement)
-        // player.stun(def.stunTime || 5000); 
+        player.sendSound('combat1b');
     }
 }
 
-module.exports = { onNPCCommand };
+// === Stalls & Chests (Game Objects) ===
+async function onGameObjectCommandOne(player, gameObject) {
+    const id = gameObject.id;
+
+    // Check if it's a stall
+    if (STALL_IDS.has(id)) {
+        await stealFromStall(player, gameObject);
+        return true;
+    }
+
+    // Check if it's a chest
+    if (CHEST_IDS.has(id)) {
+        await stealFromChest(player, gameObject);
+        return true;
+    }
+
+    return false;
+}
+
+async function stealFromStall(player, gameObject) {
+    const def = STALLS[gameObject.id];
+    const thievingLevel = player.skills.thieving.current;
+
+    if (def.level > thievingLevel) {
+        player.message(
+            `@que@You need a thieving level of ${def.level} to steal from this stall`
+        );
+        return;
+    }
+
+    player.message('@que@You attempt to steal from the stall');
+    await player.world.sleepTicks(2);
+
+    const success = rollSkillSuccess(def.roll[0], def.roll[1], thievingLevel);
+
+    if (success) {
+        player.addExperience('thieving', def.experience);
+
+        if (def.items && def.items.length > 0) {
+            // Weighted loot selection
+            const totalWeight = def.items.reduce((sum, item) => sum + (item.weight || 1), 0);
+            let random = Math.random() * totalWeight;
+
+            for (const item of def.items) {
+                random -= (item.weight || 1);
+                if (random <= 0) {
+                    player.inventory.add(item.id, item.amount || 1);
+                    player.message('@que@You successfully steal from the stall');
+                    break;
+                }
+            }
+        }
+    } else {
+        player.message('@que@You fail to steal from the stall');
+        player.damage(def.stunDamage || 1);
+    }
+}
+
+async function stealFromChest(player, gameObject) {
+    const def = CHESTS[gameObject.id];
+    const thievingLevel = player.skills.thieving.current;
+
+    if (def.level > thievingLevel) {
+        player.message(
+            `@que@You need a thieving level of ${def.level} to open this chest`
+        );
+        return;
+    }
+
+    player.message('@que@You attempt to open the chest');
+    await player.world.sleepTicks(2);
+
+    const success = rollSkillSuccess(def.roll[0], def.roll[1], thievingLevel);
+
+    if (success) {
+        player.addExperience('thieving', def.experience);
+
+        if (def.items && def.items.length > 0) {
+            const lootItem = def.items[0];
+            player.inventory.add(lootItem.id, lootItem.amount || 1);
+            player.message('@que@You successfully open the chest');
+        }
+    } else {
+        player.message('@que@You fail to open the chest');
+        player.damage(def.stunDamage || 1);
+    }
+}
+
+// === Doors (Wall Objects) ===
+async function onWallObjectCommandOne(player, wallObject) {
+    const id = wallObject.id;
+
+    if (!DOOR_IDS.has(id)) {
+        return false;
+    }
+
+    await pickLockDoor(player, wallObject);
+    return true;
+}
+
+async function pickLockDoor(player, wallObject) {
+    const def = DOORS[wallObject.id];
+    const thievingLevel = player.skills.thieving.current;
+
+    if (def.level > thievingLevel) {
+        player.message(
+            `@que@You need a thieving level of ${def.level} to pick this lock`
+        );
+        return;
+    }
+
+    player.message('@que@You attempt to pick the lock');
+    await player.world.sleepTicks(3);
+
+    const success = rollSkillSuccess(def.roll[0], def.roll[1], thievingLevel);
+
+    if (success) {
+        player.addExperience('thieving', def.experience);
+        player.message('@que@You successfully pick the lock');
+        // TODO: Open the door or teleport player
+    } else {
+        player.message('@que@You fail to pick the lock');
+        player.damage(def.stunDamage || 1);
+    }
+}
+
+module.exports = {
+    onNPCCommand,
+    onGameObjectCommandOne,
+    onWallObjectCommandOne
+};
