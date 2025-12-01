@@ -91,6 +91,7 @@ module.exports = {
     "npcs.seers-village.bartender": require('./npcs/seers-village/bartender.js'),
     "npcs.taverley.gaius": require('./npcs/taverley/gaius.js'),
     "npcs.taverley.jatix": require('./npcs/taverley/jatix.js'),
+    "npcs.taverley.kaqemeex": require('./npcs/taverley/kaqemeex.js'),
     "npcs.tree-gnome-stronghold.gnome-child": require('./npcs/tree-gnome-stronghold/gnome-child.js'),
     "npcs.tree-gnome-stronghold.gnome-local": require('./npcs/tree-gnome-stronghold/gnome-local.js'),
     "npcs.varrock.apothecary": require('./npcs/varrock/apothecary.js'),

@@ -2,10 +2,10 @@
 
 const APOTHECARY_ID = 33;
 const CADAVA_POTION_ID = 57;
-const LIMPWURT_ROOT_ID = 220;
-const RED_SPIDER_EGGS_ID = 219;
+const LIMPWURT_ROOT_ID = 273;
+const RED_SPIDER_EGGS_ID = 220;
 const SPOT_POTION_ID = 58;
-const STRENGTH_POTION_ID = 221;
+const STRENGTH_POTION_ID = 474;
 
 async function onTalkToNPC(player, npc) {
     const romeoJulietStage = player.questStages.romeoAndJuliet;
@@ -62,7 +62,7 @@ async function onTalkToNPC(player, npc) {
 
                     player.message(
                         'You give a limpwurt root some red spiders eggs and ' +
-                            '5 coins to the apothecary'
+                        '5 coins to the apothecary'
                     );
 
                     await world.sleepTicks(3);
@@ -97,7 +97,7 @@ async function onTalkToNPC(player, npc) {
         case 1: // hair fall out
             await npc.say(
                 "I do indeed. I gave it to my mother. That's why I now live " +
-                    'alone'
+                'alone'
             );
             break;
         case 2: // give way
