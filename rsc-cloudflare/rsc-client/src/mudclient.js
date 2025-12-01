@@ -226,7 +226,7 @@ class mudclient extends GameConnection {
         this.loginUser = '';
         this.loginPass = '';
         this.cameraAngle = 1;
-        this.members = false;
+        this.members = true;
         this.optionSoundDisabled = false;
         this.showRightClickMenu = false;
         this.cameraRotationYIncrement = 2;
@@ -1512,7 +1512,7 @@ class mudclient extends GameConnection {
 
             this.surface.drawString(
                 this.menuItemText1[this.menuIndices[i]] + ' ' +
-                    this.menuItemText2[this.menuIndices[i]],
+                this.menuItemText2[this.menuIndices[i]],
                 entryX,
                 entryY,
                 1,
@@ -2180,7 +2180,7 @@ class mudclient extends GameConnection {
         const player = this.players[id];
 
         // this means the character is invisible! MOD!!!
-        if (player.colourBottom === 255)  {
+        if (player.colourBottom === 255) {
             return;
         }
 
@@ -3282,7 +3282,7 @@ class mudclient extends GameConnection {
 
     showMessage(message, type) {
         if (type === 2 || type === 4 || type === 6) {
-            for (; message.length > 5 && message[0] === '@' && message[4] === '@'; message = message.substring(5)) ;
+            for (; message.length > 5 && message[0] === '@' && message[4] === '@'; message = message.substring(5));
 
             const colonIndex = message.indexOf(':');
 
@@ -3551,7 +3551,7 @@ class mudclient extends GameConnection {
             this.menuIndices[i] = i;
         }
 
-        for (let flag = false; !flag; ) {
+        for (let flag = false; !flag;) {
             flag = true;
 
             for (let j = 0; j < this.menuItemsCount - 1; j++) {
@@ -3809,8 +3809,8 @@ class mudclient extends GameConnection {
                 this.showUITab = 0;
 
                 this.selectedItemName =
-                        GameData.itemName[this.inventoryItemId[
-                            this.selectedItemInventoryIndex]];
+                    GameData.itemName[this.inventoryItemId[
+                    this.selectedItemInventoryIndex]];
                 break;
             case 660:
                 this.packetStream.newPacket(clientOpcodes.INV_DROP);
@@ -3821,7 +3821,7 @@ class mudclient extends GameConnection {
 
                 this.showMessage(
                     'Dropping ' +
-                        GameData.itemName[this.inventoryItemId[menuIndex]],
+                    GameData.itemName[this.inventoryItemId[menuIndex]],
                     4
                 );
                 break;
@@ -4120,7 +4120,7 @@ class mudclient extends GameConnection {
             let pid = plyrs[menuIdx];
             let gameModel = objs[menuIdx];
 
-            if (gameModel.faceTag[pid] <= 65535 || gameModel.faceTag[pid] >= 200000 && gameModel.faceTag[pid] <= 300000)  {
+            if (gameModel.faceTag[pid] <= 65535 || gameModel.faceTag[pid] >= 200000 && gameModel.faceTag[pid] <= 300000) {
                 if (gameModel === this.scene.view) {
                     let idx = gameModel.faceTag[pid] % 10000;
                     const type = (gameModel.faceTag[pid] / 10000) | 0;

@@ -1,7 +1,7 @@
 var __defProp = Object.defineProperty;
 var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
 
-// ../.wrangler/tmp/bundle-CDW8PY/strip-cf-connecting-ip-header.js
+// ../.wrangler/tmp/bundle-aXiLhO/strip-cf-connecting-ip-header.js
 function stripCfConnectingIPHeader(input, init) {
   const request = new Request(input, init);
   request.headers.delete("CF-Connecting-IP");
@@ -161,7 +161,7 @@ async function onRequestGet3(context) {
 }
 __name(onRequestGet3, "onRequestGet");
 
-// ../.wrangler/tmp/pages-f8f8ir/functionsRoutes-0.8677512268942427.mjs
+// ../.wrangler/tmp/pages-LxCnRZ/functionsRoutes-0.6807215130938231.mjs
 var routes = [
   {
     routePath: "/api/player/debug",
@@ -694,7 +694,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-CDW8PY/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-aXiLhO/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -726,7 +726,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-CDW8PY/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-aXiLhO/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
@@ -824,4 +824,4 @@ export {
   __INTERNAL_WRANGLER_MIDDLEWARE__,
   middleware_loader_entry_default as default
 };
-//# sourceMappingURL=functionsWorker-0.3848731974225621.mjs.map
+//# sourceMappingURL=functionsWorker-0.25082553860240364.mjs.map
