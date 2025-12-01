@@ -1,4 +1,4 @@
-const { ids } = require('../../index');
+
 
 const HERBS = {
     165: { clean: 43, level: 3, xp: 2.5 }, // Guam
