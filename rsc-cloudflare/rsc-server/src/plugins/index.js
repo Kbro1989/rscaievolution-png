@@ -114,6 +114,7 @@ module.exports = {
     "skills.firemaking": require('./skills/firemaking.js'),
     "skills.fishing": require('./skills/fishing.js'),
     "skills.fletching": require('./skills/fletching.js'),
+    "skills.herblaw": require('./skills/herblaw.js'),
     "skills.magic": require('./skills/magic.js'),
     "skills.mining": require('./skills/mining.js'),
     "skills.prayer": require('./skills/prayer.js'),
