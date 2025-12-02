@@ -188,14 +188,13 @@ module.exports = (api) => {
             const spellData = COMBAT_SPELLS[spell.name];
             const maxHit = spellData.maxHit;
 
-            // Simplified hit chance (70% base, should use magic accuracy formula)
-            let damage = 0;
-            if (Math.random() < 0.7) {
-                damage = Math.floor(Math.random() * (maxHit + 1));
-            }
+            // Use the new combat formula (accuracy vs defense)
+            const { rollPlayerNPCMagicDamage } = require('../../combat');
+            const damage = rollPlayerNPCMagicDamage(player, npc, maxHit);
 
             npc.damage(damage, player);
             player.message(`@que@You cast ${spell.name} on the ${npc.definition.name}`);
+            player.sendProjectile(npc, 2);
 
             // XP: Base + 2 * damage
             const xp = spellData.xp + (damage * 2);

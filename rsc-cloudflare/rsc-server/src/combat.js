@@ -190,10 +190,29 @@ function rollNPCMagicDamage(npc, player, spellMaxHit) {
     return rollDamage(accuracy, maxHit, protection);
 }
 
+function getMagicAccuracy(player) {
+    const magicLevel = player.skills.magic.current;
+
+    // Using magic bonus similar to ranged
+    // In RSC, magic accuracy scales with magic level and equipment bonuses
+    const bonusMultiplier = player.equipmentBonuses.magic * (1 / 600) + 0.1;
+
+    return magicLevel * bonusMultiplier;
+}
+
+function rollPlayerNPCMagicDamage(player, npc, spellMaxHit) {
+    const accuracy = getMagicAccuracy(player);
+    const maxHit = spellMaxHit;
+    const protection = npc.skills.defense.current * (1 / 600 + 0.1);
+
+    return rollDamage(accuracy, maxHit, protection);
+}
+
 module.exports = {
     rollPlayerNPCDamage,
     rollPlayerPlayerDamage,
     rollNPCDamage,
     rollPlayerNPCRangedDamage,
-    rollNPCMagicDamage
+    rollNPCMagicDamage,
+    rollPlayerNPCMagicDamage
 };
