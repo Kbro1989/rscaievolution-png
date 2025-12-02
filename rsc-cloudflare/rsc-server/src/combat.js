@@ -182,9 +182,18 @@ function rollPlayerNPCRangedDamage(player, npc) {
     return rollDamage(accuracy, maxHit, protection);
 }
 
+function rollNPCMagicDamage(npc, player, spellMaxHit) {
+    const accuracy = npc.skills.attack.current * (1 / 600 + 0.1);
+    const maxHit = spellMaxHit;
+    const protection = getProtection(player);
+
+    return rollDamage(accuracy, maxHit, protection);
+}
+
 module.exports = {
     rollPlayerNPCDamage,
     rollPlayerPlayerDamage,
     rollNPCDamage,
-    rollPlayerNPCRangedDamage
+    rollPlayerNPCRangedDamage,
+    rollNPCMagicDamage
 };
