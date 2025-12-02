@@ -71,7 +71,7 @@ class Player extends Character {
         this.id = playerData.id;
 
         // moderator or administrator?
-        this.rank = playerData.rank;
+        this.group = playerData.group;
 
         this.x = playerData.x;
         this.y = playerData.y;
@@ -97,6 +97,14 @@ class Player extends Character {
         this.blockPrivateChat = playerData.blockPrivateChat;
         this.blockTrade = playerData.blockTrade;
         this.blockDuel = playerData.blockDuel;
+
+        // Fix for missing base levels (if they were not saved)
+        for (const skillName of Object.keys(this.skills)) {
+            const skill = this.skills[skillName];
+            if (!skill.base) {
+                skill.base = experienceToLevel(skill.experience);
+            }
+        }
 
         // ticks remaining until unskulled
         this.skulled = playerData.skulled;
@@ -882,7 +890,8 @@ class Player extends Character {
             animations: this.animations,
             ...this.appearance,
             combatLevel: this.combatLevel,
-            skulled: this.isSkulled()
+            skulled: this.isSkulled(),
+            group: this.group || 0
         };
     }
 
@@ -1497,9 +1506,6 @@ class Player extends Character {
 
         message = { ...message, ...this.appearance };
 
-        for (const skillName of Object.keys(message.skills)) {
-            delete message.skills[skillName].base;
-        }
 
         await this.world.server.dataClient.sendAndReceive(message);
     }

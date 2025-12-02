@@ -24,4 +24,5 @@ module.exports = {
     "trade": require('./trade.js'),
     "walk": require('./walk.js'),
     "wall-object": require('./wall-object.js'),
+    "spell": require('./spell.js'),
 };

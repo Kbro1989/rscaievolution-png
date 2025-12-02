@@ -547,7 +547,7 @@ class Surface {
 
                         if (
                             this.spriteColoursUsed[id][
-                                x + y * this.spriteWidth[id]
+                            x + y * this.spriteWidth[id]
                             ] === 0
                         ) {
                             this.spriteTranslate[id] = true;
@@ -575,7 +575,7 @@ class Surface {
         let packetOffset = 1;
         let pixelOffset = 0;
 
-        for (pixelOffset = 0; pixelOffset < 255; ) {
+        for (pixelOffset = 0; pixelOffset < 255;) {
             const length = spriteData[packetOffset++] & 0xff;
 
             for (let i = 0; i < length; i++) {
@@ -587,7 +587,7 @@ class Surface {
         }
 
         for (let y = 1; y < 40; y++) {
-            for (let x = 0; x < 255; ) {
+            for (let x = 0; x < 255;) {
                 const length = spriteData[packetOffset++] & 0xff;
 
                 for (let i = 0; i < length; i++) {
@@ -2672,7 +2672,7 @@ class Surface {
                 } else {
                     width +=
                         fontData[
-                            Surface.characterWidth[text.charCodeAt(index)] + 7
+                        Surface.characterWidth[text.charCodeAt(index)] + 7
                         ];
                 }
 
@@ -2793,6 +2793,22 @@ class Surface {
                         text.slice(i + 1, i + 4).toLowerCase() === 'gr3'
                     ) {
                         colour = 0x40ff00;
+                    } else if (
+                        text.slice(i + 1, i + 4).toLowerCase() === 'cr1'
+                    ) {
+                        const spriteId = this.mudclient.spriteMedia + 14;
+                        this._drawSprite_from3(x, y - 12, spriteId);
+                        x += 14;
+                        i += 4;
+                        continue;
+                    } else if (
+                        text.slice(i + 1, i + 4).toLowerCase() === 'cr2'
+                    ) {
+                        const spriteId = this.mudclient.spriteMedia + 14 + 1;
+                        this._drawSprite_from3(x, y - 12, spriteId);
+                        x += 14;
+                        i += 4;
+                        continue;
                     }
 
                     i += 4;

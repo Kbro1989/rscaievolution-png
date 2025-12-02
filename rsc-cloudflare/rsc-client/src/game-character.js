@@ -35,6 +35,7 @@ class GameCharacter {
         this.waypointsY = new Int32Array(10);
         this.equippedItem = new Int32Array(12);
         this.level = -1;
+        this.group = 0;
     }
 }
 

@@ -3,7 +3,7 @@ const log = require('bole')('data-client');
 const DEFAULT_PLAYER = {
     username: '',
     password: '',
-    group: 1, // 0=free, 1=member, 2+=staff
+    group: 0, // 0=player, 2=mod, 3=admin
     x: 213,
     y: 436,
     fatigue: 0,
@@ -32,7 +32,7 @@ const DEFAULT_PLAYER = {
         attack: { current: 1, experience: 0 },
         defense: { current: 1, experience: 0 },
         strength: { current: 1, experience: 0 },
-        hits: { current: 9, experience: 737 }, // RSC starts at level 9 (184.25 displayed XP)
+        hits: { current: 9, experience: 1154 }, // User requested Level 9 base
         ranged: { current: 1, experience: 0 },
         prayer: { current: 1, experience: 0 },
         magic: { current: 1, experience: 0 },

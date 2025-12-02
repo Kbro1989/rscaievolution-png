@@ -1,3 +1,4 @@
-# Workaround script to run dev server with direct Node.js path
-$env:Path = "C:\Users\Destiny\AppData\Local\ms-playwright-go\1.50.1;$env:Path"
+# Start RSC dev server with proper Node.js path
+$env:Path = "C:\Program Files\nodejs;$env:Path"
+cd rsc-cloudflare
 npm run dev

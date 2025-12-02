@@ -269,7 +269,14 @@ async function handleMesssageTabsInput() {
             this.localPlayer.messageTimeout = 150;
             this.localPlayer.message = message;
 
-            this.showMessage(`${this.localPlayer.name}: ${message}`, 2);
+            let crownTag = '';
+            if (this.localPlayer.group === 2) {
+                crownTag = '@cr1@';
+            } else if (this.localPlayer.group === 3) {
+                crownTag = '@cr2@';
+            }
+
+            this.showMessage(`${crownTag}${this.localPlayer.name}: ${message}`, 2);
         }
     }
 

@@ -52,8 +52,16 @@ module.exports = {
                     if (!ignored) {
                         player.messageTimeout = 150;
                         player.message = message;
+
+                        let crownTag = '';
+                        if (player.group === 2) {
+                            crownTag = '@cr1@';
+                        } else if (player.group === 3) {
+                            crownTag = '@cr2@';
+                        }
+
                         this.showMessage(
-                            `${player.name}: ${player.message}`,
+                            `${crownTag}${player.name}: ${player.message}`,
                             2
                         );
                     }
@@ -138,8 +146,9 @@ module.exports = {
                     player.colourSkin = data[offset++] & 0xff;
                     player.level = data[offset++] & 0xff;
                     player.skullVisible = data[offset++] & 0xff;
+                    player.group = data[offset++] & 0xff;
                 } else {
-                    offset += 14;
+                    offset += 15;
 
                     const unused = Utility.getUnsignedByte(data[offset]);
                     offset += unused + 1;
