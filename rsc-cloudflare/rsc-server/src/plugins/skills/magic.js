@@ -63,32 +63,13 @@ const SPELL_MAX_HITS = {
     'Water wave': 18,
     'Earth wave': 19,
     'Fire wave': 20
-    'Fire wave': 20
 };
 
 const ENCHANT_MAP = {
     'Enchant lvl-1 amulet': { src: 301, dest: 314, xp: 17.5 },
     'Enchant lvl-2 amulet': { src: 302, dest: 315, xp: 37 },
     'Enchant lvl-3 amulet': { src: 303, dest: 316, xp: 59 },
-    'Enchant lvl-4 amulet': { src: 304, dest: 317, xp: 67 },
-    'Enchant lvl-5 amulet': { src: 305, dest: 318, xp: 78 }
-    'Fire wave': 20
-};
-
-const ENCHANT_MAP = {
-    'Enchant lvl-1 amulet': { src: 301, dest: 314, xp: 17.5 },
-    'Enchant lvl-2 amulet': { src: 302, dest: 315, xp: 37 },
-    'Enchant lvl-3 amulet': { src: 303, dest: 316, xp: 59 },
-    'Enchant lvl-4 amulet': { src: 304, dest: 317, xp: 67 },
-    // 'Enchant lvl-5 amulet': { src: 305, dest: 597, xp: 78 } // Dragonstone -> Glory (Need to verify ID)
-    'Fire wave': 20
-};
-
-const ENCHANT_MAP = {
-    'Enchant lvl-1 amulet': { src: 301, dest: 314, xp: 17.5 },
-    'Enchant lvl-2 amulet': { src: 302, dest: 315, xp: 37 },
-    'Enchant lvl-3 amulet': { src: 303, dest: 316, xp: 59 },
-    'Enchant lvl-4 amulet': { src: 304, dest: 317, xp: 67 },
+    'Enchant lvl-4 amulet': { src: 304, dest: 317, xp: 67 }
     // 'Enchant lvl-5 amulet': { src: 305, dest: 597, xp: 78 } // Dragonstone -> Glory (Need to verify ID)
 };
 
