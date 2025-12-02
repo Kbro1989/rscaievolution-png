@@ -25,3 +25,7 @@ dist-ssr
 
 # Submodule directories
 libs/rsmv
+
+# Embedded git repositories
+rsc-globe1-pure/
+rsc-sounds-pure/
