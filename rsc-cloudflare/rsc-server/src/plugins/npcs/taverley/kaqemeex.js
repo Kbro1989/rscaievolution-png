@@ -3,6 +3,11 @@
 const KAQEMEEX_ID = 219; // Need to verify ID, assuming 219 for now based on list order or lookup
 
 async function onTalkToNPC(player, npc) {
+    // Only handle Kaqemeex
+    if (npc.id !== KAQEMEEX_ID) {
+        return false;
+    }
+
     player.engage(npc);
 
     await npc.say('Hello there traveler.');
@@ -44,6 +49,7 @@ async function onTalkToNPC(player, npc) {
     }
 
     player.disengage();
+    return true;
 }
 
 module.exports = { onTalkToNPC };
