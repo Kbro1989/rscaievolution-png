@@ -1,114 +1,132 @@
+// https://classic.runescape.wiki/w/Mining
+
 const items = require('@2003scape/rsc-data/config/items');
 const { rocks, pickaxes } = require('@2003scape/rsc-data/skills/mining');
 const { rollSkillSuccess } = require('../../rolls');
 
 const ROCK_IDS = new Set(Object.keys(rocks).map(Number));
 
-// Sort pickaxes best to worst
+// Sort pickaxes best to worst (in order of best to worst)
+// Pickaxes DO have mining level requirements to use in RSC
 const PICKAXE_IDS = Object.keys(pickaxes)
     .map(Number)
-    .sort((a, b) => (pickaxes[a] > pickaxes[b] ? -1 : 1));
+    .sort((a, b) => {
+        if (pickaxes[a] === pickaxes[b]) {
+            return 0;
+        }
 
-async function onGameObjectCommand(player, gameObject, command) {
-    if (!ROCK_IDS.has(gameObject.id)) {
+        return pickaxes[a] > pickaxes[b] ? -1 : 1;
+    });
+
+async function mineRock(player, gameObject) {
+    const rockID = gameObject.id;
+
+    if (!ROCK_IDS.has(rockID)) {
         return false;
     }
 
-    if (command === 'prospect') {
-        await prospectRock(player, gameObject);
-        return true;
-    }
-
-    if (command === 'mine') {
-        await mineRock(player, gameObject);
-        return true;
-    }
-
-    return false;
-}
-
-async function prospectRock(player, gameObject) {
-    const rock = rocks[gameObject.id];
-    player.message('@que@You examine the rock for ores...');
-    await player.world.sleepTicks(2);
-    
-    const oreName = items[rock.ore].name.toLowerCase();
-    player.message(`@que@This rock contains ${oreName}`);
-    
-    if (rock.level > player.skills.mining.current) {
-        // Optional: hint about level requirement?
-    }
-}
-
-async function mineRock(player, gameObject) {
-    const rock = rocks[gameObject.id];
+    const rock = rocks[rockID];
     const miningLevel = player.skills.mining.current;
 
     if (rock.level > miningLevel) {
         player.message(
-            `@que@You need a mining level of ${rock.level} to mine this rock`
+            `You need a mining level of ${rock.level} to mine this rock`
         );
-        return;
+
+        return true;
     }
 
     let bestPickaxeID = -1;
-    for (const pickID of PICKAXE_IDS) {
-        if (player.inventory.has(pickID)) {
-            // Check if player has level for this pickaxe (RSC didn't have pickaxe reqs, but good to check if data exists)
-            // Assuming no reqs for now as per RSC wiki
-            bestPickaxeID = pickID;
+
+    for (const pickaxeID of PICKAXE_IDS) {
+        if (player.inventory.has(pickaxeID)) {
+            bestPickaxeID = pickaxeID;
             break;
         }
     }
 
     if (bestPickaxeID === -1) {
         player.message('@que@You need a pickaxe to mine this rock');
-        return;
+        return true;
     }
 
     if (player.isTired()) {
         player.message('@que@You are too tired to mine this rock');
-        return;
+        return true;
     }
 
-    player.message('@que@You swing your pick at the rock...');
+    const { world } = player;
+    const { x, y } = gameObject;
+    const pickaxeName = items[bestPickaxeID].name.toLowerCase();
+
+    player.message(`@que@You swing your ${pickaxeName} at the rock...`);
     player.sendBubble(bestPickaxeID);
     player.sendSound('mine');
 
-    await player.world.sleepTicks(3);
+    await world.sleepTicks(3);
 
-    // Verify rock is still there
-    if (player.world.gameObjects.getAtPoint(gameObject.x, gameObject.y)[0] !== gameObject) {
-        return;
-    }
-
-    const success = rollSkillSuccess(
-        rock.roll ? rock.roll[0] * pickaxes[bestPickaxeID] : 100, // Fallback if roll missing
-        rock.roll ? rock.roll[1] * pickaxes[bestPickaxeID] : 100,
+    const oreSuccess = rollSkillSuccess(
+        rock.roll[0] * pickaxes[bestPickaxeID],
+        rock.roll[1] * pickaxes[bestPickaxeID],
         miningLevel
     );
 
-    if (success) {
-        player.addExperience('mining', rock.experience);
-        player.inventory.add(rock.ore);
-        player.message('@que@You manage to obtain some ore');
-        player.sendSound('foundgem'); // Or similar success sound
-
-        // Deplete rock
+    if (world.gameObjects.getAtPoint(x, y)[0] === gameObject && oreSuccess) {
+        // Deplete rock if it has an empty state
         if (rock.empty) {
-            const emptyRock = player.world.replaceEntity(
+            const emptyRock = world.replaceEntity(
                 'gameObjects',
                 gameObject,
                 rock.empty
             );
 
-            player.world.setTimeout(() => {
-                player.world.replaceEntity('gameObjects', emptyRock, gameObject.id);
-            }, rock.respawn || 5000); // Default 5s respawn
+            world.setTimeout(() => {
+                world.replaceEntity('gameObjects', emptyRock, rockID);
+            }, rock.respawn);
         }
+
+        player.addExperience('mining', rock.experience);
+        player.message('@que@You manage to obtain some ore');
+        player.inventory.add(rock.ore);
     } else {
         player.message('@que@You fail to mine the rock');
     }
+
+    return true;
 }
 
-module.exports = { onGameObjectCommand };
+async function prospectRock(player, gameObject) {
+    const rockID = gameObject.id;
+
+    if (!ROCK_IDS.has(rockID)) {
+        return false;
+    }
+
+    const rock = rocks[rockID];
+
+    player.message('@que@You examine the rock for ores...');
+    await player.world.sleepTicks(2);
+
+    const oreName = items[rock.ore].name.toLowerCase();
+    player.message(`@que@This rock contains ${oreName}`);
+
+    return true;
+}
+
+async function onGameObjectCommandOne(player, gameObject) {
+    if (!/mine/i.test(gameObject.definition.commands[0])) {
+        return false;
+    }
+
+    await mineRock(player, gameObject);
+}
+
+async function onGameObjectCommandTwo(player, gameObject) {
+    if (!/prospect/i.test(gameObject.definition.commands[1])) {
+        return false;
+    }
+
+    await prospectRock(player, gameObject);
+}
+
+module.exports = { onGameObjectCommandOne, onGameObjectCommandTwo };

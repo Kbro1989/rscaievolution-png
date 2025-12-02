@@ -3,8 +3,10 @@ async function onGameObjectCommandOne(player, gameObject) {
         return false;
     }
 
-    player.displayFatigue = player.fatigue;
-    player.openSleep(true);
+    player.message('@que@You rest in the bed...');
+    player.fatigue = 0;
+    player.sendFatigue();
+    player.message('@que@You feel refreshed!');
 
     return true;
 }
