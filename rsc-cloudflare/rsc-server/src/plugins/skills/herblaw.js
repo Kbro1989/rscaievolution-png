@@ -44,18 +44,34 @@ const FINISHED_POTIONS = {
 };
 
 module.exports = {
-    onInvAction: (player, item, index) => {
+    onInvAction: async (player, item, index) => {
         // Identify Herb
         if (HERBS[item.id]) {
             const herb = HERBS[item.id];
-            if (player.skills.herblaw.current < herb.level) {
-                player.message(`You need a Herblaw level of ${herb.level} to identify this herb.`);
-                return;
+
+            player.sendBubble(item.id);
+
+            if (player.isTired()) {
+                player.message('You are too tired to identify this herb');
+                return true;
             }
+
+            if (player.skills.herblaw.current < herb.level) {
+                player.message(`@que@You need a Herblaw level of ${herb.level} to identify this herb.`);
+                return true;
+            }
+
+            const { world } = player;
+
             player.inventory.remove(item.id, 1, index);
+            player.message(`@que@You inspect the herb carefully...`);
+
+            await world.sleepTicks(2);
+
             player.inventory.add(herb.clean, 1, index);
             player.addExperience('herblaw', herb.xp);
-            player.message(`You identify the herb as ${player.getItemName(herb.clean)}.`);
+            player.message(`@que@You identify the herb as ${player.getItemName(herb.clean)}.`);
+
             return true;
         }
     },
