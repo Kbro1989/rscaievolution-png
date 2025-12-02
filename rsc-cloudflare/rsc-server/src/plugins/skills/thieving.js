@@ -20,8 +20,7 @@ async function onNPCCommand(player, npc, command) {
         return false;
     }
 
-    await pickpocketNPC(player, npc);
-    return true;
+    return await pickpocketNPC(player, npc);
 }
 
 async function pickpocketNPC(player, npc) {
@@ -64,14 +63,12 @@ async function onGameObjectCommandOne(player, gameObject) {
 
     // Check if it's a stall
     if (STALL_IDS.has(id)) {
-        await stealFromStall(player, gameObject);
-        return true;
+        return await stealFromStall(player, gameObject);
     }
 
     // Check if it's a chest
     if (CHEST_IDS.has(id)) {
-        await stealFromChest(player, gameObject);
-        return true;
+        return await stealFromChest(player, gameObject);
     }
 
     return false;
@@ -154,8 +151,7 @@ async function onWallObjectCommandOne(player, wallObject) {
         return false;
     }
 
-    await pickLockDoor(player, wallObject);
-    return true;
+    return await pickLockDoor(player, wallObject);
 }
 
 async function pickLockDoor(player, wallObject) {
