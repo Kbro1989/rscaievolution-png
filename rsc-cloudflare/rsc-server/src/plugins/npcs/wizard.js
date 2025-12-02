@@ -1,4 +1,4 @@
-const { rollDamage } = require('../../combat');
+const { rollNPCMagicDamage } = require('../../combat');
 
 const WIZARD_IDS = new Set([
     57, 60, // Dark wizard
@@ -26,9 +26,7 @@ async function onNPCCombat(npc, opponent) {
     opponent.message(`@que@The ${npc.definition.name} casts ${spell.name} at you!`);
     npc.sendProjectile(opponent, spell.projectile);
 
-    // Calculate damage (simplified)
-    // Magic defense should be considered, but for now just use random 0-maxHit
-    const damage = Math.floor(Math.random() * (spell.maxHit + 1));
+    const damage = rollNPCMagicDamage(npc, opponent, spell.maxHit);
 
     // Apply damage
     opponent.damage(damage, npc);
