@@ -55,7 +55,8 @@ const PLUGIN_TYPES = [
     'onInventoryCommand',
     'onDropItem',
     'onNPCAttack',
-    'onNPCDeath'
+    'onNPCDeath',
+    'onNPCCombat'
 ];
 
 // prevent spawning entities outside of the f2p boundaries
@@ -452,7 +453,7 @@ class World {
         return new Promise((resolve) => this.setTimeout(resolve, ms));
     }
 
-    tick() {
+    async tick() {
         this.ticks += 1;
 
         const startTime = Date.now();
@@ -470,7 +471,7 @@ class World {
             }
 
             for (const npc of this.npcs.getAll()) {
-                npc.tick();
+                await npc.tick();
             }
 
             for (const player of this.players.getAll()) {

@@ -323,7 +323,30 @@ class NPC extends Character {
         }
     }
 
-    fight() {
+    sendProjectile(victim, sprite = 0) {
+        const message = {
+            index: this.index,
+            victimType: victim.constructor.name === 'NPC' ? 3 : 4,
+            projectileType: sprite,
+            victimIndex: victim.index
+        };
+
+        for (const player of this.knownPlayers) {
+            player.localEntities.characterUpdates.projectiles.push(message);
+        }
+    }
+
+    async fight() {
+        const blocked = await this.world.callPlugin(
+            'onNPCCombat',
+            this,
+            this.opponent
+        );
+
+        if (blocked) {
+            return;
+        }
+
         if (this.fightStage % 3 === 0) {
             if (!this.opponent.prayers[PARALYZE_MONSTER_ID]) {
                 const damage = rollNPCDamage(this, this.opponent);
@@ -368,11 +391,11 @@ class NPC extends Character {
         }
     }
 
-    tick() {
+    async tick() {
         this.normalizeSkills();
 
         if (this.opponent) {
-            this.fight();
+            await this.fight();
         }
 
         if (!this.stationary && !this.locked && this.knownPlayers.size) {

@@ -42,6 +42,7 @@ module.exports = {
     "npcs.al-kharid.warrior": require('./npcs/al-kharid/warrior.js'),
     "npcs.al-kharid.zeke": require('./npcs/al-kharid/zeke.js'),
     "npcs.ardougne.bartender": require('./npcs/ardougne/bartender.js'),
+    "npcs.banker": require('./npcs/banker.js'),
     "npcs.barbarian-village.barbarian": require('./npcs/barbarian-village/barbarian.js'),
     "npcs.barbarian-village.peksa": require('./npcs/barbarian-village/peksa.js'),
     "npcs.dwarven-mine.drogo": require('./npcs/dwarven-mine/drogo.js'),
@@ -207,5 +208,6 @@ module.exports = {
     "quests.members.druidic-ritual.sanfew": require('./quests/members/druidic-ritual/sanfew.js'),
     "quests.members.monks-friend.brother-cedric": require('./quests/members/monks-friend/brother-cedric.js'),
     "quests.members.monks-friend.brother-omad": require('./quests/members/monks-friend/brother-omad.js'),
-    "skills.prayer": require('./skills/prayer.js')
+    "skills.prayer": require('./skills/prayer.js'),
+    "npcs.wizard": require('./npcs/wizard.js')
 };
