@@ -54,7 +54,7 @@ module.exports = {
             }
             player.inventory.remove(item.id, 1, index);
             player.inventory.add(herb.clean, 1, index);
-            player.skills.herblaw.experience += herb.xp;
+            player.addExperience('herblaw', herb.xp);
             player.message(`You identify the herb as ${player.getItemName(herb.clean)}.`);
             return true;
         }
@@ -114,7 +114,7 @@ module.exports = {
             player.inventory.remove(unfinishedId, 1, unfinishedIndex);
             player.inventory.remove(secondaryId, 1, secondaryIndex);
             player.inventory.add(potion.id, 1);
-            player.skills.herblaw.experience += potion.xp;
+            player.addExperience('herblaw', potion.xp);
             player.message(`You mix the ingredients to make a ${player.getItemName(potion.id)}.`);
             return true;
         }
