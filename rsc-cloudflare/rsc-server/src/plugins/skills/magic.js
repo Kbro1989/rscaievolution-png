@@ -166,7 +166,7 @@ module.exports = (api) => {
         }
     });
 
-    // ===== SPELL ON NPC (Combat Spells, Curse Spells) =====
+    // ===== SPELL ON NPC (Curse Spells) =====
     api.onSpellOnNPC((player, npc, spellId) => {
         const spell = spells[spellId];
         if (!spell) return;
@@ -181,31 +181,14 @@ module.exports = (api) => {
             return;
         }
 
-        if (!checkAndRemoveRunes(player, spell)) return;
-
         // === COMBAT SPELLS ===
         if (COMBAT_SPELLS[spell.name]) {
-            const spellData = COMBAT_SPELLS[spell.name];
-            const maxHit = spellData.maxHit;
-
-            // Use the new combat formula (accuracy vs defense)
-            const { rollPlayerNPCMagicDamage } = require('../../combat');
-            const damage = rollPlayerNPCMagicDamage(player, npc, maxHit);
-
-            npc.damage(damage, player);
-            player.message(`@que@You cast ${spell.name} on the ${npc.definition.name}`);
-            player.sendProjectile(npc, 2);
-
-            // XP: Base + 2 * damage
-            const xp = spellData.xp + (damage * 2);
-            player.addExperience('magic', xp);
-
-            // NPC retaliation
-            if (!npc.opponent && !npc.chasing) {
-                npc.attack(player);
-            }
+            player.autocastSpellId = spellId;
+            player.shootMagic(npc, spellId);
             return;
         }
+
+        if (!checkAndRemoveRunes(player, spell)) return;
 
         // === CURSE SPELLS (Don't work in PvP) ===
         const curseSpells = ['Confuse', 'Weaken', 'Curse', 'Vulnerability', 'Enfeeble', 'Stun'];

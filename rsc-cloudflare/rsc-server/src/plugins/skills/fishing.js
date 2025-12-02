@@ -101,7 +101,7 @@ async function doFishing(player, gameObject, index) {
     player.sendBubble(tool);
 
     if (typeof bait === 'number') {
-        player.inventory.remove(bait);
+        // player.inventory.remove(bait); // Moved to success block
     }
 
     let catching;
@@ -124,6 +124,12 @@ async function doFishing(player, gameObject, index) {
 
         if (caughtIndex > -1) {
             const { id, experience } = catchable[caughtIndex];
+
+            // Consume bait on success
+            if (typeof bait === 'number') {
+                player.inventory.remove(bait);
+            }
+
             player.addExperience('fishing', experience);
             player.inventory.add(id);
 

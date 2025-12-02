@@ -6,11 +6,8 @@ class Bank {
         this.player = player;
         this.items = items.map((item) => new Item(item));
 
-        this.maxItems = 48;
-
-        if (this.player.world.members) {
-            this.maxItems *= 4;
-        }
+        // Set to 1500 to accommodate all ~1200 unique items in RSC with room to spare
+        this.maxItems = 1500;
     }
 
     open() {
@@ -73,11 +70,34 @@ class Bank {
             throw new RangeError(`${this} withdrawing item they don't have`);
         }
 
-        this.player.inventory.add(id, amount);
+        const stackable = items[id].stackable;
+        const freeSlots = 30 - this.player.inventory.items.length;
+        let amountToWithdraw = amount;
+
+        if (stackable) {
+            // If stackable, we only need a slot if we don't already have the item
+            if (!this.player.inventory.has(id) && freeSlots < 1) {
+                this.player.message("You don't have enough room in your inventory");
+                return;
+            }
+        } else {
+            // If non-stackable, we need a slot for each item
+            if (freeSlots === 0) {
+                this.player.message("You don't have enough room in your inventory");
+                return;
+            }
+
+            if (amountToWithdraw > freeSlots) {
+                amountToWithdraw = freeSlots;
+                this.player.message("Your inventory is full");
+            }
+        }
+
+        this.player.inventory.add(id, amountToWithdraw);
 
         const index = this.items.indexOf(bankItem);
 
-        bankItem.amount -= amount;
+        bankItem.amount -= amountToWithdraw;
 
         if (bankItem.amount === 0) {
             this.items.splice(index, 1);

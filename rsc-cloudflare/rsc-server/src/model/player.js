@@ -13,10 +13,37 @@ const { formatSkillName, experienceToLevel } = require('../skills');
 const {
     rollPlayerNPCDamage,
     rollPlayerPlayerDamage,
-    rollPlayerNPCRangedDamage
+    rollPlayerNPCRangedDamage,
+    rollPlayerNPCMagicDamage
 } = require('../combat');
 
 const { weapons: rangedWeapons } = require('@2003scape/rsc-data/ranged');
+const spells = require('@2003scape/rsc-data/config/spells.json');
+
+// Combat spell max hits (mirrored from magic.js)
+const COMBAT_SPELLS = {
+    'Wind strike': { maxHit: 2, xp: 5.5 },
+    'Water strike': { maxHit: 4, xp: 7.5 },
+    'Earth strike': { maxHit: 6, xp: 9.5 },
+    'Fire strike': { maxHit: 8, xp: 11.5 },
+    'Wind bolt': { maxHit: 9, xp: 13.5 },
+    'Water bolt': { maxHit: 10, xp: 16.5 },
+    'Earth bolt': { maxHit: 11, xp: 19.5 },
+    'Fire bolt': { maxHit: 12, xp: 22.5 },
+    'Wind blast': { maxHit: 13, xp: 34.5 },
+    'Water blast': { maxHit: 14, xp: 39.5 },
+    'Earth blast': { maxHit: 15, xp: 44.5 },
+    'Fire blast': { maxHit: 16, xp: 50.5 },
+    'Wind wave': { maxHit: 17, xp: 60 },
+    'Water wave': { maxHit: 18, xp: 65 },
+    'Earth wave': { maxHit: 19, xp: 70 },
+    'Fire wave': { maxHit: 20, xp: 75 },
+    'Crumble undead': { maxHit: 15, xp: 15 }, // Only works on undead (TODO: check npc type)
+    'Iban blast': { maxHit: 25, xp: 30 },
+    'Claws of Guthix': { maxHit: 20, xp: 35 },
+    'Saradomin strike': { maxHit: 20, xp: 35 },
+    'Flames of Zamorak': { maxHit: 20, xp: 35 }
+};
 
 // properties to save in the database
 const SAVE_PROPERTIES = [
@@ -26,6 +53,7 @@ const SAVE_PROPERTIES = [
     'y',
     'questPoints',
     'combatStyle',
+    'autocastSpellId',
     'fatigue',
     'cameraAuto',
     'oneMouseButton',
@@ -1316,6 +1344,58 @@ class Player extends Character {
         }
     }
 
+    // Check  if player has sufficient runes for a spell (accounts for elemental staves)
+    hasSufficientRunes(spellId, showMessage = true) {
+        const spell = spells[spellId];
+        if (!spell) return false;
+
+        const staffRunes = {
+            615: 31, // Fire staff -> Fire runes
+            616: 32, // Water staff -> Water runes
+            617: 33, // Air staff -> Air runes
+            618: 34  // Earth staff -> Earth runes
+        };
+
+        const weapon = this.inventory.getWieldedWeapon();
+        const staffReplacesRune = weapon ? staffRunes[weapon.id] : null;
+
+        for (const rune of spell.runes) {
+            if (rune.id === staffReplacesRune) continue;
+
+            if (!this.inventory.contains(rune.id, rune.amount)) {
+                if (showMessage) {
+                    const items = require('@2003scape/rsc-data/items');
+                    const runeName = items[rune.id]?.name || 'rune';
+                    this.message(`@que@You do not have enough ${runeName}s to cast this spell.`);
+                }
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // Remove runes for a spell (accounts for elemental staves)
+    removeRunesForSpell(spellId) {
+        const spell = spells[spellId];
+        if (!spell) return;
+
+        const staffRunes = {
+            615: 31, // Fire staff -> Fire runes
+            616: 32, // Water staff -> Water runes
+            617: 33, // Air staff -> Air runes
+            618: 34  // Earth staff -> Earth runes
+        };
+
+        const weapon = this.inventory.getWieldedWeapon();
+        const staffReplacesRune = weapon ? staffRunes[weapon.id] : null;
+
+        for (const rune of spell.runes) {
+            if (rune.id === staffReplacesRune) continue;
+            this.inventory.remove(rune.id, rune.amount);
+        }
+    }
+
     async shootRanged(character) {
         if (typeof this.rangedTimeout === 'number') {
             this.world.clearTickTimeout(this.rangedTimeout);
@@ -1419,6 +1499,105 @@ class Player extends Character {
 
         this.rangedTimeout = world.setTickTimeout(() => {
             this.shootRanged(character);
+        }, 4);
+
+        return true;
+    }
+
+    async shootMagic(character, spellId) {
+        if (typeof this.magicTimeout === 'number') {
+            this.world.clearTickTimeout(this.magicTimeout);
+            delete this.magicTimeout;
+        }
+
+        this.walkQueue.length = 0;
+
+        if (
+            this.getDistance(character) <= 1.5 &&
+            this.withinLineOfSight(character)
+        ) {
+            return character.attack(this);
+        }
+
+        const spell = spells[spellId];
+
+        if (!spell || !COMBAT_SPELLS[spell.name] || character.skills.hits.current <= 0) {
+            return false;
+        }
+
+        const { world } = this;
+        const range = 5; // Magic range is 5 tiles (10 in RSC coordinate system)
+
+        if (!this.withinRange(character, range * 2, true)) {
+            await world.sleepTicks(1);
+            await this.chase(character);
+
+            if (!this.withinRange(character, range * 2, true)) {
+                this.message("I can't get close enough");
+                return false;
+            }
+        }
+
+        if (!this.withinLineOfSight(character, true)) {
+            this.message("I can't get a clear shot from here");
+            this.magicTimeout = -1;
+
+            this.world.setTickTimeout(() => {
+                delete this.magicTimeout;
+            }, 2);
+
+            return false;
+        }
+
+        // Check magic level
+        if (this.skills.magic.current < spell.level) {
+            this.message(`@que@You need a magic level of ${spell.level} to cast this spell.`);
+            return false;
+        }
+
+        // Check and remove runes
+        if (!this.hasSufficientRunes(spellId)) {
+            return false;
+        }
+
+        this.faceDirection(-1, 1);
+
+        this.removeRunesForSpell(spellId);
+
+        if (!this.hasSufficientRunes(spellId, false)) {
+            this.message("You don't have enough runes to cast this spell!");
+        }
+
+        const spellData = COMBAT_SPELLS[spell.name];
+        const maxHit = spellData.maxHit;
+        const damage = rollPlayerNPCMagicDamage(this, character, maxHit);
+
+        character.damage(damage, this);
+        this.sendProjectile(character, 2);
+
+        // XP: Base + 2 * damage
+        const xp = spellData.xp + (damage * 2);
+        this.addExperience('magic', xp);
+
+        if (
+            !character.locked &&
+            character.constructor.name === 'NPC' &&
+            character.chasing !== this
+        ) {
+            character
+                .attack(this)
+                .then(() => {
+                    character.retreatTicks = 4;
+                })
+                .catch((err) => log.error(err));
+        }
+
+        if (!this.hasSufficientRunes(spellId, false)) {
+            return true;
+        }
+
+        this.magicTimeout = world.setTickTimeout(() => {
+            this.shootMagic(character, spellId);
         }, 4);
 
         return true;
@@ -1543,6 +1722,11 @@ class Player extends Character {
         if (typeof this.rangedTimeout === 'number') {
             this.world.clearTickTimeout(this.rangedTimeout);
             delete this.rangedTimeout;
+        }
+
+        if (typeof this.magicTimeout === 'number') {
+            this.world.clearTickTimeout(this.magicTimeout);
+            delete this.magicTimeout;
         }
 
         this.walkQueue.length = 0;

@@ -133,12 +133,18 @@ async function npcAttack({ player }, { index }) {
         throw new RangeError(`invalid npc index ${index}`);
     }
 
-    if (player.rangedTimeout) {
+    if (player.rangedTimeout || player.magicTimeout) {
         return;
     }
 
     if (player.inventory.getRangedWeapon()) {
         await player.shootRanged(npc);
+        return;
+    }
+
+    // Check if player has combat spell selected (autocast spell ID stored on player)
+    if (player.autocastSpellId && player.hasSufficientRunes(player.autocastSpellId, false)) {
+        await player.shootMagic(npc, player.autocastSpellId);
         return;
     }
 

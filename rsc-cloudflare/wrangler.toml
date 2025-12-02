@@ -5,3 +5,10 @@ compatibility_date = "2024-11-28"
 [[kv_namespaces]]
 binding = "KV"
 id = "f2881801ac59415a86236d0841f27103"
+
+# Durable Object binding (references the deployed DO Worker)
+[[durable_objects.bindings]]
+name = "RSC_SERVER"
+class_name = "RSCServerDO"
+script_name = "rsc-server-do"
+

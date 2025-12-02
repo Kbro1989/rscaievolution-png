@@ -11,11 +11,11 @@ const ROCK_IDS = new Set(Object.keys(rocks).map(Number));
 const PICKAXE_IDS = Object.keys(pickaxes)
     .map(Number)
     .sort((a, b) => {
-        if (pickaxes[a] === pickaxes[b]) {
+        if (pickaxes[a].attempts === pickaxes[b].attempts) {
             return 0;
         }
 
-        return pickaxes[a] > pickaxes[b] ? -1 : 1;
+        return pickaxes[a].attempts > pickaxes[b].attempts ? -1 : 1;
     });
 
 async function mineRock(player, gameObject) {
@@ -37,16 +37,41 @@ async function mineRock(player, gameObject) {
     }
 
     let bestPickaxeID = -1;
+    let bestPickaxeDef = null;
 
     for (const pickaxeID of PICKAXE_IDS) {
-        if (player.inventory.has(pickaxeID)) {
+        const def = pickaxes[pickaxeID];
+        if (player.inventory.has(pickaxeID) && miningLevel >= def.level) {
             bestPickaxeID = pickaxeID;
+            bestPickaxeDef = def;
             break;
         }
     }
 
     if (bestPickaxeID === -1) {
-        player.message('@que@You need a pickaxe to mine this rock');
+        // Check if they have a pickaxe they can't use
+        let hasPickaxe = false;
+        let reqLevel = 0;
+        for (const pickaxeID of PICKAXE_IDS) {
+            if (player.inventory.has(pickaxeID)) {
+                hasPickaxe = true;
+                reqLevel = pickaxes[pickaxeID].level;
+                break;
+            }
+        }
+
+        // Re-check for specific message
+        const ownedPickaxes = PICKAXE_IDS.filter(id => player.inventory.has(id));
+
+        if (ownedPickaxes.length > 0) {
+            // They have pickaxes, but none they can use.
+            // The best one they have is the first one in ownedPickaxes (since sorted).
+            const bestOwned = ownedPickaxes[0];
+            const levelNeeded = pickaxes[bestOwned].level;
+            player.message(`You need a mining level of ${levelNeeded} to use this pickaxe`);
+        } else {
+            player.message('@que@You need a pickaxe to mine this rock');
+        }
         return true;
     }
 
@@ -66,8 +91,8 @@ async function mineRock(player, gameObject) {
     await world.sleepTicks(3);
 
     const oreSuccess = rollSkillSuccess(
-        rock.roll[0] * pickaxes[bestPickaxeID],
-        rock.roll[1] * pickaxes[bestPickaxeID],
+        rock.roll[0] * bestPickaxeDef.attempts,
+        rock.roll[1] * bestPickaxeDef.attempts,
         miningLevel
     );
 

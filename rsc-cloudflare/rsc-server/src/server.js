@@ -13,9 +13,11 @@ const toBuffer = process.browser ? require('typedarray-to-buffer') : undefined;
 const ws = require('ws');
 
 class Server {
-    constructor(config) {
+    constructor(config, env) {
         this.config = config;
+        this.env = env; // Store env for KV access in Durable Objects
         this.isBrowser = !!process.browser;
+        this.isDurableObject = !!(env && env.KV && !process.browser); // Detect DO mode
 
         this.world = new World(this);
         this.dataClient = new DataClient(this);
@@ -184,7 +186,11 @@ class Server {
 
             this.loadPacketHandlers();
 
-            if (this.isBrowser) {
+            if (this.isDurableObject) {
+                // Durable Object mode - connections are handled externally
+                log.info('Running in Durable Object mode');
+                log.info(`Server initialized: World=${this.config.worldID}, Members=${this.config.members}`);
+            } else if (this.isBrowser) {
                 this.bindWebWorker();
                 postMessage({ type: 'ready' });
             } else {
@@ -194,7 +200,11 @@ class Server {
         } catch (e) {
             console.error(e);
             log.error(e);
-            process.exit(1);
+            if (!this.isDurableObject) {
+                process.exit(1);
+            } else {
+                throw e; // Re-throw in DO mode
+            }
         }
     }
 }

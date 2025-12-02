@@ -23,6 +23,7 @@ module.exports = {
     "items.edible": require('./items/edible.js'),
     "items.oyster": require('./items/oyster.js'),
     "items.quaffable": require('./items/quaffable.js'),
+    "items.potions": require('./items/potions.js'),
     "npcs.cow": require('./npcs/cow.js'),
     "npcs.dragon": require('./npcs/dragon.js'),
     "npcs.general-shopkeeper": require('./npcs/general-shopkeeper.js'),

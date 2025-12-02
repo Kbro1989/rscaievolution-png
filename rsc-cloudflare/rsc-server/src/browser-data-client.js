@@ -58,16 +58,30 @@ class BrowserDataClient {
         this.server = server;
         this.world = this.server.world;
         this.connected = true;
+
+        // Check if we have direct KV access (Durable Object mode)
+        this.isDurableObject = !!(server.env && server.env.KV);
+        this.env = server.env;
+
         // { playerID: username }
         this.playerUsernames = new Map();
         // Cache of loaded players { username: playerObj }
         this.players = new Map();
-        console.log('BrowserDataClient instance:', this);
+
+        console.log('BrowserDataClient instance:', {
+            isDurableObject: this.isDurableObject,
+            hasKV: !!this.env?.KV
+        });
     }
 
     async init() {
-        log.info('BrowserDataClient initialized (KV mode)');
-        console.log('%c RSC KV STORAGE MODE ACTIVE ', 'background: #222; color: #bada55; font-size: 20px');
+        if (this.isDurableObject) {
+            log.info('BrowserDataClient initialized (Durable Object KV mode)');
+            console.log('%c RSC DURABLE OBJECT KV MODE ', 'background: #ff6600; color: white; font-size: 20px');
+        } else {
+            log.info('BrowserDataClient initialized (Browser fetch mode)');
+            console.log('%c RSC KV STORAGE MODE ACTIVE ', 'background: #222; color: #bada55; font-size: 20px');
+        }
     }
 
     async load() {
@@ -86,15 +100,46 @@ class BrowserDataClient {
         }
 
         try {
-            await fetch('/api/player/save', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(player)
-            });
+            if (this.isDurableObject) {
+                // Direct KV access in Durable Object mode
+                const key = `player:${player.username.toLowerCase()}`;
+                await this.env.KV.put(key, JSON.stringify(player));
+            } else {
+                // Browser fetch mode
+                await fetch('/api/player/save', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(player)
+                });
+            }
         } catch (err) {
-            console.error('Error saving player to KV:', err);
+            console.error('Error saving player:', err);
         }
     }
+
+    /**
+     * Get player from KV storage (Durable Object mode only)
+     */
+    async getPlayerFromKV(username) {
+        if (!this.isDurableObject) {
+            throw new Error('getPlayerFromKV only available in Durable Object mode');
+        }
+        const key = `player:${username.toLowerCase()}`;
+        const data = await this.env.KV.get(key, 'json');
+        return data;
+    }
+
+    /**
+     * Save player to KV storage (Durable Object mode only)
+     */
+    async savePlayerToKV(player) {
+        if (!this.isDurableObject) {
+            throw new Error('savePlayerToKV only available in Durable Object mode');
+        }
+        const key = `player:${player.username.toLowerCase()}`;
+        await this.env.KV.put(key, JSON.stringify(player));
+    }
+
 
     async sendAndReceive(message) {
         switch (message.handler) {
@@ -107,27 +152,34 @@ class BrowserDataClient {
                 player.id = Math.floor(Math.random() * 1000000); // Random ID for now
 
                 try {
-                    const res = await fetch('/api/player/register', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(player)
-                    });
+                    if (this.isDurableObject) {
+                        // Direct KV check for existing player
+                        const existing = await this.getPlayerFromKV(message.username);
+                        if (existing) {
+                            return { success: false, code: 4 }; // Username taken
+                        }
 
-                    if (res.ok) {
+                        // Save new player to KV
+                        await this.savePlayerToKV(player);
                         this.players.set(player.username, player);
                         return { success: true, player };
                     } else {
-                        // 3 usually means "Invalid credentials" but here we use it for "Registration failed" (e.g. taken)
-                        // The client might expect specific codes. 
-                        // Code 2 = "Already logged in"
-                        // Code 3 = "Invalid username/password"
-                        // Code 4 = "Username taken" (in some versions)
-                        // Let's assume generic failure for now or check status
-                        if (res.status === 409) {
-                            // Username taken
-                            return { success: false, code: 4 }; // Assuming 4 is appropriate for "taken" or generic error
+                        // Browser fetch mode
+                        const res = await fetch('/api/player/register', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(player)
+                        });
+
+                        if (res.ok) {
+                            this.players.set(player.username, player);
+                            return { success: true, player };
+                        } else {
+                            if (res.status === 409) {
+                                return { success: false, code: 4 }; // Username taken
+                            }
+                            return { success: false, code: 3 };
                         }
-                        return { success: false, code: 3 };
                     }
                 } catch (err) {
                     console.error('Register error:', err);
@@ -144,21 +196,33 @@ class BrowserDataClient {
                 }
 
                 try {
-                    const res = await fetch('/api/player/login', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            username: message.username,
-                            password: message.password
-                        })
-                    });
-                    const data = await res.json();
+                    let player;
 
-                    if (!data.success) {
-                        return { success: false, code: 3 };
+                    if (this.isDurableObject) {
+                        // Direct KV access
+                        player = await this.getPlayerFromKV(message.username);
+
+                        if (!player || player.password !== message.password) {
+                            return { success: false, code: 3 }; // Invalid credentials
+                        }
+                    } else {
+                        // Browser fetch mode
+                        const res = await fetch('/api/player/login', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                username: message.username,
+                                password: message.password
+                            })
+                        });
+                        const data = await res.json();
+
+                        if (!data.success) {
+                            return { success: false, code: 3 };
+                        }
+
+                        player = data.player;
                     }
-
-                    const player = data.player;
 
                     if (player.world) {
                         // Force reset world if stuck
