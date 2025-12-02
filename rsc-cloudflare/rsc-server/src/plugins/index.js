@@ -206,4 +206,5 @@ module.exports = {
     "quests.members.druidic-ritual.sanfew": require('./quests/members/druidic-ritual/sanfew.js'),
     "quests.members.monks-friend.brother-cedric": require('./quests/members/monks-friend/brother-cedric.js'),
     "quests.members.monks-friend.brother-omad": require('./quests/members/monks-friend/brother-omad.js'),
+    "skills.prayer": require('./skills/prayer.js')
 };
