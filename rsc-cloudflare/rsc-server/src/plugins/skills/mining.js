@@ -118,7 +118,7 @@ async function onGameObjectCommandOne(player, gameObject) {
         return false;
     }
 
-    await mineRock(player, gameObject);
+    return await mineRock(player, gameObject);
 }
 
 async function onGameObjectCommandTwo(player, gameObject) {
@@ -126,7 +126,7 @@ async function onGameObjectCommandTwo(player, gameObject) {
         return false;
     }
 
-    await prospectRock(player, gameObject);
+    return await prospectRock(player, gameObject);
 }
 
 module.exports = { onGameObjectCommandOne, onGameObjectCommandTwo };
