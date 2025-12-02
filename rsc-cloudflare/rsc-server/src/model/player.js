@@ -92,19 +92,12 @@ class Player extends Character {
         this.oneMouseButton = playerData.oneMouseButton;
         this.soundOn = 1; // Force sound enabled to fix broken default for existing users
 
+
         // privacy settings
         this.blockChat = playerData.blockChat;
         this.blockPrivateChat = playerData.blockPrivateChat;
         this.blockTrade = playerData.blockTrade;
         this.blockDuel = playerData.blockDuel;
-
-        // Fix for missing base levels (if they were not saved)
-        for (const skillName of Object.keys(this.skills)) {
-            const skill = this.skills[skillName];
-            if (!skill.base) {
-                skill.base = experienceToLevel(skill.experience);
-            }
-        }
 
         // ticks remaining until unskulled
         this.skulled = playerData.skulled;
@@ -116,10 +109,12 @@ class Player extends Character {
 
         this.skills = playerData.skills;
 
+        // Fix for missing base levels (if they were not saved)
         for (const skillName of Object.keys(this.skills)) {
-            this.skills[skillName].base = experienceToLevel(
-                this.skills[skillName].experience
-            );
+            const skill = this.skills[skillName];
+            if (!skill.base) {
+                skill.base = experienceToLevel(skill.experience);
+            }
         }
 
         this.combatLevel = this.getCombatLevel();
