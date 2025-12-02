@@ -1364,7 +1364,7 @@ class Player extends Character {
 
             if (!this.inventory.contains(rune.id, rune.amount)) {
                 if (showMessage) {
-                    const items = require('@2003scape/rsc-data/items');
+                    const items = require('@2003scape/rsc-data/config/items');
                     const runeName = items[rune.id]?.name || 'rune';
                     this.message(`@que@You do not have enough ${runeName}s to cast this spell.`);
                 }

@@ -1,5 +1,5 @@
 const spells = require('@2003scape/rsc-data/config/spells.json');
-const { items } = require('@2003scape/rsc-data/items');
+const items = require('@2003scape/rsc-data/config/items');
 
 // Teleport destinations
 const TELEPORTS = {
