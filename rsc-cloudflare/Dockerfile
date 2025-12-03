@@ -25,7 +25,7 @@ RUN npm ci --only=production
 # Copy server source code and data
 COPY rsc-server/src ./src
 COPY rsc-server/config.json ./config.json
-COPY rsc-data /rsc-data
+COPY rsc-data ./rsc-data
 
 # Debug: List copied data files
 RUN ls -R /rsc-data
