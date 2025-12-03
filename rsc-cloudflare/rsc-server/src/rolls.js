@@ -104,4 +104,30 @@ function rollCascadedSkillSuccess(rolls, level) {
     return -1;
 }
 
-module.exports = { rollItemDrop, rollSkillSuccess, rollCascadedSkillSuccess };
+// Authentic RSC production success formula
+// Used for Cooking, Crafting, Firemaking, Woodcutting
+function calcProductionSuccessfulLegacy(levelReq, skillLevel, stopsFailing, levelStopFail, minFailChance = 1) {
+    const roll = Math.floor(Math.random() * 256) + 1; // 1-256
+
+    if (skillLevel < levelReq) {
+        return false;
+    }
+
+    // min chance is 64/256
+    const maxThreshold = stopsFailing ? 256 : 256 - minFailChance;
+
+    // Formula from OpenRSC Formulae.java
+    const threshold = Math.min(
+        maxThreshold,
+        Math.floor(64 + (skillLevel - 1) * (19200.0 / (levelStopFail * 98)))
+    );
+
+    return roll <= threshold;
+}
+
+module.exports = {
+    rollItemDrop,
+    rollSkillSuccess,
+    rollCascadedSkillSuccess,
+    calcProductionSuccessfulLegacy
+};

@@ -5,8 +5,14 @@
         "level": 1,
         "type": "offensive",
         "runes": [
-            { "id": 33, "amount": 1 },
-            { "id": 35, "amount": 1 }
+            {
+                "id": 33,
+                "amount": 1
+            },
+            {
+                "id": 35,
+                "amount": 1
+            }
         ]
     },
     {
@@ -15,9 +21,18 @@
         "level": 3,
         "type": "offensive",
         "runes": [
-            { "id": 32, "amount": 3 },
-            { "id": 34, "amount": 2 },
-            { "id": 36, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 3
+            },
+            {
+                "id": 34,
+                "amount": 2
+            },
+            {
+                "id": 36,
+                "amount": 1
+            }
         ]
     },
     {
@@ -26,9 +41,18 @@
         "level": 5,
         "type": "offensive",
         "runes": [
-            { "id": 32, "amount": 1 },
-            { "id": 33, "amount": 1 },
-            { "id": 35, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 1
+            },
+            {
+                "id": 33,
+                "amount": 1
+            },
+            {
+                "id": 35,
+                "amount": 1
+            }
         ]
     },
     {
@@ -37,8 +61,14 @@
         "level": 7,
         "type": "inventory",
         "runes": [
-            { "id": 32, "amount": 1 },
-            { "id": 46, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 1
+            },
+            {
+                "id": 46,
+                "amount": 1
+            }
         ]
     },
     {
@@ -47,9 +77,18 @@
         "level": 9,
         "type": "offensive",
         "runes": [
-            { "id": 34, "amount": 2 },
-            { "id": 33, "amount": 1 },
-            { "id": 35, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 2
+            },
+            {
+                "id": 33,
+                "amount": 1
+            },
+            {
+                "id": 35,
+                "amount": 1
+            }
         ]
     },
     {
@@ -58,9 +97,18 @@
         "level": 11,
         "type": "offensive",
         "runes": [
-            { "id": 32, "amount": 3 },
-            { "id": 34, "amount": 2 },
-            { "id": 36, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 3
+            },
+            {
+                "id": 34,
+                "amount": 2
+            },
+            {
+                "id": 36,
+                "amount": 1
+            }
         ]
     },
     {
@@ -69,9 +117,18 @@
         "level": 13,
         "type": "offensive",
         "runes": [
-            { "id": 31, "amount": 3 },
-            { "id": 33, "amount": 2 },
-            { "id": 35, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 3
+            },
+            {
+                "id": 33,
+                "amount": 2
+            },
+            {
+                "id": 35,
+                "amount": 1
+            }
         ]
     },
     {
@@ -80,9 +137,18 @@
         "level": 15,
         "type": "self",
         "runes": [
-            { "id": 34, "amount": 2 },
-            { "id": 32, "amount": 2 },
-            { "id": 40, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 2
+            },
+            {
+                "id": 32,
+                "amount": 2
+            },
+            {
+                "id": 40,
+                "amount": 1
+            }
         ]
     },
     {
@@ -91,8 +157,14 @@
         "level": 17,
         "type": "offensive",
         "runes": [
-            { "id": 33, "amount": 2 },
-            { "id": 41, "amount": 1 }
+            {
+                "id": 33,
+                "amount": 2
+            },
+            {
+                "id": 41,
+                "amount": 1
+            }
         ]
     },
     {
@@ -101,9 +173,18 @@
         "level": 19,
         "type": "offensive",
         "runes": [
-            { "id": 32, "amount": 2 },
-            { "id": 34, "amount": 3 },
-            { "id": 36, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 2
+            },
+            {
+                "id": 34,
+                "amount": 3
+            },
+            {
+                "id": 36,
+                "amount": 1
+            }
         ]
     },
     {
@@ -112,8 +193,14 @@
         "level": 21,
         "type": "inventory",
         "runes": [
-            { "id": 31, "amount": 3 },
-            { "id": 40, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 3
+            },
+            {
+                "id": 40,
+                "amount": 1
+            }
         ]
     },
     {
@@ -122,9 +209,18 @@
         "level": 23,
         "type": "offensive",
         "runes": [
-            { "id": 32, "amount": 2 },
-            { "id": 33, "amount": 2 },
-            { "id": 41, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 2
+            },
+            {
+                "id": 33,
+                "amount": 2
+            },
+            {
+                "id": 41,
+                "amount": 1
+            }
         ]
     },
     {
@@ -133,9 +229,18 @@
         "level": 25,
         "type": "self",
         "runes": [
-            { "id": 31, "amount": 1 },
-            { "id": 33, "amount": 3 },
-            { "id": 42, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 1
+            },
+            {
+                "id": 33,
+                "amount": 3
+            },
+            {
+                "id": 42,
+                "amount": 1
+            }
         ]
     },
     {
@@ -144,8 +249,14 @@
         "level": 27,
         "type": "inventory",
         "runes": [
-            { "id": 33, "amount": 3 },
-            { "id": 46, "amount": 1 }
+            {
+                "id": 33,
+                "amount": 3
+            },
+            {
+                "id": 46,
+                "amount": 1
+            }
         ]
     },
     {
@@ -154,9 +265,18 @@
         "level": 29,
         "type": "offensive",
         "runes": [
-            { "id": 34, "amount": 3 },
-            { "id": 33, "amount": 2 },
-            { "id": 41, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 3
+            },
+            {
+                "id": 33,
+                "amount": 2
+            },
+            {
+                "id": 41,
+                "amount": 1
+            }
         ]
     },
     {
@@ -165,9 +285,18 @@
         "level": 31,
         "type": "self",
         "runes": [
-            { "id": 34, "amount": 1 },
-            { "id": 33, "amount": 3 },
-            { "id": 42, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 1
+            },
+            {
+                "id": 33,
+                "amount": 3
+            },
+            {
+                "id": 42,
+                "amount": 1
+            }
         ]
     },
     {
@@ -176,8 +305,14 @@
         "level": 33,
         "type": "inventory",
         "runes": [
-            { "id": 33, "amount": 1 },
-            { "id": 42, "amount": 1 }
+            {
+                "id": 33,
+                "amount": 1
+            },
+            {
+                "id": 42,
+                "amount": 1
+            }
         ]
     },
     {
@@ -186,9 +321,18 @@
         "level": 35,
         "type": "offensive",
         "runes": [
-            { "id": 31, "amount": 4 },
-            { "id": 33, "amount": 3 },
-            { "id": 41, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 4
+            },
+            {
+                "id": 33,
+                "amount": 3
+            },
+            {
+                "id": 41,
+                "amount": 1
+            }
         ]
     },
     {
@@ -197,9 +341,18 @@
         "level": 37,
         "type": "self",
         "runes": [
-            { "id": 32, "amount": 1 },
-            { "id": 33, "amount": 3 },
-            { "id": 42, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 1
+            },
+            {
+                "id": 33,
+                "amount": 3
+            },
+            {
+                "id": 42,
+                "amount": 1
+            }
         ]
     },
     {
@@ -208,9 +361,18 @@
         "level": 39,
         "type": "offensive",
         "runes": [
-            { "id": 34, "amount": 2 },
-            { "id": 33, "amount": 2 },
-            { "id": 41, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 2
+            },
+            {
+                "id": 33,
+                "amount": 2
+            },
+            {
+                "id": 41,
+                "amount": 1
+            }
         ]
     },
     {
@@ -219,8 +381,14 @@
         "level": 41,
         "type": "offensive",
         "runes": [
-            { "id": 33, "amount": 3 },
-            { "id": 38, "amount": 1 }
+            {
+                "id": 33,
+                "amount": 3
+            },
+            {
+                "id": 38,
+                "amount": 1
+            }
         ]
     },
     {
@@ -229,8 +397,14 @@
         "level": 43,
         "type": "inventory",
         "runes": [
-            { "id": 31, "amount": 4 },
-            { "id": 40, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 4
+            },
+            {
+                "id": 40,
+                "amount": 1
+            }
         ]
     },
     {
@@ -239,8 +413,14 @@
         "level": 45,
         "type": "self",
         "runes": [
-            { "id": 33, "amount": 5 },
-            { "id": 42, "amount": 1 }
+            {
+                "id": 33,
+                "amount": 5
+            },
+            {
+                "id": 42,
+                "amount": 1
+            }
         ]
     },
     {
@@ -249,9 +429,18 @@
         "level": 47,
         "type": "offensive",
         "runes": [
-            { "id": 32, "amount": 3 },
-            { "id": 33, "amount": 3 },
-            { "id": 38, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 3
+            },
+            {
+                "id": 33,
+                "amount": 3
+            },
+            {
+                "id": 38,
+                "amount": 1
+            }
         ]
     },
     {
@@ -260,8 +449,14 @@
         "level": 49,
         "type": "inventory",
         "runes": [
-            { "id": 31, "amount": 5 },
-            { "id": 46, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 5
+            },
+            {
+                "id": 46,
+                "amount": 1
+            }
         ]
     },
     {
@@ -270,8 +465,14 @@
         "level": 50,
         "type": "offensive",
         "runes": [
-            { "id": 31, "amount": 5 },
-            { "id": 38, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 5
+            },
+            {
+                "id": 38,
+                "amount": 1
+            }
         ]
     },
     {
@@ -280,8 +481,14 @@
         "level": 51,
         "type": "self",
         "runes": [
-            { "id": 32, "amount": 2 },
-            { "id": 42, "amount": 2 }
+            {
+                "id": 32,
+                "amount": 2
+            },
+            {
+                "id": 42,
+                "amount": 2
+            }
         ]
     },
     {
@@ -290,9 +497,18 @@
         "level": 53,
         "type": "offensive",
         "runes": [
-            { "id": 34, "amount": 4 },
-            { "id": 33, "amount": 3 },
-            { "id": 38, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 4
+            },
+            {
+                "id": 33,
+                "amount": 3
+            },
+            {
+                "id": 38,
+                "amount": 1
+            }
         ]
     },
     {
@@ -301,8 +517,14 @@
         "level": 55,
         "type": "inventory",
         "runes": [
-            { "id": 31, "amount": 5 },
-            { "id": 40, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 5
+            },
+            {
+                "id": 40,
+                "amount": 1
+            }
         ]
     },
     {
@@ -311,9 +533,18 @@
         "level": 56,
         "type": "object",
         "runes": [
-            { "id": 32, "amount": 30 },
-            { "id": 46, "amount": 3 },
-            { "id": 611, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 30
+            },
+            {
+                "id": 46,
+                "amount": 3
+            },
+            {
+                "id": 611,
+                "amount": 1
+            }
         ]
     },
     {
@@ -322,8 +553,14 @@
         "level": 57,
         "type": "inventory",
         "runes": [
-            { "id": 34, "amount": 10 },
-            { "id": 46, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 10
+            },
+            {
+                "id": 46,
+                "amount": 1
+            }
         ]
     },
     {
@@ -332,8 +569,14 @@
         "level": 58,
         "type": "self",
         "runes": [
-            { "id": 34, "amount": 2 },
-            { "id": 42, "amount": 2 }
+            {
+                "id": 34,
+                "amount": 2
+            },
+            {
+                "id": 42,
+                "amount": 2
+            }
         ]
     },
     {
@@ -342,9 +585,18 @@
         "level": 59,
         "type": "offensive",
         "runes": [
-            { "id": 31, "amount": 5 },
-            { "id": 33, "amount": 4 },
-            { "id": 38, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 5
+            },
+            {
+                "id": 33,
+                "amount": 4
+            },
+            {
+                "id": 38,
+                "amount": 1
+            }
         ]
     },
     {
@@ -353,9 +605,18 @@
         "level": 60,
         "type": "offensive",
         "runes": [
-            { "id": 31, "amount": 1 },
-            { "id": 33, "amount": 4 },
-            { "id": 619, "amount": 2 }
+            {
+                "id": 31,
+                "amount": 1
+            },
+            {
+                "id": 33,
+                "amount": 4
+            },
+            {
+                "id": 1302,
+                "amount": 2
+            }
         ]
     },
     {
@@ -364,9 +625,18 @@
         "level": 60,
         "type": "offensive",
         "runes": [
-            { "id": 31, "amount": 2 },
-            { "id": 33, "amount": 4 },
-            { "id": 619, "amount": 2 }
+            {
+                "id": 31,
+                "amount": 2
+            },
+            {
+                "id": 33,
+                "amount": 4
+            },
+            {
+                "id": 1302,
+                "amount": 2
+            }
         ]
     },
     {
@@ -375,9 +645,18 @@
         "level": 60,
         "type": "offensive",
         "runes": [
-            { "id": 31, "amount": 4 },
-            { "id": 33, "amount": 1 },
-            { "id": 619, "amount": 2 }
+            {
+                "id": 31,
+                "amount": 4
+            },
+            {
+                "id": 33,
+                "amount": 1
+            },
+            {
+                "id": 1302,
+                "amount": 2
+            }
         ]
     },
     {
@@ -386,9 +665,18 @@
         "level": 60,
         "type": "object",
         "runes": [
-            { "id": 34, "amount": 30 },
-            { "id": 46, "amount": 3 },
-            { "id": 611, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 30
+            },
+            {
+                "id": 46,
+                "amount": 3
+            },
+            {
+                "id": 611,
+                "amount": 1
+            }
         ]
     },
     {
@@ -397,8 +685,14 @@
         "level": 62,
         "type": "offensive",
         "runes": [
-            { "id": 33, "amount": 5 },
-            { "id": 619, "amount": 1 }
+            {
+                "id": 33,
+                "amount": 5
+            },
+            {
+                "id": 1302,
+                "amount": 1
+            }
         ]
     },
     {
@@ -407,9 +701,18 @@
         "level": 63,
         "type": "object",
         "runes": [
-            { "id": 31, "amount": 30 },
-            { "id": 46, "amount": 3 },
-            { "id": 611, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 30
+            },
+            {
+                "id": 46,
+                "amount": 3
+            },
+            {
+                "id": 611,
+                "amount": 1
+            }
         ]
     },
     {
@@ -418,9 +721,18 @@
         "level": 65,
         "type": "offensive",
         "runes": [
-            { "id": 32, "amount": 7 },
-            { "id": 33, "amount": 5 },
-            { "id": 619, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 7
+            },
+            {
+                "id": 33,
+                "amount": 5
+            },
+            {
+                "id": 1302,
+                "amount": 1
+            }
         ]
     },
     {
@@ -429,9 +741,18 @@
         "level": 66,
         "type": "object",
         "runes": [
-            { "id": 33, "amount": 30 },
-            { "id": 46, "amount": 3 },
-            { "id": 611, "amount": 1 }
+            {
+                "id": 33,
+                "amount": 30
+            },
+            {
+                "id": 46,
+                "amount": 3
+            },
+            {
+                "id": 611,
+                "amount": 1
+            }
         ]
     },
     {
@@ -440,9 +761,18 @@
         "level": 66,
         "type": "offensive",
         "runes": [
-            { "id": 34, "amount": 5 },
-            { "id": 32, "amount": 5 },
-            { "id": 825, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 5
+            },
+            {
+                "id": 32,
+                "amount": 5
+            },
+            {
+                "id": 825,
+                "amount": 1
+            }
         ]
     },
     {
@@ -451,9 +781,18 @@
         "level": 68,
         "type": "inventory",
         "runes": [
-            { "id": 32, "amount": 15 },
-            { "id": 34, "amount": 15 },
-            { "id": 46, "amount": 1 }
+            {
+                "id": 32,
+                "amount": 15
+            },
+            {
+                "id": 34,
+                "amount": 15
+            },
+            {
+                "id": 46,
+                "amount": 1
+            }
         ]
     },
     {
@@ -462,9 +801,18 @@
         "level": 70,
         "type": "offensive",
         "runes": [
-            { "id": 34, "amount": 7 },
-            { "id": 33, "amount": 5 },
-            { "id": 619, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 7
+            },
+            {
+                "id": 33,
+                "amount": 5
+            },
+            {
+                "id": 1302,
+                "amount": 1
+            }
         ]
     },
     {
@@ -473,9 +821,18 @@
         "level": 73,
         "type": "offensive",
         "runes": [
-            { "id": 34, "amount": 8 },
-            { "id": 32, "amount": 8 },
-            { "id": 825, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 8
+            },
+            {
+                "id": 32,
+                "amount": 8
+            },
+            {
+                "id": 825,
+                "amount": 1
+            }
         ]
     },
     {
@@ -484,9 +841,18 @@
         "level": 75,
         "type": "offensive",
         "runes": [
-            { "id": 31, "amount": 7 },
-            { "id": 33, "amount": 5 },
-            { "id": 619, "amount": 1 }
+            {
+                "id": 31,
+                "amount": 7
+            },
+            {
+                "id": 33,
+                "amount": 5
+            },
+            {
+                "id": 1302,
+                "amount": 1
+            }
         ]
     },
     {
@@ -495,9 +861,18 @@
         "level": 80,
         "type": "offensive",
         "runes": [
-            { "id": 34, "amount": 12 },
-            { "id": 32, "amount": 12 },
-            { "id": 825, "amount": 1 }
+            {
+                "id": 34,
+                "amount": 12
+            },
+            {
+                "id": 32,
+                "amount": 12
+            },
+            {
+                "id": 825,
+                "amount": 1
+            }
         ]
     },
     {
@@ -506,10 +881,18 @@
         "level": 80,
         "type": "self",
         "runes": [
-            { "id": 31, "amount": 3 },
-            { "id": 33, "amount": 3 },
-            { "id": 619, "amount": 3 }
+            {
+                "id": 31,
+                "amount": 3
+            },
+            {
+                "id": 33,
+                "amount": 3
+            },
+            {
+                "id": 1302,
+                "amount": 3
+            }
         ]
     }
 ]
-

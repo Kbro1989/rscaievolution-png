@@ -98,6 +98,25 @@ class Player extends Character {
         // database ID
         this.id = playerData.id;
 
+        // OpenRSC-style update flags for delta synchronization
+        this.lastX = null;
+        this.lastY = null;
+        this.lastSprite = null;
+
+        // Local entity tracking (max 255 each)
+        this.localPlayers = new Set();
+        this.localNpcs = new Set();
+        this.knownAppearances = new Map(); // player username -> appearance hash
+
+        // Session tracking
+        this.lastClientActivity = Date.now();
+        this.lastMoved = Date.now();
+        this.lastSaveTime = Date.now();
+        this.warnedToMove = false;
+
+        // Region reference (set by RegionManager)
+        this.currentRegion = null;
+
         // moderator or administrator?
         this.group = playerData.group;
 
@@ -1570,7 +1589,7 @@ class Player extends Character {
 
         const spellData = COMBAT_SPELLS[spell.name];
         const maxHit = spellData.maxHit;
-        const damage = rollPlayerNPCMagicDamage(this, character, maxHit);
+        const damage = rollPlayerNPCMagicDamage(this, character, maxHit, spell.name);
 
         character.damage(damage, this);
         this.sendProjectile(character, 2);

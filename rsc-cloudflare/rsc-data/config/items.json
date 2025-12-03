@@ -7,7 +7,9 @@
         "price": 63,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -20,7 +22,9 @@
         "price": 91,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -33,7 +37,9 @@
         "price": 238,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -46,7 +52,9 @@
         "price": 168,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -59,7 +67,9 @@
         "price": 20,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -72,7 +82,9 @@
         "price": 84,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -85,7 +97,10 @@
         "price": 154,
         "stackable": false,
         "special": false,
-        "equip": ["head", "replace-head"],
+        "equip": [
+            "head",
+            "replace-head"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -98,7 +113,9 @@
         "price": 210,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -111,7 +128,11 @@
         "price": 560,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -124,7 +145,11 @@
         "price": 280,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs", "replace-legs"],
+        "equip": [
+            "feet",
+            "legs",
+            "replace-legs"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -163,7 +188,9 @@
         "price": 56,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -202,7 +229,9 @@
         "price": 21,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -215,7 +244,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["hands"],
+        "equip": [
+            "hands"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -228,7 +259,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["feet"],
+        "equip": [
+            "feet"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -319,7 +352,9 @@
         "price": 35,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": true,
         "members": false
@@ -371,7 +406,9 @@
         "price": 35,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -592,7 +629,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -683,7 +722,9 @@
         "price": 50,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -774,7 +815,9 @@
         "price": 4,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -787,7 +830,9 @@
         "price": 70,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -813,7 +858,9 @@
         "price": 10,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -826,7 +873,9 @@
         "price": 125,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -839,7 +888,9 @@
         "price": 325,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -852,7 +903,9 @@
         "price": 800,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -865,7 +918,9 @@
         "price": 26,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -878,7 +933,9 @@
         "price": 325,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -891,7 +948,9 @@
         "price": 845,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -904,7 +963,9 @@
         "price": 2080,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -917,7 +978,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -930,7 +993,9 @@
         "price": 140,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -943,7 +1008,9 @@
         "price": 500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -956,7 +1023,9 @@
         "price": 1300,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -969,7 +1038,9 @@
         "price": 3200,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -982,7 +1053,9 @@
         "price": 32000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -995,7 +1068,11 @@
         "price": 80,
         "stackable": false,
         "special": false,
-        "equip": ["2-handed", "right-hand", "left-hand"],
+        "equip": [
+            "2-handed",
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1008,7 +1085,11 @@
         "price": 280,
         "stackable": false,
         "special": false,
-        "equip": ["2-handed", "right-hand", "left-hand"],
+        "equip": [
+            "2-handed",
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -1021,7 +1102,11 @@
         "price": 1000,
         "stackable": false,
         "special": false,
-        "equip": ["2-handed", "right-hand", "left-hand"],
+        "equip": [
+            "2-handed",
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1034,7 +1119,11 @@
         "price": 2600,
         "stackable": false,
         "special": false,
-        "equip": ["2-handed", "right-hand", "left-hand"],
+        "equip": [
+            "2-handed",
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1047,7 +1136,11 @@
         "price": 6400,
         "stackable": false,
         "special": false,
-        "equip": ["2-handed", "right-hand", "left-hand"],
+        "equip": [
+            "2-handed",
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1060,7 +1153,11 @@
         "price": 64000,
         "stackable": false,
         "special": false,
-        "equip": ["2-handed", "right-hand", "left-hand"],
+        "equip": [
+            "2-handed",
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -1073,7 +1170,9 @@
         "price": 32,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1086,7 +1185,9 @@
         "price": 112,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -1099,7 +1200,9 @@
         "price": 400,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1112,7 +1215,9 @@
         "price": 1040,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1125,7 +1230,9 @@
         "price": 2560,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1138,7 +1245,9 @@
         "price": 16,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1151,7 +1260,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1164,7 +1275,9 @@
         "price": 182,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -1177,7 +1290,9 @@
         "price": 650,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1190,7 +1305,9 @@
         "price": 1690,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1203,7 +1320,9 @@
         "price": 4160,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1216,7 +1335,9 @@
         "price": 41600,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -1229,7 +1350,9 @@
         "price": 18,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1242,7 +1365,9 @@
         "price": 225,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1255,7 +1380,9 @@
         "price": 585,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1268,7 +1395,9 @@
         "price": 1440,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1281,7 +1410,9 @@
         "price": 14400,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -1307,7 +1438,9 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1320,7 +1453,9 @@
         "price": 1500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -1333,7 +1468,9 @@
         "price": 1500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": false
@@ -1346,7 +1483,9 @@
         "price": 1500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(112, 53, 0)",
         "untradeable": false,
         "members": false
@@ -1359,7 +1498,9 @@
         "price": 24,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1372,7 +1513,9 @@
         "price": 300,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1385,7 +1528,9 @@
         "price": 780,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1398,7 +1543,9 @@
         "price": 1920,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1411,7 +1558,10 @@
         "price": 44,
         "stackable": false,
         "special": false,
-        "equip": ["head", "replace-head"],
+        "equip": [
+            "head",
+            "replace-head"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1424,7 +1574,10 @@
         "price": 550,
         "stackable": false,
         "special": false,
-        "equip": ["head", "replace-head"],
+        "equip": [
+            "head",
+            "replace-head"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1437,7 +1590,10 @@
         "price": 1430,
         "stackable": false,
         "special": false,
-        "equip": ["head", "replace-head"],
+        "equip": [
+            "head",
+            "replace-head"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1450,7 +1606,10 @@
         "price": 3520,
         "stackable": false,
         "special": false,
-        "equip": ["head", "replace-head"],
+        "equip": [
+            "head",
+            "replace-head"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1463,7 +1622,10 @@
         "price": 35200,
         "stackable": false,
         "special": false,
-        "equip": ["head", "replace-head"],
+        "equip": [
+            "head",
+            "replace-head"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -1476,7 +1638,9 @@
         "price": 60,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1489,7 +1653,9 @@
         "price": 750,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1502,7 +1668,9 @@
         "price": 1950,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1515,7 +1683,9 @@
         "price": 4800,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1528,7 +1698,11 @@
         "price": 160,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1541,7 +1715,11 @@
         "price": 2000,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1554,7 +1732,11 @@
         "price": 5200,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1567,7 +1749,11 @@
         "price": 12800,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1580,7 +1766,11 @@
         "price": 1000,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs", "replace-legs"],
+        "equip": [
+            "feet",
+            "legs",
+            "replace-legs"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1593,7 +1783,11 @@
         "price": 2600,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs", "replace-legs"],
+        "equip": [
+            "feet",
+            "legs",
+            "replace-legs"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1606,7 +1800,11 @@
         "price": 6400,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs", "replace-legs"],
+        "equip": [
+            "feet",
+            "legs",
+            "replace-legs"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1619,7 +1817,9 @@
         "price": 48,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1632,7 +1832,9 @@
         "price": 600,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1645,7 +1847,9 @@
         "price": 1560,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1658,7 +1862,9 @@
         "price": 3840,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -1671,7 +1877,9 @@
         "price": 68,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -1684,7 +1892,9 @@
         "price": 850,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -1697,7 +1907,9 @@
         "price": 2210,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -1710,7 +1922,9 @@
         "price": 5440,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -2373,7 +2587,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -2386,7 +2602,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": false
@@ -2399,7 +2617,9 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": false
@@ -2412,7 +2632,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": false
@@ -2425,7 +2647,9 @@
         "price": 30,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -2438,7 +2662,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": false
@@ -2451,7 +2677,10 @@
         "price": 80,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(0, 255, 0)",
         "untradeable": false,
         "members": false
@@ -2464,7 +2693,10 @@
         "price": 50,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(0, 255, 0)",
         "untradeable": false,
         "members": false
@@ -2490,7 +2722,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(149, 96, 48)",
         "untradeable": false,
         "members": false
@@ -2503,7 +2737,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -2529,7 +2765,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(244, 179, 243)",
         "untradeable": false,
         "members": false
@@ -2542,7 +2780,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(64, 64, 64)",
         "untradeable": false,
         "members": false
@@ -2555,7 +2795,11 @@
         "price": 3840,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -2568,7 +2812,9 @@
         "price": 1500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": false
@@ -2581,7 +2827,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 255, 255)",
         "untradeable": false,
         "members": false
@@ -2594,7 +2842,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(64, 64, 64)",
         "untradeable": false,
         "members": false
@@ -2646,7 +2896,9 @@
         "price": 520,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -2659,7 +2911,9 @@
         "price": 1280,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -2672,7 +2926,9 @@
         "price": 52,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -2685,7 +2941,11 @@
         "price": 80,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs", "replace-legs"],
+        "equip": [
+            "feet",
+            "legs",
+            "replace-legs"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -2724,7 +2984,9 @@
         "price": 7,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(37, 37, 37)",
         "untradeable": false,
         "members": false
@@ -2789,7 +3051,10 @@
         "price": 80,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs"],
+        "equip": [
+            "feet",
+            "legs"
+        ],
         "colour": "rgb(128, 48, 25)",
         "untradeable": false,
         "members": false
@@ -2802,7 +3067,10 @@
         "price": 280,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs"],
+        "equip": [
+            "feet",
+            "legs"
+        ],
         "colour": "rgb(119, 102, 102)",
         "untradeable": false,
         "members": false
@@ -2815,7 +3083,9 @@
         "price": 13,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(64, 64, 64)",
         "untradeable": false,
         "members": false
@@ -2828,7 +3098,9 @@
         "price": 8,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": true,
         "members": false
@@ -2932,7 +3204,10 @@
         "price": 1000,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs"],
+        "equip": [
+            "feet",
+            "legs"
+        ],
         "colour": "rgb(119, 119, 119)",
         "untradeable": false,
         "members": false
@@ -2945,7 +3220,10 @@
         "price": 2600,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs"],
+        "equip": [
+            "feet",
+            "legs"
+        ],
         "colour": "rgb(34, 66, 85)",
         "untradeable": false,
         "members": false
@@ -2958,7 +3236,10 @@
         "price": 6400,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs"],
+        "equip": [
+            "feet",
+            "legs"
+        ],
         "colour": "rgb(66, 85, 34)",
         "untradeable": false,
         "members": false
@@ -2984,7 +3265,9 @@
         "price": 32,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(64, 64, 238)",
         "untradeable": false,
         "members": false
@@ -2997,7 +3280,10 @@
         "price": 1056,
         "stackable": false,
         "special": false,
-        "equip": ["head", "replace-head"],
+        "equip": [
+            "head",
+            "replace-head"
+        ],
         "colour": "rgb(64, 64, 64)",
         "untradeable": false,
         "members": false
@@ -3062,7 +3348,9 @@
         "price": 100,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -3231,7 +3519,11 @@
         "price": 1920,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs", "replace-legs"],
+        "equip": [
+            "feet",
+            "legs",
+            "replace-legs"
+        ],
         "colour": "rgb(64, 64, 64)",
         "untradeable": false,
         "members": false
@@ -3452,7 +3744,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": true,
         "members": false
@@ -3751,7 +4045,9 @@
         "price": 450,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(255, 204, 76)",
         "untradeable": false,
         "members": false
@@ -3764,7 +4060,9 @@
         "price": 1050,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(0, 76, 255)",
         "untradeable": false,
         "members": false
@@ -3777,7 +4075,9 @@
         "price": 1425,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(51, 204, 51)",
         "untradeable": false,
         "members": false
@@ -3790,7 +4090,9 @@
         "price": 2175,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(255, 51, 0)",
         "untradeable": false,
         "members": false
@@ -3803,7 +4105,9 @@
         "price": 3675,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -3920,7 +4224,9 @@
         "price": 350,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(255, 204, 76)",
         "untradeable": false,
         "members": false
@@ -3933,7 +4239,9 @@
         "price": 900,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(0, 76, 255)",
         "untradeable": false,
         "members": false
@@ -3946,7 +4254,9 @@
         "price": 1275,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(51, 204, 51)",
         "untradeable": false,
         "members": false
@@ -3959,7 +4269,9 @@
         "price": 2025,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(255, 51, 0)",
         "untradeable": false,
         "members": false
@@ -3972,7 +4284,9 @@
         "price": 3525,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -3998,7 +4312,9 @@
         "price": 4500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(204, 153, 178)",
         "untradeable": false,
         "members": false
@@ -4011,7 +4327,11 @@
         "price": 160,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": false
@@ -4024,7 +4344,11 @@
         "price": 2000,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": false
@@ -4037,7 +4361,11 @@
         "price": 5200,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": false
@@ -4050,7 +4378,11 @@
         "price": 12800,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": false
@@ -4063,7 +4395,11 @@
         "price": 560,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": false
@@ -4076,7 +4412,11 @@
         "price": 3840,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -4089,7 +4429,9 @@
         "price": 900,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(0, 76, 255)",
         "untradeable": false,
         "members": false
@@ -4102,7 +4444,9 @@
         "price": 1275,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(51, 204, 51)",
         "untradeable": false,
         "members": false
@@ -4115,7 +4459,9 @@
         "price": 2025,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(255, 51, 0)",
         "untradeable": false,
         "members": false
@@ -4128,7 +4474,9 @@
         "price": 3525,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -5012,7 +5360,9 @@
         "price": 300,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -5051,7 +5401,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(160, 96, 64)",
         "untradeable": false,
         "members": false
@@ -5064,7 +5416,9 @@
         "price": 30,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(160, 96, 64)",
         "untradeable": false,
         "members": false
@@ -5155,7 +5509,9 @@
         "price": 8000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -5168,7 +5524,9 @@
         "price": 20800,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -5181,7 +5539,9 @@
         "price": 25600,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -5194,7 +5554,9 @@
         "price": 19200,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -5207,7 +5569,9 @@
         "price": 50000,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -5220,7 +5584,11 @@
         "price": 65000,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -5233,7 +5601,11 @@
         "price": 64000,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs", "replace-legs"],
+        "equip": [
+            "feet",
+            "legs",
+            "replace-legs"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -5246,7 +5618,9 @@
         "price": 38400,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(0, 221, 221)",
         "untradeable": false,
         "members": false
@@ -5259,7 +5633,9 @@
         "price": 54400,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(0, 221, 221)",
         "untradeable": false,
         "members": false
@@ -5272,7 +5648,9 @@
         "price": 12800,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -5285,7 +5663,10 @@
         "price": 64000,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs"],
+        "equip": [
+            "feet",
+            "legs"
+        ],
         "colour": "rgb(0, 102, 102)",
         "untradeable": false,
         "members": false
@@ -5298,7 +5679,11 @@
         "price": 65000,
         "stackable": false,
         "special": false,
-        "equip": ["hands", "body", "replace-body"],
+        "equip": [
+            "hands",
+            "body",
+            "replace-body"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": false
@@ -5467,7 +5852,9 @@
         "price": 20,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -5506,7 +5893,9 @@
         "price": 240,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5519,7 +5908,9 @@
         "price": 624,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5532,7 +5923,9 @@
         "price": 960,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5545,7 +5938,11 @@
         "price": 1920,
         "stackable": false,
         "special": false,
-        "equip": ["2-handed", "right-hand", "left-hand"],
+        "equip": [
+            "2-handed",
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5558,7 +5955,9 @@
         "price": 768,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5571,7 +5970,9 @@
         "price": 384,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5584,7 +5985,9 @@
         "price": 1248,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5597,7 +6000,9 @@
         "price": 432,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5610,7 +6015,9 @@
         "price": 1440,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5623,7 +6030,9 @@
         "price": 1152,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5636,7 +6045,9 @@
         "price": 1632,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -5649,7 +6060,10 @@
         "price": 1920,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs"],
+        "equip": [
+            "feet",
+            "legs"
+        ],
         "colour": "rgb(17, 17, 17)",
         "untradeable": false,
         "members": false
@@ -6117,7 +6531,9 @@
         "price": 576,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": false
@@ -6624,7 +7040,9 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": true,
         "members": true
@@ -6650,7 +7068,9 @@
         "price": 32,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(64, 204, 64)",
         "untradeable": false,
         "members": false
@@ -6663,7 +7083,9 @@
         "price": 32,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(238, 238, 64)",
         "untradeable": false,
         "members": false
@@ -6676,7 +7098,9 @@
         "price": 32,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(238, 153, 0)",
         "untradeable": false,
         "members": false
@@ -6689,7 +7113,9 @@
         "price": 32,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(170, 0, 221)",
         "untradeable": false,
         "members": false
@@ -6793,7 +7219,9 @@
         "price": 17625,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(187, 0, 255)",
         "untradeable": false,
         "members": true
@@ -7079,7 +7507,9 @@
         "price": 18375,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(187, 0, 255)",
         "untradeable": false,
         "members": true
@@ -7235,7 +7665,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["hands"],
+        "equip": [
+            "hands"
+        ],
         "colour": "rgb(170, 238, 255)",
         "untradeable": true,
         "members": true
@@ -7274,7 +7706,9 @@
         "price": 35,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": true
@@ -7287,7 +7721,9 @@
         "price": 10,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": true
@@ -7300,7 +7736,9 @@
         "price": 125,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": true
@@ -7313,7 +7751,9 @@
         "price": 325,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": true
@@ -7326,7 +7766,9 @@
         "price": 8000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": true
@@ -7339,7 +7781,9 @@
         "price": 800,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": true
@@ -7352,7 +7796,9 @@
         "price": 240,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": true
@@ -7495,7 +7941,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": false
@@ -7508,7 +7956,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(255, 255, 0)",
         "untradeable": false,
         "members": false
@@ -7521,7 +7971,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": false
@@ -7534,7 +7986,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(0, 255, 0)",
         "untradeable": false,
         "members": false
@@ -7547,7 +8001,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(255, 0, 255)",
         "untradeable": false,
         "members": false
@@ -7560,7 +8016,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -7716,7 +8174,9 @@
         "price": 100000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 0, 68)",
         "untradeable": false,
         "members": true
@@ -7729,7 +8189,9 @@
         "price": 200000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 0, 68)",
         "untradeable": false,
         "members": true
@@ -7768,7 +8230,9 @@
         "price": 17625,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(187, 0, 255)",
         "untradeable": false,
         "members": true
@@ -7885,7 +8349,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": true,
         "members": true
@@ -7898,7 +8364,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(255, 255, 255)",
         "untradeable": false,
         "members": true
@@ -7911,7 +8379,9 @@
         "price": 30,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(255, 255, 255)",
         "untradeable": false,
         "members": true
@@ -7924,7 +8394,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": null,
         "untradeable": false,
         "members": true
@@ -7937,7 +8409,9 @@
         "price": 17625,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(187, 0, 255)",
         "untradeable": false,
         "members": true
@@ -7989,7 +8463,9 @@
         "price": 7000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": true
@@ -8002,7 +8478,9 @@
         "price": 15500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": true
@@ -8015,7 +8493,9 @@
         "price": 15500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": true
@@ -8028,7 +8508,9 @@
         "price": 15500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": true
@@ -8041,7 +8523,9 @@
         "price": 15500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(112, 53, 0)",
         "untradeable": false,
         "members": true
@@ -8431,7 +8915,10 @@
         "price": 160,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": true
@@ -8444,7 +8931,10 @@
         "price": 100,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": true
@@ -8457,7 +8947,10 @@
         "price": 320,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(255, 255, 0)",
         "untradeable": false,
         "members": true
@@ -8470,7 +8963,10 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(255, 255, 0)",
         "untradeable": false,
         "members": true
@@ -8483,7 +8979,10 @@
         "price": 640,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(255, 136, 0)",
         "untradeable": false,
         "members": true
@@ -8496,7 +8995,10 @@
         "price": 400,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(255, 136, 0)",
         "untradeable": false,
         "members": true
@@ -8509,7 +9011,10 @@
         "price": 1280,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": true
@@ -8522,7 +9027,10 @@
         "price": 800,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": true
@@ -8535,7 +9043,10 @@
         "price": 2560,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(64, 64, 64)",
         "untradeable": false,
         "members": true
@@ -8548,7 +9059,10 @@
         "price": 1600,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand", "left-hand"],
+        "equip": [
+            "right-hand",
+            "left-hand"
+        ],
         "colour": "rgb(64, 64, 64)",
         "untradeable": false,
         "members": true
@@ -8873,7 +9387,9 @@
         "price": 42500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": true
@@ -8886,7 +9402,9 @@
         "price": 42500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": true
@@ -8899,7 +9417,9 @@
         "price": 42500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": true
@@ -8912,7 +9432,9 @@
         "price": 42500,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(112, 53, 0)",
         "untradeable": false,
         "members": true
@@ -9016,7 +9538,9 @@
         "price": 2175,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(255, 51, 0)",
         "untradeable": true,
         "members": true
@@ -9081,7 +9605,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["hands"],
+        "equip": [
+            "hands"
+        ],
         "colour": "rgb(187, 187, 187)",
         "untradeable": true,
         "members": true
@@ -9094,7 +9620,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["hands"],
+        "equip": [
+            "hands"
+        ],
         "colour": "rgb(255, 255, 170)",
         "untradeable": true,
         "members": true
@@ -9107,7 +9635,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["hands"],
+        "equip": [
+            "hands"
+        ],
         "colour": "rgb(221, 221, 221)",
         "untradeable": true,
         "members": true
@@ -9120,7 +9650,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["hands"],
+        "equip": [
+            "hands"
+        ],
         "colour": "rgb(255, 170, 170)",
         "untradeable": true,
         "members": true
@@ -9133,7 +9665,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": true
@@ -9146,7 +9680,9 @@
         "price": 30,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": true
@@ -9380,7 +9916,9 @@
         "price": 12,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": true,
         "members": true
@@ -9393,7 +9931,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["feet"],
+        "equip": [
+            "feet"
+        ],
         "colour": "rgb(255, 119, 0)",
         "untradeable": true,
         "members": true
@@ -9432,7 +9972,9 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 255, 0)",
         "untradeable": true,
         "members": true
@@ -9445,7 +9987,9 @@
         "price": 12,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -9536,7 +10080,9 @@
         "price": 10,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(171, 171, 171)",
         "untradeable": true,
         "members": true
@@ -9549,7 +10095,9 @@
         "price": 10,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(171, 171, 171)",
         "untradeable": true,
         "members": true
@@ -9679,7 +10227,9 @@
         "price": 0,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(51, 204, 51)",
         "untradeable": true,
         "members": true
@@ -9809,7 +10359,9 @@
         "price": 5000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": true,
         "members": true
@@ -9887,7 +10439,9 @@
         "price": 50,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(221, 221, 221)",
         "untradeable": true,
         "members": true
@@ -9900,7 +10454,11 @@
         "price": 50,
         "stackable": false,
         "special": false,
-        "equip": ["feet", "legs", "replace-legs"],
+        "equip": [
+            "feet",
+            "legs",
+            "replace-legs"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": true,
         "members": true
@@ -9965,7 +10523,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -10173,7 +10733,9 @@
         "price": 1,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(187, 187, 187)",
         "untradeable": true,
         "members": true
@@ -10342,7 +10904,9 @@
         "price": 100000,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(255, 0, 68)",
         "untradeable": false,
         "members": true
@@ -10433,7 +10997,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(255, 255, 255)",
         "untradeable": true,
         "members": true
@@ -10498,7 +11064,9 @@
         "price": 5,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(16, 16, 16)",
         "untradeable": false,
         "members": false
@@ -10511,7 +11079,9 @@
         "price": 5,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(16, 16, 16)",
         "untradeable": false,
         "members": false
@@ -10745,7 +11315,9 @@
         "price": 10,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(204, 51, 51)",
         "untradeable": true,
         "members": true
@@ -10758,7 +11330,9 @@
         "price": 4,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": true
@@ -10771,7 +11345,9 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(0, 255, 0)",
         "untradeable": false,
         "members": false
@@ -10810,7 +11386,9 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": false,
         "members": false
@@ -10823,7 +11401,9 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": false,
         "members": false
@@ -10875,7 +11455,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(255, 170, 170)",
         "untradeable": false,
         "members": true
@@ -10888,7 +11470,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(170, 255, 170)",
         "untradeable": false,
         "members": true
@@ -10901,7 +11485,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(170, 170, 255)",
         "untradeable": false,
         "members": true
@@ -10914,7 +11500,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(255, 255, 204)",
         "untradeable": false,
         "members": true
@@ -10927,7 +11515,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(204, 255, 255)",
         "untradeable": false,
         "members": true
@@ -10940,7 +11530,9 @@
         "price": 160,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(255, 170, 170)",
         "untradeable": false,
         "members": true
@@ -10953,7 +11545,9 @@
         "price": 160,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(170, 255, 170)",
         "untradeable": false,
         "members": true
@@ -10966,7 +11560,9 @@
         "price": 160,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(170, 170, 255)",
         "untradeable": false,
         "members": true
@@ -10979,7 +11575,9 @@
         "price": 160,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(255, 255, 204)",
         "untradeable": false,
         "members": true
@@ -10992,7 +11590,9 @@
         "price": 160,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(204, 255, 255)",
         "untradeable": false,
         "members": true
@@ -11005,7 +11605,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(255, 170, 170)",
         "untradeable": false,
         "members": true
@@ -11018,7 +11620,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(170, 255, 170)",
         "untradeable": false,
         "members": true
@@ -11031,7 +11635,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(170, 170, 255)",
         "untradeable": false,
         "members": true
@@ -11044,7 +11650,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(255, 255, 204)",
         "untradeable": false,
         "members": true
@@ -11057,7 +11665,9 @@
         "price": 180,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(204, 255, 255)",
         "untradeable": false,
         "members": true
@@ -11083,7 +11693,9 @@
         "price": 35,
         "stackable": false,
         "special": true,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": true,
         "members": true
@@ -12565,7 +13177,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["feet"],
+        "equip": [
+            "feet"
+        ],
         "colour": "rgb(255, 170, 170)",
         "untradeable": false,
         "members": true
@@ -12578,7 +13192,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["feet"],
+        "equip": [
+            "feet"
+        ],
         "colour": "rgb(170, 255, 170)",
         "untradeable": false,
         "members": true
@@ -12591,7 +13207,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["feet"],
+        "equip": [
+            "feet"
+        ],
         "colour": "rgb(170, 170, 255)",
         "untradeable": false,
         "members": true
@@ -12604,7 +13222,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["feet"],
+        "equip": [
+            "feet"
+        ],
         "colour": "rgb(255, 255, 204)",
         "untradeable": false,
         "members": true
@@ -12617,7 +13237,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["feet"],
+        "equip": [
+            "feet"
+        ],
         "colour": "rgb(204, 255, 255)",
         "untradeable": false,
         "members": true
@@ -12630,7 +13252,9 @@
         "price": 160,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": null,
         "untradeable": false,
         "members": false
@@ -12877,7 +13501,9 @@
         "price": 20,
         "stackable": false,
         "special": false,
-        "equip": ["feet"],
+        "equip": [
+            "feet"
+        ],
         "colour": "rgb(255, 255, 255)",
         "untradeable": false,
         "members": true
@@ -13007,7 +13633,11 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["2-handed", "right-hand", "left-hand"],
+        "equip": [
+            "2-handed",
+            "right-hand",
+            "left-hand"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -13085,7 +13715,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["hands"],
+        "equip": [
+            "hands"
+        ],
         "colour": "rgb(187, 187, 187)",
         "untradeable": true,
         "members": true
@@ -13124,7 +13756,9 @@
         "price": 0,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(187, 0, 255)",
         "untradeable": true,
         "members": true
@@ -13137,7 +13771,9 @@
         "price": 0,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(187, 0, 255)",
         "untradeable": true,
         "members": true
@@ -13150,7 +13786,9 @@
         "price": 0,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": "rgb(187, 0, 255)",
         "untradeable": true,
         "members": true
@@ -13176,7 +13814,9 @@
         "price": 2,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": true
@@ -13202,7 +13842,9 @@
         "price": 5,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": true
@@ -13254,7 +13896,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(255, 255, 255)",
         "untradeable": false,
         "members": true
@@ -13267,7 +13911,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(255, 255, 255)",
         "untradeable": false,
         "members": true
@@ -13293,7 +13939,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["legs"],
+        "equip": [
+            "legs"
+        ],
         "colour": "rgb(128, 128, 0)",
         "untradeable": false,
         "members": true
@@ -13306,7 +13954,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(128, 128, 0)",
         "untradeable": false,
         "members": true
@@ -13319,7 +13969,9 @@
         "price": 20,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": true
@@ -13371,7 +14023,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -13384,7 +14038,9 @@
         "price": 200,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -13891,7 +14547,9 @@
         "price": 50,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": true
@@ -13904,7 +14562,9 @@
         "price": 130,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": true
@@ -13917,7 +14577,9 @@
         "price": 700,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": true
@@ -13982,7 +14644,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": true
@@ -13995,7 +14659,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": true
@@ -14008,7 +14674,9 @@
         "price": 21,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": true
@@ -14021,7 +14689,9 @@
         "price": 54,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": true
@@ -14034,7 +14704,9 @@
         "price": 133,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": true
@@ -14047,7 +14719,9 @@
         "price": 333,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": true
@@ -14060,7 +14734,9 @@
         "price": 37,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": true
@@ -14151,7 +14827,9 @@
         "price": 13,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": true
@@ -14164,7 +14842,9 @@
         "price": 46,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": true
@@ -14177,7 +14857,9 @@
         "price": 119,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": true
@@ -14190,7 +14872,9 @@
         "price": 293,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": true
@@ -14203,7 +14887,9 @@
         "price": 1000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 221, 221)",
         "untradeable": false,
         "members": true
@@ -14593,7 +15279,9 @@
         "price": 2,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": true
@@ -14606,7 +15294,9 @@
         "price": 5,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": true
@@ -14619,7 +15309,9 @@
         "price": 20,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": true
@@ -14632,7 +15324,9 @@
         "price": 50,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": true
@@ -14645,7 +15339,9 @@
         "price": 130,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": true
@@ -14658,7 +15354,9 @@
         "price": 700,
         "stackable": true,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": true
@@ -14671,7 +15369,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": true
@@ -14684,7 +15384,9 @@
         "price": 6,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": true
@@ -14697,7 +15399,9 @@
         "price": 21,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": true
@@ -14710,7 +15414,9 @@
         "price": 54,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": true
@@ -14723,7 +15429,9 @@
         "price": 37,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(48, 48, 48)",
         "untradeable": false,
         "members": true
@@ -14736,7 +15444,9 @@
         "price": 133,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": true
@@ -14749,7 +15459,9 @@
         "price": 333,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 255, 255)",
         "untradeable": false,
         "members": true
@@ -14762,7 +15474,9 @@
         "price": 4,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(255, 102, 25)",
         "untradeable": false,
         "members": true
@@ -14775,7 +15489,9 @@
         "price": 13,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": false,
         "members": true
@@ -14788,7 +15504,9 @@
         "price": 46,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 238, 238)",
         "untradeable": false,
         "members": true
@@ -14801,7 +15519,9 @@
         "price": 119,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": false,
         "members": true
@@ -14814,7 +15534,9 @@
         "price": 293,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(178, 204, 153)",
         "untradeable": false,
         "members": true
@@ -14827,7 +15549,9 @@
         "price": 1000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(0, 221, 221)",
         "untradeable": false,
         "members": true
@@ -15035,7 +15759,9 @@
         "price": 1,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(64, 0, 0)",
         "untradeable": true,
         "members": false
@@ -15243,7 +15969,9 @@
         "price": 40,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(128, 128, 128)",
         "untradeable": false,
         "members": true
@@ -15529,7 +16257,9 @@
         "price": 1,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -15672,7 +16402,9 @@
         "price": 1,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -15776,7 +16508,9 @@
         "price": 100,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(255, 0, 0)",
         "untradeable": true,
         "members": true
@@ -15789,7 +16523,9 @@
         "price": 100,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(64, 64, 238)",
         "untradeable": true,
         "members": true
@@ -15802,7 +16538,9 @@
         "price": 100,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(64, 204, 64)",
         "untradeable": true,
         "members": true
@@ -15815,7 +16553,9 @@
         "price": 80000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -15828,7 +16568,9 @@
         "price": 80000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": true,
         "members": true
@@ -15841,7 +16583,9 @@
         "price": 80000,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 178, 204)",
         "untradeable": true,
         "members": true
@@ -15919,7 +16663,9 @@
         "price": 1,
         "stackable": false,
         "special": false,
-        "equip": ["chest"],
+        "equip": [
+            "chest"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -15997,7 +16743,9 @@
         "price": 1,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -16049,7 +16797,9 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["body"],
+        "equip": [
+            "body"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": true,
         "members": true
@@ -16075,7 +16825,9 @@
         "price": 35,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(238, 221, 221)",
         "untradeable": true,
         "members": true
@@ -16088,7 +16840,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -16114,7 +16868,9 @@
         "price": 3,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": "rgb(153, 182, 182)",
         "untradeable": true,
         "members": true
@@ -16322,7 +17078,9 @@
         "price": 91,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -16335,7 +17093,9 @@
         "price": 91,
         "stackable": false,
         "special": false,
-        "equip": ["right-hand"],
+        "equip": [
+            "right-hand"
+        ],
         "colour": null,
         "untradeable": true,
         "members": true
@@ -16439,7 +17199,9 @@
         "price": 2,
         "stackable": false,
         "special": false,
-        "equip": ["head"],
+        "equip": [
+            "head"
+        ],
         "colour": "rgb(0, 0, 255)",
         "untradeable": true,
         "members": true
@@ -16621,7 +17383,9 @@
         "price": 500000,
         "stackable": false,
         "special": false,
-        "equip": ["left-hand"],
+        "equip": [
+            "left-hand"
+        ],
         "colour": "rgb(206, 0, 0)",
         "untradeable": false,
         "members": true
@@ -16751,7 +17515,9 @@
         "price": 450,
         "stackable": false,
         "special": false,
-        "equip": ["cape"],
+        "equip": [
+            "cape"
+        ],
         "colour": "rgb(255, 255, 255)",
         "untradeable": true,
         "members": true
@@ -16764,10 +17530,324 @@
         "price": 15,
         "stackable": false,
         "special": false,
-        "equip": ["2-handed", "right-hand", "left-hand"],
+        "equip": [
+            "2-handed",
+            "right-hand",
+            "left-hand"
+        ],
         "colour": null,
         "untradeable": true,
         "members": false
+    },
+    {
+        "name": "attack Potion",
+        "description": "3 doses of attack potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 12,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(48, 238, 238)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "attack Potion",
+        "description": "2 doses of attack potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 9,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(48, 238, 238)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "attack Potion",
+        "description": "1 dose of attack potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 6,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(48, 238, 238)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Cure poison Potion",
+        "description": "3 doses of cure poison potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 15,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(0, 187, 0)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Cure poison Potion",
+        "description": "2 doses of cure poison potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 11,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(0, 187, 0)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Cure poison Potion",
+        "description": "1 dose of cure poison potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 8,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(0, 187, 0)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Strength Potion",
+        "description": "3 doses of strength potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 35,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(200, 0, 0)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Strength Potion",
+        "description": "2 doses of strength potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 26,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(200, 0, 0)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Strength Potion",
+        "description": "1 dose of strength potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 18,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(200, 0, 0)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "defense Potion",
+        "description": "3 doses of defense potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 120,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(48, 238, 48)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "defense Potion",
+        "description": "2 doses of defense potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 90,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(48, 238, 48)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "defense Potion",
+        "description": "1 dose of defense potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 60,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(48, 238, 48)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "restore prayer Potion",
+        "description": "3 doses of restore prayer potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 152,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(48, 238, 153)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "restore prayer Potion",
+        "description": "2 doses of restore prayer potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 114,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(48, 238, 153)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "restore prayer Potion",
+        "description": "1 dose of restore prayer potion",
+        "command": "Drink",
+        "sprite": 48,
+        "price": 76,
+        "stackable": false,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(48, 238, 153)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Blood Rune",
+        "description": "Used for high level missile spells",
+        "command": "",
+        "sprite": 37,
+        "price": 50,
+        "stackable": true,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(200, 0, 0)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Staff of Guthix",
+        "description": "A staff of the god Guthix",
+        "command": "",
+        "sprite": 91,
+        "price": 80000,
+        "stackable": false,
+        "special": false,
+        "equip": [
+            "right-hand"
+        ],
+        "colour": "rgb(0, 255, 0)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Staff of Saradomin",
+        "description": "A staff of the god Saradomin",
+        "command": "",
+        "sprite": 91,
+        "price": 80000,
+        "stackable": false,
+        "special": false,
+        "equip": [
+            "right-hand"
+        ],
+        "colour": "rgb(0, 0, 255)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Staff of Zamorak",
+        "description": "A staff of the god Zamorak",
+        "command": "",
+        "sprite": 91,
+        "price": 80000,
+        "stackable": false,
+        "special": false,
+        "equip": [
+            "right-hand"
+        ],
+        "colour": "rgb(255, 0, 0)",
+        "untradeable": false,
+        "members": true
+    },
+    {
+        "name": "Cape of Guthix",
+        "description": "The cape of Guthix",
+        "command": "",
+        "sprite": 59,
+        "price": 0,
+        "stackable": false,
+        "special": false,
+        "equip": [
+            "cape"
+        ],
+        "colour": "rgb(0, 255, 0)",
+        "untradeable": true,
+        "members": true
+    },
+    {
+        "name": "Cape of Saradomin",
+        "description": "The cape of Saradomin",
+        "command": "",
+        "sprite": 59,
+        "price": 0,
+        "stackable": false,
+        "special": false,
+        "equip": [
+            "cape"
+        ],
+        "colour": "rgb(0, 0, 255)",
+        "untradeable": true,
+        "members": true
+    },
+    {
+        "name": "Cape of Zamorak",
+        "description": "The cape of Zamorak",
+        "command": "",
+        "sprite": 59,
+        "price": 0,
+        "stackable": false,
+        "special": false,
+        "equip": [
+            "cape"
+        ],
+        "colour": "rgb(255, 0, 0)",
+        "untradeable": true,
+        "members": true
+    },
+    {
+        "name": "Soul Rune",
+        "description": "Used for high level curse spells",
+        "command": "",
+        "sprite": 37,
+        "price": 50,
+        "stackable": true,
+        "special": false,
+        "equip": null,
+        "colour": "rgb(200, 200, 200)",
+        "untradeable": false,
+        "members": true
     }
 ]
-

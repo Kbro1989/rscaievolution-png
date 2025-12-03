@@ -6,7 +6,7 @@
 
 const GameObject = require('../../model/game-object');
 const GroundItem = require('../../model/ground-item');
-const { rollSkillSuccess } = require('../../rolls');
+const { rollSkillSuccess, calcProductionSuccessfulLegacy } = require('../../rolls');
 
 const ASHES_ID = 181;
 const FIRE_ID = 97;
@@ -37,7 +37,9 @@ async function onUseWithGroundItem(player, groundItem, item) {
     await world.sleepTicks(2);
 
     const level = player.skills.firemaking.current;
-    const fireSuccess = rollSkillSuccess(ROLL[0], ROLL[1], level);
+    // Authentic RSC Formula: calcProductionSuccessfulLegacy(1, level, true, 60)
+    // Note: OpenRSC uses 1 as req level for normal logs, and 60 as stop fail.
+    const fireSuccess = calcProductionSuccessfulLegacy(1, level, true, 60);
 
     if (fireSuccess) {
         player.message('@que@The fire catches and the logs begin to burn');
@@ -57,7 +59,9 @@ async function onUseWithGroundItem(player, groundItem, item) {
         }, (Math.floor(Math.random() * 60) + 60) * 1000);
 
         world.addEntity('gameObjects', fire);
-        player.addExperience('firemaking', 100 + level * 7);
+        // RSC Formula: XP = Level × 1.75 + 25
+        // https://runescapeclassic.fandom.com/wiki/Firemaking
+        player.addExperience('firemaking', level * 1.75 + 25);
     } else {
         player.message('@que@You fail to light a fire');
     }

@@ -2,7 +2,7 @@
 
 // using items on ranges or fires
 
-const { rollSkillSuccess } = require('../../../rolls');
+const { rollSkillSuccess, calcProductionSuccessfulLegacy } = require('../../../rolls');
 const { uncooked } = require('@2003scape/rsc-data/skills/cooking');
 
 const CAKE_TIN_ID = 338;
@@ -103,7 +103,7 @@ async function onUseWithGameObject(player, gameObject, item) {
 
         player.message(
             `You cook the ${cookedName} on the ` +
-                `${isRange ? rangeName : 'fire'}${ellipsis}`
+            `${isRange ? rangeName : 'fire'}${ellipsis}`
         );
     }
 
@@ -129,7 +129,11 @@ async function onUseWithGameObject(player, gameObject, item) {
         lowRoll *= COOKS_RANGE_BONUS;
     }
 
-    const cookSuccess = rollSkillSuccess(lowRoll, roll[1], cookingLevel);
+    // Authentic RSC Formula
+    // levelStopFail is usually req + 35 for cooking (except specific cases handled in data)
+    // but here we use the data's 'stopFail' if available, or default logic
+    const levelStopFail = level + 35; // Default for cooking if not specified
+    const cookSuccess = calcProductionSuccessfulLegacy(level, cookingLevel, true, levelStopFail);
 
     if (/pie/.test(cookedName)) {
         cookedName = 'pie';

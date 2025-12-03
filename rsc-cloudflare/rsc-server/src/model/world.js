@@ -10,6 +10,8 @@ const tiles = require('@2003scape/rsc-data/config/tiles');
 const wallObjects = require('@2003scape/rsc-data/config/wall-objects');
 const { Landscape } = require('@2003scape/rsc-landscape');
 const { PathFinder } = require('@2003scape/rsc-path-finder');
+const RegionManager = require('./region-manager');
+const GameStateUpdater = require('../game-state-updater');
 
 const entityLocations = {
     npcs: require('@2003scape/rsc-data/locations/npcs'),
@@ -94,6 +96,12 @@ class World {
         this.groundItems = new EntityList(this.planeWidth, totalHeight);
 
         this.captcha = new Captcha();
+
+        // OpenRSC-style regional partitioning for efficient multiplayer queries
+        this.regionManager = new RegionManager(this);
+
+        // OpenRSC-style delta state synchronization
+        this.gameStateUpdater = new GameStateUpdater(this);
 
         // used for clearTickTimeout
         this.tickIndex = 0;
@@ -182,6 +190,12 @@ class World {
 
         this[type].add(entity);
 
+        // OpenRSC-style region tracking for players and NPCs
+        if (type === 'players' || type === 'npcs') {
+            const regionType = type === 'players' ? 'player' : 'npc';
+            this.regionManager.addEntity(regionType, entity);
+        }
+
         if (!this.players.length) {
             return;
         }
@@ -198,6 +212,12 @@ class World {
     removeEntity(type, entity) {
         if (!this[type].remove(entity)) {
             throw new Error(`unable to remove entity ${entity}`);
+        }
+
+        // OpenRSC-style region de-registration
+        if (type === 'players' || type === 'npcs') {
+            const regionType = type === 'players' ? 'player' : 'npc';
+            this.regionManager.removeEntity(regionType, entity);
         }
 
         if (type === 'players') {

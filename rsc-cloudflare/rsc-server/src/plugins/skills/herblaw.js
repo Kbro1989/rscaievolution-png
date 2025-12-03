@@ -29,13 +29,13 @@ const UNFINISHED_POTIONS = {
 };
 
 const FINISHED_POTIONS = {
-    // Unfinished ID + Secondary ID -> Result
-    454: { 270: { id: 221, level: 3, xp: 25 } }, // Guam + Eye of Newt -> Attack Potion
-    455: { 271: { id: 435, level: 5, xp: 37.5 } }, // Marrentill + Unicorn Horn Dust -> Antipoison (Wait, check ID)
-    456: { 273: { id: 474, level: 12, xp: 50 } }, // Tarromin + Limpwurt -> Strength Potion
-    457: { 220: { id: 477, level: 22, xp: 62.5 } }, // Harralander + Red Spiders' Eggs -> Restore Potion
-    458: { 219: { id: 480, level: 30, xp: 75 } }, // Ranarr + Snape Grass -> Prayer Potion
-    459: { 270: { id: 483, level: 45, xp: 100 } }, // Irit + Eye of Newt -> Super Attack
+    // Unfinished ID + Secondary ID -> Result (IDs updated to match newly added items in items.json)
+    454: { 270: { id: 1287, level: 3, xp: 25 } }, // Guam + Eye of Newt -> Attack Potion
+    455: { 271: { id: 1290, level: 5, xp: 37.5 } }, // Marrentill + Ground Unicorn Horn -> Cure poison Potion
+    456: { 273: { id: 1293, level: 12, xp: 50 } }, // Tarromin + Limpwurt Root -> Strength Potion
+    457: { 220: { id: 477, level: 22, xp: 62.5 } }, // Harralander + Red Spiders' Eggs -> Restore Potion (TODO: Add to items.json)
+    458: { 219: { id: 1299, level: 38, xp: 87.5 }, 272: { id: 1296, level: 30, xp: 75 } }, // Ranarr + Snape Grass -> Prayer Potion OR Ranarr + White Berries -> Defense Potion
+    459: { 270: { id: 483, level: 45, xp: 100 } }, // Irit + Eye of Newt -> Super Attack (TODO: Add to items.json)
     460: { 219: { id: 486, level: 50, xp: 112.5 } }, // Avantoe + Snape Grass -> Fishing Potion (Check recipe)
     461: { 273: { id: 489, level: 55, xp: 125 } }, // Kwuarm + Limpwurt -> Super Strength
     462: { 272: { id: 492, level: 66, xp: 150 } }, // Cadantine + White Berries -> Super Defense
