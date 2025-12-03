@@ -2,6 +2,9 @@
 app = "rscaievolution-png"
 primary_region = "ord" # Chicago - change to your preferred region
 
+[build]
+  dockerfile = "Dockerfile"
+
 
 
 
