@@ -1,13 +1,9 @@
 # Fly.io configuration for RSC Game Server
 app = "rscaievolution-png"
-primary_region = "ord" # Chicago - change to your preferred region
+primary_region = "ord" # Chicago
 
 [build]
   dockerfile = "Dockerfile"
-
-
-
-
 
 [env]
   WORLD_ID = "1"
