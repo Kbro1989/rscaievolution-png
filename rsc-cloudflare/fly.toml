@@ -1,0 +1,45 @@
+# Fly.io configuration for RSC Game Server
+app = "rscaievolution-png"
+primary_region = "ord" # Chicago - change to your preferred region
+
+
+
+[env]
+  WORLD_ID = "1"
+  MEMBERS = "false"
+  STATE_SYNC_INTERVAL = "30000"  # 30 seconds
+  NODE_ENV = "production"
+
+[http_service]
+  internal_port = 43594
+  force_https = false
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[http_service.checks]]
+    interval = "15s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "GET"
+    path = "/health"
+
+# WebSocket TCP service (port 43594)
+[[services]]
+  protocol = "tcp"
+  internal_port = 43594
+
+  [[services.ports]]
+    port = 43594
+    handlers = []
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "5s"
+    grace_period = "10s"
+
+# Resource limits to control costs
+[vm]
+  cpu_kind = "shared"
+  cpus = 1
+  memory_mb = 256
