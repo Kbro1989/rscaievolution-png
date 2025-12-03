@@ -28,7 +28,7 @@ COPY rsc-server/config.json ./config.json
 COPY rsc-data ./rsc-data
 
 # Debug: List copied data files
-RUN ls -R /rsc-data
+RUN ls -R ./rsc-data
 
 # Expose WebSocket port
 EXPOSE 43594
