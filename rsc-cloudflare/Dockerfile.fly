@@ -1,6 +1,16 @@
 # Dockerfile for RSC Server on Fly.io
 FROM node:20-alpine
 
+# Install canvas dependencies
+RUN apk add --no-cache \
+  build-base \
+  g++ \
+  cairo-dev \
+  jpeg-dev \
+  pango-dev \
+  giflib-dev \
+  pixman-dev
+
 # Set working directory
 WORKDIR /app
 
