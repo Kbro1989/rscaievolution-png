@@ -16,6 +16,7 @@ WORKDIR /usr/src/app
 
 # Install dependencies first (better layer caching)
 COPY package.json ./
+COPY rsc-data-local ./rsc-data-local
 RUN npm install --production
 
 # Copy source code
