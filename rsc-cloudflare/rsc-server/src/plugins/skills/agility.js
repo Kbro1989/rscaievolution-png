@@ -1,4 +1,4 @@
-const agilityData = require('../../../../rsc-data/skills/agility.json');
+const agilityData = require('@2003scape/rsc-data/skills/agility.json');
 const { rollSkillSuccess } = require('../../rolls');
 
 const COURSES = agilityData.courses;
