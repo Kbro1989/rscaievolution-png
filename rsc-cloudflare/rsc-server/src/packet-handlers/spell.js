@@ -124,8 +124,10 @@ module.exports = {
     spellSelf,
     spellPlayer,
     spellNpc,
+    castNPC: spellNpc, // Client sends castNPC for spell on NPC
     spellInvItem,
     spellGroundItem,
     spellObject,
     spellDoor
 };
+
