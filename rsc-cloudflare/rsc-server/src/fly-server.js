@@ -10,7 +10,11 @@ const StateSyncClient = require('./state-sync-client');
 const http = require('http');
 
 // Configuration from environment variables
+const defaultConfig = require('../config.json');
+
+// Configuration from environment variables, merging with default config
 const config = {
+    ...defaultConfig,
     worldID: parseInt(process.env.WORLD_ID || '1'),
     members: process.env.MEMBERS === 'true',
     tcpPort: null,
