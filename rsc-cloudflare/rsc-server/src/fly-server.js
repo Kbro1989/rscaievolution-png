@@ -5,11 +5,15 @@
  * It includes state synchronization to Cloudflare KV for backup/failover
  */
 
+console.log('Loading ./server...');
 const Server = require('./server');
+console.log('Loading ./state-sync-client...');
 const StateSyncClient = require('./state-sync-client');
+console.log('Loading http...');
 const http = require('http');
 
 // Configuration from environment variables
+console.log('Loading ../config.json...');
 const defaultConfig = require('../config.json');
 
 // Configuration from environment variables, merging with default config
