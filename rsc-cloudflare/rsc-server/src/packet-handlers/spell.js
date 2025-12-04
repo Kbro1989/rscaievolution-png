@@ -30,12 +30,12 @@ async function spellPlayer({ player }, { targetIndex, spellId }) {
     await player.world.callPlugin('onSpellOnPlayer', player, target, spellId);
 }
 
-async function spellNpc({ player }, { npcIndex, spellId }) {
+async function spellNpc({ player }, { index, id }) {
     if (player.locked) {
         return;
     }
 
-    const npc = player.world.npcs.getByIndex(npcIndex);
+    const npc = player.world.npcs.getByIndex(index);
 
     if (!npc) {
         return;
@@ -46,7 +46,7 @@ async function spellNpc({ player }, { npcIndex, spellId }) {
         return;
     }
 
-    await player.world.callPlugin('onSpellOnNpc', player, npc, spellId);
+    await player.world.callPlugin('onSpellOnNpc', player, npc, id);
 }
 
 async function spellInvItem({ player }, { index, spellId }) {
