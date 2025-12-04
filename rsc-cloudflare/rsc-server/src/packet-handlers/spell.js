@@ -41,8 +41,36 @@ async function spellNpc({ player }, { index, id }) {
         return;
     }
 
-    // Don't check range here - shootMagic handles it internally (like ranged combat)
-    await player.world.callPlugin('onSpellOnNpc', player, npc, id);
+    const SPELL_RANGE = 20; // withinRange uses range/2, so 20 = 10 tiles
+
+    // If already in range, cast immediately
+    if (player.withinRange(npc, SPELL_RANGE) && player.withinLineOfSight(npc, true)) {
+        // Stop any walking - we can cast from here
+        player.walkQueue.length = 0;
+        player.endWalkFunction = null;
+        await player.world.callPlugin('onSpellOnNpc', player, npc, id);
+        return;
+    }
+
+    // Out of range - set up to cast when walk brings us in range
+    // The client already sent a walkAction, so we use endWalkFunction
+    player.endWalkFunction = async () => {
+        if (player.locked) {
+            return;
+        }
+
+        // Check if NPC still exists and is in range after walking
+        const targetNpc = player.world.npcs.getByIndex(index);
+        if (!targetNpc) {
+            return;
+        }
+
+        if (player.withinRange(targetNpc, SPELL_RANGE) && player.withinLineOfSight(targetNpc, true)) {
+            await player.world.callPlugin('onSpellOnNpc', player, targetNpc, id);
+        } else {
+            player.message("@que@You are too far away to cast that spell.");
+        }
+    };
 }
 
 async function spellInvItem({ player }, { index, spellId }) {
