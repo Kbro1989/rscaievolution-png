@@ -193,27 +193,9 @@ async function onSpellOnNpc(player, npc, spellId) {
 
     // === COMBAT SPELLS ===
     if (COMBAT_SPELLS[spell.name]) {
-        if (!checkAndRemoveRunes(player, spell)) return;
-
-        // Start combat with magic
-        player.startCombat(npc);
-        player.attackingWithSpell = spellId;
-
-        player.message(`@que@You cast ${spell.name} on the ${npc.definition.name}`);
-        player.addExperience('magic', COMBAT_SPELLS[spell.name].xp);
-
-        // Calculate magic damage
-        const maxHit = COMBAT_SPELLS[spell.name].maxHit;
-        const damage = Math.floor(Math.random() * (maxHit + 1));
-
-        if (damage > 0) {
-            npc.damage(damage);
-            player.message(`@que@You hit the ${npc.definition.name} for ${damage} damage!`);
-        } else {
-            player.message(`@que@You miss!`);
-        }
-
-        return;
+        // Use the built-in shootMagic method (works like ranged)
+        await player.shootMagic(npc, spellId);
+        return true;
     }
 
     // === CURSE SPELLS ===
