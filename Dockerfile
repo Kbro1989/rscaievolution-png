@@ -18,10 +18,8 @@ FROM base AS build
 
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
-
-# Install browserify globally so it's available for subdirectory builds
-RUN npm install -g browserify brfs bulkify
+    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3 && \
+    npm install -g browserify brfs bulkify
 
 # Install node modules
 COPY package.json ./
