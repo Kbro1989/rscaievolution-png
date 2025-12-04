@@ -38,4 +38,10 @@ EXPOSE 43594
 #   CMD node -e "require('http').get('http://localhost:43594/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
 # Start server
-CMD ["tail", "-f", "/dev/null"]
+CMD echo "=== DIAGNOSTIC INFO ===" && \
+  echo "Working directory:" && pwd && \
+  echo "Directory contents:" && ls -la && \
+  echo "rsc-data exists?" && ls -la rsc-data && \
+  echo "src exists?" && ls -la src && \
+  echo "Attempting to start server..." && \
+  node src/fly-server.js || (echo "Server failed with exit code $?" && tail -f /dev/null)
