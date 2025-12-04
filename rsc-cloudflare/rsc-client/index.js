@@ -60,8 +60,18 @@ if (typeof window === 'undefined') {
     // Force members mode enabled by default
     mc.members = true; // args[0] === 'members';
 
-    if (!args[1]) {
-        console.log('Initializing standalone server worker...');
+    // Check for multiplayer mode via query param
+    const modeParam = urlParams.get('mode');
+    const isMultiplayer = modeParam === 'multiplayer';
+
+    if (isMultiplayer) {
+        // Multiplayer mode: Connect to Fly.io game server
+        console.log('🌐 Multiplayer mode - connecting to Fly.io server...');
+        mc.server = 'rscaievolution-png.fly.dev';
+        mc.port = 443;
+    } else if (!args[1]) {
+        // Solo mode: Use browser Worker
+        console.log('⚔️ Solo mode - initializing standalone server worker...');
         const serverWorker = new Worker('./server.bundle.min.js');
         serverWorker.postMessage({
             type: 'start',
@@ -76,6 +86,7 @@ if (typeof window === 'undefined') {
         });
         mc.server = serverWorker;
     } else {
+        // Custom server from URL hash
         mc.server = args[1];
         mc.port = args[2] && !isNaN(+args[2]) ? +args[2] : 43595;
     }
