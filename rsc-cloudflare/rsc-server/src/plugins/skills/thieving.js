@@ -16,11 +16,25 @@ const DOOR_IDS = new Set(Object.keys(DOORS).map(Number));
 
 // === NPC Pickpocket ===
 async function onNPCCommand(player, npc, command) {
-    if (command !== 'pickpocket' || !PICKPOCKET_NPC_IDS.has(npc.id)) {
+    // console.log(`Thieving: onNPCCommand cmd=${command} npc=${npc.id}`);
+
+    if (command !== 'pickpocket') {
         return false;
     }
 
-    return await pickpocketNPC(player, npc);
+    if (!PICKPOCKET_NPC_IDS.has(npc.id)) {
+        player.message(`@que@Debug: NPC ID ${npc.id} not defined in thieving.`);
+        return false;
+    }
+
+    try {
+        await pickpocketNPC(player, npc);
+    } catch (err) {
+        console.error('Pickpocket error:', err);
+        player.message(`@que@Debug: Pickpocket error: ${err.message}`);
+    }
+
+    return true;
 }
 
 async function pickpocketNPC(player, npc) {
