@@ -61,8 +61,18 @@ if (typeof window === 'undefined') {
     // Force members mode enabled by default
     mc.members = true; // args[0] === 'members';
 
-    if (!args[1]) {
-        console.log('Initializing standalone server worker...');
+    // Check for multiplayer mode via query param
+    const modeParam = urlParams.get('mode');
+    const isMultiplayer = modeParam === 'multiplayer';
+
+    if (isMultiplayer) {
+        // Multiplayer mode: Connect to Fly.io game server
+        console.log('🌐 Multiplayer mode - connecting to Fly.io server...');
+        mc.server = 'rscaievolution-png.fly.dev';
+        mc.port = 443;
+    } else if (!args[1]) {
+        // Solo mode: Use browser Worker
+        console.log('⚔️ Solo mode - initializing standalone server worker...');
         const serverWorker = new Worker('./server.bundle.min.js');
         serverWorker.postMessage({
             type: 'start',
@@ -77,6 +87,7 @@ if (typeof window === 'undefined') {
         });
         mc.server = serverWorker;
     } else {
+        // Custom server from URL hash
         mc.server = args[1];
         mc.port = args[2] && !isNaN(+args[2]) ? +args[2] : 43595;
     }
@@ -37949,6 +37960,7 @@ class GameCharacter {
         this.waypointsY = new Int32Array(10);
         this.equippedItem = new Int32Array(12);
         this.level = -1;
+        this.group = 0;
     }
 }
 
@@ -37989,8 +38001,8 @@ class GameConnection extends GameShell {
         this.packetLastRead = 0;
         this.messageIndex = 0;
 
-        this.server = '127.0.0.1';
-        this.port = 43594;
+        this.server = 'rscaievolution-png.fly.dev';
+        this.port = 443;
 
         this.username = '';
         this.password = '';
@@ -41850,8 +41862,9 @@ class Socket {
     connect() {
         return new Promise((resolve, reject) => {
             if (typeof this.host === 'string') {
+                const protocol = this.port === 443 ? 'wss' : 'ws';
                 this.client = new WebSocket(
-                    `ws://${this.host}:${this.port}`,
+                    `${protocol}://${this.host}:${this.port}`,
                     'binary'
                 );
             } else if (this.host.constructor.name === 'Worker') {
@@ -41860,7 +41873,7 @@ class Socket {
                 const peer = this.host;
 
                 const worker = {
-                    onmessage() {},
+                    onmessage() { },
 
                     postMessage(data) {
                         if (data.type === 'data') {
@@ -42343,7 +42356,7 @@ class mudclient extends GameConnection {
         this.loginUser = '';
         this.loginPass = '';
         this.cameraAngle = 1;
-        this.members = false;
+        this.members = true;
         this.optionSoundDisabled = false;
         this.showRightClickMenu = false;
         this.cameraRotationYIncrement = 2;
@@ -43629,7 +43642,7 @@ class mudclient extends GameConnection {
 
             this.surface.drawString(
                 this.menuItemText1[this.menuIndices[i]] + ' ' +
-                    this.menuItemText2[this.menuIndices[i]],
+                this.menuItemText2[this.menuIndices[i]],
                 entryX,
                 entryY,
                 1,
@@ -44297,7 +44310,7 @@ class mudclient extends GameConnection {
         const player = this.players[id];
 
         // this means the character is invisible! MOD!!!
-        if (player.colourBottom === 255)  {
+        if (player.colourBottom === 255) {
             return;
         }
 
@@ -45399,7 +45412,7 @@ class mudclient extends GameConnection {
 
     showMessage(message, type) {
         if (type === 2 || type === 4 || type === 6) {
-            for (; message.length > 5 && message[0] === '@' && message[4] === '@'; message = message.substring(5)) ;
+            for (; message.length > 5 && message[0] === '@' && message[4] === '@'; message = message.substring(5));
 
             const colonIndex = message.indexOf(':');
 
@@ -45668,7 +45681,7 @@ class mudclient extends GameConnection {
             this.menuIndices[i] = i;
         }
 
-        for (let flag = false; !flag; ) {
+        for (let flag = false; !flag;) {
             flag = true;
 
             for (let j = 0; j < this.menuItemsCount - 1; j++) {
@@ -45926,8 +45939,8 @@ class mudclient extends GameConnection {
                 this.showUITab = 0;
 
                 this.selectedItemName =
-                        GameData.itemName[this.inventoryItemId[
-                            this.selectedItemInventoryIndex]];
+                    GameData.itemName[this.inventoryItemId[
+                    this.selectedItemInventoryIndex]];
                 break;
             case 660:
                 this.packetStream.newPacket(clientOpcodes.INV_DROP);
@@ -45938,7 +45951,7 @@ class mudclient extends GameConnection {
 
                 this.showMessage(
                     'Dropping ' +
-                        GameData.itemName[this.inventoryItemId[menuIndex]],
+                    GameData.itemName[this.inventoryItemId[menuIndex]],
                     4
                 );
                 break;
@@ -46237,7 +46250,7 @@ class mudclient extends GameConnection {
             let pid = plyrs[menuIdx];
             let gameModel = objs[menuIdx];
 
-            if (gameModel.faceTag[pid] <= 65535 || gameModel.faceTag[pid] >= 200000 && gameModel.faceTag[pid] <= 300000)  {
+            if (gameModel.faceTag[pid] <= 65535 || gameModel.faceTag[pid] >= 200000 && gameModel.faceTag[pid] <= 300000) {
                 if (gameModel === this.scene.view) {
                     let idx = gameModel.faceTag[pid] % 10000;
                     const type = (gameModel.faceTag[pid] / 10000) | 0;
@@ -47982,8 +47995,16 @@ module.exports = {
                     if (!ignored) {
                         player.messageTimeout = 150;
                         player.message = message;
+
+                        let crownTag = '';
+                        if (player.group === 2) {
+                            crownTag = '@cr1@';
+                        } else if (player.group === 3) {
+                            crownTag = '@cr2@';
+                        }
+
                         this.showMessage(
-                            `${player.name}: ${player.message}`,
+                            `${crownTag}${player.name}: ${player.message}`,
                             2
                         );
                     }
@@ -48068,8 +48089,9 @@ module.exports = {
                     player.colourSkin = data[offset++] & 0xff;
                     player.level = data[offset++] & 0xff;
                     player.skullVisible = data[offset++] & 0xff;
+                    player.group = data[offset++] & 0xff;
                 } else {
-                    offset += 14;
+                    offset += 15;
 
                     const unused = Utility.getUnsignedByte(data[offset]);
                     offset += unused + 1;
@@ -55776,7 +55798,7 @@ class Surface {
 
                         if (
                             this.spriteColoursUsed[id][
-                                x + y * this.spriteWidth[id]
+                            x + y * this.spriteWidth[id]
                             ] === 0
                         ) {
                             this.spriteTranslate[id] = true;
@@ -55804,7 +55826,7 @@ class Surface {
         let packetOffset = 1;
         let pixelOffset = 0;
 
-        for (pixelOffset = 0; pixelOffset < 255; ) {
+        for (pixelOffset = 0; pixelOffset < 255;) {
             const length = spriteData[packetOffset++] & 0xff;
 
             for (let i = 0; i < length; i++) {
@@ -55816,7 +55838,7 @@ class Surface {
         }
 
         for (let y = 1; y < 40; y++) {
-            for (let x = 0; x < 255; ) {
+            for (let x = 0; x < 255;) {
                 const length = spriteData[packetOffset++] & 0xff;
 
                 for (let i = 0; i < length; i++) {
@@ -57901,7 +57923,7 @@ class Surface {
                 } else {
                     width +=
                         fontData[
-                            Surface.characterWidth[text.charCodeAt(index)] + 7
+                        Surface.characterWidth[text.charCodeAt(index)] + 7
                         ];
                 }
 
@@ -58022,6 +58044,22 @@ class Surface {
                         text.slice(i + 1, i + 4).toLowerCase() === 'gr3'
                     ) {
                         colour = 0x40ff00;
+                    } else if (
+                        text.slice(i + 1, i + 4).toLowerCase() === 'cr1'
+                    ) {
+                        const spriteId = this.mudclient.spriteMedia + 14;
+                        this._drawSprite_from3(x, y - 12, spriteId);
+                        x += 14;
+                        i += 4;
+                        continue;
+                    } else if (
+                        text.slice(i + 1, i + 4).toLowerCase() === 'cr2'
+                    ) {
+                        const spriteId = this.mudclient.spriteMedia + 14 + 1;
+                        this._drawSprite_from3(x, y - 12, spriteId);
+                        x += 14;
+                        i += 4;
+                        continue;
                     }
 
                     i += 4;
@@ -59722,7 +59760,14 @@ async function handleMesssageTabsInput() {
             this.localPlayer.messageTimeout = 150;
             this.localPlayer.message = message;
 
-            this.showMessage(`${this.localPlayer.name}: ${message}`, 2);
+            let crownTag = '';
+            if (this.localPlayer.group === 2) {
+                crownTag = '@cr1@';
+            } else if (this.localPlayer.group === 3) {
+                crownTag = '@cr2@';
+            }
+
+            this.showMessage(`${crownTag}${this.localPlayer.name}: ${message}`, 2);
         }
     }
 
@@ -60138,82 +60183,48 @@ function createLoginPanels() {
     let y = 40;
     const click = this.options.mobile ? 'Tap' : 'Click';
 
-    if (!this.members) {
-        this.panelLoginWelcome.addTextCentre(
-            x,
-            200 + y,
-            `${click} on an option`,
-            5,
-            true
-        );
+    // Always show New User and Existing User options
+    this.panelLoginWelcome.addTextCentre(
+        x,
+        200 + y,
+        `${click} on an option`,
+        5,
+        true
+    );
 
-        this.panelLoginWelcome.addButtonBackground(x - 100, 240 + y, 120, 35);
+    this.panelLoginWelcome.addButtonBackground(x - 100, 240 + y, 120, 35);
 
-        this.panelLoginWelcome.addTextCentre(
-            x - 100,
-            240 + y,
-            'New User',
-            5,
-            false
-        );
+    this.panelLoginWelcome.addTextCentre(
+        x - 100,
+        240 + y,
+        'New User',
+        5,
+        false
+    );
 
-        this.controlWelcomeNewUser = this.panelLoginWelcome.addButton(
-            x - 100,
-            240 + y,
-            120,
-            35
-        );
+    this.controlWelcomeNewUser = this.panelLoginWelcome.addButton(
+        x - 100,
+        240 + y,
+        120,
+        35
+    );
 
-        this.panelLoginWelcome.addButtonBackground(x + 100, 240 + y, 120, 35);
+    this.panelLoginWelcome.addButtonBackground(x + 100, 240 + y, 120, 35);
 
-        this.panelLoginWelcome.addTextCentre(
-            x + 100,
-            240 + y,
-            'Existing User',
-            5,
-            false
-        );
+    this.panelLoginWelcome.addTextCentre(
+        x + 100,
+        240 + y,
+        'Existing User',
+        5,
+        false
+    );
 
-        this.controlWelcomeExistingUser = this.panelLoginWelcome.addButton(
-            x + 100,
-            240 + y,
-            120,
-            35
-        );
-    } else {
-        this.panelLoginWelcome.addTextCentre(
-            x,
-            200 + y,
-            'Welcome to RuneScape',
-            4,
-            true
-        );
-
-        this.panelLoginWelcome.addTextCentre(
-            x,
-            215 + y,
-            'You need a members account to use this server',
-            4,
-            true
-        );
-
-        this.panelLoginWelcome.addButtonBackground(x, 250 + y, 200, 35);
-
-        this.panelLoginWelcome.addTextCentre(
-            x,
-            250 + y,
-            `${click} here to login`,
-            5,
-            false
-        );
-
-        this.controlWelcomeExistingUser = this.panelLoginWelcome.addButton(
-            x,
-            250 + y,
-            200,
-            35
-        );
-    }
+    this.controlWelcomeExistingUser = this.panelLoginWelcome.addButton(
+        x + 100,
+        240 + y,
+        120,
+        35
+    );
 
     this.panelLoginNewUser = new Panel(this.surface, 50);
 
@@ -60607,7 +60618,7 @@ function renderLoginScreenViewports() {
     // runescape logo
     this.surface._drawSprite_from3(
         ((this.gameWidth / 2) | 0) -
-            ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
+        ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
         15,
         this.spriteMedia + 10
     );
@@ -60656,7 +60667,7 @@ function renderLoginScreenViewports() {
 
     this.surface._drawSprite_from3(
         ((this.gameWidth / 2) | 0) -
-            ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
+        ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
         15,
         this.spriteMedia + 10
     );
@@ -60719,7 +60730,7 @@ function renderLoginScreenViewports() {
 
     this.surface._drawSprite_from3(
         ((this.gameWidth / 2) | 0) -
-            ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
+        ((this.surface.spriteWidth[this.spriteMedia + 10] / 2) | 0),
         15,
         this.spriteMedia + 10
     );
@@ -60845,7 +60856,7 @@ async function handleLoginScreenInput() {
                 this.panelLoginNewUser.updateText(
                     this.controlRegisterStatus,
                     'To create an account please enter all the requested ' +
-                        'details'
+                    'details'
                 );
             }
         }
@@ -60948,7 +60959,7 @@ async function handleLoginScreenInput() {
                     this.panelLoginNewUser.updateText(
                         this.controlRegisterStatus,
                         '@yel@Please fill in ALL requested information to ' +
-                            'continue!'
+                        'continue!'
                     );
 
                     return;
@@ -60958,7 +60969,7 @@ async function handleLoginScreenInput() {
                     this.panelLoginNewUser.updateText(
                         this.controlRegisterStatus,
                         '@yel@The two passwords entered are not the same as ' +
-                            'each other!'
+                        'each other!'
                     );
 
                     return;
@@ -60981,7 +60992,7 @@ async function handleLoginScreenInput() {
                     this.panelLoginNewUser.updateText(
                         this.controlRegisterStatus,
                         '@yel@You must agree to the terms+conditions to ' +
-                            'continue'
+                        'continue'
                     );
 
                     return;
