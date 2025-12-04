@@ -203,6 +203,11 @@ async function npcCommand({ player }, { index, command }) {
             return;
         }
 
+        // Extract command from NPC definition if not provided in packet
+        if (!command && npc.definition && npc.definition.command) {
+            command = npc.definition.command;
+        }
+
         if (npc.interlocutor || npc.opponent || npc.locked) {
             player.unlock();
             return;
