@@ -41,11 +41,7 @@ async function spellNpc({ player }, { index, id }) {
         return;
     }
 
-    if (!player.withinRange(npc, 5)) {
-        player.message("I can't reach that!");
-        return;
-    }
-
+    // Don't check range here - shootMagic handles it internally (like ranged combat)
     await player.world.callPlugin('onSpellOnNpc', player, npc, id);
 }
 
