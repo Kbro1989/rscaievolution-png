@@ -1,0 +1,25 @@
+# fly.toml - RSC Game Server Configuration
+# Deployed to: rscaievolution-png.fly.dev
+
+app = 'rscaievolution-png'
+primary_region = 'dfw'
+
+[build]
+
+[http_service]
+  internal_port = 43594
+  force_https = true
+  auto_stop_machines = 'off'
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+[env]
+  PORT = '43594'
+  WORLD_ID = '1'
+  MEMBERS = 'false'
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
