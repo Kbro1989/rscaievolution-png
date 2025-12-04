@@ -13,8 +13,8 @@ const TELEPORTS = {
 
 // Combat spell max hits (authentic RSC)
 const COMBAT_SPELLS = {
-    'Wind strike': { maxHit: 2, xp: 5.5 },
-    'Water strike': { maxHit: 4, xp: 7.5 },
+    'Wind strike': { maxHit: 2, xp: 2.7 }, // Authentic RSC: 2.7 base
+    'Water strike': { maxHit: 4, xp: 5.5 }, // Authentic RSC: 5.5 base
     'Earth strike': { maxHit: 6, xp: 9.5 },
     'Fire strike': { maxHit: 8, xp: 11.5 },
     'Wind bolt': { maxHit: 9, xp: 13.5 },
