@@ -190,6 +190,17 @@ async function onSpellOnNpc(player, npc, spellId) {
 
     console.log(`[MAGIC DEBUG] Spell: ${spell.name}, Level required: ${spell.level}, Player level: ${player.skills.magic.current}`);
 
+    // Stop player movement - magic is ranged, don't run to target
+    player.walkQueue.length = 0;
+    player.endWalkFunction = null;
+
+    // Check spell range (5 tiles for magic, like OpenRSC)
+    const SPELL_RANGE = 5;
+    if (!player.withinRange(npc, SPELL_RANGE)) {
+        player.message("@que@You are too far away to cast that spell.");
+        return true;
+    }
+
     if (player.skills.magic.current < spell.level) {
         player.message(`@que@You need a magic level of ${spell.level} to cast this spell.`);
         return true;
