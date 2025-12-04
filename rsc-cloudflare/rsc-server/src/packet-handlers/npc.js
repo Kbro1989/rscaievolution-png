@@ -218,6 +218,8 @@ async function npcCommand({ player }, { index, command }) {
         );
 
         if (blocked) {
+            player.unlock();
+            npc.unlock();
             return;
         }
 
