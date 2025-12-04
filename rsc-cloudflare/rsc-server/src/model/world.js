@@ -59,7 +59,14 @@ const PLUGIN_TYPES = [
     'onDropItem',
     'onNPCAttack',
     'onNPCDeath',
-    'onNPCCombat'
+    'onNPCCombat',
+    'onSpellOnSelf',
+    'onSpellOnPlayer',
+    'onSpellOnNpc',
+    'onSpellOnInvItem',
+    'onSpellOnGroundItem',
+    'onSpellOnObject',
+    'onSpellOnDoor'
 ];
 
 // prevent spawning entities outside of the f2p boundaries
