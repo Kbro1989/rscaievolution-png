@@ -77,11 +77,16 @@ const healthServer = http.createServer((req, res) => {
 async function start() {
     try {
         // Start health check endpoint on same port
-        healthServer.listen(43594, async () => {
+        healthServer.listen(43594, '0.0.0.0', async () => {
             console.log('✅ Health check endpoint ready at /health');
 
             // Initialize RSC server, passing the http server to share the port
-            await server.init(healthServer);
+            try {
+                await server.init(healthServer);
+            } catch (err) {
+                console.error('❌ Server init failed:', err);
+                process.exit(1);
+            }
         });
 
         // Start state sync if enabled
