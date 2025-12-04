@@ -43,6 +43,7 @@ const DROP_DISAPPEAR_TIMEOUT = 1000 * 60 * 2; // 2 mins
 // that will potentially block default behaviour
 const PLUGIN_TYPES = [
     'onTalkToNPC',
+    'onNPCCommand',
     'onGameObjectCommandOne',
     'onGameObjectCommandTwo',
     'onWallObjectCommandOne',
