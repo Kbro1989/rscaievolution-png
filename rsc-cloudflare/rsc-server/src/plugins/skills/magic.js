@@ -178,21 +178,29 @@ async function onSpellOnInvItem(player, item, spellId) {
 
 // ===== SPELL ON NPC (Combat & Curse Spells) =====
 async function onSpellOnNpc(player, npc, spellId) {
+    console.log(`[MAGIC DEBUG] onSpellOnNpc called: spellId=${spellId}, npc=${npc.id}`);
+
     const spell = spells[spellId];
-    if (!spell) return;
+    if (!spell) {
+        console.log(`[MAGIC DEBUG] Spell ${spellId} not found`);
+        return false;
+    }
+
+    console.log(`[MAGIC DEBUG] Spell: ${spell.name}, Level required: ${spell.level}, Player level: ${player.skills.magic.current}`);
 
     if (player.skills.magic.current < spell.level) {
         player.message(`@que@You need a magic level of ${spell.level} to cast this spell.`);
-        return;
+        return true; // Block default behavior
     }
 
     if (!player.withinRange(npc, 5)) {
         player.message("@que@I can't reach that!");
-        return;
+        return true; // Block default behavior
     }
 
     // === COMBAT SPELLS ===
     if (COMBAT_SPELLS[spell.name]) {
+        console.log(`[MAGIC DEBUG] Combat spell detected: ${spell.name}, calling shootMagic`);
         // Use the built-in shootMagic method (works like ranged)
         await player.shootMagic(npc, spellId);
         return true;
