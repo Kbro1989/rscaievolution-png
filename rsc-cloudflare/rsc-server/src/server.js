@@ -179,7 +179,11 @@ class Server {
 
     async init() {
         try {
-            await this.dataClient.init();
+            if (!this.config.skipDataServer) {
+                await this.dataClient.init();
+            } else {
+                log.info('Skipping DataClient initialization (running in standalone/KV mode)');
+            }
 
             await this.world.loadData();
             this.world.tick();

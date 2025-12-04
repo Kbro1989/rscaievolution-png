@@ -18,7 +18,8 @@ const config = {
     worldID: parseInt(process.env.WORLD_ID || '1'),
     members: process.env.MEMBERS === 'true',
     tcpPort: null,
-    websocketPort: parseInt(process.env.PORT || '43594')
+    websocketPort: parseInt(process.env.PORT || '43594'),
+    skipDataServer: true
 };
 
 // State sync configuration
