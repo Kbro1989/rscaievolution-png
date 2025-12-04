@@ -90,11 +90,25 @@ async function mineRock(player, gameObject) {
 
     await world.sleepTicks(3);
 
+    let rollLow = 128;
+    let rollHigh = 256;
+
+    if (rock.roll) {
+        rollLow = rock.roll[0];
+        rollHigh = rock.roll[1];
+    } else {
+        console.warn(`Rock ${rockID} missing roll data, using default [${rollLow}, ${rollHigh}]`);
+    }
+
+    console.log(`Mining: Level=${miningLevel} Rock=${rockID} Pickaxe=${bestPickaxeID} Attempts=${bestPickaxeDef.attempts} Roll=[${rollLow}, ${rollHigh}]`);
+
     const oreSuccess = rollSkillSuccess(
-        rock.roll[0] * bestPickaxeDef.attempts,
-        rock.roll[1] * bestPickaxeDef.attempts,
+        rollLow * bestPickaxeDef.attempts,
+        rollHigh * bestPickaxeDef.attempts,
         miningLevel
     );
+
+    console.log(`Mining: Success=${oreSuccess}`);
 
     if (world.gameObjects.getAtPoint(x, y)[0] === gameObject && oreSuccess) {
         // Deplete rock if it has an empty state
