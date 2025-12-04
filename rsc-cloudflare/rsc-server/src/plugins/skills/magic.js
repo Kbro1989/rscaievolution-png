@@ -60,7 +60,7 @@ function checkAndRemoveRunes(player, spell) {
     for (const rune of spell.runes) {
         if (rune.id === staffReplacesRune) continue;
 
-        if (!player.inventory.contains(rune.id, rune.amount)) {
+        if (!player.inventory.has(rune.id, rune.amount)) {
             const runeName = items[rune.id]?.name || 'rune';
             player.message(`@que@You do not have enough ${runeName}s to cast this spell.`);
             return false;
