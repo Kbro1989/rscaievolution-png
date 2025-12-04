@@ -181,7 +181,7 @@ class Server {
         }
     }
 
-    async init() {
+    async init(httpServer) {
         try {
             if (!this.config.skipDataServer) {
                 await this.dataClient.init();
@@ -202,8 +202,10 @@ class Server {
                 this.bindWebWorker();
                 postMessage({ type: 'ready' });
             } else {
-                await this.bindTCP();
-                this.bindWebSocket();
+                if (!httpServer) {
+                    await this.bindTCP();
+                }
+                this.bindWebSocket(httpServer);
             }
         } catch (e) {
             console.error(e);
