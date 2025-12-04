@@ -114,17 +114,21 @@ class Server {
         });
     }
 
-    bindWebSocket() {
-        const port = this.config.websocketPort;
+    bindWebSocket(httpServer) {
+        if (httpServer) {
+            this.websocketServer = new ws.Server({ server: httpServer });
+            log.info('attached websocket server to existing http server');
+        } else {
+            const port = this.config.websocketPort;
+            this.websocketServer = new ws.Server({ port });
+            log.info(`listening for websocket connections on port ${port}`);
+        }
 
-        this.websocketServer = new ws.Server({ port });
         this.websocketServer.on('error', (err) => log.error(err));
 
         this.websocketServer.on('connection', (socket) => {
             this.handleConnection(socket);
         });
-
-        log.info(`listening for websocket connections on port ${port}`);
     }
 
     bindWebWorker() {
