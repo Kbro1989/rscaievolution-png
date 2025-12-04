@@ -11,6 +11,7 @@ function getSpot(id, command) {
     let spot = spots[id];
 
     if (!spot) {
+        // player.message(`@que@Debug: Fishing Spot ID ${id} not defined.`);
         return false;
     }
 

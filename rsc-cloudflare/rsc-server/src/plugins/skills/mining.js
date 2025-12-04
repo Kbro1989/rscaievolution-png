@@ -22,6 +22,7 @@ async function mineRock(player, gameObject) {
     const rockID = gameObject.id;
 
     if (!ROCK_IDS.has(rockID)) {
+        player.message(`@que@Debug: Rock ID ${rockID} not defined in mining skill.`);
         return false;
     }
 
@@ -138,6 +139,7 @@ async function prospectRock(player, gameObject) {
     const rockID = gameObject.id;
 
     if (!ROCK_IDS.has(rockID)) {
+        player.message(`@que@Debug: Rock ID ${rockID} not defined in mining skill.`);
         return false;
     }
 
