@@ -1375,13 +1375,15 @@ class Player extends Character {
             618: 34  // Earth staff -> Earth runes
         };
 
-        const weapon = this.inventory.getWieldedWeapon();
+        // Get equipped weapon from equipment slots
+        const weaponIndex = this.inventory.equipmentSlots['right-hand'];
+        const weapon = weaponIndex !== -1 ? this.inventory.items[weaponIndex] : null;
         const staffReplacesRune = weapon ? staffRunes[weapon.id] : null;
 
         for (const rune of spell.runes) {
             if (rune.id === staffReplacesRune) continue;
 
-            if (!this.inventory.contains(rune.id, rune.amount)) {
+            if (!this.inventory.has(rune.id, rune.amount)) {
                 if (showMessage) {
                     const items = require('@2003scape/rsc-data/config/items');
                     const runeName = items[rune.id]?.name || 'rune';
