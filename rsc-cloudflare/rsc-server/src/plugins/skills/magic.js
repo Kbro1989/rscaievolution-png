@@ -194,10 +194,16 @@ async function onSpellOnNpc(player, npc, spellId) {
     player.walkQueue.length = 0;
     player.endWalkFunction = null;
 
-    // Check spell range (5 tiles for magic, like OpenRSC)
-    const SPELL_RANGE = 5;
+    // Check spell range (10 tiles for magic - extended range for safespotting)
+    const SPELL_RANGE = 20; // withinRange uses range/2, so 20 = 10 tiles
     if (!player.withinRange(npc, SPELL_RANGE)) {
         player.message("@que@You are too far away to cast that spell.");
+        return true;
+    }
+
+    // Check line of sight with projectile mode (allows shooting over fences, rocks, etc.)
+    if (!player.withinLineOfSight(npc, true)) {
+        player.message("@que@I can't see my target from here.");
         return true;
     }
 
