@@ -40,7 +40,7 @@ echo Setting Cloudflare secrets...
 echo.
 echo Deploying to Fly.io...
 
-%FLY_CMD% deploy
+%FLY_CMD% deploy --config fly.toml --dockerfile Dockerfile
 
 echo.
 echo ========================================
