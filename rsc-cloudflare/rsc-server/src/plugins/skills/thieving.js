@@ -16,7 +16,7 @@ const DOOR_IDS = new Set(Object.keys(DOORS).map(Number));
 
 // === NPC Pickpocket ===
 async function onNPCCommand(player, npc, command) {
-    // console.log(`Thieving: onNPCCommand cmd=${command} npc=${npc.id}`);
+    console.log(`Thieving: onNPCCommand cmd=${command} npc=${npc.id}`);
 
     if (command !== 'pickpocket') {
         return false;
