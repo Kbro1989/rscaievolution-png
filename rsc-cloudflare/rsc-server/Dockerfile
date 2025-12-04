@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /usr/src/app
 
 # Install dependencies first (better layer caching)
-COPY package*.json ./
+COPY package.json ./
 RUN npm install --production
 
 # Copy source code
