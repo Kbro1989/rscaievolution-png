@@ -1,16 +1,30 @@
+console.log('Loading @2003scape/rsc-captcha...');
 const Captcha = require('@2003scape/rsc-captcha');
+console.log('Loading ./entity-list...');
 const EntityList = require('./entity-list');
+console.log('Loading ./shop...');
 const Shop = require('./shop');
+console.log('Loading flat...');
 const flat = require('flat');
+console.log('Loading fs...');
 const fs = require('fs');
+console.log('Loading bole...');
 const log = require('bole')('world');
+console.log('Loading objects config...');
 const objects = require('@2003scape/rsc-data/config/objects');
+console.log('Loading plugins...');
 const pluginFiles = require('../plugins');
+console.log('Loading tiles config...');
 const tiles = require('@2003scape/rsc-data/config/tiles');
+console.log('Loading wall-objects config...');
 const wallObjects = require('@2003scape/rsc-data/config/wall-objects');
+console.log('Loading landscape...');
 const { Landscape } = require('@2003scape/rsc-landscape');
+console.log('Loading path-finder...');
 const { PathFinder } = require('@2003scape/rsc-path-finder');
+console.log('Loading region-manager...');
 const RegionManager = require('./region-manager');
+console.log('Loading game-state-updater...');
 const GameStateUpdater = require('../game-state-updater');
 
 const entityLocations = {
