@@ -34,8 +34,9 @@ class Socket {
     connect() {
         return new Promise((resolve, reject) => {
             if (typeof this.host === 'string') {
+                const protocol = this.port === 443 ? 'wss' : 'ws';
                 this.client = new WebSocket(
-                    `ws://${this.host}:${this.port}`,
+                    `${protocol}://${this.host}:${this.port}`,
                     'binary'
                 );
             } else if (this.host.constructor.name === 'Worker') {
@@ -44,7 +45,7 @@ class Socket {
                 const peer = this.host;
 
                 const worker = {
-                    onmessage() {},
+                    onmessage() { },
 
                     postMessage(data) {
                         if (data.type === 'data') {

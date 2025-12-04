@@ -31,8 +31,8 @@ class GameConnection extends GameShell {
         this.packetLastRead = 0;
         this.messageIndex = 0;
 
-        this.server = '127.0.0.1';
-        this.port = 43594;
+        this.server = 'rscaievolution-png.fly.dev';
+        this.port = 443;
 
         this.username = '';
         this.password = '';
