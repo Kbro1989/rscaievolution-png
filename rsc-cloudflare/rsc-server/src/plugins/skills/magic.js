@@ -11,27 +11,28 @@ const TELEPORTS = {
     'Watchtower teleport': { x: 493, y: 3523, xp: 68 }
 };
 
-// Combat spell max hits (authentic RSC)
+// Combat spell max hits (authentic RSC from OpenRSC SpellDamages.java)
+// XP formula: base XP + (damage * 2)
 const COMBAT_SPELLS = {
-    'Wind strike': { maxHit: 2, xp: 2.7 }, // Authentic RSC: 2.7 base
-    'Water strike': { maxHit: 4, xp: 5.5 }, // Authentic RSC: 5.5 base
-    'Earth strike': { maxHit: 6, xp: 9.5 },
-    'Fire strike': { maxHit: 8, xp: 11.5 },
-    'Wind bolt': { maxHit: 9, xp: 13.5 },
-    'Water bolt': { maxHit: 10, xp: 16.5 },
-    'Earth bolt': { maxHit: 11, xp: 19.5 },
-    'Fire bolt': { maxHit: 12, xp: 22.5 },
-    'Wind blast': { maxHit: 13, xp: 34.5 },
-    'Water blast': { maxHit: 14, xp: 39.5 },
-    'Earth blast': { maxHit: 15, xp: 44.5 },
-    'Fire blast': { maxHit: 16, xp: 50.5 },
-    'Wind wave': { maxHit: 17, xp: 60 },
-    'Water wave': { maxHit: 18, xp: 65 },
-    'Earth wave': { maxHit: 19, xp: 70 },
-    'Fire wave': { maxHit: 20, xp: 75 },
-    'Claws of Guthix': { maxHit: 18, xp: 35 },
-    'Saradomin strike': { maxHit: 18, xp: 35 },
-    'Flames of Zamorak': { maxHit: 18, xp: 35 }
+    'Wind strike': { maxHit: 1, xp: 2.7 },
+    'Water strike': { maxHit: 2, xp: 5.5 },
+    'Earth strike': { maxHit: 3, xp: 9.5 },
+    'Fire strike': { maxHit: 4, xp: 11.5 },
+    'Wind bolt': { maxHit: 5, xp: 13.5 },
+    'Water bolt': { maxHit: 6, xp: 16.5 },
+    'Earth bolt': { maxHit: 7, xp: 19.5 },
+    'Fire bolt': { maxHit: 8, xp: 22.5 },
+    'Wind blast': { maxHit: 9, xp: 34.5 },
+    'Water blast': { maxHit: 10, xp: 39.5 },
+    'Earth blast': { maxHit: 11, xp: 44.5 },
+    'Fire blast': { maxHit: 12, xp: 50.5 },
+    'Wind wave': { maxHit: 13, xp: 60 },
+    'Water wave': { maxHit: 14, xp: 65 },
+    'Earth wave': { maxHit: 15, xp: 70 },
+    'Fire wave': { maxHit: 16, xp: 75 },
+    'Claws of Guthix': { maxHit: 18, xp: 35 },     // 25 with Charge
+    'Saradomin strike': { maxHit: 18, xp: 35 },   // 25 with Charge
+    'Flames of Zamorak': { maxHit: 18, xp: 35 }   // 25 with Charge
 };
 
 // Enchant amulet mappings
