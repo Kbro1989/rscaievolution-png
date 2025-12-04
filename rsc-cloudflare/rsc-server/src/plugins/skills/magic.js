@@ -52,7 +52,8 @@ function checkAndRemoveRunes(player, spell) {
         618: 34  // Earth staff -> Earth runes
     };
 
-    const weapon = player.inventory.getWieldedWeapon();
+    const weaponIndex = player.inventory.equipmentSlots['right-hand'];
+    const weapon = weaponIndex !== -1 ? player.inventory.items[weaponIndex] : null;
     const staffReplacesRune = weapon ? staffRunes[weapon.id] : null;
 
     // Check runes
