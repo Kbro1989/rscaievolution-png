@@ -190,26 +190,44 @@ async function onSpellOnNpc(player, npc, spellId) {
 
     if (player.skills.magic.current < spell.level) {
         player.message(`@que@You need a magic level of ${spell.level} to cast this spell.`);
-        return true; // Block default behavior
-    }
-
-    if (!player.withinRange(npc, 5)) {
-        player.message("@que@I can't reach that!");
-        return true; // Block default behavior
+        return true;
     }
 
     // === COMBAT SPELLS ===
     if (COMBAT_SPELLS[spell.name]) {
-        console.log(`[MAGIC DEBUG] Combat spell detected: ${spell.name}, calling shootMagic`);
-        // Use the built-in shootMagic method (works like ranged)
-        await player.shootMagic(npc, spellId);
+        console.log(`[MAGIC DEBUG] Combat spell detected: ${spell.name}`);
+
+        // Check if player has runes
+        if (!checkAndRemoveRunes(player, spell)) { // Using existing helper
+            console.log(`[MAGIC DEBUG] Insufficient runes`);
+            return true;
+        }
+
+        console.log(`[MAGIC DEBUG] Player has runes, removing them`);
+        // Runes are already removed by checkAndRemoveRunes
+
+        console.log(`[MAGIC DEBUG] Sending projectile and dealing damage`);
+        player.message(`@que@You cast ${spell.name}!`);
+
+        // Send projectile
+        player.sendProjectile(npc, 2);
+
+        // Deal damage
+        const spellData = COMBAT_SPELLS[spell.name];
+        const damage = Math.floor(Math.random() * (spellData.maxHit + 1));
+        npc.damage(damage);
+
+        // Award XP
+        player.addExperience('magic', spellData.xp + (damage * 2));
+
+        console.log(`[MAGIC DEBUG] Dealt ${damage} damage, awarded XP`);
         return true;
     }
 
     // === CURSE SPELLS ===
     const curseSpells = ['Confuse', 'Weaken', 'Curse', 'Vulnerability', 'Enfeeble', 'Stun'];
     if (curseSpells.includes(spell.name)) {
-        if (!checkAndRemoveRunes(player, spell)) return;
+        if (!checkAndRemoveRunes(player, spell)) return true;
 
         const successChance = (player.skills.magic.current - spell.level) + 50;
         const roll = Math.random() * 100;
