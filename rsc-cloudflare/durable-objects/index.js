@@ -6,9 +6,10 @@
  */
 
 import { RSCServerDO } from './RSCServerDO.js';
+import { PlayerDO } from './PlayerDO.js';
 
-// Export the Durable Object class
-export { RSCServerDO };
+// Export the Durable Object classes
+export { RSCServerDO, PlayerDO };
 
 // Default fetch handler for the Worker (not the Durable Object)
 // This is called when the Worker itself receives a request
