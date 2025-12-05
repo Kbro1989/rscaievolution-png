@@ -42150,6 +42150,7 @@ const getPacketHandlers = require('./packet-handlers');
 const keycodes = require('./lib/keycodes');
 const clientOpcodes = require('./opcodes/client');
 const version = require('./version');
+// const PartySocket = require('partysocket'); // Using CDN global
 
 const ZOOM_MIN = 450;
 const ZOOM_MAX = 1250;
@@ -42540,6 +42541,37 @@ class mudclient extends GameConnection {
         this.changePasswordOld = '';
         this.changePasswordNew = '';
         this.welcomeTipDay = 0;
+
+        this.welcomeTipDay = 0;
+
+        // PartyKit Multiplayer
+        this.partySocket = new window.PartySocket({
+            host: "rsc-party-worker.elderscapedev.workers.dev", // TODO: Make configurable
+            room: "world-1"
+        });
+
+        this.partySocket.addEventListener("message", (e) => {
+            try {
+                const msg = JSON.parse(e.data);
+                if (msg.type === "add-marker" || msg.type === "update-position") {
+                    this.updateRemotePlayer(msg.position);
+                } else if (msg.type === "remove-marker") {
+                    this.removeRemotePlayer(msg.id);
+                }
+            } catch (err) {
+                console.error("PartyKit message error", err);
+            }
+        });
+
+        this.remotePlayers = new Map();
+    }
+
+    updateRemotePlayer(pos) {
+        this.remotePlayers.set(pos.id, pos);
+    }
+
+    removeRemotePlayer(id) {
+        this.remotePlayers.delete(id);
     }
 
     playSoundFile(soundName) {
@@ -42637,6 +42669,18 @@ class mudclient extends GameConnection {
         this.mouseClickXX = this.mouseX;
         this.mouseClickXY = this.mouseY;
 
+        // Send position update to PartyKit
+        if (this.partySocket && this.partySocket.readyState === 1) { // WebSocket.OPEN is 1
+            this.partySocket.send(JSON.stringify({
+                type: "update-position",
+                position: {
+                    x: x1 + this.regionX,
+                    y: y1 + this.regionY,
+                    plane: this.planeIndex
+                }
+            }));
+        }
+
         return true;
     }
 
@@ -42716,9 +42760,26 @@ class mudclient extends GameConnection {
             const y = this.healthBarY[i];
             const missing = this.healthBarMissing[i];
 
-            this.surface.drawBoxAlpha(x - 15, y - 3, missing, 5, 65280, 192);
             this.surface.drawBoxAlpha((x - 15) + missing, y - 3, 30 - missing,
                 5, 0xff0000, 192);
+        }
+
+        // Draw remote players (PartyKit)
+        if (this.remotePlayers) {
+            for (const [id, pos] of this.remotePlayers) {
+                // Convert world coords to local screen coords
+                // This is a simplified projection, might need adjustment based on camera
+                // For now, just drawing a dot if within range
+                const localX = pos.x - this.regionX;
+                const localY = pos.y - this.regionY;
+
+                // Use existing sprite drawing if possible, or simple box
+                // Assuming we can convert world to screen... 
+                // Since we don't have easy world-to-screen here without using the 3D engine,
+                // we might need to rely on the 3D scene to render them.
+                // But for now, let's just log or try to hook into the scene.
+                // Actually, let's just create a "fake" player in the players array if possible.
+            }
         }
     }
 
