@@ -163,9 +163,17 @@
                 All combat formulas, skill calculations, and multiplayer systems verified against RSC Wiki.
             </p>
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://rscaievolution-png.pages.dev/" class="play-button">⚔️ Solo Play</a>
-                <a href="https://rscaievolution-png.pages.dev/?mode=multiplayer" class="play-button"
-                    style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">🌐 Multiplayer</a>
+                <div style="margin-bottom: 1rem;">
+                    <a href="https://rscaievolution-png.pages.dev/" class="play-button">⚔️ Solo Play</a>
+                    <div style="color: #95a5a6; font-size: 0.8rem; margin-top: 0.2rem;">Version: <span
+                            id="solo-version">Loading...</span></div>
+                </div>
+                <div>
+                    <a href="https://rscaievolution-png.pages.dev/?mode=multiplayer" class="play-button"
+                        style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">🌐 Multiplayer</a>
+                    <div style="color: #95a5a6; font-size: 0.8rem; margin-top: 0.2rem;">Version: <span
+                            id="multi-version">Loading...</span></div>
+                </div>
             </div>
         </div>
 
@@ -241,6 +249,15 @@
                 const data = await response.json();
                 document.getElementById('players-online').textContent = data.players || '0';
                 document.getElementById('server-status').textContent = '🟢 ONLINE';
+
+                if (data.servers) {
+                    if (data.servers.cloudflare) {
+                        document.getElementById('solo-version').textContent = 'v' + (data.servers.cloudflare.version || 'Unknown');
+                    }
+                    if (data.servers.flyio) {
+                        document.getElementById('multi-version').textContent = 'v' + (data.servers.flyio.version || 'Unknown');
+                    }
+                }
             } catch (err) {
                 document.getElementById('players-online').textContent = '0';
                 document.getElementById('server-status').textContent = '🟢 ONLINE';

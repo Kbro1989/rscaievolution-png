@@ -10,6 +10,7 @@ export async function onRequestGet(context) {
         // Try to check Fly.io health
         let flyioStatus = 'unknown';
         let flyioPlayers = 0;
+        let flyioVersion = 'Unknown';
 
         try {
             const flyResponse = await fetch('https://rsc-game-server.fly.dev/health', {
@@ -22,6 +23,7 @@ export async function onRequestGet(context) {
                 const flyData = await flyResponse.json();
                 flyioStatus = 'healthy';
                 flyioPlayers = flyData.players || 0;
+                flyioVersion = flyData.version || 'Unknown';
             } else {
                 flyioStatus = 'unhealthy';
             }
@@ -40,11 +42,13 @@ export async function onRequestGet(context) {
                 flyio: {
                     status: flyioStatus,
                     players: flyioPlayers,
+                    version: flyioVersion,
                     priority: 1
                 },
                 cloudflare: {
                     status: cloudflareStatus,
                     players: cloudflarePlayers,
+                    version: '1.0.0', // TODO: sync with package.json
                     priority: 2,
                     readOnly: true
                 }

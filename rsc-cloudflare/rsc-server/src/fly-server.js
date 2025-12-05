@@ -17,6 +17,7 @@ const http = require('http');
 // Configuration from environment variables
 console.log('Loading ../config.json...');
 const defaultConfig = require('../config.json');
+const packageJson = require('../package.json');
 
 // Configuration from environment variables, merging with default config
 const config = {
@@ -72,7 +73,9 @@ const healthServer = http.createServer((req, res) => {
             status: 'healthy',
             uptime: process.uptime(),
             players: server.world ? server.world.players.length : 0,
-            timestamp: new Date().toISOString()
+            players: server.world ? server.world.players.length : 0,
+            timestamp: new Date().toISOString(),
+            version: packageJson.version
         };
 
         res.writeHead(200, { 'Content-Type': 'application/json' });
