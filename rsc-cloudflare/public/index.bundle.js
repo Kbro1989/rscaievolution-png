@@ -37678,7 +37678,7 @@ class ChatMessage {
                 } else {
                     ChatMessage.chars[newLength++] =
                         ChatMessage.charMap[
-                            (leftShift << 4) + charMapIndex - 195
+                        (leftShift << 4) + charMapIndex - 195
                         ];
 
                     leftShift = -1;
@@ -37696,7 +37696,7 @@ class ChatMessage {
                 } else {
                     ChatMessage.chars[newLength++] =
                         ChatMessage.charMap[
-                            (leftShift << 4) + charMapIndex - 195
+                        (leftShift << 4) + charMapIndex - 195
                         ];
 
                     leftShift = -1;
@@ -37844,7 +37844,7 @@ ChatMessage.charMap = new Uint16Array(
         '#',
         '+',
         '=',
-        '\243',
+        '\u00A3',
         '$',
         '%',
         '"',
@@ -40642,7 +40642,7 @@ const version = require('./version');
 const sleep = require('sleep-promise');
 
 const CHAR_MAP =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"\243$%^&' +
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"\xa3$%^&' +
     "*()-_=+[{]};:'@#~,<.>/?\\| ";
 
 const FONTS = [
@@ -42542,10 +42542,8 @@ class mudclient extends GameConnection {
         this.changePasswordNew = '';
         this.welcomeTipDay = 0;
 
-        this.welcomeTipDay = 0;
-
         // PartyKit Multiplayer
-        this.partySocket = new window.PartySocket({
+        this.partySocket = new PartySocket({
             host: "rsc-party-worker.elderscapedev.workers.dev", // TODO: Make configurable
             room: "world-1"
         });

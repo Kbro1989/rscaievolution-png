@@ -32,7 +32,7 @@ const DEFAULT_PLAYER = {
         attack: { current: 1, experience: 0 },
         defense: { current: 1, experience: 0 },
         strength: { current: 1, experience: 0 },
-        hits: { current: 9, experience: 1154 }, // User requested Level 9 base
+        hits: { current: 9, experience: 2304 }, // RSC Level 9 with 4x multiplier
         ranged: { current: 1, experience: 0 },
         prayer: { current: 1, experience: 0 },
         magic: { current: 1, experience: 0 },
@@ -79,9 +79,19 @@ class BrowserDataClient {
             log.info('BrowserDataClient initialized (Durable Object KV mode)');
             console.log('%c RSC DURABLE OBJECT KV MODE ', 'background: #ff6600; color: white; font-size: 20px');
         } else {
-            log.info('BrowserDataClient initialized (Browser fetch mode)');
-            console.log('%c RSC KV STORAGE MODE ACTIVE ', 'background: #222; color: #bada55; font-size: 20px');
+            log.info('BrowserDataClient initialized (Browser Worker memory mode)');
+            console.log('%c RSC WORKER MEMORY MODE ', 'background: #222; color: #bada55; font-size: 20px');
+            // Note: Workers can't access localStorage, using in-memory Map
         }
+    }
+
+    loadFromLocalStorage() {
+        // Workers can't access localStorage - skip
+        log.info('loaded 0 players (Worker memory mode)');
+    }
+
+    saveToLocalStorage(player) {
+        // Workers can't access localStorage - skip
     }
 
     async load() {
@@ -164,22 +174,17 @@ class BrowserDataClient {
                         this.players.set(player.username, player);
                         return { success: true, player };
                     } else {
-                        // Browser fetch mode
-                        const res = await fetch('/api/player/register', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(player)
-                        });
-
-                        if (res.ok) {
-                            this.players.set(player.username, player);
-                            return { success: true, player };
-                        } else {
-                            if (res.status === 409) {
-                                return { success: false, code: 4 }; // Username taken
-                            }
-                            return { success: false, code: 3 };
+                        // Browser Worker mode - use in-memory Map
+                        const existing = this.players.get(message.username);
+                        if (existing) {
+                            return { success: false, code: 4 }; // Username taken
                         }
+
+                        // Save to in-memory cache
+                        this.players.set(player.username, player);
+                        this.playerUsernames.set(player.id, player.username);
+                        log.info(`Registered new player: ${player.username}`);
+                        return { success: true, code: 2, player }; // code 2 = success
                     }
                 } catch (err) {
                     console.error('Register error:', err);
@@ -206,22 +211,13 @@ class BrowserDataClient {
                             return { success: false, code: 3 }; // Invalid credentials
                         }
                     } else {
-                        // Browser fetch mode
-                        const res = await fetch('/api/player/login', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                username: message.username,
-                                password: message.password
-                            })
-                        });
-                        const data = await res.json();
+                        // Browser localStorage mode
+                        player = this.players.get(message.username);
 
-                        if (!data.success) {
-                            return { success: false, code: 3 };
+                        if (!player || player.password !== message.password) {
+                            return { success: false, code: 3 }; // Invalid credentials
                         }
-
-                        player = data.player;
+                        log.info(`Player login: ${player.username}`);
                     }
 
                     if (player.world) {

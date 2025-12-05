@@ -55,8 +55,15 @@ export class RSCServer extends Server {
 
 export default {
     async fetch(request: Request, env: any, ctx: ExecutionContext): Promise<Response> {
+        console.log("Request URL:", request.url);
+        console.log("Env keys:", Object.keys(env));
+
+        // Map 'main' party to RSC_PARTY binding
+        const partyEnv = { ...env, main: env.RSC_PARTY };
+        console.log("PartyEnv keys:", Object.keys(partyEnv));
+
         return (
-            (await routePartykitRequest(request, env)) ||
+            (await routePartykitRequest(request, partyEnv)) ||
             new Response("Not Found", { status: 404 })
         );
     },

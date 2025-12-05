@@ -25,4 +25,6 @@ module.exports = {
     "walk": require('./walk.js'),
     "wall-object": require('./wall-object.js'),
     "spell": require('./spell.js'),
+    "report": require('./report.js'),
+    "security": require('./security.js'),
 };

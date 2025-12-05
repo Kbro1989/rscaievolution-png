@@ -218,7 +218,7 @@ export class GameWorld {
                 attack: { base: 1, current: 1, experience: 0 },
                 defense: { base: 1, current: 1, experience: 0 },
                 strength: { base: 1, current: 1, experience: 0 },
-                hits: { base: 10, current: 10, experience: 1154 },
+                hits: { base: 9, current: 9, experience: 2304 },
                 ranged: { base: 1, current: 1, experience: 0 },
                 prayer: { base: 1, current: 1, experience: 0 },
                 magic: { base: 1, current: 1, experience: 0 },

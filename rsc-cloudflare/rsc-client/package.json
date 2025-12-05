@@ -49,5 +49,8 @@
       "bulkify",
       "brfs"
     ]
+  },
+  "dependencies": {
+    "partysocket": "^1.1.6"
   }
 }

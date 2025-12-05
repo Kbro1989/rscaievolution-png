@@ -38,7 +38,7 @@ const DEFAULT_PLAYER = {
         attack: { current: 1, experience: 0 },
         defense: { current: 1, experience: 0 },
         strength: { current: 1, experience: 0 },
-        hits: { current: 9, experience: 1154 },
+        hits: { current: 9, experience: 2304 },
         ranged: { current: 1, experience: 0 },
         prayer: { current: 1, experience: 0 },
         magic: { current: 1, experience: 0 },

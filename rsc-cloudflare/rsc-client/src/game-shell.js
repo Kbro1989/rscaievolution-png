@@ -11,7 +11,7 @@ const version = require('./version');
 const sleep = require('sleep-promise');
 
 const CHAR_MAP =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"\243$%^&' +
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!"\xa3$%^&' +
     "*()-_=+[{]};:'@#~,<.>/?\\| ";
 
 const FONTS = [

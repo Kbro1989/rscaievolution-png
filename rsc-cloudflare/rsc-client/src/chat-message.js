@@ -33,7 +33,7 @@ class ChatMessage {
                 } else {
                     ChatMessage.chars[newLength++] =
                         ChatMessage.charMap[
-                            (leftShift << 4) + charMapIndex - 195
+                        (leftShift << 4) + charMapIndex - 195
                         ];
 
                     leftShift = -1;
@@ -51,7 +51,7 @@ class ChatMessage {
                 } else {
                     ChatMessage.chars[newLength++] =
                         ChatMessage.charMap[
-                            (leftShift << 4) + charMapIndex - 195
+                        (leftShift << 4) + charMapIndex - 195
                         ];
 
                     leftShift = -1;
@@ -199,7 +199,7 @@ ChatMessage.charMap = new Uint16Array(
         '#',
         '+',
         '=',
-        '\243',
+        '\u00A3',
         '$',
         '%',
         '"',

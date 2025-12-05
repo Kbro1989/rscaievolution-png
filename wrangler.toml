@@ -2,6 +2,10 @@ name = "rsc-authentic-client"
 pages_build_output_dir = "rsc-cloudflare/public"
 compatibility_date = "2024-11-28"
 
+# Primary KV namespace for player data
 [[kv_namespaces]]
 binding = "KV"
 id = "f2881801ac59415a86236d0841f27103"
+
+# NOTE: This is minimal config for free tier
+# For multiplayer, see rsc-cloudflare/FREE-MULTIPLAYER-SETUP.md

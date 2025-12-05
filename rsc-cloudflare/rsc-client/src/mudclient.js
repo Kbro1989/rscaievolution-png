@@ -18,7 +18,7 @@ const getPacketHandlers = require('./packet-handlers');
 const keycodes = require('./lib/keycodes');
 const clientOpcodes = require('./opcodes/client');
 const version = require('./version');
-// const PartySocket = require('partysocket'); // Using CDN global
+const { PartySocket } = require('partysocket');
 
 const ZOOM_MIN = 450;
 const ZOOM_MAX = 1250;
@@ -410,10 +410,8 @@ class mudclient extends GameConnection {
         this.changePasswordNew = '';
         this.welcomeTipDay = 0;
 
-        this.welcomeTipDay = 0;
-
         // PartyKit Multiplayer
-        this.partySocket = new window.PartySocket({
+        this.partySocket = new PartySocket({
             host: "rsc-party-worker.elderscapedev.workers.dev", // TODO: Make configurable
             room: "world-1"
         });

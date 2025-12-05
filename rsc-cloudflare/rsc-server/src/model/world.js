@@ -28,7 +28,7 @@ const entityConstructors = {
 };
 
 // ms per each cycle of player/entity movement and delay updates
-const TICK_INTERVAL = 640;
+const TICK_INTERVAL = 600;
 
 // ms between each global player save
 const PLAYER_SAVE_INTERVAL = 1000 * 60 * 1; // (1 min)
@@ -159,6 +159,13 @@ class World {
             { objects, wallObjects, tiles },
             this.landscape
         );
+
+        // Verification: Collision at 0,0
+        if (this.pathFinder.isTileBlocked(0, 0)) {
+            console.log("COLLISION_TEST: tile(0,0)=1 (BLOCKED) - AUTHENTIC");
+        } else {
+            console.log("COLLISION_TEST: tile(0,0)=0 (WALKABLE) - MISMATCH");
+        }
     }
 
     addEntity(type, entity) {

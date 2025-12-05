@@ -2,47 +2,47 @@
     "cutting": {
         "157": {
             "level": 43,
-            "experience": 107.5,
+            "experience": 430,
             "id": 161,
             "alias": "diamonds"
         },
         "158": {
             "level": 34,
-            "experience": 85,
+            "experience": 340,
             "id": 162,
             "alias": "rubies"
         },
         "159": {
             "level": 27,
-            "experience": 67.5,
+            "experience": 268,
             "id": 163,
             "alias": "emeralds"
         },
         "160": {
             "level": 20,
-            "experience": 50,
+            "experience": 200,
             "id": 164,
             "alias": "sapphires"
         },
         "542": {
             "level": 55,
-            "experience": 137.5,
+            "experience": 550,
             "id": 523,
             "alias": "dragonstones"
         },
         "889": {
             "level": 16,
-            "experience": 25,
+            "experience": 100,
             "id": 892
         },
         "890": {
             "level": 13,
-            "experience": 20,
+            "experience": 80,
             "id": 893
         },
         "891": {
-            "level": 10,
-            "experience": 15,
+            "level": 1,
+            "experience": 60,
             "id": 894
         }
     },
@@ -152,96 +152,96 @@
             [
                 {
                     "level": 5,
-                    "experience": 15,
+                    "experience": 60,
                     "id": 283
                 },
                 {
                     "level": 8,
-                    "experience": 40,
+                    "experience": 160,
                     "id": 284
                 },
                 {
                     "level": 18,
-                    "experience": 55,
+                    "experience": 220,
                     "id": 285
                 },
                 {
                     "level": 30,
-                    "experience": 70,
+                    "experience": 280,
                     "id": 286
                 },
                 {
                     "level": 42,
-                    "experience": 85,
+                    "experience": 340,
                     "id": 287
                 },
                 {
                     "level": 54,
-                    "experience": 100,
+                    "experience": 400,
                     "id": 543
                 }
             ],
             [
                 {
                     "level": 6,
-                    "experience": 20,
+                    "experience": 80,
                     "id": 288
                 },
                 {
                     "level": 10,
-                    "experience": 40,
+                    "experience": 220,
                     "id": 289
                 },
                 {
                     "level": 24,
-                    "experience": 60,
+                    "experience": 240,
                     "id": 290
                 },
                 {
                     "level": 40,
-                    "experience": 75,
+                    "experience": 300,
                     "id": 291
                 },
                 {
                     "level": 56,
-                    "experience": 90,
+                    "experience": 360,
                     "id": 292
                 },
                 {
                     "level": 72,
-                    "experience": 105,
+                    "experience": 420,
                     "id": 544
                 }
             ],
             [
                 {
                     "level": 8,
-                    "experience": 30,
+                    "experience": 120,
                     "id": 296
                 },
                 {
                     "level": 13,
-                    "experience": 65,
+                    "experience": 260,
                     "id": 297
                 },
                 {
                     "level": 30,
-                    "experience": 70,
+                    "experience": 280,
                     "id": 298
                 },
                 {
                     "level": 50,
-                    "experience": 85,
+                    "experience": 340,
                     "id": 299
                 },
                 {
                     "level": 70,
-                    "experience": 100,
+                    "experience": 400,
                     "id": 300
                 },
                 {
                     "level": 80,
-                    "experience": 150,
+                    "experience": 600,
                     "id": 524
                 }
             ]

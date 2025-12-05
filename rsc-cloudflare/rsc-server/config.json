@@ -8,7 +8,7 @@
     "websocketPort": 43595,
     "country": "CAN",
     "members": true,
-    "experienceRate": 1,
+    "experienceRate": 4,
     "fatigue": true,
     "bankCertificates": false,
     "rememberCombatStyle": false
