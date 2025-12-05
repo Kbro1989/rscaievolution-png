@@ -1,56 +1,93 @@
 /**
- * Main Cloudflare Worker Entry Point
- * Routes requests to GameWorld Durable Object
+ * RSC Zero-Cost Router
+ * 
+ * Handles:
+ * 1. Geo-routing to Durable Object Shards (Americas/Europe/Asia/Oceania)
+ * 2. Asset serving with fallback (R2 -> KV)
+ * 3. Feature Flag Enforcement
  */
-
-import { GameWorld } from './rsc-server/src/game-world-durable-object';
-import CloudflareFeatureManager from './rsc-server/src/cloud-features';
 
 export default {
     async fetch(request, env, ctx) {
         const url = new URL(request.url);
-        const featureManager = new CloudflareFeatureManager(env);
 
-        // Health check
+        // --- 1. HEALTH CHECKS & ADMIN ---
         if (url.pathname === '/health') {
-            return new Response('OK', { status: 200 });
+            return new Response('RSC Zero-Cost Router Online', { status: 200 });
         }
 
-        // Sponsor Dashboard Endpoint
-        if (url.pathname === '/dashboard/sponsor') {
-            const playerId = url.searchParams.get('playerId');
-            if (!playerId) return new Response('Missing playerId', { status: 400 });
-
-            const tier = await featureManager.getSponsorTier(playerId);
-            const features = {
-                r2: await featureManager.isFeatureEnabled('r2', playerId),
-                images: await featureManager.isFeatureEnabled('images', playerId),
-                unlimitedWorkers: await featureManager.isFeatureEnabled('unlimitedWorkers', playerId)
-            };
-
-            return new Response(JSON.stringify({ tier, features }), {
-                headers: { 'Content-Type': 'application/json' }
-            });
+        // --- 2. ASSET SERVING (R2 -> KV Fallback) ---
+        if (url.pathname.startsWith('/asset/')) {
+            return await handleAsset(request, env, url);
         }
 
-        // Emergency Mode Check (Middleware-like)
-        if (await featureManager.isFeatureEnabled('emergency', 0)) { // 0 as dummy ID for global check
-            return new Response('Service Temporarily Unavailable (Emergency Mode)', { status: 503 });
+        // --- 3. REGIONAL GAME SHARDING ---
+        // Route WebSocket/API traffic to the nearest regional Durable Object
+        const country = request.cf?.country || 'US';
+        const shardMapping = env.SHARD_MAPPING ? JSON.parse(env.SHARD_MAPPING) : {};
+
+        // Default to Americas if no mapping found
+        const shardBindingName = shardMapping[country] || 'DO_AMERICAS';
+        const doBinding = env[shardBindingName];
+
+        if (!doBinding) {
+            return new Response(`Configuration Error: Region ${shardBindingName} not found`, { status: 500 });
         }
 
-        // Route all game traffic to the main game world Durable Object
-        const id = env.GAME_WORLD.idFromName('main-world');
-        const stub = env.GAME_WORLD.get(id);
+        // Use a stable ID for the region (singleton per region)
+        const id = doBinding.idFromName(shardBindingName);
+        const stub = doBinding.get(id);
 
         return stub.fetch(request);
-    },
-
-    async scheduled(event, env, ctx) {
-        const featureManager = new CloudflareFeatureManager(env);
-        // Replace with your actual Account ID and API Token from env
-        await featureManager.checkEmergencyMode(env.CF_ACCOUNT_ID, env.CF_API_TOKEN);
     }
 };
 
-// Export Durable Object class
-export { GameWorld };
+/**
+ * Handles asset serving with cost-saving fallback logic
+ * Protocol: Check R2 (if enabled) -> Check KV -> 404
+ */
+async function handleAsset(request, env, url) {
+    const path = url.pathname.slice(7); // remove "/asset/"
+
+    // A. R2 Storage (Sponsor Tier > $5/mo)
+    if (env.FEATURE_R2_ASSETS === 'true' && env.RSC_ASSETS) {
+        try {
+            const r2Object = await env.RSC_ASSETS.get(path);
+            if (r2Object) {
+                const headers = new Headers();
+                r2Object.writeHttpMetadata(headers);
+                headers.set('etag', r2Object.httpEtag);
+                // Aggressive caching for assets (save bandwidth)
+                headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+
+                return new Response(r2Object.body, { headers });
+            }
+        } catch (e) {
+            console.error('R2 Error:', e);
+        }
+    }
+
+    // B. KV Storage (Free Tier Fallback)
+    // Assets stored as base64 or raw strings in KV
+    // Key format: "asset:sprites/man.png"
+    if (env.KV) {
+        const kvAsset = await env.KV.get(`asset:${path}`, { type: 'stream' });
+        if (kvAsset) {
+            return new Response(kvAsset, {
+                headers: {
+                    'Content-Type': getContentType(path),
+                    'Cache-Control': 'public, max-age=86400' // 1 day cache for KV
+                }
+            });
+        }
+    }
+
+    return new Response('Asset Not Found', { status: 404 });
+}
+
+function getContentType(path) {
+    if (path.endsWith('.png')) return 'image/png';
+    if (path.endsWith('.json')) return 'application/json';
+    if (path.endsWith('.glb')) return 'model/gltf-binary';
+    return 'application/octet-stream';
+}

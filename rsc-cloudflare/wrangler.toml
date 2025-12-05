@@ -12,6 +12,12 @@ binding = "DB"
 database_name = "ai-architect-db"
 database_id = "e8cea666-e70f-43e4-9a5e-54fd7fc80fa4" # Cold data: Logs, Leaderboards
 
+# Asset Storage (Requires Sponsor > $5/mo to enable)
+[[r2_buckets]]
+binding = "RSC_ASSETS"
+bucket_name = "rsc-assets"
+preview_bucket_name = "rsc-assets-preview"
+
 # 2. REGIONAL SHARDS (Zero-Cost Sharding)
 # Each region = 1 DO = 100 concurrent players (Free Tier Limit)
 # Total Capacity: 400 concurrent for $0
