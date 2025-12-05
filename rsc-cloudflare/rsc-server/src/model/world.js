@@ -2,8 +2,20 @@ const Captcha = require('@2003scape/rsc-captcha');
 const EntityList = require('./entity-list');
 const Shop = require('./shop');
 const flat = require('flat');
-const fs = require('fs');
-const log = require('bole')('world');
+
+// Cloudflare Worker Compatibility: Remove top-level fs/bole
+// const fs = require('fs');
+// const log = require('bole')('world');
+
+// Simple logger replacement
+const log = {
+    info: console.log,
+    warn: console.warn,
+    error: console.error,
+    debug: console.debug
+};
+
+const objects = require('@2003scape/rsc-data/config/objects');
 const objects = require('@2003scape/rsc-data/config/objects');
 const pluginFiles = require('../plugins');
 const tiles = require('@2003scape/rsc-data/config/tiles');

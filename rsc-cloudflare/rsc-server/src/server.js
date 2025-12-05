@@ -1,25 +1,32 @@
 console.log('Loading ./browser-socket...');
 const BrowserSocket = require('./browser-socket');
+const RSCSocket = require('@2003scape/rsc-socket');
+const World = require('./model/world');
+const packetHandlers = require('./packet-handlers');
+const toBuffer = process.browser ? require('typedarray-to-buffer') : undefined;
+
+// Cloudflare Worker Mode: No global requires for Node modules
+let net, ws, bole;
+if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV !== 'worker') {
+    try {
+        net = require('net');
+        ws = require('ws');
+        bole = require('bole');
+    } catch (e) { }
+}
+
+const log = bole ? bole('server') : {
+    info: console.log,
+    error: console.error,
+    warn: console.warn,
+    debug: console.log,
+};
 
 console.log('Loading data-client...');
 const DataClient = process.browser
     ? require('./browser-data-client')
     : require('./data-client');
 
-console.log('Loading @2003scape/rsc-socket...');
-const RSCSocket = require('@2003scape/rsc-socket');
-console.log('Loading ./model/world...');
-const World = require('./model/world');
-console.log('Loading bole...');
-const log = require('bole')('server');
-console.log('Loading net...');
-const net = require('net');
-console.log('Loading ./packet-handlers...');
-const packetHandlers = require('./packet-handlers');
-console.log('Loading typedarray-to-buffer...');
-const toBuffer = process.browser ? require('typedarray-to-buffer') : undefined;
-console.log('Loading ws...');
-const ws = require('ws');
 
 class Server {
     constructor(config, env) {

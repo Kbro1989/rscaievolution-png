@@ -1,9 +1,20 @@
 // communicate with https://github.com/2003scape/rsc-data-server
 
-const JSONSocket = require('json-socket');
-const log = require('bole')('data-client');
-const net = require('net');
 const uid = require('rand-token').uid;
+const log = {
+    error: console.error,
+    info: console.log,
+    debug: console.debug
+};
+
+// Conditional require for Node.js environment
+let JSONSocket, net;
+if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV !== 'worker') {
+    try {
+        JSONSocket = require('json-socket');
+        net = require('net');
+    } catch (e) { }
+}
 
 const TIMEOUT = 10000;
 
