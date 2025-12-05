@@ -61,7 +61,7 @@ class StateSyncClient {
             return;
         }
 
-        const players = this.server.world.players.getAll();
+        const players = Array.from(this.server.world.players.getAll());
 
         if (players.length === 0) {
             return;
