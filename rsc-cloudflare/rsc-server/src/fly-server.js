@@ -9,6 +9,8 @@ console.log('Loading ./server...');
 const Server = require('./server');
 console.log('Loading ./state-sync-client...');
 const StateSyncClient = require('./state-sync-client');
+console.log('Loading ./fly-data-client...');
+const FlyDataClient = require('./fly-data-client');
 console.log('Loading http...');
 const http = require('http');
 
@@ -45,6 +47,14 @@ console.log('========================================');
 
 // Create server instance
 const server = new Server(config);
+
+// Replace default DataClient with FlyDataClient for Cloudflare KV support
+if (stateSyncConfig.cloudflareApiToken) {
+    server.dataClient = new FlyDataClient(server, stateSyncConfig);
+    console.log('✅ FlyDataClient activated (Cloudflare KV for player data)');
+} else {
+    console.warn('⚠️  No Cloudflare API token - player persistence disabled!');
+}
 
 // Create state sync client (if API token is provided)
 let stateSync = null;
