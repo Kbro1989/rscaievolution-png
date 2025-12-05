@@ -88,6 +88,8 @@ class FlyDataClient {
 
     // Cloudflare KV REST API methods
     async kvGet(key) {
+        console.log(`[KV GET] Fetching key: ${key}`);
+
         return new Promise((resolve, reject) => {
             const options = {
                 hostname: 'api.cloudflare.com',
@@ -103,21 +105,29 @@ class FlyDataClient {
                 let data = '';
                 res.on('data', chunk => data += chunk);
                 res.on('end', () => {
+                    console.log(`[KV GET] Status: ${res.statusCode} for key: ${key}`);
+
                     if (res.statusCode === 200) {
+                        console.log(`[KV GET] Data found (len=${data.length})`);
                         try {
                             resolve(JSON.parse(data));
                         } catch (e) {
                             resolve(data);
                         }
                     } else if (res.statusCode === 404) {
+                        console.log(`[KV GET] Key not found (404)`);
                         resolve(null);
                     } else {
+                        console.error(`[KV GET] Error: ${res.statusCode} ${data}`);
                         reject(new Error(`KV GET failed: ${res.statusCode}`));
                     }
                 });
             });
 
-            req.on('error', reject);
+            req.on('error', (err) => {
+                console.error(`[KV GET] Request error:`, err);
+                reject(err);
+            });
             req.end();
         });
     }
