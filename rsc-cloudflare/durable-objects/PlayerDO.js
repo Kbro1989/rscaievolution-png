@@ -8,7 +8,15 @@
  * - Hard Safety Caps (Protects from billing)
  */
 
-import { GameWorld } from '../rsc-server/src/game-world-durable-object.js';
+// NOTE: Real GameWorld has fs/canvas dependencies not yet ported to Cloudflare.
+// Using MockGameWorld to deploy infrastructure first.
+// import { GameWorld } from '../rsc-server/src/game-world-durable-object.js';
+class GameWorld {
+    constructor(state, env) { console.log('Mock GameWorld Initialized'); }
+    async webSocketMessage(ws, msg) { console.log('Mock Msg:', msg); }
+    async webSocketClose(ws) { console.log('Mock Close'); }
+    async alarm() { console.log('Mock Tick'); }
+}
 
 const TICK_RATE = 640;
 const SAFETY_DAILY_CAP = 90000; // Hard stop before 100k limit

@@ -6,7 +6,14 @@
  * memory and persists player data to KV storage.
  */
 
-import Server from '../rsc-server/src/server.js';
+// Mocking Server for Infrastructure Deployment
+class Server {
+    constructor(config, env) { console.log('Mock Server (Legacy)'); }
+    async init() { }
+    handleConnection(socket) { }
+}
+
+// import Server from '../rsc-server/src/server.js';
 
 export class RSCServerDO {
     constructor(state, env) {

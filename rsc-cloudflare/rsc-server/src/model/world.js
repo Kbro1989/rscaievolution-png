@@ -129,28 +129,38 @@ class World {
     loadLandscape() {
         this.landscape = new Landscape();
 
-        this.landscape.loadJag(
-            fs.readFileSync(
+        let landMsg, mapsJag, landMem, mapsMem;
+
+        if (this.server.config.landscapeData) {
+            // Cloudflare/Serverless Injection
+            ({ landMsg, mapsJag, landMem, mapsMem } = this.server.config.landscapeData);
+        } else {
+            // Node.js / Local Filesystem
+            landMsg = fs.readFileSync(
                 __dirname +
                 '/../../node_modules/@2003scape/rsc-data/landscape/land63.jag'
-            ),
-            fs.readFileSync(
+            );
+            mapsJag = fs.readFileSync(
                 __dirname +
                 '/../../node_modules/@2003scape/rsc-data/landscape/maps63.jag'
-            )
-        );
+            );
 
-        if (this.members) {
-            this.landscape.loadMem(
-                fs.readFileSync(
+            if (this.members) {
+                landMem = fs.readFileSync(
                     __dirname +
                     '/../../node_modules/@2003scape/rsc-data/landscape/land63.mem'
-                ),
-                fs.readFileSync(
+                );
+                mapsMem = fs.readFileSync(
                     __dirname +
                     '/../../node_modules/@2003scape/rsc-data/landscape/maps63.mem'
-                )
-            );
+                );
+            }
+        }
+
+        this.landscape.loadJag(landMsg, mapsJag);
+
+        if (this.members && landMem && mapsMem) {
+            this.landscape.loadMem(landMem, mapsMem);
         }
 
         this.landscape.parseArchives();
