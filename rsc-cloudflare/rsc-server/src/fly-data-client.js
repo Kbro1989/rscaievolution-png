@@ -194,7 +194,8 @@ class FlyDataClient {
                     const key = `player:${message.username}`;
                     const existing = await this.kvGet(key);
 
-                    if (existing) {
+                    // Check if it's a valid player object
+                    if (existing && existing.username) {
                         return { success: false, code: 4 }; // Username taken
                     }
 
@@ -218,7 +219,7 @@ class FlyDataClient {
                     const key = `player:${message.username}`;
                     const player = await this.kvGet(key);
 
-                    if (!player || player.password !== message.password) {
+                    if (!player || !player.username || player.password !== message.password) {
                         return { success: false, code: 3 }; // Invalid credentials
                     }
 
