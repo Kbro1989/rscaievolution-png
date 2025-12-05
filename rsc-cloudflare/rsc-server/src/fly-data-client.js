@@ -196,6 +196,7 @@ class FlyDataClient {
 
                     // Check if it's a valid player object
                     if (existing && existing.username) {
+                        console.log(`[REGISTER DEBUG] Username taken. Requested: ${message.username}, Found: ${existing.username}`);
                         return { success: false, code: 4 }; // Username taken
                     }
 
