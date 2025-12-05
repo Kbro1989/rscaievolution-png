@@ -14,6 +14,17 @@ primary_region = 'dfw'
   min_machines_running = 1
   processes = ['app']
 
+  # WebSocket support - keep connections alive longer
+  [http_service.concurrency]
+    type = 'connections'
+    hard_limit = 2000
+    soft_limit = 1000
+
+  # Increase timeouts for long-lived WebSocket connections
+  [http_service.http_options]
+    idle_timeout = 120
+    h2_backend = false
+
 [env]
   PORT = '43594'
   WORLD_ID = '1'
