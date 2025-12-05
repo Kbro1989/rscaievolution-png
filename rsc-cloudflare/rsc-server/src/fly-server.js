@@ -30,7 +30,7 @@ const config = {
 
 // State sync configuration
 const stateSyncConfig = {
-    cloudflareAccountId: process.env.CLOUDFLARE_ACCOUNT_ID || '6872653edcee9c787c1b783173793',
+    cloudflareAccountId: process.env.CLOUDFLARE_ACCOUNT_ID || '6872653edcee9c791787c1b783173793',
     cloudflareKvNamespaceId: process.env.CLOUDFLARE_KV_NAMESPACE_ID || 'f2881801ac59415a86236d0841f27103',
     cloudflareApiToken: process.env.CLOUDFLARE_API_TOKEN,
     syncInterval: parseInt(process.env.STATE_SYNC_INTERVAL || '30000')
