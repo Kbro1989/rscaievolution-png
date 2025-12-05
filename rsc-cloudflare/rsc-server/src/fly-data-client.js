@@ -88,19 +88,11 @@ class FlyDataClient {
 
     // Cloudflare KV REST API methods
     async kvGet(key) {
-        console.log(`[KV GET] Fetching key: ${key}`);
-        console.log(`[KV GET] Account ID: ${this.accountId}`);
-        console.log(`[KV GET] Namespace ID: ${this.namespaceId}`);
-        console.log(`[KV GET] Has API Token: ${!!this.apiToken}`);
-
         return new Promise((resolve, reject) => {
-            const path = `/client/v4/accounts/${this.accountId}/storage/kv/namespaces/${this.namespaceId}/values/${encodeURIComponent(key)}`;
-            console.log(`[KV GET] Request path: ${path}`);
-
             const options = {
                 hostname: 'api.cloudflare.com',
                 port: 443,
-                path: path,
+                path: `/client/v4/accounts/${this.accountId}/storage/kv/namespaces/${this.namespaceId}/values/${encodeURIComponent(key)}`,
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${this.apiToken}`
@@ -111,9 +103,6 @@ class FlyDataClient {
                 let data = '';
                 res.on('data', chunk => data += chunk);
                 res.on('end', () => {
-                    console.log(`[KV GET] Response status: ${res.statusCode}`);
-                    console.log(`[KV GET] Response data (first 200 chars): ${data.substring(0, 200)}`);
-
                     if (res.statusCode === 200) {
                         try {
                             resolve(JSON.parse(data));
@@ -121,19 +110,14 @@ class FlyDataClient {
                             resolve(data);
                         }
                     } else if (res.statusCode === 404) {
-                        console.log(`[KV GET] Key not found: ${key}`);
                         resolve(null);
                     } else {
-                        console.error(`[KV GET] Error: ${res.statusCode} ${data}`);
                         reject(new Error(`KV GET failed: ${res.statusCode}`));
                     }
                 });
             });
 
-            req.on('error', (err) => {
-                console.error(`[KV GET] Request error:`, err);
-                reject(err);
-            });
+            req.on('error', reject);
             req.end();
         });
     }
