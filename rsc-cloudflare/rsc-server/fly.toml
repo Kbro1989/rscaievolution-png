@@ -1,8 +1,5 @@
-# fly.toml - RSC Game Server Configuration
-# Deployed to: rscaievolution-png.fly.dev
-
 app = 'rscaievolution-png'
-primary_region = 'dfw'
+primary_region = 'iad'
 
 [build]
   dockerfile = "Dockerfile"
@@ -15,23 +12,7 @@ primary_region = 'dfw'
   min_machines_running = 1
   processes = ['app']
 
-  # WebSocket support - keep connections alive longer
-  [http_service.concurrency]
-    type = 'connections'
-    hard_limit = 2000
-    soft_limit = 1000
-
-  # Increase timeouts for long-lived WebSocket connections
-  [http_service.http_options]
-    idle_timeout = 120
-    h2_backend = false
-
-[env]
-  PORT = '43594'
-  WORLD_ID = '1'
-  MEMBERS = 'false'
-
 [[vm]]
-  memory = '512mb'
+  memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1

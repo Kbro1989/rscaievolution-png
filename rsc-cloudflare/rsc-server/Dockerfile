@@ -1,3 +1,4 @@
+# syntax = docker/dockerfile:1
 FROM node:18
 
 # Install build dependencies for canvas and other native modules
@@ -27,4 +28,3 @@ EXPOSE 43594
 
 # Run the Fly.io server entry point
 CMD ["node", "src/fly-server.js"]
-
