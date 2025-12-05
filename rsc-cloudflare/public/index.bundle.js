@@ -41863,8 +41863,10 @@ class Socket {
         return new Promise((resolve, reject) => {
             if (typeof this.host === 'string') {
                 const protocol = this.port === 443 ? 'wss' : 'ws';
+                // Don't include port for standard WSS (443) or WS (80) ports
+                const portSuffix = (this.port === 443 || this.port === 80) ? '' : `:${this.port}`;
                 this.client = new WebSocket(
-                    `${protocol}://${this.host}:${this.port}`,
+                    `${protocol}://${this.host}${portSuffix}`,
                     'binary'
                 );
             } else if (this.host.constructor.name === 'Worker') {
