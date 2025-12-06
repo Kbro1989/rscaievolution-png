@@ -203,16 +203,24 @@ export class RSCServerDO {
     createSocketBridge(sessionId, webSocket) {
         const EventEmitter = require('events');
 
-        class DurableObjectSocket extends EventEmitter {
+        class DurableObjectWebSocket extends EventEmitter {
             constructor(id, ws) {
                 super();
                 this.id = id;
                 this.ws = ws;
                 this.remoteAddress = '0.0.0.0'; // Cloudflare doesn't expose real IP
                 this.destroyed = false;
+
+                // RSCSocket accesses _socket.remoteAddress, _socket.setTimeout, and _socket.on('timeout')
+                // _socket needs to be an EventEmitter for timeout binding
+                const socketSelf = this;
+                this._socket = new EventEmitter();
+                this._socket.remoteAddress = '0.0.0.0';
+                this._socket.setTimeout = () => { }; // No-op for DO
             }
 
-            write(data) {
+            // RSCSocket.send() calls socket.send() for WebSocket mode
+            send(data) {
                 if (this.destroyed || this.ws.readyState !== 1) {
                     return;
                 }
@@ -228,15 +236,21 @@ export class RSCServerDO {
                         this.ws.send(data);
                     }
                 } catch (error) {
-                    console.error('[DO] Error writing to WebSocket:', error);
+                    console.error('[DO] Error sending to WebSocket:', error);
                 }
+            }
+
+            // Keep write() for backwards compatibility
+            write(data) {
+                this.send(data);
             }
 
             connect() {
                 // No-op, already connected
             }
 
-            destroy() {
+            // RSCSocket.close() calls socket.terminate() for WebSocket mode
+            terminate() {
                 this.destroyed = true;
                 try {
                     this.ws.close();
@@ -245,8 +259,12 @@ export class RSCServerDO {
                 }
             }
 
+            destroy() {
+                this.terminate();
+            }
+
             end() {
-                this.destroy();
+                this.terminate();
             }
 
             setKeepAlive() {
@@ -259,11 +277,11 @@ export class RSCServerDO {
             }
 
             toString() {
-                return `[DurableObjectSocket ${this.id}]`;
+                return `[DurableObjectWebSocket ${this.id}]`;
             }
         }
 
-        return new DurableObjectSocket(sessionId, webSocket);
+        return new DurableObjectWebSocket(sessionId, webSocket);
     }
 
     /**
