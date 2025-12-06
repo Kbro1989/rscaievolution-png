@@ -7,10 +7,10 @@
  */
 
 import Server from '../rsc-server/src/server.js';
-import land63 from '@2003scape/rsc-data/landscape/land63.jag';
-import maps63 from '@2003scape/rsc-data/landscape/maps63.jag';
-import landmem63 from '@2003scape/rsc-data/landscape/land63.mem';
-import mapsmem63 from '@2003scape/rsc-data/landscape/maps63.mem';
+import land63 from '../rsc-server/node_modules/@2003scape/rsc-data/landscape/land63.jag';
+import maps63 from '../rsc-server/node_modules/@2003scape/rsc-data/landscape/maps63.jag';
+import landmem63 from '../rsc-server/node_modules/@2003scape/rsc-data/landscape/land63.mem';
+import mapsmem63 from '../rsc-server/node_modules/@2003scape/rsc-data/landscape/maps63.mem';
 
 export class RSCServerDO {
     constructor(state, env) {
