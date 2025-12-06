@@ -6,7 +6,7 @@ compatibility_flags = [ "nodejs_compat" ]
 # KV Namespace binding (same as Pages project)
 [[kv_namespaces]]
 binding = "KV"
-id = "f2881801ac59415a86236d0841f27103"
+id = "88142cf6969b4547ab17f2d97f6249a1"
 
 # Durable Object binding
 [[durable_objects.bindings]]
