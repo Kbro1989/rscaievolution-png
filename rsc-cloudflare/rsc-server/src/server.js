@@ -226,10 +226,10 @@ class Server {
         } catch (e) {
             console.error(e);
             log.error(e);
-            if (!this.isDurableObject) {
+            if (!this.isDurableObject && typeof process !== 'undefined' && process.exit) {
                 process.exit(1);
             } else {
-                throw e; // Re-throw in DO mode
+                throw e; // Re-throw in DO mode or environment without process.exit
             }
         }
     }

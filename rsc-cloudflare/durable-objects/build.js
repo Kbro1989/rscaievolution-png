@@ -16,6 +16,10 @@ esbuild.build({
     define: {
         'process.browser': 'true',
         'process.env.NODE_ENV': '"production"'
+    },
+    loader: {
+        '.jag': 'binary',
+        '.mem': 'binary'
     }
 }).then(() => {
     console.log('✅ Durable Object Worker bundled successfully');
