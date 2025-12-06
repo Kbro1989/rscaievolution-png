@@ -1,0 +1,37 @@
+--- Searching for Weapon Master ---
+--- Searching for Lathas ---
+NPC: "king Lathas" (ID: 512) - King Lanthas of east ardounge
+--- Searching for Paladin ---
+NPC: "Paladin" (ID: 323) - A paladin of Ardougne
+NPC: "Paladin" (ID: 632) - A paladin of Ardougne
+NPC: "Paladin" (ID: 633) - A paladin of Ardougne
+--- Searching for Hero ---
+NPC: "Hero" (ID: 324) - A Hero of Ardougne
+--- Searching for Guide ---
+NPC: "Guide" (ID: 73) - He gives hints to new adventurers
+NPC: "Guide" (ID: 147) - She gives hints to new adventurers
+NPC: "Guide" (ID: 476) - She gives hints to new adventurers
+NPC: "Wilderness guide" (ID: 493) - He's ready for a fight
+NPC: "controls guide" (ID: 499) - He's ready for a fight
+NPC: "Guide" (ID: 726) - This person specialises in panning for gold
+--- Searching for Forester ---
+NPC: "Forester" (ID: 348) - He looks after McGrubor's wood
+NPC: "Jungle Forester" (ID: 765) - A woodsman who specialises in large and exotic timber
+--- Searching for Jekyl ---
+--- Searching for Hyde ---
+--- Searching for Romeo ---
+NPC: "Romeo" (ID: 30) - He looks mildly confused
+--- Searching for Juliet ---
+NPC: "Juliet" (ID: 31) - She looks a little stressed
+--- Searching for Apothecary ---
+NPC: "Apothecary" (ID: 33) - I wonder if he has any good potions
+--- Searching for Father ---
+NPC: "Father Lawrence" (ID: 32) - A kindly looking priest
+--- Searching for Fortunii ---
+--- Searching for Sanfew ---
+NPC: "Sanfew" (ID: 205) - An old druid
+--- Searching for Kaqemeex ---
+NPC: "Kaqemeex" (ID: 204) - A wise druid
+--- Searching for Turael ---
+--- Searching for Mazchna ---
+--- Searching for Vannaka ---

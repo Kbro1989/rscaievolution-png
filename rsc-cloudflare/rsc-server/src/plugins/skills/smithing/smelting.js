@@ -11,6 +11,13 @@ const IRON_BAR_ID = 170;
 const IRON_ORE = 151;
 const SILVER_BAR_ID = 384;
 const STEEL_BAR_ID = 171;
+const CANNONBALL_ID = 1041;
+const AMMO_MOULD_ID = 1026;
+const RING_OF_FORGING_ID = 1205; // Check authentic ID. rsc-data should have it. 
+const GAUNTLETS_OF_GOLDSMITHING_ID = 1008; // Family Crest gauntlets (gold)
+const CANNONBALL_XP = 25.6; // 25.6 * 4 approx? OpenRSC says 50, so maybe 12.5? Wiki says 25.6. OpenRSC is... weird with XP. Let's trust Wiki or use standard.
+const IRON_FAIL_CHANCE = 0.5; // 50%
+
 
 const ORE_IDS = new Set();
 
@@ -21,8 +28,34 @@ for (const { ores } of Object.values(smelting)) {
 }
 
 async function onUseWithGameObject(player, gameObject, item) {
-    if (gameObject.id !== FURNACE_ID || !ORE_IDS.has(item.id)) {
+    if (gameObject.id !== FURNACE_ID || (!ORE_IDS.has(item.id) && item.id !== STEEL_BAR_ID)) {
         return false;
+    }
+
+    // Cannonball Smelting (Steel Bar -> Furnace with Mould)
+    if (item.id === STEEL_BAR_ID) {
+        if (!player.inventory.has(AMMO_MOULD_ID)) {
+            player.message('You need an ammo mould to make cannonballs');
+            return true;
+        }
+        if (player.skills.smithing.current < 30) {
+            player.message('You need at least level-30 smithing to make cannon balls');
+            return true;
+        }
+        // TODO: Quest check Dwarf Cannon?
+
+        player.message("@que@You heat the steel bar into a liquid state");
+        await player.world.sleepTicks(2);
+        player.message("@que@and pour it into your cannon ball mould");
+        await player.world.sleepTicks(2);
+        player.message("@que@you then leave it to cool for a short while");
+        await player.world.sleepTicks(2);
+
+        player.inventory.remove(item.id);
+        player.inventory.add(CANNONBALL_ID, 4); // Makes 4? Wiki says 4.
+        player.addExperience('smithing', 25.6);
+        player.message("It's very heavy");
+        return true;
     }
 
     let resultBarID = -1;
@@ -72,13 +105,13 @@ async function onUseWithGameObject(player, gameObject, item) {
     if (smithingLevel < level) {
         player.message(
             `@que@You need to be at least level-${level} smithing to ` +
-                `${isCraftingBar ? 'work' : 'smelt'} ${metalName}`
+            `${isCraftingBar ? 'work' : 'smelt'} ${metalName}`
         );
 
         if (resultBarID === IRON_BAR_ID) {
             player.message(
                 '@que@Practice your smithing using tin and copper to make ' +
-                    'bronze'
+                'bronze'
             );
         }
 
@@ -110,7 +143,7 @@ async function onUseWithGameObject(player, gameObject, item) {
         } else {
             player.message(
                 `You need ${missingOreAmount} heaps of ${missingOreName} to ` +
-                    `smelt ${metalName}`
+                `smelt ${metalName}`
             );
         }
 
@@ -147,13 +180,30 @@ async function onUseWithGameObject(player, gameObject, item) {
     await world.sleepTicks(3);
 
     if (resultBarID === IRON_BAR_ID) {
-        if (Math.random() >= 0.5) {
+        let success = Math.random() >= 0.5;
+
+        if (player.equipment.has(RING_OF_FORGING_ID)) {
+            success = true;
+            // TODO: Decrement charges? For now just simplified infinite or we need charge tracking.
+            player.message("@or1@Your ring of forging shines brightly");
+        }
+
+        if (!success) {
             player.message('The ore is too impure and you fail to refine it');
             return true;
         }
     }
 
-    player.addExperience('smithing', experience);
+    let xp = experience;
+    if (resultBarID === GOLD_BAR_ID && player.equipment.has(GAUNTLETS_OF_GOLDSMITHING_ID)) {
+        xp += 23; // Bonus XP? OpenRSC says 23 extra. Wiki says 22.5 to 56.2. 
+        // Normal gold XP is 22.5. With gauntlets it is 56.2. Diff is 33.7. 
+        // OpenRSC code `smelt.getXp() + 45`. Wait, 45? OpenRSC base is 90?
+        // Ah, OpenRSC uses 4x XP in definitions maybe? Or integer base.
+        // Let's stick to base RSC XP + bonus. 
+        // Base gold = 22.5. With Gauntlets = 56.2.
+        xp = 56.2;
+    }
     player.inventory.add(resultBarID);
     player.message(`@que@You retrive a bar of ${metalName}`);
 

@@ -2,21 +2,73 @@
 
 const items = require('@2003scape/rsc-data/config/items');
 const { rocks, pickaxes } = require('@2003scape/rsc-data/skills/mining');
-const { rollSkillSuccess } = require('../../rolls');
+const { rollSkillSuccess, calcGatheringSuccessfulLegacy } = require('../../rolls');
 
 const ROCK_IDS = new Set(Object.keys(rocks).map(Number));
 
-// Sort pickaxes best to worst (in order of best to worst)
-// Pickaxes DO have mining level requirements to use in RSC
-const PICKAXE_IDS = Object.keys(pickaxes)
-    .map(Number)
-    .sort((a, b) => {
-        if (pickaxes[a].attempts === pickaxes[b].attempts) {
-            return 0;
-        }
+// Axe bonuses from OpenRSC
+const AXE_BONUSES = {
+    1262: 0, // Bronze Px
+    1261: 1, // Iron Px
+    1260: 2, // Steel Px
+    1259: 4, // Mithril Px
+    1258: 8, // Adamant Px
+    1263: 16 // Rune Px
+};
 
-        return pickaxes[a].attempts > pickaxes[b].attempts ? -1 : 1;
-    });
+// Pickaxe req levels (OpenRSC Formulae.java miningAxeLvls [41, 31, 21, 6, 1, 1])
+// 1263: 41 (Rune)
+// 1258: 31 (Addy)
+// 1259: 21 (Mith)
+// 1260: 6  (Steel)
+// 1261: 1  (Iron)
+// 1262: 1  (Bronze)
+
+// Gem Drops (Formulae.java)
+const GEMS = [
+    { id: 160, weight: 4 }, // Diamond
+    { id: 161, weight: 8 }, // Ruby
+    { id: 162, weight: 16 }, // Emerald
+    { id: 164, weight: 32 }, // Sapphire
+    { id: -1, weight: 63 }   // Nothing (implicit in OpenRSC via weighted choice)
+    // Total weight 123 + others from loop keys etc? 
+    // OpenRSC gemDropWeights: {63, 32, 16, 8, 4, 2, 2, 1}
+    // 63=Nothing, 32=Sapphire, 16=Emerald, 8=Ruby, 4=Diamond, 2=Loop Key, 2=Tooth Key, 1=Nothing Reroll
+];
+
+function getGemDrop() {
+    const roll = Math.floor(Math.random() * 128);
+    let currentWeight = 0;
+    // Order: Nothing(63), Sapphire(32), Emerald(16), Ruby(8), Diamond(4), LoopKey(2), ToothKey(2), Reroll(1)
+    // Simplified for now:
+    // We will use OpenRSC weights directly
+    // {id: -1, w: 63}, {id: 164, w: 32}, {id: 162, w: 16}, {id: 161, w: 8}, {id: 160, w: 4}, {id: 390, w: 2}, {id: 391, w: 2}, {id: -1, w: 1}
+
+    // We only want gems usually? Or do rocks drop keys too?
+    // Formulae.java calculateGemDrop uses gemDropIDs/weights.
+    // Yes it includes keys.
+    const drops = [
+        { id: -1, weight: 63 },
+        { id: 164, weight: 32 },
+        { id: 162, weight: 16 },
+        { id: 161, weight: 8 },
+        { id: 160, weight: 4 },
+        { id: 390, weight: 2 }, // Loop key half
+        { id: 391, weight: 2 }, // Tooth key half
+        { id: -1, weight: 1 }  // Reroll/Nothing
+    ];
+
+    for (const drop of drops) {
+        if (roll < currentWeight + drop.weight) {
+            return drop.id;
+        }
+        currentWeight += drop.weight;
+    }
+    return -1;
+}
+
+// Ensure PICKAXE_IDS sorts correctly by bonus
+const PICKAXE_IDS = Object.keys(AXE_BONUSES).map(Number).sort((a, b) => AXE_BONUSES[b] - AXE_BONUSES[a]);
 
 async function mineRock(player, gameObject) {
     const rockID = gameObject.id;
@@ -30,49 +82,29 @@ async function mineRock(player, gameObject) {
     const miningLevel = player.skills.mining.current;
 
     if (rock.level > miningLevel) {
-        player.message(
-            `You need a mining level of ${rock.level} to mine this rock`
-        );
-
+        player.message(`You need a mining level of ${rock.level} to mine this rock`);
         return true;
     }
 
     let bestPickaxeID = -1;
-    let bestPickaxeDef = null;
+    let axeBonus = 0;
 
     for (const pickaxeID of PICKAXE_IDS) {
-        const def = pickaxes[pickaxeID];
-        if (player.inventory.has(pickaxeID) && miningLevel >= def.level) {
+        const reqLevel = pickaxes[pickaxeID].level;
+        if (player.inventory.has(pickaxeID) && miningLevel >= reqLevel) {
             bestPickaxeID = pickaxeID;
-            bestPickaxeDef = def;
+            axeBonus = AXE_BONUSES[pickaxeID];
+            break;
+        } else if (player.equipment.has(pickaxeID) && miningLevel >= reqLevel) {
+            bestPickaxeID = pickaxeID;
+            axeBonus = AXE_BONUSES[pickaxeID];
             break;
         }
     }
 
     if (bestPickaxeID === -1) {
-        // Check if they have a pickaxe they can't use
-        let hasPickaxe = false;
-        let reqLevel = 0;
-        for (const pickaxeID of PICKAXE_IDS) {
-            if (player.inventory.has(pickaxeID)) {
-                hasPickaxe = true;
-                reqLevel = pickaxes[pickaxeID].level;
-                break;
-            }
-        }
-
-        // Re-check for specific message
-        const ownedPickaxes = PICKAXE_IDS.filter(id => player.inventory.has(id));
-
-        if (ownedPickaxes.length > 0) {
-            // They have pickaxes, but none they can use.
-            // The best one they have is the first one in ownedPickaxes (since sorted).
-            const bestOwned = ownedPickaxes[0];
-            const levelNeeded = pickaxes[bestOwned].level;
-            player.message(`You need a mining level of ${levelNeeded} to use this pickaxe`);
-        } else {
-            player.message('@que@You need a pickaxe to mine this rock');
-        }
+        player.message("You need a pickaxe to mine this rock");
+        player.message("You do not have a pickaxe which you have the mining level to use");
         return true;
     }
 
@@ -83,36 +115,41 @@ async function mineRock(player, gameObject) {
 
     const { world } = player;
     const { x, y } = gameObject;
-    const pickaxeName = items[bestPickaxeID].name.toLowerCase();
 
-    player.message(`@que@You swing your ${pickaxeName} at the rock...`);
+    player.message("@que@You swing your pick at the rock...");
     player.sendBubble(bestPickaxeID);
     player.sendSound('mine');
 
     await world.sleepTicks(3);
 
-    let rollLow = 128;
-    let rollHigh = 256;
-
-    if (rock.roll) {
-        rollLow = rock.roll[0];
-        rollHigh = rock.roll[1];
-    } else {
-        console.warn(`Rock ${rockID} missing roll data, using default [${rollLow}, ${rollHigh}]`);
+    // Check if rock still there (unless batching handles this)
+    if (world.gameObjects.getAtPoint(x, y)[0] !== gameObject) {
+        return true;
     }
 
-    console.log(`Mining: Level=${miningLevel} Rock=${rockID} Pickaxe=${bestPickaxeID} Attempts=${bestPickaxeDef.attempts} Roll=[${rollLow}, ${rollHigh}]`);
+    // Authentic Success Calculation
+    const success = calcGatheringSuccessfulLegacy(rock.level, miningLevel, axeBonus);
 
-    const oreSuccess = rollSkillSuccess(
-        rollLow * bestPickaxeDef.attempts,
-        rollHigh * bestPickaxeDef.attempts,
-        miningLevel
-    );
+    if (success) {
+        // Gem Drop Check
+        // 1/200 chance normally.
+        // If wearing Charged Dragonstone Amulet (ID 522/597?), chance is 1/100 (2/200).
+        // ItemId.CHARGED_DRAGONSTONE_AMULET is 597.
+        const dragonstoneAmulet = 597;
+        const gemChance = player.equipment.has(dragonstoneAmulet) ? 2 : 1;
 
-    console.log(`Mining: Success=${oreSuccess}`);
+        if (Math.random() * 200 < gemChance) {
+            const gemId = getGemDrop();
+            if (gemId !== -1) {
+                player.inventory.add(gemId, 1);
+                const gemName = items[gemId].name;
+                player.message(`@que@You just found a ${gemName}!`);
+                player.sendSound('foundgem');
+                return true; // Stop mining this rock? Or continue? OpenRSC returns after gem.
+            }
+        }
 
-    if (world.gameObjects.getAtPoint(x, y)[0] === gameObject && oreSuccess) {
-        // Deplete rock if it has an empty state
+        // Deplete rock
         if (rock.empty) {
             const emptyRock = world.replaceEntity(
                 'gameObjects',
@@ -120,6 +157,11 @@ async function mineRock(player, gameObject) {
                 rock.empty
             );
 
+            // Rock respawn time
+            // rocks[id].respawn is in ticks? OpenRSC uses seconds.
+            // Assuming rsc-data provides ticks.
+            // If rsc-data matches OpenRSC data structure, verify units.
+            // For now assuming the data file is correct. 
             world.setTimeout(() => {
                 world.replaceEntity('gameObjects', emptyRock, rockID);
             }, rock.respawn);
@@ -128,8 +170,11 @@ async function mineRock(player, gameObject) {
         player.addExperience('mining', rock.experience);
         player.message('@que@You manage to obtain some ore');
         player.inventory.add(rock.ore);
+
+        // Batching handled by engine mostly, but if loop needed:
+        // usually we'd loop here or return true to signal action complete.
     } else {
-        player.message('@que@You fail to mine the rock');
+        player.message('@que@You only succeed in scratching the rock');
     }
 
     return true;

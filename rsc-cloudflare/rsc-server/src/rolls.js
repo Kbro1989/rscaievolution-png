@@ -129,5 +129,23 @@ module.exports = {
     rollItemDrop,
     rollSkillSuccess,
     rollCascadedSkillSuccess,
-    calcProductionSuccessfulLegacy
+    calcProductionSuccessfulLegacy,
+    calcGatheringSuccessfulLegacy
 };
+
+// Authentic RSC gathering success formula
+// Used for Mining, Fishing
+function calcGatheringSuccessfulLegacy(levelReq, skillLevel, equipmentBonus = 0) {
+    const roll = Math.floor(Math.random() * 128) + 1; // 1-128
+
+    if (skillLevel < levelReq) {
+        return false;
+    }
+
+    // 128 is already guaranteed to fail (roll <= threshold check)
+    // 1 is already guaranteed to be successful
+    // using 127 as the min in order for threshold to not be able to hit 128 for a guaranteed chance to fail
+    const threshold = Math.min(127, Math.max(1, skillLevel + equipmentBonus + 40 - Math.floor(levelReq * 1.5)));
+    return roll <= threshold;
+}
+

@@ -234,6 +234,7 @@ module.exports = {
     "npcs.varrock.weapon-master": require('./npcs/varrock/weapon-master.js'),
     "npcs.ardougne.west.mourner": require('./npcs/ardougne/west/mourner.js'),
     "npcs.ardougne.east.king-lathas": require('./npcs/ardougne/east/king-lathas.js'),
+    "npcs.ardougne.east.citizens": require('./npcs/ardougne/east/citizens.js'),
     "npcs.rimmington.chemist": require('./npcs/rimmington/chemist.js'),
     "npcs.rimmington.errand-boys": require('./npcs/rimmington/errand-boys.js'),
     "npcs.varrock.guidor": require('./npcs/varrock/guidor.js'),
@@ -267,5 +268,7 @@ module.exports = {
     "npcs.entrana-monk": require('./npcs/entrana-monk.js'),
     "npcs.ardougne.west.dark-mage": require('./npcs/ardougne/west/dark-mage.js'),
     "npcs.monastery.monk-healer": require('./npcs/monastery/monk-healer.js'),
-    "npcs.ardougne.east.flying-horse": require('./npcs/ardougne/east/flying-horse.js')
+    "npcs.ardougne.east.flying-horse": require('./npcs/ardougne/east/flying-horse.js'),
+    "npcs.varrock.jonny-the-beard": require('./npcs/varrock/jonny-the-beard.js'),
+    "npcs.varrock.curator": require('./npcs/varrock/curator.js')
 };
