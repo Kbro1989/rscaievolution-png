@@ -264,5 +264,8 @@ module.exports = {
     "npcs.karamja-customs": require('./npcs/karamja-customs.js'),
     "npcs.ardougne-captain": require('./npcs/ardougne-captain.js'),
     "npcs.brimhaven-customs": require('./npcs/brimhaven-customs.js'),
-    "npcs.entrana-monk": require('./npcs/entrana-monk.js')
+    "npcs.entrana-monk": require('./npcs/entrana-monk.js'),
+    "npcs.ardougne.west.dark-mage": require('./npcs/ardougne/west/dark-mage.js'),
+    "npcs.monastery.monk-healer": require('./npcs/monastery/monk-healer.js'),
+    "npcs.ardougne.east.flying-horse": require('./npcs/ardougne/east/flying-horse.js')
 };
