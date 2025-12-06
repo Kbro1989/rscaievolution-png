@@ -50,10 +50,20 @@ export class RSCServerDO {
             // Handle the session
             await this.handleSession(server);
 
-            // Return the client WebSocket to the caller
+            // Check for subprotocol request (client sends 'binary')
+            const requestedProtocol = request.headers.get('Sec-WebSocket-Protocol');
+
+            // Return the client WebSocket to the caller with subprotocol if requested
+            const responseHeaders = {};
+            if (requestedProtocol) {
+                // Echo back the first requested protocol (client expects 'binary')
+                responseHeaders['Sec-WebSocket-Protocol'] = requestedProtocol.split(',')[0].trim();
+            }
+
             return new Response(null, {
                 status: 101,
-                webSocket: client
+                webSocket: client,
+                headers: responseHeaders
             });
         } catch (err) {
             return new Response(`Durable Object Error: ${err.message}\n${err.stack}`, { status: 500 });
