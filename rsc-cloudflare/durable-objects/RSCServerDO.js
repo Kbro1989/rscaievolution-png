@@ -89,11 +89,18 @@ export class RSCServerDO {
             const socketBridge = this.createSocketBridge(sessionId, webSocket);
 
             // Connect to the RSC server
-            // If this throws, we catch it below
-            this.server.handleConnection(socketBridge);
+            try {
+                this.server.handleConnection(socketBridge);
+                console.log(`[DO] handleConnection success for ${sessionId}`);
+            } catch (connErr) {
+                const msg = `CONN_ERROR: ${connErr.message}\n${connErr.stack}`;
+                console.error(msg);
+                await this.env.KV.put('debug_error_conn', msg);
+                throw connErr; // Re-throw to be caught by outer block
+            }
 
             // Handle WebSocket messages
-            webSocket.addEventListener('message', (event) => {
+            webSocket.addEventListener('message', async (event) => {
                 try {
                     const data = event.data;
 
@@ -110,7 +117,10 @@ export class RSCServerDO {
                     // Emit as 'data' event to the socket bridge
                     socketBridge.emit('data', buffer);
                 } catch (error) {
-                    console.error('[DO] Error processing message:', error);
+                    const msg = `MSG_ERROR: ${error.message}\n${error.stack}`;
+                    console.error('[DO] Error processing message:', msg);
+                    // Fire and forget KV logging (async)
+                    this.env.KV.put('debug_error_msg_' + Date.now(), msg).catch(() => { });
                 }
             });
 
