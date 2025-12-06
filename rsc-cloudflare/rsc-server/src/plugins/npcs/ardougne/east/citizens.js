@@ -1,4 +1,4 @@
-const ids = require('../../ids');
+
 
 module.exports = (router) => {
     // Paladins (323, 632, 633), Heroes (324), Knights (various)

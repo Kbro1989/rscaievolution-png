@@ -1,4 +1,4 @@
-const ids = require('../../ids');
+
 
 module.exports = (router) => {
     // King Lathas (ID 512)

@@ -1,12 +1,10 @@
-const ids = require('../../ids');
-
 module.exports = (router) => {
     // Jonny the Beard (ID 25)
     // Drops "Intel Report" (need ID) for Shield of Arrav.
-    // Logic: If killed, drops report.
-    // BUT this is a dialogue/NPC file.
 
-    router.on('talk', ids.NPCs.JONNY_THE_BEARD, (player, npc) => {
+    const JONNY_THE_BEARD_ID = 25;
+
+    router.on('talk', JONNY_THE_BEARD_ID, (player, npc) => {
         player.message('You speak to the bearded man.');
 
         // Authentic Dialogue
@@ -37,8 +35,4 @@ module.exports = (router) => {
             }
         });
     });
-
-    // Add Drop Logic? 
-    // Usually drops are handled in npcs.json or a drop table, but for quests sometimes specific trigger.
-    // For now, ensuring he talks is mostly flavor.
 };

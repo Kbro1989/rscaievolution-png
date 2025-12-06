@@ -1,4 +1,4 @@
-const ids = require('../../ids');
+
 
 module.exports = (router) => {
     // Bartender at Flying Horse Inn (Ardougne)

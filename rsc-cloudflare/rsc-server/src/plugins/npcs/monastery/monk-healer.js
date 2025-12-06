@@ -1,4 +1,4 @@
-const ids = require('../../ids');
+
 
 module.exports = (router) => {
     // Monk Healer (ID 93) & Abbot Langley (ID 174)

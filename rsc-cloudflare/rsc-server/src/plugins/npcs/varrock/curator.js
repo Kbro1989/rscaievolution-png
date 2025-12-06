@@ -1,8 +1,8 @@
-const ids = require('../../ids');
-
 module.exports = (router) => {
     // Curator (ID 39)
-    router.on('talk', ids.NPCs.CURATOR, (player, npc) => {
+    const CURATOR_ID = 39;
+
+    router.on('talk', CURATOR_ID, (player, npc) => {
         npc.message('Welcome to the museum of Varrock');
 
         player.options('Have you any interesting news?', 'Do you know where I can find the shield of Arrav?', (option) => {
