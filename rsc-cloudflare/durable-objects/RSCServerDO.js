@@ -6,6 +6,7 @@
  * memory and persists player data to KV storage.
  */
 
+import { Buffer } from 'node:buffer';
 import Server from '../rsc-server/src/server.js';
 import land63 from '../rsc-server/node_modules/@2003scape/rsc-data/landscape/land63.jag';
 import maps63 from '../rsc-server/node_modules/@2003scape/rsc-data/landscape/maps63.jag';
@@ -74,56 +75,68 @@ export class RSCServerDO {
         // Generate unique session ID
         const sessionId = `session-${++this.sessionCounter}-${Date.now()}`;
 
-        // Store session
-        this.sessions.set(sessionId, {
-            socket: webSocket,
-            id: sessionId,
-            connected: true
-        });
+        try {
+            // Store session
+            this.sessions.set(sessionId, {
+                socket: webSocket,
+                id: sessionId,
+                connected: true
+            });
 
-        console.log(`[DO] New session connected: ${sessionId} (Total: ${this.sessions.size})`);
+            console.log(`[DO] New session connected: ${sessionId} (Total: ${this.sessions.size})`);
 
-        // Create a socket wrapper that bridges WebSocket to RSC Server
-        const socketBridge = this.createSocketBridge(sessionId, webSocket);
+            // Create a socket wrapper that bridges WebSocket to RSC Server
+            const socketBridge = this.createSocketBridge(sessionId, webSocket);
 
-        // Connect to the RSC server
-        this.server.handleConnection(socketBridge);
+            // Connect to the RSC server
+            // If this throws, we catch it below
+            this.server.handleConnection(socketBridge);
 
-        // Handle WebSocket messages
-        webSocket.addEventListener('message', (event) => {
-            try {
-                const data = event.data;
+            // Handle WebSocket messages
+            webSocket.addEventListener('message', (event) => {
+                try {
+                    const data = event.data;
 
-                // Convert WebSocket message to Buffer-like format
-                let buffer;
-                if (typeof data === 'string') {
-                    buffer = Buffer.from(data, 'utf8');
-                } else if (data instanceof ArrayBuffer) {
-                    buffer = Buffer.from(data);
-                } else {
-                    buffer = Buffer.from(data);
+                    // Convert WebSocket message to Buffer-like format
+                    let buffer;
+                    if (typeof data === 'string') {
+                        buffer = Buffer.from(data, 'utf8');
+                    } else if (data instanceof ArrayBuffer) {
+                        buffer = Buffer.from(data);
+                    } else {
+                        buffer = Buffer.from(data);
+                    }
+
+                    // Emit as 'data' event to the socket bridge
+                    socketBridge.emit('data', buffer);
+                } catch (error) {
+                    console.error('[DO] Error processing message:', error);
                 }
+            });
 
-                // Emit as 'data' event to the socket bridge
-                socketBridge.emit('data', buffer);
-            } catch (error) {
-                console.error('[DO] Error processing message:', error);
-            }
-        });
+            // Handle WebSocket close
+            webSocket.addEventListener('close', () => {
+                console.log(`[DO] Session closed: ${sessionId}`);
+                this.sessions.delete(sessionId);
+                socketBridge.emit('close', false);
+            });
 
-        // Handle WebSocket close
-        webSocket.addEventListener('close', () => {
-            console.log(`[DO] Session closed: ${sessionId}`);
-            this.sessions.delete(sessionId);
-            socketBridge.emit('close', false);
-        });
+            // Handle WebSocket errors
+            webSocket.addEventListener('error', (error) => {
+                console.error('[DO] WebSocket error:', error);
+                this.sessions.delete(sessionId);
+                socketBridge.emit('error', error);
+            });
 
-        // Handle WebSocket errors
-        webSocket.addEventListener('error', (error) => {
-            console.error('[DO] WebSocket error:', error);
-            this.sessions.delete(sessionId);
-            socketBridge.emit('error', error);
-        });
+        } catch (err) {
+            // Critical Runtime Error AFTER accept
+            const msg = `CRITICAL_ERROR: ${err.message}\n${err.stack}`;
+            console.error(msg);
+            try {
+                webSocket.send(msg);
+                webSocket.close(1011, "Internal Error");
+            } catch (e) { /* ignore */ }
+        }
     }
 
     /**
