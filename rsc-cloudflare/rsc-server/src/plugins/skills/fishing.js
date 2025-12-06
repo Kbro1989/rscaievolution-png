@@ -160,24 +160,6 @@ async function doFishing(player, gameObject, index) {
                 const id = +fishID;
                 const fishName = items[id].name.toLowerCase();
                 let rolls = fishName.includes('mackerel') ? 2 : 1;
-
-                for (let r = 0; r < rolls; r++) {
-                    fishRolls++;
-                    // Use legacy success formula for independent roll? 
-                    // Fishing.java uses fish.rate[level]. 
-                    // Here we have 'roll' [min, max]. 
-                    // rollSkillSuccess uses Math.random() < interpolation.
-                    // We can use rollSkillSuccess(level, roll[0], roll[1]).
-                    const { rollSkillSuccess } = require('../../rolls');
-                    if (rollSkillSuccess(fishingLevel, roll[0], roll[1])) {
-                        caughtItems.push({ id, experience, name: fishName });
-                    }
-                }
-            }
-        }
-
-        if (caughtItems.length > 0) {
-            for (const item of caughtItems) {
                 player.inventory.add(item.id);
                 player.addExperience('fishing', item.experience);
 
