@@ -4,7 +4,15 @@ const Shop = require('./shop');
 const flat = require('flat');
 
 // Cloudflare Worker Compatibility: Remove top-level fs/bole
-// const fs = require('fs');
+// Cloudflare Worker & Browser Compatibility: Safe fs import
+let fs;
+if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV !== 'worker' && (!process.browser)) {
+    try {
+        fs = require('fs');
+    } catch (e) {
+        // fs not available
+    }
+}
 // const log = require('bole')('world');
 
 // Simple logger replacement

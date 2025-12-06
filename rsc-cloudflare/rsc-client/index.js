@@ -61,13 +61,14 @@ if (typeof window === 'undefined') {
     mc.members = true; // args[0] === 'members';
 
     // Check for multiplayer mode via query param
+    // Default to Multiplayer (Cloudflare) unless mode=solo
     const modeParam = urlParams.get('mode');
-    const isMultiplayer = modeParam === 'multiplayer';
+    const isMultiplayer = modeParam !== 'solo';
 
     if (isMultiplayer) {
         // Multiplayer mode: Connect to Fly.io game server
-        console.log('🌐 Multiplayer mode - connecting to Fly.io server...');
-        mc.server = 'rscaievolution-png.fly.dev';
+        console.log('🌐 Multiplayer mode - connecting to Cloudflare Durable Object...');
+        mc.server = 'rsc-server-do.elderscapedev.workers.dev';
         mc.port = 443;
     } else if (!args[1]) {
         // Solo mode: Use browser Worker
