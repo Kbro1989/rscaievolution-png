@@ -369,7 +369,7 @@ class DataClient {
     }
 
     async playerRegister(data) {
-        if (this.db) return this.d1PlayerLogin(data); // Auto-register
+        if (this.db) return this.d1PlayerRegister(data);
         return this.sendAndReceive({ handler: 'playerRegister', ...data });
     }
 
