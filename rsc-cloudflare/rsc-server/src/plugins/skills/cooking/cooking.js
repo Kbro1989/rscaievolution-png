@@ -5,6 +5,17 @@
 const { rollSkillSuccess, calcProductionSuccessfulLegacy } = require('../../../rolls');
 const { uncooked } = require('@2003scape/rsc-data/skills/cooking');
 
+const GAUNTLETS_OF_COOKING_ID = 701;
+const RAW_SWORDFISH_ID = 369;
+const RAW_LOBSTER_ID = 372;
+const RAW_SHARK_ID = 545;
+const RAW_OOMLIE_MEAT_ID = 1019;
+const SEAWEED_ID = 622;
+const SODA_ASH_ID = 624;
+const UNCOOKED_SWAMP_PASTE_ID = 1100;
+const SWAMP_PASTE_ID = 1099;
+const BURNT_MEAT_ID = 134;
+
 const CAKE_TIN_ID = 338;
 const COOKS_RANGE_ID = 119;
 const FIRE_IDS = new Set([97, 274]);
@@ -16,7 +27,7 @@ const FIRE_PENALTY = 0.95;
 function getDefinition(id) {
     const definition = uncooked[id];
 
-    if (definition.reference) {
+    if (definition && definition.reference) {
         return getDefinition(definition.reference);
     }
 
@@ -28,6 +39,38 @@ function isMeat(item) {
 }
 
 async function onUseWithGameObject(player, gameObject, item) {
+    // Special Cases handling
+    if (item.id === SEAWEED_ID) {
+        if (!FIRE_IDS.has(gameObject.id) && !RANGE_IDS.has(gameObject.id) && gameObject.id !== COOKS_RANGE_ID) return false;
+        player.message("You put the seaweed on the " + (FIRE_IDS.has(gameObject.id) ? "fire" : "stove"));
+        await player.world.sleepTicks(3);
+        player.inventory.remove(item.id);
+        player.inventory.add(SODA_ASH_ID);
+        player.message("The seaweed burns to ashes");
+        return true;
+    }
+
+    if (item.id === UNCOOKED_SWAMP_PASTE_ID) {
+        if (!FIRE_IDS.has(gameObject.id) && !RANGE_IDS.has(gameObject.id) && gameObject.id !== COOKS_RANGE_ID) return false;
+        player.message("you warm the paste over the fire");
+        await player.world.sleepTicks(3);
+        player.inventory.remove(item.id);
+        player.inventory.add(SWAMP_PASTE_ID);
+        player.message("it thickens into a sticky goo");
+        return true;
+    }
+
+    if (item.id === RAW_OOMLIE_MEAT_ID) {
+        if (!FIRE_IDS.has(gameObject.id) && !RANGE_IDS.has(gameObject.id) && gameObject.id !== COOKS_RANGE_ID) return false;
+        player.message("You cook the meat on the " + (FIRE_IDS.has(gameObject.id) ? "fire" : "stove") + "...");
+        await player.world.sleepTicks(3);
+        player.inventory.remove(item.id);
+        player.inventory.add(BURNT_MEAT_ID);
+        player.message("This meat is too delicate to cook like this.");
+        player.message("Perhaps you can wrap something around it to protect it from the heat.");
+        return true;
+    }
+
     if (!uncooked.hasOwnProperty(item.id)) {
         return false;
     }
@@ -133,7 +176,17 @@ async function onUseWithGameObject(player, gameObject, item) {
     // levelStopFail is usually req + 35 for cooking (except specific cases handled in data)
     // but here we use the data's 'stopFail' if available, or default logic
     const levelStopFail = level + 35; // Default for cooking if not specified
-    const cookSuccess = calcProductionSuccessfulLegacy(level, cookingLevel, true, levelStopFail);
+
+    // Gauntlets Logic (Family Crest)
+    // ID 701 is "Cooking gauntlets" in authentic lists usually.
+    let effectiveLevel = cookingLevel;
+    if (player.equipment.has(GAUNTLETS_OF_COOKING_ID)) {
+        if (item.id === RAW_SWORDFISH_ID) effectiveLevel += 6;
+        if (item.id === RAW_LOBSTER_ID) effectiveLevel += 11;
+        if (item.id === RAW_SHARK_ID) effectiveLevel += 11;
+    }
+
+    const cookSuccess = calcProductionSuccessfulLegacy(level, effectiveLevel, true, levelStopFail);
 
     if (/pie/.test(cookedName)) {
         cookedName = 'pie';
