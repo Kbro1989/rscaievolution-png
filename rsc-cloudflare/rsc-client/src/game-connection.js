@@ -31,7 +31,7 @@ class GameConnection extends GameShell {
         this.packetLastRead = 0;
         this.messageIndex = 0;
 
-        this.server = 'rscaievolution-png.fly.dev';
+        this.server = 'rsc-server-do.elderscapedev.workers.dev';
         this.port = 443;
 
         this.username = '';
