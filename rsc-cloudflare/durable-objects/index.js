@@ -15,9 +15,10 @@ export { RSCServerDO, PlayerDO };
 // This is called when the Worker itself receives a request
 export default {
     async fetch(request, env, ctx) {
-        return new Response('RSC Server Durable Object Worker is running', {
-            status: 200,
-            headers: { 'Content-Type': 'text/plain' }
-        });
+        // We use a fixed name to ensure all players connect to the same World instance (Shard)
+        const id = env.RSC_SERVER.idFromName('default-world');
+        const stub = env.RSC_SERVER.get(id);
+
+        return stub.fetch(request);
     }
 };
