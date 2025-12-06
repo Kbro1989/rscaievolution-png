@@ -16,7 +16,7 @@ const log = {
 };
 
 const objects = require('@2003scape/rsc-data/config/objects');
-const objects = require('@2003scape/rsc-data/config/objects');
+
 const pluginFiles = require('../plugins');
 const tiles = require('@2003scape/rsc-data/config/tiles');
 const wallObjects = require('@2003scape/rsc-data/config/wall-objects');

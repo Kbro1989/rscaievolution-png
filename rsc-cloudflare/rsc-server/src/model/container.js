@@ -142,7 +142,7 @@ class Container {
         }
 
         const slots = [];
-        const size = 0;
+        let size = 0;
 
         switch (this.stackPolicy) {
             case StackPolicy.NEVER:
@@ -204,7 +204,7 @@ class Container {
     }
 
     count(element) {
-        const elemCount = 0;
+        let elemCount = 0;
 
         for (let i = 0; i < this.size; i++) {
             let [elem, count] = this.slots[i];

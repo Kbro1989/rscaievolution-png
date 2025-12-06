@@ -224,7 +224,7 @@ module.exports = {
     "quests.members.plague-city": require('./quests/members/plague-city.js'),
     "quests.members.heros-quest": require('./quests/members/heros-quest.js'),
     "quests.members.tree-gnome-village": require('./quests/members/tree-gnome-village.js'),
-    "skills.prayer": require('./skills/prayer.js'),
+
     "npcs.wizard": require('./npcs/wizard.js'),
     "npcs.tutorial.guide": require('./npcs/tutorial/guide.js'),
     "npcs.tutorial.controls-guide": require('./npcs/tutorial/controls-guide.js'),
