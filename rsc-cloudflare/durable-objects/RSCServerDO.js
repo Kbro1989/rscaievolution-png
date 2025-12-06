@@ -171,6 +171,7 @@ export class RSCServerDO {
             worldID: 1,
             version: 204,  // Must match client version
             members: true,
+            experienceRate: 4,  // Authentic RSC: server stores 4x, client displays 1x
             tcpPort: null, // Not used in DO mode
             websocketPort: null, // Not used in DO mode
             landscapeData: {

@@ -1,0 +1,33 @@
+--- Spirit Items ---
+Item: "Unholy Symbol mould" (ID: 1026) - use this with silver in a furnace
+Item: "Unholy Symbol of Zamorak" (ID: 1027) - this needs stringing
+Item: "Unblessed Unholy Symbol of Zamorak" (ID: 1028) - this needs blessing
+Item: "Unholy Symbol of Zamorak" (ID: 1029) - a symbol indicating allegiance to Zamorak
+Item: "Unblessed Unholy Symbol of Zamorak" (ID: 1028) - this needs blessing
+Item: "ring mould" (ID: 293) - Used to make gold rings
+Item: "Amulet mould" (ID: 294) - Used to make gold amulets
+Item: "Necklace mould" (ID: 295) - Used to make gold necklaces
+Item: "Holy symbol mould" (ID: 386) - Used to make Holy Symbols
+Item: "Lens mould" (ID: 1017) - A peculiar mould in the shape of a disc
+Item: "Unholy Symbol mould" (ID: 1026) - use this with silver in a furnace
+Item: "cannon ammo mould" (ID: 1057) - Used to make cannon ammo
+--- Shantay Items ---
+Item: "A free Shantay Disclaimer" (ID: 1099) - Very important information.
+Item: "Desert Shirt" (ID: 1020) - A light cool shirt to wear in the desert
+Item: "Desert Robe" (ID: 1019) - Cool light robe to wear in the desert
+Item: "Desert Boots" (ID: 990) - Boots made specially for the desert
+Item: "Knife" (ID: 13) - A dangerous looking knife
+Item: "Iron throwing knife" (ID: 1075) - A finely balanced knife
+Item: "Bronze throwing knife" (ID: 1076) - A finely balanced knife
+Item: "Steel throwing knife" (ID: 1077) - A finely balanced knife
+Item: "Mithril throwing knife" (ID: 1078) - A finely balanced knife
+Item: "Adamantite throwing knife" (ID: 1079) - A finely balanced knife
+Item: "Rune throwing knife" (ID: 1080) - A finely balanced knife
+Item: "Black throwing knife" (ID: 1081) - A finely balanced knife
+Item: "Poisoned Bronze throwing knife" (ID: 1128) - A finely balanced knife with a coating of venom
+Item: "Poisoned Iron throwing knife" (ID: 1129) - A finely balanced knife with a coating of venom
+Item: "Poisoned Steel throwing knife" (ID: 1130) - A finely balanced knife with a coating of venom
+Item: "Poisoned Mithril throwing knife" (ID: 1131) - A finely balanced knife with a coating of venom
+Item: "Poisoned Black throwing knife" (ID: 1132) - A finely balanced knife with a coating of venom
+Item: "Poisoned Adamantite throwing knife" (ID: 1133) - A finely balanced knife with a coating of venom
+Item: "Poisoned Rune throwing knife" (ID: 1134) - A finely balanced knife with a coating of venom

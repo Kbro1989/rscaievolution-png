@@ -1,0 +1,9 @@
+--- Searching for Spirit ---
+NPC: "tree spirit" (ID: 216) - Ooh spooky
+NPC: "Spirit of Scorpius" (ID: 665) - The undead spirit of the follower of Zamorak
+--- Searching for Scorpius ---
+NPC: "Spirit of Scorpius" (ID: 665) - The undead spirit of the follower of Zamorak
+--- Searching for Shantay ---
+NPC: "Shantay" (ID: 549) - human
+NPC: "Shantay Pass Guard" (ID: 717) - He seems to be guarding the Shantay Pass
+NPC: "Shantay Pass Guard" (ID: 719) - He seems to be guarding the Shantay Pass
