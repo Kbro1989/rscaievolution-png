@@ -33,26 +33,30 @@ export class RSCServerDO {
      * Handle incoming fetch requests (WebSocket upgrades)
      */
     async fetch(request) {
-        const upgradeHeader = request.headers.get('Upgrade');
+        try {
+            const upgradeHeader = request.headers.get('Upgrade');
 
-        if (upgradeHeader !== 'websocket') {
-            return new Response('Expected WebSocket connection', {
-                status: 426,
-                headers: { 'Upgrade': 'websocket' }
+            if (upgradeHeader !== 'websocket') {
+                return new Response('Expected WebSocket connection', {
+                    status: 426,
+                    headers: { 'Upgrade': 'websocket' }
+                });
+            }
+
+            // Create WebSocket pair
+            const [client, server] = Object.values(new WebSocketPair());
+
+            // Handle the session
+            await this.handleSession(server);
+
+            // Return the client WebSocket to the caller
+            return new Response(null, {
+                status: 101,
+                webSocket: client
             });
+        } catch (err) {
+            return new Response(`Durable Object Error: ${err.message}\n${err.stack}`, { status: 500 });
         }
-
-        // Create WebSocket pair
-        const [client, server] = Object.values(new WebSocketPair());
-
-        // Handle the session
-        await this.handleSession(server);
-
-        // Return the client WebSocket to the caller
-        return new Response(null, {
-            status: 101,
-            webSocket: client
-        });
     }
 
     /**
@@ -135,10 +139,10 @@ export class RSCServerDO {
             tcpPort: null, // Not used in DO mode
             websocketPort: null, // Not used in DO mode
             landscapeData: {
-                landMsg: land63,
-                mapsJag: maps63,
-                landMem: landmem63,
-                mapsMem: mapsmem63
+                landMsg: Buffer.from(land63),
+                mapsJag: Buffer.from(maps63),
+                landMem: Buffer.from(landmem63),
+                mapsMem: Buffer.from(mapsmem63)
             }
         };
 
