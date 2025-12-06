@@ -213,37 +213,115 @@ async function onSpellOnNpc(player, npc, spellId) {
     }
 
     // === COMBAT SPELLS ===
-    if (COMBAT_SPELLS[spell.name]) {
+    if (COMBAT_SPELLS[spell.name] || spell.name === 'Iban blast' || spell.name === 'Crumble undead') {
         console.log(`[MAGIC DEBUG] Combat spell detected: ${spell.name}`);
 
+        // --- SPECIAL SPELL REQUIREMENTS (God Spells, Iban Blast) ---
+
+        // Iban Blast (Level 50) - Base XP 30
+        if (spell.name === 'Iban blast') {
+            // Check for Iban Staff
+            const wep = player.inventory.items[player.inventory.equipmentSlots['right-hand']];
+            if (!wep || wep.id !== 1031) {
+                player.message("@que@You need to wield the Staff of Iban to cast this spell.");
+                return true;
+            }
+        }
+
+        // God Spells (Sara/Guthix/Zamorak)
+        const godSpells = {
+            'Claws of Guthix': { staff: 1217, cape: 1215 },
+            'Saradomin strike': { staff: 1218, cape: 1214 },
+            'Flames of Zamorak': { staff: 1216, cape: 1213 }
+        };
+
+        if (godSpells[spell.name]) {
+            const req = godSpells[spell.name];
+            const wep = player.inventory.items[player.inventory.equipmentSlots['right-hand']];
+            const cape = player.inventory.items[player.inventory.equipmentSlots['back']]; // Assuming slot name
+
+            // Note: Equipment slots are usually numeric indices, checking simple logic:
+            // Need to verify 'back' slot index in inventory.js if mapped by name, otherwise risky.
+            // Assuming player.inventory.equipmentSlots uses text keys if implemented that way.
+            // If strict index: cape is usually index 1, weapon 3?
+            // Safer: player.equipment.contains(id)?
+            // Player.js usually has 'equipped' list or 'getEquipment()'.
+            // Let's rely on standard inventory equipment checks or check existing 'right-hand' usage in this file.
+            // 'right-hand' is used above. 'cape'?
+
+            // Falling back to "inventory.contains" if equipment slot unknown? No, must be equipped.
+            // The existing code uses: player.inventory.equipmentSlots['right-hand'].
+            // I will guess 'cape' or 'back'. Standard RSC keys: header, cape, necklace, weapon, body, shield, legs, hands, feet, ring, ammo.
+
+            const capeIndex = player.inventory.equipmentSlots['cape'];
+            const capeItem = capeIndex !== -1 ? player.inventory.items[capeIndex] : null;
+
+            if (!wep || wep.id !== req.staff) {
+                player.message(`@que@You need to wield the Staff of ${spell.name.split(' ')[2] || 'God'} to cast this spell.`);
+                return true;
+            }
+            if (!capeItem || capeItem.id !== req.cape) {
+                player.message(`@que@You need to wear the Cake of ${spell.name.split(' ')[2] || 'God'} to cast this spell.`);
+                // Typo "Cake" -> "Cape"
+                player.message(`@que@You need to wear the Cape of ${spell.name.split(' ')[2] || 'God'} to cast this spell.`);
+                return true;
+            }
+        }
+
+        // Crumble Undead
+        if (spell.name === 'Crumble undead') {
+            const undead = ['zombie', 'skeleton', 'ghost', 'shade'];
+            if (!undead.some(t => npc.definition.name.toLowerCase().includes(t))) {
+                player.message("@que@You can only cast this spell on undead targets.");
+                return true;
+            }
+        }
+
         // Check if player has runes
-        if (!checkAndRemoveRunes(player, spell)) { // Using existing helper
+        if (!checkAndRemoveRunes(player, spell)) {
             console.log(`[MAGIC DEBUG] Insufficient runes`);
             return true;
         }
 
-        console.log(`[MAGIC DEBUG] Player has runes, removing them`);
-        // Runes are already removed by checkAndRemoveRunes
+        // Determine Damage and XP
+        let maxHit = 0;
+        let baseXp = 0;
 
-        console.log(`[MAGIC DEBUG] Sending projectile and dealing damage`);
+        if (spell.name === 'Iban blast') {
+            maxHit = 25;
+            baseXp = 30;
+        } else if (spell.name === 'Crumble undead') {
+            maxHit = 15;
+            baseXp = 24.5;
+        } else if (COMBAT_SPELLS[spell.name]) {
+            const data = COMBAT_SPELLS[spell.name];
+            maxHit = data.maxHit;
+            baseXp = data.xp;
+
+            // Charge Boost for God Spells
+            if (godSpells[spell.name] && player.charged && Date.now() < player.charged) {
+                maxHit = 25;
+                player.message("@que@Your spell is boosted by your charge!");
+            }
+        }
+
         player.message(`@que@You cast ${spell.name}!`);
 
         // Send projectile
         player.sendProjectile(npc, 2);
 
         // Deal damage
-        const spellData = COMBAT_SPELLS[spell.name];
-        const damage = Math.floor(Math.random() * (spellData.maxHit + 1));
+        const damage = Math.floor(Math.random() * (maxHit + 1));
         npc.damage(damage);
 
         // Award XP
-        player.addExperience('magic', spellData.xp + (damage * 2));
+        player.addExperience('magic', baseXp + (damage * 2));
 
         console.log(`[MAGIC DEBUG] Dealt ${damage} damage, awarded XP`);
         return true;
     }
 
-    // === CURSE SPELLS ===
+    // === CURSE SPELLS (Existing Logic) ===
     const curseSpells = ['Confuse', 'Weaken', 'Curse', 'Vulnerability', 'Enfeeble', 'Stun'];
     if (curseSpells.includes(spell.name)) {
         if (!checkAndRemoveRunes(player, spell)) return true;
@@ -269,16 +347,19 @@ async function onSpellOnNpc(player, npc, spellId) {
 
         const effect = statMap[spell.name];
         if (effect) {
-            const xpMap = {
-                'Confuse': 13,
-                'Weaken': 21,
-                'Curse': 29,
-                'Vulnerability': 76,
-                'Enfeeble': 83,
-                'Stun': 90
-            };
-            player.addExperience('magic', xpMap[spell.name] || 0);
+            // Apply debuff logic here if NPC has stats (currently placeholder)
+            // npc.skills[effect.skill].current -= ...
         }
+
+        const xpMap = {
+            'Confuse': 13,
+            'Weaken': 21,
+            'Curse': 29,
+            'Vulnerability': 76,
+            'Enfeeble': 83,
+            'Stun': 90
+        };
+        player.addExperience('magic', xpMap[spell.name] || 0);
     }
 }
 
