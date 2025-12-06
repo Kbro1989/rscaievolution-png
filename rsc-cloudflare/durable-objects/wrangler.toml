@@ -3,6 +3,11 @@ main = "index.js"
 compatibility_date = "2024-11-28"
 compatibility_flags = [ "nodejs_compat" ]
 
+[[rules]]
+type = "Data"
+globs = ["**/*.jag", "**/*.mem"]
+fallthrough = false
+
 # KV Namespace binding (same as Pages project)
 [[kv_namespaces]]
 binding = "KV"
