@@ -31,8 +31,4 @@ database_id = "e8cea666-e70f-43e4-9a5e-54fd7fc80fa4"
 # Durable Object migration
 [[migrations]]
 tag = "v1"
-new_classes = ["RSCServerDO"]
-
-[[migrations]]
-tag = "v2"
-new_classes = ["PlayerDO"]
+new_sqlite_classes = ["RSCServerDO", "PlayerDO"]
