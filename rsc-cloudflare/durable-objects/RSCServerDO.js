@@ -133,6 +133,7 @@ export class RSCServerDO {
             const msg = `CRITICAL_ERROR: ${err.message}\n${err.stack}`;
             console.error(msg);
             try {
+                await this.env.KV.put('debug_error_session', msg);
                 webSocket.send(msg);
                 webSocket.close(1011, "Internal Error");
             } catch (e) { /* ignore */ }
@@ -159,13 +160,19 @@ export class RSCServerDO {
             }
         };
 
-        // Create server instance with env for KV access
-        this.server = new Server(config, this.env);
+        try {
+            // Create server instance with env for KV access
+            this.server = new Server(config, this.env);
 
-        // Initialize server
-        await this.server.init();
+            // Initialize server
+            await this.server.init();
 
-        console.log('[DO] RSC Server initialized successfully');
+            console.log('[DO] RSC Server initialized successfully');
+        } catch (err) {
+            const msg = `INIT_ERROR: ${err.message}\n${err.stack}`;
+            await this.env.KV.put('debug_error_init', msg);
+            throw err;
+        }
     }
 
     /**
