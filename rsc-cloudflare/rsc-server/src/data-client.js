@@ -173,8 +173,9 @@ class DataClient {
             return this.d1PlayerSave(message);
         }
 
+
         if (message.handler === 'playerRegister') {
-            return this.d1PlayerLogin(message); // Reuse logic, or specific?
+            return this.d1PlayerRegister(message);
         }
 
         if (message.handler === 'playerGetWorlds') {
@@ -284,6 +285,52 @@ class DataClient {
         } catch (e) {
             console.error('[DataClient] Save Error:', e);
             return { success: false };
+        }
+    }
+
+    async d1PlayerRegister(msg) {
+        const { username, password } = msg;
+        const cleanUser = username.toLowerCase();
+
+        try {
+            // Check if user already exists
+            const result = await this.db.prepare(
+                'SELECT data FROM players WHERE username = ?'
+            ).bind(cleanUser).first();
+
+            if (result) {
+                // Username already taken
+                return { success: false, code: 3 }; // 3 = username taken (client understands this)
+            }
+
+            // Create new player
+            console.log(`[DataClient] Registering new user: ${cleanUser}`);
+
+            const newPlayer = {
+                username: cleanUser,
+                pass: password,
+                x: 329, y: 552, // Tutorial Island
+                fatigue: 0,
+                combatStyle: 0,
+                blockChat: 0, blockPrivateChat: 0, blockTrade: 0, blockDuel: 0,
+                cameraAuto: 0, oneMouseButton: 0,
+                loginDate: Date.now(),
+                friends: [], ignores: [],
+                skills: {},
+                inventory: [], bank: [],
+                questPoints: 0, questStages: {}
+            };
+
+            await this.db.prepare(
+                'INSERT INTO players (username, data, updated_at) VALUES (?, ?, ?)'
+            ).bind(cleanUser, JSON.stringify(newPlayer), Date.now()).run();
+
+            // Code 2 = Registration success (client expects this!)
+            return { success: true, code: 2 };
+
+        } catch (e) {
+            console.error('[DataClient] D1 Register Error:', e);
+            return { success: false, code: 5 }; // Server error
         }
     }
 
