@@ -169,6 +169,7 @@ export class RSCServerDO {
         // Server configuration
         const config = {
             worldID: 1,
+            version: 204,  // Must match client version
             members: true,
             tcpPort: null, // Not used in DO mode
             websocketPort: null, // Not used in DO mode
