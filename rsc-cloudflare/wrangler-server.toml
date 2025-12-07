@@ -20,8 +20,8 @@ id = "f2881801ac59415a86236d0841f27103"
 
 # Environment Variables
 [vars]
-MEMBERS = "false"
+MEMBERS = "true"
 
 # Local development
 [env.dev]
-MEMBERS = "false"
+MEMBERS = "true"
