@@ -173,7 +173,7 @@ class FlyDataClient {
         }
 
         try {
-            const key = `player:${player.username.toLowerCase()}`;
+            const key = player.username.toLowerCase();
             await this.kvPut(key, player);
         } catch (err) {
             console.error('Error saving player:', err);
@@ -191,7 +191,7 @@ class FlyDataClient {
                 player.id = Math.floor(Math.random() * 1000000);
 
                 try {
-                    const key = `player:${message.username}`;
+                    const key = message.username;
                     const existing = await this.kvGet(key);
 
                     // Check if it's a valid player object
@@ -217,7 +217,7 @@ class FlyDataClient {
                 }
 
                 try {
-                    const key = `player:${message.username}`;
+                    const key = message.username;
                     const player = await this.kvGet(key);
 
                     if (!player || !player.username || player.password !== message.password) {

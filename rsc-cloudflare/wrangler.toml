@@ -10,8 +10,8 @@ id = "f2881801ac59415a86236d0841f27103"  # Hot data: Player saves, Items, NPCs
 
 [[d1_databases]]
 binding = "DB"
-database_name = "ai-architect-db"
-database_id = "e8cea666-e70f-43e4-9a5e-54fd7fc80fa4" # Authoritative: Players, Logs
+database_name = "rsc-d1"
+database_id = "d021ab5b-ab13-47b8-9287-1aabebfe51df" # Authoritative: Players, Logs
 
 # Asset Storage (Optional)
 [[r2_buckets]]
