@@ -349,40 +349,39 @@ async function command({ player }, { command, args }) {
                             ];
                         } else if (armorChoice === 1) {
                             itemsToShow = [
-                                { id: 8, name: 'Bronze Plate' }, { id: 86, name: 'Steel Plate' },
-                                { id: 84, name: 'Addy Plate' }, { id: 401, name: 'Rune Plate' },
-                                { id: 1278, name: 'Dragon Plate' }
+                                { id: 117, name: 'Bronze Plate' }, { id: 118, name: 'Steel Plate' },
+                                { id: 120, name: 'Addy Plate' }, { id: 401, name: 'Rune Plate' },
+                                { id: 1278, name: 'Dragon Sq' }
                             ];
                         } else if (armorChoice === 2) {
                             itemsToShow = [
                                 { id: 206, name: 'Bronze Legs' }, { id: 121, name: 'Steel Legs' },
-                                { id: 125, name: 'Addy Legs' }, { id: 402, name: 'Rune Legs' },
-                                { id: 1279, name: 'Dragon Legs' }
+                                { id: 123, name: 'Addy Legs' }, { id: 402, name: 'Rune Legs' }
                             ];
                         } else if (armorChoice === 3) {
                             itemsToShow = [
-                                { id: 4, name: 'Wooden Shield' }, { id: 48, name: 'Steel Kite' },
-                                { id: 56, name: 'Addy Kite' }, { id: 403, name: 'Rune Kite' },
-                                { id: 1276, name: 'Dragon Sq' }
+                                { id: 4, name: 'Wooden Shield' }, { id: 129, name: 'Steel Kite' },
+                                { id: 131, name: 'Addy Kite' }, { id: 404, name: 'Rune Kite' },
+                                { id: 1278, name: 'Dragon Sq' }
                             ];
                         }
                     } else if (catChoice === 2) {
                         const weaponChoice = await player.ask(['Swords >>', '2H Swords >>', 'Battleaxes >>', 'Bows >>', '[Back]']);
                         if (weaponChoice === 0) {
                             itemsToShow = [
-                                { id: 70, name: 'Bronze Sword' }, { id: 60, name: 'Steel Sword' },
-                                { id: 68, name: 'Addy Sword' }, { id: 396, name: 'Rune Sword' },
+                                { id: 70, name: 'Bronze Sword' }, { id: 72, name: 'Steel Sword' },
+                                { id: 74, name: 'Addy Sword' }, { id: 75, name: 'Rune Sword' },
                                 { id: 593, name: 'Dragon Sword' }
                             ];
                         } else if (weaponChoice === 1) {
                             itemsToShow = [
-                                { id: 76, name: 'Bronze 2H' }, { id: 77, name: 'Steel 2H' },
-                                { id: 79, name: 'Addy 2H' }, { id: 398, name: 'Rune 2H' }
+                                { id: 76, name: 'Bronze 2H' }, { id: 78, name: 'Steel 2H' },
+                                { id: 80, name: 'Addy 2H' }, { id: 81, name: 'Rune 2H' }
                             ];
                         } else if (weaponChoice === 2) {
                             itemsToShow = [
-                                { id: 12, name: 'Bronze Baxe' }, { id: 89, name: 'Steel Baxe' },
-                                { id: 97, name: 'Addy Baxe' }, { id: 405, name: 'Rune Baxe' },
+                                { id: 205, name: 'Bronze Baxe' }, { id: 90, name: 'Steel Baxe' },
+                                { id: 92, name: 'Addy Baxe' }, { id: 93, name: 'Rune Baxe' },
                                 { id: 594, name: 'Dragon Baxe' }
                             ];
                         } else if (weaponChoice === 3) {
@@ -409,7 +408,7 @@ async function command({ player }, { command, args }) {
                             itemsToShow = [
                                 { id: 575, name: 'Xmas Cracker' }, { id: 387, name: 'Disk of Return' },
                                 { id: 1289, name: 'Scythe' }, { id: 1156, name: 'Bunny Ears' },
-                                { id: 677, name: 'Easter Egg' }
+                                { id: 677, name: 'Easter Egg' }, { id: 971, name: 'Santa Hat' }
                             ];
                         }
                     } else if (catChoice === 4) {
