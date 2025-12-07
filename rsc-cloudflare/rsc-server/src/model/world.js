@@ -195,7 +195,8 @@ class World {
         this.pathFinder = {
             isTileBlocked: () => false,
             addObject: () => { },
-            addWallObject: () => { }
+            addWallObject: () => { },
+            isValidGameStep: () => true
         };
 
         // Verification: Collision at 0,0
