@@ -38,6 +38,11 @@ export default {
         const id = doBinding.idFromName(shardBindingName);
         const stub = doBinding.get(id);
 
+        // **WebSocket Upgrade**: Forward WebSocket connections directly to Durable Object
+        if (request.headers.get('Upgrade') === 'websocket') {
+            return stub.fetch(request);
+        }
+
         return stub.fetch(request);
     }
 };

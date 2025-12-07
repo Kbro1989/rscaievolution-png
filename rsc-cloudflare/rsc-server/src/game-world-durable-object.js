@@ -1,47 +1,38 @@
 /**
- * GameWorld Durable Object - Cloudflare wrapper for RSC World
- * Preserves all authentic game logic while adapting infrastructure
+ * GameWorld Durable Object - MMO Server with Cloudflare Infrastructure
+ * Uses authentic RSC Server with binary packet protocol
  */
 
-const World = require('./model/world');
-const Player = require('./model/player');
+const Server = require('./server');
 
 export class GameWorld {
     constructor(state, env) {
         this.state = state;
         this.env = env;
 
-        // WebSocket connections mapped to players
-        this.connections = new Map(); // WebSocket -> Player
+        // WebSocket connections (raw, before RSCSocket wrapping)
+        this.connections = new Map(); // WebSocket -> RSCSocket wrapper
 
-        // Initialize game world (all authentic game logic)
-        this.world = null;
-        this.initializeWorld();
+        // Initialize authentic RSC server
+        this.server = null;
+        this.initializeServer();
     }
 
-    async initializeWorld() {
-        // Create authentic RSC world with all game logic
-        this.world = new World({
-            config: {
-                worldID: 1,
-                members: this.env.MEMBERS === 'true'
-            },
-            // Cloudflare-adapted data client
-            dataClient: {
-                sendAndReceive: async (message) => {
-                    return await this.handleDataRequest(message);
-                }
-            },
-            outgoingMessages: []
-        });
+    async initializeServer() {
+        // Create authentic RSC server with Cloudflare KV
+        this.server = new Server({
+            worldID: 1,
+            members: this.env.MEMBERS === 'true',
+            tcpPort: null, // No TCP in Workers
+            websocketPort: null, // WebSocket handled by DO
+            skipDataServer: true // Use KV directly, not DataClient
+        }, this.env);
 
-        // Load game data
-        await this.world.loadData();
+        // Initialize server (loads world data, plugins, etc.)
+        await this.server.init();
 
-        // Start tick loop using Durable Object alarm
-        this.startTickLoop();
-
-        console.log('GameWorld initialized');
+        console.log('RSC Server initialized in Durable Object');
+        console.log(`Members=${this.env.MEMBERS}, World=1`);
     }
 
     async fetch(request) {
@@ -55,15 +46,15 @@ export class GameWorld {
         // HTTP endpoints
         if (url.pathname === '/status') {
             return new Response(JSON.stringify({
-                players: this.world.players.length,
-                npcs: this.world.npcs.length,
-                ticks: this.world.ticks
+                players: this.server.world.players.getAll().length,
+                npcs: this.server.world.npcs.getAll().length,
+                ticks: this.server.world.ticks
             }), {
                 headers: { 'Content-Type': 'application/json' }
             });
         }
 
-        return new Response('RSC Game World', { status: 200 });
+        return new Response('RSC Game World - Use WebSocket for game connection', { status: 200 });
     }
 
     async handleWebSocketUpgrade(request) {
@@ -73,6 +64,12 @@ export class GameWorld {
         // Accept WebSocket in Durable Object
         this.state.acceptWebSocket(server);
 
+        // Store raw WebSocket
+        this.connections.set(server, null); // Will be set to RSCSocket wrapper
+
+        // Wire to RSC Server's handleConnection (wraps in RSCSocket)
+        this.server.handleConnection(new DurableObjectWebSocketAdapter(server, this));
+
         return new Response(null, {
             status: 101,
             webSocket: client
@@ -80,201 +77,89 @@ export class GameWorld {
     }
 
     async webSocketMessage(ws, message) {
-        const player = this.connections.get(ws);
-
-        if (!player) {
-            // Handle login
-            await this.handleLogin(ws, message);
-            return;
-        }
-
-        // Handle game packets
-        await this.handlePlayerMessage(player, message);
-    }
-
-    async handleLogin(ws, message) {
-        try {
-            const data = JSON.parse(message);
-
-            if (data.type !== 'login') {
-                ws.send(JSON.stringify({ error: 'Expected login' }));
-                ws.close();
-                return;
-            }
-
-            // Load player data from KV
-            const playerData = await this.loadPlayerData(data.username);
-
-            if (!playerData) {
-                // New player
-                playerData = this.createNewPlayer(data.username);
-            }
-
-            // Create Player instance with WebSocket
-            const player = new Player(this.world, new WebSocketAdapter(ws), playerData);
-
-            // Register player
-            this.connections.set(ws, player);
-            player.login();
-
-            console.log(`Player ${data.username} logged in`);
-
-        } catch (err) {
-            console.error('Login error:', err);
-            ws.send(JSON.stringify({ error: 'Login failed' }));
-            ws.close();
-        }
-    }
-
-    async handlePlayerMessage(player, message) {
-        try {
-            const data = JSON.parse(message);
-
-            // Route to appropriate handler based on message type
-            // This matches the existing server message handlers
-            switch (data.type) {
-                case 'walk':
-                    player.walkQueue.push(...data.steps);
-                    break;
-                case 'command':
-                    await this.world.handleCommand(player, data);
-                    break;
-                // ... other message types
-            }
-
-        } catch (err) {
-            console.error('Message handling error:', err);
+        // Binary message from client (RSC packet)
+        // RSCSocket wrapper handles this automatically
+        const adapter = this.connections.get(ws);
+        if (adapter) {
+            adapter.emit('data', message);
         }
     }
 
     async webSocketClose(ws, code, reason) {
-        const player = this.connections.get(ws);
-
-        if (player) {
-            console.log(`Player ${player.username} disconnected`);
-
-            // Save player before logout
-            await this.savePlayerData(player);
-
-            // Remove from world
-            this.world.removeEntity('players', player);
+        const adapter = this.connections.get(ws);
+        if (adapter) {
+            adapter.emit('close', false);
             this.connections.delete(ws);
         }
     }
 
     async webSocketError(ws, error) {
         console.error('WebSocket error:', error);
-        const player = this.connections.get(ws);
-        if (player) {
-            await this.webSocketClose(ws, 1006, 'Error');
-        }
+        await this.webSocketClose(ws, 1006, 'Error');
     }
 
     // Tick loop using Durable Object alarms
-    startTickLoop() {
-        // Set alarm for next tick (640ms)
-        this.state.storage.setAlarm(Date.now() + 640);
-    }
-
     async alarm() {
-        // Run game tick (all authentic logic)
-        await this.world.tick();
+        // Run game tick (authentic RSC logic)
+        this.server.readMessages();
+        this.server.sendMessages();
 
-        // Schedule next tick
-        this.state.storage.setAlarm(Date.now() + 640);
-    }
-
-    // KV Integration
-    async loadPlayerData(username) {
-        const key = `player:${username.toLowerCase()}`;
-        const data = await this.env.PLAYERS_KV.get(key, 'json');
-        return data;
-    }
-
-    async savePlayerData(player) {
-        const key = `player:${player.username.toLowerCase()}`;
-
-        const data = {
-            username: player.username,
-            x: player.x,
-            y: player.y,
-            skills: player.skills,
-            inventory: player.inventory.items,
-            bank: player.bank.items,
-            questStages: player.questStages,
-            combatStyle: player.combatStyle,
-            // ... all save properties
-        };
-
-        await this.env.PLAYERS_KV.put(key, JSON.stringify(data));
-    }
-
-    createNewPlayer(username) {
-        return {
-            username,
-            x: 120, // Lumbridge spawn
-            y: 504,
-            skills: {
-                attack: { base: 1, current: 1, experience: 0 },
-                defense: { base: 1, current: 1, experience: 0 },
-                strength: { base: 1, current: 1, experience: 0 },
-                hits: { base: 9, current: 9, experience: 2304 },
-                ranged: { base: 1, current: 1, experience: 0 },
-                prayer: { base: 1, current: 1, experience: 0 },
-                magic: { base: 1, current: 1, experience: 0 },
-                cooking: { base: 1, current: 1, experience: 0 },
-                woodcutting: { base: 1, current: 1, experience: 0 },
-                fletching: { base: 1, current: 1, experience: 0 },
-                fishing: { base: 1, current: 1, experience: 0 },
-                firemaking: { base: 1, current: 1, experience: 0 },
-                crafting: { base: 1, current: 1, experience: 0 },
-                smithing: { base: 1, current: 1, experience: 0 },
-                mining: { base: 1, current: 1, experience: 0 },
-                herblaw: { base: 1, current: 1, experience: 0 },
-                agility: { base: 1, current: 1, experience: 0 },
-                thieving: { base: 1, current: 1, experience: 0 }
-            },
-            questStages: {},
-            inventory: [],
-            bank: [],
-            friends: [],
-            ignores: [],
-            loginDate: Date.now(),
-            loginIP: '0.0.0.0'
-        };
-    }
-
-    async handleDataRequest(message) {
-        // Handle KV requests from within game logic
-        if (message.handler === 'playerUpdate') {
-            // This is a save request
-            const player = this.world.players.getAll().find(p => p.id === message.id);
-            if (player) {
-                await this.savePlayerData(player);
-            }
-            return { success: true };
-        }
-
-        return { success: false };
+        // Schedule next tick (640ms = authentic RSC tick rate)
+        await this.state.storage.setAlarm(Date.now() + 640);
     }
 }
 
 /**
- * WebSocket Adapter - Makes WebSocket look like Socket to Player class
+ * WebSocket Adapter - Makes Durable Object WebSocket look like Node net.Socket
+ * This allows RSCSocket to work with Cloudflare WebSockets
  */
-class WebSocketAdapter {
-    constructor(ws) {
+class DurableObjectWebSocketAdapter {
+    constructor(ws, durableObject) {
         this.ws = ws;
+        this.durableObject = durableObject;
+        this.listeners = {};
+
+        // Store in connections map
+        durableObject.connections.set(ws, this);
     }
 
-    send(data) {
-        if (this.ws.readyState === 1) { // OPEN
-            this.ws.send(JSON.stringify(data));
+    // EventEmitter-like interface
+    on(event, handler) {
+        if (!this.listeners[event]) {
+            this.listeners[event] = [];
+        }
+        this.listeners[event].push(handler);
+    }
+
+    emit(event, ...args) {
+        if (this.listeners[event]) {
+            for (const handler of this.listeners[event]) {
+                handler(...args);
+            }
+        }
+    }
+
+    removeAllListeners() {
+        this.listeners = {};
+    }
+
+    // Socket-like interface for RSCSocket
+    write(data) {
+        if (this.ws.readyState === 1) { // WebSocket.OPEN
+            this.ws.send(data);
         }
     }
 
     close() {
         this.ws.close();
+    }
+
+    setTimeout() {
+        // No-op in Workers (no socket timeouts)
+    }
+
+    toString() {
+        return `[DurableObjectWebSocket]`;
     }
 }
 
