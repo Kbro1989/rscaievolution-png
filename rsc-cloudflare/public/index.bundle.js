@@ -62,9 +62,9 @@ if (typeof window === 'undefined') {
     mc.members = true; // args[0] === 'members';
 
     // Check for multiplayer mode via query param
-    // Default to Multiplayer (Cloudflare) unless mode=solo
+    // Default to Solo mode (Web Worker) unless mode=multi
     const modeParam = urlParams.get('mode');
-    const isMultiplayer = modeParam !== 'solo';
+    const isMultiplayer = modeParam === 'multi';
 
     if (isMultiplayer) {
         // Multiplayer mode: Connect to Fly.io game server
