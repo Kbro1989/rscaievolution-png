@@ -324,8 +324,8 @@ async function command({ player }, { command, args }) {
                         const consumeChoice = await player.ask(['Food >>', 'Potions >>', 'Drinks >>', '[Back]']);
                         if (consumeChoice === 0) {
                             itemsToShow = [
-                                { id: 546, name: 'Lobster' }, { id: 373, name: 'Swordfish' },
-                                { id: 370, name: 'Shark' }, { id: 325, name: 'Meat Pizza' }
+                                { id: 373, name: 'Lobster' }, { id: 370, name: 'Swordfish' },
+                                { id: 546, name: 'Shark' }, { id: 326, name: 'Meat Pizza' }
                             ];
                         } else if (consumeChoice === 1) {
                             itemsToShow = [
@@ -335,8 +335,8 @@ async function command({ player }, { command, args }) {
                             ];
                         } else if (consumeChoice === 2) {
                             itemsToShow = [
-                                { id: 142, name: 'Beer' }, { id: 193, name: 'Wine' },
-                                { id: 830, name: 'Grog' }, { id: 739, name: 'Dragon Bitter' }
+                                { id: 193, name: 'Beer' }, { id: 142, name: 'Wine' },
+                                { id: 598, name: 'Grog' }, { id: 829, name: 'Dragon Bitter' }
                             ];
                         }
                     } else if (catChoice === 1) {
@@ -387,9 +387,9 @@ async function command({ player }, { command, args }) {
                             ];
                         } else if (weaponChoice === 3) {
                             itemsToShow = [
-                                { id: 188, name: 'Shortbow' }, { id: 189, name: 'Longbow' },
-                                { id: 654, name: 'Yew Short' }, { id: 655, name: 'Yew Long' },
-                                { id: 656, name: 'Magic Short' }, { id: 657, name: 'Magic Long' }
+                                { id: 189, name: 'Shortbow' }, { id: 188, name: 'Longbow' },
+                                { id: 655, name: 'Yew Short' }, { id: 654, name: 'Yew Long' },
+                                { id: 657, name: 'Magic Short' }, { id: 656, name: 'Magic Long' }
                             ];
                         }
                     } else if (catChoice === 3) {
@@ -407,16 +407,16 @@ async function command({ player }, { command, args }) {
                             ];
                         } else if (rareChoice === 2) {
                             itemsToShow = [
-                                { id: 575, name: 'Xmas Cracker' }, { id: 422, name: 'Disk of Return' },
-                                { id: 1289, name: 'Scythe' }, { id: 971, name: 'Bunny Ears' },
-                                { id: 677, name: 'Easter Egg' }, { id: 1315, name: 'Santa Hat' }
+                                { id: 575, name: 'Xmas Cracker' }, { id: 387, name: 'Disk of Return' },
+                                { id: 1289, name: 'Scythe' }, { id: 1156, name: 'Bunny Ears' },
+                                { id: 677, name: 'Easter Egg' }
                             ];
                         }
                     } else if (catChoice === 4) {
                         const resChoice = await player.ask(['Ores & Bars >>', 'Logs >>', 'Runes >>', 'Coins >>', '[Back]']);
                         if (resChoice === 0) {
                             itemsToShow = [
-                                { id: 150, name: 'Copper Ore' }, { id: 153, name: 'Coal' },
+                                { id: 150, name: 'Copper Ore' }, { id: 155, name: 'Coal' },
                                 { id: 409, name: 'Runite Ore' }, { id: 408, name: 'Runite Bar' }
                             ];
                         } else if (resChoice === 1) {
