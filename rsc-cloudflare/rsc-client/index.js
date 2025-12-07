@@ -61,19 +61,14 @@ if (typeof window === 'undefined') {
     mc.members = true; // args[0] === 'members';
 
     // Check for multiplayer mode via query param
-    // Default to Solo mode (Web Worker) unless mode=multi
+    // Default to Multiplayer (Fly.io) unless mode=solo
     const modeParam = urlParams.get('mode');
-    const isMultiplayer = modeParam === 'multi';
+    const isMultiplayer = modeParam !== 'solo';
 
     if (isMultiplayer) {
-        // Multiplayer mode: Connect to Pages/Worker Backend
-        console.log('🌐 Multiplayer mode - connecting to Cloudflare Durable Object...');
-        // Use current host if on Pages, or fallback to known deployment
-        if (window.location.hostname.includes('pages.dev')) {
-            mc.server = window.location.hostname;
-        } else {
-            mc.server = 'rscaievolution-png.pages.dev';
-        }
+        // Multiplayer mode: Connect to Fly.io Backend
+        console.log('🌐 Multiplayer mode - connecting to Fly.io Game Server...');
+        mc.server = 'rscaievolution-png.fly.dev';
         mc.port = 443;
     } else if (!args[1]) {
         // Solo mode: Use browser Worker
