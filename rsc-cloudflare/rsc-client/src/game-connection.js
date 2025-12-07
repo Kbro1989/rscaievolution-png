@@ -41,8 +41,8 @@ class GameConnection extends GameShell {
             this.server = window.location.hostname;
             this.port = parseInt(window.location.port) || 8788;
         } else {
-            // Production - Cloudflare Pages
-            this.server = 'rscaievolution-png.pages.dev';
+            // Production - Fly.io (Game Server)
+            this.server = 'rscaievolution-png.fly.dev';
             this.port = 443;
         }
 
