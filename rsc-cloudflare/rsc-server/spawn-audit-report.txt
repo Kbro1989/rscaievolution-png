@@ -1,0 +1,32 @@
+=== 2003SCAPE DATA LIMITS ===
+NPCs: 0-793
+Objects: 0-1189
+Items: 0-1312
+
+=== LOCAL SPAWN DATA ===
+NPC spawns: 3575
+Object spawns: 26883
+Item spawns: 960
+
+=== NPCS SPAWN AUDIT ===
+Unique IDs used: 719
+Valid (in 2003scape): 3575 spawns
+Null in 2003scape: 0 spawns
+Out of range (OpenRSC-only): 0 spawns
+
+=== OBJECTS SPAWN AUDIT ===
+Unique IDs used: 990
+Valid (in 2003scape): 26883 spawns
+Null in 2003scape: 0 spawns
+Out of range (OpenRSC-only): 0 spawns
+
+=== ITEMS SPAWN AUDIT ===
+Unique IDs used: 197
+Valid (in 2003scape): 960 spawns
+Null in 2003scape: 0 spawns
+Out of range (OpenRSC-only): 0 spawns
+
+=== FINAL SUMMARY ===
+NPCs: 719 unique IDs, 0 out-of-range spawns
+Objects: 990 unique IDs, 0 out-of-range spawns
+Items: 197 unique IDs, 0 out-of-range spawns

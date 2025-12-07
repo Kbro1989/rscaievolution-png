@@ -19,14 +19,14 @@
 const QUEST_NAME = 'Lost City';
 const QUEST_POINTS = 3;
 
-// NPC IDs
-const NPC_ADVENTURER_ARCHER = 219;
-const NPC_ADVENTURER_CLERIC = 220;
-const NPC_ADVENTURER_WARRIOR = 221;
-const NPC_ADVENTURER_WIZARD = 222;
-const NPC_LEPRECHAUN = 223;
-const NPC_TREE_SPIRIT = 224;
-const NPC_MONK_ENTRANA = 212;
+// NPC IDs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
+const NPC_ADVENTURER_ARCHER = 207;   // "Adventurer" (was 219 = Fairy Lunderwin!)
+const NPC_ADVENTURER_CLERIC = 208;   // "Adventurer" (was 220 = Jakut!)
+const NPC_ADVENTURER_WARRIOR = 209;  // "Adventurer" (was 221 = Doorman!)
+const NPC_ADVENTURER_WIZARD = 210;   // "Adventurer" (was 222 = Fairy Shopkeeper!)
+const NPC_LEPRECHAUN = 211;          // "Leprechaun" (was 223 = Fairy Shop Assistant!)
+const NPC_TREE_SPIRIT = 216;         // "tree spirit" (was 224 = Fairy banker!)
+const NPC_MONK_ENTRANA = 212;        // "Monk of entrana" - correct!
 
 // Item IDs
 const ITEM_DRAMEN_BRANCH = 511;

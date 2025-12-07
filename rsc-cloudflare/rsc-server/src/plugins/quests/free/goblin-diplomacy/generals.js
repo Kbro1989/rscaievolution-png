@@ -53,7 +53,7 @@ async function talkToGenerals(player) {
         await wartface.say('go away human, we busy');
     }
 
-    if (questStage === 1) {
+    if (!questStage || questStage === 0 || questStage === 1) {
         const choice = await player.ask(
             [
                 'Why are you arguing about the colour of your armour?',
@@ -72,11 +72,14 @@ async function talkToGenerals(player) {
                     'And we want change',
                     'Problem is they want different change to us'
                 );
+                if (!questStage || questStage === 0) {
+                    player.questStages.goblinDiplomacy = 1;
+                }
                 break;
             case 1: // prefer peace
                 await wartface.say(
                     'Yeah peace is good as long as it is peace wearing Green ' +
-                        'armour'
+                    'armour'
                 );
 
                 switchGoblins(player, wartface, bentnoze);
@@ -85,6 +88,10 @@ async function talkToGenerals(player) {
                     'But green to much like skin!',
                     'Nearly make you look naked!'
                 );
+
+                if (!questStage || questStage === 0) {
+                    player.questStages.goblinDiplomacy = 1;
+                }
                 break;
             case 2: // pick a colour
                 await player.say('different to either green or red');
@@ -207,7 +214,7 @@ async function talkToGenerals(player) {
     } else if (questStage === -1) {
         await wartface.say(
             "Now you've solved our argument we gotta think of something else " +
-                'to do'
+            'to do'
         );
 
         switchGoblins(player, wartface, bentnoze);

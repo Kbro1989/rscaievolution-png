@@ -48,6 +48,11 @@ async function pickpocketNPC(player, npc) {
         return;
     }
 
+    if (npc.inCombat()) {
+        player.message('I can\'t get close enough');
+        return;
+    }
+
     player.message(`@que@You attempt to pick the ${npc.definition.name}'s pocket`);
     await player.world.sleepTicks(2);
 
@@ -64,10 +69,15 @@ async function pickpocketNPC(player, npc) {
     } else {
         player.message(`@que@You fail to pick the ${npc.definition.name}'s pocket`);
         if (def.exclaimation) {
-            player.message(`@que@${npc.definition.name}: ${def.exclaimation}`);
+            player.chat(def.exclaimation, npc);
         }
         player.damage(def.stunDamage || 1);
         player.sendSound('combat1b');
+
+        // Authentic: NPC attacks player on fail
+        if (npc.isAttackable()) {
+            npc.startCombat(player);
+        }
     }
 }
 
@@ -99,6 +109,31 @@ async function stealFromStall(player, gameObject) {
         return;
     }
 
+    // Authentic Guard Detection
+    if (def.guards && def.guards.length > 0) {
+        const nearbyNPCs = player.localEntities.known.npcs;
+        for (const npc of nearbyNPCs) {
+            if (def.guards.includes(npc.id) && npc.u === player.u && player.withinRange(npc, 5)) {
+                // Check verification (Line of Sight would be ideal, but simple range is okay for now)
+                // In OpenRSC, they check if "canBeSeen".
+                player.chat('Hey! Get your hands off there!', npc);
+                npc.startCombat(player);
+                return;
+            }
+        }
+    }
+    // Also check for Shop Owner/Owner
+    if (def.owner) {
+        const nearbyNPCs = player.localEntities.known.npcs;
+        for (const npc of nearbyNPCs) {
+            if (npc.id === def.owner && player.withinRange(npc, 8)) {
+                player.chat('Hey that\'s mine!', npc);
+                // Owner doesn't always attack, but blocks theft
+                return;
+            }
+        }
+    }
+
     player.message('@que@You attempt to steal from the stall');
     await player.world.sleepTicks(2);
 
@@ -124,6 +159,18 @@ async function stealFromStall(player, gameObject) {
     } else {
         player.message('@que@You fail to steal from the stall');
         player.damage(def.stunDamage || 1);
+
+        // Alert nearby guards on fail?
+        if (def.guards && def.guards.length > 0) {
+            const nearbyNPCs = player.localEntities.known.npcs;
+            for (const npc of nearbyNPCs) {
+                if (def.guards.includes(npc.id) && player.withinRange(npc, 5)) {
+                    player.chat('Hey! Get your hands off there!', npc);
+                    npc.startCombat(player);
+                    break;
+                }
+            }
+        }
     }
 }
 
@@ -138,7 +185,16 @@ async function stealFromChest(player, gameObject) {
         return;
     }
 
-    player.message('@que@You attempt to open the chest');
+    player.message('@que@You search the chest for traps');
+    await player.world.sleepTicks(2);
+
+    player.message('@que@You find a trap on the chest');
+    await player.world.sleepTicks(2);
+
+    player.message('@que@You disable the trap');
+    await player.world.sleepTicks(2);
+
+    player.message('@que@You open the chest');
     await player.world.sleepTicks(2);
 
     const success = rollSkillSuccess(def.roll[0], def.roll[1], thievingLevel);
@@ -149,8 +205,15 @@ async function stealFromChest(player, gameObject) {
         if (def.items && def.items.length > 0) {
             const lootItem = def.items[0];
             player.inventory.add(lootItem.id, lootItem.amount || 1);
-            player.message('@que@You successfully open the chest');
+            player.message('@que@You find treasure inside!');
         }
+
+        if (def.teleport) {
+            player.message('Suddenly a second magical trap triggers');
+            await player.world.sleepTicks(2);
+            player.teleport(def.teleport.x, def.teleport.y);
+        }
+
     } else {
         player.message('@que@You fail to open the chest');
         player.damage(def.stunDamage || 1);

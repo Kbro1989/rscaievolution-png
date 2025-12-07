@@ -1,0 +1,41 @@
+{
+    "name": "rsc-evolution",
+    "main": "src/server/rsc-game-world.ts",
+    "compatibility_date": "2025-10-08",
+    "migrations": [
+        {
+            "new_sqlite_classes": [
+                "RSCGameWorld"
+            ],
+            "tag": "v1"
+        }
+    ],
+    "assets": {
+        "directory": "public"
+    },
+    "durable_objects": {
+        "bindings": [
+            {
+                "name": "RSCGameWorld",
+                "class_name": "RSCGameWorld"
+            }
+        ]
+    },
+    "d1_databases": [
+        {
+            "binding": "DB",
+            "database_name": "rsc-evolution-db",
+            "database_id": "e8cea666-e70f-43e4-9a5e-54fd7fc80fa4"
+        }
+    ],
+    "kv_namespaces": [
+        {
+            "binding": "KV",
+            "id": "f2881801ac59415a86236d0841f27103"
+        }
+    ],
+    "observability": {
+        "enabled": true
+    },
+    "upload_source_maps": true
+}

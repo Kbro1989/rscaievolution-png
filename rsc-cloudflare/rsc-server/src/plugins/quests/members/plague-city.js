@@ -27,12 +27,17 @@ const NPC_BRAVEK = 348;
 // Item IDs
 const ITEM_GAS_MASK = 657;
 const ITEM_PLAGUE_SAMPLE = 658;
-const ITEM_DWELLBERRIES = 223;
+const ITEM_DWELLBERRIES = 765;
 const ITEM_ROPE = 237;
 const ITEM_SPADE = 5;
 const ITEM_BUCKET_WATER = 50;
 const ITEM_PICTURE_ELENA = 659;
 const ITEM_PLAGUE_KEY = 660;
+const ITEM_HANGOVER_CURE = 771;
+const ITEM_CHOCOLATE_DUST = 772;
+const ITEM_MILK = 22;
+const ITEM_CHOCOLATE_MILK = 770;
+const ITEM_SNAPE_GRASS = 469;
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;
@@ -84,7 +89,7 @@ async function onTalkToNpc(player, npc) {
                 // Complete quest
                 setQuestStage(player, -1);
                 player.questPoints += QUEST_POINTS;
-                player.addExperience('mining', 2425 * 4);
+                player.addExperience('mining', 2425);
                 player.message('Congratulations! You have completed Plague City!');
                 player.message(`You gain ${QUEST_POINTS} Quest Points and 2425 Mining XP`);
             }
@@ -138,6 +143,36 @@ async function onTalkToNpc(player, npc) {
         return true;
     }
 
+    // Jethick - Finding Elena
+    if (npc.id === NPC_JETHICK) {
+        if (stage >= 2 && stage <= 99) { // Available after entering West Ardougne
+            await npc.say('Hello, we don\'t get many newcomers around here');
+            const choice = await player.ask([
+                'Hi, I\'m looking for a woman from East Ardougne',
+                'So who\'s in charge here?'
+            ], true);
+
+            if (choice === 0) { // Looking for woman
+                await npc.say('East Ardougnian women are easier to find in East Ardougne');
+                await player.say('Yes a lady called Elena');
+                await npc.say('What does she look like?');
+                if (player.inventory.has(ITEM_PICTURE_ELENA)) {
+                    player.message('You show the picture to Jethick');
+                    await npc.say('Ah yes I recognise her');
+                    await npc.say('I think she is staying over with the Rehnison family');
+                    await npc.say('They live in the small timbered building at the far north side of town');
+                    // In authentic this is where you get the book, but we'll stick to the info for now
+                } else {
+                    await player.say('Um brown hair, in her twenties');
+                    await npc.say("Hmm that doesn't narrow it down a huge amount");
+                }
+            } else { // Who's in charge
+                await npc.say('The city warder Bravek is in charge at the moment');
+            }
+        }
+        return true;
+    }
+
     // Bravek - Has the key
     if (npc.id === NPC_BRAVEK) {
         if (stage === 3) {
@@ -147,9 +182,9 @@ async function onTalkToNpc(player, npc) {
             await npc.say("What? The plague house?");
             await npc.say("That woman is dangerous, she might have the plague!");
 
-            if (player.inventory.has(ITEM_DWELLBERRIES)) {
-                await player.say("I have some dwellberries, they might help your hangover");
-                player.inventory.remove(ITEM_DWELLBERRIES, 1);
+            if (player.inventory.has(ITEM_HANGOVER_CURE)) {
+                await player.say("I have a hangover cure here");
+                player.inventory.remove(ITEM_HANGOVER_CURE, 1);
                 await npc.say("Oh thank you, that's much better");
                 await npc.say("Fine, here's the key. Just get out");
                 player.inventory.add(ITEM_PLAGUE_KEY, 1);
@@ -157,7 +192,7 @@ async function onTalkToNpc(player, npc) {
                 setQuestStage(player, 4);
             } else {
                 await npc.say("Ugh, speak to me later when you have a hangover cure");
-                player.message('You need dwellberries to cure his hangover');
+                // TODO: Give scruffy note logic here or via Jethick/Clerk
             }
         }
         return true;
@@ -166,16 +201,16 @@ async function onTalkToNpc(player, npc) {
     return false;
 }
 
-// Sewer entrance with rope
+// Soil Softening and Digging (Mud Patch)
 function onUseItemOnObject(player, item, object) {
-    // Use rope on sewer grate
-    if (item.id === ITEM_ROPE && object.id === 321) { // sewer grate
-        const stage = getQuestStage(player);
+    const stage = getQuestStage(player);
+
+    // Use rope on sewer grate (321)
+    if (object.id === 321 && item.id === ITEM_ROPE) {
         if (stage >= 1) {
             player.inventory.remove(ITEM_ROPE, 1);
             player.message('You tie the rope to the sewer grate');
             player.message('You climb down into the sewer');
-            // Teleport to sewer
             player.teleport(500, 3500, true);
             if (stage === 1) {
                 setQuestStage(player, 2);
@@ -183,19 +218,36 @@ function onUseItemOnObject(player, item, object) {
             return true;
         }
     }
-    return false;
-}
 
-// Dig with spade near soil
-function onUseItem(player, item1, item2) {
-    // Softened soil digging
-    if (item1.id === ITEM_SPADE || item2.id === ITEM_SPADE) {
-        const stage = getQuestStage(player);
-        if (stage >= 1) {
-            player.message('You dig through the soft soil');
-            // Enter West Ardougne
-            if (stage === 2) {
-                setQuestStage(player, 3);
+    // Mud Patch (447)
+    if (object.id === 447) {
+        // Water Bucket
+        if (item.id === ITEM_BUCKET_WATER) {
+            let buckets = player.getCacheInt('soil_buckets') || 0;
+            if (buckets >= 3) {
+                player.message('The soil is soft enough to dig into');
+                player.setCache('soil_soften', 1);
+            } else {
+                player.message('You pour the water onto the soil');
+                player.message('The soil softens slightly');
+                buckets++;
+                player.setCache('soil_buckets', buckets);
+            }
+            player.inventory.remove(ITEM_BUCKET_WATER, 1);
+            player.inventory.add(21, 1); // Empty Bucket
+            return true;
+        }
+        // Spade
+        if (item.id === ITEM_SPADE) {
+            if (player.getCache('soil_soften') || stage >= 3) {
+                player.message('You dig deep into the soft soil');
+                player.message('Suddenly it crumbles away and you fall through!');
+                player.teleport(621, 3414, false); // Sewer
+                if (stage === 2) {
+                    setQuestStage(player, 3);
+                }
+            } else {
+                player.message('You dig the soil but the ground is rather hard');
             }
             return true;
         }
@@ -209,7 +261,6 @@ module.exports = {
     questPoints: QUEST_POINTS,
     onTalkToNpc,
     onUseItemOnObject,
-    onUseItem,
     npcs: [NPC_EDMOND, NPC_ALRENA, NPC_ELENA, NPC_JETHICK, NPC_MILLI, NPC_TED, NPC_BRAVEK],
-    objects: [321] // sewer grate
+    objects: [321, 447] // sewer grate, mud patch
 };

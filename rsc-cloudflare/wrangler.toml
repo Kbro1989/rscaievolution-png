@@ -1,8 +1,9 @@
 name = "rsc-cloudflare"
+main = "worker.js"
 pages_build_output_dir = "public"
 compatibility_date = "2024-11-28"
 
-# 1. CORE DATA LAYERS (Free Tier Optimized)
+# 1. CORE STORAGE
 [[kv_namespaces]]
 binding = "KV"
 id = "f2881801ac59415a86236d0841f27103"  # Hot data: Player saves, Items, NPCs
@@ -10,57 +11,54 @@ id = "f2881801ac59415a86236d0841f27103"  # Hot data: Player saves, Items, NPCs
 [[d1_databases]]
 binding = "DB"
 database_name = "ai-architect-db"
-database_id = "e8cea666-e70f-43e4-9a5e-54fd7fc80fa4" # Cold data: Logs, Leaderboards
+database_id = "e8cea666-e70f-43e4-9a5e-54fd7fc80fa4" # Authoritative: Players, Logs
 
-# Asset Storage (Requires Sponsor > $5/mo to enable)
+# Asset Storage (Optional)
 [[r2_buckets]]
 binding = "RSC_ASSETS"
 bucket_name = "rsc-assets"
 preview_bucket_name = "rsc-assets-preview"
 
-# 2. REGIONAL SHARDS (Zero-Cost Sharding)
-# Each region = 1 DO = 100 concurrent players (Free Tier Limit)
-# Total Capacity: 400 concurrent for $0
-
+# 2. DURABLE OBJECTS
+# Main Game Server (World State)
 [[durable_objects.bindings]]
 name = "DO_AMERICAS"
-class_name = "GameWorld"
-script_name = "rsc-server-do"
+class_name = "RSCServerDO"
 
+# Individual Player Sessions
 [[durable_objects.bindings]]
-name = "DO_EUROPE"
-class_name = "GameWorld"
-script_name = "rsc-server-do"
+name = "PlayerDO"
+class_name = "PlayerDO"
 
-[[durable_objects.bindings]]
-name = "DO_ASIA"
-class_name = "GameWorld"
-script_name = "rsc-server-do"
+# 3. MIGRATIONS
+[[migrations]]
+tag = "v1"
+new_classes = ["RSCServerDO", "PlayerDO"]
 
-[[durable_objects.bindings]]
-name = "DO_OCEANIA"
-class_name = "GameWorld"
-script_name = "rsc-server-do"
+# 4. QUEUES (Async Persistence)
+[[queues.producers]]
+binding = "PLAYER_QUEUE"
+queue = "player-save-queue"
 
-# 3. FEATURE FLAGS & SAFETY CAPS
+[[queues.consumers]]
+queue = "player-save-queue"
+# processed by this same worker
+
+
+# 5. ENVIRONMENT CONFIG
 [vars]
-# Safety: Hard cap request processing to avoid overages
-SAFETY_REQ_CAP = "90000"  # Stop at 90k/day (Limit 100k)
+MEMBERS = "true"
+SAFETY_REQ_CAP = "90000"
+FEATURE_BACKUPS = "true"
 
-# Sponsor Toggles (Unlocked via Webhook)
-FEATURE_R2_ASSETS = "false"   # > $5/mo sponsor
-FEATURE_UNLIMITED = "false"   # > $20/mo sponsor
-FEATURE_BACKUPS = "false"     # > $10/mo sponsor
-
-# Regional Routing Config
-SHARD_MAPPING = '{"US":"DO_AMERICAS", "GB":"DO_EUROPE", "DE":"DO_EUROPE", "JP":"DO_ASIA", "AU":"DO_OCEANIA"}'
-
-# 4. ENVIRONMENT OVERRIDES
 [env.production]
 name = "rsc-authentic-prod"
-# Production overrides here...
 
 [env.demo]
 name = "rsc-authentic-demo"
-# Demo overrides here...
 
+# 6. BUILD RULES
+[[rules]]
+type = "Data"
+globs = ["**/*.jag", "**/*.mem"]
+fallthrough = false

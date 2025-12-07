@@ -1,0 +1,36 @@
+name = "rsc-server-do"
+main = "rsc-server-do-worker.js"
+compatibility_date = "2024-11-28"
+
+# 1. CORE STORAGE
+[[kv_namespaces]]
+binding = "KV"
+id = "f2881801ac59415a86236d0841f27103"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ai-architect-db"
+database_id = "e8cea666-e70f-43e4-9a5e-54fd7fc80fa4"
+
+# 2. DURABLE OBJECTS
+[[durable_objects.bindings]]
+name = "RSCServerDO"
+class_name = "RSCServerDO"
+
+[[durable_objects.bindings]]
+name = "PlayerDO"
+class_name = "PlayerDO"
+
+# 3. MIGRATIONS
+[[migrations]]
+tag = "v1"
+new_classes = ["RSCServerDO", "PlayerDO"]
+
+# 4. QUEUES
+[[queues.producers]]
+binding = "PLAYER_QUEUE"
+queue = "player-save-queue"
+
+[[queues.consumers]]
+queue = "player-save-queue"
+# consumer logic is in main

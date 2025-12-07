@@ -66,9 +66,14 @@ if (typeof window === 'undefined') {
     const isMultiplayer = modeParam === 'multi';
 
     if (isMultiplayer) {
-        // Multiplayer mode: Connect to Fly.io game server
+        // Multiplayer mode: Connect to Pages/Worker Backend
         console.log('🌐 Multiplayer mode - connecting to Cloudflare Durable Object...');
-        mc.server = 'rsc-server-do.elderscapedev.workers.dev';
+        // Use current host if on Pages, or fallback to known deployment
+        if (window.location.hostname.includes('pages.dev')) {
+            mc.server = window.location.hostname;
+        } else {
+            mc.server = 'rscaievolution-png.pages.dev';
+        }
         mc.port = 443;
     } else if (!args[1]) {
         // Solo mode: Use browser Worker

@@ -1,0 +1,87 @@
+
+ Γ¢à∩╕Å wrangler 4.53.0
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+X [ERROR] Build failed with 6 errors:
+
+  X [ERROR] The symbol "routePartykitRequest" has already been declared
+  
+      rsc-server-do-worker.js:141:9:
+        141 Γöé import { routePartykitRequest, Server } from "partyserver";
+            Γò╡          ~~~~~~~~~~~~~~~~~~~~
+  
+    The symbol "routePartykitRequest" was originally declared here:
+  
+      rsc-server-do-worker.js:1:9:
+        1 Γöé import { routePartykitRequest, Server } from "partyserver";
+          Γò╡          ~~~~~~~~~~~~~~~~~~~~
+  
+  
+  X [ERROR] The symbol "Server" has already been declared
+  
+      rsc-server-do-worker.js:141:31:
+        141 Γöé import { routePartykitRequest, Server } from "partyserver";
+            Γò╡                                ~~~~~~
+  
+    The symbol "Server" was originally declared here:
+  
+      rsc-server-do-worker.js:1:31:
+        1 Γöé import { routePartykitRequest, Server } from "partyserver";
+          Γò╡                                ~~~~~~
+  
+  
+  X [ERROR] Multiple exports with the same name "RSCServerDO"
+  
+      rsc-server-do-worker.js:144:13:
+        144 Γöé export class RSCServerDO extends Server {
+            Γò╡              ~~~~~~~~~~~
+  
+    The name "RSCServerDO" was originally exported here:
+  
+      rsc-server-do-worker.js:4:13:
+        4 Γöé export class RSCServerDO extends Server {
+          Γò╡              ~~~~~~~~~~~
+  
+  
+  X [ERROR] The symbol "RSCServerDO" has already been declared
+  
+      rsc-server-do-worker.js:144:13:
+        144 Γöé export class RSCServerDO extends Server {
+            Γò╡              ~~~~~~~~~~~
+  
+    The symbol "RSCServerDO" was originally declared here:
+  
+      rsc-server-do-worker.js:4:13:
+        4 Γöé export class RSCServerDO extends Server {
+          Γò╡              ~~~~~~~~~~~
+  
+  
+  X [ERROR] Multiple exports with the same name "PlayerDO"
+  
+      rsc-server-do-worker.js:250:13:
+        250 Γöé export class PlayerDO {
+            Γò╡              ~~~~~~~~
+  
+    The name "PlayerDO" was originally exported here:
+  
+      rsc-server-do-worker.js:94:13:
+        94 Γöé export class PlayerDO {
+           Γò╡              ~~~~~~~~
+  
+  
+  X [ERROR] The symbol "PlayerDO" has already been declared
+  
+      rsc-server-do-worker.js:250:13:
+        250 Γöé export class PlayerDO {
+            Γò╡              ~~~~~~~~
+  
+    The symbol "PlayerDO" was originally declared here:
+  
+      rsc-server-do-worker.js:94:13:
+        94 Γöé export class PlayerDO {
+           Γò╡              ~~~~~~~~
+  
+  
+
+
+≡ƒ¬╡  Logs were written to "C:\Users\Destiny\.wrangler\logs\wrangler-2025-12-07_09-43-20_403.log"

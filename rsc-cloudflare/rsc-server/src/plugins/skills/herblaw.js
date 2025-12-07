@@ -1,54 +1,35 @@
+const items = require('@2003scape/rsc-data/config/items');
+const herblawData = require('@2003scape/rsc-data/skills/herblaw');
 
+const PESTLE_AND_MORTAR_ID = 468;
+const UNICORN_HORN_ID = 600;
+const GROUND_UNICORN_ID = 599; // Verify
+const BLUE_DRAGON_SCALE_ID = 603;
+const GROUND_SCALE_ID = 604; // Verify
+const CHOCOLATE_BAR_ID = 337;
+const CHOCOLATE_DUST_ID = 339; // Verify
+const BAT_BONES_ID = 605; // Verify
+const GROUND_BAT_BONES_ID = 606; // Verify
+const CHARCOAL_ID = 538; // Verify
+const GROUND_CHARCOAL_ID = 709; // Verify
 
-const HERBS = {
-    165: { clean: 43, level: 3, xp: 2.5 }, // Guam
-    435: { clean: 44, level: 5, xp: 3.8 }, // Marrentill
-    436: { clean: 45, level: 11, xp: 5 }, // Tarromin
-    437: { clean: 46, level: 20, xp: 6.3 }, // Harralander
-    438: { clean: 47, level: 25, xp: 7.5 }, // Ranarr
-    439: { clean: 48, level: 40, xp: 8.8 }, // Irit
-    440: { clean: 49, level: 48, xp: 10 }, // Avantoe
-    441: { clean: 50, level: 54, xp: 11.3 }, // Kwuarm
-    442: { clean: 51, level: 65, xp: 12.5 }, // Cadantine
-    443: { clean: 52, level: 70, xp: 13.8 }, // Dwarf weed
-    933: { clean: 934, level: 75, xp: 15 } // Torstol
-};
-
-const UNFINISHED_POTIONS = {
-    43: 454, // Guam
-    44: 455, // Marrentill
-    45: 456, // Tarromin
-    46: 457, // Harralander
-    47: 458, // Ranarr
-    48: 459, // Irit
-    49: 460, // Avantoe
-    50: 461, // Kwuarm
-    51: 462, // Cadantine
-    52: 463, // Dwarf weed
-    934: 935 // Torstol
-};
-
-const FINISHED_POTIONS = {
-    // Unfinished ID + Secondary ID -> Result (IDs updated to match newly added items in items.json)
-    454: { 270: { id: 1287, level: 3, xp: 25 } }, // Guam + Eye of Newt -> Attack Potion
-    455: { 271: { id: 1290, level: 5, xp: 37.5 } }, // Marrentill + Ground Unicorn Horn -> Cure poison Potion
-    456: { 273: { id: 1293, level: 12, xp: 50 } }, // Tarromin + Limpwurt Root -> Strength Potion
-    457: { 220: { id: 477, level: 22, xp: 62.5 } }, // Harralander + Red Spiders' Eggs -> Restore Potion (TODO: Add to items.json)
-    458: { 219: { id: 1299, level: 38, xp: 87.5 }, 272: { id: 1296, level: 30, xp: 75 } }, // Ranarr + Snape Grass -> Prayer Potion OR Ranarr + White Berries -> Defense Potion
-    459: { 270: { id: 483, level: 45, xp: 100 } }, // Irit + Eye of Newt -> Super Attack (TODO: Add to items.json)
-    460: { 219: { id: 486, level: 50, xp: 112.5 } }, // Avantoe + Snape Grass -> Fishing Potion (Check recipe)
-    461: { 273: { id: 489, level: 55, xp: 125 } }, // Kwuarm + Limpwurt -> Super Strength
-    462: { 272: { id: 492, level: 66, xp: 150 } }, // Cadantine + White Berries -> Super Defense
-    463: { 249: { id: 495, level: 72, xp: 162.5 } }, // Dwarf Weed + Wine of Zamorak -> Ranging Potion
-    935: { 274: { id: 936, level: 78, xp: 175 } } // Torstol + Jangerberries -> Zamorak Brew
+// Grinding Map
+const GRINDABLES = {
+    [UNICORN_HORN_ID]: { result: GROUND_UNICORN_ID },
+    [BLUE_DRAGON_SCALE_ID]: { result: GROUND_SCALE_ID },
+    [CHOCOLATE_BAR_ID]: { result: CHOCOLATE_DUST_ID },
+    [BAT_BONES_ID]: { result: GROUND_BAT_BONES_ID },
+    [CHARCOAL_ID]: { result: GROUND_CHARCOAL_ID }
 };
 
 module.exports = {
     onInvAction: async (player, item, index) => {
         // Identify Herb
-        if (HERBS[item.id]) {
-            const herb = HERBS[item.id];
+        // Check if item ID exists in herblawData.herbs (Unidentified -> IDs)
+        // herblawData.herbs keys are Unident ID strings.
+        const herbDef = herblawData.herbs[item.id];
 
+        if (herbDef) {
             player.sendBubble(item.id);
 
             if (player.isTired()) {
@@ -56,8 +37,8 @@ module.exports = {
                 return true;
             }
 
-            if (player.skills.herblaw.current < herb.level) {
-                player.message(`@que@You need a Herblaw level of ${herb.level} to identify this herb.`);
+            if (player.skills.herblaw.current < herbDef.level) {
+                player.message(`@que@You need a Herblaw level of ${herbDef.level} to identify this herb.`);
                 return true;
             }
 
@@ -68,9 +49,9 @@ module.exports = {
 
             await world.sleepTicks(2);
 
-            player.inventory.add(herb.clean, 1, index);
-            player.addExperience('herblaw', herb.xp);
-            player.message(`@que@You identify the herb as ${player.getItemName(herb.clean)}.`);
+            player.inventory.add(herbDef.id, 1, index);
+            player.addExperience('herblaw', herbDef.experience);
+            player.message(`@que@You identify the herb as ${items[herbDef.id].name}.`);
 
             return true;
         }
@@ -79,42 +60,81 @@ module.exports = {
     onInvUseOnItem: (player, item1, item2) => {
         const v1 = item1.id;
         const v2 = item2.id;
+        
+        // --- GRINDING ---
+        let groundItem = null;
+        let pestle = null;
+        
+        if (v1 === PESTLE_AND_MORTAR_ID && GRINDABLES[v2]) {
+            pestle = item1;
+            groundItem = item2;
+        } else if (v2 === PESTLE_AND_MORTAR_ID && GRINDABLES[v1]) {
+            pestle = item2;
+            groundItem = item1;
+        }
+        
+        if (groundItem && pestle) {
+             const def = GRINDABLES[groundItem.id];
+             player.sendBubble(PESTLE_AND_MORTAR_ID);
+             player.message(`@que@You grind the ${items[groundItem.id].name.toLowerCase()} to dust`);
+             player.inventory.remove(groundItem);
+             player.inventory.add(def.result);
+             // No XP for grinding usually? OpenRSC doesn't seem to give XP in `batchGrind`?
+             // Checked `batchGrind`: No `incExp` call visible.
+             return true;
+        }
 
-        // Make Unfinished Potion (Herb + Vial of Water)
+        // --- MAKE UNFINISHED POTION ---
+        // Vial of Water (464) + Clean Herb
+        // herblawData.unfinished keys are Clean Herb IDs.
+        
         let herbId = null;
         let vialIndex = null;
         let herbIndex = null;
+        const VIAL_OF_WATER_ID = 464;
 
-        if (v1 === 464 && UNFINISHED_POTIONS[v2]) { // Vial of Water + Herb
+        if (v1 === VIAL_OF_WATER_ID && herblawData.unfinished[v2]) {
             herbId = v2;
             vialIndex = player.inventory.indexOf(item1);
             herbIndex = player.inventory.indexOf(item2);
-        } else if (v2 === 464 && UNFINISHED_POTIONS[v1]) { // Herb + Vial of Water
+        } else if (v2 === VIAL_OF_WATER_ID && herblawData.unfinished[v1]) {
             herbId = v1;
             vialIndex = player.inventory.indexOf(item2);
             herbIndex = player.inventory.indexOf(item1);
         }
 
         if (herbId) {
-            player.inventory.remove(464, 1, vialIndex);
+            const def = herblawData.unfinished[herbId];
+            if (player.skills.herblaw.current < def.level) {
+                 player.message(`You need a Herblaw level of ${def.level} to make this potion.`);
+                 return true;
+            }
+            // Logic: Make Unfinished Potion
+            player.inventory.remove(VIAL_OF_WATER_ID, 1, vialIndex);
             player.inventory.remove(herbId, 1, herbIndex);
-            player.inventory.add(UNFINISHED_POTIONS[herbId], 1);
+            player.inventory.add(def.id, 1);
             player.message('You put the herb into the vial of water.');
             return true;
         }
 
-        // Make Finished Potion (Unfinished + Secondary)
+        // --- MAKE FINISHED POTION ---
+        // Unfinished Potion + Secondary
+        // herblawData.potions keys are Unfinished IDs.
+        // Values are object: { SecondaryID: { level, xp, id } }
+        
         let unfinishedId = null;
         let secondaryId = null;
         let unfinishedIndex = null;
         let secondaryIndex = null;
 
-        if (FINISHED_POTIONS[v1] && FINISHED_POTIONS[v1][v2]) {
+        // Try v1 as Unfinished
+        if (herblawData.potions[v1] && herblawData.potions[v1][v2]) {
             unfinishedId = v1;
             secondaryId = v2;
             unfinishedIndex = player.inventory.indexOf(item1);
             secondaryIndex = player.inventory.indexOf(item2);
-        } else if (FINISHED_POTIONS[v2] && FINISHED_POTIONS[v2][v1]) {
+        } else if (herblawData.potions[v2] && herblawData.potions[v2][v1]) {
+            // Try v2 as Unfinished
             unfinishedId = v2;
             secondaryId = v1;
             unfinishedIndex = player.inventory.indexOf(item2);
@@ -122,17 +142,19 @@ module.exports = {
         }
 
         if (unfinishedId) {
-            const potion = FINISHED_POTIONS[unfinishedId][secondaryId];
+            const potion = herblawData.potions[unfinishedId][secondaryId];
             if (player.skills.herblaw.current < potion.level) {
                 player.message(`You need a Herblaw level of ${potion.level} to make this potion.`);
-                return;
+                return true;
             }
             player.inventory.remove(unfinishedId, 1, unfinishedIndex);
             player.inventory.remove(secondaryId, 1, secondaryIndex);
             player.inventory.add(potion.id, 1);
-            player.addExperience('herblaw', potion.xp);
-            player.message(`You mix the ingredients to make a ${player.getItemName(potion.id)}.`);
+            player.addExperience('herblaw', potion.experience);
+            player.message(`You mix the ingredients to make a ${items[potion.id].name}.`);
             return true;
         }
+        
+        return false;
     }
 };

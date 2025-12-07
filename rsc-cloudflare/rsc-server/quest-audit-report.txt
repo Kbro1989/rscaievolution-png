@@ -1,0 +1,82 @@
+=== QUEST-SPECIFIC ID AUDIT ===
+
+Scanning src/plugins/quests/free...
+Scanning src/plugins/quests/members...
+
+=== NPCS ===
+Valid: 364
+Invalid (null in 2003scape): 0
+Out of Range: 0
+
+--- SAMPLE VALID ENTRIES ---
+  black-knights-fortress:
+    BLACK_KNIGHT_ID = 108 -> "Black Knight"
+    GRELDO_ID = 109 -> "Greldo"
+    WITCH_ID = 107 -> "Witch"
+  free:
+    COOKS_RANGE_ID = 119 -> "Hassan"
+    COOK_ID = 7 -> "cook"
+    EGG_ID = 19 -> "Rat"
+  demon-slayer:
+    CAPTAIN_ROVIN_ID = 18 -> "Captain Rovin"
+    DELRITH_ID = 35 -> "Delrith"
+    SILVERLIGHT_ID = 52 -> "zombie"
+  dragon-slayer:
+    SECRET_PASSAGE_ID = 58 -> "lowe"
+    ANTI_DRAGON_BREATH_SHIELD_ID = 420 -> "carnillean guard"
+    DUKE_ID = 198 -> "Duke of Lumbridge"
+  ernest-the-chicken:
+    COMPOST_ID = 134 -> "Thurgo"
+    SPADE_ID = 211 -> "Leprechaun"
+    LADDER_ID = 130 -> "shop assistant"
+
+=== ITEMS ===
+Valid: 330
+Invalid (null in 2003scape): 0
+Out of Range: 0
+
+--- SAMPLE VALID ENTRIES ---
+  black-knights-fortress:
+    MINIMUM_QP = 12 -> "Iron Axe"
+  demon-slayer:
+    ROVIN_KEY_ID = 26 -> "Silverlight key 2"
+    DRAIN_KEY_ID = 51 -> "Silverlight key 3"
+    DRAIN_KEY_ID = 51 -> "Silverlight key 3"
+  dragon-slayer:
+    MAZE_KEY_ID = 421 -> "Maze key"
+    MAZE_KEY_ID = 421 -> "Maze key"
+  ernest-the-chicken:
+    CLOSET_KEY_ID = 212 -> "Closet Key"
+    CLOSET_KEY_ID = 212 -> "Closet Key"
+  goblin-diplomacy:
+    ARMOUR_ID = 273 -> "Goblin Armour"
+    BLUE_ARMOUR_ID = 275 -> "Goblin Armour"
+    ORANGE_ARMOUR_ID = 274 -> "Goblin Armour"
+
+=== OBJECTS ===
+Valid: 47
+Invalid (null in 2003scape): 0
+Out of Range: 0
+
+--- SAMPLE VALID ENTRIES ---
+  black-knights-fortress:
+    GUARDED_DOOR_ID = 39 -> "Coffin"
+    SIDE_DOOR_ID = 40 -> "Coffin"
+  dragon-slayer:
+    ELVARG_DOOR_ID = 59 -> "gate"
+    CLOSED_CHEST_ID = 231 -> "Chest"
+    OPEN_CHEST_ID = 230 -> "Chest"
+  ernest-the-chicken:
+    CLOSET_DOOR_ID = 35 -> "Cactus"
+  pirates-treasure:
+    CHEST_CLOSED_ID = 187 -> "Chest"
+    CHEST_KEY_ID = 382 -> "guardscupboard"
+    CHEST_OPEN_ID = 186 -> "Chest"
+  prince-ali-rescue:
+    DOOR_ID = 45 -> "railing"
+
+=== SUMMARY ===
+Total Invalid: 0
+Total Out of Range: 0
+
+Γ£à All quest IDs are valid 2003scape IDs!

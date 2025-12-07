@@ -1,0 +1,107 @@
+=== AUTHENTIC ITEM IDS (from @2003scape/rsc-data) ===
+
+"bronze plate mail body":
+  117: Bronze Plate Mail Body
+"iron plate mail body":
+  8: Iron Plate Mail Body
+"steel plate mail body":
+  118: Steel Plate Mail Body
+"mithril plate mail body":
+  119: Mithril Plate Mail Body
+"adamantite plate mail body":
+  120: Adamantite Plate Mail Body
+"rune plate mail body":
+  401: Rune Plate Mail Body
+"bronze plate mail leg":
+  206: Bronze Plate Mail Legs
+"iron plate mail leg":
+  9: Iron Plate Mail Legs
+"steel plate mail leg":
+  121: Steel Plate Mail Legs
+"mithril plate mail leg":
+  122: Mithril Plate Mail Legs
+"adamantite plate mail leg":
+  123: Adamantite Plate Mail Legs
+"rune plate mail leg":
+  402: Rune Plate Mail Legs
+"bronze kite":
+  128: Bronze Kite Shield
+"iron kite":
+  2: Iron Kite Shield
+"steel kite":
+  129: Steel Kite Shield
+"mithril kite":
+  130: Mithril Kite Shield
+"adamantite kite":
+  131: Adamantite Kite Shield
+"rune kite":
+  404: Rune Kite Shield
+"bronze long":
+  70: Bronze Long Sword
+"iron long":
+  71: Iron Long Sword
+"steel long":
+  72: Steel Long Sword
+"mithril long":
+  73: Mithril Long Sword
+"adamantite long":
+  74: Adamantite Long Sword
+"rune long":
+  75: Rune long sword
+"bronze 2-handed":
+  76: Bronze 2-handed Sword
+"iron 2-handed":
+  77: Iron 2-handed Sword
+"steel 2-handed":
+  78: Steel 2-handed Sword
+"mithril 2-handed":
+  79: Mithril 2-handed Sword
+"adamantite 2-handed":
+  80: Adamantite 2-handed Sword
+"rune 2-handed":
+  81: rune 2-handed Sword
+"bronze battle":
+  205: bronze battle Axe
+"iron battle":
+  89: Iron battle Axe
+"steel battle":
+  90: Steel battle Axe
+"mithril battle":
+  91: Mithril battle Axe
+"adamantite battle":
+  92: Adamantite battle Axe
+"rune battle":
+  93: Rune battle Axe
+"dragon med":
+  795: Dragon medium Helmet
+"dragon square":
+  1276: Half Dragon Square Shield
+  1277: Half Dragon Square Shield
+  1278: Dragon Square Shield
+"dragon axe":
+  594: Dragon axe
+"dragon sword":
+  593: Dragon sword
+"party hat":
+  576: Party Hat
+  577: Party Hat
+  578: Party Hat
+  579: Party Hat
+  580: Party Hat
+  ... and 1 more
+"halloween mask":
+  828: halloween mask
+  831: halloween mask
+  832: halloween mask
+"christmas cracker":
+  575: Christmas cracker
+"disk of return":
+  387: Disk of Returning
+"bunny":
+  1156: Bunny ears
+"easter egg":
+  677: Easter egg
+"santa":
+  971: Santa's hat
+"scythe":
+  1289: Scythe

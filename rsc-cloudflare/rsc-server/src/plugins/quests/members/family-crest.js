@@ -21,21 +21,22 @@ const QUEST_NAME = "Family Crest";
 const QUEST_POINTS = 1;
 
 // NPCs (verified from 2003scape configs + OpenRSC)
-const NPC_DIMINTHEIS = 262;  // Line 9979 - Quest giver
-const NPC_CHEF = 263;        // Line 10012 - Caleb (1st son in Catherby)
-const NPC_AVAN = 256;        // Al Kharid goldsmith (2nd son) - estimated
-const NPC_JOHNATHON = 268;   // Wilderness wizard (3rd son) - estimated
-const NPC_CHRONOZON = 267;   // Line 10164 - Blood demon boss
+const NPC_DIMINTHEIS = 309;  // "Dimintheis" (was 262 = Guard Dog!)
+const NPC_CHEF = 310;        // "chef" (Caleb) (was 263 = Ice spider!)
+const NPC_AVAN = 308;        // "gem trader" (Estimated as Avan/Goldsmith) (was 256 = Trobert!)
+const NPC_JOHNATHON = 314;   // "Wizard" (Johnathon) (was 268 = Banker!)
+const NPC_CHRONOZON = 315;   // "Chronozon" (was 267 = Seth!)
+const NPC_BOOT = 313;        // "Boot the Dwarf" (New)
 
-// Items (verified from items.json)
-const ITEM_FAMILY_CREST = 716;           // Line 9549
-const ITEM_CREST_FRAGMENT_ONE = 717;     // Line 9562
-const ITEM_CREST_FRAGMENT_TWO = 718;     // Line 9575
-const ITEM_CREST_FRAGMENT_THREE = 719;   // Line 9588
-const ITEM_STEEL_GAUNTLETS = 720;        // Line 9601
-const ITEM_GOLDSMITH_GAUNTLETS = 721;    // Line 9616
-const ITEM_CHAOS_GAUNTLETS = 722;        // Estimate
-const ITEM_COOKING_GAUNTLETS = 723;      // Estimate
+// Items - Verified via @2003scape/rsc-data
+const ITEM_FAMILY_CREST = 694;           // "Family crest" (was 716)
+const ITEM_CREST_FRAGMENT_ONE = 695;     // "Crest fragment" (was 717)
+const ITEM_CREST_FRAGMENT_TWO = 696;     // "Crest fragment" (was 718)
+const ITEM_CREST_FRAGMENT_THREE = 697;   // "Crest fragment" (was 719)
+const ITEM_STEEL_GAUNTLETS = 698;        // "Steel gauntlets" (was 720)
+const ITEM_GOLDSMITH_GAUNTLETS = 699;    // "gauntlets of goldsmithing" (was 721)
+const ITEM_COOKING_GAUNTLETS = 700;      // "gauntlets of cooking" (was 723)
+const ITEM_CHAOS_GAUNTLETS = 701;        // "gauntlets of chaos" (was 722)
 
 // Perfect gold jewelry
 const ITEM_RUBY_RING_PERFECT = 724;      // Estimate

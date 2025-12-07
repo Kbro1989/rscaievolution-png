@@ -255,13 +255,21 @@ class DataClient {
         delete dataToSave.handler;
         delete dataToSave.token;
 
-        // Ensure password is kept! 
-        // NOTE: player.js save() properties might NOT include password if it's not in SAVE_PROPERTIES.
-        // We need to fetch existing password or store it in Player object.
-        // For now, let's hope 'pass' is in the blob or we accept it's a prototype.
-        // Better: Fetch existing blob to preserve password if missing?
-        // Or simpler: Just update updated_at if we don't have pass?
-        // Let's assume we want to preserve old properties not in save spec.
+        // QUEUE OPTIMIZATION (Async Writes)
+        if (this.server.env.PLAYER_QUEUE) {
+            try {
+                // Send to Queue instead of blocking D1 write
+                await this.server.env.PLAYER_QUEUE.send({
+                    type: 'save',
+                    username: username,
+                    data: dataToSave
+                });
+                return { success: true };
+            } catch (err) {
+                console.error('[DataClient] Queue Error (Fallback to direct):', err);
+                // Fallthrough to direct D1 write on error
+            }
+        }
 
         try {
             const existing = await this.db.prepare('SELECT data FROM players WHERE username = ?').bind(username).first();

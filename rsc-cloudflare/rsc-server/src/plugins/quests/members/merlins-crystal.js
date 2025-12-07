@@ -16,24 +16,24 @@
 const QUEST_NAME = "Merlin's Crystal";
 const QUEST_POINTS = 6;
 
-// NPC IDs
-const NPC_KING_ARTHUR = 127;
-const NPC_SIR_GAWAIN = 243;
-const NPC_SIR_LANCELOT = 244;
-const NPC_SIR_MORDRED = 247;
-const NPC_MORGAN_LE_FAYE = 248;
-const NPC_THRANTAX = 249;
-const NPC_LADY_LAKE = 250;
-const NPC_BEGGAR = 251;
+// NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
+const NPC_KING_ARTHUR = 275;     // "King Arthur" (was 127 = Jailguard!)
+const NPC_SIR_GAWAIN = 274;      // "Sir Gawain" (was 243 = Grey wolf!)
+const NPC_SIR_LANCELOT = 273;    // "Sir Lancelot" (was 244 = shapeshifter!)
+const NPC_SIR_MORDRED = 276;     // "Sir Mordred" (was 247 = shapeshifter!)
+const NPC_MORGAN_LE_FAYE = 281;  // "Morgan le faye" (was 248 = White wolf!)
+const NPC_THRANTAX = 288;        // "Thrantax" (was 249 = Pack leader!)
+const NPC_LADY_LAKE = 279;       // "The Lady of the Lake" (was 250 = Harry!)
+const NPC_BEGGAR = 286;          // "Beggar" (was 251 = Thug!)
 
 // Item IDs
-const ITEM_EXCALIBUR = 166;
-const ITEM_BAT_BONES = 604;
-const ITEM_LIT_BLACK_CANDLE = 605;
+const ITEM_EXCALIBUR = 606;          // "Excalibur" (was 166 = tinderbox!)
+const ITEM_BAT_BONES = 604;          // "Bat bones" - correct!
+const ITEM_LIT_BLACK_CANDLE = 602;   // "black Candle" (was 605 = wax Bucket!)
 const ITEM_BREAD = 138;
 const ITEM_BUCKET = 21;
-const ITEM_WAX_BUCKET = 606;
-const ITEM_INSECT_REPELLENT = 507;
+const ITEM_WAX_BUCKET = 605;         // "wax Bucket" (was 606 = Excalibur!)
+const ITEM_INSECT_REPELLENT = 603;   // "insect repellant" (was 507 = enchanted beef!)
 
 // Object IDs
 const OBJ_MERLIN_CRYSTAL = 287;

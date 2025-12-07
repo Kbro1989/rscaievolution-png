@@ -1,0 +1,125 @@
+=== CORRECT IDS FROM @2003scape/rsc-data ===
+
+"lobster":
+  372: Raw Lobster
+  373: Lobster
+  374: Burnt Lobster
+  375: Lobster Pot
+  533: Lobster certificate
+  534: Raw lobster certificate
+"swordfish":
+  369: Raw Swordfish
+  370: Swordfish
+  371: Burnt Swordfish
+  535: Swordfish certificate
+  536: Raw swordfish certificate
+"shark":
+  545: Raw Shark
+  546: Shark
+  547: Burnt Shark
+  630: shark certificate
+  631: Raw shark certificate
+"meat pizza":
+  326: Meat Pizza
+  328: Half Meat Pizza
+"beer":
+  193: Beer
+  620: Beer glass
+"wine":
+  142: wine
+  180: Bad wine
+  246: Half full wine jug
+  501: wine of Zamorak
+"grog":
+  598: Grog
+"dragon bitter":
+  829: Dragon bitter
+"bronze med": NOT FOUND
+"steel med": NOT FOUND
+"addy med": NOT FOUND
+"rune med": NOT FOUND
+"bronze plate":
+  117: Bronze Plate Mail Body
+  206: Bronze Plate Mail Legs
+  214: Bronze Plated Skirt
+  308: Bronze Plate Mail top
+"steel plate":
+  118: Steel Plate Mail Body
+  121: Steel Plate Mail Legs
+  225: Steel Plated skirt
+  309: Steel Plate Mail top
+"addy plate": NOT FOUND
+"adamant plate": NOT FOUND
+"addy legs": NOT FOUND
+"adamant legs": NOT FOUND
+"dragon legs": NOT FOUND
+"steel kite":
+  129: Steel Kite Shield
+"addy kite": NOT FOUND
+"adamant kite": NOT FOUND
+"steel sword": NOT FOUND
+"addy sword": NOT FOUND
+"adamant sword": NOT FOUND
+"steel 2h": NOT FOUND
+"addy 2h": NOT FOUND
+"adamant 2h": NOT FOUND
+"bronze axe":
+  87: bronze Axe
+"bronze battle":
+  205: bronze battle Axe
+"steel axe":
+  88: Steel Axe
+"steel battle":
+  90: Steel battle Axe
+"addy axe": NOT FOUND
+"addy battle": NOT FOUND
+"shortbow":
+  189: Shortbow
+  277: unstrung shortbow
+  649: Oak Shortbow
+  651: Willow Shortbow
+  653: Maple Shortbow
+  655: Yew Shortbow
+  657: Magic Shortbow
+  659: unstrung Oak Shortbow
+  661: unstrung Willow Shortbow
+  663: unstrung Maple Shortbow
+  665: unstrung Yew Shortbow
+  667: unstrung Magic Shortbow
+"longbow":
+  188: Longbow
+  276: unstrung Longbow
+  648: Oak Longbow
+  650: Willow Longbow
+  652: Maple Longbow
+  654: Yew Longbow
+  656: Magic Longbow
+  658: unstrung Oak Longbow
+  660: unstrung Willow Longbow
+  662: unstrung Maple Longbow
+  664: unstrung Yew Longbow
+  666: unstrung Magic Longbow
+"red phat": NOT FOUND
+"yellow phat": NOT FOUND
+"blue phat": NOT FOUND
+"green phat": NOT FOUND
+"purple phat": NOT FOUND
+"white phat": NOT FOUND
+"red mask": NOT FOUND
+"green mask": NOT FOUND
+"blue mask": NOT FOUND
+"disk of return":
+  387: Disk of Returning
+"bunny ears":
+  1156: Bunny ears
+"santa hat": NOT FOUND
+"coal":
+  155: coal
+  518: Coal certificate
+  983: A lump of Charcoal
+  1179: Ground charcoal
+"air rune": NOT FOUND
+"chaos rune": NOT FOUND
+"death rune": NOT FOUND
+"blood rune":
+  1305: Blood Rune

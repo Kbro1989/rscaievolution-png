@@ -270,5 +270,7 @@ module.exports = {
     "npcs.monastery.monk-healer": require('./npcs/monastery/monk-healer.js'),
     "npcs.ardougne.east.flying-horse": require('./npcs/ardougne/east/flying-horse.js'),
     "npcs.varrock.jonny-the-beard": require('./npcs/varrock/jonny-the-beard.js'),
-    "npcs.varrock.curator": require('./npcs/varrock/curator.js')
+    "npcs.varrock.curator": require('./npcs/varrock/curator.js'),
+    "npcs.ardougne.east.king-lathas-keeper": require('./npcs/ardougne/east/king-lathas-keeper.js'),
+    "npcs.desert.shantay": require('./npcs/desert/shantay.js')
 };

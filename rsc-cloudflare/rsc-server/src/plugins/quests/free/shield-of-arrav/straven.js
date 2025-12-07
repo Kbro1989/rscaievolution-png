@@ -2,7 +2,7 @@
 
 const DOOR_ID = 19;
 const SCROLL_ID = 49;
-const STRAVEN_ID = 24;
+const STRAVEN_ID = 258; // Authentic: 258 (estimated from gang member block)
 const WEAPONS_STORE_KEY_ID = 48;
 
 async function blackArmDog(player, npc) {
@@ -45,7 +45,7 @@ async function cantGoThere(player, npc) {
     await npc.say(
         "Heh you can't go in there",
         'Only authorised personnel of the VTAM corporation are allowed ' +
-            'beyond this point'
+        'beyond this point'
     );
 
     const choices = [

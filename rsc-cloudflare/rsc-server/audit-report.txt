@@ -1,0 +1,103 @@
+=== 2003SCAPE DATA SUMMARY ===
+NPCs: 794 (IDs 0-793)
+Objects: 1190 (IDs 0-1189)
+Items: 1313 (IDs 0-1312)
+
+=== SCANNING ALL PLUGINS ===
+Found 387 unique NPC IDs
+Found 11 unique Object IDs
+Found 196 unique Item IDs
+
+=== NPCS ID AUDIT ===
+
+--- IN RANGE (0-793) ---
+Valid: 377
+
+Sample valid entries:
+  1: BOB_ID -> "Bob" [bob.js]
+  2: SHEEP_ID -> "Sheep" [sheep.js]
+  5: HANS_ID -> "Hans" [hans.js]
+  7: IRON_CHAIN_ID -> "cook" [guard.js]
+  9: PRIEST_ID -> "Priest" [priest.js]
+  10: COINS_ID -> "Urhney" [sir-amik-varze.js]
+  11: DOORFRAME_ID -> "Man" [grum.js]
+  13: KNIFE_ID -> "Camel" [combinations.js]
+  14: GYPSY_ID -> "Gypsy" [gypsy.js]
+  15: GHOST_ID -> "Ghost" [coffin.js]
+  16: SIR_PRYSIN_ID -> "Sir Prysin" [sir-prysin.js]
+  17: TRAIBORN_ID -> "Traiborn the wizard" [traiborn.js]
+  18: CABBAGE_ID -> "Captain Rovin" [hole.js]
+  19: EGG_ID -> "Rat" [cooks-assistant.js]
+  20: RELDO_ID -> "Reldo" [reldo.js]
+  ... and 362 more
+
+Null/Missing in 2003scape: 0
+
+--- OUT OF RANGE (>793) [OpenRSC-only] ---
+Count: 10
+  979: BRONZE_WIRE_ID [forging.js]
+  1019: RAW_OOMLIE_MEAT_ID [cooking.js]
+  1026: AMMO_MOULD_ID [smelting.js]
+  1031: FIXED_STAFF_ID [dark-mage.js]
+  1041: CANNONBALL_ID [smelting.js]
+  1099: SWAMP_PASTE_ID [cooking.js]
+  1100: UNCOOKED_SWAMP_PASTE_ID [cooking.js]
+  1205: RING_OF_FORGING_ID [smelting.js]
+  1263: SLEEPING_BAG_ID [sleeping-bag.js]
+  1398: BROKEN_STAFF_ID [dark-mage.js]
+
+=== OBJECTS ID AUDIT ===
+
+--- IN RANGE (0-1189) ---
+Valid: 11
+
+Sample valid entries:
+  124: INLINE_CHECK -> "LeverA" [sea-slug.js]
+  321: INLINE_CHECK -> "ship" [plague-city.js]
+  408: INLINE_CHECK -> "sacks" [holy-grail.js]
+  444: INLINE_CHECK -> "Cattle furnace" [sheep-herder.js]
+  447: INLINE_CHECK -> "Dug up soil" [plague-city.js]
+  453: INLINE_CHECK -> "Fishing crane" [sea-slug.js]
+  455: INLINE_CHECK -> "Damaged Rowboat" [murder-mystery.js]
+  456: INLINE_CHECK -> "barrel" [murder-mystery.js]
+  483: INLINE_CHECK -> "Statue of glarial" [waterfall-quest.js]
+  925: INLINE_CHECK -> "Telescope" [observatory.js]
+  927: INLINE_CHECK -> "sacks" [observatory.js]
+
+Null/Missing in 2003scape: 0
+
+--- OUT OF RANGE (>1189) [OpenRSC-only] ---
+Count: 0
+
+=== ITEMS ID AUDIT ===
+
+--- IN RANGE (0-1312) ---
+Valid: 196
+
+Sample valid entries:
+  5: ITEM_SPADE -> "Medium Iron Helmet" [plague-city.js]
+  10: ITEM_COINS -> "Coins" [clock-tower.js]
+  12: BARTENDER_ID -> "Iron Axe" [blue-moon-bartender.js]
+  13: ITEM_KNIFE -> "Knife" [lost-city.js]
+  14: ITEM_LOGS -> "Logs" [monks-friend.js]
+  21: ITEM_BUCKET -> "Bucket" [merlins-crystal.js]
+  22: ITEM_MILK -> "Milk" [gertrudes-cat.js]
+  26: BARAEK_ID -> "Silverlight key 2" [baraek.js]
+  32: ITEM_WATER_RUNE -> "Water-Rune" [waterfall-quest.js]
+  33: ITEM_AIR_RUNE -> "Air-Rune" [waterfall-quest.js]
+  34: ITEM_EARTH_RUNE -> "Earth-Rune" [waterfall-quest.js]
+  36: ITEM_LIT_CANDLE -> "Body-Rune" [temple-of-ikov.js]
+  42: ITEM_LAW_RUNE -> "Law-Rune" [monks-friend.js]
+  44: BARTENDER_ID -> "Holy Symbol of saradomin" [jolly-boar-bartender.js]
+  48: WEAPONS_STORE_KEY_ID -> "key" [straven.js]
+  ... and 181 more
+
+Null/Missing in 2003scape: 0
+
+--- OUT OF RANGE (>1312) [OpenRSC-only] ---
+Count: 0
+
+=== FINAL SUMMARY ===
+NPCs: 377 valid, 0 mismatches, 10 OpenRSC-only
+Objects: 11 valid, 0 mismatches, 0 OpenRSC-only
+Items: 196 valid, 0 mismatches, 0 OpenRSC-only

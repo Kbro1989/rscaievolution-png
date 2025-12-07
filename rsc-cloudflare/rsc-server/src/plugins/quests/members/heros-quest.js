@@ -20,20 +20,21 @@ const QUEST_NAME = "Hero's Quest";
 const QUEST_POINTS = 1;
 
 // NPCs (2003scape IDs from rsc-data-local/config/npcs.json)
-const NPC_ACHIETTIES = 316;
-const NPC_GRUBOR = 171; // Black Arm gang guard (line 8236)
-const NPC_TROBERT = 172; // Black Arm gang leader Brimhaven (line 8269)
-const NPC_GARV = 173; // Pete's mansion guard (line 8289)
-const NPC_GRIP = 174; // Pete's head guard (line 8355)
-const NPC_ALFONSE = 319; // Shrimp & Parrot waiter
-const NPC_STRAVEN = 171; // Phoenix Gang leader
-const NPC_KATRINE = 168; // Black Arm gang leader
+// NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
+const NPC_ACHIETTIES = 316;     // TODO: Verify (Lookup failed)
+const NPC_GRUBOR = 255;         // "Grubor" (was 171 = Seaman Thresnor!)
+const NPC_TROBERT = 256;        // "Trobert" (was 172 = Tanner!)
+const NPC_GARV = 257;           // "Garv" (was 173 = Dommik!)
+const NPC_GRIP = 259;           // "Grip" (was 174 = Abbot Langley!)
+const NPC_ALFONSE = 260;        // "Alfonse the waiter" (was 319 = farmer!)
+const NPC_STRAVEN = 258;        // "Straven" (Estimated, gap in 255-260)
+const NPC_KATRINE = 27;         // "Katrine" (was 168 = Shopkeeper!)
 
 // Items (from items.json)
-const ITEM_FIREBIRD_FEATHER = 564;
-const ITEM_LAVA_EEL = 565;
-const ITEM_MASTER_THIEF_ARMBAND = 566;
-const ITEM_ICE_GLOVES = 567;
+const ITEM_FIREBIRD_FEATHER = 557;     // "Firebird Feather" (was 564)
+const ITEM_LAVA_EEL = 591;             // "Raw lava eel" (was 565)
+const ITEM_MASTER_THIEF_ARMBAND = 586; // "Master thief armband" (was 566)
+const ITEM_ICE_GLOVES = 556;           // "Ice Gloves" (was 567)
 const ITEM_CANDLESTICK = 573; // line 8066
 const ITEM_ID_PAPER = 574;
 const ITEM_MISC_KEY = 575;

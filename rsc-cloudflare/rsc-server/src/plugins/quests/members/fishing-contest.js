@@ -17,11 +17,11 @@
 const QUEST_NAME = "Fishing Contest";
 const QUEST_POINTS = 1;
 
-// NPCs (from npcs.json)
-const NPC_MOUNTAIN_DWARF = 300; // Line 11445 (~index 300)
-const NPC_BONZO = 293; // Line 11207 (~index 293)
-const NPC_GRANDPA_JACK = 296; // Estimate
-const NPC_MORRIS = 295; // Gate guard estimate
+// NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
+const NPC_MOUNTAIN_DWARF = 355;      // "Mountain Dwarf" (was 300 = Thormac!)
+const NPC_BONZO = 347;               // "Bonzo" (was 293 = Monk of Zamorak!)
+const NPC_GRANDPA_JACK = 345;        // "Grandpa Jack" (was 296 = Black Unicorn!)
+const NPC_MORRIS = 349;              // "Morris" (was 295 = Animated axe!)
 
 // Items (from items.json)
 const ITEM_FISHING_PASS = 741; // Line 9886

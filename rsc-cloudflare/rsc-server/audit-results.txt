@@ -1,0 +1,139 @@
+=== ITEM ID AUDIT: command.js vs @2003scape/rsc-data ===
+
+ΓÜá∩╕Å  ID 546: "Shark" - Expected: Lobster
+ΓÜá∩╕Å  ID 373: "Lobster" - Expected: Swordfish
+ΓÜá∩╕Å  ID 370: "Swordfish" - Expected: Shark
+ΓÜá∩╕Å  ID 325: "Plain Pizza" - Expected: Meat Pizza
+Γ£ô  ID 221: "Strength Potion" - Expected: Str Pot (4)
+ΓÜá∩╕Å  ID 474: "attack Potion" - Expected: Atk Pot (3)
+Γ£ô  ID 480: "defense Potion" - Expected: Def Pot (3)
+Γ£ô  ID 486: "Super attack Potion" - Expected: Super Atk (3)
+Γ£ô  ID 483: "restore prayer Potion" - Expected: Prayer Pot (3)
+ΓÜá∩╕Å  ID 142: "wine" - Expected: Beer
+ΓÜá∩╕Å  ID 193: "Beer" - Expected: Wine
+ΓÜá∩╕Å  ID 830: "Greenmans ale" - Expected: Grog
+ΓÜá∩╕Å  ID 739: "Cup of tea" - Expected: Dragon Bitter
+ΓÜá∩╕Å  ID 112: "Large Rune Helmet" - Expected: Bronze Med
+ΓÜá∩╕Å  ID 104: "Medium Bronze Helmet" - Expected: Steel Med
+ΓÜá∩╕Å  ID 116: "Adamantite Chain Mail Body" - Expected: Addy Med
+ΓÜá∩╕Å  ID 120: "Adamantite Plate Mail Body" - Expected: Rune Med
+Γ£ô  ID 795: "Dragon medium Helmet" - Expected: Dragon Med
+ΓÜá∩╕Å  ID 8: "Iron Plate Mail Body" - Expected: Bronze Plate
+ΓÜá∩╕Å  ID 86: "Adamantite Scimitar" - Expected: Steel Plate
+ΓÜá∩╕Å  ID 84: "Steel Scimitar" - Expected: Addy Plate
+Γ£ô  ID 401: "Rune Plate Mail Body" - Expected: Rune Plate
+Γ£ô  ID 1278: "Dragon Square Shield" - Expected: Dragon Plate
+Γ£ô  ID 206: "Bronze Plate Mail Legs" - Expected: Bronze Legs
+Γ£ô  ID 121: "Steel Plate Mail Legs" - Expected: Steel Legs
+ΓÜá∩╕Å  ID 125: "Steel Square Shield" - Expected: Addy Legs
+Γ£ô  ID 402: "Rune Plate Mail Legs" - Expected: Rune Legs
+ΓÜá∩╕Å  ID 1279: "Palm tree leaf" - Expected: Dragon Legs
+Γ£ô  ID 4: "Wooden Shield" - Expected: Wooden Shield
+ΓÜá∩╕Å  ID 48: "key" - Expected: Steel Kite
+ΓÜá∩╕Å  ID 56: "message" - Expected: Addy Kite
+Γ£ô  ID 403: "Rune Square Shield" - Expected: Rune Kite
+Γ£ô  ID 1276: "Half Dragon Square Shield" - Expected: Dragon Sq
+Γ£ô  ID 70: "Bronze Long Sword" - Expected: Bronze Sword
+ΓÜá∩╕Å  ID 60: "Crossbow" - Expected: Steel Sword
+ΓÜá∩╕Å  ID 68: "Mithril Short Sword" - Expected: Addy Sword
+Γ£ô  ID 396: "rune dagger" - Expected: Rune Sword
+Γ£ô  ID 593: "Dragon sword" - Expected: Dragon Sword
+Γ£ô  ID 76: "Bronze 2-handed Sword" - Expected: Bronze 2H
+ΓÜá∩╕Å  ID 77: "Iron 2-handed Sword" - Expected: Steel 2H
+ΓÜá∩╕Å  ID 79: "Mithril 2-handed Sword" - Expected: Addy 2H
+Γ£ô  ID 398: "rune Scimitar" - Expected: Rune 2H
+ΓÜá∩╕Å  ID 12: "Iron Axe" - Expected: Bronze Baxe
+ΓÜá∩╕Å  ID 89: "Iron battle Axe" - Expected: Steel Baxe
+ΓÜá∩╕Å  ID 97: "Adamantite Mace" - Expected: Addy Baxe
+Γ£ô  ID 405: "rune Axe" - Expected: Rune Baxe
+Γ£ô  ID 594: "Dragon axe" - Expected: Dragon Baxe
+ΓÜá∩╕Å  ID 188: "Longbow" - Expected: Shortbow
+ΓÜá∩╕Å  ID 189: "Shortbow" - Expected: Longbow
+Γ£ô  ID 654: "Yew Longbow" - Expected: Yew Short
+Γ£ô  ID 655: "Yew Shortbow" - Expected: Yew Long
+Γ£ô  ID 656: "Magic Longbow" - Expected: Magic Short
+Γ£ô  ID 657: "Magic Shortbow" - Expected: Magic Long
+ΓÜá∩╕Å  ID 576: "Party Hat" - Expected: Red Phat
+ΓÜá∩╕Å  ID 577: "Party Hat" - Expected: Yellow Phat
+ΓÜá∩╕Å  ID 578: "Party Hat" - Expected: Blue Phat
+ΓÜá∩╕Å  ID 579: "Party Hat" - Expected: Green Phat
+ΓÜá∩╕Å  ID 580: "Party Hat" - Expected: Purple Phat
+ΓÜá∩╕Å  ID 581: "Party Hat" - Expected: White Phat
+ΓÜá∩╕Å  ID 831: "halloween mask" - Expected: Red Mask
+ΓÜá∩╕Å  ID 832: "halloween mask" - Expected: Blue Mask
+ΓÜá∩╕Å  ID 828: "halloween mask" - Expected: Green Mask
+ΓÜá∩╕Å  ID 575: "Christmas cracker" - Expected: Xmas Cracker
+ΓÜá∩╕Å  ID 422: "Pumpkin" - Expected: Disk of Return
+Γ£ô  ID 1289: "Scythe" - Expected: Scythe
+ΓÜá∩╕Å  ID 971: "Santa's hat" - Expected: Bunny Ears
+Γ£ô  ID 677: "Easter egg" - Expected: Easter Egg
+Γ¥î ID 1315: OUT OF RANGE (max: 1312) - Expected: Santa Hat
+Γ£ô  ID 150: "copper ore" - Expected: Copper Ore
+ΓÜá∩╕Å  ID 153: "mithril ore" - Expected: Coal
+Γ£ô  ID 409: "runite ore" - Expected: Runite Ore
+Γ£ô  ID 408: "Runite bar" - Expected: Runite Bar
+Γ£ô  ID 14: "Logs" - Expected: Logs
+Γ£ô  ID 633: "Willow Logs" - Expected: Willow
+Γ£ô  ID 635: "Yew Logs" - Expected: Yew Logs
+Γ£ô  ID 636: "Magic Logs" - Expected: Magic Logs
+ΓÜá∩╕Å  ID 31: "Fire-Rune" - Expected: Air (Fire-Rune in 2003)
+ΓÜá∩╕Å  ID 38: "Death-Rune" - Expected: Chaos
+ΓÜá∩╕Å  ID 42: "Law-Rune" - Expected: Death
+ΓÜá∩╕Å  ID 825: "Soul-Rune" - Expected: Blood
+Γ£ô  ID 10: "Coins" - Expected: Coins
+
+=== SUMMARY ===
+Total checked: 81
+Mismatches: 46
+Out of range: 1
+
+=== MISMATCHES (Need openrsc cross-reference) ===
+  546: "Shark" vs "Lobster"
+  373: "Lobster" vs "Swordfish"
+  370: "Swordfish" vs "Shark"
+  325: "Plain Pizza" vs "Meat Pizza"
+  474: "attack Potion" vs "Atk Pot (3)"
+  142: "wine" vs "Beer"
+  193: "Beer" vs "Wine"
+  830: "Greenmans ale" vs "Grog"
+  739: "Cup of tea" vs "Dragon Bitter"
+  112: "Large Rune Helmet" vs "Bronze Med"
+  104: "Medium Bronze Helmet" vs "Steel Med"
+  116: "Adamantite Chain Mail Body" vs "Addy Med"
+  120: "Adamantite Plate Mail Body" vs "Rune Med"
+  8: "Iron Plate Mail Body" vs "Bronze Plate"
+  86: "Adamantite Scimitar" vs "Steel Plate"
+  84: "Steel Scimitar" vs "Addy Plate"
+  125: "Steel Square Shield" vs "Addy Legs"
+  1279: "Palm tree leaf" vs "Dragon Legs"
+  48: "key" vs "Steel Kite"
+  56: "message" vs "Addy Kite"
+  60: "Crossbow" vs "Steel Sword"
+  68: "Mithril Short Sword" vs "Addy Sword"
+  77: "Iron 2-handed Sword" vs "Steel 2H"
+  79: "Mithril 2-handed Sword" vs "Addy 2H"
+  12: "Iron Axe" vs "Bronze Baxe"
+  89: "Iron battle Axe" vs "Steel Baxe"
+  97: "Adamantite Mace" vs "Addy Baxe"
+  188: "Longbow" vs "Shortbow"
+  189: "Shortbow" vs "Longbow"
+  576: "Party Hat" vs "Red Phat"
+  577: "Party Hat" vs "Yellow Phat"
+  578: "Party Hat" vs "Blue Phat"
+  579: "Party Hat" vs "Green Phat"
+  580: "Party Hat" vs "Purple Phat"
+  581: "Party Hat" vs "White Phat"
+  831: "halloween mask" vs "Red Mask"
+  832: "halloween mask" vs "Blue Mask"
+  828: "halloween mask" vs "Green Mask"
+  575: "Christmas cracker" vs "Xmas Cracker"
+  422: "Pumpkin" vs "Disk of Return"
+  971: "Santa's hat" vs "Bunny Ears"
+  153: "mithril ore" vs "Coal"
+  31: "Fire-Rune" vs "Air (Fire-Rune in 2003)"
+  38: "Death-Rune" vs "Chaos"
+  42: "Law-Rune" vs "Death"
+  825: "Soul-Rune" vs "Blood"
+
+=== OUT OF RANGE (openrsc-only items) ===
+  1315: Santa Hat

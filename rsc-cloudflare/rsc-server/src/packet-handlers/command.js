@@ -300,8 +300,7 @@ async function command({ player }, { command, args }) {
             try {
                 const mainChoice = await player.ask([
                     'Spawn Items >>',
-                    '::coords - Show location',
-                    '::teleport <x> <y>',
+                    'Teleport >>',
                     '::set <skill> <lvl>',
                     '::heal - Restore HP',
                     '::save - Save char',
@@ -451,12 +450,117 @@ async function command({ player }, { command, args }) {
                         }
                     }
                 } else if (mainChoice === 1) {
-                    player.message(`Location: ${player.x}, ${player.y}`);
-                } else if (mainChoice === 4) {
+                    // Teleport submenu
+                    const teleChoice = await player.ask(['Locations >>', 'NPCs >>', '[Back]']);
+
+                    if (teleChoice === 0) {
+                        // Locations by zone
+                        const zones = {
+                            'Misthalin': [
+                                { name: 'Lumbridge', x: 120, y: 648 },
+                                { name: 'Varrock', x: 122, y: 509 },
+                                { name: 'Draynor', x: 214, y: 632 },
+                                { name: 'Al Kharid', x: 89, y: 693 }
+                            ],
+                            'Asgarnia': [
+                                { name: 'Falador', x: 304, y: 542 },
+                                { name: 'Port Sarim', x: 268, y: 625 },
+                                { name: 'Barbarian Village', x: 233, y: 513 },
+                                { name: 'Ice Mountain', x: 305, y: 489 }
+                            ],
+                            'Kandarin': [
+                                { name: 'Ardougne', x: 549, y: 589 },
+                                { name: 'Catherby', x: 440, y: 501 },
+                                { name: 'Seers Village', x: 501, y: 457 },
+                                { name: 'Yanille', x: 587, y: 761 }
+                            ],
+                            'Wilderness': [
+                                { name: 'Edgeville', x: 217, y: 449 },
+                                { name: 'Wild (Lvl 1)', x: 217, y: 430 },
+                                { name: 'Wild (Lvl 20)', x: 270, y: 341 },
+                                { name: 'Wild (Lvl 40)', x: 270, y: 261 },
+                                { name: 'Mage Arena', x: 447, y: 176 }
+                            ],
+                            'Islands': [
+                                { name: 'Tutorial Isle', x: 217, y: 740 },
+                                { name: 'Karamja', x: 360, y: 696 },
+                                { name: 'Crandor', x: 397, y: 649 }
+                            ]
+                        };
+                        const zoneNames = Object.keys(zones);
+                        zoneNames.push('[Back]');
+                        const zoneChoice = await player.ask(zoneNames);
+                        if (zoneChoice < zoneNames.length - 1) {
+                            const locs = zones[zoneNames[zoneChoice]];
+                            const locNames = locs.map(l => l.name);
+                            locNames.push('[Back]');
+                            const locChoice = await player.ask(locNames);
+                            if (locChoice < locs.length) {
+                                const loc = locs[locChoice];
+                                player.teleport(loc.x, loc.y, true);
+                                player.message(`Teleported to ${loc.name}`);
+                            }
+                        }
+                    } else if (teleChoice === 1) {
+                        // NPCs by category
+                        const npcCategories = {
+                            'Shops': [
+                                { name: 'General Store (Lumb)', x: 132, y: 640 },
+                                { name: 'Sword Shop (Varrock)', x: 145, y: 513 },
+                                { name: 'Staff Shop (Varrock)', x: 101, y: 523 },
+                                { name: 'Rune Shop (Varrock)', x: 88, y: 503 },
+                                { name: 'Platebody Shop (Fally)', x: 316, y: 540 }
+                            ],
+                            'Quest NPCs': [
+                                { name: 'Duke Horacio', x: 130, y: 640 },
+                                { name: 'Cook (Lumb Castle)', x: 135, y: 651 },
+                                { name: 'Gypsy (Varrock)', x: 113, y: 519 },
+                                { name: 'Oziach (Edgeville)', x: 247, y: 431 },
+                                { name: 'King Roald', x: 122, y: 509 }
+                            ],
+                            'Trainers': [
+                                { name: 'Combat Tutor (Lumb)', x: 120, y: 648 },
+                                { name: 'Magic Tutor (Lumb)', x: 121, y: 649 },
+                                { name: 'Fishing Tutor', x: 268, y: 647 }
+                            ],
+                            'Banks': [
+                                { name: 'Lumbridge Bank', x: 126, y: 633 },
+                                { name: 'Varrock West', x: 98, y: 509 },
+                                { name: 'Varrock East', x: 163, y: 492 },
+                                { name: 'Falador West', x: 328, y: 549 },
+                                { name: 'Falador East', x: 282, y: 570 }
+                            ],
+                            'Stuck/Rescue': [
+                                { name: 'Crystal Chest (Taverly)', x: 372, y: 440 },
+                                { name: 'Hero Guild Dragon', x: 372, y: 441 },
+                                { name: 'Taverly Dungeon Chest', x: 376, y: 3344 },
+                                { name: 'Black Knight Fortress', x: 271, y: 438 },
+                                { name: 'Melzar Maze', x: 338, y: 622 },
+                                { name: 'Temple of Ikov', x: 561, y: 3525 },
+                                { name: 'Brimhaven Dungeon', x: 467, y: 3707 },
+                                { name: 'Wilderness Lever', x: 292, y: 185 }
+                            ]
+                        };
+                        const catNames = Object.keys(npcCategories);
+                        catNames.push('[Back]');
+                        const catChoice = await player.ask(catNames);
+                        if (catChoice < catNames.length - 1) {
+                            const npcs = npcCategories[catNames[catChoice]];
+                            const npcNames = npcs.map(n => n.name);
+                            npcNames.push('[Back]');
+                            const npcChoice = await player.ask(npcNames);
+                            if (npcChoice < npcs.length) {
+                                const npc = npcs[npcChoice];
+                                player.teleport(npc.x, npc.y, true);
+                                player.message(`Teleported to ${npc.name}`);
+                            }
+                        }
+                    }
+                } else if (mainChoice === 3) {
                     player.skills.hits.current = player.skills.hits.base;
                     player.sendStats();
                     player.message('You have been healed');
-                } else if (mainChoice === 5) {
+                } else if (mainChoice === 4) {
                     await player.save();
                     player.message('Player data saved');
                 }

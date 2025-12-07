@@ -24,12 +24,23 @@ async function onGameObjectCommandOne(player, gameObject) {
         return false;
     }
 
-    if (player.skills.prayer.current >= player.skills.prayer.base) {
+    const { world } = player;
+
+    // Authentic Trapdoor (Yanille Dungeon Chaos Altar)
+    if (gameObject.id === 625 && gameObject.y === 3573) {
+        player.message('Suddenly a trapdoor opens beneath you');
+        await world.sleepTicks(3);
+        player.teleport(608, 3525);
+        return true;
+    }
+
+    const maxPrayer = player.skills.prayer.base + (gameObject.id === 200 ? 2 : 0);
+
+    if (player.skills.prayer.current >= maxPrayer) {
         player.message('@que@You already have full prayer points');
     } else {
-        player.skills.prayer.current = player.skills.prayer.base;
+        player.skills.prayer.current = maxPrayer;
         player.sendStats();
-
         player.message('@que@You recharge your prayer points');
         player.sendSound('recharge');
     }

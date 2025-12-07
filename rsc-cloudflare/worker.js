@@ -7,6 +7,12 @@
  * 3. Feature Flag Enforcement
  */
 
+import { RSCServerDO } from './durable-objects/RSCServerDO.js';
+import { PlayerDO } from './durable-objects/PlayerDO.js';
+import { processQueue } from './worker-queue.js';
+
+export { RSCServerDO, PlayerDO };
+
 export default {
     async fetch(request, env, ctx) {
         const url = new URL(request.url);
@@ -44,6 +50,10 @@ export default {
         }
 
         return stub.fetch(request);
+    },
+
+    async queue(batch, env, ctx) {
+        await processQueue(batch, env);
     }
 };
 

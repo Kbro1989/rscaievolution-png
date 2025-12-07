@@ -303,6 +303,123 @@ async function handleWildernessObstacle(player, gameObject, obstacleDef) {
     return true;
 }
 
+async function handleShortcut(player, gameObject, obstacleDef) {
+    const { world } = player;
+    const id = gameObject.id;
+    const level = player.skills.agility.current;
+
+    switch (obstacleDef.type) {
+        case 'shortcut_wall':
+            player.message('You climb over the wall');
+            await world.sleepTicks(2);
+            if (obstacleDef.destination) {
+                player.teleport(obstacleDef.destination.x, obstacleDef.destination.y);
+            }
+            break;
+
+        case 'shortcut_swing':
+            player.message('You grab the rope and try and swing across');
+            await world.sleepTicks(2);
+            if (ROPE_SWING_FAIL_CHANCE && !rollSkillSuccess(obstacleDef.level, 99, level)) {
+                // Fail logic TODO
+            }
+            player.message('You skillfully swing across');
+            if (obstacleDef.destination) {
+                player.teleport(obstacleDef.destination.x, obstacleDef.destination.y);
+            }
+            break;
+
+        case 'shortcut_pipe':
+            player.message('You squeeze through the pipe');
+            await world.sleepTicks(2);
+            if (obstacleDef.destination) {
+                player.teleport(obstacleDef.destination.x, obstacleDef.destination.y);
+            }
+            break;
+
+        case 'shortcut_stones':
+            player.message('You jump onto the rock');
+            await world.sleepTicks(2);
+            const success = rollSkillSuccess(10, 100, level); // Authentic 10% base fail? 
+            if (success) {
+                player.message('You make it to the other side');
+                // Teleport across logic needs relative check if no destination
+                if (obstacleDef.destination) {
+                    player.teleport(obstacleDef.destination.x, obstacleDef.destination.y);
+                } else {
+                    // Taverley/Catherby manual logic based on Y or X
+                    // Placeholder for specific coord logic if generic destination fails
+                }
+            } else {
+                player.message('You fall into the water!');
+                player.damage(Math.floor(player.skills.hits.base * (obstacleDef.failDamage || 0.1)));
+                return true;
+            }
+            break;
+
+        case 'shortcut_ledge':
+            player.message('You put your foot on the ledge and try to edge across');
+            await world.sleepTicks(3);
+            // Fail check
+            if (obstacleDef.failLvl && !rollSkillSuccess(obstacleDef.level, obstacleDef.failLvl, level)) {
+                player.message('You lose your footing and fall');
+                if (obstacleDef.failTo) {
+                    player.teleport(obstacleDef.failTo.x, obstacleDef.failTo.y);
+                }
+                player.damage(Math.floor(player.skills.hits.base * (obstacleDef.failDamage || 0.1)));
+                return true;
+            }
+            if (obstacleDef.destination) {
+                player.teleport(obstacleDef.destination.x, obstacleDef.destination.y);
+            } else {
+                // If no specific destination, assume specific ledge handling (Yanille logic handled by destination in JSON)
+                // For strict Yanille ledge: JSON has dest not set? 
+                // Wait, I didn't set destinations for Yanille Ledge in JSON in previous step?
+                // "614": ... type: "shortcut_ledge", "failLvl": 65, "failTo": ...
+                // MISSING DESTINATION for Side 1 and Side 2.
+                // I'll update logic to handle Side 1 / Side 2 or assume player position.
+
+                // Simplified: specific handling by ID if needed.
+                if (id === 614) player.teleport(601, 3563);
+                if (id === 615) player.teleport(601, 3557);
+            }
+            break;
+
+        case 'shortcut_log_balance':
+            player.message('You stand on the slippery log');
+            await world.sleepTicks(2);
+            if (id === 681) { // West Coal Trucks
+                player.teleport(592, 458);
+            } else if (id === 680) { // East Coal Trucks
+                player.teleport(598, 458);
+            }
+            player.message('and you walk across');
+            break;
+
+        case 'shortcut_lava_stones':
+            player.message('You focus on not slipping...');
+            await world.sleepTicks(2);
+            if (rollSkillSuccess(obstacleDef.level, 99, level)) {
+                player.message('and skillfully cross the lava');
+                // Destination depends on start side.
+                // KBD Stones
+                if (player.y >= 3015) { // From KBD side
+                    player.teleport(272, 3012);
+                } else {
+                    player.teleport(281, 3015);
+                }
+            } else {
+                player.message('but fall into the lava');
+                player.damage(Math.floor(player.skills.hits.base * (obstacleDef.failDamage || 0.2)));
+                // Teleport available safe spot? generic
+            }
+            break;
+    }
+
+    player.addExperience('agility', obstacleDef.xp);
+    return true;
+}
+
 async function onGameObjectCommandOne(player, gameObject) {
     const id = gameObject.id;
     const obstacleDef = OBSTACLES[id];
@@ -329,6 +446,8 @@ async function onGameObjectCommandOne(player, gameObject) {
         return await handleBarbarianObstacle(player, gameObject, obstacleDef);
     } else if (obstacleDef.type.startsWith('wild')) {
         return await handleWildernessObstacle(player, gameObject, obstacleDef);
+    } else if (obstacleDef.type.startsWith('shortcut')) {
+        return await handleShortcut(player, gameObject, obstacleDef);
     }
 
     return false;

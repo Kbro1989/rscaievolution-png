@@ -1,0 +1,176 @@
+=== QUEST ID AUDIT v2 (Improved Categorization) ===
+
+Scanning src/plugins/quests/free...
+Scanning src/plugins/quests/members...
+
+=== NPCS ===
+Valid: 182
+Invalid (null in 2003scape): 0
+Out of Range: 0
+Name Mismatches: 140
+
+--- SAMPLE MATCHING ENTRIES (correct) ---
+  black-knights-fortress:
+    Γ£ô BLACK_KNIGHT_ID = 108 -> "Black Knight"
+    Γ£ô WITCH_ID = 107 -> "Witch"
+  free:
+    Γ£ô COOK_ID = 7 -> "cook"
+  demon-slayer:
+    Γ£ô CAPTAIN_ROVIN_ID = 18 -> "Captain Rovin"
+    Γ£ô SIR_PRYSIN_ID = 16 -> "Sir Prysin"
+
+--- NAME MISMATCHES (verify these manually) ---
+  ΓÜá∩╕Å  members/biohazard.js:
+      Variable: NPC_GUIDORS_WIFE = 488
+      Authentic: "Guidor's wife"
+  ΓÜá∩╕Å  members/clock-tower.js:
+      Variable: NPC_DUNGEON_RAT = 296
+      Authentic: "Black Unicorn"
+  ΓÜá∩╕Å  members/druidic-ritual.js:
+      Variable: NPC_KAQEMEEX = 210
+      Authentic: "Adventurer"
+  ΓÜá∩╕Å  members/druidic-ritual.js:
+      Variable: NPC_SANFEW = 211
+      Authentic: "Leprechaun"
+  ΓÜá∩╕Å  members/druidic-ritual.js:
+      Variable: NPC_SUIT_OF_ARMOUR = 212
+      Authentic: "Monk of entrana"
+  ΓÜá∩╕Å  members/dwarf-cannon.js:
+      Variable: NPC_CAPTAIN_LAWGOF = 208
+      Authentic: "Adventurer"
+  ΓÜá∩╕Å  members/dwarf-cannon.js:
+      Variable: NPC_DWARF_COMMANDER = 208
+      Authentic: "Adventurer"
+  ΓÜá∩╕Å  members/dwarf-cannon.js:
+      Variable: NPC_GILOB_GUARD = 209
+      Authentic: "Adventurer"
+  ΓÜá∩╕Å  members/dwarf-cannon.js:
+      Variable: NPC_LOLLK = 210
+      Authentic: "Adventurer"
+  ΓÜá∩╕Å  members/dwarf-cannon.js:
+      Variable: NPC_NULODION = 207
+      Authentic: "Adventurer"
+  ... and 130 more
+
+=== ITEMS ===
+Valid: 279
+Invalid (null in 2003scape): 0
+Out of Range: 0
+Name Mismatches: 120
+
+--- SAMPLE MATCHING ENTRIES (correct) ---
+  black-knights-fortress:
+    Γ£ô IRON_CHAIN_ID = 7 -> "Iron Chain Mail Body"
+    Γ£ô MED_BRONZE_ID = 104 -> "Medium Bronze Helmet"
+  free:
+    Γ£ô EGG_ID = 19 -> "Egg"
+    Γ£ô FLOUR_ID = 136 -> "flour"
+  demon-slayer:
+    Γ£ô BUCKET_ID = 21 -> "Bucket"
+    Γ£ô BONES_ID = 20 -> "Bones"
+
+--- NAME MISMATCHES (verify these manually) ---
+  ΓÜá∩╕Å  demon-slayer/captain-rovin.js:
+      Variable: ROVIN_KEY_ID = 26
+      Authentic: "Silverlight key 2"
+  ΓÜá∩╕Å  demon-slayer/drain.js:
+      Variable: DRAIN_KEY_ID = 51
+      Authentic: "Silverlight key 3"
+  ΓÜá∩╕Å  demon-slayer/sir-prysin.js:
+      Variable: DRAIN_KEY_ID = 51
+      Authentic: "Silverlight key 3"
+  ΓÜá∩╕Å  demon-slayer/sir-prysin.js:
+      Variable: ROVIN_KEY_ID = 26
+      Authentic: "Silverlight key 2"
+  ΓÜá∩╕Å  demon-slayer/sir-prysin.js:
+      Variable: TRAIBORN_KEY_ID = 25
+      Authentic: "Silverlight key 1"
+  ΓÜá∩╕Å  demon-slayer/traiborn.js:
+      Variable: TRAIBORN_KEY_ID = 25
+      Authentic: "Silverlight key 1"
+  ΓÜá∩╕Å  goblin-diplomacy/dye-armour.js:
+      Variable: BLUE_ARMOUR_ID = 275
+      Authentic: "Goblin Armour"
+  ΓÜá∩╕Å  goblin-diplomacy/dye-armour.js:
+      Variable: ORANGE_ARMOUR_ID = 274
+      Authentic: "Goblin Armour"
+  ΓÜá∩╕Å  goblin-diplomacy/generals.js:
+      Variable: BLUE_ARMOUR_ID = 275
+      Authentic: "Goblin Armour"
+  ΓÜá∩╕Å  goblin-diplomacy/generals.js:
+      Variable: ORANGE_ARMOUR_ID = 274
+      Authentic: "Goblin Armour"
+  ... and 110 more
+
+=== OBJECTS ===
+Valid: 130
+Invalid (null in 2003scape): 0
+Out of Range: 0
+Name Mismatches: 52
+
+--- SAMPLE MATCHING ENTRIES (correct) ---
+  free:
+    Γ£ô DORIC_ANVIL_ID = 177 -> "Doric's anvil"
+  dragon-slayer:
+    Γ£ô CLOSED_CHEST_ID = 231 -> "Chest"
+    Γ£ô OPEN_CHEST_ID = 230 -> "Chest"
+  ernest-the-chicken:
+    Γ£ô LADDER_ID = 130 -> "Ladder"
+    Γ£ô FOUNTAIN_ID = 86 -> "fountain"
+
+--- NAME MISMATCHES (verify these manually) ---
+  ΓÜá∩╕Å  black-knights-fortress/guard.js:
+      Variable: GUARDED_DOOR_ID = 39
+      Authentic: "Coffin"
+  ΓÜá∩╕Å  black-knights-fortress/other-doors.js:
+      Variable: ODD_WALL_ID = 22
+      Authentic: "barrel"
+  ΓÜá∩╕Å  black-knights-fortress/other-doors.js:
+      Variable: SIDE_DOOR_ID = 40
+      Authentic: "Coffin"
+  ΓÜá∩╕Å  free/cooks-assistant.js:
+      Variable: COOKS_RANGE_ID = 119
+      Authentic: "Cook's Range"
+  ΓÜá∩╕Å  dragon-slayer/crandor-doors.js:
+      Variable: ELVARG_DOOR_ID = 59
+      Authentic: "gate"
+  ΓÜá∩╕Å  dragon-slayer/dwarven-mine-door.js:
+      Variable: DOOR_ID = 57
+      Authentic: "Gate"
+  ΓÜá∩╕Å  dragon-slayer/melzars-maze-doors.js:
+      Variable: ENTRANCE_DOOR_ID = 60
+      Authentic: "gate"
+  ΓÜá∩╕Å  dragon-slayer/melzars-maze-doors.js:
+      Variable: EXIT_DOOR_ID = 54
+      Authentic: "cart"
+  ΓÜá∩╕Å  dragon-slayer/melzars-maze-doors.js:
+      Variable: LESSER_DEMON_DOOR_ID = 52
+      Authentic: "hopper"
+  ΓÜá∩╕Å  dragon-slayer/ned.js:
+      Variable: NED_SHIP_ID = 194
+      Authentic: "fish"
+  ... and 42 more
+
+=== UNCATEGORIZED (could not determine type) ===
+Count: 151
+  black-knights-fortress/grill.js: GRELDO_ID = 109
+  black-knights-fortress/grill.js: GRILL_ID = 148
+  black-knights-fortress/guard.js: ENTRANCE_ID = 38
+  black-knights-fortress/hole.js: HOLE_ID = 154
+  black-knights-fortress/hole.js: CABBAGE_ID = 18
+  black-knights-fortress/hole.js: DRAYNOR_CABBAGE_ID = 228
+  black-knights-fortress/other-doors.js: BLOCKBLANK_ID = 86
+  black-knights-fortress/sir-amik-varze.js: MINIMUM_QP = 12
+  demon-slayer/delrith.js: DELRITH_ID = 35
+  demon-slayer/delrith.js: SILVERLIGHT_ID = 52
+
+=== SUMMARY ===
+Total Valid IDs: 591
+Total Invalid: 0
+Total Out of Range: 0
+Total Name Mismatches: 312
+Uncategorized: 151
+
+Γ£à All categorized IDs exist in 2003scape data!
+ΓÜá∩╕Å Some variable names don't match their authentic entity names.
+   These could be correct (just named differently) or bugs.

@@ -1,0 +1,62 @@
+2003scape authentic item range: 0 - 1312
+
+=== AUTHENTIC vs OPENRSC-EXCLUSIVE ===
+
+--- AUTHENTIC (in 2003scape) ---
+  112: Large Rune Helmet (expected: Bronze Med Helmet)
+  104: Medium Bronze Helmet (expected: Steel Med Helmet)
+  116: Adamantite Chain Mail Body (expected: Addy Med Helmet)
+  120: Adamantite Plate Mail Body (expected: Rune Med Helmet)
+  795: Dragon medium Helmet Γ£ô
+  8: Iron Plate Mail Body (expected: Bronze Plate Body)
+  86: Adamantite Scimitar (expected: Steel Plate Body)
+  84: Steel Scimitar (expected: Addy Plate Body)
+  401: Rune Plate Mail Body Γ£ô
+  1278: Dragon Square Shield Γ£ô
+  206: Bronze Plate Mail Legs Γ£ô
+  121: Steel Plate Mail Legs Γ£ô
+  125: Steel Square Shield (expected: Addy Plate Legs)
+  402: Rune Plate Mail Legs Γ£ô
+  1279: Palm tree leaf (expected: Dragon Plate Legs)
+  4: Wooden Shield Γ£ô
+  48: key (expected: Steel Kite Shield)
+  56: message (expected: Addy Kite Shield)
+  403: Rune Square Shield Γ£ô
+  1276: Half Dragon Square Shield Γ£ô
+  70: Bronze Long Sword Γ£ô
+  60: Crossbow (expected: Steel Long Sword)
+  68: Mithril Short Sword (expected: Addy Long Sword)
+  396: rune dagger Γ£ô
+  593: Dragon sword Γ£ô
+  76: Bronze 2-handed Sword Γ£ô
+  77: Iron 2-handed Sword (expected: Steel 2H)
+  79: Mithril 2-handed Sword (expected: Addy 2H)
+  398: rune Scimitar Γ£ô
+  12: Iron Axe (expected: Bronze Axe)
+  89: Iron battle Axe (expected: Steel Battle Axe)
+  97: Adamantite Mace (expected: Addy Battle Axe)
+  405: rune Axe Γ£ô
+  594: Dragon axe Γ£ô
+  576: Party Hat (expected: Red Party Hat)
+  577: Party Hat (expected: Yellow Party Hat)
+  578: Party Hat (expected: Blue Party Hat)
+  579: Party Hat (expected: Green Party Hat)
+  580: Party Hat (expected: Purple Party Hat)
+  581: Party Hat (expected: White Party Hat)
+  831: halloween mask (expected: Red Halloween Mask)
+  832: halloween mask (expected: Blue Halloween Mask)
+  828: halloween mask (expected: Green Halloween Mask)
+  575: Christmas cracker Γ£ô
+  387: Disk of Returning Γ£ô
+  1289: Scythe Γ£ô
+  1156: Bunny ears Γ£ô
+  677: Easter egg Γ£ô
+  221: Strength Potion Γ£ô
+  474: attack Potion Γ£ô
+  480: defense Potion Γ£ô
+  486: Super attack Potion Γ£ô
+  483: restore prayer Potion Γ£ô
+
+--- OPENRSC-EXCLUSIVE (NOT in authentic RSC) ---
+
+Summary: 53 authentic, 0 OpenRSC-exclusive
