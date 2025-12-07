@@ -14,7 +14,7 @@ new_classes = ["GameWorld"]
 
 # KV Namespaces (for player data)
 [[kv_namespaces]]
-binding = "PLAYERS_KV"
+binding = "KV"
 id = "f2881801ac59415a86236d0841f27103"
 
 # Environment Variables

@@ -28,6 +28,7 @@ scripts/find-*.js
 saves/
 *.json.backup
 restore.json
+restore-script.js
 login_*.json
 debug_*.txt
 item-*-verification*.json
