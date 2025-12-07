@@ -24,22 +24,22 @@ preview_bucket_name = "rsc-assets-preview"
 
 [[durable_objects.bindings]]
 name = "DO_AMERICAS"
-class_name = "PlayerDO"
+class_name = "GameWorld"
 script_name = "rsc-server-do"
 
 [[durable_objects.bindings]]
 name = "DO_EUROPE"
-class_name = "PlayerDO"
+class_name = "GameWorld"
 script_name = "rsc-server-do"
 
 [[durable_objects.bindings]]
 name = "DO_ASIA"
-class_name = "PlayerDO"
+class_name = "GameWorld"
 script_name = "rsc-server-do"
 
 [[durable_objects.bindings]]
 name = "DO_OCEANIA"
-class_name = "PlayerDO"
+class_name = "GameWorld"
 script_name = "rsc-server-do"
 
 # 3. FEATURE FLAGS & SAFETY CAPS
