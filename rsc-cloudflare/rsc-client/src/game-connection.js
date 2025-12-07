@@ -31,8 +31,20 @@ class GameConnection extends GameShell {
         this.packetLastRead = 0;
         this.messageIndex = 0;
 
-        this.server = 'rsc-server-do.elderscapedev.workers.dev';
-        this.port = 443;
+        // Auto-detect server based on environment
+        const isLocal = typeof window !== 'undefined' &&
+            (window.location.hostname === 'localhost' ||
+                window.location.hostname === '127.0.0.1');
+
+        if (isLocal) {
+            // Local development
+            this.server = window.location.hostname;
+            this.port = parseInt(window.location.port) || 8788;
+        } else {
+            // Production - Cloudflare Pages
+            this.server = 'rscaievolution-png.pages.dev';
+            this.port = 443;
+        }
 
         this.username = '';
         this.password = '';
