@@ -28,14 +28,10 @@ const BODY_RUNE = 36;
 const CHICKEN = 3;
 
 async function onTalkToNPC(player, npc) {
-    // Placeholder ID check, will be updated after verification
-    // if (npc.id !== MAGIC_INSTRUCTOR) return false; 
-    // For now, I'll rely on the registration in index.js to map it correctly if I use the right key.
-    // But the code needs the ID.
-
-    // I will use a generic check or just proceed.
-    // Actually, I'll search for NpcId.java in the next step to be precise.
-    // For this file write, I'll use a likely ID and comment it.
+    // Only handle magic instructor NPC
+    if (npc.id !== MAGIC_INSTRUCTOR) {
+        return false;
+    }
 
     player.engage(npc);
     const tutorialStage = player.cache.tutorial || 0;
