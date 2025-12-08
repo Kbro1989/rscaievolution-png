@@ -797,7 +797,7 @@
     {
         "name": "potion",
         "description": "this is meant to be good for spots",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 1,
         "stackable": false,
@@ -6318,7 +6318,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Guam potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 3,
         "stackable": false,
@@ -6331,7 +6331,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Marrentill potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 5,
         "stackable": false,
@@ -6344,7 +6344,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Tarromin potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 11,
         "stackable": false,
@@ -6357,7 +6357,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Harralander potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 20,
         "stackable": false,
@@ -6370,7 +6370,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Ranarr potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 25,
         "stackable": false,
@@ -6383,7 +6383,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Irit potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 40,
         "stackable": false,
@@ -6396,7 +6396,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Avantoe potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 48,
         "stackable": false,
@@ -6409,7 +6409,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Kwuarm potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 54,
         "stackable": false,
@@ -6422,7 +6422,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Cadantine potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 65,
         "stackable": false,
@@ -6435,7 +6435,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this Dwarfweed potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 70,
         "stackable": false,
@@ -12769,7 +12769,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need Jangerberries to finish this Torstol potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 25,
         "stackable": false,
@@ -14334,7 +14334,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish the shaman potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 3,
         "stackable": false,
@@ -14347,7 +14347,7 @@
     {
         "name": "Ogre potion",
         "description": "A strange liquid",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 120,
         "stackable": false,
@@ -14360,7 +14360,7 @@
     {
         "name": "Magic ogre potion",
         "description": "A strange liquid that bubbles with power",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 120,
         "stackable": false,
@@ -14626,7 +14626,7 @@
     {
         "name": "Unfinished potion",
         "description": "I need another ingredient to finish this potion",
-        "command": "",
+        "command": "Drink",
         "sprite": 48,
         "price": 3,
         "stackable": false,
