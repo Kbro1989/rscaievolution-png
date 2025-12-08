@@ -3501,7 +3501,7 @@
     "armour": 7,
     "weaponAim": 0,
     "weaponPower": 0,
-    "magic": 0,
+    "magic": 25,
     "prayer": 3
   },
   "1310": {
@@ -3510,7 +3510,7 @@
     "armour": 7,
     "weaponAim": 0,
     "weaponPower": 0,
-    "magic": 0,
+    "magic": 25,
     "prayer": 3
   },
   "1311": {
@@ -3519,7 +3519,7 @@
     "armour": 7,
     "weaponAim": 0,
     "weaponPower": 0,
-    "magic": 0,
+    "magic": 25,
     "prayer": 3
   }
 }
