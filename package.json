@@ -12,6 +12,12 @@
     "create-placeholders": "tsx scripts/create-placeholders.ts",
     "deploy": "wrangler pages deploy"
   },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "overrides": {
+    "speaker": ">=0.5.4"
+  },
   "dependencies": {
     "@2003scape/rsc-sounds": "^1.0.1",
     "@google/generative-ai": "^0.24.1",
