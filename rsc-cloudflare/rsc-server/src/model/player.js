@@ -593,6 +593,37 @@ class Player extends Character {
         }
     }
 
+    broadcastPlayerAppearance(self = false) {
+        const { world } = this;
+        const update = this.getAppearanceUpdate();
+
+        world.nextTick(() => {
+            if (self) {
+                this.localEntities.characterUpdates.playerAppearances.push(
+                    update
+                );
+            }
+
+            for (const player of this.localEntities.known.players) {
+                player.localEntities.characterUpdates.playerAppearances.push(
+                    update
+                );
+            }
+        });
+    }
+
+    getAppearanceUpdate() {
+        return {
+            index: this.index,
+            appearanceIndex: this.appearanceIndex,
+            username: this.username,
+            animations: this.animations,
+            ...this.appearance,
+            combatLevel: this.combatLevel,
+            skulled: this.isSkulled()
+        };
+    }
+
     // send the red hitsplat
     damage(damage) {
         const isDead = super.damage(damage);
@@ -932,8 +963,7 @@ class Player extends Character {
             animations: this.animations,
             ...this.appearance,
             combatLevel: this.combatLevel,
-            skulled: this.isSkulled(),
-            group: this.group || 0
+            skulled: this.isSkulled()
         };
     }
 

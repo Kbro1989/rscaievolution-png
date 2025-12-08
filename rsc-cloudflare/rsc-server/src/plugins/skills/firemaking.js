@@ -50,53 +50,43 @@ async function onUseWithGroundItem(player, item, groundItem) {
     const fireSuccess = calcProductionSuccessfulLegacy(logDef.level, level, true, logDef.level + 40);
 
     if (fireSuccess) {
-        player.message('@que@The fire catches and the logs begin to burn');
         world.removeEntity('groundItems', groundItem);
 
-        const fire = new GameObject(world, {
+        player.message('@que@The fire catches and the logs begin to burn');
+
+        const fire = new GameObject({
             id: FIRE_ID,
             x,
             y,
-            direction: 0
+            spawnTick: world.tickCounter
         });
-
-        // Fire duration ~60-120s
-        world.setTimeout(() => {
-            world.removeEntity('gameObjects', fire);
-            const ashes = new GroundItem(world, { id: ASHES_ID, x, y });
-            world.addEntity('groundItems', ashes);
-        }, (Math.floor(Math.random() * 60) + 60) * 1000);
 
         world.addEntity('gameObjects', fire);
 
-        // Authentic XP
-        player.addExperience('firemaking', logDef.experience);
+        world.setTickTimeout(() => {
+            world.removeEntity('gameObjects', fire);
+            world.addEntity('groundItems', new GroundItem({ id: ASHES_ID, x, y }));
+        }, 100);
 
-        // Authentic Walk-Back (West preferred, else any adjacent)
-        // In RSC you always move OFF the fire.
-        // Try West (x-1)
-        player.walk(player.x - 1, player.y);
-
+        player.sendStats();
+        // Custom formula for XP
+        player.addExperience('firemaking', logDef.xp * 2.5);
     } else {
-        player.message('@que@You fail to light a fire');
+        player.message('@que@You fail to light the logs');
     }
 
     return true;
 }
 
 async function onUseWithInventory(player, item, targetItem) {
-    if (
-        !(logs[item.id] && targetItem.id === TINDERBOX_ID) &&
-        !(item.id === TINDERBOX_ID && logs[targetItem.id])
-    ) {
+    const isTinderboxOnLogs = (item.id === TINDERBOX_ID && logs[targetItem.id]) || (logs[item.id] && targetItem.id === TINDERBOX_ID);
+    
+    if (!isTinderboxOnLogs) {
         return false;
     }
 
-    // who's talking to the player??
-    player.message(
-        '@que@I think you should put the logs down before you light them!'
-    );
-
+    player.message('@que@You should put the logs on the ground to light them.');
+    
     return true;
 }
 

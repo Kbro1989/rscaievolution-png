@@ -598,7 +598,7 @@ const DRINK_EFFECTS = {
     }
 };
 
-async function onInventoryCommand(player, item) {
+async function onDrink(player, item) {
     if (!DRINK_EFFECTS.hasOwnProperty(item.id)) {
         return false;
     }
@@ -609,4 +609,4 @@ async function onInventoryCommand(player, item) {
     return true;
 }
 
-module.exports = { onInventoryCommand };
+module.exports = { onDrink };

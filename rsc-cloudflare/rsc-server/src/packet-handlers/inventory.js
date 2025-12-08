@@ -158,6 +158,13 @@ async function inventoryCommand({ player }, { index }) {
         return;
     }
 
+    if (item.definition.command === 'Drink') {
+        player.lock();
+        await world.callPlugin('onDrink', player, item);
+        player.unlock();
+        return;
+    }
+
     player.lock();
     await world.callPlugin('onInventoryCommand', player, item);
     player.unlock();

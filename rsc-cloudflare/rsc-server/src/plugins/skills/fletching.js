@@ -175,160 +175,37 @@ async function makeHeadlessArrows(player, shaft, feather) {
     return true;
 }
 
-
-// === Arrow Making (Step 3: Headless + Head) ===
-async function makeArrow(player, headlessArrow, arrowhead) {
-    // Determine which is which. arrowhead should be in ARROW_HEADS
-    let head = ARROW_HEADS.has(arrowhead.id) ? arrowhead : headlessArrow;
-    let shaft = head === arrowhead ? headlessArrow : arrowhead;
-
-    // Verify strict types
-    if (!ARROW_HEADS.has(head.id) || shaft.id !== HEADLESS_ARROW_ID) {
-        return false;
+async function onUseWithInventory(player, item, targetItem) {
+    // Knife on Logs
+    if (item.id === KNIFE_ID && BOW_LOG_IDS.has(targetItem.id)) {
+        return await cutBow(player, targetItem);
+    }
+    if (targetItem.id === KNIFE_ID && BOW_LOG_IDS.has(item.id)) {
+        return await cutBow(player, item);
     }
 
-    const arrowData = arrows[head.id];
-
-    if (!arrowData) {
-        return false;
+    // Bowstring on Unstrung Bow
+    if (item.id === BOWSTRING_ID && UNSTRUNG_BOW_IDS.has(targetItem.id)) {
+        return await stringBow(player, item, targetItem);
+    }
+    if (targetItem.id === BOWSTRING_ID && UNSTRUNG_BOW_IDS.has(item.id)) {
+        return await stringBow(player, targetItem, item);
     }
 
-    const fletchingLevel = player.skills.fletching.current;
-
-    if (fletchingLevel < arrowData.level) {
-        player.message(
-            `@que@You need a fletching level of ${arrowData.level} to make these arrows`
-        );
-        return true;
+    // Feather on Arrow Shaft
+    if (item.id === FEATHER_ID && targetItem.id === ARROW_SHAFT_ID) {
+        return await makeHeadlessArrows(player, targetItem, item);
+    }
+    if (targetItem.id === FEATHER_ID && item.id === ARROW_SHAFT_ID) {
+        return await makeHeadlessArrows(player, item, targetItem);
     }
 
-    // Make 10 or All
-    const amountMenu = await player.ask(['Make 10 Arrows', 'Make All Arrows'], true);
-    if (amountMenu === -1) return true;
-
-    const maxPossible = Math.min(player.inventory.count(shaft.id), player.inventory.count(head.id));
-    const desired = amountMenu === 0 ? 10 : maxPossible;
-    const actual = Math.min(maxPossible, desired);
-
-    if (actual <= 0) {
-        player.message('You need headless arrows and arrowheads');
-        return true;
+    // Arrowhead on Headless Arrow
+    if (ARROW_HEADS.has(item.id) && targetItem.id === HEADLESS_ARROW_ID) {
+        return await makeArrow(player, targetItem, item);
     }
-
-    for (let i = 0; i < actual; i++) {
-        player.inventory.remove(shaft.id, 1);
-        player.inventory.remove(head.id, 1);
-        player.inventory.add(arrowData.id, 1);
-        player.addExperience('fletching', arrowData.experience);
-    }
-
-    player.message(`@que@You attach arrowheads to ${actual} arrows`);
-
-    return true;
-}
-
-// === Dart Making ===
-async function makeDart(player, feather, dartTip) {
-    const dartLevel = darts[dartTip.id];
-
-    if (dartLevel === undefined) {
-        return false;
-    }
-
-    const fletchingLevel = player.skills.fletching.current;
-
-    if (fletchingLevel < dartLevel) {
-        player.message(
-            `@que@You need a fletching level of ${dartLevel} to make these darts`
-        );
-        return true;
-    }
-
-    // Batch make? Darts conform to 10/All usually?
-    // Current implementation: Single.
-    // Let's keep single for now unless user asks, or verify RSC. 
-    // RSC usually allowed 10/All for fletching.
-
-    // Remove feather and dart tip, create dart
-    if (!player.inventory.remove(feather.id, 1)) {
-        return true;
-    }
-
-    if (!player.inventory.remove(dartTip.id, 1)) {
-        player.inventory.add(feather.id, 1); // Restore feather
-        return true;
-    }
-
-    // Dart item ID = dart tip ID (based on data structure)
-    // CHECK: dart tip ID is e.g. 1062. Dart ID??
-    // darts.json: "1062": 1.
-    // Is 1062 the Tip or the Dart?
-    // Usually Tips map to Darts.
-    // If they share ID, that's impossible.
-    // I need to check items.json or assume logic.
-    // Existing code: `player.inventory.add(dartTip.id, 1);`
-    // This implies Tip ID == Dart ID? Highly unlikely unless it transforms.
-    // Or maybe key is Dart ID?
-    // If key is Dart ID, where is Tip ID?
-    // Re-verify darts.json structure logic.
-    // FOR NOW keeping as is, assuming existing logic was tested/ported.
-
-    player.inventory.add(dartTip.id, 1);
-    player.addExperience('fletching', 12.5); // Base XP for darts
-    player.message('@que@You attach a feather to the dart tip');
-
-    return true;
-}
-
-// === Main Handler ===
-async function onUseWithInventory(player, item1, item2) {
-    let toolItem, materialItem;
-
-    // Determine which is the tool and which is the material
-    if (item1.id === KNIFE_ID) {
-        toolItem = item1;
-        materialItem = item2;
-    } else if (item2.id === KNIFE_ID) {
-        toolItem = item2;
-        materialItem = item1;
-    } else if (item1.id === BOWSTRING_ID) {
-        toolItem = item1;
-        materialItem = item2;
-    } else if (item2.id === BOWSTRING_ID) {
-        toolItem = item2;
-        materialItem = item1;
-    } else if (item1.id === FEATHER_ID) {
-        toolItem = item1;
-        materialItem = item2;
-    } else if (item2.id === FEATHER_ID) {
-        toolItem = item2;
-        materialItem = item1;
-    } else {
-        // Check if it's headless arrow + arrowhead
-        // Note: Using ARROW_HEADS instead of ARROW_SHAFTS
-        if ((ARROW_HEADS.has(item1.id) && item2.id === HEADLESS_ARROW_ID) ||
-            (ARROW_HEADS.has(item2.id) && item1.id === HEADLESS_ARROW_ID)) {
-            return await makeArrow(player, item1, item2);
-        }
-        return false;
-    }
-
-    // Handle based on tool type
-    if (toolItem.id === KNIFE_ID && BOW_LOG_IDS.has(materialItem.id)) {
-        return await cutBow(player, materialItem);
-    }
-
-    if (toolItem.id === BOWSTRING_ID && UNSTRUNG_BOW_IDS.has(materialItem.id)) {
-        return await stringBow(player, toolItem, materialItem);
-    }
-
-    if (toolItem.id === FEATHER_ID) {
-        if (DART_TIPS.has(materialItem.id)) {
-            return await makeDart(player, toolItem, materialItem);
-        }
-        if (materialItem.id === ARROW_SHAFT_ID) {
-            return await makeHeadlessArrows(player, materialItem, toolItem);
-        }
+    if (ARROW_HEADS.has(targetItem.id) && item.id === HEADLESS_ARROW_ID) {
+        return await makeArrow(player, item, targetItem);
     }
 
     return false;

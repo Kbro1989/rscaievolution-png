@@ -76,6 +76,7 @@ const PLUGIN_TYPES = [
     'onUseWithNPC',
     'onUseWithPlayer',
     'onInventoryCommand',
+    'onDrink',
     'onDropItem',
     'onNPCAttack',
     'onNPCDeath',
