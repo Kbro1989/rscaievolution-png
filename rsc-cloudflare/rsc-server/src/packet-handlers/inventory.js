@@ -158,6 +158,13 @@ async function inventoryCommand({ player }, { index }) {
         return;
     }
 
+    if (item.definition.command === 'Eat') {
+        player.lock();
+        await world.callPlugin('onEat', player, item);
+        player.unlock();
+        return;
+    }
+
     if (item.definition.command === 'Drink') {
         player.lock();
         await world.callPlugin('onDrink', player, item);
@@ -176,41 +183,26 @@ async function useWithInventoryItem({ player }, { index, withIndex }) {
     }
 
     const item = player.inventory.items[index];
+    const targetItem = player.inventory.items[withIndex];
 
-    if (!item) {
-        throw new RangeError(`${player} used invalid item index for useWith`);
-    }
-
-    const target = player.inventory.items[withIndex];
-
-    if (!target) {
-        throw new RangeError(`${player} used invalid target index for useWith`);
+    if (!item || !targetItem) {
+        throw new RangeError(`${player} used invalid item index for useWithInventoryItem`);
     }
 
     const { world } = player;
 
-    if (
-        !world.members &&
-        (item.definition.members || target.definition.members)
-    ) {
+    if (!world.members && (item.definition.members || targetItem.definition.members)) {
         player.message('Nothing interesting happens');
         return;
     }
 
     player.lock();
-
-    const blocked = await world.callPlugin(
-        'onUseWithInventory',
-        player,
-        item,
-        target
-    );
+    const blocked = await world.callPlugin('onUseWithInventory', player, item, targetItem);
+    player.unlock();
 
     if (!blocked) {
         player.message('Nothing interesting happens');
     }
-
-    player.unlock();
 }
 
 module.exports = {

@@ -76,6 +76,7 @@ const PLUGIN_TYPES = [
     'onUseWithNPC',
     'onUseWithPlayer',
     'onInventoryCommand',
+    'onEat',
     'onDrink',
     'onDropItem',
     'onNPCAttack',
@@ -567,7 +568,7 @@ class World {
 
         this.deltaTickTimes.push(deltaTime);
 
-        if (this.deltaTickTimes.length === 100) {
+        if this.deltaTickTimes.length === 100) {
             const averageTick = this.deltaTickTimes.reduce((sum, ms) => {
                 return sum + ms;
             }, 0);
