@@ -48,7 +48,7 @@ const OBJ_CANDLESTICK_CHEST_OPEN = 265;
 
 // Boundaries (doors)
 const DOOR_SHRIMP_PARROT = 78; // x:448, y:682
-const DOOR_GRUBOR_HIDEOUT = 76; // x:439, y:694
+const DOOR_GRUBOR_HIDEOUT = 76; // x:165, y:694
 const DOOR_PETE_MANSION_ENTRANCE = 75; // x:463, y:681
 const DOOR_GRIP_QUARTERS = 77; // x:463, y:676
 const SECRET_PANEL = 79;
@@ -448,7 +448,7 @@ async function onOperateBoundary(player, object) {
     }
 
     // Grubor's hideout door
-    if (object.id === DOOR_GRUBOR_HIDEOUT && object.x === 439 && object.y === 694) {
+    if (object.id === DOOR_GRUBOR_HIDEOUT && object.x === 165 && object.y === 694) {
         if (stage === -1) {
             const option = await player.ask([
                 "Would you like to have your windows refitting?",

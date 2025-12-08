@@ -1,6 +1,6 @@
 const CLOSED_CHEST_ID = 229;
-const OPEN_CHEST_ID = 228;
-const SECOND_MAP_PIECE_ID = 417;
+const OPEN_CHEST_ID = 18;
+const SECOND_MAP_PIECE_ID = 416;
 
 async function onGameObjectCommandOne(player, gameObject) {
     if (gameObject.id === OPEN_CHEST_ID) {

@@ -2,11 +2,11 @@ const QUEST_NAME = 'Temple of Ikov';
 const QUEST_POINTS = 1;
 
 // NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_LUCIEN = 360;       // "Lucien" (Flying Horse Inn) (was 364)
-const NPC_LUCIEN_EDGE = 364;  // "Lucien" (Edgeville) (was 365)
-const NPC_WINELDA = 365;      // "Winelda" (was 366)
+const NPC_LUCIEN = 353;       // "Lucien" (Flying Horse Inn) (was 364)
+const NPC_LUCIEN_EDGE = 364;  // "Lucien" (Edgeville) (was 353)
+const NPC_WINELDA = 353;      // "Winelda" (was 366)
 const NPC_GUARDIAN_FEMALE = 362; // "Guardian of Armadyl" (was 367)
-const NPC_GUARDIAN_MALE = 363;   // "Guardian of Armadyl" (was 368)
+const NPC_GUARDIAN_MALE = 363;   // "Guardian of Armadyl" (was 353)
 const NPC_FIRE_WARRIOR = 361;    // "The Fire warrior of lesarkus" (was 369)
 
 // Items
@@ -24,7 +24,7 @@ const OBJ_STAIR_DOWN = 370;
 const OBJ_STAIR_UP = 369;
 const OBJ_LEVER = 361;
 const OBJ_LEVER_BRACKET = 367;
-const OBJ_COMPLETE_LEVER = 368;
+const OBJ_COMPLETE_LEVER = 353;
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;

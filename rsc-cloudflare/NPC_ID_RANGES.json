@@ -1,0 +1,3275 @@
+{
+  "timestamp": "2025-12-08T04:36:45.112Z",
+  "totalNPCs": 797,
+  "categories": {
+    "Traders & Merchants": {
+      "range": [
+        12,
+        689
+      ],
+      "count": 47,
+      "npcs": [
+        {
+          "id": 12,
+          "name": "Bartender"
+        },
+        {
+          "id": 26,
+          "name": "Baraek"
+        },
+        {
+          "id": 44,
+          "name": "Bartender"
+        },
+        {
+          "id": 51,
+          "name": "Shopkeeper"
+        },
+        {
+          "id": 55,
+          "name": "Shopkeeper"
+        },
+        {
+          "id": 56,
+          "name": "shopkeeper"
+        },
+        {
+          "id": 71,
+          "name": "silk trader"
+        },
+        {
+          "id": 87,
+          "name": "Shopkeeper"
+        },
+        {
+          "id": 95,
+          "name": "Banker"
+        },
+        {
+          "id": 103,
+          "name": "Ranael"
+        },
+        {
+          "id": 105,
+          "name": "Shopkeeper"
+        },
+        {
+          "id": 143,
+          "name": "Dwarven shopkeeper"
+        },
+        {
+          "id": 145,
+          "name": "Shopkeeper"
+        },
+        {
+          "id": 150,
+          "name": "Bartender"
+        },
+        {
+          "id": 155,
+          "name": "Herquin"
+        },
+        {
+          "id": 168,
+          "name": "Shopkeeper"
+        },
+        {
+          "id": 185,
+          "name": "Shopkeeper"
+        },
+        {
+          "id": 219,
+          "name": "Fairy Lunderwin"
+        },
+        {
+          "id": 220,
+          "name": "Jakut"
+        },
+        {
+          "id": 222,
+          "name": "Fairy Shopkeeper"
+        },
+        {
+          "id": 224,
+          "name": "Fairy banker"
+        },
+        {
+          "id": 233,
+          "name": "Noterazzo"
+        },
+        {
+          "id": 268,
+          "name": "Banker"
+        },
+        {
+          "id": 278,
+          "name": "Davon"
+        },
+        {
+          "id": 279,
+          "name": "Bartender"
+        },
+        {
+          "id": 280,
+          "name": "Arhein"
+        },
+        {
+          "id": 306,
+          "name": "Bartender"
+        },
+        {
+          "id": 308,
+          "name": "gem trader"
+        },
+        {
+          "id": 326,
+          "name": "silk merchant"
+        },
+        {
+          "id": 327,
+          "name": "Fur trader"
+        },
+        {
+          "id": 328,
+          "name": "silver merchant"
+        },
+        {
+          "id": 329,
+          "name": "spice merchant"
+        },
+        {
+          "id": 330,
+          "name": "gem merchant"
+        },
+        {
+          "id": 331,
+          "name": "Zenesha"
+        },
+        {
+          "id": 340,
+          "name": "Bartender"
+        },
+        {
+          "id": 341,
+          "name": "chuck"
+        },
+        {
+          "id": 371,
+          "name": "Shopkeeper"
+        },
+        {
+          "id": 382,
+          "name": "Khazard Bartender"
+        },
+        {
+          "id": 391,
+          "name": "Shopkeeper"
+        },
+        {
+          "id": 520,
+          "name": "Bartender"
+        },
+        {
+          "id": 529,
+          "name": "Bartender"
+        },
+        {
+          "id": 540,
+          "name": "Gnome banker"
+        },
+        {
+          "id": 617,
+          "name": "Jungle Banker"
+        },
+        {
+          "id": 686,
+          "name": "Ogre merchant"
+        },
+        {
+          "id": 687,
+          "name": "Ogre trader"
+        },
+        {
+          "id": 688,
+          "name": "Ogre trader"
+        },
+        {
+          "id": 689,
+          "name": "Ogre trader"
+        }
+      ]
+    },
+    "Quest NPCs": {
+      "range": [
+        16,
+        788
+      ],
+      "count": 82,
+      "npcs": [
+        {
+          "id": 16,
+          "name": "Sir Prysin"
+        },
+        {
+          "id": 18,
+          "name": "Captain Rovin"
+        },
+        {
+          "id": 24,
+          "name": "Man"
+        },
+        {
+          "id": 28,
+          "name": "Tramp"
+        },
+        {
+          "id": 32,
+          "name": "Father Lawrence"
+        },
+        {
+          "id": 42,
+          "name": "king"
+        },
+        {
+          "id": 66,
+          "name": "Black Knight"
+        },
+        {
+          "id": 76,
+          "name": "Barbarian"
+        },
+        {
+          "id": 108,
+          "name": "Black Knight"
+        },
+        {
+          "id": 118,
+          "name": "Prince Ali"
+        },
+        {
+          "id": 126,
+          "name": "Prince Ali"
+        },
+        {
+          "id": 136,
+          "name": "King Scorpion"
+        },
+        {
+          "id": 151,
+          "name": "General wartface"
+        },
+        {
+          "id": 152,
+          "name": "General Bentnoze"
+        },
+        {
+          "id": 166,
+          "name": "Captain Tobias"
+        },
+        {
+          "id": 230,
+          "name": "Jatix"
+        },
+        {
+          "id": 243,
+          "name": "Grey wolf"
+        },
+        {
+          "id": 247,
+          "name": "shapeshifter"
+        },
+        {
+          "id": 255,
+          "name": "Grubor"
+        },
+        {
+          "id": 271,
+          "name": "Poison Scorpion"
+        },
+        {
+          "id": 275,
+          "name": "King Arthur"
+        },
+        {
+          "id": 286,
+          "name": "Beggar"
+        },
+        {
+          "id": 310,
+          "name": "chef"
+        },
+        {
+          "id": 312,
+          "name": "Ogre"
+        },
+        {
+          "id": 316,
+          "name": "Captain Barnaby"
+        },
+        {
+          "id": 373,
+          "name": "Guard"
+        },
+        {
+          "id": 374,
+          "name": "Guard"
+        },
+        {
+          "id": 375,
+          "name": "Guard"
+        },
+        {
+          "id": 376,
+          "name": "Guard"
+        },
+        {
+          "id": 381,
+          "name": "local"
+        },
+        {
+          "id": 383,
+          "name": "General Khazard"
+        },
+        {
+          "id": 385,
+          "name": "Guard"
+        },
+        {
+          "id": 389,
+          "name": "Stankers"
+        },
+        {
+          "id": 401,
+          "name": "Black Knight titan"
+        },
+        {
+          "id": 407,
+          "name": "Khazard troop"
+        },
+        {
+          "id": 412,
+          "name": "Fisher king"
+        },
+        {
+          "id": 415,
+          "name": "King Percival"
+        },
+        {
+          "id": 422,
+          "name": "henryeta"
+        },
+        {
+          "id": 424,
+          "name": "clivet"
+        },
+        {
+          "id": 425,
+          "name": "cult member"
+        },
+        {
+          "id": 427,
+          "name": "alomone"
+        },
+        {
+          "id": 428,
+          "name": "Khazard commander"
+        },
+        {
+          "id": 447,
+          "name": "Martha Rehnison"
+        },
+        {
+          "id": 461,
+          "name": "kennith"
+        },
+        {
+          "id": 471,
+          "name": "hudon"
+        },
+        {
+          "id": 472,
+          "name": "hadley"
+        },
+        {
+          "id": 477,
+          "name": "King Black Dragon"
+        },
+        {
+          "id": 478,
+          "name": "cooking instructor"
+        },
+        {
+          "id": 484,
+          "name": "Omart"
+        },
+        {
+          "id": 489,
+          "name": "Quest advisor"
+        },
+        {
+          "id": 512,
+          "name": "king Lathas"
+        },
+        {
+          "id": 515,
+          "name": "Wizard Frumscone"
+        },
+        {
+          "id": 541,
+          "name": "King Narnode Shareen"
+        },
+        {
+          "id": 545,
+          "name": "King Narnode Shareen"
+        },
+        {
+          "id": 546,
+          "name": "Hazelmere"
+        },
+        {
+          "id": 547,
+          "name": "Glough"
+        },
+        {
+          "id": 566,
+          "name": "Glough"
+        },
+        {
+          "id": 588,
+          "name": "Gunnjorn"
+        },
+        {
+          "id": 590,
+          "name": "Brimstail"
+        },
+        {
+          "id": 620,
+          "name": "Obli"
+        },
+        {
+          "id": 626,
+          "name": "Koftik"
+        },
+        {
+          "id": 627,
+          "name": "Koftik"
+        },
+        {
+          "id": 628,
+          "name": "Koftik"
+        },
+        {
+          "id": 629,
+          "name": "Koftik"
+        },
+        {
+          "id": 649,
+          "name": "Iban"
+        },
+        {
+          "id": 650,
+          "name": "Koftik"
+        },
+        {
+          "id": 659,
+          "name": "Koftik"
+        },
+        {
+          "id": 661,
+          "name": "Chadwell"
+        },
+        {
+          "id": 669,
+          "name": "Mercenary Captain"
+        },
+        {
+          "id": 683,
+          "name": "Gorad"
+        },
+        {
+          "id": 691,
+          "name": "City Guard"
+        },
+        {
+          "id": 702,
+          "name": "Captain Siad"
+        },
+        {
+          "id": 706,
+          "name": "Ogre"
+        },
+        {
+          "id": 715,
+          "name": "Shilop"
+        },
+        {
+          "id": 718,
+          "name": "Rowdy Slave"
+        },
+        {
+          "id": 722,
+          "name": "Workman"
+        },
+        {
+          "id": 738,
+          "name": "Workman"
+        },
+        {
+          "id": 750,
+          "name": "Man"
+        },
+        {
+          "id": 764,
+          "name": "Gujuo"
+        },
+        {
+          "id": 766,
+          "name": "Ungadulu"
+        },
+        {
+          "id": 767,
+          "name": "Ungadulu"
+        },
+        {
+          "id": 788,
+          "name": "Fionella"
+        }
+      ]
+    },
+    "Combat NPCs": {
+      "range": [
+        4,
+        796
+      ],
+      "count": 122,
+      "npcs": [
+        {
+          "id": 4,
+          "name": "Goblin"
+        },
+        {
+          "id": 15,
+          "name": "Ghost"
+        },
+        {
+          "id": 17,
+          "name": "Traiborn the wizard"
+        },
+        {
+          "id": 22,
+          "name": "Lesser Demon"
+        },
+        {
+          "id": 23,
+          "name": "Giant Spider"
+        },
+        {
+          "id": 35,
+          "name": "Delrith"
+        },
+        {
+          "id": 40,
+          "name": "skeleton"
+        },
+        {
+          "id": 41,
+          "name": "zombie"
+        },
+        {
+          "id": 43,
+          "name": "Giant bat"
+        },
+        {
+          "id": 45,
+          "name": "skeleton"
+        },
+        {
+          "id": 46,
+          "name": "skeleton"
+        },
+        {
+          "id": 50,
+          "name": "skeleton"
+        },
+        {
+          "id": 52,
+          "name": "zombie"
+        },
+        {
+          "id": 53,
+          "name": "Ghost"
+        },
+        {
+          "id": 57,
+          "name": "Darkwizard"
+        },
+        {
+          "id": 60,
+          "name": "Darkwizard"
+        },
+        {
+          "id": 61,
+          "name": "Giant"
+        },
+        {
+          "id": 62,
+          "name": "Goblin"
+        },
+        {
+          "id": 67,
+          "name": "Hobgoblin"
+        },
+        {
+          "id": 68,
+          "name": "zombie"
+        },
+        {
+          "id": 74,
+          "name": "Giant Spider"
+        },
+        {
+          "id": 80,
+          "name": "Ghost"
+        },
+        {
+          "id": 81,
+          "name": "Wizard"
+        },
+        {
+          "id": 86,
+          "name": "Warrior"
+        },
+        {
+          "id": 102,
+          "name": "White Knight"
+        },
+        {
+          "id": 104,
+          "name": "Moss Giant"
+        },
+        {
+          "id": 110,
+          "name": "Sir Amik Varze"
+        },
+        {
+          "id": 117,
+          "name": "Wizard Mizgog"
+        },
+        {
+          "id": 123,
+          "name": "Lady Keli"
+        },
+        {
+          "id": 128,
+          "name": "Redbeard Frank"
+        },
+        {
+          "id": 135,
+          "name": "Ice Giant"
+        },
+        {
+          "id": 137,
+          "name": "Pirate"
+        },
+        {
+          "id": 138,
+          "name": "Sir Vyvin"
+        },
+        {
+          "id": 153,
+          "name": "Goblin"
+        },
+        {
+          "id": 154,
+          "name": "Goblin"
+        },
+        {
+          "id": 158,
+          "name": "Ice warrior"
+        },
+        {
+          "id": 159,
+          "name": "Warrior"
+        },
+        {
+          "id": 178,
+          "name": "Ghost"
+        },
+        {
+          "id": 179,
+          "name": "skeleton"
+        },
+        {
+          "id": 180,
+          "name": "zombie"
+        },
+        {
+          "id": 181,
+          "name": "Lesser Demon"
+        },
+        {
+          "id": 184,
+          "name": "Greater Demon"
+        },
+        {
+          "id": 189,
+          "name": "Black Knight"
+        },
+        {
+          "id": 192,
+          "name": "Wormbrain"
+        },
+        {
+          "id": 195,
+          "name": "skeleton"
+        },
+        {
+          "id": 196,
+          "name": "Dragon"
+        },
+        {
+          "id": 199,
+          "name": "Dark Warrior"
+        },
+        {
+          "id": 201,
+          "name": "Red Dragon"
+        },
+        {
+          "id": 202,
+          "name": "Blue Dragon"
+        },
+        {
+          "id": 203,
+          "name": "Baby Blue Dragon"
+        },
+        {
+          "id": 208,
+          "name": "Adventurer"
+        },
+        {
+          "id": 209,
+          "name": "Adventurer"
+        },
+        {
+          "id": 214,
+          "name": "zombie"
+        },
+        {
+          "id": 232,
+          "name": "Bandit"
+        },
+        {
+          "id": 234,
+          "name": "Bandit"
+        },
+        {
+          "id": 236,
+          "name": "Donny the lad"
+        },
+        {
+          "id": 237,
+          "name": "Black Heather"
+        },
+        {
+          "id": 238,
+          "name": "Speedy Keith"
+        },
+        {
+          "id": 254,
+          "name": "Ice queen"
+        },
+        {
+          "id": 258,
+          "name": "guard"
+        },
+        {
+          "id": 264,
+          "name": "Pirate"
+        },
+        {
+          "id": 265,
+          "name": "Jailer"
+        },
+        {
+          "id": 266,
+          "name": "Lord Darquarius"
+        },
+        {
+          "id": 273,
+          "name": "Sir Lancelot"
+        },
+        {
+          "id": 274,
+          "name": "Sir Gawain"
+        },
+        {
+          "id": 276,
+          "name": "Sir Mordred"
+        },
+        {
+          "id": 277,
+          "name": "Renegade knight"
+        },
+        {
+          "id": 281,
+          "name": "Morgan le faye"
+        },
+        {
+          "id": 287,
+          "name": "Merlin"
+        },
+        {
+          "id": 288,
+          "name": "Thrantax"
+        },
+        {
+          "id": 290,
+          "name": "Black Demon"
+        },
+        {
+          "id": 291,
+          "name": "Black Dragon"
+        },
+        {
+          "id": 300,
+          "name": "Thormac the sorceror"
+        },
+        {
+          "id": 301,
+          "name": "Seer"
+        },
+        {
+          "id": 311,
+          "name": "Hobgoblin"
+        },
+        {
+          "id": 314,
+          "name": "Wizard"
+        },
+        {
+          "id": 315,
+          "name": "Chronozon"
+        },
+        {
+          "id": 320,
+          "name": "Warrior"
+        },
+        {
+          "id": 322,
+          "name": "Knight"
+        },
+        {
+          "id": 323,
+          "name": "Paladin"
+        },
+        {
+          "id": 333,
+          "name": "Wizard Cromperty"
+        },
+        {
+          "id": 339,
+          "name": "Make over mage"
+        },
+        {
+          "id": 344,
+          "name": "Fire Giant"
+        },
+        {
+          "id": 359,
+          "name": "zombie"
+        },
+        {
+          "id": 361,
+          "name": "The Fire warrior of lesarkus"
+        },
+        {
+          "id": 384,
+          "name": "Khazard Ogre"
+        },
+        {
+          "id": 393,
+          "name": "Merlin"
+        },
+        {
+          "id": 421,
+          "name": "Tribesman"
+        },
+        {
+          "id": 494,
+          "name": "Magic Instructor"
+        },
+        {
+          "id": 498,
+          "name": "skeleton mage"
+        },
+        {
+          "id": 513,
+          "name": "Head wizard"
+        },
+        {
+          "id": 514,
+          "name": "Magic store owner"
+        },
+        {
+          "id": 516,
+          "name": "target practice zombie"
+        },
+        {
+          "id": 539,
+          "name": "Mosol"
+        },
+        {
+          "id": 555,
+          "name": "Chaos Druid warrior"
+        },
+        {
+          "id": 568,
+          "name": "Black Demon"
+        },
+        {
+          "id": 573,
+          "name": "Sigbert the Adventurer"
+        },
+        {
+          "id": 584,
+          "name": "Earth warrior"
+        },
+        {
+          "id": 589,
+          "name": "Zadimus"
+        },
+        {
+          "id": 594,
+          "name": "Moss Giant"
+        },
+        {
+          "id": 613,
+          "name": "Nazastarool Zombie"
+        },
+        {
+          "id": 614,
+          "name": "Nazastarool Skeleton"
+        },
+        {
+          "id": 615,
+          "name": "Nazastarool Ghost"
+        },
+        {
+          "id": 632,
+          "name": "Paladin"
+        },
+        {
+          "id": 633,
+          "name": "Paladin"
+        },
+        {
+          "id": 646,
+          "name": "Doomion"
+        },
+        {
+          "id": 651,
+          "name": "Goblin guard"
+        },
+        {
+          "id": 660,
+          "name": "Goblin"
+        },
+        {
+          "id": 664,
+          "name": "Ghost"
+        },
+        {
+          "id": 667,
+          "name": "Dark Mage"
+        },
+        {
+          "id": 671,
+          "name": "Mining Slave"
+        },
+        {
+          "id": 672,
+          "name": "Watchtower wizard"
+        },
+        {
+          "id": 712,
+          "name": "kolodion"
+        },
+        {
+          "id": 713,
+          "name": "kolodion"
+        },
+        {
+          "id": 769,
+          "name": "Nezikchened"
+        },
+        {
+          "id": 772,
+          "name": "Viyeldi"
+        },
+        {
+          "id": 776,
+          "name": "Jungle Savage"
+        },
+        {
+          "id": 787,
+          "name": "Shadow Warrior"
+        },
+        {
+          "id": 789,
+          "name": "Battle mage"
+        },
+        {
+          "id": 790,
+          "name": "Battle mage"
+        },
+        {
+          "id": 791,
+          "name": "Battle mage"
+        },
+        {
+          "id": 796,
+          "name": "Watchtower Wizard"
+        }
+      ]
+    },
+    "Civilians": {
+      "range": [
+        11,
+        785
+      ],
+      "count": 86,
+      "npcs": [
+        {
+          "id": 11,
+          "name": "Man"
+        },
+        {
+          "id": 14,
+          "name": "Gypsy"
+        },
+        {
+          "id": 72,
+          "name": "Man"
+        },
+        {
+          "id": 73,
+          "name": "Guide"
+        },
+        {
+          "id": 75,
+          "name": "Peksa"
+        },
+        {
+          "id": 89,
+          "name": "Highwayman"
+        },
+        {
+          "id": 97,
+          "name": "Morgan"
+        },
+        {
+          "id": 120,
+          "name": "Osman"
+        },
+        {
+          "id": 147,
+          "name": "Guide"
+        },
+        {
+          "id": 170,
+          "name": "Seaman Lorris"
+        },
+        {
+          "id": 171,
+          "name": "Seaman Thresnor"
+        },
+        {
+          "id": 176,
+          "name": "Brother Jered"
+        },
+        {
+          "id": 187,
+          "name": "Oziach"
+        },
+        {
+          "id": 211,
+          "name": "Leprechaun"
+        },
+        {
+          "id": 240,
+          "name": "Boy"
+        },
+        {
+          "id": 272,
+          "name": "Velrak the explorer"
+        },
+        {
+          "id": 283,
+          "name": "lady"
+        },
+        {
+          "id": 284,
+          "name": "lady"
+        },
+        {
+          "id": 285,
+          "name": "lady"
+        },
+        {
+          "id": 307,
+          "name": "man"
+        },
+        {
+          "id": 309,
+          "name": "Dimintheis"
+        },
+        {
+          "id": 318,
+          "name": "Man"
+        },
+        {
+          "id": 332,
+          "name": "Kangai Mau"
+        },
+        {
+          "id": 334,
+          "name": "RPDT employee"
+        },
+        {
+          "id": 345,
+          "name": "Grandpa Jack"
+        },
+        {
+          "id": 346,
+          "name": "Sinister stranger"
+        },
+        {
+          "id": 353,
+          "name": "Big Dave"
+        },
+        {
+          "id": 354,
+          "name": "Joshua"
+        },
+        {
+          "id": 358,
+          "name": "Necromancer"
+        },
+        {
+          "id": 372,
+          "name": "Lady servil"
+        },
+        {
+          "id": 394,
+          "name": "Crone"
+        },
+        {
+          "id": 408,
+          "name": "commander montai"
+        },
+        {
+          "id": 414,
+          "name": "Fisherman"
+        },
+        {
+          "id": 423,
+          "name": "philipe"
+        },
+        {
+          "id": 438,
+          "name": "Citizen"
+        },
+        {
+          "id": 439,
+          "name": "Citizen"
+        },
+        {
+          "id": 441,
+          "name": "Citizen"
+        },
+        {
+          "id": 442,
+          "name": "Citizen"
+        },
+        {
+          "id": 443,
+          "name": "Jethick"
+        },
+        {
+          "id": 455,
+          "name": "Caroline"
+        },
+        {
+          "id": 462,
+          "name": "Platform Fisherman"
+        },
+        {
+          "id": 463,
+          "name": "Platform Fisherman"
+        },
+        {
+          "id": 464,
+          "name": "Platform Fisherman"
+        },
+        {
+          "id": 470,
+          "name": "Almera"
+        },
+        {
+          "id": 476,
+          "name": "Guide"
+        },
+        {
+          "id": 481,
+          "name": "gerald"
+        },
+        {
+          "id": 490,
+          "name": "chemist"
+        },
+        {
+          "id": 493,
+          "name": "Wilderness guide"
+        },
+        {
+          "id": 497,
+          "name": "boatman"
+        },
+        {
+          "id": 499,
+          "name": "controls guide"
+        },
+        {
+          "id": 507,
+          "name": "DeVinci"
+        },
+        {
+          "id": 511,
+          "name": "DeVinci"
+        },
+        {
+          "id": 523,
+          "name": "Jogre"
+        },
+        {
+          "id": 538,
+          "name": "Irena"
+        },
+        {
+          "id": 544,
+          "name": "tourist"
+        },
+        {
+          "id": 549,
+          "name": "Shantay"
+        },
+        {
+          "id": 553,
+          "name": "Mehman"
+        },
+        {
+          "id": 554,
+          "name": "Ana"
+        },
+        {
+          "id": 560,
+          "name": "Shipyard foreman"
+        },
+        {
+          "id": 561,
+          "name": "Shipyard foreman"
+        },
+        {
+          "id": 580,
+          "name": "Blurberry barman"
+        },
+        {
+          "id": 583,
+          "name": "Gnome child"
+        },
+        {
+          "id": 585,
+          "name": "Gnome child"
+        },
+        {
+          "id": 586,
+          "name": "Gnome child"
+        },
+        {
+          "id": 591,
+          "name": "Gnome child"
+        },
+        {
+          "id": 592,
+          "name": "Gnome local"
+        },
+        {
+          "id": 593,
+          "name": "Gnome local"
+        },
+        {
+          "id": 623,
+          "name": "Serevel"
+        },
+        {
+          "id": 673,
+          "name": "Ogre Shaman"
+        },
+        {
+          "id": 704,
+          "name": "Ogre citizen"
+        },
+        {
+          "id": 726,
+          "name": "Guide"
+        },
+        {
+          "id": 733,
+          "name": "Murphy"
+        },
+        {
+          "id": 734,
+          "name": "Murphy"
+        },
+        {
+          "id": 735,
+          "name": "Sir Radimus Erkle"
+        },
+        {
+          "id": 737,
+          "name": "Escaping Mining Slave"
+        },
+        {
+          "id": 739,
+          "name": "Murphy"
+        },
+        {
+          "id": 741,
+          "name": "Donovan the Handyman"
+        },
+        {
+          "id": 751,
+          "name": "Anna Sinclair"
+        },
+        {
+          "id": 752,
+          "name": "Bob Sinclair"
+        },
+        {
+          "id": 753,
+          "name": "Carol Sinclair"
+        },
+        {
+          "id": 754,
+          "name": "David Sinclair"
+        },
+        {
+          "id": 755,
+          "name": "Elizabeth Sinclair"
+        },
+        {
+          "id": 756,
+          "name": "Frank Sinclair"
+        },
+        {
+          "id": 763,
+          "name": "Poison Salesman"
+        },
+        {
+          "id": 765,
+          "name": "Jungle Forester"
+        },
+        {
+          "id": 785,
+          "name": "Sir Radimus Erkle"
+        }
+      ]
+    },
+    "Religious": {
+      "range": [
+        9,
+        665
+      ],
+      "count": 25,
+      "npcs": [
+        {
+          "id": 9,
+          "name": "Priest"
+        },
+        {
+          "id": 93,
+          "name": "Monk"
+        },
+        {
+          "id": 139,
+          "name": "Monk of Zamorak"
+        },
+        {
+          "id": 140,
+          "name": "Monk of Zamorak"
+        },
+        {
+          "id": 174,
+          "name": "Abbot Langley"
+        },
+        {
+          "id": 200,
+          "name": "Druid"
+        },
+        {
+          "id": 204,
+          "name": "Kaqemeex"
+        },
+        {
+          "id": 205,
+          "name": "Sanfew"
+        },
+        {
+          "id": 207,
+          "name": "Adventurer"
+        },
+        {
+          "id": 212,
+          "name": "Monk of entrana"
+        },
+        {
+          "id": 213,
+          "name": "Monk of entrana"
+        },
+        {
+          "id": 215,
+          "name": "Monk of entrana"
+        },
+        {
+          "id": 270,
+          "name": "Chaos Druid"
+        },
+        {
+          "id": 293,
+          "name": "Monk of Zamorak"
+        },
+        {
+          "id": 297,
+          "name": "Frincos"
+        },
+        {
+          "id": 350,
+          "name": "Brother Omad"
+        },
+        {
+          "id": 357,
+          "name": "Brother Cedric"
+        },
+        {
+          "id": 362,
+          "name": "guardian of Armadyl"
+        },
+        {
+          "id": 363,
+          "name": "guardian of Armadyl"
+        },
+        {
+          "id": 366,
+          "name": "Brother Kojo"
+        },
+        {
+          "id": 395,
+          "name": "High priest of entrana"
+        },
+        {
+          "id": 403,
+          "name": "brother Galahad"
+        },
+        {
+          "id": 567,
+          "name": "Salarin the twisted"
+        },
+        {
+          "id": 655,
+          "name": "Souless"
+        },
+        {
+          "id": 665,
+          "name": "Spirit of Scorpius"
+        }
+      ]
+    },
+    "Monsters & Creatures": {
+      "range": [
+        2,
+        786
+      ],
+      "count": 55,
+      "npcs": [
+        {
+          "id": 2,
+          "name": "Sheep"
+        },
+        {
+          "id": 3,
+          "name": "Chicken"
+        },
+        {
+          "id": 6,
+          "name": "cow"
+        },
+        {
+          "id": 8,
+          "name": "Bear"
+        },
+        {
+          "id": 19,
+          "name": "Rat"
+        },
+        {
+          "id": 25,
+          "name": "Jonny the beard"
+        },
+        {
+          "id": 29,
+          "name": "Rat"
+        },
+        {
+          "id": 34,
+          "name": "spider"
+        },
+        {
+          "id": 39,
+          "name": "Curator"
+        },
+        {
+          "id": 47,
+          "name": "Rat"
+        },
+        {
+          "id": 49,
+          "name": "Bear"
+        },
+        {
+          "id": 70,
+          "name": "Scorpion"
+        },
+        {
+          "id": 91,
+          "name": "Chicken"
+        },
+        {
+          "id": 92,
+          "name": "Ernest"
+        },
+        {
+          "id": 99,
+          "name": "Deadly Red spider"
+        },
+        {
+          "id": 115,
+          "name": "Flynn"
+        },
+        {
+          "id": 177,
+          "name": "Rat"
+        },
+        {
+          "id": 188,
+          "name": "Bear"
+        },
+        {
+          "id": 217,
+          "name": "cow"
+        },
+        {
+          "id": 239,
+          "name": "White wolf sentry"
+        },
+        {
+          "id": 241,
+          "name": "Rat"
+        },
+        {
+          "id": 245,
+          "name": "shapeshifter"
+        },
+        {
+          "id": 246,
+          "name": "shapeshifter"
+        },
+        {
+          "id": 248,
+          "name": "White wolf"
+        },
+        {
+          "id": 249,
+          "name": "Pack leader"
+        },
+        {
+          "id": 252,
+          "name": "Firebird"
+        },
+        {
+          "id": 263,
+          "name": "Ice spider"
+        },
+        {
+          "id": 292,
+          "name": "Poison Spider"
+        },
+        {
+          "id": 302,
+          "name": "Kharid Scorpion"
+        },
+        {
+          "id": 303,
+          "name": "Kharid Scorpion"
+        },
+        {
+          "id": 304,
+          "name": "Kharid Scorpion"
+        },
+        {
+          "id": 343,
+          "name": "Shadow spider"
+        },
+        {
+          "id": 367,
+          "name": "Dungeon Rat"
+        },
+        {
+          "id": 386,
+          "name": "Khazard Scorpion"
+        },
+        {
+          "id": 430,
+          "name": "1st plague sheep"
+        },
+        {
+          "id": 431,
+          "name": "2nd plague sheep"
+        },
+        {
+          "id": 432,
+          "name": "3rd plague sheep"
+        },
+        {
+          "id": 433,
+          "name": "4th plague sheep"
+        },
+        {
+          "id": 440,
+          "name": "Citizen"
+        },
+        {
+          "id": 452,
+          "name": "Clerk"
+        },
+        {
+          "id": 473,
+          "name": "Rat"
+        },
+        {
+          "id": 488,
+          "name": "Guidor's wife"
+        },
+        {
+          "id": 521,
+          "name": "Jungle Spider"
+        },
+        {
+          "id": 552,
+          "name": "Gnome pilot"
+        },
+        {
+          "id": 556,
+          "name": "Gnome pilot"
+        },
+        {
+          "id": 569,
+          "name": "Gnome pilot"
+        },
+        {
+          "id": 570,
+          "name": "Gnome pilot"
+        },
+        {
+          "id": 571,
+          "name": "Gnome pilot"
+        },
+        {
+          "id": 572,
+          "name": "Gnome pilot"
+        },
+        {
+          "id": 631,
+          "name": "Blessed Spider"
+        },
+        {
+          "id": 656,
+          "name": "Dungeon spider"
+        },
+        {
+          "id": 666,
+          "name": "Scorpion"
+        },
+        {
+          "id": 721,
+          "name": "Desert Wolf"
+        },
+        {
+          "id": 775,
+          "name": "Karamja Wolf"
+        },
+        {
+          "id": 786,
+          "name": "Pit Scorpion"
+        }
+      ]
+    },
+    "Skilled Trainers": {
+      "range": [
+        37,
+        579
+      ],
+      "count": 13,
+      "npcs": [
+        {
+          "id": 37,
+          "name": "Weaponsmaster"
+        },
+        {
+          "id": 111,
+          "name": "Guildmaster"
+        },
+        {
+          "id": 231,
+          "name": "Master Crafter"
+        },
+        {
+          "id": 368,
+          "name": "Master fisher"
+        },
+        {
+          "id": 474,
+          "name": "Combat instructor"
+        },
+        {
+          "id": 479,
+          "name": "fishing instructor"
+        },
+        {
+          "id": 482,
+          "name": "mining instructor"
+        },
+        {
+          "id": 496,
+          "name": "Community instructor"
+        },
+        {
+          "id": 517,
+          "name": "Trufitus"
+        },
+        {
+          "id": 576,
+          "name": "Gnome Trainer"
+        },
+        {
+          "id": 577,
+          "name": "Gnome Trainer"
+        },
+        {
+          "id": 578,
+          "name": "Gnome Trainer"
+        },
+        {
+          "id": 579,
+          "name": "Gnome Trainer"
+        }
+      ]
+    },
+    "Guards & Protection": {
+      "range": [
+        65,
+        784
+      ],
+      "count": 49,
+      "npcs": [
+        {
+          "id": 65,
+          "name": "Guard"
+        },
+        {
+          "id": 100,
+          "name": "Guard"
+        },
+        {
+          "id": 121,
+          "name": "Joe"
+        },
+        {
+          "id": 127,
+          "name": "Jailguard"
+        },
+        {
+          "id": 161,
+          "name": "Border Guard"
+        },
+        {
+          "id": 162,
+          "name": "Border Guard"
+        },
+        {
+          "id": 221,
+          "name": "Doorman"
+        },
+        {
+          "id": 257,
+          "name": "Garv"
+        },
+        {
+          "id": 259,
+          "name": "Grip"
+        },
+        {
+          "id": 262,
+          "name": "Guard Dog"
+        },
+        {
+          "id": 305,
+          "name": "Barbarian guard"
+        },
+        {
+          "id": 321,
+          "name": "Guard"
+        },
+        {
+          "id": 420,
+          "name": "carnillean guard"
+        },
+        {
+          "id": 503,
+          "name": "Guard"
+        },
+        {
+          "id": 518,
+          "name": "Colonel Radick"
+        },
+        {
+          "id": 519,
+          "name": "Soldier"
+        },
+        {
+          "id": 524,
+          "name": "Guard"
+        },
+        {
+          "id": 526,
+          "name": "Guard"
+        },
+        {
+          "id": 527,
+          "name": "Guard"
+        },
+        {
+          "id": 551,
+          "name": "Gnome guard"
+        },
+        {
+          "id": 562,
+          "name": "Gnome guard"
+        },
+        {
+          "id": 574,
+          "name": "Yanille Watchman"
+        },
+        {
+          "id": 575,
+          "name": "Tower guard"
+        },
+        {
+          "id": 582,
+          "name": "Gnome guard"
+        },
+        {
+          "id": 668,
+          "name": "Mercenary"
+        },
+        {
+          "id": 670,
+          "name": "Mercenary"
+        },
+        {
+          "id": 675,
+          "name": "Ogre guard"
+        },
+        {
+          "id": 676,
+          "name": "Ogre guard"
+        },
+        {
+          "id": 677,
+          "name": "Ogre guard"
+        },
+        {
+          "id": 684,
+          "name": "Ogre guard"
+        },
+        {
+          "id": 685,
+          "name": "Yanille Watchman"
+        },
+        {
+          "id": 690,
+          "name": "Mercenary"
+        },
+        {
+          "id": 692,
+          "name": "Mercenary"
+        },
+        {
+          "id": 693,
+          "name": "Lawgof"
+        },
+        {
+          "id": 697,
+          "name": "Ogre guard"
+        },
+        {
+          "id": 698,
+          "name": "Nulodion"
+        },
+        {
+          "id": 703,
+          "name": "Bedabin Nomad Guard"
+        },
+        {
+          "id": 710,
+          "name": "Draft Mercenary Guard"
+        },
+        {
+          "id": 716,
+          "name": "Rowdy Guard"
+        },
+        {
+          "id": 717,
+          "name": "Shantay Pass Guard"
+        },
+        {
+          "id": 719,
+          "name": "Shantay Pass Guard"
+        },
+        {
+          "id": 736,
+          "name": "Legends Guild Guard"
+        },
+        {
+          "id": 742,
+          "name": "Pierre the Dog Handler"
+        },
+        {
+          "id": 747,
+          "name": "Guard"
+        },
+        {
+          "id": 748,
+          "name": "Guard Dog"
+        },
+        {
+          "id": 749,
+          "name": "Guard"
+        },
+        {
+          "id": 770,
+          "name": "Dwarf Cannon engineer"
+        },
+        {
+          "id": 771,
+          "name": "Dwarf commander"
+        },
+        {
+          "id": 784,
+          "name": "chamber guardian"
+        }
+      ]
+    },
+    "Miscellaneous": {
+      "range": [
+        0,
+        795
+      ],
+      "count": 318,
+      "npcs": [
+        {
+          "id": 0,
+          "name": "Unicorn"
+        },
+        {
+          "id": 1,
+          "name": "Bob"
+        },
+        {
+          "id": 5,
+          "name": "Hans"
+        },
+        {
+          "id": 7,
+          "name": "cook"
+        },
+        {
+          "id": 10,
+          "name": "Urhney"
+        },
+        {
+          "id": 13,
+          "name": "Camel"
+        },
+        {
+          "id": 20,
+          "name": "Reldo"
+        },
+        {
+          "id": 21,
+          "name": "mugger"
+        },
+        {
+          "id": 27,
+          "name": "Katrine"
+        },
+        {
+          "id": 30,
+          "name": "Romeo"
+        },
+        {
+          "id": 31,
+          "name": "Juliet"
+        },
+        {
+          "id": 33,
+          "name": "Apothecary"
+        },
+        {
+          "id": 36,
+          "name": "Veronica"
+        },
+        {
+          "id": 38,
+          "name": "Professor Oddenstein"
+        },
+        {
+          "id": 48,
+          "name": "Horvik the Armourer"
+        },
+        {
+          "id": 54,
+          "name": "Aubury"
+        },
+        {
+          "id": 58,
+          "name": "lowe"
+        },
+        {
+          "id": 59,
+          "name": "Thessalia"
+        },
+        {
+          "id": 63,
+          "name": "farmer"
+        },
+        {
+          "id": 64,
+          "name": "Thief"
+        },
+        {
+          "id": 69,
+          "name": "Zaff"
+        },
+        {
+          "id": 77,
+          "name": "Fred the farmer"
+        },
+        {
+          "id": 78,
+          "name": "Gunthor the Brave"
+        },
+        {
+          "id": 79,
+          "name": "Witch"
+        },
+        {
+          "id": 82,
+          "name": "Shop Assistant"
+        },
+        {
+          "id": 83,
+          "name": "Shop Assistant"
+        },
+        {
+          "id": 84,
+          "name": "Zeke"
+        },
+        {
+          "id": 85,
+          "name": "Louie Legs"
+        },
+        {
+          "id": 88,
+          "name": "Shop Assistant"
+        },
+        {
+          "id": 90,
+          "name": "Kebab Seller"
+        },
+        {
+          "id": 94,
+          "name": "Dwarf"
+        },
+        {
+          "id": 96,
+          "name": "Count Draynor"
+        },
+        {
+          "id": 98,
+          "name": "Dr Harlow"
+        },
+        {
+          "id": 101,
+          "name": "Cassie"
+        },
+        {
+          "id": 106,
+          "name": "Shop Assistant"
+        },
+        {
+          "id": 107,
+          "name": "Witch"
+        },
+        {
+          "id": 109,
+          "name": "Greldo"
+        },
+        {
+          "id": 112,
+          "name": "Valaine"
+        },
+        {
+          "id": 113,
+          "name": "Drogo"
+        },
+        {
+          "id": 114,
+          "name": "Imp"
+        },
+        {
+          "id": 116,
+          "name": "Wyson the gardener"
+        },
+        {
+          "id": 119,
+          "name": "Hassan"
+        },
+        {
+          "id": 122,
+          "name": "Leela"
+        },
+        {
+          "id": 124,
+          "name": "Ned"
+        },
+        {
+          "id": 125,
+          "name": "Aggie"
+        },
+        {
+          "id": 129,
+          "name": "Wydin"
+        },
+        {
+          "id": 130,
+          "name": "shop assistant"
+        },
+        {
+          "id": 131,
+          "name": "Brian"
+        },
+        {
+          "id": 132,
+          "name": "squire"
+        },
+        {
+          "id": 133,
+          "name": "Head chef"
+        },
+        {
+          "id": 134,
+          "name": "Thurgo"
+        },
+        {
+          "id": 141,
+          "name": "Wayne"
+        },
+        {
+          "id": 142,
+          "name": "Barmaid"
+        },
+        {
+          "id": 144,
+          "name": "Doric"
+        },
+        {
+          "id": 146,
+          "name": "Shop Assistant"
+        },
+        {
+          "id": 148,
+          "name": "Hetty"
+        },
+        {
+          "id": 149,
+          "name": "Betty"
+        },
+        {
+          "id": 156,
+          "name": "Rommik"
+        },
+        {
+          "id": 157,
+          "name": "Grum"
+        },
+        {
+          "id": 160,
+          "name": "Thrander"
+        },
+        {
+          "id": 163,
+          "name": "Customs Officer"
+        },
+        {
+          "id": 164,
+          "name": "Luthas"
+        },
+        {
+          "id": 165,
+          "name": "Zambo"
+        },
+        {
+          "id": 167,
+          "name": "Gerrant"
+        },
+        {
+          "id": 169,
+          "name": "Shop Assistant"
+        },
+        {
+          "id": 172,
+          "name": "Tanner"
+        },
+        {
+          "id": 173,
+          "name": "Dommik"
+        },
+        {
+          "id": 175,
+          "name": "Thordur"
+        },
+        {
+          "id": 182,
+          "name": "Melzar the mad"
+        },
+        {
+          "id": 183,
+          "name": "Scavvo"
+        },
+        {
+          "id": 186,
+          "name": "Shop Assistant"
+        },
+        {
+          "id": 190,
+          "name": "chaos Dwarf"
+        },
+        {
+          "id": 191,
+          "name": "dwarf"
+        },
+        {
+          "id": 193,
+          "name": "Klarense"
+        },
+        {
+          "id": 194,
+          "name": "Ned"
+        },
+        {
+          "id": 197,
+          "name": "Oracle"
+        },
+        {
+          "id": 198,
+          "name": "Duke of Lumbridge"
+        },
+        {
+          "id": 206,
+          "name": "Suit of armour"
+        },
+        {
+          "id": 210,
+          "name": "Adventurer"
+        },
+        {
+          "id": 216,
+          "name": "tree spirit"
+        },
+        {
+          "id": 218,
+          "name": "Irksol"
+        },
+        {
+          "id": 223,
+          "name": "Fairy Shop Assistant"
+        },
+        {
+          "id": 225,
+          "name": "Giles"
+        },
+        {
+          "id": 226,
+          "name": "Miles"
+        },
+        {
+          "id": 227,
+          "name": "Niles"
+        },
+        {
+          "id": 228,
+          "name": "Gaius"
+        },
+        {
+          "id": 229,
+          "name": "Fairy Ladder attendant"
+        },
+        {
+          "id": 235,
+          "name": "Fat Tony"
+        },
+        {
+          "id": 242,
+          "name": "Nora T Hag"
+        },
+        {
+          "id": 244,
+          "name": "shapeshifter"
+        },
+        {
+          "id": 250,
+          "name": "Harry"
+        },
+        {
+          "id": 251,
+          "name": "Thug"
+        },
+        {
+          "id": 253,
+          "name": "Achetties"
+        },
+        {
+          "id": 256,
+          "name": "Trobert"
+        },
+        {
+          "id": 260,
+          "name": "Alfonse the waiter"
+        },
+        {
+          "id": 261,
+          "name": "Charlie the cook"
+        },
+        {
+          "id": 267,
+          "name": "Seth"
+        },
+        {
+          "id": 269,
+          "name": "Helemos"
+        },
+        {
+          "id": 282,
+          "name": "Candlemaker"
+        },
+        {
+          "id": 289,
+          "name": "Hickton"
+        },
+        {
+          "id": 294,
+          "name": "Hellhound"
+        },
+        {
+          "id": 295,
+          "name": "Animated axe"
+        },
+        {
+          "id": 296,
+          "name": "Black Unicorn"
+        },
+        {
+          "id": 298,
+          "name": "Otherworldly being"
+        },
+        {
+          "id": 299,
+          "name": "Owen"
+        },
+        {
+          "id": 313,
+          "name": "Boot the Dwarf"
+        },
+        {
+          "id": 317,
+          "name": "Customs Official"
+        },
+        {
+          "id": 319,
+          "name": "farmer"
+        },
+        {
+          "id": 324,
+          "name": "Hero"
+        },
+        {
+          "id": 325,
+          "name": "Baker"
+        },
+        {
+          "id": 335,
+          "name": "Horacio"
+        },
+        {
+          "id": 336,
+          "name": "Aemad"
+        },
+        {
+          "id": 337,
+          "name": "Kortan"
+        },
+        {
+          "id": 338,
+          "name": "zoo keeper"
+        },
+        {
+          "id": 342,
+          "name": "Rogue"
+        },
+        {
+          "id": 347,
+          "name": "Bonzo"
+        },
+        {
+          "id": 348,
+          "name": "Forester"
+        },
+        {
+          "id": 349,
+          "name": "Morris"
+        },
+        {
+          "id": 351,
+          "name": "Thief"
+        },
+        {
+          "id": 352,
+          "name": "Head Thief"
+        },
+        {
+          "id": 355,
+          "name": "Mountain Dwarf"
+        },
+        {
+          "id": 356,
+          "name": "Mountain Dwarf"
+        },
+        {
+          "id": 360,
+          "name": "Lucien"
+        },
+        {
+          "id": 364,
+          "name": "Lucien"
+        },
+        {
+          "id": 365,
+          "name": "winelda"
+        },
+        {
+          "id": 369,
+          "name": "Orven"
+        },
+        {
+          "id": 370,
+          "name": "Padik"
+        },
+        {
+          "id": 377,
+          "name": "Jeremy Servil"
+        },
+        {
+          "id": 378,
+          "name": "Justin Servil"
+        },
+        {
+          "id": 379,
+          "name": "fightslave joe"
+        },
+        {
+          "id": 380,
+          "name": "fightslave kelvin"
+        },
+        {
+          "id": 387,
+          "name": "hengrad"
+        },
+        {
+          "id": 388,
+          "name": "Bouncer"
+        },
+        {
+          "id": 390,
+          "name": "Docky"
+        },
+        {
+          "id": 392,
+          "name": "Fairy queen"
+        },
+        {
+          "id": 396,
+          "name": "elkoy"
+        },
+        {
+          "id": 397,
+          "name": "remsai"
+        },
+        {
+          "id": 398,
+          "name": "bolkoy"
+        },
+        {
+          "id": 399,
+          "name": "local gnome"
+        },
+        {
+          "id": 400,
+          "name": "bolren"
+        },
+        {
+          "id": 402,
+          "name": "kalron"
+        },
+        {
+          "id": 404,
+          "name": "tracker 1"
+        },
+        {
+          "id": 405,
+          "name": "tracker 2"
+        },
+        {
+          "id": 406,
+          "name": "tracker 3"
+        },
+        {
+          "id": 409,
+          "name": "gnome troop"
+        },
+        {
+          "id": 410,
+          "name": "khazard warlord"
+        },
+        {
+          "id": 411,
+          "name": "Sir Percival"
+        },
+        {
+          "id": 413,
+          "name": "maiden"
+        },
+        {
+          "id": 416,
+          "name": "unhappy peasant"
+        },
+        {
+          "id": 417,
+          "name": "happy peasant"
+        },
+        {
+          "id": 418,
+          "name": "ceril"
+        },
+        {
+          "id": 419,
+          "name": "butler"
+        },
+        {
+          "id": 426,
+          "name": "Lord hazeel"
+        },
+        {
+          "id": 429,
+          "name": "claus"
+        },
+        {
+          "id": 434,
+          "name": "Farmer brumty"
+        },
+        {
+          "id": 435,
+          "name": "Doctor orbon"
+        },
+        {
+          "id": 436,
+          "name": "Councillor Halgrive"
+        },
+        {
+          "id": 437,
+          "name": "Edmond"
+        },
+        {
+          "id": 444,
+          "name": "Mourner"
+        },
+        {
+          "id": 445,
+          "name": "Mourner"
+        },
+        {
+          "id": 446,
+          "name": "Ted Rehnison"
+        },
+        {
+          "id": 448,
+          "name": "Billy Rehnison"
+        },
+        {
+          "id": 449,
+          "name": "Milli Rehnison"
+        },
+        {
+          "id": 450,
+          "name": "Alrena"
+        },
+        {
+          "id": 451,
+          "name": "Mourner"
+        },
+        {
+          "id": 453,
+          "name": "Carla"
+        },
+        {
+          "id": 454,
+          "name": "Bravek"
+        },
+        {
+          "id": 456,
+          "name": "Holgart"
+        },
+        {
+          "id": 457,
+          "name": "Holgart"
+        },
+        {
+          "id": 458,
+          "name": "Holgart"
+        },
+        {
+          "id": 459,
+          "name": "kent"
+        },
+        {
+          "id": 460,
+          "name": "bailey"
+        },
+        {
+          "id": 465,
+          "name": "Elena"
+        },
+        {
+          "id": 466,
+          "name": "jinno"
+        },
+        {
+          "id": 467,
+          "name": "Watto"
+        },
+        {
+          "id": 468,
+          "name": "Recruiter"
+        },
+        {
+          "id": 469,
+          "name": "Head mourner"
+        },
+        {
+          "id": 475,
+          "name": "golrie"
+        },
+        {
+          "id": 480,
+          "name": "financial advisor"
+        },
+        {
+          "id": 483,
+          "name": "Elena"
+        },
+        {
+          "id": 485,
+          "name": "Bank assistant"
+        },
+        {
+          "id": 486,
+          "name": "Jerico"
+        },
+        {
+          "id": 487,
+          "name": "Kilron"
+        },
+        {
+          "id": 491,
+          "name": "Mourner"
+        },
+        {
+          "id": 492,
+          "name": "Mourner"
+        },
+        {
+          "id": 495,
+          "name": "Mourner"
+        },
+        {
+          "id": 500,
+          "name": "nurse sarah"
+        },
+        {
+          "id": 501,
+          "name": "Tailor"
+        },
+        {
+          "id": 502,
+          "name": "Mourner"
+        },
+        {
+          "id": 504,
+          "name": "Chemist"
+        },
+        {
+          "id": 505,
+          "name": "Chancy"
+        },
+        {
+          "id": 506,
+          "name": "Hops"
+        },
+        {
+          "id": 508,
+          "name": "Guidor"
+        },
+        {
+          "id": 509,
+          "name": "Chancy"
+        },
+        {
+          "id": 510,
+          "name": "Hops"
+        },
+        {
+          "id": 522,
+          "name": "Jiminua"
+        },
+        {
+          "id": 525,
+          "name": "Ogre"
+        },
+        {
+          "id": 528,
+          "name": "shop keeper"
+        },
+        {
+          "id": 530,
+          "name": "Frenita"
+        },
+        {
+          "id": 531,
+          "name": "Ogre chieftan"
+        },
+        {
+          "id": 532,
+          "name": "rometti"
+        },
+        {
+          "id": 533,
+          "name": "Rashiliyia"
+        },
+        {
+          "id": 534,
+          "name": "Blurberry"
+        },
+        {
+          "id": 535,
+          "name": "Heckel funch"
+        },
+        {
+          "id": 536,
+          "name": "Aluft Gianne"
+        },
+        {
+          "id": 537,
+          "name": "Hudo glenfad"
+        },
+        {
+          "id": 542,
+          "name": "UndeadOne"
+        },
+        {
+          "id": 543,
+          "name": "Drucas"
+        },
+        {
+          "id": 548,
+          "name": "Shar"
+        },
+        {
+          "id": 550,
+          "name": "charlie"
+        },
+        {
+          "id": 557,
+          "name": "Shipyard worker"
+        },
+        {
+          "id": 558,
+          "name": "Shipyard worker"
+        },
+        {
+          "id": 559,
+          "name": "Shipyard worker"
+        },
+        {
+          "id": 563,
+          "name": "Femi"
+        },
+        {
+          "id": 564,
+          "name": "Femi"
+        },
+        {
+          "id": 565,
+          "name": "Anita"
+        },
+        {
+          "id": 581,
+          "name": "Gnome waiter"
+        },
+        {
+          "id": 587,
+          "name": "Gulluck"
+        },
+        {
+          "id": 595,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 596,
+          "name": "Goalie"
+        },
+        {
+          "id": 597,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 598,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 599,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 600,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 601,
+          "name": "Referee"
+        },
+        {
+          "id": 602,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 603,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 604,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 605,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 606,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 607,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 608,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 609,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 610,
+          "name": "Gnome Baller"
+        },
+        {
+          "id": 611,
+          "name": "Cheerleader"
+        },
+        {
+          "id": 612,
+          "name": "Cheerleader"
+        },
+        {
+          "id": 616,
+          "name": "Fernahei"
+        },
+        {
+          "id": 618,
+          "name": "Cart Driver"
+        },
+        {
+          "id": 619,
+          "name": "Cart Driver"
+        },
+        {
+          "id": 621,
+          "name": "Kaleb"
+        },
+        {
+          "id": 622,
+          "name": "Yohnus"
+        },
+        {
+          "id": 624,
+          "name": "Yanni"
+        },
+        {
+          "id": 625,
+          "name": "Official"
+        },
+        {
+          "id": 630,
+          "name": "Blessed Vermen"
+        },
+        {
+          "id": 634,
+          "name": "slave"
+        },
+        {
+          "id": 635,
+          "name": "slave"
+        },
+        {
+          "id": 636,
+          "name": "slave"
+        },
+        {
+          "id": 637,
+          "name": "slave"
+        },
+        {
+          "id": 638,
+          "name": "slave"
+        },
+        {
+          "id": 639,
+          "name": "slave"
+        },
+        {
+          "id": 640,
+          "name": "slave"
+        },
+        {
+          "id": 641,
+          "name": "Kalrag"
+        },
+        {
+          "id": 642,
+          "name": "Niloof"
+        },
+        {
+          "id": 643,
+          "name": "Kardia the Witch"
+        },
+        {
+          "id": 644,
+          "name": "Souless"
+        },
+        {
+          "id": 645,
+          "name": "Othainian"
+        },
+        {
+          "id": 647,
+          "name": "Holthion"
+        },
+        {
+          "id": 648,
+          "name": "Klank"
+        },
+        {
+          "id": 652,
+          "name": "Observatory Professor"
+        },
+        {
+          "id": 653,
+          "name": "Ugthanki"
+        },
+        {
+          "id": 654,
+          "name": "Observatory assistant"
+        },
+        {
+          "id": 657,
+          "name": "Kamen"
+        },
+        {
+          "id": 658,
+          "name": "Iban disciple"
+        },
+        {
+          "id": 662,
+          "name": "Professor"
+        },
+        {
+          "id": 663,
+          "name": "San Tojalon"
+        },
+        {
+          "id": 674,
+          "name": "Skavid"
+        },
+        {
+          "id": 678,
+          "name": "Skavid"
+        },
+        {
+          "id": 679,
+          "name": "Skavid"
+        },
+        {
+          "id": 680,
+          "name": "Og"
+        },
+        {
+          "id": 681,
+          "name": "Grew"
+        },
+        {
+          "id": 682,
+          "name": "Toban"
+        },
+        {
+          "id": 694,
+          "name": "Dwarf"
+        },
+        {
+          "id": 695,
+          "name": "lollk"
+        },
+        {
+          "id": 696,
+          "name": "Skavid"
+        },
+        {
+          "id": 699,
+          "name": "Dwarf"
+        },
+        {
+          "id": 700,
+          "name": "Al Shabim"
+        },
+        {
+          "id": 701,
+          "name": "Bedabin Nomad"
+        },
+        {
+          "id": 705,
+          "name": "Rock of ages"
+        },
+        {
+          "id": 707,
+          "name": "Skavid"
+        },
+        {
+          "id": 708,
+          "name": "Skavid"
+        },
+        {
+          "id": 709,
+          "name": "Skavid"
+        },
+        {
+          "id": 711,
+          "name": "Mining Cart Driver"
+        },
+        {
+          "id": 714,
+          "name": "Gertrude"
+        },
+        {
+          "id": 720,
+          "name": "Assistant"
+        },
+        {
+          "id": 723,
+          "name": "Examiner"
+        },
+        {
+          "id": 724,
+          "name": "Student"
+        },
+        {
+          "id": 725,
+          "name": "Student"
+        },
+        {
+          "id": 727,
+          "name": "Student"
+        },
+        {
+          "id": 728,
+          "name": "Archaeological expert"
+        },
+        {
+          "id": 729,
+          "name": "civillian"
+        },
+        {
+          "id": 730,
+          "name": "civillian"
+        },
+        {
+          "id": 731,
+          "name": "civillian"
+        },
+        {
+          "id": 732,
+          "name": "civillian"
+        },
+        {
+          "id": 740,
+          "name": "Echned Zekin"
+        },
+        {
+          "id": 743,
+          "name": "Hobbes the Butler"
+        },
+        {
+          "id": 744,
+          "name": "Louisa The Cook"
+        },
+        {
+          "id": 745,
+          "name": "Mary The Maid"
+        },
+        {
+          "id": 746,
+          "name": "Stanford The Gardener"
+        },
+        {
+          "id": 757,
+          "name": "kolodion"
+        },
+        {
+          "id": 758,
+          "name": "kolodion"
+        },
+        {
+          "id": 759,
+          "name": "kolodion"
+        },
+        {
+          "id": 760,
+          "name": "kolodion"
+        },
+        {
+          "id": 761,
+          "name": "Irvig Senay"
+        },
+        {
+          "id": 762,
+          "name": "Ranalph Devere"
+        },
+        {
+          "id": 768,
+          "name": "Death Wing"
+        },
+        {
+          "id": 773,
+          "name": "Nurmof"
+        },
+        {
+          "id": 774,
+          "name": "Fatigue expert"
+        },
+        {
+          "id": 777,
+          "name": "Oomlie Bird"
+        },
+        {
+          "id": 778,
+          "name": "Sidney Smith"
+        },
+        {
+          "id": 779,
+          "name": "Siegfried Erkle"
+        },
+        {
+          "id": 780,
+          "name": "Tea seller"
+        },
+        {
+          "id": 781,
+          "name": "Wilough"
+        },
+        {
+          "id": 782,
+          "name": "Philop"
+        },
+        {
+          "id": 783,
+          "name": "Kanel"
+        },
+        {
+          "id": 792,
+          "name": "Gundai"
+        },
+        {
+          "id": 793,
+          "name": "Lundail"
+        },
+        {
+          "id": 794,
+          "name": "Charlie"
+        },
+        {
+          "id": 795,
+          "name": "Mosol Rei"
+        }
+      ]
+    }
+  }
+}

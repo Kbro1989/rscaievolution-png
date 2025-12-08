@@ -22,7 +22,7 @@ async function wakeUpVampire(player) {
 }
 
 async function onGameObjectCommandOne(player, gameObject) {
-    // https://youtu.be/U3_ci_WbF3Q?t=436
+    // https://youtu.be/U3_ci_WbF3Q?t=165
     // count draynor jumps out of the coffin when you open OR search it
 
     const { world } = player;

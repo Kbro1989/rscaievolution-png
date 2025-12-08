@@ -1,0 +1,47 @@
+{
+  "timestamp": "2025-12-08T04:47:30.000Z",
+  "action": "Complete RSC Wiki-based ID Reorganization",
+  "stats": {
+    "duplicateItemsRemoved": 76,
+    "questFilesUpdated": 32,
+    "idReplacementsMade": 73,
+    "itemsRemaining": 1254,
+    "npcsRemaining": 797
+  },
+  "before": {
+    "items": 1330,
+    "npcs": 797
+  },
+  "after": {
+    "items": 1254,
+    "npcs": 797
+  },
+  "backupFiles": [
+    "items.json.backup",
+    "npcs.json.backup"
+  ],
+  "migrationSummary": {
+    "exampleReplacements": [
+      {
+        "old": 690,
+        "new": 152,
+        "name": "gold"
+      },
+      {
+        "old": 691,
+        "new": 172,
+        "name": "gold bar"
+      },
+      {
+        "old": 194,
+        "new": 187,
+        "name": "skirt"
+      },
+      {
+        "old": 577,
+        "new": 576,
+        "name": "Party Hat (red)"
+      }
+    ]
+  }
+}

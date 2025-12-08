@@ -8,7 +8,7 @@ const RAT_IDS = new Set([19, 29, 47, 177, 367, 473]);
 const COOKS_RANGE_ID = 119;
 
 const CAULDRON_ID = 147;
-const COOKABLE_IDS = new Set([COOKS_RANGE_ID, 11, 97, 119, 274, 491]);
+const COOKABLE_IDS = new Set([COOKS_RANGE_ID, 11, 97, 119, 273, 491]);
 
 const BURNTMEAT_ID = 134;
 const COOKEDMEAT_ID = 132;

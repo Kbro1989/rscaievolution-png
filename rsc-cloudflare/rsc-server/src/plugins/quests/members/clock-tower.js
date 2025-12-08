@@ -11,15 +11,15 @@ const ITEM_BUCKET_WATER = 50;
 const ITEM_ICE_GLOVES = 556;
 const ITEM_RAT_POISON = 731;
 const ITEM_LARGE_COG_BLUE = 727;
-const ITEM_LARGE_COG_BLACK = 728;
-const ITEM_LARGE_COG_RED = 729;
-const ITEM_LARGE_COG_PURPLE = 730;
+const ITEM_LARGE_COG_BLACK = 727;
+const ITEM_LARGE_COG_RED = 727;
+const ITEM_LARGE_COG_PURPLE = 727;
 
 // Object IDs
 const OBJ_CLOCK_POLE_BLUE = 362;
 const OBJ_CLOCK_POLE_RED = 363;
 const OBJ_CLOCK_POLE_PURPLE = 364;
-const OBJ_CLOCK_POLE_BLACK = 365;
+const OBJ_CLOCK_POLE_BLACK = 353;
 
 const OBJ_GATE_CLOSED = 371;
 const OBJ_GATE_OPEN = 372;
@@ -138,18 +138,18 @@ async function onUseItemOnObject(player, item, object) {
         // Define correct mappings
         // Authentic logic:
         // Blue Cog (727) -> Blue Pole (362) (Ground Floor? verify loc)
-        // Black Cog (728) -> Black Pole (365)
-        // Red Cog (729) -> Red Pole (363)
-        // Purple Cog (730) -> Purple Pole (364)
+        // Black Cog (727) -> Black Pole (353)
+        // Red Cog (727) -> Red Pole (363)
+        // Purple Cog (727) -> Purple Pole (364)
 
         if (item.id === ITEM_LARGE_COG_BLUE && object.id === OBJ_CLOCK_POLE_BLUE) {
-            if (object.x === 580 && object.y === 3470) { // Verify coordinates if necessary, or just rely on ID
+            if (object.x === 576 && object.y === 3470) { // Verify coordinates if necessary, or just rely on ID
                 placed = true;
                 player.setCache('cog_placed_blue', true);
             }
         }
         else if (item.id === ITEM_LARGE_COG_BLACK && object.id === OBJ_CLOCK_POLE_BLACK) {
-            if (object.x === 581 && object.y === 639) {
+            if (object.x === 576 && object.y === 639) {
                 placed = true;
                 player.setCache('cog_placed_black', true);
             }
@@ -161,7 +161,7 @@ async function onUseItemOnObject(player, item, object) {
             }
         }
         else if (item.id === ITEM_LARGE_COG_PURPLE && object.id === OBJ_CLOCK_POLE_PURPLE) {
-            if (object.x === 581 && object.y === 2525) {
+            if (object.x === 576 && object.y === 2525) {
                 placed = true;
                 player.setCache('cog_placed_purple', true);
             }
@@ -182,7 +182,7 @@ async function onUseItemOnObject(player, item, object) {
 
 // Handling pickup of hot/black cog
 function onTakeObject(player, object) {
-    if (object.id === ITEM_LARGE_COG_BLACK) { // Assuming it spawns as ground item 728
+    if (object.id === ITEM_LARGE_COG_BLACK) { // Assuming it spawns as ground item 727
         // Check for Ice Gloves or Water Bucket
         // This logic is tricky in RSClib because onTakeObject usually happens *before* pickup
         // Authentic logic: need ice gloves equipped OR use bucket of water on it first.

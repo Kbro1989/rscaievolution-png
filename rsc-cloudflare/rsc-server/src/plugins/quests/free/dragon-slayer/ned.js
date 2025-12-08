@@ -3,8 +3,8 @@
 const regions = require('@2003scape/rsc-data/regions');
 
 const MAP_ID = 415;
-const MAP_PIECE_IDS = [416, 417, 418];
-const NED_SHIP_ID = 194;
+const MAP_PIECE_IDS = [416, 416, 416];
+const NED_SHIP_ID = 187;
 
 const VOYAGE_MESSAGES = [
     'You feel the ship begin to move',

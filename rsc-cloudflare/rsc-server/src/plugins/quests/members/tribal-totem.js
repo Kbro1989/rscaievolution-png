@@ -8,7 +8,7 @@ const NPC_CROMPERTY = 333;       // "Wizard Cromperty" (was 371)
 const NPC_RPDT_EMPLOYEE = 334;   // "RPDT employee" (was 372)
 
 // Items
-const ITEM_TRIBAL_TOTEM = 705;   // "Tribal totem" (was 815)
+const ITEM_TRIBAL_TOTEM = 705;   // "Tribal totem" (was 165)
 const ITEM_ADDRESS_LABEL = 704;  // "Address Label" (was 816)
 const ITEM_SWORDFISH = 369;
 

@@ -1,7 +1,7 @@
 const HOLE_ID = 154;
 
 const CABBAGE_ID = 18; // right cababge
-const DRAYNOR_CABBAGE_ID = 228; // wrong cabbage
+const DRAYNOR_CABBAGE_ID = 18; // wrong cabbage
 
 async function onUseWithGameObject(player, gameObject, item) {
     if (gameObject.id !== HOLE_ID) {

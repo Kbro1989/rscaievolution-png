@@ -2,9 +2,9 @@
 
 const ARMOUR_ID = 273;
 const BENTNOZE_ID = 152;
-const BLUE_ARMOUR_ID = 275;
+const BLUE_ARMOUR_ID = 273;
 const GOLD_BAR_ID = 172;
-const ORANGE_ARMOUR_ID = 274;
+const ORANGE_ARMOUR_ID = 273;
 const WARTFACE_ID = 151;
 
 function switchGoblins(player, wartface, bentnoze) {

@@ -5,9 +5,9 @@ const QUEST_POINTS = 1;
 const NPC_CAROLINE = 455;    // "Caroline" (was 574 = Yanille Watchman!)
 const NPC_HOLGART = 456;     // "Holgart" (was 575 = Tower guard!)
 const NPC_KENNITH = 461;     // "kennith" (was 576 = Gnome Trainer!)
-const NPC_KENT = 459;        // "kent" (was 577 = Gnome Trainer!)
-const NPC_BAILEY = 460;      // "bailey" (was 578 = Gnome Trainer!)
-const NPC_FISHERMAN = 462;   // "Platform Fisherman" (was 579 = Gnome Trainer!)
+const NPC_KENT = 459;        // "kent" (was 576 = Gnome Trainer!)
+const NPC_BAILEY = 460;      // "bailey" (was 576 = Gnome Trainer!)
+const NPC_FISHERMAN = 462;   // "Platform Fisherman" (was 576 = Gnome Trainer!)
 
 // Items
 const ITEM_SWAMP_PASTE = 988;

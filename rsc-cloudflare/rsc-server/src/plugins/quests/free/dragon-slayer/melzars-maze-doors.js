@@ -1,7 +1,7 @@
 // https://classic.runescape.wiki/w/Melzar%27s_Maze
 
 const ENTRANCE_DOOR_ID = 60;
-const EXIT_DOOR_ID = 54;
+const EXIT_DOOR_ID = 53;
 const LESSER_DEMON_DOOR_ID = 52;
 const MAZE_KEY_ID = 421;
 

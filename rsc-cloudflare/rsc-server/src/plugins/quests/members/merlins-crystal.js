@@ -17,8 +17,8 @@ const QUEST_NAME = "Merlin's Crystal";
 const QUEST_POINTS = 6;
 
 // NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_KING_ARTHUR = 275;     // "King Arthur" (was 127 = Jailguard!)
-const NPC_SIR_GAWAIN = 274;      // "Sir Gawain" (was 243 = Grey wolf!)
+const NPC_KING_ARTHUR = 273;     // "King Arthur" (was 127 = Jailguard!)
+const NPC_SIR_GAWAIN = 273;      // "Sir Gawain" (was 243 = Grey wolf!)
 const NPC_SIR_LANCELOT = 273;    // "Sir Lancelot" (was 244 = shapeshifter!)
 const NPC_SIR_MORDRED = 276;     // "Sir Mordred" (was 247 = shapeshifter!)
 const NPC_MORGAN_LE_FAYE = 281;  // "Morgan le faye" (was 248 = White wolf!)

@@ -319,7 +319,7 @@ async function onTalkToNPC(player, npc) {
                 await world.sleepTicks(3);
 
                 // it doesn't remove the keys until he gives you the sword
-                // https://youtu.be/izkjtqCBRX4?t=418
+                // https://youtu.be/izkjtqCBRX4?t=416
                 player.inventory.remove(TRAIBORN_KEY_ID);
                 player.inventory.remove(ROVIN_KEY_ID);
                 player.inventory.remove(DRAIN_KEY_ID);

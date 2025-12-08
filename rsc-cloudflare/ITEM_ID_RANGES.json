@@ -1,0 +1,5425 @@
+{
+  "timestamp": "2025-12-08T04:36:45.064Z",
+  "totalItems": 1330,
+  "categories": {
+    "Weapons": {
+      "range": [
+        0,
+        1320
+      ],
+      "count": 194,
+      "items": [
+        {
+          "id": 0,
+          "name": "Iron Mace"
+        },
+        {
+          "id": 1,
+          "name": "Iron Short Sword"
+        },
+        {
+          "id": 11,
+          "name": "Bronze Arrows"
+        },
+        {
+          "id": 12,
+          "name": "Iron Axe"
+        },
+        {
+          "id": 28,
+          "name": "Iron dagger"
+        },
+        {
+          "id": 59,
+          "name": "Phoenix Crossbow"
+        },
+        {
+          "id": 60,
+          "name": "Crossbow"
+        },
+        {
+          "id": 62,
+          "name": "bronze dagger"
+        },
+        {
+          "id": 63,
+          "name": "Steel dagger"
+        },
+        {
+          "id": 64,
+          "name": "Mithril dagger"
+        },
+        {
+          "id": 65,
+          "name": "Adamantite dagger"
+        },
+        {
+          "id": 66,
+          "name": "Bronze Short Sword"
+        },
+        {
+          "id": 67,
+          "name": "Steel Short Sword"
+        },
+        {
+          "id": 68,
+          "name": "Mithril Short Sword"
+        },
+        {
+          "id": 69,
+          "name": "Adamantite Short Sword"
+        },
+        {
+          "id": 70,
+          "name": "Bronze Long Sword"
+        },
+        {
+          "id": 71,
+          "name": "Iron Long Sword"
+        },
+        {
+          "id": 72,
+          "name": "Steel Long Sword"
+        },
+        {
+          "id": 73,
+          "name": "Mithril Long Sword"
+        },
+        {
+          "id": 74,
+          "name": "Adamantite Long Sword"
+        },
+        {
+          "id": 75,
+          "name": "Rune long sword"
+        },
+        {
+          "id": 76,
+          "name": "Bronze 2-handed Sword"
+        },
+        {
+          "id": 77,
+          "name": "Iron 2-handed Sword"
+        },
+        {
+          "id": 78,
+          "name": "Steel 2-handed Sword"
+        },
+        {
+          "id": 79,
+          "name": "Mithril 2-handed Sword"
+        },
+        {
+          "id": 80,
+          "name": "Adamantite 2-handed Sword"
+        },
+        {
+          "id": 81,
+          "name": "rune 2-handed Sword"
+        },
+        {
+          "id": 82,
+          "name": "Bronze Scimitar"
+        },
+        {
+          "id": 83,
+          "name": "Iron Scimitar"
+        },
+        {
+          "id": 84,
+          "name": "Steel Scimitar"
+        },
+        {
+          "id": 85,
+          "name": "Mithril Scimitar"
+        },
+        {
+          "id": 86,
+          "name": "Adamantite Scimitar"
+        },
+        {
+          "id": 87,
+          "name": "bronze Axe"
+        },
+        {
+          "id": 88,
+          "name": "Steel Axe"
+        },
+        {
+          "id": 89,
+          "name": "Iron battle Axe"
+        },
+        {
+          "id": 90,
+          "name": "Steel battle Axe"
+        },
+        {
+          "id": 91,
+          "name": "Mithril battle Axe"
+        },
+        {
+          "id": 92,
+          "name": "Adamantite battle Axe"
+        },
+        {
+          "id": 93,
+          "name": "Rune battle Axe"
+        },
+        {
+          "id": 94,
+          "name": "Bronze Mace"
+        },
+        {
+          "id": 95,
+          "name": "Steel Mace"
+        },
+        {
+          "id": 96,
+          "name": "Mithril Mace"
+        },
+        {
+          "id": 97,
+          "name": "Adamantite Mace"
+        },
+        {
+          "id": 98,
+          "name": "Rune Mace"
+        },
+        {
+          "id": 100,
+          "name": "staff"
+        },
+        {
+          "id": 101,
+          "name": "Staff of Air"
+        },
+        {
+          "id": 102,
+          "name": "Staff of water"
+        },
+        {
+          "id": 103,
+          "name": "Staff of earth"
+        },
+        {
+          "id": 156,
+          "name": "Bronze Pickaxe"
+        },
+        {
+          "id": 188,
+          "name": "Longbow"
+        },
+        {
+          "id": 189,
+          "name": "Shortbow"
+        },
+        {
+          "id": 190,
+          "name": "Crossbow bolts"
+        },
+        {
+          "id": 197,
+          "name": "Staff of fire"
+        },
+        {
+          "id": 198,
+          "name": "Magic Staff"
+        },
+        {
+          "id": 203,
+          "name": "Mithril Axe"
+        },
+        {
+          "id": 204,
+          "name": "Adamantite Axe"
+        },
+        {
+          "id": 205,
+          "name": "bronze battle Axe"
+        },
+        {
+          "id": 265,
+          "name": "Faladian Knight's sword"
+        },
+        {
+          "id": 276,
+          "name": "unstrung Longbow"
+        },
+        {
+          "id": 277,
+          "name": "unstrung shortbow"
+        },
+        {
+          "id": 280,
+          "name": "arrow shafts"
+        },
+        {
+          "id": 307,
+          "name": "Mace of Zamorak"
+        },
+        {
+          "id": 340,
+          "name": "Unfired bowl"
+        },
+        {
+          "id": 341,
+          "name": "Bowl"
+        },
+        {
+          "id": 342,
+          "name": "Bowl of water"
+        },
+        {
+          "id": 369,
+          "name": "Raw Swordfish"
+        },
+        {
+          "id": 370,
+          "name": "Swordfish"
+        },
+        {
+          "id": 371,
+          "name": "Burnt Swordfish"
+        },
+        {
+          "id": 396,
+          "name": "rune dagger"
+        },
+        {
+          "id": 397,
+          "name": "Rune short sword"
+        },
+        {
+          "id": 398,
+          "name": "rune Scimitar"
+        },
+        {
+          "id": 405,
+          "name": "rune Axe"
+        },
+        {
+          "id": 423,
+          "name": "Black dagger"
+        },
+        {
+          "id": 424,
+          "name": "Black Short Sword"
+        },
+        {
+          "id": 425,
+          "name": "Black Long Sword"
+        },
+        {
+          "id": 426,
+          "name": "Black 2-handed Sword"
+        },
+        {
+          "id": 427,
+          "name": "Black Scimitar"
+        },
+        {
+          "id": 428,
+          "name": "Black Axe"
+        },
+        {
+          "id": 429,
+          "name": "Black battle Axe"
+        },
+        {
+          "id": 430,
+          "name": "Black Mace"
+        },
+        {
+          "id": 509,
+          "name": "Dramen Staff"
+        },
+        {
+          "id": 535,
+          "name": "Swordfish certificate"
+        },
+        {
+          "id": 536,
+          "name": "Raw swordfish certificate"
+        },
+        {
+          "id": 559,
+          "name": "Poisoned Iron dagger"
+        },
+        {
+          "id": 560,
+          "name": "Poisoned bronze dagger"
+        },
+        {
+          "id": 561,
+          "name": "Poisoned Steel dagger"
+        },
+        {
+          "id": 562,
+          "name": "Poisoned Mithril dagger"
+        },
+        {
+          "id": 563,
+          "name": "Poisoned Rune dagger"
+        },
+        {
+          "id": 564,
+          "name": "Poisoned Adamantite dagger"
+        },
+        {
+          "id": 565,
+          "name": "Poisoned Black dagger"
+        },
+        {
+          "id": 574,
+          "name": "Poison Bronze Arrows"
+        },
+        {
+          "id": 592,
+          "name": "Poison Crossbow bolts"
+        },
+        {
+          "id": 593,
+          "name": "Dragon sword"
+        },
+        {
+          "id": 594,
+          "name": "Dragon axe"
+        },
+        {
+          "id": 614,
+          "name": "Battlestaff"
+        },
+        {
+          "id": 615,
+          "name": "Battlestaff of fire"
+        },
+        {
+          "id": 616,
+          "name": "Battlestaff of water"
+        },
+        {
+          "id": 617,
+          "name": "Battlestaff of air"
+        },
+        {
+          "id": 618,
+          "name": "Battlestaff of earth"
+        },
+        {
+          "id": 637,
+          "name": "Headless Arrows"
+        },
+        {
+          "id": 638,
+          "name": "Iron Arrows"
+        },
+        {
+          "id": 639,
+          "name": "Poison Iron Arrows"
+        },
+        {
+          "id": 640,
+          "name": "Steel Arrows"
+        },
+        {
+          "id": 641,
+          "name": "Poison Steel Arrows"
+        },
+        {
+          "id": 642,
+          "name": "Mithril Arrows"
+        },
+        {
+          "id": 643,
+          "name": "Poison Mithril Arrows"
+        },
+        {
+          "id": 644,
+          "name": "Adamantite Arrows"
+        },
+        {
+          "id": 645,
+          "name": "Poison Adamantite Arrows"
+        },
+        {
+          "id": 646,
+          "name": "Rune Arrows"
+        },
+        {
+          "id": 647,
+          "name": "Poison Rune Arrows"
+        },
+        {
+          "id": 648,
+          "name": "Oak Longbow"
+        },
+        {
+          "id": 649,
+          "name": "Oak Shortbow"
+        },
+        {
+          "id": 650,
+          "name": "Willow Longbow"
+        },
+        {
+          "id": 651,
+          "name": "Willow Shortbow"
+        },
+        {
+          "id": 652,
+          "name": "Maple Longbow"
+        },
+        {
+          "id": 653,
+          "name": "Maple Shortbow"
+        },
+        {
+          "id": 654,
+          "name": "Yew Longbow"
+        },
+        {
+          "id": 655,
+          "name": "Yew Shortbow"
+        },
+        {
+          "id": 656,
+          "name": "Magic Longbow"
+        },
+        {
+          "id": 657,
+          "name": "Magic Shortbow"
+        },
+        {
+          "id": 658,
+          "name": "unstrung Oak Longbow"
+        },
+        {
+          "id": 659,
+          "name": "unstrung Oak Shortbow"
+        },
+        {
+          "id": 660,
+          "name": "unstrung Willow Longbow"
+        },
+        {
+          "id": 661,
+          "name": "unstrung Willow Shortbow"
+        },
+        {
+          "id": 662,
+          "name": "unstrung Maple Longbow"
+        },
+        {
+          "id": 663,
+          "name": "unstrung Maple Shortbow"
+        },
+        {
+          "id": 664,
+          "name": "unstrung Yew Longbow"
+        },
+        {
+          "id": 665,
+          "name": "unstrung Yew Shortbow"
+        },
+        {
+          "id": 666,
+          "name": "unstrung Magic Longbow"
+        },
+        {
+          "id": 667,
+          "name": "unstrung Magic Shortbow"
+        },
+        {
+          "id": 669,
+          "name": "bronze arrow heads"
+        },
+        {
+          "id": 670,
+          "name": "iron arrow heads"
+        },
+        {
+          "id": 671,
+          "name": "steel arrow heads"
+        },
+        {
+          "id": 672,
+          "name": "mithril arrow heads"
+        },
+        {
+          "id": 673,
+          "name": "adamantite arrow heads"
+        },
+        {
+          "id": 674,
+          "name": "rune arrow heads"
+        },
+        {
+          "id": 676,
+          "name": "bow string"
+        },
+        {
+          "id": 682,
+          "name": "Enchanted Battlestaff of fire"
+        },
+        {
+          "id": 683,
+          "name": "Enchanted Battlestaff of water"
+        },
+        {
+          "id": 684,
+          "name": "Enchanted Battlestaff of air"
+        },
+        {
+          "id": 685,
+          "name": "Enchanted Battlestaff of earth"
+        },
+        {
+          "id": 723,
+          "name": "Ice Arrows"
+        },
+        {
+          "id": 725,
+          "name": "Staff of Armadyl"
+        },
+        {
+          "id": 754,
+          "name": "bloody axe of zamorak"
+        },
+        {
+          "id": 786,
+          "name": "Oyster pearl bolts"
+        },
+        {
+          "id": 790,
+          "name": "Oyster pearl bolt tips"
+        },
+        {
+          "id": 827,
+          "name": "Bronze Spear"
+        },
+        {
+          "id": 882,
+          "name": "gnomebowl dough"
+        },
+        {
+          "id": 885,
+          "name": "gnomebowl"
+        },
+        {
+          "id": 888,
+          "name": "gnomebowl"
+        },
+        {
+          "id": 973,
+          "name": "Sword Pommel"
+        },
+        {
+          "id": 984,
+          "name": "Arrow"
+        },
+        {
+          "id": 985,
+          "name": "Lit Arrow"
+        },
+        {
+          "id": 1000,
+          "name": "Staff of Iban"
+        },
+        {
+          "id": 1031,
+          "name": "Staff of Iban"
+        },
+        {
+          "id": 1088,
+          "name": "Iron Spear"
+        },
+        {
+          "id": 1089,
+          "name": "Steel Spear"
+        },
+        {
+          "id": 1090,
+          "name": "Mithril Spear"
+        },
+        {
+          "id": 1091,
+          "name": "Adamantite Spear"
+        },
+        {
+          "id": 1092,
+          "name": "Rune Spear"
+        },
+        {
+          "id": 1135,
+          "name": "Poisoned Bronze Spear"
+        },
+        {
+          "id": 1136,
+          "name": "Poisoned Iron Spear"
+        },
+        {
+          "id": 1137,
+          "name": "Poisoned Steel Spear"
+        },
+        {
+          "id": 1138,
+          "name": "Poisoned Mithril Spear"
+        },
+        {
+          "id": 1139,
+          "name": "Poisoned Adamantite Spear"
+        },
+        {
+          "id": 1140,
+          "name": "Poisoned Rune Spear"
+        },
+        {
+          "id": 1159,
+          "name": "Rusty sword"
+        },
+        {
+          "id": 1165,
+          "name": "broken arrow"
+        },
+        {
+          "id": 1167,
+          "name": "broken staff"
+        },
+        {
+          "id": 1188,
+          "name": "Golden Bowl"
+        },
+        {
+          "id": 1189,
+          "name": "Golden Bowl with pure water"
+        },
+        {
+          "id": 1205,
+          "name": "A Silver Dagger"
+        },
+        {
+          "id": 1216,
+          "name": "Staff of zamorak"
+        },
+        {
+          "id": 1217,
+          "name": "Staff of guthix"
+        },
+        {
+          "id": 1218,
+          "name": "Staff of Saradomin"
+        },
+        {
+          "id": 1230,
+          "name": "A Silver Dagger"
+        },
+        {
+          "id": 1236,
+          "name": "Dagger"
+        },
+        {
+          "id": 1246,
+          "name": "Rough Sketch of a bowl"
+        },
+        {
+          "id": 1255,
+          "name": "Dark Dagger"
+        },
+        {
+          "id": 1256,
+          "name": "Glowing Dark Dagger"
+        },
+        {
+          "id": 1258,
+          "name": "Iron Pickaxe"
+        },
+        {
+          "id": 1259,
+          "name": "Steel Pickaxe"
+        },
+        {
+          "id": 1260,
+          "name": "Mithril Pickaxe"
+        },
+        {
+          "id": 1261,
+          "name": "Adamantite Pickaxe"
+        },
+        {
+          "id": 1262,
+          "name": "Rune Pickaxe"
+        },
+        {
+          "id": 1266,
+          "name": "Blessed Golden Bowl"
+        },
+        {
+          "id": 1267,
+          "name": "Blessed Golden Bowl with Pure Water"
+        },
+        {
+          "id": 1286,
+          "name": "Blessed Golden Bowl with plain water"
+        },
+        {
+          "id": 1287,
+          "name": "Golden Bowl with plain water"
+        },
+        {
+          "id": 1306,
+          "name": "Staff of Guthix"
+        },
+        {
+          "id": 1307,
+          "name": "Staff of Saradomin"
+        },
+        {
+          "id": 1308,
+          "name": "Staff of Zamorak"
+        },
+        {
+          "id": 1319,
+          "name": "Broken arrow"
+        },
+        {
+          "id": 1320,
+          "name": "Broken staff"
+        }
+      ]
+    },
+    "Armor & Clothing": {
+      "range": [
+        5,
+        1311
+      ],
+      "count": 114,
+      "items": [
+        {
+          "id": 5,
+          "name": "Medium Iron Helmet"
+        },
+        {
+          "id": 6,
+          "name": "Large Iron Helmet"
+        },
+        {
+          "id": 7,
+          "name": "Iron Chain Mail Body"
+        },
+        {
+          "id": 8,
+          "name": "Iron Plate Mail Body"
+        },
+        {
+          "id": 9,
+          "name": "Iron Plate Mail Legs"
+        },
+        {
+          "id": 15,
+          "name": "Leather Armour"
+        },
+        {
+          "id": 16,
+          "name": "Leather Gloves"
+        },
+        {
+          "id": 17,
+          "name": "Boots"
+        },
+        {
+          "id": 104,
+          "name": "Medium Bronze Helmet"
+        },
+        {
+          "id": 105,
+          "name": "Medium Steel Helmet"
+        },
+        {
+          "id": 106,
+          "name": "Medium Mithril Helmet"
+        },
+        {
+          "id": 107,
+          "name": "Medium Adamantite Helmet"
+        },
+        {
+          "id": 108,
+          "name": "Large Bronze Helmet"
+        },
+        {
+          "id": 109,
+          "name": "Large Steel Helmet"
+        },
+        {
+          "id": 110,
+          "name": "Large Mithril Helmet"
+        },
+        {
+          "id": 111,
+          "name": "Large Adamantite Helmet"
+        },
+        {
+          "id": 112,
+          "name": "Large Rune Helmet"
+        },
+        {
+          "id": 113,
+          "name": "Bronze Chain Mail Body"
+        },
+        {
+          "id": 114,
+          "name": "Steel Chain Mail Body"
+        },
+        {
+          "id": 115,
+          "name": "Mithril Chain Mail Body"
+        },
+        {
+          "id": 116,
+          "name": "Adamantite Chain Mail Body"
+        },
+        {
+          "id": 117,
+          "name": "Bronze Plate Mail Body"
+        },
+        {
+          "id": 118,
+          "name": "Steel Plate Mail Body"
+        },
+        {
+          "id": 119,
+          "name": "Mithril Plate Mail Body"
+        },
+        {
+          "id": 120,
+          "name": "Adamantite Plate Mail Body"
+        },
+        {
+          "id": 121,
+          "name": "Steel Plate Mail Legs"
+        },
+        {
+          "id": 122,
+          "name": "Mithril Plate Mail Legs"
+        },
+        {
+          "id": 123,
+          "name": "Adamantite Plate Mail Legs"
+        },
+        {
+          "id": 148,
+          "name": "leather"
+        },
+        {
+          "id": 183,
+          "name": "Cape"
+        },
+        {
+          "id": 184,
+          "name": "Wizards robe"
+        },
+        {
+          "id": 187,
+          "name": "skirt"
+        },
+        {
+          "id": 194,
+          "name": "skirt"
+        },
+        {
+          "id": 195,
+          "name": "skirt"
+        },
+        {
+          "id": 196,
+          "name": "Black Plate Mail Body"
+        },
+        {
+          "id": 206,
+          "name": "Bronze Plate Mail Legs"
+        },
+        {
+          "id": 209,
+          "name": "Cape"
+        },
+        {
+          "id": 214,
+          "name": "Bronze Plated Skirt"
+        },
+        {
+          "id": 215,
+          "name": "Iron Plated Skirt"
+        },
+        {
+          "id": 216,
+          "name": "Black robe"
+        },
+        {
+          "id": 225,
+          "name": "Steel Plated skirt"
+        },
+        {
+          "id": 226,
+          "name": "Mithril Plated skirt"
+        },
+        {
+          "id": 227,
+          "name": "Adamantite Plated skirt"
+        },
+        {
+          "id": 229,
+          "name": "Cape"
+        },
+        {
+          "id": 230,
+          "name": "Large Black Helmet"
+        },
+        {
+          "id": 248,
+          "name": "Black Plate Mail Legs"
+        },
+        {
+          "id": 273,
+          "name": "Goblin Armour"
+        },
+        {
+          "id": 274,
+          "name": "Goblin Armour"
+        },
+        {
+          "id": 275,
+          "name": "Goblin Armour"
+        },
+        {
+          "id": 308,
+          "name": "Bronze Plate Mail top"
+        },
+        {
+          "id": 309,
+          "name": "Steel Plate Mail top"
+        },
+        {
+          "id": 310,
+          "name": "Mithril Plate Mail top"
+        },
+        {
+          "id": 311,
+          "name": "Adamantite Plate Mail top"
+        },
+        {
+          "id": 312,
+          "name": "Iron Plate Mail top"
+        },
+        {
+          "id": 313,
+          "name": "Black Plate Mail top"
+        },
+        {
+          "id": 388,
+          "name": "Monks robe"
+        },
+        {
+          "id": 389,
+          "name": "Monks robe"
+        },
+        {
+          "id": 399,
+          "name": "Medium Rune Helmet"
+        },
+        {
+          "id": 400,
+          "name": "Rune Chain Mail Body"
+        },
+        {
+          "id": 401,
+          "name": "Rune Plate Mail Body"
+        },
+        {
+          "id": 402,
+          "name": "Rune Plate Mail Legs"
+        },
+        {
+          "id": 406,
+          "name": "Rune skirt"
+        },
+        {
+          "id": 407,
+          "name": "Rune Plate Mail top"
+        },
+        {
+          "id": 431,
+          "name": "Black Chain Mail Body"
+        },
+        {
+          "id": 434,
+          "name": "Black Plated skirt"
+        },
+        {
+          "id": 470,
+          "name": "Medium black Helmet"
+        },
+        {
+          "id": 511,
+          "name": "Cape"
+        },
+        {
+          "id": 512,
+          "name": "Cape"
+        },
+        {
+          "id": 513,
+          "name": "Cape"
+        },
+        {
+          "id": 514,
+          "name": "Cape"
+        },
+        {
+          "id": 556,
+          "name": "Ice Gloves"
+        },
+        {
+          "id": 607,
+          "name": "Druids robe"
+        },
+        {
+          "id": 608,
+          "name": "Druids robe"
+        },
+        {
+          "id": 698,
+          "name": "Steel gauntlets"
+        },
+        {
+          "id": 699,
+          "name": "gauntlets of goldsmithing"
+        },
+        {
+          "id": 700,
+          "name": "gauntlets of cooking"
+        },
+        {
+          "id": 701,
+          "name": "gauntlets of chaos"
+        },
+        {
+          "id": 702,
+          "name": "robe of Zamorak"
+        },
+        {
+          "id": 703,
+          "name": "robe of Zamorak"
+        },
+        {
+          "id": 704,
+          "name": "Address Label"
+        },
+        {
+          "id": 722,
+          "name": "Boots of lightfootedness"
+        },
+        {
+          "id": 733,
+          "name": "khazard Helmet"
+        },
+        {
+          "id": 734,
+          "name": "khazard chainmail"
+        },
+        {
+          "id": 755,
+          "name": "carnillean armour"
+        },
+        {
+          "id": 795,
+          "name": "Dragon medium Helmet"
+        },
+        {
+          "id": 807,
+          "name": "Priest robe"
+        },
+        {
+          "id": 836,
+          "name": "gnome robe"
+        },
+        {
+          "id": 837,
+          "name": "gnome robe"
+        },
+        {
+          "id": 838,
+          "name": "gnome robe"
+        },
+        {
+          "id": 839,
+          "name": "gnome robe"
+        },
+        {
+          "id": 840,
+          "name": "gnome robe"
+        },
+        {
+          "id": 966,
+          "name": "Boots"
+        },
+        {
+          "id": 967,
+          "name": "Boots"
+        },
+        {
+          "id": 968,
+          "name": "Boots"
+        },
+        {
+          "id": 969,
+          "name": "Boots"
+        },
+        {
+          "id": 970,
+          "name": "Boots"
+        },
+        {
+          "id": 990,
+          "name": "Desert Boots"
+        },
+        {
+          "id": 1006,
+          "name": "Klank's gauntlets"
+        },
+        {
+          "id": 1019,
+          "name": "Desert Robe"
+        },
+        {
+          "id": 1020,
+          "name": "Desert Shirt"
+        },
+        {
+          "id": 1022,
+          "name": "Slaves Robe Bottom"
+        },
+        {
+          "id": 1023,
+          "name": "Slaves Robe Top"
+        },
+        {
+          "id": 1087,
+          "name": "Shaman robe"
+        },
+        {
+          "id": 1157,
+          "name": "Damaged armour"
+        },
+        {
+          "id": 1158,
+          "name": "Damaged armour"
+        },
+        {
+          "id": 1213,
+          "name": "Zamorak Cape"
+        },
+        {
+          "id": 1214,
+          "name": "Saradomin Cape"
+        },
+        {
+          "id": 1215,
+          "name": "Guthix Cape"
+        },
+        {
+          "id": 1234,
+          "name": "Robe"
+        },
+        {
+          "id": 1235,
+          "name": "Armour"
+        },
+        {
+          "id": 1288,
+          "name": "Cape of legends"
+        },
+        {
+          "id": 1309,
+          "name": "Cape of Guthix"
+        },
+        {
+          "id": 1310,
+          "name": "Cape of Saradomin"
+        },
+        {
+          "id": 1311,
+          "name": "Cape of Zamorak"
+        }
+      ]
+    },
+    "Potions": {
+      "range": [
+        58,
+        1304
+      ],
+      "count": 95,
+      "items": [
+        {
+          "id": 58,
+          "name": "potion"
+        },
+        {
+          "id": 177,
+          "name": "Poison"
+        },
+        {
+          "id": 178,
+          "name": "Poisoned fish food"
+        },
+        {
+          "id": 221,
+          "name": "Strength Potion"
+        },
+        {
+          "id": 222,
+          "name": "Strength Potion"
+        },
+        {
+          "id": 223,
+          "name": "Strength Potion"
+        },
+        {
+          "id": 224,
+          "name": "Strength Potion"
+        },
+        {
+          "id": 454,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 455,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 456,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 457,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 458,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 459,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 460,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 461,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 462,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 463,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 474,
+          "name": "attack Potion"
+        },
+        {
+          "id": 475,
+          "name": "attack Potion"
+        },
+        {
+          "id": 476,
+          "name": "attack Potion"
+        },
+        {
+          "id": 477,
+          "name": "stat restoration Potion"
+        },
+        {
+          "id": 478,
+          "name": "stat restoration Potion"
+        },
+        {
+          "id": 479,
+          "name": "stat restoration Potion"
+        },
+        {
+          "id": 480,
+          "name": "defense Potion"
+        },
+        {
+          "id": 481,
+          "name": "defense Potion"
+        },
+        {
+          "id": 482,
+          "name": "defense Potion"
+        },
+        {
+          "id": 483,
+          "name": "restore prayer Potion"
+        },
+        {
+          "id": 484,
+          "name": "restore prayer Potion"
+        },
+        {
+          "id": 485,
+          "name": "restore prayer Potion"
+        },
+        {
+          "id": 486,
+          "name": "Super attack Potion"
+        },
+        {
+          "id": 487,
+          "name": "Super attack Potion"
+        },
+        {
+          "id": 488,
+          "name": "Super attack Potion"
+        },
+        {
+          "id": 489,
+          "name": "fishing Potion"
+        },
+        {
+          "id": 490,
+          "name": "fishing Potion"
+        },
+        {
+          "id": 491,
+          "name": "fishing Potion"
+        },
+        {
+          "id": 492,
+          "name": "Super strength Potion"
+        },
+        {
+          "id": 493,
+          "name": "Super strength Potion"
+        },
+        {
+          "id": 494,
+          "name": "Super strength Potion"
+        },
+        {
+          "id": 495,
+          "name": "Super defense Potion"
+        },
+        {
+          "id": 496,
+          "name": "Super defense Potion"
+        },
+        {
+          "id": 497,
+          "name": "Super defense Potion"
+        },
+        {
+          "id": 498,
+          "name": "ranging Potion"
+        },
+        {
+          "id": 499,
+          "name": "ranging Potion"
+        },
+        {
+          "id": 500,
+          "name": "ranging Potion"
+        },
+        {
+          "id": 566,
+          "name": "Cure poison Potion"
+        },
+        {
+          "id": 567,
+          "name": "Cure poison Potion"
+        },
+        {
+          "id": 568,
+          "name": "Cure poison Potion"
+        },
+        {
+          "id": 569,
+          "name": "Poison antidote"
+        },
+        {
+          "id": 570,
+          "name": "Poison antidote"
+        },
+        {
+          "id": 571,
+          "name": "Poison antidote"
+        },
+        {
+          "id": 572,
+          "name": "weapon poison"
+        },
+        {
+          "id": 731,
+          "name": "Rat Poison"
+        },
+        {
+          "id": 737,
+          "name": "Poison chalice"
+        },
+        {
+          "id": 759,
+          "name": "Poisoned animal feed"
+        },
+        {
+          "id": 935,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 963,
+          "name": "Potion of Zamorak"
+        },
+        {
+          "id": 964,
+          "name": "Potion of Zamorak"
+        },
+        {
+          "id": 965,
+          "name": "Potion of Zamorak"
+        },
+        {
+          "id": 1052,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 1053,
+          "name": "Ogre potion"
+        },
+        {
+          "id": 1054,
+          "name": "Magic ogre potion"
+        },
+        {
+          "id": 1074,
+          "name": "Unfinished potion"
+        },
+        {
+          "id": 1122,
+          "name": "Poisoned Bronze Throwing Dart"
+        },
+        {
+          "id": 1123,
+          "name": "Poisoned Iron Throwing Dart"
+        },
+        {
+          "id": 1124,
+          "name": "Poisoned Steel Throwing Dart"
+        },
+        {
+          "id": 1125,
+          "name": "Poisoned Mithril Throwing Dart"
+        },
+        {
+          "id": 1126,
+          "name": "Poisoned Adamantite Throwing Dart"
+        },
+        {
+          "id": 1127,
+          "name": "Poisoned Rune Throwing Dart"
+        },
+        {
+          "id": 1128,
+          "name": "Poisoned Bronze throwing knife"
+        },
+        {
+          "id": 1129,
+          "name": "Poisoned Iron throwing knife"
+        },
+        {
+          "id": 1130,
+          "name": "Poisoned Steel throwing knife"
+        },
+        {
+          "id": 1131,
+          "name": "Poisoned Mithril throwing knife"
+        },
+        {
+          "id": 1132,
+          "name": "Poisoned Black throwing knife"
+        },
+        {
+          "id": 1133,
+          "name": "Poisoned Adamantite throwing knife"
+        },
+        {
+          "id": 1134,
+          "name": "Poisoned Rune throwing knife"
+        },
+        {
+          "id": 1253,
+          "name": "Gujuo Potion"
+        },
+        {
+          "id": 1272,
+          "name": "Prayer Potion Certificate"
+        },
+        {
+          "id": 1273,
+          "name": "Super Attack Potion Certificate"
+        },
+        {
+          "id": 1274,
+          "name": "Super Defense Potion Certificate"
+        },
+        {
+          "id": 1275,
+          "name": "Super Strength Potion Certificate"
+        },
+        {
+          "id": 1290,
+          "name": "attack Potion"
+        },
+        {
+          "id": 1291,
+          "name": "attack Potion"
+        },
+        {
+          "id": 1292,
+          "name": "attack Potion"
+        },
+        {
+          "id": 1293,
+          "name": "Cure poison Potion"
+        },
+        {
+          "id": 1294,
+          "name": "Cure poison Potion"
+        },
+        {
+          "id": 1295,
+          "name": "Cure poison Potion"
+        },
+        {
+          "id": 1296,
+          "name": "Strength Potion"
+        },
+        {
+          "id": 1297,
+          "name": "Strength Potion"
+        },
+        {
+          "id": 1298,
+          "name": "Strength Potion"
+        },
+        {
+          "id": 1299,
+          "name": "defense Potion"
+        },
+        {
+          "id": 1300,
+          "name": "defense Potion"
+        },
+        {
+          "id": 1301,
+          "name": "defense Potion"
+        },
+        {
+          "id": 1302,
+          "name": "restore prayer Potion"
+        },
+        {
+          "id": 1303,
+          "name": "restore prayer Potion"
+        },
+        {
+          "id": 1304,
+          "name": "restore prayer Potion"
+        }
+      ]
+    },
+    "Food & Cooking": {
+      "range": [
+        18,
+        1281
+      ],
+      "count": 137,
+      "items": [
+        {
+          "id": 18,
+          "name": "Cabbage"
+        },
+        {
+          "id": 19,
+          "name": "Egg"
+        },
+        {
+          "id": 132,
+          "name": "cookedmeat"
+        },
+        {
+          "id": 134,
+          "name": "burntmeat"
+        },
+        {
+          "id": 137,
+          "name": "bread dough"
+        },
+        {
+          "id": 138,
+          "name": "bread"
+        },
+        {
+          "id": 139,
+          "name": "burntbread"
+        },
+        {
+          "id": 165,
+          "name": "Herb"
+        },
+        {
+          "id": 176,
+          "name": "Fish Food"
+        },
+        {
+          "id": 219,
+          "name": "Red spiders eggs"
+        },
+        {
+          "id": 228,
+          "name": "Cabbage"
+        },
+        {
+          "id": 249,
+          "name": "banana"
+        },
+        {
+          "id": 251,
+          "name": "Pie dish"
+        },
+        {
+          "id": 252,
+          "name": "cooking apple"
+        },
+        {
+          "id": 253,
+          "name": "pie shell"
+        },
+        {
+          "id": 254,
+          "name": "Uncooked apple pie"
+        },
+        {
+          "id": 255,
+          "name": "Uncooked meat pie"
+        },
+        {
+          "id": 256,
+          "name": "Uncooked redberry pie"
+        },
+        {
+          "id": 257,
+          "name": "apple pie"
+        },
+        {
+          "id": 258,
+          "name": "Redberry pie"
+        },
+        {
+          "id": 259,
+          "name": "meat pie"
+        },
+        {
+          "id": 260,
+          "name": "burntpie"
+        },
+        {
+          "id": 261,
+          "name": "Half a meat pie"
+        },
+        {
+          "id": 262,
+          "name": "Half a Redberry pie"
+        },
+        {
+          "id": 263,
+          "name": "Half an apple pie"
+        },
+        {
+          "id": 278,
+          "name": "Unfired Pie dish"
+        },
+        {
+          "id": 282,
+          "name": "Orangedye"
+        },
+        {
+          "id": 319,
+          "name": "Cheese"
+        },
+        {
+          "id": 321,
+          "name": "Pizza Base"
+        },
+        {
+          "id": 322,
+          "name": "Burnt Pizza"
+        },
+        {
+          "id": 323,
+          "name": "Incomplete Pizza"
+        },
+        {
+          "id": 324,
+          "name": "Uncooked Pizza"
+        },
+        {
+          "id": 325,
+          "name": "Plain Pizza"
+        },
+        {
+          "id": 326,
+          "name": "Meat Pizza"
+        },
+        {
+          "id": 327,
+          "name": "Anchovie Pizza"
+        },
+        {
+          "id": 328,
+          "name": "Half Meat Pizza"
+        },
+        {
+          "id": 329,
+          "name": "Half Anchovie Pizza"
+        },
+        {
+          "id": 330,
+          "name": "Cake"
+        },
+        {
+          "id": 331,
+          "name": "Burnt Cake"
+        },
+        {
+          "id": 332,
+          "name": "Chocolate Cake"
+        },
+        {
+          "id": 333,
+          "name": "Partial Cake"
+        },
+        {
+          "id": 334,
+          "name": "Partial Chocolate Cake"
+        },
+        {
+          "id": 335,
+          "name": "Slice of Cake"
+        },
+        {
+          "id": 338,
+          "name": "Cake Tin"
+        },
+        {
+          "id": 339,
+          "name": "Uncooked cake"
+        },
+        {
+          "id": 345,
+          "name": "Uncooked stew"
+        },
+        {
+          "id": 347,
+          "name": "Burnt Stew"
+        },
+        {
+          "id": 353,
+          "name": "Burnt fish"
+        },
+        {
+          "id": 356,
+          "name": "Raw Salmon"
+        },
+        {
+          "id": 357,
+          "name": "Salmon"
+        },
+        {
+          "id": 358,
+          "name": "Raw Trout"
+        },
+        {
+          "id": 359,
+          "name": "Trout"
+        },
+        {
+          "id": 360,
+          "name": "Burnt fish"
+        },
+        {
+          "id": 365,
+          "name": "Burnt fish"
+        },
+        {
+          "id": 368,
+          "name": "Burnt fish"
+        },
+        {
+          "id": 372,
+          "name": "Raw Lobster"
+        },
+        {
+          "id": 373,
+          "name": "Lobster"
+        },
+        {
+          "id": 374,
+          "name": "Burnt Lobster"
+        },
+        {
+          "id": 375,
+          "name": "Lobster Pot"
+        },
+        {
+          "id": 377,
+          "name": "Fishing Rod"
+        },
+        {
+          "id": 378,
+          "name": "Fly Fishing Rod"
+        },
+        {
+          "id": 380,
+          "name": "Fishing Bait"
+        },
+        {
+          "id": 391,
+          "name": "Orange Key"
+        },
+        {
+          "id": 416,
+          "name": "Map Piece"
+        },
+        {
+          "id": 417,
+          "name": "Map Piece"
+        },
+        {
+          "id": 418,
+          "name": "Map Piece"
+        },
+        {
+          "id": 435,
+          "name": "Herb"
+        },
+        {
+          "id": 436,
+          "name": "Herb"
+        },
+        {
+          "id": 437,
+          "name": "Herb"
+        },
+        {
+          "id": 438,
+          "name": "Herb"
+        },
+        {
+          "id": 439,
+          "name": "Herb"
+        },
+        {
+          "id": 440,
+          "name": "Herb"
+        },
+        {
+          "id": 441,
+          "name": "Herb"
+        },
+        {
+          "id": 442,
+          "name": "Herb"
+        },
+        {
+          "id": 443,
+          "name": "Herb"
+        },
+        {
+          "id": 502,
+          "name": "raw bear meat"
+        },
+        {
+          "id": 503,
+          "name": "raw rat meat"
+        },
+        {
+          "id": 505,
+          "name": "enchanted bear meat"
+        },
+        {
+          "id": 506,
+          "name": "enchanted rat meat"
+        },
+        {
+          "id": 508,
+          "name": "enchanted chicken meat"
+        },
+        {
+          "id": 533,
+          "name": "Lobster certificate"
+        },
+        {
+          "id": 534,
+          "name": "Raw lobster certificate"
+        },
+        {
+          "id": 547,
+          "name": "Burnt Shark"
+        },
+        {
+          "id": 589,
+          "name": "Oily Fishing Rod"
+        },
+        {
+          "id": 677,
+          "name": "Easter egg"
+        },
+        {
+          "id": 708,
+          "name": "Uncooked curry"
+        },
+        {
+          "id": 710,
+          "name": "Burnt curry"
+        },
+        {
+          "id": 719,
+          "name": "Fishing competition Pass"
+        },
+        {
+          "id": 720,
+          "name": "Hemenster fishing trophy"
+        },
+        {
+          "id": 748,
+          "name": "Pineapple"
+        },
+        {
+          "id": 749,
+          "name": "Pineapple ring"
+        },
+        {
+          "id": 750,
+          "name": "Pineapple Pizza"
+        },
+        {
+          "id": 751,
+          "name": "Half pineapple Pizza"
+        },
+        {
+          "id": 784,
+          "name": "Uncooked Swamp paste"
+        },
+        {
+          "id": 801,
+          "name": "Rotten apples"
+        },
+        {
+          "id": 815,
+          "name": "Herb"
+        },
+        {
+          "id": 817,
+          "name": "Herb"
+        },
+        {
+          "id": 819,
+          "name": "Herb"
+        },
+        {
+          "id": 821,
+          "name": "Herb"
+        },
+        {
+          "id": 823,
+          "name": "Herb"
+        },
+        {
+          "id": 857,
+          "name": "orange"
+        },
+        {
+          "id": 858,
+          "name": "orange slices"
+        },
+        {
+          "id": 859,
+          "name": "Diced orange"
+        },
+        {
+          "id": 861,
+          "name": "Fresh Pineapple"
+        },
+        {
+          "id": 862,
+          "name": "Pineapple chunks"
+        },
+        {
+          "id": 879,
+          "name": "pineapple punch"
+        },
+        {
+          "id": 880,
+          "name": "gnomebatta dough"
+        },
+        {
+          "id": 884,
+          "name": "gnomebatta"
+        },
+        {
+          "id": 886,
+          "name": "gnomebatta"
+        },
+        {
+          "id": 901,
+          "name": "cheese and tomato batta"
+        },
+        {
+          "id": 902,
+          "name": "toad batta"
+        },
+        {
+          "id": 903,
+          "name": "gnome batta"
+        },
+        {
+          "id": 904,
+          "name": "worm batta"
+        },
+        {
+          "id": 905,
+          "name": "fruit batta"
+        },
+        {
+          "id": 906,
+          "name": "Veg batta"
+        },
+        {
+          "id": 933,
+          "name": "Herb"
+        },
+        {
+          "id": 940,
+          "name": "pineapple punch"
+        },
+        {
+          "id": 944,
+          "name": "cheese and tomato batta"
+        },
+        {
+          "id": 945,
+          "name": "toad batta"
+        },
+        {
+          "id": 946,
+          "name": "gnome batta"
+        },
+        {
+          "id": 947,
+          "name": "worm batta"
+        },
+        {
+          "id": 948,
+          "name": "fruit batta"
+        },
+        {
+          "id": 949,
+          "name": "Veg batta"
+        },
+        {
+          "id": 1058,
+          "name": "Tenti Pineapple"
+        },
+        {
+          "id": 1061,
+          "name": "Rock cake"
+        },
+        {
+          "id": 1101,
+          "name": "Raw Ugthanki Meat"
+        },
+        {
+          "id": 1103,
+          "name": "Cooked Ugthanki Meat"
+        },
+        {
+          "id": 1104,
+          "name": "Uncooked Pitta Bread"
+        },
+        {
+          "id": 1105,
+          "name": "Pitta Bread"
+        },
+        {
+          "id": 1110,
+          "name": "Burnt Pitta Bread"
+        },
+        {
+          "id": 1120,
+          "name": "Scrumpled piece of paper"
+        },
+        {
+          "id": 1247,
+          "name": "Burnt Manta ray"
+        },
+        {
+          "id": 1248,
+          "name": "Burnt Sea turtle"
+        },
+        {
+          "id": 1268,
+          "name": "Raw Oomlie Meat"
+        },
+        {
+          "id": 1269,
+          "name": "Cooked Oomlie meat Parcel"
+        },
+        {
+          "id": 1280,
+          "name": "Raw Oomlie Meat Parcel"
+        },
+        {
+          "id": 1281,
+          "name": "Burnt Oomlie Meat parcel"
+        }
+      ]
+    },
+    "Materials & Resources": {
+      "range": [
+        2,
+        1329
+      ],
+      "count": 555,
+      "items": [
+        {
+          "id": 2,
+          "name": "Iron Kite Shield"
+        },
+        {
+          "id": 3,
+          "name": "Iron Square Shield"
+        },
+        {
+          "id": 4,
+          "name": "Wooden Shield"
+        },
+        {
+          "id": 10,
+          "name": "Coins"
+        },
+        {
+          "id": 14,
+          "name": "Logs"
+        },
+        {
+          "id": 20,
+          "name": "Bones"
+        },
+        {
+          "id": 22,
+          "name": "Milk"
+        },
+        {
+          "id": 23,
+          "name": "Flour"
+        },
+        {
+          "id": 27,
+          "name": "skull"
+        },
+        {
+          "id": 29,
+          "name": "grain"
+        },
+        {
+          "id": 43,
+          "name": "Thread"
+        },
+        {
+          "id": 44,
+          "name": "Holy Symbol of saradomin"
+        },
+        {
+          "id": 45,
+          "name": "Unblessed Holy Symbol"
+        },
+        {
+          "id": 50,
+          "name": "Water"
+        },
+        {
+          "id": 52,
+          "name": "Silverlight"
+        },
+        {
+          "id": 53,
+          "name": "Broken shield"
+        },
+        {
+          "id": 54,
+          "name": "Broken shield"
+        },
+        {
+          "id": 55,
+          "name": "Cadavaberries"
+        },
+        {
+          "id": 56,
+          "name": "message"
+        },
+        {
+          "id": 57,
+          "name": "Cadava"
+        },
+        {
+          "id": 124,
+          "name": "Bronze Square Shield"
+        },
+        {
+          "id": 126,
+          "name": "Mithril Square Shield"
+        },
+        {
+          "id": 127,
+          "name": "Adamantite Square Shield"
+        },
+        {
+          "id": 128,
+          "name": "Bronze Kite Shield"
+        },
+        {
+          "id": 130,
+          "name": "Mithril Kite Shield"
+        },
+        {
+          "id": 131,
+          "name": "Adamantite Kite Shield"
+        },
+        {
+          "id": 133,
+          "name": "raw chicken"
+        },
+        {
+          "id": 136,
+          "name": "flour"
+        },
+        {
+          "id": 140,
+          "name": "jug"
+        },
+        {
+          "id": 141,
+          "name": "water"
+        },
+        {
+          "id": 142,
+          "name": "wine"
+        },
+        {
+          "id": 143,
+          "name": "grapes"
+        },
+        {
+          "id": 144,
+          "name": "shears"
+        },
+        {
+          "id": 145,
+          "name": "wool"
+        },
+        {
+          "id": 146,
+          "name": "fur"
+        },
+        {
+          "id": 147,
+          "name": "cow hide"
+        },
+        {
+          "id": 149,
+          "name": "clay"
+        },
+        {
+          "id": 150,
+          "name": "copper ore"
+        },
+        {
+          "id": 151,
+          "name": "iron ore"
+        },
+        {
+          "id": 152,
+          "name": "gold"
+        },
+        {
+          "id": 153,
+          "name": "mithril ore"
+        },
+        {
+          "id": 154,
+          "name": "adamantite ore"
+        },
+        {
+          "id": 155,
+          "name": "coal"
+        },
+        {
+          "id": 157,
+          "name": "uncut diamond"
+        },
+        {
+          "id": 158,
+          "name": "uncut ruby"
+        },
+        {
+          "id": 159,
+          "name": "uncut emerald"
+        },
+        {
+          "id": 160,
+          "name": "uncut sapphire"
+        },
+        {
+          "id": 161,
+          "name": "diamond"
+        },
+        {
+          "id": 162,
+          "name": "ruby"
+        },
+        {
+          "id": 163,
+          "name": "emerald"
+        },
+        {
+          "id": 164,
+          "name": "sapphire"
+        },
+        {
+          "id": 169,
+          "name": "bronze bar"
+        },
+        {
+          "id": 170,
+          "name": "iron bar"
+        },
+        {
+          "id": 172,
+          "name": "gold bar"
+        },
+        {
+          "id": 173,
+          "name": "mithril bar"
+        },
+        {
+          "id": 174,
+          "name": "adamantite bar"
+        },
+        {
+          "id": 175,
+          "name": "Pressure gauge"
+        },
+        {
+          "id": 179,
+          "name": "spinach roll"
+        },
+        {
+          "id": 180,
+          "name": "Bad wine"
+        },
+        {
+          "id": 182,
+          "name": "Apron"
+        },
+        {
+          "id": 185,
+          "name": "wizardshat"
+        },
+        {
+          "id": 191,
+          "name": "Apron"
+        },
+        {
+          "id": 192,
+          "name": "Chef's hat"
+        },
+        {
+          "id": 193,
+          "name": "Beer"
+        },
+        {
+          "id": 199,
+          "name": "wizardshat"
+        },
+        {
+          "id": 200,
+          "name": "silk"
+        },
+        {
+          "id": 201,
+          "name": "flier"
+        },
+        {
+          "id": 202,
+          "name": "tin ore"
+        },
+        {
+          "id": 207,
+          "name": "Ball of wool"
+        },
+        {
+          "id": 208,
+          "name": "Oil can"
+        },
+        {
+          "id": 210,
+          "name": "Kebab"
+        },
+        {
+          "id": 211,
+          "name": "Spade"
+        },
+        {
+          "id": 213,
+          "name": "rubber tube"
+        },
+        {
+          "id": 217,
+          "name": "stake"
+        },
+        {
+          "id": 218,
+          "name": "Garlic"
+        },
+        {
+          "id": 231,
+          "name": "Red Bead"
+        },
+        {
+          "id": 232,
+          "name": "Yellow Bead"
+        },
+        {
+          "id": 233,
+          "name": "Black Bead"
+        },
+        {
+          "id": 234,
+          "name": "White Bead"
+        },
+        {
+          "id": 236,
+          "name": "Redberries"
+        },
+        {
+          "id": 237,
+          "name": "Rope"
+        },
+        {
+          "id": 238,
+          "name": "Reddye"
+        },
+        {
+          "id": 239,
+          "name": "Yellowdye"
+        },
+        {
+          "id": 240,
+          "name": "Paste"
+        },
+        {
+          "id": 241,
+          "name": "Onion"
+        },
+        {
+          "id": 243,
+          "name": "Soft Clay"
+        },
+        {
+          "id": 244,
+          "name": "wig"
+        },
+        {
+          "id": 245,
+          "name": "wig"
+        },
+        {
+          "id": 246,
+          "name": "Half full wine jug"
+        },
+        {
+          "id": 250,
+          "name": "pastry dough"
+        },
+        {
+          "id": 264,
+          "name": "Portrait"
+        },
+        {
+          "id": 266,
+          "name": "blurite ore"
+        },
+        {
+          "id": 267,
+          "name": "Asgarnian Ale"
+        },
+        {
+          "id": 268,
+          "name": "Wizard's Mind Bomb"
+        },
+        {
+          "id": 269,
+          "name": "Dwarven Stout"
+        },
+        {
+          "id": 270,
+          "name": "Eye of newt"
+        },
+        {
+          "id": 271,
+          "name": "Rat's tail"
+        },
+        {
+          "id": 272,
+          "name": "Bluedye"
+        },
+        {
+          "id": 318,
+          "name": "Karamja Rum"
+        },
+        {
+          "id": 320,
+          "name": "Tomato"
+        },
+        {
+          "id": 336,
+          "name": "Chocolate Slice"
+        },
+        {
+          "id": 337,
+          "name": "Chocolate Bar"
+        },
+        {
+          "id": 343,
+          "name": "Incomplete stew"
+        },
+        {
+          "id": 344,
+          "name": "Incomplete stew"
+        },
+        {
+          "id": 346,
+          "name": "Stew"
+        },
+        {
+          "id": 349,
+          "name": "Raw Shrimp"
+        },
+        {
+          "id": 350,
+          "name": "Shrimp"
+        },
+        {
+          "id": 351,
+          "name": "Raw Anchovies"
+        },
+        {
+          "id": 352,
+          "name": "Anchovies"
+        },
+        {
+          "id": 354,
+          "name": "Raw Sardine"
+        },
+        {
+          "id": 355,
+          "name": "Sardine"
+        },
+        {
+          "id": 363,
+          "name": "Raw Pike"
+        },
+        {
+          "id": 364,
+          "name": "Pike"
+        },
+        {
+          "id": 366,
+          "name": "Raw Tuna"
+        },
+        {
+          "id": 367,
+          "name": "Tuna"
+        },
+        {
+          "id": 376,
+          "name": "Net"
+        },
+        {
+          "id": 379,
+          "name": "Harpoon"
+        },
+        {
+          "id": 381,
+          "name": "Feather"
+        },
+        {
+          "id": 383,
+          "name": "Silver"
+        },
+        {
+          "id": 384,
+          "name": "silver bar"
+        },
+        {
+          "id": 385,
+          "name": "Holy Symbol of saradomin"
+        },
+        {
+          "id": 386,
+          "name": "Holy symbol mould"
+        },
+        {
+          "id": 387,
+          "name": "Disk of Returning"
+        },
+        {
+          "id": 408,
+          "name": "Runite bar"
+        },
+        {
+          "id": 409,
+          "name": "runite ore"
+        },
+        {
+          "id": 410,
+          "name": "Plank"
+        },
+        {
+          "id": 411,
+          "name": "Tile"
+        },
+        {
+          "id": 412,
+          "name": "skull"
+        },
+        {
+          "id": 413,
+          "name": "Big Bones"
+        },
+        {
+          "id": 419,
+          "name": "Nails"
+        },
+        {
+          "id": 420,
+          "name": "Anti dragon breath Shield"
+        },
+        {
+          "id": 422,
+          "name": "Pumpkin"
+        },
+        {
+          "id": 432,
+          "name": "Black Square Shield"
+        },
+        {
+          "id": 433,
+          "name": "Black Kite Shield"
+        },
+        {
+          "id": 445,
+          "name": "Marrentill"
+        },
+        {
+          "id": 446,
+          "name": "Tarromin"
+        },
+        {
+          "id": 447,
+          "name": "Harralander"
+        },
+        {
+          "id": 448,
+          "name": "Ranarr Weed"
+        },
+        {
+          "id": 450,
+          "name": "Avantoe"
+        },
+        {
+          "id": 451,
+          "name": "Kwuarm"
+        },
+        {
+          "id": 452,
+          "name": "Cadantine"
+        },
+        {
+          "id": 453,
+          "name": "Dwarf Weed"
+        },
+        {
+          "id": 464,
+          "name": "Vial"
+        },
+        {
+          "id": 465,
+          "name": "Vial"
+        },
+        {
+          "id": 466,
+          "name": "Unicorn horn"
+        },
+        {
+          "id": 467,
+          "name": "Blue dragon scale"
+        },
+        {
+          "id": 469,
+          "name": "Snape grass"
+        },
+        {
+          "id": 471,
+          "name": "White berries"
+        },
+        {
+          "id": 472,
+          "name": "Ground blue dragon scale"
+        },
+        {
+          "id": 473,
+          "name": "Ground unicorn horn"
+        },
+        {
+          "id": 501,
+          "name": "wine of Zamorak"
+        },
+        {
+          "id": 504,
+          "name": "raw beef"
+        },
+        {
+          "id": 507,
+          "name": "enchanted beef"
+        },
+        {
+          "id": 510,
+          "name": "Dramen Branch"
+        },
+        {
+          "id": 515,
+          "name": "Greendye"
+        },
+        {
+          "id": 516,
+          "name": "Purpledye"
+        },
+        {
+          "id": 523,
+          "name": "Dragonstone"
+        },
+        {
+          "id": 537,
+          "name": "Diary"
+        },
+        {
+          "id": 539,
+          "name": "Ball"
+        },
+        {
+          "id": 540,
+          "name": "magnet"
+        },
+        {
+          "id": 541,
+          "name": "Grey wolf fur"
+        },
+        {
+          "id": 542,
+          "name": "uncut dragonstone"
+        },
+        {
+          "id": 545,
+          "name": "Raw Shark"
+        },
+        {
+          "id": 546,
+          "name": "Shark"
+        },
+        {
+          "id": 548,
+          "name": "Big Net"
+        },
+        {
+          "id": 549,
+          "name": "Casket"
+        },
+        {
+          "id": 550,
+          "name": "Raw cod"
+        },
+        {
+          "id": 551,
+          "name": "Cod"
+        },
+        {
+          "id": 552,
+          "name": "Raw Mackerel"
+        },
+        {
+          "id": 553,
+          "name": "Mackerel"
+        },
+        {
+          "id": 554,
+          "name": "Raw Bass"
+        },
+        {
+          "id": 555,
+          "name": "Bass"
+        },
+        {
+          "id": 557,
+          "name": "Firebird Feather"
+        },
+        {
+          "id": 558,
+          "name": "Firebird Feather"
+        },
+        {
+          "id": 573,
+          "name": "ID Paper"
+        },
+        {
+          "id": 575,
+          "name": "Christmas cracker"
+        },
+        {
+          "id": 576,
+          "name": "Party Hat"
+        },
+        {
+          "id": 577,
+          "name": "Party Hat"
+        },
+        {
+          "id": 578,
+          "name": "Party Hat"
+        },
+        {
+          "id": 579,
+          "name": "Party Hat"
+        },
+        {
+          "id": 580,
+          "name": "Party Hat"
+        },
+        {
+          "id": 581,
+          "name": "Party Hat"
+        },
+        {
+          "id": 584,
+          "name": "Whisky"
+        },
+        {
+          "id": 585,
+          "name": "Candlestick"
+        },
+        {
+          "id": 586,
+          "name": "Master thief armband"
+        },
+        {
+          "id": 587,
+          "name": "Blamish snail slime"
+        },
+        {
+          "id": 588,
+          "name": "Blamish oil"
+        },
+        {
+          "id": 598,
+          "name": "Grog"
+        },
+        {
+          "id": 599,
+          "name": "Candle"
+        },
+        {
+          "id": 600,
+          "name": "black Candle"
+        },
+        {
+          "id": 601,
+          "name": "Candle"
+        },
+        {
+          "id": 602,
+          "name": "black Candle"
+        },
+        {
+          "id": 603,
+          "name": "insect repellant"
+        },
+        {
+          "id": 604,
+          "name": "Bat bones"
+        },
+        {
+          "id": 606,
+          "name": "Excalibur"
+        },
+        {
+          "id": 609,
+          "name": "Eye patch"
+        },
+        {
+          "id": 620,
+          "name": "Beer glass"
+        },
+        {
+          "id": 621,
+          "name": "glassblowing pipe"
+        },
+        {
+          "id": 622,
+          "name": "seaweed"
+        },
+        {
+          "id": 623,
+          "name": "molten glass"
+        },
+        {
+          "id": 625,
+          "name": "sand"
+        },
+        {
+          "id": 632,
+          "name": "Oak Logs"
+        },
+        {
+          "id": 633,
+          "name": "Willow Logs"
+        },
+        {
+          "id": 635,
+          "name": "Yew Logs"
+        },
+        {
+          "id": 636,
+          "name": "Magic Logs"
+        },
+        {
+          "id": 668,
+          "name": "barcrawl card"
+        },
+        {
+          "id": 675,
+          "name": "flax"
+        },
+        {
+          "id": 678,
+          "name": "scorpion cage"
+        },
+        {
+          "id": 679,
+          "name": "scorpion cage"
+        },
+        {
+          "id": 680,
+          "name": "scorpion cage"
+        },
+        {
+          "id": 681,
+          "name": "scorpion cage"
+        },
+        {
+          "id": 686,
+          "name": "scorpion cage"
+        },
+        {
+          "id": 687,
+          "name": "scorpion cage"
+        },
+        {
+          "id": 688,
+          "name": "scorpion cage"
+        },
+        {
+          "id": 689,
+          "name": "scorpion cage"
+        },
+        {
+          "id": 690,
+          "name": "gold"
+        },
+        {
+          "id": 691,
+          "name": "gold bar"
+        },
+        {
+          "id": 694,
+          "name": "Family crest"
+        },
+        {
+          "id": 695,
+          "name": "Crest fragment"
+        },
+        {
+          "id": 696,
+          "name": "Crest fragment"
+        },
+        {
+          "id": 697,
+          "name": "Crest fragment"
+        },
+        {
+          "id": 705,
+          "name": "Tribal totem"
+        },
+        {
+          "id": 706,
+          "name": "tourist guide"
+        },
+        {
+          "id": 707,
+          "name": "spice"
+        },
+        {
+          "id": 709,
+          "name": "curry"
+        },
+        {
+          "id": 714,
+          "name": "lockpick"
+        },
+        {
+          "id": 715,
+          "name": "Red vine worms"
+        },
+        {
+          "id": 716,
+          "name": "Blanket"
+        },
+        {
+          "id": 717,
+          "name": "Raw giant carp"
+        },
+        {
+          "id": 718,
+          "name": "giant Carp"
+        },
+        {
+          "id": 721,
+          "name": "Pendant of Lucien"
+        },
+        {
+          "id": 724,
+          "name": "Lever"
+        },
+        {
+          "id": 726,
+          "name": "Pendant of Armadyl"
+        },
+        {
+          "id": 727,
+          "name": "Large cog"
+        },
+        {
+          "id": 728,
+          "name": "Large cog"
+        },
+        {
+          "id": 729,
+          "name": "Large cog"
+        },
+        {
+          "id": 730,
+          "name": "Large cog"
+        },
+        {
+          "id": 735,
+          "name": "khali brew"
+        },
+        {
+          "id": 738,
+          "name": "magic whistle"
+        },
+        {
+          "id": 739,
+          "name": "Cup of tea"
+        },
+        {
+          "id": 742,
+          "name": "Holy table napkin"
+        },
+        {
+          "id": 743,
+          "name": "bell"
+        },
+        {
+          "id": 745,
+          "name": "magic golden feather"
+        },
+        {
+          "id": 746,
+          "name": "Holy grail"
+        },
+        {
+          "id": 757,
+          "name": "Cattle prod"
+        },
+        {
+          "id": 758,
+          "name": "Plagued sheep remains"
+        },
+        {
+          "id": 760,
+          "name": "Protective jacket"
+        },
+        {
+          "id": 761,
+          "name": "Protective trousers"
+        },
+        {
+          "id": 762,
+          "name": "Plagued sheep remains"
+        },
+        {
+          "id": 763,
+          "name": "Plagued sheep remains"
+        },
+        {
+          "id": 764,
+          "name": "Plagued sheep remains"
+        },
+        {
+          "id": 765,
+          "name": "dwellberries"
+        },
+        {
+          "id": 766,
+          "name": "Gasmask"
+        },
+        {
+          "id": 767,
+          "name": "picture"
+        },
+        {
+          "id": 769,
+          "name": "Seaslug"
+        },
+        {
+          "id": 770,
+          "name": "chocolaty milk"
+        },
+        {
+          "id": 771,
+          "name": "Hangover cure"
+        },
+        {
+          "id": 772,
+          "name": "Chocolate dust"
+        },
+        {
+          "id": 773,
+          "name": "Torch"
+        },
+        {
+          "id": 774,
+          "name": "Torch"
+        },
+        {
+          "id": 775,
+          "name": "warrant"
+        },
+        {
+          "id": 776,
+          "name": "Damp sticks"
+        },
+        {
+          "id": 777,
+          "name": "Dry sticks"
+        },
+        {
+          "id": 778,
+          "name": "Broken glass"
+        },
+        {
+          "id": 783,
+          "name": "Swamp tar"
+        },
+        {
+          "id": 785,
+          "name": "Swamp paste"
+        },
+        {
+          "id": 787,
+          "name": "Glarials pebble"
+        },
+        {
+          "id": 794,
+          "name": "Soil"
+        },
+        {
+          "id": 798,
+          "name": "pigeon cage"
+        },
+        {
+          "id": 799,
+          "name": "Messenger pigeons"
+        },
+        {
+          "id": 800,
+          "name": "Bird feed"
+        },
+        {
+          "id": 802,
+          "name": "Doctors gown"
+        },
+        {
+          "id": 804,
+          "name": "Distillator"
+        },
+        {
+          "id": 805,
+          "name": "Glarial's urn"
+        },
+        {
+          "id": 806,
+          "name": "Glarial's urn"
+        },
+        {
+          "id": 808,
+          "name": "Priest gown"
+        },
+        {
+          "id": 809,
+          "name": "Liquid Honey"
+        },
+        {
+          "id": 810,
+          "name": "Ethenea"
+        },
+        {
+          "id": 811,
+          "name": "Sulphuric Broline"
+        },
+        {
+          "id": 812,
+          "name": "Plague sample"
+        },
+        {
+          "id": 813,
+          "name": "Touch paper"
+        },
+        {
+          "id": 814,
+          "name": "Dragon Bones"
+        },
+        {
+          "id": 816,
+          "name": "Snake Weed"
+        },
+        {
+          "id": 818,
+          "name": "Ardrigal"
+        },
+        {
+          "id": 820,
+          "name": "Sito Foil"
+        },
+        {
+          "id": 822,
+          "name": "Volencia Moss"
+        },
+        {
+          "id": 824,
+          "name": "Rogues Purse"
+        },
+        {
+          "id": 828,
+          "name": "halloween mask"
+        },
+        {
+          "id": 829,
+          "name": "Dragon bitter"
+        },
+        {
+          "id": 830,
+          "name": "Greenmans ale"
+        },
+        {
+          "id": 831,
+          "name": "halloween mask"
+        },
+        {
+          "id": 832,
+          "name": "halloween mask"
+        },
+        {
+          "id": 833,
+          "name": "cocktail glass"
+        },
+        {
+          "id": 834,
+          "name": "cocktail shaker"
+        },
+        {
+          "id": 841,
+          "name": "gnomeshat"
+        },
+        {
+          "id": 842,
+          "name": "gnomeshat"
+        },
+        {
+          "id": 843,
+          "name": "gnomeshat"
+        },
+        {
+          "id": 844,
+          "name": "gnomeshat"
+        },
+        {
+          "id": 845,
+          "name": "gnomeshat"
+        },
+        {
+          "id": 846,
+          "name": "gnome top"
+        },
+        {
+          "id": 847,
+          "name": "gnome top"
+        },
+        {
+          "id": 848,
+          "name": "gnome top"
+        },
+        {
+          "id": 849,
+          "name": "gnome top"
+        },
+        {
+          "id": 850,
+          "name": "gnome top"
+        },
+        {
+          "id": 851,
+          "name": "gnome cocktail guide"
+        },
+        {
+          "id": 852,
+          "name": "Beads of the dead"
+        },
+        {
+          "id": 853,
+          "name": "cocktail glass"
+        },
+        {
+          "id": 854,
+          "name": "cocktail glass"
+        },
+        {
+          "id": 855,
+          "name": "lemon"
+        },
+        {
+          "id": 856,
+          "name": "lemon slices"
+        },
+        {
+          "id": 860,
+          "name": "Diced lemon"
+        },
+        {
+          "id": 863,
+          "name": "lime"
+        },
+        {
+          "id": 864,
+          "name": "lime chunks"
+        },
+        {
+          "id": 865,
+          "name": "lime slices"
+        },
+        {
+          "id": 866,
+          "name": "fruit blast"
+        },
+        {
+          "id": 867,
+          "name": "odd looking cocktail"
+        },
+        {
+          "id": 868,
+          "name": "Whisky"
+        },
+        {
+          "id": 869,
+          "name": "vodka"
+        },
+        {
+          "id": 870,
+          "name": "gin"
+        },
+        {
+          "id": 871,
+          "name": "cream"
+        },
+        {
+          "id": 872,
+          "name": "Drunk dragon"
+        },
+        {
+          "id": 873,
+          "name": "Equa leaves"
+        },
+        {
+          "id": 874,
+          "name": "SGG"
+        },
+        {
+          "id": 875,
+          "name": "Chocolate saturday"
+        },
+        {
+          "id": 876,
+          "name": "brandy"
+        },
+        {
+          "id": 877,
+          "name": "blurberry special"
+        },
+        {
+          "id": 878,
+          "name": "wizard blizzard"
+        },
+        {
+          "id": 881,
+          "name": "gianne dough"
+        },
+        {
+          "id": 883,
+          "name": "gnomecrunchie dough"
+        },
+        {
+          "id": 887,
+          "name": "gnomecrunchie"
+        },
+        {
+          "id": 889,
+          "name": "Uncut Red Topaz"
+        },
+        {
+          "id": 890,
+          "name": "Uncut Jade"
+        },
+        {
+          "id": 891,
+          "name": "Uncut Opal"
+        },
+        {
+          "id": 892,
+          "name": "Red Topaz"
+        },
+        {
+          "id": 893,
+          "name": "Jade"
+        },
+        {
+          "id": 894,
+          "name": "Opal"
+        },
+        {
+          "id": 895,
+          "name": "Swamp Toad"
+        },
+        {
+          "id": 896,
+          "name": "Toad legs"
+        },
+        {
+          "id": 897,
+          "name": "King worm"
+        },
+        {
+          "id": 898,
+          "name": "Gnome spice"
+        },
+        {
+          "id": 900,
+          "name": "gnomecrunchie"
+        },
+        {
+          "id": 907,
+          "name": "Chocolate bomb"
+        },
+        {
+          "id": 908,
+          "name": "Vegball"
+        },
+        {
+          "id": 909,
+          "name": "worm hole"
+        },
+        {
+          "id": 910,
+          "name": "Tangled toads legs"
+        },
+        {
+          "id": 911,
+          "name": "Choc crunchies"
+        },
+        {
+          "id": 912,
+          "name": "Worm crunchies"
+        },
+        {
+          "id": 913,
+          "name": "Toad crunchies"
+        },
+        {
+          "id": 914,
+          "name": "Spice crunchies"
+        },
+        {
+          "id": 915,
+          "name": "Crushed Gemstone"
+        },
+        {
+          "id": 916,
+          "name": "Blurberry badge"
+        },
+        {
+          "id": 917,
+          "name": "Gianne badge"
+        },
+        {
+          "id": 918,
+          "name": "tree gnome translation"
+        },
+        {
+          "id": 919,
+          "name": "Bark sample"
+        },
+        {
+          "id": 920,
+          "name": "War ship"
+        },
+        {
+          "id": 922,
+          "name": "invoice"
+        },
+        {
+          "id": 923,
+          "name": "Ugthanki Kebab"
+        },
+        {
+          "id": 924,
+          "name": "special curry"
+        },
+        {
+          "id": 927,
+          "name": "Pebble"
+        },
+        {
+          "id": 928,
+          "name": "Pebble"
+        },
+        {
+          "id": 929,
+          "name": "Pebble"
+        },
+        {
+          "id": 930,
+          "name": "Pebble"
+        },
+        {
+          "id": 931,
+          "name": "Daconia rock"
+        },
+        {
+          "id": 934,
+          "name": "Torstol"
+        },
+        {
+          "id": 936,
+          "name": "Jangerberries"
+        },
+        {
+          "id": 937,
+          "name": "fruit blast"
+        },
+        {
+          "id": 938,
+          "name": "blurberry special"
+        },
+        {
+          "id": 939,
+          "name": "wizard blizzard"
+        },
+        {
+          "id": 941,
+          "name": "SGG"
+        },
+        {
+          "id": 942,
+          "name": "Chocolate saturday"
+        },
+        {
+          "id": 943,
+          "name": "Drunk dragon"
+        },
+        {
+          "id": 950,
+          "name": "Chocolate bomb"
+        },
+        {
+          "id": 951,
+          "name": "Vegball"
+        },
+        {
+          "id": 952,
+          "name": "worm hole"
+        },
+        {
+          "id": 953,
+          "name": "Tangled toads legs"
+        },
+        {
+          "id": 954,
+          "name": "Choc crunchies"
+        },
+        {
+          "id": 955,
+          "name": "Worm crunchies"
+        },
+        {
+          "id": 956,
+          "name": "Toad crunchies"
+        },
+        {
+          "id": 957,
+          "name": "Spice crunchies"
+        },
+        {
+          "id": 958,
+          "name": "Stone-Plaque"
+        },
+        {
+          "id": 962,
+          "name": "Zadimus Corpse"
+        },
+        {
+          "id": 971,
+          "name": "Santa's hat"
+        },
+        {
+          "id": 972,
+          "name": "Locating Crystal"
+        },
+        {
+          "id": 974,
+          "name": "Bone Shard"
+        },
+        {
+          "id": 976,
+          "name": "Bone Beads"
+        },
+        {
+          "id": 978,
+          "name": "ResetCrystal"
+        },
+        {
+          "id": 979,
+          "name": "Bronze Wire"
+        },
+        {
+          "id": 980,
+          "name": "Present"
+        },
+        {
+          "id": 981,
+          "name": "Gnome Ball"
+        },
+        {
+          "id": 982,
+          "name": "Papyrus"
+        },
+        {
+          "id": 983,
+          "name": "A lump of Charcoal"
+        },
+        {
+          "id": 986,
+          "name": "Rocks"
+        },
+        {
+          "id": 987,
+          "name": "Paramaya Rest Ticket"
+        },
+        {
+          "id": 988,
+          "name": "Ship Ticket"
+        },
+        {
+          "id": 989,
+          "name": "Damp cloth"
+        },
+        {
+          "id": 995,
+          "name": "Railing"
+        },
+        {
+          "id": 997,
+          "name": "Unicorn horn"
+        },
+        {
+          "id": 998,
+          "name": "Coat of Arms"
+        },
+        {
+          "id": 999,
+          "name": "Coat of Arms"
+        },
+        {
+          "id": 1001,
+          "name": "Dwarf brew"
+        },
+        {
+          "id": 1003,
+          "name": "Cat"
+        },
+        {
+          "id": 1004,
+          "name": "A Doll of Iban"
+        },
+        {
+          "id": 1007,
+          "name": "Iban's shadow"
+        },
+        {
+          "id": 1008,
+          "name": "Iban's conscience"
+        },
+        {
+          "id": 1013,
+          "name": "Bronze Throwing Dart"
+        },
+        {
+          "id": 1014,
+          "name": "Prototype Throwing Dart"
+        },
+        {
+          "id": 1015,
+          "name": "Iron Throwing Dart"
+        },
+        {
+          "id": 1016,
+          "name": "Full Water Skin"
+        },
+        {
+          "id": 1017,
+          "name": "Lens mould"
+        },
+        {
+          "id": 1018,
+          "name": "Lens"
+        },
+        {
+          "id": 1026,
+          "name": "Unholy Symbol mould"
+        },
+        {
+          "id": 1027,
+          "name": "Unholy Symbol of Zamorak"
+        },
+        {
+          "id": 1028,
+          "name": "Unblessed Unholy Symbol of Zamorak"
+        },
+        {
+          "id": 1029,
+          "name": "Unholy Symbol of Zamorak"
+        },
+        {
+          "id": 1030,
+          "name": "Shantay Desert Pass"
+        },
+        {
+          "id": 1032,
+          "name": "Dwarf cannon base"
+        },
+        {
+          "id": 1033,
+          "name": "Dwarf cannon stand"
+        },
+        {
+          "id": 1034,
+          "name": "Dwarf cannon barrels"
+        },
+        {
+          "id": 1035,
+          "name": "Dwarf cannon furnace"
+        },
+        {
+          "id": 1036,
+          "name": "Fingernails"
+        },
+        {
+          "id": 1038,
+          "name": "Mining Barrel"
+        },
+        {
+          "id": 1039,
+          "name": "Ana in a Barrel"
+        },
+        {
+          "id": 1040,
+          "name": "Stolen gold"
+        },
+        {
+          "id": 1041,
+          "name": "multi cannon ball"
+        },
+        {
+          "id": 1042,
+          "name": "Railing"
+        },
+        {
+          "id": 1043,
+          "name": "Ogre tooth"
+        },
+        {
+          "id": 1044,
+          "name": "Ogre relic"
+        },
+        {
+          "id": 1046,
+          "name": "dwarf remains"
+        },
+        {
+          "id": 1048,
+          "name": "Ogre relic part"
+        },
+        {
+          "id": 1049,
+          "name": "Ogre relic part"
+        },
+        {
+          "id": 1050,
+          "name": "Ogre relic part"
+        },
+        {
+          "id": 1051,
+          "name": "Ground bat bones"
+        },
+        {
+          "id": 1055,
+          "name": "Tool kit"
+        },
+        {
+          "id": 1057,
+          "name": "cannon ammo mould"
+        },
+        {
+          "id": 1060,
+          "name": "Technical Plans"
+        },
+        {
+          "id": 1062,
+          "name": "Bronze dart tips"
+        },
+        {
+          "id": 1063,
+          "name": "Iron dart tips"
+        },
+        {
+          "id": 1065,
+          "name": "Mithril dart tips"
+        },
+        {
+          "id": 1066,
+          "name": "Adamantite dart tips"
+        },
+        {
+          "id": 1068,
+          "name": "Mithril Throwing Dart"
+        },
+        {
+          "id": 1069,
+          "name": "Adamantite Throwing Dart"
+        },
+        {
+          "id": 1071,
+          "name": "Prototype dart tip"
+        },
+        {
+          "id": 1072,
+          "name": "info document"
+        },
+        {
+          "id": 1073,
+          "name": "Instruction manual"
+        },
+        {
+          "id": 1082,
+          "name": "Water Skin mostly full"
+        },
+        {
+          "id": 1083,
+          "name": "Water Skin mostly empty"
+        },
+        {
+          "id": 1084,
+          "name": "Water Skin mouthful left"
+        },
+        {
+          "id": 1085,
+          "name": "Empty Water Skin"
+        },
+        {
+          "id": 1086,
+          "name": "nightshade"
+        },
+        {
+          "id": 1093,
+          "name": "Cat"
+        },
+        {
+          "id": 1094,
+          "name": "Seasoned Sardine"
+        },
+        {
+          "id": 1095,
+          "name": "Kittens"
+        },
+        {
+          "id": 1096,
+          "name": "Kitten"
+        },
+        {
+          "id": 1099,
+          "name": "A free Shantay Disclaimer"
+        },
+        {
+          "id": 1100,
+          "name": "Doogle leaves"
+        },
+        {
+          "id": 1102,
+          "name": "Tasty Ugthanki Kebab"
+        },
+        {
+          "id": 1106,
+          "name": "Tomato Mixture"
+        },
+        {
+          "id": 1107,
+          "name": "Onion Mixture"
+        },
+        {
+          "id": 1108,
+          "name": "Onion and Tomato Mixture"
+        },
+        {
+          "id": 1109,
+          "name": "Onion and Tomato and Ugthanki Mix"
+        },
+        {
+          "id": 1111,
+          "name": "Panning tray"
+        },
+        {
+          "id": 1112,
+          "name": "Panning tray"
+        },
+        {
+          "id": 1113,
+          "name": "Panning tray"
+        },
+        {
+          "id": 1114,
+          "name": "Rock pick"
+        },
+        {
+          "id": 1115,
+          "name": "Specimen brush"
+        },
+        {
+          "id": 1116,
+          "name": "Specimen jar"
+        },
+        {
+          "id": 1117,
+          "name": "Rock Sample"
+        },
+        {
+          "id": 1118,
+          "name": "gold Nuggets"
+        },
+        {
+          "id": 1119,
+          "name": "cat"
+        },
+        {
+          "id": 1121,
+          "name": "Digsite info"
+        },
+        {
+          "id": 1145,
+          "name": "Trowel"
+        },
+        {
+          "id": 1148,
+          "name": "Rock Sample"
+        },
+        {
+          "id": 1149,
+          "name": "Rock Sample"
+        },
+        {
+          "id": 1150,
+          "name": "Cracked rock Sample"
+        },
+        {
+          "id": 1151,
+          "name": "Belt buckle"
+        },
+        {
+          "id": 1155,
+          "name": "Old boot"
+        },
+        {
+          "id": 1156,
+          "name": "Bunny ears"
+        },
+        {
+          "id": 1160,
+          "name": "Ammonium Nitrate"
+        },
+        {
+          "id": 1161,
+          "name": "Nitroglycerin"
+        },
+        {
+          "id": 1162,
+          "name": "Old tooth"
+        },
+        {
+          "id": 1166,
+          "name": "buttons"
+        },
+        {
+          "id": 1168,
+          "name": "vase"
+        },
+        {
+          "id": 1169,
+          "name": "ceramic remains"
+        },
+        {
+          "id": 1170,
+          "name": "Broken glass"
+        },
+        {
+          "id": 1171,
+          "name": "Unidentified powder"
+        },
+        {
+          "id": 1172,
+          "name": "Machette"
+        },
+        {
+          "id": 1174,
+          "name": "stone tablet"
+        },
+        {
+          "id": 1176,
+          "name": "Explosive compound"
+        },
+        {
+          "id": 1177,
+          "name": "Bull Roarer"
+        },
+        {
+          "id": 1178,
+          "name": "Mixed chemicals"
+        },
+        {
+          "id": 1179,
+          "name": "Ground charcoal"
+        },
+        {
+          "id": 1180,
+          "name": "Mixed chemicals"
+        },
+        {
+          "id": 1183,
+          "name": "Totem Pole"
+        },
+        {
+          "id": 1184,
+          "name": "Dwarf cannon base"
+        },
+        {
+          "id": 1185,
+          "name": "Dwarf cannon stand"
+        },
+        {
+          "id": 1186,
+          "name": "Dwarf cannon barrels"
+        },
+        {
+          "id": 1187,
+          "name": "Dwarf cannon furnace"
+        },
+        {
+          "id": 1190,
+          "name": "Raw Manta ray"
+        },
+        {
+          "id": 1191,
+          "name": "Manta ray"
+        },
+        {
+          "id": 1192,
+          "name": "Raw Sea turtle"
+        },
+        {
+          "id": 1193,
+          "name": "Sea turtle"
+        },
+        {
+          "id": 1195,
+          "name": "Bobs Silver Teacup"
+        },
+        {
+          "id": 1196,
+          "name": "Carols Silver Bottle"
+        },
+        {
+          "id": 1200,
+          "name": "Thread"
+        },
+        {
+          "id": 1201,
+          "name": "Thread"
+        },
+        {
+          "id": 1202,
+          "name": "Thread"
+        },
+        {
+          "id": 1203,
+          "name": "Flypaper"
+        },
+        {
+          "id": 1206,
+          "name": "Murderers fingerprint"
+        },
+        {
+          "id": 1207,
+          "name": "Annas fingerprint"
+        },
+        {
+          "id": 1208,
+          "name": "Bobs fingerprint"
+        },
+        {
+          "id": 1209,
+          "name": "Carols fingerprint"
+        },
+        {
+          "id": 1210,
+          "name": "Davids fingerprint"
+        },
+        {
+          "id": 1211,
+          "name": "Elizabeths fingerprint"
+        },
+        {
+          "id": 1212,
+          "name": "Franks fingerprint"
+        },
+        {
+          "id": 1219,
+          "name": "A chunk of crystal"
+        },
+        {
+          "id": 1220,
+          "name": "A lump of crystal"
+        },
+        {
+          "id": 1221,
+          "name": "A hunk of crystal"
+        },
+        {
+          "id": 1222,
+          "name": "A red crystal"
+        },
+        {
+          "id": 1223,
+          "name": "Unidentified fingerprint"
+        },
+        {
+          "id": 1225,
+          "name": "Bobs Silver Teacup"
+        },
+        {
+          "id": 1226,
+          "name": "Carols Silver Bottle"
+        },
+        {
+          "id": 1231,
+          "name": "A glowing red crystal"
+        },
+        {
+          "id": 1232,
+          "name": "Unidentified liquid"
+        },
+        {
+          "id": 1237,
+          "name": "eye patch"
+        },
+        {
+          "id": 1239,
+          "name": "Holy Water Vial"
+        },
+        {
+          "id": 1240,
+          "name": "Enchanted Vial"
+        },
+        {
+          "id": 1244,
+          "name": "Shamans Tome"
+        },
+        {
+          "id": 1245,
+          "name": "Edible seaweed"
+        },
+        {
+          "id": 1249,
+          "name": "Cut reed plant"
+        },
+        {
+          "id": 1250,
+          "name": "Magical Fire Pass"
+        },
+        {
+          "id": 1251,
+          "name": "Snakes Weed Solution"
+        },
+        {
+          "id": 1252,
+          "name": "Ardrigal Solution"
+        },
+        {
+          "id": 1257,
+          "name": "Holy Force Spell"
+        },
+        {
+          "id": 1263,
+          "name": "Sleeping Bag"
+        },
+        {
+          "id": 1264,
+          "name": "A blue wizards hat"
+        },
+        {
+          "id": 1265,
+          "name": "Gilded Totem Pole"
+        },
+        {
+          "id": 1276,
+          "name": "Half Dragon Square Shield"
+        },
+        {
+          "id": 1277,
+          "name": "Half Dragon Square Shield"
+        },
+        {
+          "id": 1278,
+          "name": "Dragon Square Shield"
+        },
+        {
+          "id": 1283,
+          "name": "Plank"
+        },
+        {
+          "id": 1285,
+          "name": "display tea"
+        },
+        {
+          "id": 1289,
+          "name": "Scythe"
+        },
+        {
+          "id": 1313,
+          "name": "Gold nuggets"
+        },
+        {
+          "id": 1314,
+          "name": "Cracked rock sample"
+        },
+        {
+          "id": 1316,
+          "name": "Ammonium nitrate"
+        },
+        {
+          "id": 1317,
+          "name": "Stone tablet"
+        },
+        {
+          "id": 1318,
+          "name": "Gold bar"
+        },
+        {
+          "id": 1321,
+          "name": "Buttons"
+        },
+        {
+          "id": 1322,
+          "name": "Ceramic remains"
+        },
+        {
+          "id": 1323,
+          "name": "Rock sample"
+        },
+        {
+          "id": 1324,
+          "name": "Rock sample"
+        },
+        {
+          "id": 1325,
+          "name": "Rock sample"
+        },
+        {
+          "id": 1326,
+          "name": "Vase"
+        },
+        {
+          "id": 1327,
+          "name": "Gnome translation"
+        },
+        {
+          "id": 1329,
+          "name": "Ana in a barrel"
+        }
+      ]
+    },
+    "Quest Items": {
+      "range": [
+        25,
+        1328
+      ],
+      "count": 97,
+      "items": [
+        {
+          "id": 25,
+          "name": "Silverlight key 1"
+        },
+        {
+          "id": 26,
+          "name": "Silverlight key 2"
+        },
+        {
+          "id": 30,
+          "name": "Book"
+        },
+        {
+          "id": 47,
+          "name": "key"
+        },
+        {
+          "id": 48,
+          "name": "key"
+        },
+        {
+          "id": 49,
+          "name": "scroll"
+        },
+        {
+          "id": 51,
+          "name": "Silverlight key 3"
+        },
+        {
+          "id": 61,
+          "name": "Certificate"
+        },
+        {
+          "id": 99,
+          "name": "Brass key"
+        },
+        {
+          "id": 212,
+          "name": "Closet Key"
+        },
+        {
+          "id": 242,
+          "name": "Bronze key"
+        },
+        {
+          "id": 247,
+          "name": "Keyprint"
+        },
+        {
+          "id": 382,
+          "name": "Chest key"
+        },
+        {
+          "id": 390,
+          "name": "Red key"
+        },
+        {
+          "id": 392,
+          "name": "yellow key"
+        },
+        {
+          "id": 393,
+          "name": "Blue key"
+        },
+        {
+          "id": 394,
+          "name": "Magenta key"
+        },
+        {
+          "id": 395,
+          "name": "black key"
+        },
+        {
+          "id": 414,
+          "name": "Muddy key"
+        },
+        {
+          "id": 415,
+          "name": "Map"
+        },
+        {
+          "id": 421,
+          "name": "Maze key"
+        },
+        {
+          "id": 517,
+          "name": "Iron ore certificate"
+        },
+        {
+          "id": 518,
+          "name": "Coal certificate"
+        },
+        {
+          "id": 519,
+          "name": "Mithril ore certificate"
+        },
+        {
+          "id": 520,
+          "name": "silver certificate"
+        },
+        {
+          "id": 521,
+          "name": "Gold certificate"
+        },
+        {
+          "id": 525,
+          "name": "Crystal key"
+        },
+        {
+          "id": 526,
+          "name": "Half of a key"
+        },
+        {
+          "id": 527,
+          "name": "Half of a key"
+        },
+        {
+          "id": 528,
+          "name": "Iron bar certificate"
+        },
+        {
+          "id": 530,
+          "name": "Mithril bar certificate"
+        },
+        {
+          "id": 531,
+          "name": "silver bar certificate"
+        },
+        {
+          "id": 532,
+          "name": "Gold bar certificate"
+        },
+        {
+          "id": 538,
+          "name": "Front door key"
+        },
+        {
+          "id": 582,
+          "name": "Miscellaneous key"
+        },
+        {
+          "id": 583,
+          "name": "Bunch of keys"
+        },
+        {
+          "id": 595,
+          "name": "Jail keys"
+        },
+        {
+          "id": 596,
+          "name": "Dusty Key"
+        },
+        {
+          "id": 628,
+          "name": "bass certificate"
+        },
+        {
+          "id": 629,
+          "name": "Raw bass certificate"
+        },
+        {
+          "id": 630,
+          "name": "shark certificate"
+        },
+        {
+          "id": 631,
+          "name": "Raw shark certificate"
+        },
+        {
+          "id": 634,
+          "name": "Maple Logs"
+        },
+        {
+          "id": 711,
+          "name": "yew logs certificate"
+        },
+        {
+          "id": 712,
+          "name": "maple logs certificate"
+        },
+        {
+          "id": 713,
+          "name": "willow logs certificate"
+        },
+        {
+          "id": 732,
+          "name": "shiny Key"
+        },
+        {
+          "id": 736,
+          "name": "khazard cell keys"
+        },
+        {
+          "id": 752,
+          "name": "Magic scroll"
+        },
+        {
+          "id": 756,
+          "name": "Carnillean Key"
+        },
+        {
+          "id": 768,
+          "name": "Book"
+        },
+        {
+          "id": 780,
+          "name": "little key"
+        },
+        {
+          "id": 781,
+          "name": "Scruffy note"
+        },
+        {
+          "id": 788,
+          "name": "book on baxtorian"
+        },
+        {
+          "id": 789,
+          "name": "large key"
+        },
+        {
+          "id": 797,
+          "name": "An old key"
+        },
+        {
+          "id": 803,
+          "name": "Bronze key"
+        },
+        {
+          "id": 835,
+          "name": "Bone Key"
+        },
+        {
+          "id": 899,
+          "name": "gianne cook book"
+        },
+        {
+          "id": 921,
+          "name": "gloughs journal"
+        },
+        {
+          "id": 925,
+          "name": "glough's key"
+        },
+        {
+          "id": 926,
+          "name": "glough's notes"
+        },
+        {
+          "id": 932,
+          "name": "Sinister key"
+        },
+        {
+          "id": 959,
+          "name": "Tattered Scroll"
+        },
+        {
+          "id": 960,
+          "name": "Crumpled Scroll"
+        },
+        {
+          "id": 961,
+          "name": "Bervirius Tomb Notes"
+        },
+        {
+          "id": 996,
+          "name": "Randas's journal"
+        },
+        {
+          "id": 1005,
+          "name": "Old Journal"
+        },
+        {
+          "id": 1012,
+          "name": "keep key"
+        },
+        {
+          "id": 1021,
+          "name": "Metal Key"
+        },
+        {
+          "id": 1025,
+          "name": "Astrology Book"
+        },
+        {
+          "id": 1045,
+          "name": "Skavid map"
+        },
+        {
+          "id": 1047,
+          "name": "Key"
+        },
+        {
+          "id": 1056,
+          "name": "Nulodion's notes"
+        },
+        {
+          "id": 1059,
+          "name": "Bedobin Copy Key"
+        },
+        {
+          "id": 1097,
+          "name": "Wrought iron key"
+        },
+        {
+          "id": 1098,
+          "name": "Cell Door Key"
+        },
+        {
+          "id": 1141,
+          "name": "Book of experimental chemistry"
+        },
+        {
+          "id": 1142,
+          "name": "Level 1 Certificate"
+        },
+        {
+          "id": 1143,
+          "name": "Level 2 Certificate"
+        },
+        {
+          "id": 1144,
+          "name": "Level 3 Certificate"
+        },
+        {
+          "id": 1146,
+          "name": "Stamped letter of recommendation"
+        },
+        {
+          "id": 1147,
+          "name": "Unstamped letter of recommendation"
+        },
+        {
+          "id": 1163,
+          "name": "Radimus Scrolls"
+        },
+        {
+          "id": 1164,
+          "name": "chest key"
+        },
+        {
+          "id": 1173,
+          "name": "Scroll"
+        },
+        {
+          "id": 1181,
+          "name": "Spell scroll"
+        },
+        {
+          "id": 1197,
+          "name": "Davids Silver Book"
+        },
+        {
+          "id": 1227,
+          "name": "Davids Silver Book"
+        },
+        {
+          "id": 1233,
+          "name": "Radimus Scrolls"
+        },
+        {
+          "id": 1238,
+          "name": "Booking of Binding"
+        },
+        {
+          "id": 1241,
+          "name": "Scribbled notes"
+        },
+        {
+          "id": 1242,
+          "name": "Scrawled notes"
+        },
+        {
+          "id": 1243,
+          "name": "Scatched notes"
+        },
+        {
+          "id": 1270,
+          "name": "Dragon Bone Certificate"
+        },
+        {
+          "id": 1315,
+          "name": "Digsite scroll"
+        },
+        {
+          "id": 1328,
+          "name": "Glough's notes"
+        }
+      ]
+    },
+    "Amulets & Jewelry": {
+      "range": [
+        24,
+        1224
+      ],
+      "count": 53,
+      "items": [
+        {
+          "id": 24,
+          "name": "Amulet of GhostSpeak"
+        },
+        {
+          "id": 186,
+          "name": "Brass necklace"
+        },
+        {
+          "id": 235,
+          "name": "Amulet of accuracy"
+        },
+        {
+          "id": 283,
+          "name": "Gold ring"
+        },
+        {
+          "id": 284,
+          "name": "Sapphire ring"
+        },
+        {
+          "id": 285,
+          "name": "Emerald ring"
+        },
+        {
+          "id": 286,
+          "name": "Ruby ring"
+        },
+        {
+          "id": 287,
+          "name": "Diamond ring"
+        },
+        {
+          "id": 288,
+          "name": "Gold necklace"
+        },
+        {
+          "id": 289,
+          "name": "Sapphire necklace"
+        },
+        {
+          "id": 290,
+          "name": "Emerald necklace"
+        },
+        {
+          "id": 291,
+          "name": "Ruby necklace"
+        },
+        {
+          "id": 292,
+          "name": "Diamond necklace"
+        },
+        {
+          "id": 293,
+          "name": "ring mould"
+        },
+        {
+          "id": 294,
+          "name": "Amulet mould"
+        },
+        {
+          "id": 295,
+          "name": "Necklace mould"
+        },
+        {
+          "id": 296,
+          "name": "Gold Amulet"
+        },
+        {
+          "id": 297,
+          "name": "Sapphire Amulet"
+        },
+        {
+          "id": 298,
+          "name": "Emerald Amulet"
+        },
+        {
+          "id": 299,
+          "name": "Ruby Amulet"
+        },
+        {
+          "id": 300,
+          "name": "Diamond Amulet"
+        },
+        {
+          "id": 301,
+          "name": "Gold Amulet"
+        },
+        {
+          "id": 302,
+          "name": "Sapphire Amulet"
+        },
+        {
+          "id": 303,
+          "name": "Emerald Amulet"
+        },
+        {
+          "id": 304,
+          "name": "Ruby Amulet"
+        },
+        {
+          "id": 305,
+          "name": "Diamond Amulet"
+        },
+        {
+          "id": 314,
+          "name": "Sapphire Amulet of magic"
+        },
+        {
+          "id": 315,
+          "name": "Emerald Amulet of protection"
+        },
+        {
+          "id": 316,
+          "name": "Ruby Amulet of strength"
+        },
+        {
+          "id": 317,
+          "name": "Diamond Amulet of power"
+        },
+        {
+          "id": 361,
+          "name": "Raw Herring"
+        },
+        {
+          "id": 362,
+          "name": "Herring"
+        },
+        {
+          "id": 522,
+          "name": "Dragonstone Amulet"
+        },
+        {
+          "id": 524,
+          "name": "Dragonstone Amulet"
+        },
+        {
+          "id": 543,
+          "name": "Dragonstone ring"
+        },
+        {
+          "id": 544,
+          "name": "Dragonstone necklace"
+        },
+        {
+          "id": 597,
+          "name": "Charged Dragonstone Amulet"
+        },
+        {
+          "id": 610,
+          "name": "Unenchanted Dragonstone Amulet"
+        },
+        {
+          "id": 692,
+          "name": "Ruby ring"
+        },
+        {
+          "id": 693,
+          "name": "Ruby necklace"
+        },
+        {
+          "id": 744,
+          "name": "Gnome Emerald Amulet of protection"
+        },
+        {
+          "id": 782,
+          "name": "Glarial's amulet"
+        },
+        {
+          "id": 826,
+          "name": "king lathas Amulet"
+        },
+        {
+          "id": 1009,
+          "name": "Amulet of Othainian"
+        },
+        {
+          "id": 1010,
+          "name": "Amulet of Doomion"
+        },
+        {
+          "id": 1011,
+          "name": "Amulet of Holthion"
+        },
+        {
+          "id": 1037,
+          "name": "Powering crystal1"
+        },
+        {
+          "id": 1152,
+          "name": "Powering crystal2"
+        },
+        {
+          "id": 1153,
+          "name": "Powering crystal3"
+        },
+        {
+          "id": 1154,
+          "name": "Powering crystal4"
+        },
+        {
+          "id": 1175,
+          "name": "Talisman of Zaros"
+        },
+        {
+          "id": 1194,
+          "name": "Annas Silver Necklace"
+        },
+        {
+          "id": 1224,
+          "name": "Annas Silver Necklace"
+        }
+      ]
+    },
+    "Herbs & Herblore": {
+      "range": [
+        181,
+        1284
+      ],
+      "count": 14,
+      "items": [
+        {
+          "id": 181,
+          "name": "Ashes"
+        },
+        {
+          "id": 220,
+          "name": "Limpwurt root"
+        },
+        {
+          "id": 281,
+          "name": "Woad Leaf"
+        },
+        {
+          "id": 444,
+          "name": "Guam leaf"
+        },
+        {
+          "id": 449,
+          "name": "Irit Leaf"
+        },
+        {
+          "id": 624,
+          "name": "soda ash"
+        },
+        {
+          "id": 796,
+          "name": "Mithril seed"
+        },
+        {
+          "id": 977,
+          "name": "Rashiliya Corpse"
+        },
+        {
+          "id": 1002,
+          "name": "Ibans Ashes"
+        },
+        {
+          "id": 1182,
+          "name": "Yommi tree seed"
+        },
+        {
+          "id": 1254,
+          "name": "Germinated Yommi tree seed"
+        },
+        {
+          "id": 1271,
+          "name": "Limpwurt Root Certificate"
+        },
+        {
+          "id": 1279,
+          "name": "Palm tree leaf"
+        },
+        {
+          "id": 1284,
+          "name": "Arcenia root"
+        }
+      ]
+    },
+    "Fish & Fishing": {
+      "range": [
+        125,
+        1077
+      ],
+      "count": 16,
+      "items": [
+        {
+          "id": 125,
+          "name": "Steel Square Shield"
+        },
+        {
+          "id": 129,
+          "name": "Steel Kite Shield"
+        },
+        {
+          "id": 171,
+          "name": "steel bar"
+        },
+        {
+          "id": 529,
+          "name": "steel bar certificate"
+        },
+        {
+          "id": 590,
+          "name": "lava eel"
+        },
+        {
+          "id": 591,
+          "name": "Raw lava eel"
+        },
+        {
+          "id": 747,
+          "name": "Script of Hazeel"
+        },
+        {
+          "id": 753,
+          "name": "Mark of Hazeel"
+        },
+        {
+          "id": 779,
+          "name": "oyster pearls"
+        },
+        {
+          "id": 791,
+          "name": "oyster"
+        },
+        {
+          "id": 792,
+          "name": "oyster pearls"
+        },
+        {
+          "id": 793,
+          "name": "oyster"
+        },
+        {
+          "id": 975,
+          "name": "Steel Wire"
+        },
+        {
+          "id": 1024,
+          "name": "Steel Throwing Dart"
+        },
+        {
+          "id": 1064,
+          "name": "Steel dart tips"
+        },
+        {
+          "id": 1077,
+          "name": "Steel throwing knife"
+        }
+      ]
+    },
+    "Runes & Magic": {
+      "range": [
+        31,
+        1312
+      ],
+      "count": 32,
+      "items": [
+        {
+          "id": 31,
+          "name": "Fire-Rune"
+        },
+        {
+          "id": 32,
+          "name": "Water-Rune"
+        },
+        {
+          "id": 33,
+          "name": "Air-Rune"
+        },
+        {
+          "id": 34,
+          "name": "Earth-Rune"
+        },
+        {
+          "id": 35,
+          "name": "Mind-Rune"
+        },
+        {
+          "id": 36,
+          "name": "Body-Rune"
+        },
+        {
+          "id": 37,
+          "name": "Life-Rune"
+        },
+        {
+          "id": 38,
+          "name": "Death-Rune"
+        },
+        {
+          "id": 40,
+          "name": "Nature-Rune"
+        },
+        {
+          "id": 41,
+          "name": "Chaos-Rune"
+        },
+        {
+          "id": 42,
+          "name": "Law-Rune"
+        },
+        {
+          "id": 46,
+          "name": "Cosmic-Rune"
+        },
+        {
+          "id": 403,
+          "name": "Rune Square Shield"
+        },
+        {
+          "id": 404,
+          "name": "Rune Kite Shield"
+        },
+        {
+          "id": 611,
+          "name": "Unpowered orb"
+        },
+        {
+          "id": 612,
+          "name": "Fire orb"
+        },
+        {
+          "id": 613,
+          "name": "Water orb"
+        },
+        {
+          "id": 619,
+          "name": "Blood-Rune"
+        },
+        {
+          "id": 626,
+          "name": "air orb"
+        },
+        {
+          "id": 627,
+          "name": "earth orb"
+        },
+        {
+          "id": 740,
+          "name": "orb of protection"
+        },
+        {
+          "id": 741,
+          "name": "orbs of protection"
+        },
+        {
+          "id": 825,
+          "name": "Soul-Rune"
+        },
+        {
+          "id": 991,
+          "name": "Orb of light"
+        },
+        {
+          "id": 992,
+          "name": "Orb of light"
+        },
+        {
+          "id": 993,
+          "name": "Orb of light"
+        },
+        {
+          "id": 994,
+          "name": "Orb of light"
+        },
+        {
+          "id": 1067,
+          "name": "Rune dart tips"
+        },
+        {
+          "id": 1070,
+          "name": "Rune Throwing Dart"
+        },
+        {
+          "id": 1080,
+          "name": "Rune throwing knife"
+        },
+        {
+          "id": 1305,
+          "name": "Blood Rune"
+        },
+        {
+          "id": 1312,
+          "name": "Soul Rune"
+        }
+      ]
+    },
+    "Tools & Equipment": {
+      "range": [
+        13,
+        1282
+      ],
+      "count": 23,
+      "items": [
+        {
+          "id": 13,
+          "name": "Knife"
+        },
+        {
+          "id": 21,
+          "name": "Bucket"
+        },
+        {
+          "id": 39,
+          "name": "Needle"
+        },
+        {
+          "id": 135,
+          "name": "pot"
+        },
+        {
+          "id": 166,
+          "name": "tinderbox"
+        },
+        {
+          "id": 167,
+          "name": "chisel"
+        },
+        {
+          "id": 168,
+          "name": "hammer"
+        },
+        {
+          "id": 279,
+          "name": "unfired pot"
+        },
+        {
+          "id": 306,
+          "name": "superchisel"
+        },
+        {
+          "id": 348,
+          "name": "Potato"
+        },
+        {
+          "id": 468,
+          "name": "Pestle and mortar"
+        },
+        {
+          "id": 605,
+          "name": "wax Bucket"
+        },
+        {
+          "id": 1075,
+          "name": "Iron throwing knife"
+        },
+        {
+          "id": 1076,
+          "name": "Bronze throwing knife"
+        },
+        {
+          "id": 1078,
+          "name": "Mithril throwing knife"
+        },
+        {
+          "id": 1079,
+          "name": "Adamantite throwing knife"
+        },
+        {
+          "id": 1081,
+          "name": "Black throwing knife"
+        },
+        {
+          "id": 1198,
+          "name": "Elizabeths Silver Needle"
+        },
+        {
+          "id": 1199,
+          "name": "Franks Silver Pot"
+        },
+        {
+          "id": 1204,
+          "name": "Murder Scene Pot"
+        },
+        {
+          "id": 1228,
+          "name": "Elizabeths Silver Needle"
+        },
+        {
+          "id": 1229,
+          "name": "Franks Silver Pot"
+        },
+        {
+          "id": 1282,
+          "name": "Bailing Bucket"
+        }
+      ]
+    }
+  }
+}

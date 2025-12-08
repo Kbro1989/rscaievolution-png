@@ -1,9 +1,9 @@
 // https://classic.runescape.wiki/w/Goblin_Armour
 
 const ARMOUR_ID = 273;
-const BLUE_ARMOUR_ID = 275;
+const BLUE_ARMOUR_ID = 273;
 const BLUE_DYE_ID = 272;
-const ORANGE_ARMOUR_ID = 274;
+const ORANGE_ARMOUR_ID = 273;
 const ORANGE_DYE_ID = 282;
 
 async function onUseWithInventory(player, item, target) {

@@ -149,5 +149,5 @@ module.exports = {
     onUseItemOnObject,
     npcs: [NPC_HALGRIVE, NPC_FARMER_BRUMTY, NPC_PLAGUE_SHEEP_1, NPC_PLAGUE_SHEEP_2,
         NPC_PLAGUE_SHEEP_3, NPC_PLAGUE_SHEEP_4],
-    objects: [443, 444]
+    objects: [165, 444]
 };

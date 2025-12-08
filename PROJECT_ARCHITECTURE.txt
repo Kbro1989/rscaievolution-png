@@ -1,0 +1,125 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║              ✅ PROJECT ARCHITECTURE & REFERENCE MATERIALS                    ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+PROJECT HIERARCHY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📁 /workspaces/rscaievolution-png/
+│
+├── 📂 rsc-cloudflare/  ✅ PRIMARY PROJECT - PRODUCTION CODE
+│   ├── rsc-server/
+│   │   ├── src/plugins/quests/  → Quest implementations (ACTUAL IDs)
+│   │   └── rsc-data-local/config/
+│   │       ├── items.json       → 1,254 items (CANONICAL)
+│   │       └── npcs.json        → 797 NPCs (CANONICAL)
+│   └── [All actual game data and logic]
+│
+├── 📂 openrsc/  ⚠️ REFERENCE ONLY - STRUCTURE REFERENCE
+│   └── [Used for understanding skill/quest/dialogue logic patterns]
+│       └── DO NOT COPY IDs OR ENDPOINTS
+│       └── DO NOT USE AS DATA SOURCE
+│
+├── 📂 2003scape-repo/  ⚠️ REFERENCE ONLY - RSC STANDARDS
+│   └── [Used for understanding RSC structure and ID ranges]
+│       └── DO NOT COPY OR MODIFY
+│       └── DO NOT USE AS DATA SOURCE
+│
+└── [Documentation & Tools] ✅ SUPPORT FILES
+    ├── ID_AUDIT_COMPLETE.md
+    ├── consolidation-plan.json
+    ├── id-to-quest-mapping.json
+    ├── scripts/verify-*.cjs
+    └── [Verification and reference only]
+
+USAGE GUIDELINES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ rsc-cloudflare/ (PRIMARY)
+   Purpose: Production game code
+   Authority: CANONICAL - actual game data
+   ID Source: items.json (1254) and npcs.json (797)
+   Modifications: YES - implement actual game features
+   Examples: Quest implementations, NPC dialogue, item logic
+
+⚠️ openrsc/ (REFERENCE ONLY)
+   Purpose: Understand logic patterns
+   Authority: Reference for patterns only
+   ID Source: DO NOT USE - endpoints are different
+   Modifications: NO - read-only reference
+   Examples: 
+     ✓ How skill progression is structured
+     ✓ How quest stages are managed
+     ✓ How dialogue branching works
+     ✗ DO NOT COPY: endpoint URLs, specific IDs, exact implementation
+
+⚠️ 2003scape-repo/ (REFERENCE ONLY)
+   Purpose: Understand RSC standards
+   Authority: Reference for structure only
+   ID Source: DO NOT USE - IDs differ from our canonical
+   Modifications: NO - read-only reference
+   Examples:
+     ✓ Item category organization
+     ✓ NPC stat ranges
+     ✓ Quest structure patterns
+     ✗ DO NOT COPY: specific IDs, exact item/NPC mappings
+
+CURRENT STATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ rsc-cloudflare Changes
+   • 3 quest files corrected with verified IDs
+   • 1,254 items validated (using rsc-cloudflare/items.json)
+   • 797 NPCs validated (using rsc-cloudflare/npcs.json)
+   • All IDs reference CANONICAL sources only
+
+✅ openrsc/ Status
+   • Read-only reference for logic patterns
+   • NOT modified
+   • Used for understanding quest/skill/dialogue structures
+   • IDs and endpoints NOT copied
+
+✅ 2003scape-repo/ Status
+   • Read-only reference for RSC standards
+   • NOT modified
+   • Used for understanding item categories and NPC roles
+   • IDs and endpoints NOT copied
+
+ID AUTHORITY CHAIN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+When working on rsc-cloudflare features:
+
+1. Check: rsc-cloudflare/rsc-data-local/config/items.json (CANONICAL)
+2. Check: rsc-cloudflare/rsc-data-local/config/npcs.json (CANONICAL)
+3. Reference: openrsc/ patterns for logic structure
+4. Reference: 2003scape-repo/ for RSC standards
+5. NEVER: Copy IDs from openrsc or 2003scape-repo
+6. NEVER: Use openrsc or 2003scape-repo endpoints
+
+DOCUMENTATION SOURCES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ AUTHORITATIVE (use for implementation)
+   • consolidation-plan.json - ID mappings for rsc-cloudflare
+   • id-to-quest-mapping.json - ID usage in rsc-cloudflare
+   • ID_AUDIT_COMPLETE.md - Analysis of rsc-cloudflare IDs
+
+⚠️ REFERENCE (use for understanding patterns)
+   • openrsc/ - Logic patterns only
+   • 2003scape-repo/ - RSC standards and structure
+
+NEXT STEPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Review consolidation-plan.json (rsc-cloudflare IDs only)
+2. Execute consolidation for rsc-cloudflare project
+3. Verify quest logic using openrsc/ as pattern reference
+4. Test implementations against rsc-cloudflare canonical IDs
+5. Deploy rsc-cloudflare with verified IDs
+
+╔════════════════════════════════════════════════════════════════════════════════╗
+║  rsc-cloudflare = PRODUCTION | openrsc/2003scape = PATTERN REFERENCE ONLY    ║
+╚════════════════════════════════════════════════════════════════════════════════╝
