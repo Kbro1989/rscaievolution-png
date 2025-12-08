@@ -272,5 +272,6 @@ module.exports = {
     "npcs.varrock.jonny-the-beard": require('./npcs/varrock/jonny-the-beard.js'),
     "npcs.varrock.curator": require('./npcs/varrock/curator.js'),
     "npcs.ardougne.east.king-lathas-keeper": require('./npcs/ardougne/east/king-lathas-keeper.js'),
-    "npcs.desert.shantay": require('./npcs/desert/shantay.js')
+    "npcs.desert.shantay": require('./npcs/desert/shantay.js'),
+    "items.wield-requirements": require('./items/wield-requirements.js')
 };

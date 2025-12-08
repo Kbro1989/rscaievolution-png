@@ -80,7 +80,17 @@ async function inventoryDrop({ player }, { index }) {
     }
 }
 
+
 async function inventoryWear({ player }, { index }) {
+    const item = player.inventory.items[index];
+    if (!item) return;
+
+    // Check requirements via plugins
+    const blocked = await player.world.callPlugin('canEquip', player, item);
+    if (blocked) {
+        return;
+    }
+
     player.sendSound('click');
     player.inventory.equip(index);
 }
