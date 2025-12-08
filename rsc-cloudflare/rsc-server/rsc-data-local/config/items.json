@@ -2,7 +2,7 @@
     {
         "name": "Iron Mace",
         "description": "A spiky mace",
-        "command": "",
+        "command": "Wield",
         "sprite": 0,
         "price": 63,
         "stackable": false,
@@ -17,7 +17,7 @@
     {
         "name": "Iron Short Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 1,
         "price": 91,
         "stackable": false,
@@ -32,7 +32,7 @@
     {
         "name": "Iron Kite Shield",
         "description": "A large metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 2,
         "price": 238,
         "stackable": false,
@@ -47,7 +47,7 @@
     {
         "name": "Iron Square Shield",
         "description": "A medium metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 3,
         "price": 168,
         "stackable": false,
@@ -62,7 +62,7 @@
     {
         "name": "Wooden Shield",
         "description": "A solid wooden shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 4,
         "price": 20,
         "stackable": false,
@@ -77,7 +77,7 @@
     {
         "name": "Medium Iron Helmet",
         "description": "A medium sized helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 5,
         "price": 84,
         "stackable": false,
@@ -92,7 +92,7 @@
     {
         "name": "Large Iron Helmet",
         "description": "A full face helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 6,
         "price": 154,
         "stackable": false,
@@ -108,7 +108,7 @@
     {
         "name": "Iron Chain Mail Body",
         "description": "A series of connected metal rings",
-        "command": "",
+        "command": "Wield",
         "sprite": 7,
         "price": 210,
         "stackable": false,
@@ -123,7 +123,7 @@
     {
         "name": "Iron Plate Mail Body",
         "description": "Provides excellent protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 8,
         "price": 560,
         "stackable": false,
@@ -140,7 +140,7 @@
     {
         "name": "Iron Plate Mail Legs",
         "description": "These look pretty heavy",
-        "command": "",
+        "command": "Wield",
         "sprite": 9,
         "price": 280,
         "stackable": false,
@@ -183,7 +183,7 @@
     {
         "name": "Iron Axe",
         "description": "A woodcutters axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 12,
         "price": 56,
         "stackable": false,
@@ -224,7 +224,7 @@
     {
         "name": "Leather Armour",
         "description": "Better than no armour!",
-        "command": "",
+        "command": "Wield",
         "sprite": 15,
         "price": 21,
         "stackable": false,
@@ -239,7 +239,7 @@
     {
         "name": "Leather Gloves",
         "description": "These will keep my hands warm!",
-        "command": "",
+        "command": "Wield",
         "sprite": 17,
         "price": 6,
         "stackable": false,
@@ -254,7 +254,7 @@
     {
         "name": "Boots",
         "description": "Comfortable leather boots",
-        "command": "",
+        "command": "Wield",
         "sprite": 16,
         "price": 6,
         "stackable": false,
@@ -347,7 +347,7 @@
     {
         "name": "Amulet of GhostSpeak",
         "description": "It lets me talk to ghosts",
-        "command": "",
+        "command": "Wield",
         "sprite": 24,
         "price": 35,
         "stackable": false,
@@ -401,7 +401,7 @@
     {
         "name": "Iron dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 35,
         "stackable": false,
@@ -624,7 +624,7 @@
     {
         "name": "Unblessed Holy Symbol",
         "description": "This needs blessing",
-        "command": "",
+        "command": "Wield",
         "sprite": 44,
         "price": 200,
         "stackable": false,
@@ -717,7 +717,7 @@
     {
         "name": "Silverlight",
         "description": "A magic sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 81,
         "price": 50,
         "stackable": false,
@@ -810,7 +810,7 @@
     {
         "name": "Phoenix Crossbow",
         "description": "Former property of the phoenix gang",
-        "command": "",
+        "command": "Wield",
         "sprite": 49,
         "price": 4,
         "stackable": false,
@@ -825,7 +825,7 @@
     {
         "name": "Crossbow",
         "description": "This fires crossbow bolts",
-        "command": "",
+        "command": "Wield",
         "sprite": 49,
         "price": 70,
         "stackable": false,
@@ -853,7 +853,7 @@
     {
         "name": "bronze dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 10,
         "stackable": false,
@@ -868,7 +868,7 @@
     {
         "name": "Steel dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 125,
         "stackable": false,
@@ -883,7 +883,7 @@
     {
         "name": "Mithril dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 325,
         "stackable": false,
@@ -898,7 +898,7 @@
     {
         "name": "Adamantite dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 800,
         "stackable": false,
@@ -913,7 +913,7 @@
     {
         "name": "Bronze Short Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 1,
         "price": 26,
         "stackable": false,
@@ -928,7 +928,7 @@
     {
         "name": "Steel Short Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 1,
         "price": 325,
         "stackable": false,
@@ -943,7 +943,7 @@
     {
         "name": "Mithril Short Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 1,
         "price": 845,
         "stackable": false,
@@ -958,7 +958,7 @@
     {
         "name": "Adamantite Short Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 1,
         "price": 2080,
         "stackable": false,
@@ -973,7 +973,7 @@
     {
         "name": "Bronze Long Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 81,
         "price": 40,
         "stackable": false,
@@ -988,7 +988,7 @@
     {
         "name": "Iron Long Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 81,
         "price": 140,
         "stackable": false,
@@ -1003,7 +1003,7 @@
     {
         "name": "Steel Long Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 81,
         "price": 500,
         "stackable": false,
@@ -1018,7 +1018,7 @@
     {
         "name": "Mithril Long Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 81,
         "price": 1300,
         "stackable": false,
@@ -1033,7 +1033,7 @@
     {
         "name": "Adamantite Long Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 81,
         "price": 3200,
         "stackable": false,
@@ -1048,7 +1048,7 @@
     {
         "name": "Rune long sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 81,
         "price": 32000,
         "stackable": false,
@@ -1063,7 +1063,7 @@
     {
         "name": "Bronze 2-handed Sword",
         "description": "A very large sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 82,
         "price": 80,
         "stackable": false,
@@ -1080,7 +1080,7 @@
     {
         "name": "Iron 2-handed Sword",
         "description": "A very large sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 82,
         "price": 280,
         "stackable": false,
@@ -1097,7 +1097,7 @@
     {
         "name": "Steel 2-handed Sword",
         "description": "A very large sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 82,
         "price": 1000,
         "stackable": false,
@@ -1114,7 +1114,7 @@
     {
         "name": "Mithril 2-handed Sword",
         "description": "A very large sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 82,
         "price": 2600,
         "stackable": false,
@@ -1131,7 +1131,7 @@
     {
         "name": "Adamantite 2-handed Sword",
         "description": "A very large sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 82,
         "price": 6400,
         "stackable": false,
@@ -1148,7 +1148,7 @@
     {
         "name": "rune 2-handed Sword",
         "description": "A very large sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 82,
         "price": 64000,
         "stackable": false,
@@ -1165,7 +1165,7 @@
     {
         "name": "Bronze Scimitar",
         "description": "A vicious curved sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 83,
         "price": 32,
         "stackable": false,
@@ -1180,7 +1180,7 @@
     {
         "name": "Iron Scimitar",
         "description": "A vicious curved sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 83,
         "price": 112,
         "stackable": false,
@@ -1195,7 +1195,7 @@
     {
         "name": "Steel Scimitar",
         "description": "A vicious curved sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 83,
         "price": 400,
         "stackable": false,
@@ -1210,7 +1210,7 @@
     {
         "name": "Mithril Scimitar",
         "description": "A vicious curved sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 83,
         "price": 1040,
         "stackable": false,
@@ -1225,7 +1225,7 @@
     {
         "name": "Adamantite Scimitar",
         "description": "A vicious curved sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 83,
         "price": 2560,
         "stackable": false,
@@ -1240,7 +1240,7 @@
     {
         "name": "bronze Axe",
         "description": "A woodcutters axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 12,
         "price": 16,
         "stackable": false,
@@ -1255,7 +1255,7 @@
     {
         "name": "Steel Axe",
         "description": "A woodcutters axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 12,
         "price": 200,
         "stackable": false,
@@ -1270,7 +1270,7 @@
     {
         "name": "Iron battle Axe",
         "description": "A vicious looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 84,
         "price": 182,
         "stackable": false,
@@ -1285,7 +1285,7 @@
     {
         "name": "Steel battle Axe",
         "description": "A vicious looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 84,
         "price": 650,
         "stackable": false,
@@ -1300,7 +1300,7 @@
     {
         "name": "Mithril battle Axe",
         "description": "A vicious looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 84,
         "price": 1690,
         "stackable": false,
@@ -1315,7 +1315,7 @@
     {
         "name": "Adamantite battle Axe",
         "description": "A vicious looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 84,
         "price": 4160,
         "stackable": false,
@@ -1330,7 +1330,7 @@
     {
         "name": "Rune battle Axe",
         "description": "A vicious looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 84,
         "price": 41600,
         "stackable": false,
@@ -1345,7 +1345,7 @@
     {
         "name": "Bronze Mace",
         "description": "A spiky mace",
-        "command": "",
+        "command": "Wield",
         "sprite": 0,
         "price": 18,
         "stackable": false,
@@ -1360,7 +1360,7 @@
     {
         "name": "Steel Mace",
         "description": "A spiky mace",
-        "command": "",
+        "command": "Wield",
         "sprite": 0,
         "price": 225,
         "stackable": false,
@@ -1375,7 +1375,7 @@
     {
         "name": "Mithril Mace",
         "description": "A spiky mace",
-        "command": "",
+        "command": "Wield",
         "sprite": 0,
         "price": 585,
         "stackable": false,
@@ -1390,7 +1390,7 @@
     {
         "name": "Adamantite Mace",
         "description": "A spiky mace",
-        "command": "",
+        "command": "Wield",
         "sprite": 0,
         "price": 1440,
         "stackable": false,
@@ -1405,7 +1405,7 @@
     {
         "name": "Rune Mace",
         "description": "A spiky mace",
-        "command": "",
+        "command": "Wield",
         "sprite": 0,
         "price": 14400,
         "stackable": false,
@@ -1433,7 +1433,7 @@
     {
         "name": "staff",
         "description": "It's a slightly magical stick",
-        "command": "",
+        "command": "Wield",
         "sprite": 85,
         "price": 15,
         "stackable": false,
@@ -1448,7 +1448,7 @@
     {
         "name": "Staff of Air",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 1500,
         "stackable": false,
@@ -1463,7 +1463,7 @@
     {
         "name": "Staff of water",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 1500,
         "stackable": false,
@@ -1478,7 +1478,7 @@
     {
         "name": "Staff of earth",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 1500,
         "stackable": false,
@@ -1493,7 +1493,7 @@
     {
         "name": "Medium Bronze Helmet",
         "description": "A medium sized helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 5,
         "price": 24,
         "stackable": false,
@@ -1508,7 +1508,7 @@
     {
         "name": "Medium Steel Helmet",
         "description": "A medium sized helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 5,
         "price": 300,
         "stackable": false,
@@ -1523,7 +1523,7 @@
     {
         "name": "Medium Mithril Helmet",
         "description": "A medium sized helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 5,
         "price": 780,
         "stackable": false,
@@ -1538,7 +1538,7 @@
     {
         "name": "Medium Adamantite Helmet",
         "description": "A medium sized helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 5,
         "price": 1920,
         "stackable": false,
@@ -1553,7 +1553,7 @@
     {
         "name": "Large Bronze Helmet",
         "description": "A full face helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 6,
         "price": 44,
         "stackable": false,
@@ -1569,7 +1569,7 @@
     {
         "name": "Large Steel Helmet",
         "description": "A full face helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 6,
         "price": 550,
         "stackable": false,
@@ -1585,7 +1585,7 @@
     {
         "name": "Large Mithril Helmet",
         "description": "A full face helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 6,
         "price": 1430,
         "stackable": false,
@@ -1601,7 +1601,7 @@
     {
         "name": "Large Adamantite Helmet",
         "description": "A full face helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 6,
         "price": 3520,
         "stackable": false,
@@ -1617,7 +1617,7 @@
     {
         "name": "Large Rune Helmet",
         "description": "A full face helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 6,
         "price": 35200,
         "stackable": false,
@@ -1633,7 +1633,7 @@
     {
         "name": "Bronze Chain Mail Body",
         "description": "A series of connected metal rings",
-        "command": "",
+        "command": "Wield",
         "sprite": 7,
         "price": 60,
         "stackable": false,
@@ -1648,7 +1648,7 @@
     {
         "name": "Steel Chain Mail Body",
         "description": "A series of connected metal rings",
-        "command": "",
+        "command": "Wield",
         "sprite": 7,
         "price": 750,
         "stackable": false,
@@ -1663,7 +1663,7 @@
     {
         "name": "Mithril Chain Mail Body",
         "description": "A series of connected metal rings",
-        "command": "",
+        "command": "Wield",
         "sprite": 7,
         "price": 1950,
         "stackable": false,
@@ -1678,7 +1678,7 @@
     {
         "name": "Adamantite Chain Mail Body",
         "description": "A series of connected metal rings",
-        "command": "",
+        "command": "Wield",
         "sprite": 7,
         "price": 4800,
         "stackable": false,
@@ -1693,7 +1693,7 @@
     {
         "name": "Bronze Plate Mail Body",
         "description": "Provides excellent protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 8,
         "price": 160,
         "stackable": false,
@@ -1710,7 +1710,7 @@
     {
         "name": "Steel Plate Mail Body",
         "description": "Provides excellent protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 8,
         "price": 2000,
         "stackable": false,
@@ -1727,7 +1727,7 @@
     {
         "name": "Mithril Plate Mail Body",
         "description": "Provides excellent protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 8,
         "price": 5200,
         "stackable": false,
@@ -1744,7 +1744,7 @@
     {
         "name": "Adamantite Plate Mail Body",
         "description": "Provides excellent protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 8,
         "price": 12800,
         "stackable": false,
@@ -1761,7 +1761,7 @@
     {
         "name": "Steel Plate Mail Legs",
         "description": "These look pretty heavy",
-        "command": "",
+        "command": "Wield",
         "sprite": 9,
         "price": 1000,
         "stackable": false,
@@ -1778,7 +1778,7 @@
     {
         "name": "Mithril Plate Mail Legs",
         "description": "These look pretty heavy",
-        "command": "",
+        "command": "Wield",
         "sprite": 9,
         "price": 2600,
         "stackable": false,
@@ -1795,7 +1795,7 @@
     {
         "name": "Adamantite Plate Mail Legs",
         "description": "These look pretty heavy",
-        "command": "",
+        "command": "Wield",
         "sprite": 9,
         "price": 6400,
         "stackable": false,
@@ -1812,7 +1812,7 @@
     {
         "name": "Bronze Square Shield",
         "description": "A medium metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 3,
         "price": 48,
         "stackable": false,
@@ -1827,7 +1827,7 @@
     {
         "name": "Steel Square Shield",
         "description": "A medium metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 3,
         "price": 600,
         "stackable": false,
@@ -1842,7 +1842,7 @@
     {
         "name": "Mithril Square Shield",
         "description": "A medium metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 3,
         "price": 1560,
         "stackable": false,
@@ -1857,7 +1857,7 @@
     {
         "name": "Adamantite Square Shield",
         "description": "A medium metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 3,
         "price": 3840,
         "stackable": false,
@@ -1872,7 +1872,7 @@
     {
         "name": "Bronze Kite Shield",
         "description": "A large metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 2,
         "price": 68,
         "stackable": false,
@@ -1887,7 +1887,7 @@
     {
         "name": "Steel Kite Shield",
         "description": "A large metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 2,
         "price": 850,
         "stackable": false,
@@ -1902,7 +1902,7 @@
     {
         "name": "Mithril Kite Shield",
         "description": "A large metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 2,
         "price": 2210,
         "stackable": false,
@@ -1917,7 +1917,7 @@
     {
         "name": "Adamantite Kite Shield",
         "description": "A large metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 2,
         "price": 5440,
         "stackable": false,
@@ -2582,7 +2582,7 @@
     {
         "name": "Apron",
         "description": "A mostly clean apron",
-        "command": "",
+        "command": "Wield",
         "sprite": 58,
         "price": 2,
         "stackable": false,
@@ -2597,7 +2597,7 @@
     {
         "name": "Cape",
         "description": "A bright red cape",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 2,
         "stackable": false,
@@ -2612,7 +2612,7 @@
     {
         "name": "Wizards robe",
         "description": "I can do magic better in this",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 15,
         "stackable": false,
@@ -2627,7 +2627,7 @@
     {
         "name": "wizardshat",
         "description": "A silly pointed hat",
-        "command": "",
+        "command": "Wield",
         "sprite": 86,
         "price": 2,
         "stackable": false,
@@ -2642,7 +2642,7 @@
     {
         "name": "Brass necklace",
         "description": "I'd prefer a gold one",
-        "command": "",
+        "command": "Wield",
         "sprite": 57,
         "price": 30,
         "stackable": false,
@@ -2657,7 +2657,7 @@
     {
         "name": "skirt",
         "description": "A ladies skirt",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 2,
         "stackable": false,
@@ -2672,7 +2672,7 @@
     {
         "name": "Longbow",
         "description": "A Nice sturdy bow",
-        "command": "",
+        "command": "Wield",
         "sprite": 54,
         "price": 80,
         "stackable": false,
@@ -2688,7 +2688,7 @@
     {
         "name": "Shortbow",
         "description": "Short but effective",
-        "command": "",
+        "command": "Wield",
         "sprite": 55,
         "price": 50,
         "stackable": false,
@@ -2717,7 +2717,7 @@
     {
         "name": "Apron",
         "description": "this will help keep my clothes clean",
-        "command": "",
+        "command": "Wield",
         "sprite": 58,
         "price": 2,
         "stackable": false,
@@ -2732,7 +2732,7 @@
     {
         "name": "Chef's hat",
         "description": "What a silly hat",
-        "command": "",
+        "command": "Wield",
         "sprite": 89,
         "price": 2,
         "stackable": false,
@@ -2760,7 +2760,7 @@
     {
         "name": "skirt",
         "description": "A ladies skirt",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 2,
         "stackable": false,
@@ -2775,7 +2775,7 @@
     {
         "name": "skirt",
         "description": "A ladies skirt",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 2,
         "stackable": false,
@@ -2790,7 +2790,7 @@
     {
         "name": "Black Plate Mail Body",
         "description": "Provides excellent protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 8,
         "price": 3840,
         "stackable": false,
@@ -2807,7 +2807,7 @@
     {
         "name": "Staff of fire",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 1500,
         "stackable": false,
@@ -2822,7 +2822,7 @@
     {
         "name": "Magic Staff",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 200,
         "stackable": false,
@@ -2837,7 +2837,7 @@
     {
         "name": "wizardshat",
         "description": "A silly pointed hat",
-        "command": "",
+        "command": "Wield",
         "sprite": 86,
         "price": 2,
         "stackable": false,
@@ -2891,7 +2891,7 @@
     {
         "name": "Mithril Axe",
         "description": "A powerful axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 12,
         "price": 520,
         "stackable": false,
@@ -2906,7 +2906,7 @@
     {
         "name": "Adamantite Axe",
         "description": "A powerful axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 12,
         "price": 1280,
         "stackable": false,
@@ -2921,7 +2921,7 @@
     {
         "name": "bronze battle Axe",
         "description": "A vicious looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 84,
         "price": 52,
         "stackable": false,
@@ -2936,7 +2936,7 @@
     {
         "name": "Bronze Plate Mail Legs",
         "description": "These look pretty heavy",
-        "command": "",
+        "command": "Wield",
         "sprite": 9,
         "price": 80,
         "stackable": false,
@@ -2979,7 +2979,7 @@
     {
         "name": "Cape",
         "description": "A warm black cape",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 7,
         "stackable": false,
@@ -3046,7 +3046,7 @@
     {
         "name": "Bronze Plated Skirt",
         "description": "Designer leg protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 80,
         "stackable": false,
@@ -3062,7 +3062,7 @@
     {
         "name": "Iron Plated Skirt",
         "description": "Designer leg protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 280,
         "stackable": false,
@@ -3078,7 +3078,7 @@
     {
         "name": "Black robe",
         "description": "I can do magic better in this",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 13,
         "stackable": false,
@@ -3093,7 +3093,7 @@
     {
         "name": "stake",
         "description": "A very pointy stick",
-        "command": "",
+        "command": "Wield",
         "sprite": 98,
         "price": 8,
         "stackable": false,
@@ -3199,7 +3199,7 @@
     {
         "name": "Steel Plated skirt",
         "description": "designer leg protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 1000,
         "stackable": false,
@@ -3215,7 +3215,7 @@
     {
         "name": "Mithril Plated skirt",
         "description": "Designer Leg protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 2600,
         "stackable": false,
@@ -3231,7 +3231,7 @@
     {
         "name": "Adamantite Plated skirt",
         "description": "Designer leg protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 6400,
         "stackable": false,
@@ -3260,7 +3260,7 @@
     {
         "name": "Cape",
         "description": "A thick blue cape",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 32,
         "stackable": false,
@@ -3275,7 +3275,7 @@
     {
         "name": "Large Black Helmet",
         "description": "A full face helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 6,
         "price": 1056,
         "stackable": false,
@@ -3343,7 +3343,7 @@
     {
         "name": "Amulet of accuracy",
         "description": "It increases my aim",
-        "command": "",
+        "command": "Wield",
         "sprite": 24,
         "price": 100,
         "stackable": false,
@@ -3514,7 +3514,7 @@
     {
         "name": "Black Plate Mail Legs",
         "description": "These look pretty heavy",
-        "command": "",
+        "command": "Wield",
         "sprite": 9,
         "price": 1920,
         "stackable": false,
@@ -3739,7 +3739,7 @@
     {
         "name": "Faladian Knight's sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 115,
         "price": 200,
         "stackable": false,
@@ -4040,7 +4040,7 @@
     {
         "name": "Gold necklace",
         "description": "I wonder if this is valuable",
-        "command": "",
+        "command": "Wield",
         "sprite": 57,
         "price": 450,
         "stackable": false,
@@ -4055,7 +4055,7 @@
     {
         "name": "Sapphire necklace",
         "description": "I wonder if this is valuable",
-        "command": "",
+        "command": "Wield",
         "sprite": 57,
         "price": 1050,
         "stackable": false,
@@ -4070,7 +4070,7 @@
     {
         "name": "Emerald necklace",
         "description": "I wonder if this is valuable",
-        "command": "",
+        "command": "Wield",
         "sprite": 57,
         "price": 1425,
         "stackable": false,
@@ -4085,7 +4085,7 @@
     {
         "name": "Ruby necklace",
         "description": "I wonder if this is valuable",
-        "command": "",
+        "command": "Wield",
         "sprite": 57,
         "price": 2175,
         "stackable": false,
@@ -4100,7 +4100,7 @@
     {
         "name": "Diamond necklace",
         "description": "I wonder if this is valuable",
-        "command": "",
+        "command": "Wield",
         "sprite": 57,
         "price": 3675,
         "stackable": false,
@@ -4219,7 +4219,7 @@
     {
         "name": "Gold Amulet",
         "description": "I wonder if I can get this enchanted",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 350,
         "stackable": false,
@@ -4234,7 +4234,7 @@
     {
         "name": "Sapphire Amulet",
         "description": "I wonder if I can get this enchanted",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 900,
         "stackable": false,
@@ -4249,7 +4249,7 @@
     {
         "name": "Emerald Amulet",
         "description": "I wonder if I can get this enchanted",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 1275,
         "stackable": false,
@@ -4264,7 +4264,7 @@
     {
         "name": "Ruby Amulet",
         "description": "I wonder if I can get this enchanted",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 2025,
         "stackable": false,
@@ -4279,7 +4279,7 @@
     {
         "name": "Diamond Amulet",
         "description": "I wonder if I can get this enchanted",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 3525,
         "stackable": false,
@@ -4307,7 +4307,7 @@
     {
         "name": "Mace of Zamorak",
         "description": "This mace gives me the creeps",
-        "command": "",
+        "command": "Wield",
         "sprite": 0,
         "price": 4500,
         "stackable": false,
@@ -4322,7 +4322,7 @@
     {
         "name": "Bronze Plate Mail top",
         "description": "Armour designed for females",
-        "command": "",
+        "command": "Wield",
         "sprite": 130,
         "price": 160,
         "stackable": false,
@@ -4339,7 +4339,7 @@
     {
         "name": "Steel Plate Mail top",
         "description": "Armour designed for females",
-        "command": "",
+        "command": "Wield",
         "sprite": 130,
         "price": 2000,
         "stackable": false,
@@ -4356,7 +4356,7 @@
     {
         "name": "Mithril Plate Mail top",
         "description": "Armour designed for females",
-        "command": "",
+        "command": "Wield",
         "sprite": 130,
         "price": 5200,
         "stackable": false,
@@ -4373,7 +4373,7 @@
     {
         "name": "Adamantite Plate Mail top",
         "description": "Armour designed for females",
-        "command": "",
+        "command": "Wield",
         "sprite": 130,
         "price": 12800,
         "stackable": false,
@@ -4390,7 +4390,7 @@
     {
         "name": "Iron Plate Mail top",
         "description": "Armour designed for females",
-        "command": "",
+        "command": "Wield",
         "sprite": 130,
         "price": 560,
         "stackable": false,
@@ -4407,7 +4407,7 @@
     {
         "name": "Black Plate Mail top",
         "description": "Armour designed for females",
-        "command": "",
+        "command": "Wield",
         "sprite": 130,
         "price": 3840,
         "stackable": false,
@@ -4424,7 +4424,7 @@
     {
         "name": "Sapphire Amulet of magic",
         "description": "It improves my magic",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 900,
         "stackable": false,
@@ -4439,7 +4439,7 @@
     {
         "name": "Emerald Amulet of protection",
         "description": "It improves my defense",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 1275,
         "stackable": false,
@@ -4454,7 +4454,7 @@
     {
         "name": "Ruby Amulet of strength",
         "description": "It improves my damage",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 2025,
         "stackable": false,
@@ -4469,7 +4469,7 @@
     {
         "name": "Diamond Amulet of power",
         "description": "A powerful amulet",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 3525,
         "stackable": false,
@@ -5355,7 +5355,7 @@
     {
         "name": "Holy Symbol of saradomin",
         "description": "This improves my prayer",
-        "command": "",
+        "command": "Wield",
         "sprite": 44,
         "price": 300,
         "stackable": false,
@@ -5396,7 +5396,7 @@
     {
         "name": "Monks robe",
         "description": "I feel closer to the God's when I am wearing this",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 40,
         "stackable": false,
@@ -5411,7 +5411,7 @@
     {
         "name": "Monks robe",
         "description": "Keeps a monk's legs nice and warm",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 30,
         "stackable": false,
@@ -5504,7 +5504,7 @@
     {
         "name": "rune dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 8000,
         "stackable": false,
@@ -5519,7 +5519,7 @@
     {
         "name": "Rune short sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 1,
         "price": 20800,
         "stackable": false,
@@ -5534,7 +5534,7 @@
     {
         "name": "rune Scimitar",
         "description": "A vicious curved sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 83,
         "price": 25600,
         "stackable": false,
@@ -5549,7 +5549,7 @@
     {
         "name": "Medium Rune Helmet",
         "description": "A medium sized helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 5,
         "price": 19200,
         "stackable": false,
@@ -5564,7 +5564,7 @@
     {
         "name": "Rune Chain Mail Body",
         "description": "A series of connected metal rings",
-        "command": "",
+        "command": "Wield",
         "sprite": 7,
         "price": 50000,
         "stackable": false,
@@ -5579,7 +5579,7 @@
     {
         "name": "Rune Plate Mail Body",
         "description": "Provides excellent protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 8,
         "price": 65000,
         "stackable": false,
@@ -5596,7 +5596,7 @@
     {
         "name": "Rune Plate Mail Legs",
         "description": "These look pretty heavy",
-        "command": "",
+        "command": "Wield",
         "sprite": 9,
         "price": 64000,
         "stackable": false,
@@ -5613,7 +5613,7 @@
     {
         "name": "Rune Square Shield",
         "description": "A medium metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 3,
         "price": 38400,
         "stackable": false,
@@ -5628,7 +5628,7 @@
     {
         "name": "Rune Kite Shield",
         "description": "A large metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 2,
         "price": 54400,
         "stackable": false,
@@ -5643,7 +5643,7 @@
     {
         "name": "rune Axe",
         "description": "A powerful axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 12,
         "price": 12800,
         "stackable": false,
@@ -5658,7 +5658,7 @@
     {
         "name": "Rune skirt",
         "description": "Designer leg protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 64000,
         "stackable": false,
@@ -5674,7 +5674,7 @@
     {
         "name": "Rune Plate Mail top",
         "description": "Armour designed for females",
-        "command": "",
+        "command": "Wield",
         "sprite": 130,
         "price": 65000,
         "stackable": false,
@@ -5847,7 +5847,7 @@
     {
         "name": "Anti dragon breath Shield",
         "description": "Helps prevent damage from dragons",
-        "command": "",
+        "command": "Wield",
         "sprite": 143,
         "price": 20,
         "stackable": false,
@@ -5888,7 +5888,7 @@
     {
         "name": "Black dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 240,
         "stackable": false,
@@ -5903,7 +5903,7 @@
     {
         "name": "Black Short Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 1,
         "price": 624,
         "stackable": false,
@@ -5918,7 +5918,7 @@
     {
         "name": "Black Long Sword",
         "description": "A razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 81,
         "price": 960,
         "stackable": false,
@@ -5933,7 +5933,7 @@
     {
         "name": "Black 2-handed Sword",
         "description": "A very large sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 82,
         "price": 1920,
         "stackable": false,
@@ -5950,7 +5950,7 @@
     {
         "name": "Black Scimitar",
         "description": "A vicious curved sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 83,
         "price": 768,
         "stackable": false,
@@ -5965,7 +5965,7 @@
     {
         "name": "Black Axe",
         "description": "A sinister looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 12,
         "price": 384,
         "stackable": false,
@@ -5980,7 +5980,7 @@
     {
         "name": "Black battle Axe",
         "description": "A vicious looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 84,
         "price": 1248,
         "stackable": false,
@@ -5995,7 +5995,7 @@
     {
         "name": "Black Mace",
         "description": "A spikey mace",
-        "command": "",
+        "command": "Wield",
         "sprite": 0,
         "price": 432,
         "stackable": false,
@@ -6010,7 +6010,7 @@
     {
         "name": "Black Chain Mail Body",
         "description": "A series of connected metal rings",
-        "command": "",
+        "command": "Wield",
         "sprite": 7,
         "price": 1440,
         "stackable": false,
@@ -6025,7 +6025,7 @@
     {
         "name": "Black Square Shield",
         "description": "A medium metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 3,
         "price": 1152,
         "stackable": false,
@@ -6040,7 +6040,7 @@
     {
         "name": "Black Kite Shield",
         "description": "A large metal shield",
-        "command": "",
+        "command": "Wield",
         "sprite": 2,
         "price": 1632,
         "stackable": false,
@@ -6055,7 +6055,7 @@
     {
         "name": "Black Plated skirt",
         "description": "designer leg protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 1920,
         "stackable": false,
@@ -6526,7 +6526,7 @@
     {
         "name": "Medium black Helmet",
         "description": "A medium sized helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 5,
         "price": 576,
         "stackable": false,
@@ -7035,7 +7035,7 @@
     {
         "name": "Dramen Staff",
         "description": "A magical staff cut from the dramen tree",
-        "command": "",
+        "command": "Wield",
         "sprite": 85,
         "price": 15,
         "stackable": false,
@@ -7063,7 +7063,7 @@
     {
         "name": "Cape",
         "description": "A thick Green cape",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 32,
         "stackable": false,
@@ -7078,7 +7078,7 @@
     {
         "name": "Cape",
         "description": "A thick yellow cape",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 32,
         "stackable": false,
@@ -7093,7 +7093,7 @@
     {
         "name": "Cape",
         "description": "A thick Orange cape",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 32,
         "stackable": false,
@@ -7108,7 +7108,7 @@
     {
         "name": "Cape",
         "description": "A thick purple cape",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 32,
         "stackable": false,
@@ -7214,7 +7214,7 @@
     {
         "name": "Dragonstone Amulet",
         "description": "A very powerful amulet",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 17625,
         "stackable": false,
@@ -7502,7 +7502,7 @@
     {
         "name": "Dragonstone necklace",
         "description": "I wonder if this is valuable",
-        "command": "",
+        "command": "Wield",
         "sprite": 57,
         "price": 18375,
         "stackable": false,
@@ -7660,7 +7660,7 @@
     {
         "name": "Ice Gloves",
         "description": "These will keep my hands cold!",
-        "command": "",
+        "command": "Wield",
         "sprite": 17,
         "price": 6,
         "stackable": false,
@@ -7701,7 +7701,7 @@
     {
         "name": "Poisoned Iron dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 35,
         "stackable": false,
@@ -7716,7 +7716,7 @@
     {
         "name": "Poisoned bronze dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 10,
         "stackable": false,
@@ -7731,7 +7731,7 @@
     {
         "name": "Poisoned Steel dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 125,
         "stackable": false,
@@ -7746,7 +7746,7 @@
     {
         "name": "Poisoned Mithril dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 325,
         "stackable": false,
@@ -7761,7 +7761,7 @@
     {
         "name": "Poisoned Rune dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 8000,
         "stackable": false,
@@ -7776,7 +7776,7 @@
     {
         "name": "Poisoned Adamantite dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 800,
         "stackable": false,
@@ -7791,7 +7791,7 @@
     {
         "name": "Poisoned Black dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 240,
         "stackable": false,
@@ -7936,7 +7936,7 @@
     {
         "name": "Party Hat",
         "description": "Party!!!",
-        "command": "",
+        "command": "Wield",
         "sprite": 189,
         "price": 2,
         "stackable": false,
@@ -7951,7 +7951,7 @@
     {
         "name": "Party Hat",
         "description": "Party!!!",
-        "command": "",
+        "command": "Wield",
         "sprite": 189,
         "price": 2,
         "stackable": false,
@@ -7966,7 +7966,7 @@
     {
         "name": "Party Hat",
         "description": "Party!!!",
-        "command": "",
+        "command": "Wield",
         "sprite": 189,
         "price": 2,
         "stackable": false,
@@ -7981,7 +7981,7 @@
     {
         "name": "Party Hat",
         "description": "Party!!!",
-        "command": "",
+        "command": "Wield",
         "sprite": 189,
         "price": 2,
         "stackable": false,
@@ -7996,7 +7996,7 @@
     {
         "name": "Party Hat",
         "description": "Party!!!",
-        "command": "",
+        "command": "Wield",
         "sprite": 189,
         "price": 2,
         "stackable": false,
@@ -8011,7 +8011,7 @@
     {
         "name": "Party Hat",
         "description": "Party!!!",
-        "command": "",
+        "command": "Wield",
         "sprite": 189,
         "price": 2,
         "stackable": false,
@@ -8169,7 +8169,7 @@
     {
         "name": "Dragon sword",
         "description": "A Razor sharp sword",
-        "command": "",
+        "command": "Wield",
         "sprite": 273,
         "price": 100000,
         "stackable": false,
@@ -8184,7 +8184,7 @@
     {
         "name": "Dragon axe",
         "description": "A vicious looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 272,
         "price": 200000,
         "stackable": false,
@@ -8344,7 +8344,7 @@
     {
         "name": "Excalibur",
         "description": "This used to belong to king Arthur",
-        "command": "",
+        "command": "Wield",
         "sprite": 115,
         "price": 200,
         "stackable": false,
@@ -8359,7 +8359,7 @@
     {
         "name": "Druids robe",
         "description": "I feel closer to the Gods when I am wearing this",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 40,
         "stackable": false,
@@ -8374,7 +8374,7 @@
     {
         "name": "Druids robe",
         "description": "Keeps a druids's knees nice and warm",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 30,
         "stackable": false,
@@ -8389,7 +8389,7 @@
     {
         "name": "Eye patch",
         "description": "It makes me look very piratical",
-        "command": "",
+        "command": "Wield",
         "sprite": 198,
         "price": 2,
         "stackable": false,
@@ -8404,7 +8404,7 @@
     {
         "name": "Unenchanted Dragonstone Amulet",
         "description": "I wonder if I can get this enchanted",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 17625,
         "stackable": false,
@@ -8458,7 +8458,7 @@
     {
         "name": "Battlestaff",
         "description": "It's a slightly magical stick",
-        "command": "",
+        "command": "Wield",
         "sprite": 85,
         "price": 7000,
         "stackable": false,
@@ -8473,7 +8473,7 @@
     {
         "name": "Battlestaff of fire",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 15500,
         "stackable": false,
@@ -8488,7 +8488,7 @@
     {
         "name": "Battlestaff of water",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 15500,
         "stackable": false,
@@ -8503,7 +8503,7 @@
     {
         "name": "Battlestaff of air",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 15500,
         "stackable": false,
@@ -8518,7 +8518,7 @@
     {
         "name": "Battlestaff of earth",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 15500,
         "stackable": false,
@@ -8910,7 +8910,7 @@
     {
         "name": "Oak Longbow",
         "description": "A Nice sturdy bow",
-        "command": "",
+        "command": "Wield",
         "sprite": 54,
         "price": 160,
         "stackable": false,
@@ -8926,7 +8926,7 @@
     {
         "name": "Oak Shortbow",
         "description": "Short but effective",
-        "command": "",
+        "command": "Wield",
         "sprite": 55,
         "price": 100,
         "stackable": false,
@@ -8942,7 +8942,7 @@
     {
         "name": "Willow Longbow",
         "description": "A Nice sturdy bow",
-        "command": "",
+        "command": "Wield",
         "sprite": 54,
         "price": 320,
         "stackable": false,
@@ -8958,7 +8958,7 @@
     {
         "name": "Willow Shortbow",
         "description": "Short but effective",
-        "command": "",
+        "command": "Wield",
         "sprite": 55,
         "price": 200,
         "stackable": false,
@@ -8974,7 +8974,7 @@
     {
         "name": "Maple Longbow",
         "description": "A Nice sturdy bow",
-        "command": "",
+        "command": "Wield",
         "sprite": 54,
         "price": 640,
         "stackable": false,
@@ -8990,7 +8990,7 @@
     {
         "name": "Maple Shortbow",
         "description": "Short but effective",
-        "command": "",
+        "command": "Wield",
         "sprite": 55,
         "price": 400,
         "stackable": false,
@@ -9006,7 +9006,7 @@
     {
         "name": "Yew Longbow",
         "description": "A Nice sturdy bow",
-        "command": "",
+        "command": "Wield",
         "sprite": 54,
         "price": 1280,
         "stackable": false,
@@ -9022,7 +9022,7 @@
     {
         "name": "Yew Shortbow",
         "description": "Short but effective",
-        "command": "",
+        "command": "Wield",
         "sprite": 55,
         "price": 800,
         "stackable": false,
@@ -9038,7 +9038,7 @@
     {
         "name": "Magic Longbow",
         "description": "A Nice sturdy bow",
-        "command": "",
+        "command": "Wield",
         "sprite": 54,
         "price": 2560,
         "stackable": false,
@@ -9054,7 +9054,7 @@
     {
         "name": "Magic Shortbow",
         "description": "Short but effective",
-        "command": "",
+        "command": "Wield",
         "sprite": 55,
         "price": 1600,
         "stackable": false,
@@ -9382,7 +9382,7 @@
     {
         "name": "Enchanted Battlestaff of fire",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 42500,
         "stackable": false,
@@ -9397,7 +9397,7 @@
     {
         "name": "Enchanted Battlestaff of water",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 42500,
         "stackable": false,
@@ -9412,7 +9412,7 @@
     {
         "name": "Enchanted Battlestaff of air",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 42500,
         "stackable": false,
@@ -9427,7 +9427,7 @@
     {
         "name": "Enchanted Battlestaff of earth",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 42500,
         "stackable": false,
@@ -9533,7 +9533,7 @@
     {
         "name": "Ruby necklace",
         "description": "I wonder if this is valuable",
-        "command": "",
+        "command": "Wield",
         "sprite": 57,
         "price": 2175,
         "stackable": false,
@@ -9600,7 +9600,7 @@
     {
         "name": "Steel gauntlets",
         "description": "Very handy armour",
-        "command": "",
+        "command": "Wield",
         "sprite": 217,
         "price": 6,
         "stackable": false,
@@ -9615,7 +9615,7 @@
     {
         "name": "gauntlets of goldsmithing",
         "description": "metal gloves for gold making",
-        "command": "",
+        "command": "Wield",
         "sprite": 217,
         "price": 6,
         "stackable": false,
@@ -9630,7 +9630,7 @@
     {
         "name": "gauntlets of cooking",
         "description": "Used for cooking fish",
-        "command": "",
+        "command": "Wield",
         "sprite": 217,
         "price": 6,
         "stackable": false,
@@ -9645,7 +9645,7 @@
     {
         "name": "gauntlets of chaos",
         "description": "improves bolt spells",
-        "command": "",
+        "command": "Wield",
         "sprite": 217,
         "price": 6,
         "stackable": false,
@@ -9660,7 +9660,7 @@
     {
         "name": "robe of Zamorak",
         "description": "A robe worn by worshippers of Zamorak",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 40,
         "stackable": false,
@@ -9675,7 +9675,7 @@
     {
         "name": "robe of Zamorak",
         "description": "A robe worn by worshippers of Zamorak",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 30,
         "stackable": false,
@@ -9911,7 +9911,7 @@
     {
         "name": "Pendant of Lucien",
         "description": "Gets me through the chamber of fear",
-        "command": "",
+        "command": "Wield",
         "sprite": 222,
         "price": 12,
         "stackable": false,
@@ -9926,7 +9926,7 @@
     {
         "name": "Boots of lightfootedness",
         "description": "Wearing these makes me feel like I am floating",
-        "command": "",
+        "command": "Wield",
         "sprite": 223,
         "price": 6,
         "stackable": false,
@@ -9967,7 +9967,7 @@
     {
         "name": "Staff of Armadyl",
         "description": "A Magical staff",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 15,
         "stackable": false,
@@ -9982,7 +9982,7 @@
     {
         "name": "Pendant of Armadyl",
         "description": "Allows me to fight Lucien",
-        "command": "",
+        "command": "Wield",
         "sprite": 222,
         "price": 12,
         "stackable": false,
@@ -10075,7 +10075,7 @@
     {
         "name": "khazard Helmet",
         "description": "A medium sized helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 5,
         "price": 10,
         "stackable": false,
@@ -10090,7 +10090,7 @@
     {
         "name": "khazard chainmail",
         "description": "A series of connected metal rings",
-        "command": "",
+        "command": "Wield",
         "sprite": 7,
         "price": 10,
         "stackable": false,
@@ -10222,7 +10222,7 @@
     {
         "name": "Gnome Emerald Amulet of protection",
         "description": "It improves my defense",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 0,
         "stackable": false,
@@ -10354,7 +10354,7 @@
     {
         "name": "bloody axe of zamorak",
         "description": "A vicious looking axe",
-        "command": "",
+        "command": "Wield",
         "sprite": 246,
         "price": 5000,
         "stackable": false,
@@ -10434,7 +10434,7 @@
     {
         "name": "Protective jacket",
         "description": "A thick heavy leather top",
-        "command": "",
+        "command": "Wield",
         "sprite": 251,
         "price": 50,
         "stackable": false,
@@ -10449,7 +10449,7 @@
     {
         "name": "Protective trousers",
         "description": "A thick pair of leather trousers",
-        "command": "",
+        "command": "Wield",
         "sprite": 252,
         "price": 50,
         "stackable": false,
@@ -10518,7 +10518,7 @@
     {
         "name": "Gasmask",
         "description": "Stops me breathing nasty stuff",
-        "command": "",
+        "command": "Wield",
         "sprite": 232,
         "price": 2,
         "stackable": false,
@@ -10728,7 +10728,7 @@
     {
         "name": "Glarial's amulet",
         "description": "A bright green gem set in a necklace",
-        "command": "",
+        "command": "Wield",
         "sprite": 261,
         "price": 1,
         "stackable": false,
@@ -10899,7 +10899,7 @@
     {
         "name": "Dragon medium Helmet",
         "description": "A medium sized helmet",
-        "command": "",
+        "command": "Wield",
         "sprite": 271,
         "price": 100000,
         "stackable": false,
@@ -10992,7 +10992,7 @@
     {
         "name": "Doctors gown",
         "description": "I do feel clever wearing this",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 40,
         "stackable": false,
@@ -11059,7 +11059,7 @@
     {
         "name": "Priest robe",
         "description": "I feel closer to saradomin in this",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 5,
         "stackable": false,
@@ -11074,7 +11074,7 @@
     {
         "name": "Priest gown",
         "description": "I feel closer to saradomin in this",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 5,
         "stackable": false,
@@ -11310,7 +11310,7 @@
     {
         "name": "king lathas Amulet",
         "description": "The amulet is red",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 10,
         "stackable": false,
@@ -11325,7 +11325,7 @@
     {
         "name": "Bronze Spear",
         "description": "A bronze tipped spear",
-        "command": "",
+        "command": "Wield",
         "sprite": 283,
         "price": 4,
         "stackable": false,
@@ -11340,7 +11340,7 @@
     {
         "name": "halloween mask",
         "description": "aaaarrrghhh ... i'm a monster",
-        "command": "",
+        "command": "Wield",
         "sprite": 284,
         "price": 15,
         "stackable": false,
@@ -11381,7 +11381,7 @@
     {
         "name": "halloween mask",
         "description": "aaaarrrghhh ... i'm a monster",
-        "command": "",
+        "command": "Wield",
         "sprite": 284,
         "price": 15,
         "stackable": false,
@@ -11396,7 +11396,7 @@
     {
         "name": "halloween mask",
         "description": "aaaarrrghhh ... i'm a monster",
-        "command": "",
+        "command": "Wield",
         "sprite": 284,
         "price": 15,
         "stackable": false,
@@ -11450,7 +11450,7 @@
     {
         "name": "gnome robe",
         "description": "A high fashion robe",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 180,
         "stackable": false,
@@ -11465,7 +11465,7 @@
     {
         "name": "gnome robe",
         "description": "A high fashion robe",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 180,
         "stackable": false,
@@ -11480,7 +11480,7 @@
     {
         "name": "gnome robe",
         "description": "A high fashion robe",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 180,
         "stackable": false,
@@ -11495,7 +11495,7 @@
     {
         "name": "gnome robe",
         "description": "A high fashion robe",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 180,
         "stackable": false,
@@ -11510,7 +11510,7 @@
     {
         "name": "gnome robe",
         "description": "A high fashion robe",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 180,
         "stackable": false,
@@ -11525,7 +11525,7 @@
     {
         "name": "gnomeshat",
         "description": "A silly pointed hat",
-        "command": "",
+        "command": "Wield",
         "sprite": 86,
         "price": 160,
         "stackable": false,
@@ -11540,7 +11540,7 @@
     {
         "name": "gnomeshat",
         "description": "A silly pointed hat",
-        "command": "",
+        "command": "Wield",
         "sprite": 86,
         "price": 160,
         "stackable": false,
@@ -11555,7 +11555,7 @@
     {
         "name": "gnomeshat",
         "description": "A silly pointed hat",
-        "command": "",
+        "command": "Wield",
         "sprite": 86,
         "price": 160,
         "stackable": false,
@@ -11570,7 +11570,7 @@
     {
         "name": "gnomeshat",
         "description": "A silly pointed hat",
-        "command": "",
+        "command": "Wield",
         "sprite": 86,
         "price": 160,
         "stackable": false,
@@ -11585,7 +11585,7 @@
     {
         "name": "gnomeshat",
         "description": "A silly pointed hat",
-        "command": "",
+        "command": "Wield",
         "sprite": 86,
         "price": 160,
         "stackable": false,
@@ -11600,7 +11600,7 @@
     {
         "name": "gnome top",
         "description": "rometti - the ultimate in gnome design",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 180,
         "stackable": false,
@@ -11615,7 +11615,7 @@
     {
         "name": "gnome top",
         "description": "rometti - the only name in gnome fashion!",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 180,
         "stackable": false,
@@ -11630,7 +11630,7 @@
     {
         "name": "gnome top",
         "description": "rometti - the only name in gnome fashion!",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 180,
         "stackable": false,
@@ -11645,7 +11645,7 @@
     {
         "name": "gnome top",
         "description": "rometti - the only name in gnome fashion!",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 180,
         "stackable": false,
@@ -11660,7 +11660,7 @@
     {
         "name": "gnome top",
         "description": "rometti - the only name in gnome fashion!",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 180,
         "stackable": false,
@@ -11688,7 +11688,7 @@
     {
         "name": "Beads of the dead",
         "description": "A curious looking neck ornament",
-        "command": "",
+        "command": "Wield",
         "sprite": 24,
         "price": 35,
         "stackable": false,
@@ -13172,7 +13172,7 @@
     {
         "name": "Boots",
         "description": "They're soft and silky",
-        "command": "",
+        "command": "Wield",
         "sprite": 223,
         "price": 200,
         "stackable": false,
@@ -13187,7 +13187,7 @@
     {
         "name": "Boots",
         "description": "They're soft and silky",
-        "command": "",
+        "command": "Wield",
         "sprite": 223,
         "price": 200,
         "stackable": false,
@@ -13202,7 +13202,7 @@
     {
         "name": "Boots",
         "description": "They're soft and silky",
-        "command": "",
+        "command": "Wield",
         "sprite": 223,
         "price": 200,
         "stackable": false,
@@ -13217,7 +13217,7 @@
     {
         "name": "Boots",
         "description": "They're soft and silky",
-        "command": "",
+        "command": "Wield",
         "sprite": 223,
         "price": 200,
         "stackable": false,
@@ -13232,7 +13232,7 @@
     {
         "name": "Boots",
         "description": "They're soft and silky",
-        "command": "",
+        "command": "Wield",
         "sprite": 223,
         "price": 200,
         "stackable": false,
@@ -13247,7 +13247,7 @@
     {
         "name": "Santa's hat",
         "description": "It's a santa claus' hat",
-        "command": "",
+        "command": "Wield",
         "sprite": 325,
         "price": 160,
         "stackable": false,
@@ -13496,7 +13496,7 @@
     {
         "name": "Desert Boots",
         "description": "Boots made specially for the desert",
-        "command": "",
+        "command": "Wield",
         "sprite": 223,
         "price": 20,
         "stackable": false,
@@ -13628,7 +13628,7 @@
     {
         "name": "Staff of Iban",
         "description": "It's a slightly magical stick",
-        "command": "",
+        "command": "Wield",
         "sprite": 337,
         "price": 15,
         "stackable": false,
@@ -13710,7 +13710,7 @@
     {
         "name": "Klank's gauntlets",
         "description": "Heavy hand protection",
-        "command": "",
+        "command": "Wield",
         "sprite": 217,
         "price": 6,
         "stackable": false,
@@ -13751,7 +13751,7 @@
     {
         "name": "Amulet of Othainian",
         "description": "A strange looking amulet",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 0,
         "stackable": false,
@@ -13766,7 +13766,7 @@
     {
         "name": "Amulet of Doomion",
         "description": "A strange looking amulet",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 0,
         "stackable": false,
@@ -13781,7 +13781,7 @@
     {
         "name": "Amulet of Holthion",
         "description": "A strange looking amulet",
-        "command": "",
+        "command": "Wield",
         "sprite": 125,
         "price": 0,
         "stackable": false,
@@ -13809,7 +13809,7 @@
     {
         "name": "Bronze Throwing Dart",
         "description": "A deadly throwing dart with a bronze tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 231,
         "price": 2,
         "stackable": true,
@@ -13837,7 +13837,7 @@
     {
         "name": "Iron Throwing Dart",
         "description": "A deadly throwing dart with an iron tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 231,
         "price": 5,
         "stackable": true,
@@ -13891,7 +13891,7 @@
     {
         "name": "Desert Robe",
         "description": "Cool light robe to wear in the desert",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 40,
         "stackable": false,
@@ -13906,7 +13906,7 @@
     {
         "name": "Desert Shirt",
         "description": "A light cool shirt to wear in the desert",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 40,
         "stackable": false,
@@ -13934,7 +13934,7 @@
     {
         "name": "Slaves Robe Bottom",
         "description": "A dirty desert skirt",
-        "command": "",
+        "command": "Wield",
         "sprite": 88,
         "price": 40,
         "stackable": false,
@@ -13949,7 +13949,7 @@
     {
         "name": "Slaves Robe Top",
         "description": "A dirty desert shirt",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 40,
         "stackable": false,
@@ -13964,7 +13964,7 @@
     {
         "name": "Steel Throwing Dart",
         "description": "A deadly throwing dart with a steel tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 231,
         "price": 20,
         "stackable": true,
@@ -14018,7 +14018,7 @@
     {
         "name": "Unblessed Unholy Symbol of Zamorak",
         "description": "this needs blessing",
-        "command": "",
+        "command": "Wield",
         "sprite": 351,
         "price": 200,
         "stackable": false,
@@ -14033,7 +14033,7 @@
     {
         "name": "Unholy Symbol of Zamorak",
         "description": "a symbol indicating allegiance to Zamorak",
-        "command": "",
+        "command": "Wield",
         "sprite": 351,
         "price": 200,
         "stackable": false,
@@ -14542,7 +14542,7 @@
     {
         "name": "Mithril Throwing Dart",
         "description": "A deadly throwing dart with a mithril tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 231,
         "price": 50,
         "stackable": true,
@@ -14557,7 +14557,7 @@
     {
         "name": "Adamantite Throwing Dart",
         "description": "A deadly throwing dart with an adamantite tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 231,
         "price": 130,
         "stackable": true,
@@ -14572,7 +14572,7 @@
     {
         "name": "Rune Throwing Dart",
         "description": "A deadly throwing dart with a runite tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 231,
         "price": 700,
         "stackable": true,
@@ -14639,7 +14639,7 @@
     {
         "name": "Iron throwing knife",
         "description": "A finely balanced knife",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 6,
         "stackable": false,
@@ -14654,7 +14654,7 @@
     {
         "name": "Bronze throwing knife",
         "description": "A finely balanced knife",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 2,
         "stackable": false,
@@ -14669,7 +14669,7 @@
     {
         "name": "Steel throwing knife",
         "description": "A finely balanced knife",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 21,
         "stackable": false,
@@ -14684,7 +14684,7 @@
     {
         "name": "Mithril throwing knife",
         "description": "A finely balanced knife",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 54,
         "stackable": false,
@@ -14699,7 +14699,7 @@
     {
         "name": "Adamantite throwing knife",
         "description": "A finely balanced knife",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 133,
         "stackable": false,
@@ -14714,7 +14714,7 @@
     {
         "name": "Rune throwing knife",
         "description": "A finely balanced knife",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 333,
         "stackable": false,
@@ -14729,7 +14729,7 @@
     {
         "name": "Black throwing knife",
         "description": "A finely balanced knife",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 37,
         "stackable": false,
@@ -14822,7 +14822,7 @@
     {
         "name": "Iron Spear",
         "description": "An iron tipped spear",
-        "command": "",
+        "command": "Wield",
         "sprite": 283,
         "price": 13,
         "stackable": false,
@@ -14837,7 +14837,7 @@
     {
         "name": "Steel Spear",
         "description": "A steel tipped spear",
-        "command": "",
+        "command": "Wield",
         "sprite": 283,
         "price": 46,
         "stackable": false,
@@ -14852,7 +14852,7 @@
     {
         "name": "Mithril Spear",
         "description": "A mithril tipped spear",
-        "command": "",
+        "command": "Wield",
         "sprite": 283,
         "price": 119,
         "stackable": false,
@@ -14867,7 +14867,7 @@
     {
         "name": "Adamantite Spear",
         "description": "An adamantite tipped spear",
-        "command": "",
+        "command": "Wield",
         "sprite": 283,
         "price": 293,
         "stackable": false,
@@ -14882,7 +14882,7 @@
     {
         "name": "Rune Spear",
         "description": "A rune tipped spear",
-        "command": "",
+        "command": "Wield",
         "sprite": 283,
         "price": 1000,
         "stackable": false,
@@ -15274,7 +15274,7 @@
     {
         "name": "Poisoned Bronze Throwing Dart",
         "description": "A venomous throwing dart with a bronze tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 384,
         "price": 2,
         "stackable": true,
@@ -15289,7 +15289,7 @@
     {
         "name": "Poisoned Iron Throwing Dart",
         "description": "A venomous throwing dart with an iron tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 384,
         "price": 5,
         "stackable": true,
@@ -15304,7 +15304,7 @@
     {
         "name": "Poisoned Steel Throwing Dart",
         "description": "A venomous throwing dart with a steel tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 384,
         "price": 20,
         "stackable": true,
@@ -15319,7 +15319,7 @@
     {
         "name": "Poisoned Mithril Throwing Dart",
         "description": "A venomous throwing dart with a mithril tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 384,
         "price": 50,
         "stackable": true,
@@ -15334,7 +15334,7 @@
     {
         "name": "Poisoned Adamantite Throwing Dart",
         "description": "A venomous throwing dart with an adamantite tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 384,
         "price": 130,
         "stackable": true,
@@ -15349,7 +15349,7 @@
     {
         "name": "Poisoned Rune Throwing Dart",
         "description": "A deadly venomous dart with a runite tip.",
-        "command": "",
+        "command": "Wield",
         "sprite": 384,
         "price": 700,
         "stackable": true,
@@ -15364,7 +15364,7 @@
     {
         "name": "Poisoned Bronze throwing knife",
         "description": "A finely balanced knife with a coating of venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 385,
         "price": 2,
         "stackable": false,
@@ -15379,7 +15379,7 @@
     {
         "name": "Poisoned Iron throwing knife",
         "description": "A finely balanced knife with a coating of venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 385,
         "price": 6,
         "stackable": false,
@@ -15394,7 +15394,7 @@
     {
         "name": "Poisoned Steel throwing knife",
         "description": "A finely balanced knife with a coating of venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 385,
         "price": 21,
         "stackable": false,
@@ -15409,7 +15409,7 @@
     {
         "name": "Poisoned Mithril throwing knife",
         "description": "A finely balanced knife with a coating of venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 385,
         "price": 54,
         "stackable": false,
@@ -15424,7 +15424,7 @@
     {
         "name": "Poisoned Black throwing knife",
         "description": "A finely balanced knife with a coating of venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 385,
         "price": 37,
         "stackable": false,
@@ -15439,7 +15439,7 @@
     {
         "name": "Poisoned Adamantite throwing knife",
         "description": "A finely balanced knife with a coating of venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 385,
         "price": 133,
         "stackable": false,
@@ -15454,7 +15454,7 @@
     {
         "name": "Poisoned Rune throwing knife",
         "description": "A finely balanced knife with a coating of venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 385,
         "price": 333,
         "stackable": false,
@@ -15469,7 +15469,7 @@
     {
         "name": "Poisoned Bronze Spear",
         "description": "A bronze tipped spear with added venom ",
-        "command": "",
+        "command": "Wield",
         "sprite": 383,
         "price": 4,
         "stackable": false,
@@ -15484,7 +15484,7 @@
     {
         "name": "Poisoned Iron Spear",
         "description": "An iron tipped spear with added venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 383,
         "price": 13,
         "stackable": false,
@@ -15499,7 +15499,7 @@
     {
         "name": "Poisoned Steel Spear",
         "description": "A steel tipped spear with added venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 383,
         "price": 46,
         "stackable": false,
@@ -15514,7 +15514,7 @@
     {
         "name": "Poisoned Mithril Spear",
         "description": "A mithril tipped spear with added venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 383,
         "price": 119,
         "stackable": false,
@@ -15529,7 +15529,7 @@
     {
         "name": "Poisoned Adamantite Spear",
         "description": "An adamantite tipped spear with added venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 383,
         "price": 293,
         "stackable": false,
@@ -15544,7 +15544,7 @@
     {
         "name": "Poisoned Rune Spear",
         "description": "A rune tipped spear with added venom",
-        "command": "",
+        "command": "Wield",
         "sprite": 383,
         "price": 1000,
         "stackable": false,
@@ -15754,7 +15754,7 @@
     {
         "name": "Bunny ears",
         "description": "Get another from the clothes shop if you die",
-        "command": "",
+        "command": "Wield",
         "sprite": 392,
         "price": 1,
         "stackable": false,
@@ -15964,7 +15964,7 @@
     {
         "name": "Machette",
         "description": "A purpose built tool for cutting through thick jungle.",
-        "command": "",
+        "command": "Wield",
         "sprite": 432,
         "price": 40,
         "stackable": false,
@@ -16252,7 +16252,7 @@
     {
         "name": "Annas Silver Necklace",
         "description": "A necklace coated with silver",
-        "command": "",
+        "command": "Wield",
         "sprite": 24,
         "price": 1,
         "stackable": false,
@@ -16397,7 +16397,7 @@
     {
         "name": "A Silver Dagger",
         "description": "Dagger Found at crime scene",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 1,
         "stackable": false,
@@ -16503,7 +16503,7 @@
     {
         "name": "Zamorak Cape",
         "description": "A cape from the almighty zamorak",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 100,
         "stackable": false,
@@ -16518,7 +16518,7 @@
     {
         "name": "Saradomin Cape",
         "description": "A cape from the almighty saradomin",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 100,
         "stackable": false,
@@ -16533,7 +16533,7 @@
     {
         "name": "Guthix Cape",
         "description": "A cape from the almighty guthix",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 100,
         "stackable": false,
@@ -16548,7 +16548,7 @@
     {
         "name": "Staff of zamorak",
         "description": "It's a stick of the gods",
-        "command": "",
+        "command": "Wield",
         "sprite": 337,
         "price": 80000,
         "stackable": false,
@@ -16563,7 +16563,7 @@
     {
         "name": "Staff of guthix",
         "description": "It's a stick of the gods",
-        "command": "",
+        "command": "Wield",
         "sprite": 85,
         "price": 80000,
         "stackable": false,
@@ -16578,7 +16578,7 @@
     {
         "name": "Staff of Saradomin",
         "description": "It's a stick of the gods",
-        "command": "",
+        "command": "Wield",
         "sprite": 414,
         "price": 80000,
         "stackable": false,
@@ -16658,7 +16658,7 @@
     {
         "name": "Annas Silver Necklace",
         "description": "A silver necklace coated with flour",
-        "command": "",
+        "command": "Wield",
         "sprite": 24,
         "price": 1,
         "stackable": false,
@@ -16738,7 +16738,7 @@
     {
         "name": "A Silver Dagger",
         "description": "Dagger Found at crime scene coated with flour",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 1,
         "stackable": false,
@@ -16792,7 +16792,7 @@
     {
         "name": "Robe",
         "description": "A worn robe",
-        "command": "",
+        "command": "Wield",
         "sprite": 87,
         "price": 15,
         "stackable": false,
@@ -16820,7 +16820,7 @@
     {
         "name": "Dagger",
         "description": "Short but pointy",
-        "command": "",
+        "command": "Wield",
         "sprite": 80,
         "price": 35,
         "stackable": false,
@@ -16835,7 +16835,7 @@
     {
         "name": "eye patch",
         "description": "It makes me look very piratical",
-        "command": "",
+        "command": "Wield",
         "sprite": 198,
         "price": 2,
         "stackable": false,
@@ -17073,7 +17073,7 @@
     {
         "name": "Dark Dagger",
         "description": "An unusual looking dagger made of dark shiny obsidian",
-        "command": "",
+        "command": "Wield",
         "sprite": 420,
         "price": 91,
         "stackable": false,
@@ -17088,7 +17088,7 @@
     {
         "name": "Glowing Dark Dagger",
         "description": "An unusual looking dagger made of dark shiny obsidian - it has an unnatural glow .",
-        "command": "",
+        "command": "Wield",
         "sprite": 421,
         "price": 91,
         "stackable": false,
@@ -17194,7 +17194,7 @@
     {
         "name": "A blue wizards hat",
         "description": "An ancient wizards hat.",
-        "command": "",
+        "command": "Wield",
         "sprite": 86,
         "price": 2,
         "stackable": false,
@@ -17378,7 +17378,7 @@
     {
         "name": "Dragon Square Shield",
         "description": "An ancient and powerful looking Dragon Square shield.",
-        "command": "",
+        "command": "Wield",
         "sprite": 426,
         "price": 500000,
         "stackable": false,
@@ -17510,7 +17510,7 @@
     {
         "name": "Cape of legends",
         "description": "Shows I am a member of the legends guild",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 450,
         "stackable": false,
@@ -17525,7 +17525,7 @@
     {
         "name": "Scythe",
         "description": "Get another from the clothes shop if you die",
-        "command": "",
+        "command": "Wield",
         "sprite": 434,
         "price": 15,
         "stackable": false,
@@ -17750,7 +17750,7 @@
     {
         "name": "Staff of Guthix",
         "description": "A staff of the god Guthix",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 80000,
         "stackable": false,
@@ -17765,7 +17765,7 @@
     {
         "name": "Staff of Saradomin",
         "description": "A staff of the god Saradomin",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 80000,
         "stackable": false,
@@ -17780,7 +17780,7 @@
     {
         "name": "Staff of Zamorak",
         "description": "A staff of the god Zamorak",
-        "command": "",
+        "command": "Wield",
         "sprite": 91,
         "price": 80000,
         "stackable": false,
@@ -17795,7 +17795,7 @@
     {
         "name": "Cape of Guthix",
         "description": "The cape of Guthix",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 0,
         "stackable": false,
@@ -17810,7 +17810,7 @@
     {
         "name": "Cape of Saradomin",
         "description": "The cape of Saradomin",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 0,
         "stackable": false,
@@ -17825,7 +17825,7 @@
     {
         "name": "Cape of Zamorak",
         "description": "The cape of Zamorak",
-        "command": "",
+        "command": "Wield",
         "sprite": 59,
         "price": 0,
         "stackable": false,
