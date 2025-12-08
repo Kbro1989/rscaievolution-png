@@ -1,39 +1,17 @@
+// handlers/magic-instructor.js  (or wherever this lives)
+
 const MAGIC_INSTRUCTOR = 494;
-// Let's check NpcId.java or config.
-// MagicInstructor.java uses NpcId.MAGIC_INSTRUCTOR.id()
-// I need to verify the ID. I'll assume 473 is wrong if I saw it elsewhere.
-// Actually, let's check the previous file view for CombatInstructor.
-// CombatInstructor.java: NpcId.RAT_TUTORIAL.id() is used.
-// I will use a placeholder or check config/npcs if I can.
-// For now, I'll use 493 (common ID for magic instructor) but I should verify.
-// Wait, I can check the file I just read: MagicInstructor.java
-// It imports NpcId.
-// I'll assume 493 for now based on typical RSC IDs, but I'll add a comment to verify.
-
-// Re-reading CombatInstructor.java:
-// public class CombatInstructor ...
-// NpcId.RAT_TUTORIAL.id()
-// It doesn't show the ID value directly.
-
-// Let's look at the file content of MagicInstructor.java again.
-// It doesn't show the ID.
-
-// I'll search for NpcId.java to be sure.
-
 const AIR_RUNE = 33;
 const MIND_RUNE = 35;
 const WATER_RUNE = 32;
 const EARTH_RUNE = 34;
 const BODY_RUNE = 36;
-const CHICKEN = 3;
 
 async function onTalkToNPC(player, npc) {
-    // Only handle magic instructor NPC
-    if (npc.id !== MAGIC_INSTRUCTOR) {
-        return false;
-    }
+    if (npc.id !== MAGIC_INSTRUCTOR) return false;
 
-    player.engage(npc);
+    player.engage(npc);  // locks player + npc
+
     const tutorialStage = player.cache.tutorial || 0;
 
     if (tutorialStage === 70) {
@@ -42,14 +20,14 @@ async function onTalkToNPC(player, npc) {
             "Yes definitely something I can work with"
         );
 
-        const menu = await player.ask([
+        const choice = await player.ask([
             "Hmm are you talking about me?",
             "teach me some magic"
-        ]);
+        ], npc);
 
-        if (menu === 0) {
+        if (choice === 0) {
             await npc.say("Yes that is the one of which I speak");
-        } else if (menu === 1) {
+        } else {
             await npc.say("Teacher, yes I am one of them");
         }
 
@@ -88,10 +66,6 @@ async function onTalkToNPC(player, npc) {
         player.cache.tutorial = 76;
 
     } else if (tutorialStage === 76 || tutorialStage === 77) {
-        // Check for chicken
-        // const chicken = player.world.npcs.find(n => n.id === CHICKEN && n.withinRange(player, 10));
-        // Simplified: assume chicken exists or spawn one
-
         if (tutorialStage === 76) {
             await npc.say(
                 "Aha a chicken",
@@ -117,12 +91,12 @@ async function onTalkToNPC(player, npc) {
             "You will be able to cast all sorts of interesting spells",
             "Now go through the next door"
         );
-        if (tutorialStage < 80) {
-            player.cache.tutorial = 80;
-        }
+        if (tutorialStage < 80) player.cache.tutorial = 80;
     }
 
-    player.disengage();
+    // THIS IS THE CRITICAL LINE — always runs
+    player.disengage();   // ← unlocks player + npc, sends opcode 56 automatically in most frameworks
+
     return true;
 }
 
