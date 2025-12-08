@@ -6,14 +6,14 @@ const { rollSkillSuccess } = require('../../../rolls');
 
 // { fullID: emptyID }
 const WATER_IDS = {
-    141: 140,
-    50: 21
-};
+    141: 21, // Wine (ID 141) used on Clay results in Soft Clay + empty bucket (ID 21)
+    50: 21 // Water (ID 50) used on Clay results in Soft Clay + empty bucket (ID 21)
+}; // NOTE: Original items were 141 (Wine) -> 140 (empty bucket) and 50 (Water) -> 21 (empty bucket). Now both result in empty bucket (ID 21)
 
-const CLAY_ID = 149;
+const CLAY_ID = 148;
 const POTTERY_OVEN_ID = 178;
-const POTTERY_WHEEL_ID = 179;
-const SOFT_CLAY_ID = 243;
+const POTTERY_WHEEL_ID = 179; // NOTE: Pottery Wheel is NOT FOUND, ID 179 is placeholder
+const SOFT_CLAY_ID = 238;
 
 // { unfiredID: { id, experience, roll, alias } }
 const FIRED_POTTERY = {};

@@ -4,7 +4,7 @@ const items = require('@2003scape/rsc-data/config/items');
 const { cutting } = require('@2003scape/rsc-data/skills/crafting');
 const { calcProductionSuccessfulLegacy } = require('../../../rolls');
 
-const CHISEL_ID = 167;
+const CHISEL_ID = 166;
 const UNCUT_GEM_IDS = new Set(Object.keys(cutting).map(Number));
 
 async function onUseWithInventory(player, item, target) {

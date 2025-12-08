@@ -5,18 +5,18 @@
 const { rollSkillSuccess, calcProductionSuccessfulLegacy } = require('../../../rolls');
 const { uncooked } = require('@2003scape/rsc-data/skills/cooking');
 
-const GAUNTLETS_OF_COOKING_ID = 701;
-const RAW_SWORDFISH_ID = 369;
-const RAW_LOBSTER_ID = 372;
-const RAW_SHARK_ID = 545;
-const RAW_OOMLIE_MEAT_ID = 1019;
-const SEAWEED_ID = 622;
-const SODA_ASH_ID = 624;
-const UNCOOKED_SWAMP_PASTE_ID = 1100;
-const SWAMP_PASTE_ID = 1099;
-const BURNT_MEAT_ID = 134;
+const GAUNTLETS_OF_COOKING_ID = 666;
+const RAW_SWORDFISH_ID = 359;
+const RAW_LOBSTER_ID = 362;
+const RAW_SHARK_ID = 522;
+const RAW_OOMLIE_MEAT_ID = 1194;
+const SEAWEED_ID = 594;
+const SODA_ASH_ID = 596;
+const UNCOOKED_SWAMP_PASTE_ID = 744;
+const SWAMP_PASTE_ID = 745;
+const BURNT_MEAT_ID = 133;
 
-const CAKE_TIN_ID = 338;
+const CAKE_TIN_ID = 331;
 const COOKS_RANGE_ID = 119;
 const FIRE_IDS = new Set([97, 274]);
 const RANGE_IDS = new Set([11, 491]);

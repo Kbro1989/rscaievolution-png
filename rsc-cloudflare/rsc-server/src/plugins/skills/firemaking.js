@@ -8,9 +8,9 @@ const GameObject = require('../../model/game-object');
 const GroundItem = require('../../model/ground-item');
 const { rollSkillSuccess, calcProductionSuccessfulLegacy } = require('../../rolls');
 
-const ASHES_ID = 181;
+const ASHES_ID = 180;
 const FIRE_ID = 97;
-const TINDERBOX_ID = 166;
+const TINDERBOX_ID = 165;
 const { logs } = require('@2003scape/rsc-data/skills/firemaking');
 
 // 25% at level 1, 100% at level 60

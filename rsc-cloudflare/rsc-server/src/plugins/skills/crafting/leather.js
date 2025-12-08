@@ -3,7 +3,7 @@
 const items = require('@2003scape/rsc-data/config/items');
 const { leather } = require('@2003scape/rsc-data/skills/crafting');
 
-const LEATHER_ID = 148;
+const LEATHER_ID = 147;
 const NEEDLE_ID = 39;
 const THREAD_ID = 43;
 

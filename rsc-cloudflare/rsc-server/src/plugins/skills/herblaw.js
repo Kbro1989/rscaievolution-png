@@ -1,17 +1,17 @@
 const items = require('@2003scape/rsc-data/config/items');
 const herblawData = require('@2003scape/rsc-data/skills/herblaw');
 
-const PESTLE_AND_MORTAR_ID = 468;
-const UNICORN_HORN_ID = 600;
-const GROUND_UNICORN_ID = 599; // Verify
-const BLUE_DRAGON_SCALE_ID = 603;
-const GROUND_SCALE_ID = 604; // Verify
-const CHOCOLATE_BAR_ID = 337;
-const CHOCOLATE_DUST_ID = 339; // Verify
-const BAT_BONES_ID = 605; // Verify
-const GROUND_BAT_BONES_ID = 606; // Verify
-const CHARCOAL_ID = 538; // Verify
-const GROUND_CHARCOAL_ID = 709; // Verify
+const PESTLE_AND_MORTAR_ID = 446;
+const UNICORN_HORN_ID = 444;
+const GROUND_UNICORN_ID = 451; 
+const BLUE_DRAGON_SCALE_ID = 445;
+const GROUND_SCALE_ID = 450; 
+const CHOCOLATE_BAR_ID = 330;
+const CHOCOLATE_DUST_ID = 732; 
+const BAT_BONES_ID = 576; 
+const GROUND_BAT_BONES_ID = 983; 
+const CHARCOAL_ID = 921; 
+const GROUND_CHARCOAL_ID = 1108; 
 
 // Grinding Map
 const GRINDABLES = {
@@ -91,7 +91,7 @@ module.exports = {
         let herbId = null;
         let vialIndex = null;
         let herbIndex = null;
-        const VIAL_OF_WATER_ID = 464;
+        const VIAL_OF_WATER_ID = 442; // NOTE: Assuming 'Vial' is acceptable for 'Vial of Water' (ID 442) - proper 'Vial of Water' item may need to be added.
 
         if (v1 === VIAL_OF_WATER_ID && herblawData.unfinished[v2]) {
             herbId = v2;
