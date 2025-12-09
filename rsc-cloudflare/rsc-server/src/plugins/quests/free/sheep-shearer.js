@@ -1,9 +1,11 @@
 // https://classic.runescape.wiki/w/Transcript:Fred_the_farmer
 // https://classic.runescape.wiki/w/Sheep_shearer
 
-const BALL_OF_WOOL_ID = 207;
-const FRED_ID = 77;
-const WOOL_ID = 145;
+const { Items, Npcs } = require('../../../constants/ids');
+
+const BALL_OF_WOOL_ID = Items.BALL_OF_WOOL; // 207
+const FRED_ID = Npcs.FRED_THE_FARMER; // 77
+const WOOL_ID = Items.WOOL; // 145
 
 async function initiateQuest(player, npc) {
     await npc.say("Ok I'll see you when you have some wool");
@@ -79,7 +81,7 @@ async function onTalkToNPC(player, npc) {
                     case 1: {
                         await npc.say(
                             'Well what do you expect if you ask a farmer for ' +
-                                'a quest?',
+                            'a quest?',
                             'Now are you going to help me or not?'
                         );
 
@@ -121,9 +123,9 @@ async function onTalkToNPC(player, npc) {
                                 await npc.say(
                                     "I'm sure it's nothing to worry about",
                                     "It's possible the other shearers aren't " +
-                                        'dead at all',
+                                    'dead at all',
                                     'And are just hiding in the woods or ' +
-                                        'something'
+                                    'something'
                                 );
 
                                 await player.say("I'm not convinced");

@@ -1,7 +1,9 @@
-const WILDERNESS_GUIDE = 493;
+const { Npcs } = require('../../../constants/ids');
+
+const WILDERNESS_GUIDE_ID = Npcs.WILDERNESS_GUIDE || 493; // 493
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== WILDERNESS_GUIDE) {
+    if (npc.id !== WILDERNESS_GUIDE_ID) {
         return false;
     }
 

@@ -1,7 +1,9 @@
-const FLOUR_HEAP_ID = 23;
-const FLOUR_ID = 136;
-const GRAIN_ID = 29;
-const POT_ID = 135;
+const { Items } = require('../../constants/ids');
+
+const FLOUR_HEAP_ID = 23; // Special ground item ID
+const FLOUR_ID = Items.POT_OF_FLOUR || 136; // 136
+const GRAIN_ID = Items.GRAIN || 29; // 29
+const POT_ID = Items.POT || 135; // 135
 
 // each location uses a different hopper ID
 // { hopperID: locationOfFlourHeap }

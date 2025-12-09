@@ -1,26 +1,37 @@
+const { Npcs } = require('../../../constants/ids');
+
 const QUEST_NAME = "Legends Quest";
+const LEGENDS_GUARD_ID = Npcs.LEGENDS_GUILD_GUARD || 736; // 736
 
-module.exports = (router) => {
-    // Legends Guild Guard (ID 736)
-    router.on('talk', [736], (player, npc) => {
-        const stage = player.questStages[QUEST_NAME];
+async function onTalkToNPC(player, npc) {
+    if (npc.id !== LEGENDS_GUARD_ID) {
+        return false;
+    }
 
-        if (stage >= 0) {
-            player.message("The guard nods at you.");
-            npc.message("Welcome back, Legend.");
+    player.engage(npc);
+
+    const stage = player.questStages[QUEST_NAME];
+
+    if (stage >= 0) {
+        player.message("The guard nods at you.");
+        await npc.say("Welcome back, Legend.");
+    } else {
+        await npc.say("Halt! Only the greatest heroes may enter the Legends' Guild.");
+        await player.say("How do I get in?");
+        await npc.say("You must have completed 107 Quest Points to prove your worth.");
+
+        if (player.questPoints >= 107) {
+            await player.say("I have " + player.questPoints + " Quest Points.");
+            await npc.say("Impressive. You may enter and speak to the Grand Vizier.");
+            player.updateQuestStage(QUEST_NAME, 0); // Start the quest
         } else {
-            npc.message("Halt! Only the greatest heroes may enter the Legends' Guild.");
-            player.message("How do I get in?");
-            npc.message("You must have completed 107 Quest Points to prove your worth.");
-
-            if (player.questPoints >= 107) {
-                player.message("I have " + player.questPoints + " Quest Points.");
-                npc.message("Impressive. You may enter and speak to the Grand Vizier.");
-                player.updateQuestStage(QUEST_NAME, 0); // Start the quest
-            } else {
-                player.message("I only have " + player.questPoints + " Quest Points.");
-                npc.message("Come back when you are more experienced.");
-            }
+            await player.say("I only have " + player.questPoints + " Quest Points.");
+            await npc.say("Come back when you are more experienced.");
         }
-    });
-};
+    }
+
+    player.disengage();
+    return true;
+}
+
+module.exports = { onTalkToNPC };

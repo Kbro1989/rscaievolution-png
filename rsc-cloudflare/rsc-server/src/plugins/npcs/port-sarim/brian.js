@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Brian
+const { Npcs } = require('../../../constants/ids');
 
-const BRIAN_ID = 131;
+const BRIAN_ID = Npcs.BRIAN || 131; // 131
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== BRIAN_ID) {

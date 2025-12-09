@@ -3,11 +3,12 @@
 const items = require('@2003scape/rsc-data/config/items');
 const { rollCascadedSkillSuccess, rollSkillSuccess } = require('../../rolls');
 const { spots } = require('@2003scape/rsc-data/skills/fishing');
+const { Items } = require('../../constants/ids');
 
-const BIG_NET_ID = 548;
-const FEATHER_ID = 381;
-const TUTORIAL_FISH_ID = 493;
-const DEPLETED_FISH_ROCK_ID = 668;
+const BIG_NET_ID = Items.BIG_NET;
+const FEATHER_ID = Items.FEATHER;
+const TUTORIAL_FISH_ID = 493; // Object. No constant maybe.
+const DEPLETED_FISH_ROCK_ID = 668; // Object.
 
 
 

@@ -157,108 +157,108 @@ class DataClient {
         });
     }
 
-    // --- D1 Implementation ---
+    // --- Storage Implementation (KV or D1) ---
+
+    get kv() {
+        return this.server.env && this.server.env.KV;
+    }
 
     async handleD1Message(message) {
-        // Mock success for auth/handshake calls
+        // Renamed concept mentally, keeping name compatibility or just dispatching
+        // Dispatch to appropriate storage handler
         if (['authenticate', 'worldConnect'].includes(message.handler)) {
             return { success: true };
         }
 
         if (message.handler === 'playerLogin') {
-            return this.d1PlayerLogin(message);
+            return this.storagePlayerLogin(message);
         }
 
         if (message.handler === 'playerUpdate') {
-            return this.d1PlayerSave(message);
+            return this.storagePlayerSave(message);
         }
 
-
         if (message.handler === 'playerRegister') {
-            return this.d1PlayerRegister(message);
+            return this.storagePlayerRegister(message);
         }
 
         if (message.handler === 'playerGetWorlds') {
-            return { usernameWorlds: {} }; // Mock: all offline/local
+            return { usernameWorlds: {} };
         }
 
-        console.warn(`[DataClient] Unhandled D1 message: ${message.handler}`);
-        return { success: false, error: 'Not implemented in D1 mode' };
+        console.warn(`[DataClient] Unhandled Storage message: ${message.handler}`);
+        return { success: false, error: 'Not implemented' };
     }
 
-    async d1PlayerLogin(msg) {
+    async storagePlayerLogin(msg) {
         const { username, password } = msg;
-
-        // Try load from D1
         const cleanUser = username.toLowerCase();
+
         try {
-            const result = await this.db.prepare(
-                'SELECT data FROM players WHERE username = ?'
-            ).bind(cleanUser).first();
+            let data;
 
-            if (result) {
+            // 1. Try KV
+            if (this.kv) {
+                const kvData = await this.kv.get(`player:${cleanUser}`, { type: 'json' });
+                if (kvData) data = kvData;
+            }
+            // 2. Fallback to D1
+            else if (this.db) {
+                const result = await this.db.prepare('SELECT data FROM players WHERE username = ?').bind(cleanUser).first();
+                if (result) data = JSON.parse(result.data);
+            }
+
+            if (data) {
                 // Found existing player
-                const data = JSON.parse(result.data);
-
-                // Password check (Plaintext for now as per RSC legacy/ZeroCost simplicity)
                 if (data.pass !== password) {
                     return { success: false, code: 3 }; // Invalid credentials
                 }
 
-                // Success!
-                // Add fields expected by Packet Handler
                 data.id = -1; // Mock ID
                 data.username = cleanUser;
                 data.group = data.group || 0;
 
                 return { success: true, code: 0, player: data };
             } else {
-                // New Player? Auto-register for Zero-Friction
+                // New Player? Auto-register
                 console.log(`[DataClient] Creating new user: ${cleanUser}`);
 
-                // Default NEW player template
                 const newPlayer = {
                     username: cleanUser,
-                    pass: password, // Save for next time
-                    x: 329, y: 552, // Tutorial Island or Lumbridge
+                    pass: password,
+                    x: 329, y: 552,
                     fatigue: 0,
                     combatStyle: 0,
                     blockChat: 0, blockPrivateChat: 0, blockTrade: 0, blockDuel: 0,
                     cameraAuto: 0, oneMouseButton: 0,
                     loginDate: Date.now(),
                     friends: [], ignores: [],
-                    skills: {}, // Will be populated by Player ctor defaults if missing
+                    skills: {},
                     inventory: [], bank: [],
                     questPoints: 0, questStages: {}
                 };
 
-                // Save it immediately
-                await this.db.prepare(
-                    'INSERT INTO players (username, data, updated_at) VALUES (?, ?, ?)'
-                ).bind(cleanUser, JSON.stringify(newPlayer), Date.now()).run();
+                // Save to KV or D1
+                await this.performSave(cleanUser, newPlayer);
 
                 return { success: true, code: 0, player: newPlayer };
             }
 
         } catch (e) {
-            console.error('[DataClient] D1 Login Error:', e);
-            return { success: false, code: 5 }; // Server error
+            console.error('[DataClient] Login Error:', e);
+            return { success: false, code: 5 };
         }
     }
 
-    async d1PlayerSave(msg) {
-        // extract data from msg. Message IS the player data blob (spread in player.js save())
-        // msg contains 'handler' property we should strip?
-
+    async storagePlayerSave(msg) {
         const username = msg.username.toLowerCase();
         const dataToSave = { ...msg };
         delete dataToSave.handler;
         delete dataToSave.token;
 
-        // QUEUE OPTIMIZATION (Async Writes)
+        // Queue Optimization
         if (this.server.env.PLAYER_QUEUE) {
             try {
-                // Send to Queue instead of blocking D1 write
                 await this.server.env.PLAYER_QUEUE.send({
                     type: 'save',
                     username: username,
@@ -267,28 +267,11 @@ class DataClient {
                 return { success: true };
             } catch (err) {
                 console.error('[DataClient] Queue Error (Fallback to direct):', err);
-                // Fallthrough to direct D1 write on error
             }
         }
 
         try {
-            const existing = await this.db.prepare('SELECT data FROM players WHERE username = ?').bind(username).first();
-            if (existing) {
-                const existingData = JSON.parse(existing.data);
-                // Merge to preserve things like password
-                const merged = { ...existingData, ...dataToSave };
-
-                await this.db.prepare(
-                    'UPDATE players SET data = ?, updated_at = ? WHERE username = ?'
-                ).bind(JSON.stringify(merged), Date.now(), username).run();
-
-            } else {
-                // Weird case: saving non-existent player
-                await this.db.prepare(
-                    'INSERT INTO players (username, data, updated_at) VALUES (?, ?, ?)'
-                ).bind(username, JSON.stringify(dataToSave), Date.now()).run();
-            }
-
+            await this.performSave(username, dataToSave);
             return { success: true };
         } catch (e) {
             console.error('[DataClient] Save Error:', e);
@@ -296,28 +279,29 @@ class DataClient {
         }
     }
 
-    async d1PlayerRegister(msg) {
+    async storagePlayerRegister(msg) {
         const { username, password } = msg;
         const cleanUser = username.toLowerCase();
 
         try {
-            // Check if user already exists
-            const result = await this.db.prepare(
-                'SELECT data FROM players WHERE username = ?'
-            ).bind(cleanUser).first();
+            let exists = false;
 
-            if (result) {
-                // Username already taken
-                return { success: false, code: 3 }; // 3 = username taken (client understands this)
+            if (this.kv) {
+                exists = await this.kv.get(`player:${cleanUser}`) !== null;
+            } else if (this.db) {
+                exists = await this.db.prepare('SELECT 1 FROM players WHERE username = ?').bind(cleanUser).first();
             }
 
-            // Create new player
+            if (exists) {
+                return { success: false, code: 3 }; // Taken
+            }
+
             console.log(`[DataClient] Registering new user: ${cleanUser}`);
 
             const newPlayer = {
                 username: cleanUser,
                 pass: password,
-                x: 329, y: 552, // Tutorial Island
+                x: 329, y: 552,
                 fatigue: 0,
                 combatStyle: 0,
                 blockChat: 0, blockPrivateChat: 0, blockTrade: 0, blockDuel: 0,
@@ -329,16 +313,46 @@ class DataClient {
                 questPoints: 0, questStages: {}
             };
 
-            await this.db.prepare(
-                'INSERT INTO players (username, data, updated_at) VALUES (?, ?, ?)'
-            ).bind(cleanUser, JSON.stringify(newPlayer), Date.now()).run();
+            await this.performSave(cleanUser, newPlayer);
 
-            // Code 2 = Registration success (client expects this!)
             return { success: true, code: 2 };
 
         } catch (e) {
-            console.error('[DataClient] D1 Register Error:', e);
-            return { success: false, code: 5 }; // Server error
+            console.error('[DataClient] Register Error:', e);
+            return { success: false, code: 5 };
+        }
+    }
+
+    async performSave(username, data) {
+        // Merge with existing if needed? KV `put` overwrites.
+        // We might want to read-modify-write if we were being super safe, 
+        // but `playerUpdate` from server usually contains FULL state or authoritative deltas.
+        // `player.js` save() sends FULL state. 
+        // BUT `storagePlayerSave` receives `dataToSave`.
+        // Wait, `dataToSave` in `storagePlayerSave` logic merged with `existingData` in previous D1 code.
+        // We should replicate merge logic for KV to be safe.
+
+        let merged = data;
+
+        if (this.kv) {
+            // Read existing for Merge
+            const existing = await this.kv.get(`player:${username}`, { type: 'json' });
+            if (existing) {
+                merged = { ...existing, ...data };
+            }
+            await this.kv.put(`player:${username}`, JSON.stringify(merged));
+        }
+        else if (this.db) {
+            const existing = await this.db.prepare('SELECT data FROM players WHERE username = ?').bind(username).first();
+            if (existing) {
+                const existingData = JSON.parse(existing.data);
+                merged = { ...existingData, ...data };
+                await this.db.prepare('UPDATE players SET data = ?, updated_at = ? WHERE username = ?')
+                    .bind(JSON.stringify(merged), Date.now(), username).run();
+            } else {
+                await this.db.prepare('INSERT INTO players (username, data, updated_at) VALUES (?, ?, ?)')
+                    .bind(username, JSON.stringify(merged), Date.now()).run();
+            }
         }
     }
 

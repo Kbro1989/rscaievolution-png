@@ -4,7 +4,7 @@ const BRONZE_KEY_ID = 242;
 const LEELA_ID = 122;
 const PASTE_ID = 240;
 const ROPE_ID = 237;
-const SKIRT_ID = 194;
+const SKIRT_ID = 187;
 const BLONDE_WIG_ID = 244;
 
 async function makeADisguise(player, npc) {

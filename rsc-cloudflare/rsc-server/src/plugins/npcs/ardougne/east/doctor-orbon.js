@@ -1,7 +1,9 @@
 // Doctor Orbon (Ardougne East - Sheep Herder Quest)
-const DOCTOR_ORBON = 435;
-const PROTECTIVE_JACKET = 760;
-const PROTECTIVE_TROUSERS = 761;
+const { Items, Npcs } = require('../../../../constants/ids');
+
+const DOCTOR_ORBON = Npcs.DOCTOR_ORBON || 435; // 435
+const PROTECTIVE_JACKET = Items.PROTECTIVE_JACKET || 760; // 760
+const PROTECTIVE_TROUSERS = Items.PROTECTIVE_TROUSERS || 761; // 761
 const COINS = 10; // ID 10 is Coins. Price 100gp.
 
 async function onTalkToNPC(player, npc) {

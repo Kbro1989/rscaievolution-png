@@ -1,9 +1,9 @@
-// https://classic.runescape.wiki/w/Transcript:Reldo
+const { Npcs } = require('../../../constants/ids');
 
 const { initiateQuest } = require('../../quests/free/shield-of-arrav/reldo');
 const { knowAboutDwarves } = require('../../quests/free/knights-sword/reldo');
 
-const RELDO_ID = 20;
+const RELDO_ID = Npcs.RELDO || 20; // 20
 
 async function onTalkToNPC(player, npc) {
     if (

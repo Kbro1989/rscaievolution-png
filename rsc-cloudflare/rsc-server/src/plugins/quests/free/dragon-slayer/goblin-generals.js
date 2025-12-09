@@ -1,7 +1,8 @@
 const { talkToGenerals } = require('../goblin-diplomacy/generals');
+const { Npcs } = require('../../../../constants/ids');
 
-const BENTNOZE_ID = 152;
-const WARTFACE_ID = 151;
+const BENTNOZE_ID = Npcs.GENERAL_BENTNOZE; // 152
+const WARTFACE_ID = Npcs.GENERAL_WARTFACE; // 151
 
 async function onTalkToNPC(player, npc) {
     if (

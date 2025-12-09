@@ -1,4 +1,6 @@
-const GUIDE = 476;
+const { Npcs } = require('../../../constants/ids');
+
+const GUIDE = Npcs.GUIDE_476; // 476
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== GUIDE) {
@@ -7,9 +9,9 @@ async function onTalkToNPC(player, npc) {
 
     player.engage(npc);
 
-    await player.message("Welcome to the world of runescape");
-    await player.message("My job is to help newcomers find their feet here");
-    await player.say("Ah good, let's get started");
+    await npc.say("Welcome to the world of runescape",
+        "My job is to help newcomers find their feet here",
+        "Ah good, let's get started");
     await player.message("when speaking to characters such as myself");
     await player.message("Sometimes options will appear in the top left corner of the screen");
     await player.message("left click on one of them to continue the conversation");

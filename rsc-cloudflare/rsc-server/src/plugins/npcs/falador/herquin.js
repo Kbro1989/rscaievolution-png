@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Herquin
+const { Npcs } = require('../../../constants/ids');
 
-const HERQUIN_ID = 155;
+const HERQUIN_ID = Npcs.HERQUIN || 155; // 155
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== HERQUIN_ID) {

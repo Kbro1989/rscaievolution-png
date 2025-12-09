@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Cassie
+const { Npcs } = require('../../../constants/ids');
 
-const CASSIE_ID = 101;
+const CASSIE_ID = Npcs.CASSIE || 101; // 101
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== CASSIE_ID) {

@@ -1,9 +1,11 @@
 // Ardougne Market Merchants
-const BAKER = 325;
-const FUR_TRADER = 327;
-const GEM_MERCHANT = 330;
-const SILVER_MERCHANT = 328;
-const SPICE_MERCHANT = 329;
+const { Npcs } = require('../../../../constants/ids');
+
+const BAKER = Npcs.BAKER || 325; // 325
+const FUR_TRADER = Npcs.FUR_TRADER || 327; // 327
+const GEM_MERCHANT = Npcs.GEM_MERCHANT || 330; // 330
+const SILVER_MERCHANT = Npcs.SILVER_MERCHANT || 328; // 328
+const SPICE_MERCHANT = Npcs.SPICE_MERCHANT || 329; // 329
 
 const SHOPS = {
     [BAKER]: "baker-ardougne",

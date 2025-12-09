@@ -1,17 +1,18 @@
 // Guidor & Guidor's Wife (Varrock)
 // Biohazard Quest (End Game Logic)
+const { Items, Npcs } = require('../../../constants/ids');
 
-const GUIDOR = 508;
-const GUIDORS_WIFE = 488;
+const GUIDOR = Npcs.GUIDOR || 508; // 508
+const GUIDORS_WIFE = Npcs.GUIDORS_WIFE || 488; // 488
 
-const PRIEST_ROBE = 807;
-const PRIEST_GOWN = 808;
+const PRIEST_ROBE = Items.PRIEST_ROBE || 807; // 807
+const PRIEST_GOWN = Items.PRIEST_GOWN || 808; // 808
 
-const PLAGUE_SAMPLE = 815;
-const TOUCH_PAPER = 816;
-const LIQUID_HONEY = 817;
-const ETHENEA = 818;
-const SULPHURIC_BROLINE = 819;
+const PLAGUE_SAMPLE = Items.PLAGUE_SAMPLE || 815; // 815
+const TOUCH_PAPER = Items.TOUCH_PAPER || 816; // 816
+const LIQUID_HONEY = Items.LIQUID_HONEY || 817; // 817
+const ETHENEA = Items.ETHENEA || 818; // 818
+const SULPHURIC_BROLINE = Items.SULPHURIC_BROLINE || 819; // 819
 
 // Quest Keys
 // 'biohazard'

@@ -62,14 +62,14 @@ if (typeof window === 'undefined') {
     mc.members = true; // args[0] === 'members';
 
     // Check for multiplayer mode via query param
-    // Default to Solo mode (Web Worker) unless mode=multi
+    // Default to Multiplayer (Fly.io) unless mode=solo
     const modeParam = urlParams.get('mode');
-    const isMultiplayer = modeParam === 'multi';
+    const isMultiplayer = modeParam !== 'solo';
 
     if (isMultiplayer) {
-        // Multiplayer mode: Connect to Fly.io game server
-        console.log('🌐 Multiplayer mode - connecting to Cloudflare Durable Object...');
-        mc.server = 'rsc-server-do.elderscapedev.workers.dev';
+        // Multiplayer mode: Connect to Fly.io Backend
+        console.log('🌐 Multiplayer mode - connecting to Fly.io Game Server...');
+        mc.server = 'rscaievolution-png.fly.dev';
         mc.port = 443;
     } else if (!args[1]) {
         // Solo mode: Use browser Worker
@@ -38776,12 +38776,14 @@ class GameConnection extends GameShell {
                 window.location.hostname === '127.0.0.1');
 
         if (isLocal) {
-            // Local development
-            this.server = window.location.hostname;
-            this.port = parseInt(window.location.port) || 8788;
+            // Local development - Force connect to Fly.io (Multiplayer)
+            this.server = 'rscaievolution-png.fly.dev';
+            this.port = 443;
+            // this.server = window.location.hostname;
+            // this.port = parseInt(window.location.port) || 8788;
         } else {
-            // Production - Cloudflare Pages
-            this.server = 'rscaievolution-png.pages.dev';
+            // Production - Fly.io (Game Server)
+            this.server = 'rscaievolution-png.fly.dev';
             this.port = 443;
         }
 

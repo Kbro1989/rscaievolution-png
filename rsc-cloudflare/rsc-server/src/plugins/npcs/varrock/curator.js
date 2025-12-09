@@ -1,6 +1,8 @@
+const { Npcs } = require('../../../constants/ids');
+
 module.exports = (router) => {
     // Curator (ID 39)
-    const CURATOR_ID = 39;
+    const CURATOR_ID = Npcs.CURATOR || 39; // 39
 
     router.on('talk', CURATOR_ID, (player, npc) => {
         npc.message('Welcome to the museum of Varrock');

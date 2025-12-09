@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Drogo
+const { Npcs } = require('../../../constants/ids');
 
-const DROGO_ID = 113;
+const DROGO_ID = Npcs.DROGO_DWARF || 113; // 113
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== DROGO_ID) {

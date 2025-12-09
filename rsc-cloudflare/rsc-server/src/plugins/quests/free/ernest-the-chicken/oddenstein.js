@@ -1,11 +1,12 @@
 // https://classic.runescape.wiki/w/Transcript:Professor_Oddenstein
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const CHICKEN_ID = 91;
-const ERNEST_ID = 92;
-const ODDENSTEIN_ID = 38;
-const OIL_CAN_ID = 208;
-const PRESSURE_GAUGE_ID = 175;
-const RUBBER_TUBE_ID = 213;
+const CHICKEN_ID = Npcs.CHICKEN || 91; // 91
+const ERNEST_ID = Npcs.ERNEST || 92; // 92
+const ODDENSTEIN_ID = Npcs.PROFESSOR_ODDENSTEIN || 38; // 38
+const OIL_CAN_ID = Items.OIL_CAN || 208; // 208
+const PRESSURE_GAUGE_ID = Items.PRESSURE_GAUGE || 175; // 175
+const RUBBER_TUBE_ID = Items.RUBBER_TUBE || 213; // 213
 
 async function changeHimBack(player, npc) {
     await npc.say(
@@ -73,14 +74,14 @@ async function onTalkToNPC(player, npc) {
                     "Or at least he wasn't",
                     'Until he helped me test my pouletmorph machine',
                     'It was originally going to be called a transmutation ' +
-                        'machine',
+                    'machine',
                     'But after testing Pouletmorph seems more appropriate'
                 );
 
                 const choice = await player.ask(
                     [
                         "I'm glad Veronica didn't actually get engaged to a " +
-                            'chicken',
+                        'chicken',
                         'Change him back this instant'
                     ],
                     true
@@ -166,7 +167,7 @@ async function onTalkToNPC(player, npc) {
 
             player.message(
                 '@que@You give a rubber tube, a pressure gauge and a can of ' +
-                    'oil to the Professer'
+                'oil to the Professer'
             );
 
             await world.sleepTicks(3);
@@ -179,7 +180,7 @@ async function onTalkToNPC(player, npc) {
 
             player.message(
                 '@que@Suddenly a ray shoots out of the machine and at the ' +
-                    'chicken'
+                'chicken'
             );
 
             await world.sleepTicks(3);

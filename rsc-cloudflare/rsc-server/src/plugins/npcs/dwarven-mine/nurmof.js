@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Nurmof
+const { Npcs } = require('../../../constants/ids');
 
-const NURMOF_ID = 773;
+const NURMOF_ID = Npcs.NURMOF || 773; // 773
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== NURMOF_ID) {
@@ -32,9 +33,9 @@ async function onTalkToNPC(player, npc) {
             await npc.say(
                 'Of course they are',
                 'My pickaxes are made of higher grade metal than your ' +
-                    'ordinary bronze pickaxes',
+                'ordinary bronze pickaxes',
                 'Allowing you to have multiple swings at a rock until you ' +
-                    'get the ore from it'
+                'get the ore from it'
             );
             break;
     }

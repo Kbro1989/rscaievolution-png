@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Sheep
+const { Items, Npcs } = require('../../constants/ids');
 
-const SHEARS_ID = 144;
-const SHEEP_ID = 2;
-const WOOL_ID = 145;
+const SHEARS_ID = Items.SHEARS || 144; // 144
+const SHEEP_ID = Npcs.SHEEP || 2; // 2
+const WOOL_ID = Items.WOOL || 145; // 145
 
 async function onUseWithNPC(player, npc, item) {
     if (npc.id !== SHEEP_ID || item.id !== SHEARS_ID) {

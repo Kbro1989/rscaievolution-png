@@ -1,4 +1,6 @@
-const JATIX_ID = 230;
+const { Npcs } = require('../../../constants/ids');
+
+const JATIX_ID = Npcs.JATIX || 230; // 230
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== JATIX_ID) {

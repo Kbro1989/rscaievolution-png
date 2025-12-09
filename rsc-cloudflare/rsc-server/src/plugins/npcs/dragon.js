@@ -1,11 +1,12 @@
 // https://classic.runescape.wiki/w/Dragon_(race)
 // https://classic.runescape.wiki/w/Dragon_(Dragon_Slayer)
+const { Items, Npcs } = require('../../constants/ids');
 
-const ANTI_DRAGON_BREATH_SHIELD_ID = 420;
+const ANTI_DRAGON_BREATH_SHIELD_ID = Items.ANTI_DRAGON_BREATH_SHIELD || 420; // 420
 
 const DRAGON_IDS = new Set([
     // elvarg
-    196
+    Npcs.ELVARG || 196, // 196
 ]);
 
 async function onNPCAttack(player, npc) {

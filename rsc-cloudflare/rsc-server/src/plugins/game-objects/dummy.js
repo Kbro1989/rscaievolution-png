@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Dummy
+const { Objects } = require('../../constants/ids');
 
-const DUMMY_ID = 49;
+const DUMMY_ID = Objects.DUMMY || 49; // 49
 
 async function onGameObjectCommandOne(player, gameObject) {
     if (gameObject.id !== DUMMY_ID) {

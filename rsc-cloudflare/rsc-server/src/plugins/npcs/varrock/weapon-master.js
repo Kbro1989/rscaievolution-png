@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Jonny_the_beard (wait, no, WeaponMaster)
 // WeaponMaster (Phoenix Gang)
+const { Items, Npcs } = require('../../../constants/ids');
 
-const WEAPON_MASTER_ID = 37;
-const PHOENIX_CROSSBOW_ID = 592;
+const WEAPON_MASTER_ID = Npcs.WEAPON_MASTER || 37; // 37
+const PHOENIX_CROSSBOW_ID = Items.PHOENIX_CROSSBOW || 592; // 592
 // OpenRSC Quest: Shield of Arrav
 // Cache keys implied: "arrav_gang" (PHOENIX_GANG=1? BLACK_ARM_GANG=2?), "arrav_mission".
 // Authentic values:

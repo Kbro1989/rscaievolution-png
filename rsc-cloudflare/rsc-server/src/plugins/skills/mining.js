@@ -3,58 +3,51 @@
 const items = require('@2003scape/rsc-data/config/items');
 const { rocks, pickaxes } = require('@2003scape/rsc-data/skills/mining');
 const { rollSkillSuccess, calcGatheringSuccessfulLegacy } = require('../../rolls');
+const { Items } = require('../../constants/ids');
 
 const ROCK_IDS = new Set(Object.keys(rocks).map(Number));
 
 // Axe bonuses from OpenRSC
 const AXE_BONUSES = {
-    1262: 0, // Bronze Px
-    1261: 1, // Iron Px
-    1260: 2, // Steel Px
-    1259: 4, // Mithril Px
-    1258: 8, // Adamant Px
-    1263: 16 // Rune Px
+    [Items.BRONZE_PICKAXE]: 0,
+    [Items.IRON_PICKAXE]: 1,
+    [Items.STEEL_PICKAXE]: 2,
+    [Items.MITHRIL_PICKAXE]: 4,
+    [Items.ADAMANTITE_PICKAXE]: 8,
+    [Items.RUNE_PICKAXE]: 16
 };
 
 // Pickaxe req levels (OpenRSC Formulae.java miningAxeLvls [41, 31, 21, 6, 1, 1])
-// 1263: 41 (Rune)
-// 1258: 31 (Addy)
-// 1259: 21 (Mith)
-// 1260: 6  (Steel)
-// 1261: 1  (Iron)
-// 1262: 1  (Bronze)
+const PICKAXE_REQS = {
+    [Items.RUNE_PICKAXE]: 41,
+    [Items.ADAMANTITE_PICKAXE]: 31,
+    [Items.MITHRIL_PICKAXE]: 21,
+    [Items.STEEL_PICKAXE]: 6,
+    [Items.IRON_PICKAXE]: 1,
+    [Items.BRONZE_PICKAXE]: 1
+};
 
 // Gem Drops (Formulae.java)
+// Authentic: Uncut gems
 const GEMS = [
-    { id: 160, weight: 4 }, // Diamond
-    { id: 161, weight: 8 }, // Ruby
-    { id: 162, weight: 16 }, // Emerald
-    { id: 164, weight: 32 }, // Sapphire
-    { id: -1, weight: 63 }   // Nothing (implicit in OpenRSC via weighted choice)
-    // Total weight 123 + others from loop keys etc? 
-    // OpenRSC gemDropWeights: {63, 32, 16, 8, 4, 2, 2, 1}
-    // 63=Nothing, 32=Sapphire, 16=Emerald, 8=Ruby, 4=Diamond, 2=Loop Key, 2=Tooth Key, 1=Nothing Reroll
+    { id: Items.UNCUT_DIAMOND, weight: 4 },
+    { id: Items.UNCUT_RUBY, weight: 8 },
+    { id: Items.UNCUT_EMERALD, weight: 16 },
+    { id: Items.UNCUT_SAPPHIRE, weight: 32 },
+    { id: -1, weight: 63 }   // Nothing
 ];
 
 function getGemDrop() {
     const roll = Math.floor(Math.random() * 128);
     let currentWeight = 0;
-    // Order: Nothing(63), Sapphire(32), Emerald(16), Ruby(8), Diamond(4), LoopKey(2), ToothKey(2), Reroll(1)
-    // Simplified for now:
-    // We will use OpenRSC weights directly
-    // {id: -1, w: 63}, {id: 164, w: 32}, {id: 162, w: 16}, {id: 161, w: 8}, {id: 160, w: 4}, {id: 390, w: 2}, {id: 391, w: 2}, {id: -1, w: 1}
 
-    // We only want gems usually? Or do rocks drop keys too?
-    // Formulae.java calculateGemDrop uses gemDropIDs/weights.
-    // Yes it includes keys.
+    // Order: Nothing(63), Sapphire(32), Emerald(16), Ruby(8), Diamond(4), LoopKey(2), ToothKey(2), Reroll(1)
     const drops = [
         { id: -1, weight: 63 },
-        { id: 164, weight: 32 },
-        { id: 162, weight: 16 },
-        { id: 161, weight: 8 },
-        { id: 160, weight: 4 },
-        { id: 390, weight: 2 }, // Loop key half
-        { id: 391, weight: 2 }, // Tooth key half
+        { id: Items.UNCUT_SAPPHIRE, weight: 32 },
+        { id: Items.UNCUT_EMERALD, weight: 16 },
+        { id: Items.UNCUT_RUBY, weight: 8 },
+        { id: Items.UNCUT_DIAMOND, weight: 4 },
         { id: -1, weight: 1 }  // Reroll/Nothing
     ];
 
@@ -90,15 +83,17 @@ async function mineRock(player, gameObject) {
     let axeBonus = 0;
 
     for (const pickaxeID of PICKAXE_IDS) {
-        const reqLevel = pickaxes[pickaxeID].level;
-        if (player.inventory.has(pickaxeID) && miningLevel >= reqLevel) {
-            bestPickaxeID = pickaxeID;
-            axeBonus = AXE_BONUSES[pickaxeID];
-            break;
-        } else if (player.equipment.has(pickaxeID) && miningLevel >= reqLevel) {
-            bestPickaxeID = pickaxeID;
-            axeBonus = AXE_BONUSES[pickaxeID];
-            break;
+        const reqLevel = PICKAXE_REQS[pickaxeID];
+        if (miningLevel >= reqLevel) {
+            if (player.inventory.has(pickaxeID)) {
+                bestPickaxeID = pickaxeID;
+                axeBonus = AXE_BONUSES[pickaxeID];
+                break;
+            } else if (player.equipment.has(pickaxeID)) {
+                bestPickaxeID = pickaxeID;
+                axeBonus = AXE_BONUSES[pickaxeID];
+                break;
+            }
         }
     }
 
@@ -135,7 +130,7 @@ async function mineRock(player, gameObject) {
         // 1/200 chance normally.
         // If wearing Charged Dragonstone Amulet (ID 522/597?), chance is 1/100 (2/200).
         // ItemId.CHARGED_DRAGONSTONE_AMULET is 597.
-        const dragonstoneAmulet = 597;
+        const dragonstoneAmulet = 582; // Corrected ID for Unenchanted Dragonstone Amulet
         const gemChance = player.equipment.has(dragonstoneAmulet) ? 2 : 1;
 
         if (Math.random() * 200 < gemChance) {

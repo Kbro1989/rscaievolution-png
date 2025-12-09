@@ -1,6 +1,8 @@
 // https://classic.runescape.wiki/w/Web
 
-const WEB_ID = 24;
+const { Objects } = require('../../constants/ids');
+
+const WEB_ID = 24; // Objects.WEB might be 24.
 const BLANK_ID = 16;
 
 async function onUseWithWallObject(player, wallObject, item) {

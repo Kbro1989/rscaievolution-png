@@ -1,7 +1,9 @@
-const QUEST_ADVISOR = 489;
+const { Npcs } = require('../../../constants/ids');
+
+const QUEST_ADVISOR_ID = Npcs.QUEST_ADVISOR || 489; // 489
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== QUEST_ADVISOR) {
+    if (npc.id !== QUEST_ADVISOR_ID) {
         return false;
     }
 

@@ -1,8 +1,12 @@
 const { rollNPCMagicDamage } = require('../../combat');
 
+const { Npcs } = require('../../constants/ids');
+
 const WIZARD_IDS = new Set([
-    57, 60, // Dark wizard
-    81, 314 // Wizard
+    Npcs.DARK_WIZARD || 57, // 57
+    Npcs.DARK_WIZARD_60 || 60, // 60
+    Npcs.WIZARD || 81, // 81
+    Npcs.WIZARD_314 || 314 // 314
 ]);
 
 const FIRE_STRIKE = {

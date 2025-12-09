@@ -1,9 +1,10 @@
 // https://classic.runescape.wiki/w/Transcript:Traiborn_the_wizard
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const BONES_ID = 20;
-const SPINACH_ROLL_ID = 179;
-const TRAIBORN_ID = 17;
-const TRAIBORN_KEY_ID = 25;
+const BONES_ID = Items.BONES; // 20
+const SPINACH_ROLL_ID = Items.SPINACH_ROLL || 179; // 179
+const TRAIBORN_ID = Npcs.TRAIBORN || 17; // 17
+const TRAIBORN_KEY_ID = Items.TRAIBORN_KEY || 25; // 25
 
 async function cunningSheep(npc) {
     await npc.say(
@@ -147,7 +148,7 @@ async function tellMeIfYouHaveKey(player, npc) {
                 'Silverlight? Never heard of that',
                 'Sounds a good name for a ship',
                 "Are you sure it's not the name of a ship, " +
-                    'rather than a sword?'
+                'rather than a sword?'
             );
 
             const choice = await player.ask(
@@ -361,7 +362,7 @@ async function onTalkToNPC(player, npc) {
 
                     player.message(
                         '@que@Traiborn places the bones in a circle on the ' +
-                            'floor'
+                        'floor'
                     );
 
                     await world.sleepTicks(3);
@@ -450,7 +451,7 @@ async function onTalkToNPC(player, npc) {
                             'How dare you?',
                             "Of course I'm a wizard",
                             "Now don't be so cheeky or I'll turn you into a " +
-                                'frog'
+                            'frog'
                         );
                         break;
                     case 1: // stop talking to you

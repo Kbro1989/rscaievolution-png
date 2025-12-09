@@ -1,17 +1,18 @@
 // Errand Boys (Hops, Chancy, DeVinci)
 // Biohazard Quest
 // Locations: Rimmington (Give Vials), Varrock (Retrieve Vials)
+const { Items, Npcs } = require('../../../constants/ids');
 
-const HOPS_RIM = 506;
-const HOPS_VAR = 510;
-const CHANCY_RIM = 505;
-const CHANCY_VAR = 509;
-const DEVINCI_RIM = 507;
-const DEVINCI_VAR = 511;
+const HOPS_RIM = Npcs.HOPS || 506; // 506
+const HOPS_VAR = Npcs.HOPS_VARROCK || 510; // 510
+const CHANCY_RIM = Npcs.CHANCY || 505; // 505
+const CHANCY_VAR = Npcs.CHANCY_VARROCK || 509; // 509
+const DEVINCI_RIM = Npcs.DA_VINCI || 507; // 507
+const DEVINCI_VAR = Npcs.DA_VINCI_VARROCK || 511; // 511
 
-const ETHENEA = 818;
-const LIQUID_HONEY = 817;
-const SULPHURIC_BROLINE = 819;
+const ETHENEA = Items.ETHENEA || 818; // 818
+const LIQUID_HONEY = Items.LIQUID_HONEY || 817; // 817
+const SULPHURIC_BROLINE = Items.SULPHURIC_BROLINE || 819; // 819
 
 // In authentic RSC, they accept ANY vial, but Hops drinks one?
 // Logic:

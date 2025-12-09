@@ -1,5 +1,6 @@
 const spells = require('@2003scape/rsc-data/config/spells.json');
 const items = require('@2003scape/rsc-data/config/items');
+const { Items } = require('../../constants/ids');
 
 // Teleport destinations
 const TELEPORTS = {
@@ -37,20 +38,20 @@ const COMBAT_SPELLS = {
 
 // Enchant amulet mappings
 const ENCHANT_AMULETS = {
-    'Enchant lvl-1 amulet': { src: 301, dest: 314, xp: 17.5 },
-    'Enchant lvl-2 amulet': { src: 302, dest: 315, xp: 37 },
-    'Enchant lvl-3 amulet': { src: 303, dest: 316, xp: 59 },
-    'Enchant lvl-4 amulet': { src: 304, dest: 317, xp: 67 },
-    'Enchant lvl-5 amulet': { src: 305, dest: 597, xp: 78 }
+    'Enchant lvl-1 amulet': { src: Items.SAPPHIRE_AMULET, dest: Items.AMULET_OF_MAGIC, xp: 17.5 },
+    'Enchant lvl-2 amulet': { src: Items.EMERALD_AMULET, dest: Items.AMULET_OF_DEFENCE, xp: 37 },
+    'Enchant lvl-3 amulet': { src: Items.RUBY_AMULET, dest: Items.AMULET_OF_STRENGTH, xp: 59 },
+    'Enchant lvl-4 amulet': { src: Items.DIAMOND_AMULET, dest: Items.AMULET_OF_POWER, xp: 67 },
+    'Enchant lvl-5 amulet': { src: Items.DRAGONSTONE_AMULET, dest: Items.AMULET_OF_GLORY, xp: 78 }
 };
 
 // Helper: Check and remove runes
 function checkAndRemoveRunes(player, spell) {
     const staffRunes = {
-        615: 31, // Fire staff -> Fire runes
-        616: 32, // Water staff -> Water runes
-        617: 33, // Air staff -> Air runes
-        618: 34  // Earth staff -> Earth runes
+        [Items.STAFF_OF_FIRE]: Items.FIRE_RUNE,
+        [Items.STAFF_OF_WATER]: Items.WATER_RUNE,
+        [Items.STAFF_OF_AIR]: Items.AIR_RUNE,
+        [Items.STAFF_OF_EARTH]: Items.EARTH_RUNE
     };
 
     const weaponIndex = player.inventory.equipmentSlots['right-hand'];
@@ -111,9 +112,9 @@ async function onSpellOnSelf(player, spellId) {
         let count = 0;
         for (let i = player.inventory.items.length - 1; i >= 0; i--) {
             const item = player.inventory.items[i];
-            if (item.id === 20) { // Bones
-                player.inventory.remove(20, 1);
-                player.inventory.add(249, 1); // Banana
+            if (item.id === Items.BONES) {
+                player.inventory.remove(Items.BONES, 1);
+                player.inventory.add(Items.BANANA, 1);
                 count++;
             }
         }
@@ -138,7 +139,7 @@ async function onSpellOnInvItem(player, item, spellId) {
 
     // === ALCHEMY ===
     if (spell.name.includes('alchemy')) {
-        if (item.id === 10) {
+        if (item.id === Items.COINS) {
             player.message("@que@You can't cast alchemy on gold!");
             return;
         }
@@ -152,7 +153,7 @@ async function onSpellOnInvItem(player, item, spellId) {
             : Math.floor(baseValue * 0.6);
 
         player.inventory.remove(item.id, 1);
-        player.inventory.add(10, goldAmount);
+        player.inventory.add(Items.COINS, goldAmount);
 
         player.message(`@que@You convert the ${item.definition.name} into ${goldAmount} gold.`);
         player.addExperience('magic', isHigh ? 65 : 31);
@@ -222,7 +223,7 @@ async function onSpellOnNpc(player, npc, spellId) {
         if (spell.name === 'Iban blast') {
             // Check for Iban Staff
             const wep = player.inventory.items[player.inventory.equipmentSlots['right-hand']];
-            if (!wep || wep.id !== 1031) {
+            if (!wep || wep.id !== Items.STAFF_OF_IBAN_1031) {
                 player.message("@que@You need to wield the Staff of Iban to cast this spell.");
                 return true;
             }
@@ -230,29 +231,14 @@ async function onSpellOnNpc(player, npc, spellId) {
 
         // God Spells (Sara/Guthix/Zamorak)
         const godSpells = {
-            'Claws of Guthix': { staff: 1217, cape: 1215 },
-            'Saradomin strike': { staff: 1218, cape: 1214 },
-            'Flames of Zamorak': { staff: 1216, cape: 1213 }
+            'Claws of Guthix': { staff: Items.STAFF_OF_GUTHIX, cape: Items.GUTHIX_CAPE },
+            'Saradomin strike': { staff: Items.STAFF_OF_SARADOMIN, cape: Items.SARADOMIN_CAPE },
+            'Flames of Zamorak': { staff: Items.STAFF_OF_ZAMORAK, cape: Items.ZAMORAK_CAPE }
         };
 
         if (godSpells[spell.name]) {
             const req = godSpells[spell.name];
             const wep = player.inventory.items[player.inventory.equipmentSlots['right-hand']];
-            const cape = player.inventory.items[player.inventory.equipmentSlots['back']]; // Assuming slot name
-
-            // Note: Equipment slots are usually numeric indices, checking simple logic:
-            // Need to verify 'back' slot index in inventory.js if mapped by name, otherwise risky.
-            // Assuming player.inventory.equipmentSlots uses text keys if implemented that way.
-            // If strict index: cape is usually index 1, weapon 3?
-            // Safer: player.equipment.contains(id)?
-            // Player.js usually has 'equipped' list or 'getEquipment()'.
-            // Let's rely on standard inventory equipment checks or check existing 'right-hand' usage in this file.
-            // 'right-hand' is used above. 'cape'?
-
-            // Falling back to "inventory.contains" if equipment slot unknown? No, must be equipped.
-            // The existing code uses: player.inventory.equipmentSlots['right-hand'].
-            // I will guess 'cape' or 'back'. Standard RSC keys: header, cape, necklace, weapon, body, shield, legs, hands, feet, ring, ammo.
-
             const capeIndex = player.inventory.equipmentSlots['cape'];
             const capeItem = capeIndex !== -1 ? player.inventory.items[capeIndex] : null;
 
@@ -261,8 +247,6 @@ async function onSpellOnNpc(player, npc, spellId) {
                 return true;
             }
             if (!capeItem || capeItem.id !== req.cape) {
-                player.message(`@que@You need to wear the Cake of ${spell.name.split(' ')[2] || 'God'} to cast this spell.`);
-                // Typo "Cake" -> "Cape"
                 player.message(`@que@You need to wear the Cape of ${spell.name.split(' ')[2] || 'God'} to cast this spell.`);
                 return true;
             }

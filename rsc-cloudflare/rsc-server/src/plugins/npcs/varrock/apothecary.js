@@ -1,11 +1,13 @@
 // https://classic.runescape.wiki/w/Transcript:Apothecary
+const { Items, Npcs } = require('../../../constants/ids');
 
-const APOTHECARY_ID = 33;
-const CADAVA_POTION_ID = 57;
-const LIMPWURT_ROOT_ID = 273;
-const RED_SPIDER_EGGS_ID = 220;
-const SPOT_POTION_ID = 58;
-const STRENGTH_POTION_ID = 474;
+const APOTHECARY_ID = Npcs.APOTHECARY || 33; // 33
+const CADAVA_POTION_ID = Items.CADAVA_POTION || 57; // 57
+const LIMPWURT_ROOT_ID = Items.LIMPWURT_ROOT || 273; // 273
+const RED_SPIDER_EGGS_ID = Items.RED_SPIDERS_EGGS || 220; // 220
+const SPOT_POTION_ID = Items.SPOT_POTION || 58; // 58
+const STRENGTH_POTION_ID = Items.STRENGTH_POTION || 474; // 474
+const COINS_ID = Items.COINS || 10; // 10
 
 async function onTalkToNPC(player, npc) {
     const romeoJulietStage = player.questStages.romeoAndJuliet;
@@ -41,7 +43,7 @@ async function onTalkToNPC(player, npc) {
             if (
                 player.inventory.has(RED_SPIDER_EGGS_ID) &&
                 player.inventory.has(LIMPWURT_ROOT_ID) &&
-                player.inventory.has(10, 5)
+                player.inventory.has(COINS_ID, 5)
             ) {
                 await player.say(
                     'I have the root and spiders eggs needed to make it'
@@ -58,7 +60,7 @@ async function onTalkToNPC(player, npc) {
 
                     player.inventory.remove(LIMPWURT_ROOT_ID);
                     player.inventory.remove(RED_SPIDER_EGGS_ID);
-                    player.inventory.remove(10, 5);
+                    player.inventory.remove(COINS_ID, 5);
 
                     player.message(
                         'You give a limpwurt root some red spiders eggs and ' +

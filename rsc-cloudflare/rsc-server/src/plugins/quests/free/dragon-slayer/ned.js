@@ -1,10 +1,10 @@
 // https://classic.runescape.wiki/w/Transcript:Ned
-
+const { Items, Npcs } = require('../../../../constants/ids');
 const regions = require('@2003scape/rsc-data/regions');
 
-const MAP_ID = 415;
-const MAP_PIECE_IDS = [416, 417, 418];
-const NED_SHIP_ID = 194;
+const MAP_ID = Items.CRANDOR_MAP || 415; // 415
+const MAP_PIECE_IDS = [Items.MAP_PIECE, Items.MAP_PIECE_417, Items.MAP_PIECE_418]; // 416, 417, 418
+const NED_SHIP_ID = Npcs.NED || 187; // 187 (Ned in ship)
 
 const VOYAGE_MESSAGES = [
     'You feel the ship begin to move',
@@ -93,14 +93,14 @@ async function onTalkToNPC(player, npc) {
             case 0: // ready to sail back
                 await npc.say(
                     'Well when we arrived the ship took a nasty jar from ' +
-                        'those rocks',
+                    'those rocks',
                     'We may be stranded'
                 );
                 break;
             case 1: // vacation
                 await npc.say(
                     "Well it would have been better if I'd brought my sun " +
-                        'lotion',
+                    'lotion',
                     "Oh and the skeletons which won't let me leave the ship",
                     "Probably aren't helping either"
                 );
@@ -162,7 +162,7 @@ async function onTalkToNPC(player, npc) {
                     await npc.say(
                         'Well I am a tad rusty',
                         "I'm sure it'll all come back to me, once I get into " +
-                            'action',
+                        'action',
                         'I hope...'
                     );
                     break;

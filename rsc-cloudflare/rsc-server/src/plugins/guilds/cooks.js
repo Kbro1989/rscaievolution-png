@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Head_chef
+const { Items, Npcs, Objects } = require('../../constants/ids');
 
-const CHEFS_HAT_ID = 192;
-const DOOR_ID = 43;
-const HEAD_CHEF_ID = 133;
+const CHEFS_HAT_ID = Items.CHEFS_HAT || 192; // 192
+const DOOR_ID = Objects.COOKS_GUILD_DOOR || 43; // 43
+const HEAD_CHEF_ID = Npcs.HEAD_CHEF || 133; // 133
 
 async function onWallObjectCommandOne(player, wallObject) {
     if (wallObject.id !== DOOR_ID) {

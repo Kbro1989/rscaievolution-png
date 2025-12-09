@@ -1,21 +1,19 @@
-const NpcId = {
-    CAPTAIN_TOBIAS: 166,
-    SEAMAN_LORRIS: 170,
-    SEAMAN_THRESNOR: 171
-};
+const { Items, Npcs, Objects } = require('../../constants/ids');
 
-const ItemId = {
-    COINS: 10
-};
+const SAILOR_IDS = new Set([
+    Npcs.CAPTAIN_TOBIAS || 166,
+    Npcs.SEAMAN_LORRIS || 170,
+    Npcs.SEAMAN_THRESNOR || 171
+]);
 
-const ObjectIds = {
-    GANGPLANK_1: 155,
-    GANGPLANK_2: 156,
-    GANGPLANK_3: 157
-};
+const GANGPLANK_IDS = new Set([
+    Objects.SHIP_GANGPLANK_KARAMJA || 155,
+    Objects.SHIP_GANGPLANK_KARAMJA_156 || 156,
+    Objects.SHIP_GANGPLANK_KARAMJA_157 || 157
+]);
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== NpcId.CAPTAIN_TOBIAS && npc.id !== NpcId.SEAMAN_LORRIS && npc.id !== NpcId.SEAMAN_THRESNOR) {
+    if (!SAILOR_IDS.has(npc.id)) {
         return false;
     }
 
@@ -29,7 +27,7 @@ async function onTalkToNPC(player, npc) {
     const choice = await player.options(...options);
 
     if (choice === 0) { // Yes please
-        if (player.inventory.remove(ItemId.COINS, 30)) {
+        if (player.inventory.remove(Items.COINS || 10, 30)) { // 10 = Coins
             player.message("You pay 30 gold");
             await player.world.sleepTicks(3);
             player.message("You board the ship");
@@ -49,7 +47,7 @@ async function onTalkToNPC(player, npc) {
 }
 
 async function onWallObjectCommandOne(player, object) {
-    if (object.id === ObjectIds.GANGPLANK_1 || object.id === ObjectIds.GANGPLANK_2 || object.id === ObjectIds.GANGPLANK_3) {
+    if (GANGPLANK_IDS.has(object.id)) {
         // Check if at Port Sarim (approximate coords)
         if (player.y >= 600 && player.y <= 700) { // Rough check, better to check exact coords if possible
             // Authentic check: must talk to captain first

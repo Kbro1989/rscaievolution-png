@@ -1,19 +1,20 @@
 // Spirit of Scorpius (Observatory Quest)
 // Location: Grave of Scorpius (Ardougne West / Observatory)
+const { Items, Npcs, Objects } = require('../../../constants/ids');
 
-const SPIRIT_OF_SCORPIUS = 665;
-const GRAVE_OF_SCORPIUS = 941;
+const SPIRIT_OF_SCORPIUS_ID = Npcs.SPIRIT_OF_SCORPIUS || 665; // 665
+const GRAVE_OF_SCORPIUS_ID = Objects.GRAVE_OF_SCORPIUS || 941; // 941
 
 // Items
-const UNHOLY_SYMBOL_OF_ZAMORAK = 1029; // Blessed & Stringed? Or just Blessed? OpenRSC uses this ID.
-const UNBLESSED_UNHOLY_SYMBOL = 1028;
-const UNHOLY_SYMBOL_MOULD = 1026;
+const UNHOLY_SYMBOL_OF_ZAMORAK_ID = Items.UNHOLY_SYMBOL_ZAMORAK || 1029; // 1029
+const UNBLESSED_UNHOLY_SYMBOL_ID = Items.UNBLESSED_SYMBOL || 1028; // 1028
+const UNHOLY_SYMBOL_MOULD_ID = Items.UNHOLY_MOULD || 1026; // 1026
 
 // Quest Keys
 // 'observatory'
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== SPIRIT_OF_SCORPIUS) {
+    if (npc.id !== SPIRIT_OF_SCORPIUS_ID) {
         return false;
     }
 
@@ -28,14 +29,6 @@ async function onTalkToNPC(player, npc) {
         return true;
     }
 
-    // If player has mould flagged in cache
-    /* 
-    if (player.getCache().hasKey("scorpius_mould")) ...
-    Simplify: Always offer options if quest is active?
-    OpenRSC logic: if player has key "scorpius_mould" OR active quest logic.
-    "scorpius_mould" key is set after he gives you one.
-    */
-
     // Simplified authentic logic:
     const menu = await player.ask([
         "I have come to seek a blessing",
@@ -45,20 +38,20 @@ async function onTalkToNPC(player, npc) {
 
     if (menu === 0) {
         // Blessing
-        if (player.inventory.contains(UNHOLY_SYMBOL_OF_ZAMORAK)) { // Already has blessed
+        if (player.inventory.contains(UNHOLY_SYMBOL_OF_ZAMORAK_ID)) { // Already has blessed
             await npc.say(
                 "I see you have the unholy symbol of our Lord",
                 "It is blessed with the Lord Zamorak's power",
                 "Come to me when your faith weakens"
             );
-        } else if (player.inventory.contains(UNBLESSED_UNHOLY_SYMBOL)) {
+        } else if (player.inventory.contains(UNBLESSED_UNHOLY_SYMBOL_ID)) {
             await npc.say(
                 "I see you have the unholy symbol of our Lord",
                 "I will bless it for you"
             );
             player.message("The ghost mutters in a strange voice");
-            player.inventory.remove(UNBLESSED_UNHOLY_SYMBOL, 1);
-            player.inventory.add(UNHOLY_SYMBOL_OF_ZAMORAK, 1);
+            player.inventory.remove(UNBLESSED_UNHOLY_SYMBOL_ID, 1);
+            player.inventory.add(UNHOLY_SYMBOL_OF_ZAMORAK_ID, 1);
             player.message("The unholy symbol throbs with power");
             await npc.say(
                 "The symbol of our lord has been blessed with power!",
@@ -72,7 +65,7 @@ async function onTalkToNPC(player, npc) {
         }
     } else if (menu === 1) {
         // Mould
-        if (player.inventory.contains(UNHOLY_SYMBOL_MOULD)) {
+        if (player.inventory.contains(UNHOLY_SYMBOL_MOULD_ID)) {
             await npc.say("One you already have, another is not needed", "Leave me be!");
         } else {
             await npc.say(
@@ -80,7 +73,7 @@ async function onTalkToNPC(player, npc) {
                 "To lose the affections of our lord is impossible to forgive..."
             );
             player.message("The ghost hands you another mould");
-            player.inventory.add(UNHOLY_SYMBOL_MOULD, 1);
+            player.inventory.add(UNHOLY_SYMBOL_MOULD_ID, 1);
         }
     } else if (menu === 2) {
         // Kill
@@ -96,7 +89,7 @@ async function onTalkToNPC(player, npc) {
 
 // Object listener (Grave)
 async function onObjectAction(player, object, cmd) {
-    if (object.id === GRAVE_OF_SCORPIUS) {
+    if (object.id === GRAVE_OF_SCORPIUS_ID) {
         player.message("Here lies Scorpius:");
         player.message("Only those who have seen beyond the stars");
         player.message("may seek his counsel");

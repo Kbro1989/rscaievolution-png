@@ -2,7 +2,7 @@ const QUEST_NAME = 'Hazeel Cult';
 const QUEST_POINTS = 1;
 
 // NPC IDs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_CERIL = 418;               // "ceril" (was 500 = nurse sarah!)
+const NPC_CERIL = 416;               // "ceril" (was 500 = nurse sarah!)
 const NPC_BUTLER_JONES = 419;        // "butler" (was 501 = Tailor!)
 const NPC_HENRYETA = 422;            // "henryeta" (was 502 = Mourner!)
 const NPC_PHILIPE = 423;             // "philipe" (was 503 = Guard!)
@@ -22,12 +22,12 @@ const ITEM_CARNILLEAN_KEY = 893;
 const ITEM_SCRIPT_OF_HAZEEL = 894;
 
 // Object IDs
-const OBJ_BUTLERS_CUPBOARD_OPEN = 441;
-const OBJ_BUTLERS_CUPBOARD_CLOSED = 440;
-const OBJ_BASEMENT_CRATE = 439;
-const OBJ_BOOKCASE = 436;
-const OBJ_CHEST_CLOSED = 438;
-const OBJ_CHEST_OPEN = 437;
+const OBJ_BUTLERS_CUPBOARD_OPEN = 165;
+const OBJ_BUTLERS_CUPBOARD_CLOSED = 165;
+const OBJ_BASEMENT_CRATE = 165;
+const OBJ_BOOKCASE = 165;
+const OBJ_CHEST_CLOSED = 165;
+const OBJ_CHEST_OPEN = 165;
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;

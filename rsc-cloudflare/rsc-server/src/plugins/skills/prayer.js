@@ -1,4 +1,5 @@
 const { buryExperience } = require('@2003scape/rsc-data/skills/prayer');
+const { Objects } = require('../../constants/ids');
 
 const BONE_IDS = new Set(Object.keys(buryExperience).map(Number));
 
@@ -27,14 +28,14 @@ async function onGameObjectCommandOne(player, gameObject) {
     const { world } = player;
 
     // Authentic Trapdoor (Yanille Dungeon Chaos Altar)
-    if (gameObject.id === 625 && gameObject.y === 3573) {
+    if (gameObject.id === Objects.CHAOS_ALTAR && gameObject.y === 3573) {
         player.message('Suddenly a trapdoor opens beneath you');
         await world.sleepTicks(3);
         player.teleport(608, 3525);
         return true;
     }
 
-    const maxPrayer = player.skills.prayer.base + (gameObject.id === 200 ? 2 : 0);
+    const maxPrayer = player.skills.prayer.base + (gameObject.id === Objects.MONKS_ALTAR ? 2 : 0);
 
     if (player.skills.prayer.current >= maxPrayer) {
         player.message('@que@You already have full prayer points');

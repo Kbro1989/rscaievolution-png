@@ -1,8 +1,10 @@
 // Gunnjorn (Gnome Stronghold Agility Course)
-const GUNNJORN = 588;
+const { Npcs } = require('../../../constants/ids');
+
+const GUNNJORN_ID = Npcs.GUNNJORN || 588; // 588
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== GUNNJORN) return false;
+    if (npc.id !== GUNNJORN_ID) return false;
     player.engage(npc);
 
     await npc.say("Haha welcome to my obstacle course",

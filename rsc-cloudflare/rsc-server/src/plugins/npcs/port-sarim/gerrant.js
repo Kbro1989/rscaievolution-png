@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Gerrant
+const { Npcs } = require('../../../constants/ids');
 
-const GERRANT_ID = 167;
+const GERRANT_ID = Npcs.GERRANT || 167; // 167
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== GERRANT_ID) {

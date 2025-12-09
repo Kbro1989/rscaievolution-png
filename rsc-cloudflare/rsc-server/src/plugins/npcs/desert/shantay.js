@@ -1,16 +1,17 @@
 // Shantay & Shantay Pass Guards (Desert)
 // Location: Al Kharid / Shantay Pass
+const { Items, Npcs, Objects } = require('../../../constants/ids');
 
-const SHANTAY = 549;
-const SHANTAY_GUARD_STANDING = 717; // Verify ID
-const SHANTAY_GUARD_MOVING = 719; // Verify ID
-const ASSISTANT = 731; // Assumption or need verify? OpenRSC uses constants. I'll rely on my search IDs: 717, 719.
-// "Shantay Pass Guard" IDs from search: 717, 719.
+const SHANTAY_ID = Npcs.SHANTAY || 549; // 549
+const SHANTAY_GUARD_IDS = new Set([
+    Npcs.SHANTAY_GUARD || 717,
+    Npcs.SHANTAY_GUARD_719 || 719
+]);
 
-const SHANTAY_PASS_ITEM = 1030; // Added manually
-const SHANTAY_DISCLAIMER = 1099;
-const STONE_GATE = 916;
-const BANK_CHEST = 942;
+const SHANTAY_PASS_ITEM_ID = Items.SHANTAY_PASS || 1030; // 1030
+const SHANTAY_DISCLAIMER_ID = Items.SHANTAY_DISCLAIMER || 1099; // 1099
+const STONE_GATE_ID = Objects.SHANTAY_GATE || 916; // 916
+const BANK_CHEST_ID = Objects.BANK_CHEST || 942; // 942
 
 // Shop logic:
 // OpenShop usually handled by `shops.json`. I need to define a shop "Shantay's Pass Shop" and use ID.
@@ -19,13 +20,13 @@ const BANK_CHEST = 942;
 
 async function onTalkToNPC(player, npc) {
     const id = npc.id;
-    if (id !== SHANTAY && id !== SHANTAY_GUARD_STANDING && id !== SHANTAY_GUARD_MOVING) {
+    if (id !== SHANTAY_ID && !SHANTAY_GUARD_IDS.has(id)) {
         return false;
     }
 
     player.engage(npc);
 
-    if (id === SHANTAY_GUARD_STANDING) {
+    if (SHANTAY_GUARD_IDS.has(id)) {
         await npc.say("Hello there!", "What can I do for you?");
         const menu = await player.ask([
             "I'd like to go into the desert please.",
@@ -34,11 +35,11 @@ async function onTalkToNPC(player, npc) {
 
         if (menu === 0) {
             await npc.say("Of course!");
-            if (!player.inventory.contains(SHANTAY_PASS_ITEM)) {
+            if (!player.inventory.contains(SHANTAY_PASS_ITEM_ID)) {
                 await npc.say("You'll need a Shantay pass to go through the gate into the desert.", "See Shantay, he'll sell you one for a very reasonable price.");
             } else {
                 // Disclaimer logic
-                if (!player.inventory.contains(SHANTAY_DISCLAIMER)) {
+                if (!player.inventory.contains(SHANTAY_DISCLAIMER_ID)) {
                     player.message("There is a large poster on the wall near the gateway. It reads..");
                     // ... (Disclaimer text)
                     const confirm = await player.ask([
@@ -49,24 +50,24 @@ async function onTalkToNPC(player, npc) {
                     if (confirm === 0) {
                         await npc.say("Can I see your Shantay Desert Pass please.");
                         player.message("You hand over a Shantay Pass.");
-                        player.inventory.remove(SHANTAY_PASS_ITEM, 1);
+                        player.inventory.remove(SHANTAY_PASS_ITEM_ID, 1);
                         await npc.say("Sure, here you go!");
                         await npc.say("Here, have a disclaimer...", "It means that Shantay isn't responsible if you die in the desert.");
-                        player.inventory.add(SHANTAY_DISCLAIMER, 1);
+                        player.inventory.add(SHANTAY_DISCLAIMER_ID, 1);
                         player.message("you go through the gate");
                         player.teleport(62, 735); // Desert coords
                     }
                 } else {
                     // Has disclaimer
                     await npc.say("Can I see your Shantay Desert Pass please.");
-                    player.inventory.remove(SHANTAY_PASS_ITEM, 1);
+                    player.inventory.remove(SHANTAY_PASS_ITEM_ID, 1);
                     player.message("you go through the gate");
                     player.teleport(62, 735);
                 }
             }
         }
     }
-    else if (id === SHANTAY) {
+    else if (id === SHANTAY_ID) {
         await npc.say("Hello Effendi, I am Shantay.");
         const menu = await player.ask([
             "What is this place?",
@@ -93,11 +94,11 @@ async function onTalkToNPC(player, npc) {
 
 // Object listener (Gate)
 async function onObjectAction(player, object, cmd) {
-    if (object.id === STONE_GATE) {
+    if (object.id === STONE_GATE_ID) {
         if (cmd === "go through") {
             // Logic to check pass similar to guard dialogue
-            if (player.inventory.contains(SHANTAY_PASS_ITEM)) {
-                player.inventory.remove(SHANTAY_PASS_ITEM, 1);
+            if (player.inventory.contains(SHANTAY_PASS_ITEM_ID)) {
+                player.inventory.remove(SHANTAY_PASS_ITEM_ID, 1);
                 player.message("You go through the gate");
                 // Depending on side:
                 if (player.y < 735) player.teleport(62, 735); // Enter desert

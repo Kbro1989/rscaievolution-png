@@ -1,10 +1,12 @@
 // https://classic.runescape.wiki/w/Transcript:Captain_Tobias
 // https://classic.runescape.wiki/w/Transcript:Seaman_Lorris
 // https://classic.runescape.wiki/w/Transcript:Seaman_Thresnor
+const { Items, Npcs, Objects } = require('../../../constants/ids');
 
-const CAPTAIN_TOBIAS_ID = 166;
-const SEAMEN_LORRIS_ID = 170;
-const SEAMEN_THRESNOR_ID = 171;
+const CAPTAIN_TOBIAS_ID = Npcs.CAPTAIN_TOBIAS || 166; // 166
+const SEAMEN_LORRIS_ID = Npcs.SEAMAN_LORRIS || 170; // 170
+const SEAMEN_THRESNOR_ID = Npcs.SEAMAN_THRESNOR || 171; // 171
+const COINS_ID = Items.COINS || 10; // 10
 
 const SEAMEN_IDS = new Set([
     CAPTAIN_TOBIAS_ID,
@@ -12,7 +14,8 @@ const SEAMEN_IDS = new Set([
     SEAMEN_THRESNOR_ID
 ]);
 
-const SHIP_IDS = new Set([155, 156, 157]);
+// 155, 156, 157 presumably ships or gangplanks
+const SHIP_IDS = new Set([155, 156, 157]); // Keeping hardcoded if not in Objects, or use Objects.SHIP_GANGPLANK?
 
 const { karamja } = require('@2003scape/rsc-data/regions');
 
@@ -42,8 +45,8 @@ async function talkToSeaman(player, npc) {
         );
     } else if ((choice === 1 && choices.length === 3) || choice === 0) {
         // yes please
-        if (player.inventory.has(10, 30)) {
-            player.inventory.remove(10, 30);
+        if (player.inventory.has(COINS_ID, 30)) {
+            player.inventory.remove(COINS_ID, 30);
             player.message('@que@You pay 30 gold');
             await world.sleepTicks(2);
             player.message('@que@You board the ship');

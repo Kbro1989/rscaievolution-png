@@ -1,10 +1,12 @@
-const COOKING_INSTRUCTOR = 478;
-const RAW_RAT_MEAT = 503;
-const COOKED_MEAT = 132;
-const BURNT_MEAT = 134;
+const { Items, Npcs } = require('../../../constants/ids');
+
+const COOKING_INSTRUCTOR_ID = Npcs.COOKING_INSTRUCTOR || 478; // 478
+const RAW_RAT_MEAT_ID = Items.RAW_RAT_MEAT || 503; // 503
+const COOKED_MEAT_ID = Items.COOKED_MEAT || 132; // 132
+const BURNT_MEAT_ID = Items.BURNT_MEAT || 134; // 134
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== COOKING_INSTRUCTOR) {
+    if (npc.id !== COOKING_INSTRUCTOR_ID) {
         return false;
     }
 
@@ -20,8 +22,8 @@ async function onTalkToNPC(player, npc) {
             "I'm here to show you some simple cooking"
         );
 
-        if (!player.inventory.has(RAW_RAT_MEAT)) {
-            player.inventory.add(RAW_RAT_MEAT);
+        if (!player.inventory.has(RAW_RAT_MEAT_ID)) {
+            player.inventory.add(RAW_RAT_MEAT_ID);
             await npc.say("First you need something to cook");
             player.message("the instructor gives you a piece of meat");
         } else {
@@ -41,9 +43,9 @@ async function onTalkToNPC(player, npc) {
             "Well I'm sure you'll get the hang of it soon",
             "Let's try again"
         );
-        if (!player.inventory.has(RAW_RAT_MEAT)) {
+        if (!player.inventory.has(RAW_RAT_MEAT_ID)) {
             await npc.say("Here's another piece of meat to cook");
-            player.inventory.add(RAW_RAT_MEAT);
+            player.inventory.add(RAW_RAT_MEAT_ID);
         }
     } else if (tutorialStage === 31) { // Cooked meat state
         await player.say("I've cooked the meat correctly this time");
@@ -61,7 +63,7 @@ async function onTalkToNPC(player, npc) {
         );
         player.cache.tutorial = 34;
     } else if (tutorialStage >= 34) {
-        if (player.inventory.has(COOKED_MEAT) && player.skills.hits.current < 10) {
+        if (player.inventory.has(COOKED_MEAT_ID) && player.skills.hits.current < 10) {
             await npc.say("to eat the food left click on it in your inventory");
         } else {
             await npc.say(

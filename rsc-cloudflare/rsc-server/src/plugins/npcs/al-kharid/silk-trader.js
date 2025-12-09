@@ -1,7 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Silk_trader
+const { Items, Npcs } = require('../../../constants/ids');
 
-const SILK_ID = 200;
-const SILK_TRADER_ID = 71;
+const SILK_ID = Items.SILK || 200; // 200
+const SILK_TRADER_ID = Npcs.SILK_TRADER || 71; // 71
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== SILK_TRADER_ID) {
@@ -33,7 +34,7 @@ async function onTalkToNPC(player, npc) {
                     "Two coins and that's as low as I'll go",
                     "I'm not selling it for less",
                     "You'll probably go and sell it in Varrock for a profit " +
-                        'anyway'
+                    'anyway'
                 );
 
                 const choice = await player.ask(

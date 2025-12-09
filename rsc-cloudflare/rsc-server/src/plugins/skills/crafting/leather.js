@@ -2,10 +2,11 @@
 
 const items = require('@2003scape/rsc-data/config/items');
 const { leather } = require('@2003scape/rsc-data/skills/crafting');
+const { Items } = require('../../../constants/ids');
 
-const LEATHER_ID = 148;
-const NEEDLE_ID = 39;
-const THREAD_ID = 43;
+const LEATHER_ID = Items.LEATHER; // 148
+const NEEDLE_ID = Items.NEEDLE;
+const THREAD_ID = Items.THREAD;
 
 async function onUseWithInventory(player, item, target) {
     if (
@@ -41,7 +42,7 @@ async function onUseWithInventory(player, item, target) {
     if (craftingLevel < level) {
         player.message(
             `You need to have a crafting of level ${level} or higher to make ` +
-                name
+            name
         );
 
         return true;

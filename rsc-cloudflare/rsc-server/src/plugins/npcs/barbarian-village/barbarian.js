@@ -1,7 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Barbarian
+const { Npcs } = require('../../../constants/ids');
 
 // also handles gunthor the brave
-const BARBARIAN_IDS = new Set([76, 78]);
+const BARBARIAN_IDS = new Set([Npcs.BARBARIAN_MALE || 76, Npcs.GUNTHOR_THE_BRAVE || 78]); // 76, 78 (Wait, Gunthor is 77 in some list? let's stick to existing IDs as fallback)
 
 async function onTalkToNPC(player, npc) {
     if (!BARBARIAN_IDS.has(npc.id)) {

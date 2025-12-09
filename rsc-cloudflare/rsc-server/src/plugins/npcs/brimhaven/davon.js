@@ -1,9 +1,11 @@
 // Davon (Brimhaven Amulet Store)
-const DAVON = 278;
+const { Npcs } = require('../../../constants/ids');
+
+const DAVON_ID = Npcs.DAVON || 278; // 278
 const SHOP_ID = "davons-amulet";
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== DAVON) return false;
+    if (npc.id !== DAVON_ID) return false;
     player.engage(npc);
 
     await npc.say("Pssst come here if you want to do some amulet trading");

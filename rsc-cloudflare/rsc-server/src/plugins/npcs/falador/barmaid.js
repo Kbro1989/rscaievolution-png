@@ -1,18 +1,20 @@
 // https://classic.runescape.wiki/w/Transcript:Barmaid
+const { Items, Npcs } = require('../../../constants/ids');
 
 const {
     shouldHandleBar,
     risingSunBarcrawl
 } = require('../../miniquests/barcrawl');
 
-const ASGARNIAN_ALE_ID = 267;
-const BARMAID_ID = 142;
-const DWARVEN_STOUT_ID = 269;
-const MIND_BOMB_ID = 268;
+const ASGARNIAN_ALE_ID = Items.ASGARNIAN_ALE || 267; // 267
+const BARMAID_ID = Npcs.BARMAID || 142; // 142
+const DWARVEN_STOUT_ID = Items.DWARVEN_STOUT || 269; // 269
+const MIND_BOMB_ID = Items.WIZARDS_MIND_BOMB || 268; // 268
+const COINS_ID = Items.COINS || 10; // 10
 
 async function handleCoins(player, amount) {
-    if (player.inventory.has(10, amount)) {
-        player.inventory.remove(10, amount);
+    if (player.inventory.has(COINS_ID, amount)) {
+        player.inventory.remove(COINS_ID, amount);
         return true;
     }
 
@@ -73,7 +75,7 @@ async function onTalkToNPC(player, npc) {
             }
             break;
         case 4: // barcrawl
-            await risingSunBarcrawl(player. npc);
+            await risingSunBarcrawl(player.npc);
             break;
     }
 

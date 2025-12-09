@@ -1,6 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Morgan
 
-const MORGAN_ID = 97;
+const { Npcs } = require('../../../../constants/ids');
+
+const MORGAN_ID = Npcs.MORGAN; // 97
 
 async function initiateQuest(player, npc) {
     await npc.say(

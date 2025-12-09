@@ -1,9 +1,11 @@
 // this is a unique black knight than the others
-const BLACK_KNIGHT_ID = 108;
-const GRELDO_ID = 109;
-const WITCH_ID = 107;
+const { Npcs, Objects } = require('../../../../constants/ids');
 
-const GRILL_ID = 148;
+const BLACK_KNIGHT_ID = Npcs.BLACK_KNIGHT || 108; // 108
+const GRELDO_ID = Npcs.GRELDO || 109; // 109
+const WITCH_ID = Npcs.WITCH || 107; // 107
+
+const GRILL_ID = Objects.GRILL || 148; // 148
 
 async function onGameObjectCommandOne(player, gameObject) {
     if (gameObject.id !== GRILL_ID) {

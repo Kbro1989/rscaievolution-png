@@ -76,6 +76,8 @@ const PLUGIN_TYPES = [
     'onUseWithNPC',
     'onUseWithPlayer',
     'onInventoryCommand',
+    'onEat',
+    'onDrink',
     'onDropItem',
     'onNPCAttack',
     'onNPCDeath',
@@ -186,19 +188,23 @@ class World {
         this.landscape.parseArchives();
 
         // PathFinder uses `new Function` which is banned in Workers.
-        // Disabling for now to allow server startup.
-        // this.pathFinder = new PathFinder(
-        //     { objects, wallObjects, tiles },
-        //     this.landscape
-        // );
-
-        this.pathFinder = {
-            isTileBlocked: () => false,
-            addObject: () => { },
-            addWallObject: () => { },
-            isValidGameStep: () => true,
-            findPath: () => []
-        };
+        // We attempt to load it, falling back to dummy if it fails (security or missing).
+        try {
+            this.pathFinder = new PathFinder(
+                { objects, wallObjects, tiles },
+                this.landscape
+            );
+            log.info('PathFinder loaded successfully');
+        } catch (e) {
+            log.warn('PathFinder failed to load (likely Cloudflare Worker restriction), using collision bypass:', e.message);
+            this.pathFinder = {
+                isTileBlocked: () => false,
+                addObject: () => { },
+                addWallObject: () => { },
+                isValidGameStep: () => true,
+                findPath: () => []
+            };
+        }
 
         // Verification: Collision at 0,0
         if (this.pathFinder.isTileBlocked(0, 0)) {

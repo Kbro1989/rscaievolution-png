@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Lowe
+const { Npcs } = require('../../../constants/ids');
 
-const LOWE_ID = 58;
+const LOWE_ID = Npcs.LOWE || 58; // 58
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== LOWE_ID) {

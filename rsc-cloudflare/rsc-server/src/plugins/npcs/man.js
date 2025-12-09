@@ -1,7 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Man
+const { Npcs } = require('../../constants/ids');
 
 // handle the darker-skinned men and farmers
-const MAN_IDS = new Set([11, 63, 72]);
+const MAN_IDS = new Set([Npcs.MAN || 11, 63, 72]);
 
 async function killingCitizens(npc) {
     await npc.say(

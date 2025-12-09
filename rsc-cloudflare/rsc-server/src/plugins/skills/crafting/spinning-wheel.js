@@ -1,11 +1,13 @@
 // https://classic.runescape.wiki/w/Spinning_wheel
 // https://classic.runescape.wiki/w/Crafting#Spinning
 
-const BALL_OF_WOOL_ID = 207;
-const BOWSTRING_ID = 676;
-const FLAX_ID = 675;
-const SPINNING_WHEEL_ID = 121;
-const WOOL_ID = 145;
+const { Items, Objects } = require('../../../constants/ids');
+
+const BALL_OF_WOOL_ID = Items.BALL_OF_WOOL;
+const BOWSTRING_ID = Items.BOWSTRING;
+const FLAX_ID = Items.FLAX;
+const SPINNING_WHEEL_ID = Objects.SPINNING_WHEEL;
+const WOOL_ID = Items.WOOL;
 
 async function onUseWithGameObject(player, gameObject, item) {
     if (

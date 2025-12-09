@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Sir_Vyvin
+const { Npcs } = require('../../../../constants/ids');
 
-const SIR_VYVIN_ID = 138;
+const SIR_VYVIN_ID = Npcs.SIR_VYVIN || 138; // 138
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== SIR_VYVIN_ID) {

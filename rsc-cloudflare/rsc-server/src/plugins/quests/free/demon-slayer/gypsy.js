@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Gypsy
 // (she's 56)
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const GYPSY_ID = 14;
-const SILVERLIGHT_ID = 52;
+const GYPSY_ID = Npcs.GYPSY || 14; // 14
+const SILVERLIGHT_ID = Items.SILVERLIGHT || 52; // 52
 
 async function stopCallingMeThat(player, npc) {
     await npc.say('In the scheme of things you are very young');
@@ -39,7 +40,7 @@ async function findSilverlight(player, npc) {
         "I believe it is currently in the care of one of the king's knights",
         'called Sir Prysin',
         "He shouldn't be to hard to find the he lives in the royal palace in " +
-            'this city',
+        'this city',
         'Tell him Gypsy Aris sent you'
     );
 
@@ -314,7 +315,7 @@ async function howOldAreYou(player, npc) {
                 case 0: // thinking now
                     await npc.say(
                         "You are thinking that I'll never guess what you are " +
-                            'thinking'
+                        'thinking'
                     );
                     break;
                 case 1: // how old are you
@@ -454,7 +455,7 @@ async function onTalkToNPC(player, npc) {
         } else {
             await player.say(
                 "I found Sir Prysin. Unfortunately, I haven't got the sword " +
-                    'yet',
+                'yet',
                 "He's made it complicated for me!"
             );
 

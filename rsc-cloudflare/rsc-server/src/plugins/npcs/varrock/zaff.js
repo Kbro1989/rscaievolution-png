@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Zaff
+const { Npcs } = require('../../../constants/ids');
 
-const ZAFF_ID = 69;
+const ZAFF_ID = Npcs.ZAFF || 69; // 69
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== ZAFF_ID) {

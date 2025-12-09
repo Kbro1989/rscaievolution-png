@@ -1,4 +1,6 @@
-const BOB_ID = 1;
+const { Npcs } = require('../../../constants/ids');
+
+const BOB_ID = Npcs.BOB || 1; // 1
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== BOB_ID) {

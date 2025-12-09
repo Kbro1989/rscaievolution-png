@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Thessalia
+const { Npcs } = require('../../../constants/ids');
 
-const THESSALIA_ID = 59;
+const THESSALIA_ID = Npcs.THESSALIA || 59; // 59
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== THESSALIA_ID) {

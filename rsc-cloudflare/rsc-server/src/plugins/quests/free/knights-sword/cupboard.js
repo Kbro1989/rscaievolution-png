@@ -1,7 +1,9 @@
-const CLOSED_CUPBOARD_ID = 174;
-const OPEN_CUPBOARD_ID = 175;
-const PORTRAIT_ID = 264;
-const SIR_VYVIN_ID = 138;
+const { Items, Npcs, Objects } = require('../../../../constants/ids');
+
+const CLOSED_CUPBOARD_ID = Objects.CLOSED_CUPBOARD || 174; // 174
+const OPEN_CUPBOARD_ID = Objects.OPEN_CUPBOARD || 175; // 175
+const PORTRAIT_ID = Items.PORTRAIT || 264; // 264
+const SIR_VYVIN_ID = Npcs.SIR_VYVIN || 138; // 138
 
 async function onGameObjectCommandOne(player, gameObject) {
     if (gameObject.id === OPEN_CUPBOARD_ID) {
@@ -15,7 +17,7 @@ async function onGameObjectCommandOne(player, gameObject) {
 
             player.message(
                 '@que@Maybe you need to get someone to distract Sir Vyvin ' +
-                    'for you'
+                'for you'
             );
 
             await world.sleepTicks(3);

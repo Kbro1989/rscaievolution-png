@@ -313,7 +313,8 @@ async function command({ player }, { command, args }) {
                         'Armour >>',
                         'Weapons >>',
                         'Rares >>',
-                        'Resources >>',
+                        'Skilling >>',
+                        'Magic >>',
                         '[Back]'
                     ]);
 
@@ -328,9 +329,9 @@ async function command({ player }, { command, args }) {
                             ];
                         } else if (consumeChoice === 1) {
                             itemsToShow = [
-                                { id: 221, name: 'Str Pot (4)' }, { id: 474, name: 'Atk Pot (3)' },
-                                { id: 480, name: 'Def Pot (3)' }, { id: 486, name: 'Super Atk (3)' },
-                                { id: 483, name: 'Prayer Pot (3)' }
+                                { id: 221, name: 'Strength Potion (4)' }, { id: 474, name: 'Attack Potion (3)' },
+                                { id: 480, name: 'Defense Potion (3)' }, { id: 486, name: 'Super Attack Potion (3)' },
+                                { id: 483, name: 'Prayer Potion (3)' }, { id: 492, name: 'Super Strength (3)' }
                             ];
                         } else if (consumeChoice === 2) {
                             itemsToShow = [
@@ -339,108 +340,163 @@ async function command({ player }, { command, args }) {
                             ];
                         }
                     } else if (catChoice === 1) {
-                        const armorChoice = await player.ask(['Helmets >>', 'Bodies >>', 'Legs >>', 'Shields >>', '[Back]']);
+                        const armorChoice = await player.ask(['Helmets >>', 'Bodies >>', 'Legs >>', 'Shields >>', 'Gloves/Other >>', '[Back]']);
                         if (armorChoice === 0) {
                             itemsToShow = [
-                                { id: 112, name: 'Bronze Med' }, { id: 104, name: 'Steel Med' },
-                                { id: 116, name: 'Addy Med' }, { id: 120, name: 'Rune Med' },
-                                { id: 795, name: 'Dragon Med' }
+                                { id: 107, name: 'Bronze Medium Helmet' }, { id: 108, name: 'Steel Medium Helmet' },
+                                { id: 113, name: 'Adamantite Helmet' }, { id: 114, name: 'Rune Medium Helmet' },
+                                { id: 795, name: 'Dragon Medium Helmet' }
                             ];
                         } else if (armorChoice === 1) {
                             itemsToShow = [
-                                { id: 117, name: 'Bronze Plate' }, { id: 118, name: 'Steel Plate' },
-                                { id: 120, name: 'Addy Plate' }, { id: 401, name: 'Rune Plate' },
-                                { id: 1278, name: 'Dragon Sq' }
+                                { id: 117, name: 'Bronze Plate Mail Body' }, { id: 118, name: 'Steel Plate Mail Body' },
+                                { id: 116, name: 'Adamantite Chain Mail Body' }, { id: 401, name: 'Rune Plate Mail Body' }
                             ];
                         } else if (armorChoice === 2) {
                             itemsToShow = [
-                                { id: 206, name: 'Bronze Legs' }, { id: 121, name: 'Steel Legs' },
-                                { id: 123, name: 'Addy Legs' }, { id: 402, name: 'Rune Legs' }
+                                { id: 206, name: 'Bronze Plate Mail Legs' }, { id: 121, name: 'Steel Plate Mail Legs' },
+                                { id: 123, name: 'Adamantite Plate Mail Legs' }, { id: 402, name: 'Rune Plate Mail Legs' }
                             ];
                         } else if (armorChoice === 3) {
                             itemsToShow = [
-                                { id: 4, name: 'Wooden Shield' }, { id: 129, name: 'Steel Kite' },
-                                { id: 131, name: 'Addy Kite' }, { id: 404, name: 'Rune Kite' },
-                                { id: 1278, name: 'Dragon Sq' }
+                                { id: 4, name: 'Wooden Shield' }, { id: 129, name: 'Steel Kite Shield' },
+                                { id: 131, name: 'Adamantite Kite Shield' }, { id: 404, name: 'Rune Kite Shield' },
+                                { id: 1278, name: 'Dragon Square Shield' }
+                            ];
+                        } else if (armorChoice === 4) {
+                            itemsToShow = [
+                                { id: 137, name: 'Iron Chainbody' }, { id: 138, name: 'Steel Chainbody' },
+                                { id: 140, name: 'Mithril Chainbody' }, { id: 141, name: 'Adamantite Chainbody' }
                             ];
                         }
                     } else if (catChoice === 2) {
-                        const weaponChoice = await player.ask(['Swords >>', '2H Swords >>', 'Battleaxes >>', 'Bows >>', '[Back]']);
+                        const weaponChoice = await player.ask(['Swords >>', '2H Swords >>', 'Battleaxes >>', 'Bows >>', 'Staffs >>', 'God Items >>', '[Back]']);
                         if (weaponChoice === 0) {
                             itemsToShow = [
-                                { id: 70, name: 'Bronze Sword' }, { id: 72, name: 'Steel Sword' },
-                                { id: 74, name: 'Addy Sword' }, { id: 75, name: 'Rune Sword' },
+                                { id: 70, name: 'Bronze Long Sword' }, { id: 72, name: 'Steel Long Sword' },
+                                { id: 74, name: 'Adamantite Long Sword' }, { id: 75, name: 'Rune long sword' },
                                 { id: 593, name: 'Dragon Sword' }
                             ];
                         } else if (weaponChoice === 1) {
                             itemsToShow = [
-                                { id: 76, name: 'Bronze 2H' }, { id: 78, name: 'Steel 2H' },
-                                { id: 80, name: 'Addy 2H' }, { id: 81, name: 'Rune 2H' }
+                                { id: 76, name: 'Bronze 2-handed Sword' }, { id: 78, name: 'Steel 2-handed Sword' },
+                                { id: 80, name: 'Adamantite 2-handed Sword' }, { id: 81, name: 'rune 2-handed Sword' }
                             ];
                         } else if (weaponChoice === 2) {
                             itemsToShow = [
-                                { id: 205, name: 'Bronze Baxe' }, { id: 90, name: 'Steel Baxe' },
-                                { id: 92, name: 'Addy Baxe' }, { id: 93, name: 'Rune Baxe' },
-                                { id: 594, name: 'Dragon Baxe' }
+                                { id: 205, name: 'bronze battle Axe' }, { id: 90, name: 'Steel battle Axe' },
+                                { id: 92, name: 'Adamantite battle Axe' }, { id: 93, name: 'Rune battle Axe' },
+                                { id: 594, name: 'Dragon axe' }
                             ];
                         } else if (weaponChoice === 3) {
                             itemsToShow = [
                                 { id: 189, name: 'Shortbow' }, { id: 188, name: 'Longbow' },
-                                { id: 655, name: 'Yew Short' }, { id: 654, name: 'Yew Long' },
-                                { id: 657, name: 'Magic Short' }, { id: 656, name: 'Magic Long' }
+                                { id: 655, name: 'Yew Shortbow' }, { id: 654, name: 'Yew Longbow' },
+                                { id: 657, name: 'Magic Shortbow' }, { id: 656, name: 'Magic Longbow' }
                             ];
+                        } else if (weaponChoice === 4) {
+                            itemsToShow = [
+                                { id: 100, name: 'Oak Staff' }, { id: 101, name: 'Willow Staff' },
+                                { id: 102, name: 'Teak Staff' }, { id: 103, name: 'Yew Staff' },
+                                { id: 1000, name: 'Staff of Iban' }
+                            ];
+                        } else if (weaponChoice === 5) {
+                            // God items - paired staff + cape sets (Wilderness Mage Arena rewards)
+                            const godChoice = await player.ask([
+                                'Staff + Cape of Guthix (Magic +25)',
+                                'Staff + Cape of Saradomin (Magic +25)',
+                                'Staff + Cape of Zamorak (Magic +25)',
+                                '[Back]'
+                            ]);
+                            if (godChoice === 0) {
+                                // Staff of Guthix + Cape of Guthix
+                                player.inventory.add(1306, 1);
+                                player.inventory.add(1309, 1);
+                                await player.message(`Given: Staff of Guthix + Cape of Guthix`);
+                            } else if (godChoice === 1) {
+                                // Staff of Saradomin + Cape of Saradomin
+                                player.inventory.add(1307, 1);
+                                player.inventory.add(1310, 1);
+                                await player.message(`Given: Staff of Saradomin + Cape of Saradomin`);
+                            } else if (godChoice === 2) {
+                                // Staff of Zamorak + Cape of Zamorak
+                                player.inventory.add(1308, 1);
+                                player.inventory.add(1311, 1);
+                                await player.message(`Given: Staff of Zamorak + Cape of Zamorak`);
+                            }
                         }
                     } else if (catChoice === 3) {
-                        const rareChoice = await player.ask(['Partyhats >>', 'H\'ween Masks >>', 'Other Rares >>', '[Back]']);
+                        const rareChoice = await player.ask(['Partyhats >>', 'H\'ween Masks >>', 'Seasonal >>', '[Back]']);
                         if (rareChoice === 0) {
                             itemsToShow = [
-                                { id: 576, name: 'Red Phat' }, { id: 577, name: 'Yellow Phat' },
-                                { id: 578, name: 'Blue Phat' }, { id: 579, name: 'Green Phat' },
-                                { id: 580, name: 'Purple Phat' }, { id: 581, name: 'White Phat' }
+                                { id: 576, name: 'Party Hat' }, { id: 577, name: 'Party Hat' },
+                                { id: 578, name: 'Party Hat' }, { id: 579, name: 'Party Hat' },
+                                { id: 580, name: 'Party Hat' }, { id: 581, name: 'Party Hat' }
                             ];
                         } else if (rareChoice === 1) {
                             itemsToShow = [
-                                { id: 831, name: 'Red Mask' }, { id: 832, name: 'Blue Mask' },
-                                { id: 828, name: 'Green Mask' }
+                                { id: 831, name: 'halloween mask' }, { id: 832, name: 'halloween mask' },
+                                { id: 828, name: 'halloween mask' }
                             ];
                         } else if (rareChoice === 2) {
                             itemsToShow = [
-                                { id: 575, name: 'Xmas Cracker' }, { id: 387, name: 'Disk of Return' },
+                                { id: 575, name: 'Christmas cracker' }, { id: 387, name: 'Disk of Returning' },
                                 { id: 1289, name: 'Scythe' }, { id: 1156, name: 'Bunny Ears' },
-                                { id: 677, name: 'Easter Egg' }, { id: 971, name: 'Santa Hat' }
+                                { id: 677, name: 'Easter Egg' }, { id: 971, name: 'Santa\'s hat' }
                             ];
                         }
                     } else if (catChoice === 4) {
-                        const resChoice = await player.ask(['Ores & Bars >>', 'Logs >>', 'Runes >>', 'Coins >>', '[Back]']);
-                        if (resChoice === 0) {
+                        const skillChoice = await player.ask(['Ores & Bars >>', 'Logs >>', 'Fish >>', 'Herbs >>', '[Back]']);
+                        if (skillChoice === 0) {
                             itemsToShow = [
                                 { id: 150, name: 'Copper Ore' }, { id: 155, name: 'Coal' },
                                 { id: 409, name: 'Runite Ore' }, { id: 408, name: 'Runite Bar' }
                             ];
-                        } else if (resChoice === 1) {
+                        } else if (skillChoice === 1) {
                             itemsToShow = [
-                                { id: 14, name: 'Logs' }, { id: 633, name: 'Willow' },
+                                { id: 14, name: 'Logs' }, { id: 633, name: 'Willow Logs' },
                                 { id: 635, name: 'Yew Logs' }, { id: 636, name: 'Magic Logs' }
                             ];
-                        } else if (resChoice === 2) {
+                        } else if (skillChoice === 2) {
                             itemsToShow = [
-                                { id: 31, name: 'Air (1000)', amount: 1000 },
-                                { id: 38, name: 'Chaos (500)', amount: 500 },
-                                { id: 42, name: 'Death (500)', amount: 500 },
-                                { id: 825, name: 'Blood (500)', amount: 500 }
+                                { id: 373, name: 'Lobster' }, { id: 370, name: 'Swordfish' },
+                                { id: 546, name: 'Shark' }, { id: 355, name: 'Raw Shark' }
                             ];
-                        } else if (resChoice === 3) {
-                            const coinChoice = await player.ask(['1,000', '10,000', '100,000', '1,000,000', '[Back]']);
-                            const amounts = [1000, 10000, 100000, 1000000];
-                            if (coinChoice < 4) {
-                                player.inventory.add(10, amounts[coinChoice]);
-                                player.message(`Added ${amounts[coinChoice].toLocaleString()} coins`);
-                            }
+                        } else if (skillChoice === 3) {
+                            itemsToShow = [
+                                { id: 251, name: 'Guam Leaf' }, { id: 253, name: 'Marrentill' },
+                                { id: 255, name: 'Tarromin' }, { id: 257, name: 'Harralander' }
+                            ];
+                        }
+                    } else if (catChoice === 5) {
+                        const runeChoice = await player.ask(['Rune Sets >>', 'Air Runes >>', 'Death Runes >>', 'Special Runes >>', '[Back]']);
+                        if (runeChoice === 0) {
+                            itemsToShow = [
+                                { id: 33, name: 'Air-Rune', amount: 1000 }, { id: 31, name: 'Fire-Rune', amount: 1000 },
+                                { id: 32, name: 'Water-Rune', amount: 1000 }, { id: 34, name: 'Earth-Rune', amount: 1000 }
+                            ];
+                        } else if (runeChoice === 1) {
+                            itemsToShow = [
+                                { id: 33, name: 'Air-Rune', amount: 1000 }, 
+                                { id: 33, name: 'Air-Rune', amount: 5000 }
+                            ];
+                        } else if (runeChoice === 2) {
+                            itemsToShow = [
+                                { id: 38, name: 'Death-Rune', amount: 500 },
+                                { id: 38, name: 'Death-Rune', amount: 1000 }
+                            ];
+                        } else if (runeChoice === 3) {
+                            itemsToShow = [
+                                { id: 619, name: 'Blood-Rune', amount: 500 },
+                                { id: 825, name: 'Soul-Rune', amount: 500 },
+                                { id: 40, name: 'Nature-Rune', amount: 1000 },
+                                { id: 46, name: 'Cosmic-Rune', amount: 500 }
+                            ];
                         }
                     }
 
                     if (itemsToShow.length > 0) {
-                        const itemNames = itemsToShow.map(i => i.name);
+                        const itemNames = itemsToShow.map(i => i.name + (i.amount && i.amount > 1 ? ' (x' + i.amount + ')' : ''));
                         itemNames.push('[Back]');
                         const itemChoice = await player.ask(itemNames);
                         if (itemChoice < itemsToShow.length) {
@@ -613,7 +669,140 @@ async function command({ player }, { command, args }) {
             player.message('Player data saved');
             break;
         }
-    }
+        case 'fullstats': {
+            // Set all skills to 99
+            const skillNames = ['attack', 'defense', 'strength', 'hits', 'ranged', 'prayer', 'magic', 'cooking', 'woodcutting', 'fletching', 'fishing', 'firemaking', 'crafting', 'smithing', 'mining', 'herblaw', 'agility', 'thieving'];
+            const levelToExperience = (level) => {
+                let xp = 0;
+                for (let i = 1; i < level; i++) {
+                    xp += Math.floor(i + 300 * Math.pow(2, i / 7));
+                }
+                return Math.floor(xp / 4);
+            };
+            for (const skillName of skillNames) {
+                player.skills[skillName].current = 99;
+                player.skills[skillName].base = 99;
+                player.skills[skillName].experience = levelToExperience(99);
+            }
+            player.sendStats();
+            player.message('All stats set to 99!');
+            break;
+        }
+        case 'inv': {
+            const catChoice = await player.ask([
+                'Full Setup >>',
+                'Combat Gear >>',
+                'Ranged Gear >>',
+                'Magic Gear >>',
+                'Skilling Items >>',
+                '[Close]'
+            ]);
+            
+            if (catChoice === 0) {
+                // Full combat setup
+                player.inventory.add(81, 1); // Rune 2H
+                player.inventory.add(114, 1); // Rune med
+                player.inventory.add(401, 1); // Rune plate
+                player.inventory.add(402, 1); // Rune legs
+                player.inventory.add(1278, 1); // Dragon shield
+                player.inventory.add(373, 5); // Lobsters
+                player.inventory.add(230, 2); // Super restore
+                player.message('Full combat setup spawned!');
+            } else if (catChoice === 1) {
+                // Combat setup
+                player.inventory.add(81, 1);
+                player.inventory.add(114, 1);
+                player.inventory.add(401, 1);
+                player.inventory.add(402, 1);
+                player.inventory.add(404, 1);
+                player.message('Combat gear spawned!');
+            } else if (catChoice === 2) {
+                // Ranged setup
+                player.inventory.add(656, 1); // Magic longbow
+                player.inventory.add(657, 1); // Magic shortbow
+                player.inventory.add(655, 1); // Yew shortbow
+                player.inventory.add(654, 1); // Yew longbow
+                player.message('Ranged gear spawned!');
+            } else if (catChoice === 3) {
+                // Magic setup - with god item choice
+                const godChoice = await player.ask([
+                    'Staff of Guthix + Cape (Magic +25)',
+                    'Staff of Saradomin + Cape (Magic +25)',
+                    'Staff of Zamorak + Cape (Magic +25)',
+                    'Regular Staff Setup',
+                    '[Back]'
+                ]);
+                
+                if (godChoice === 0) {
+                    // Guthix god items
+                    player.inventory.add(1306, 1); // Staff of Guthix
+                    player.inventory.add(1309, 1); // Cape of Guthix
+                    player.inventory.add(33, 1000); // Air runes
+                    player.inventory.add(32, 1000); // Water runes
+                    player.inventory.add(31, 1000); // Fire runes
+                    player.inventory.add(34, 1000); // Earth runes
+                    player.message('God Magic gear (Guthix) spawned! Magic +25 bonus from cape!');
+                } else if (godChoice === 1) {
+                    // Saradomin god items
+                    player.inventory.add(1307, 1); // Staff of Saradomin
+                    player.inventory.add(1310, 1); // Cape of Saradomin
+                    player.inventory.add(33, 1000); // Air runes
+                    player.inventory.add(32, 1000); // Water runes
+                    player.inventory.add(31, 1000); // Fire runes
+                    player.inventory.add(34, 1000); // Earth runes
+                    player.message('God Magic gear (Saradomin) spawned! Magic +25 bonus from cape!');
+                } else if (godChoice === 2) {
+                    // Zamorak god items
+                    player.inventory.add(1308, 1); // Staff of Zamorak
+                    player.inventory.add(1311, 1); // Cape of Zamorak
+                    player.inventory.add(33, 1000); // Air runes
+                    player.inventory.add(32, 1000); // Water runes
+                    player.inventory.add(31, 1000); // Fire runes
+                    player.inventory.add(34, 1000); // Earth runes
+                    player.message('God Magic gear (Zamorak) spawned! Magic +25 bonus from cape!');
+                } else if (godChoice === 3) {
+                    // Regular staff setup
+                    player.inventory.add(1308, 1); // Staff of Zamorak
+                    player.inventory.add(33, 1000); // Air runes
+                    player.inventory.add(32, 1000); // Water runes
+                    player.inventory.add(31, 1000); // Fire runes
+                    player.inventory.add(34, 1000); // Earth runes
+                    player.message('Magic gear spawned!');
+                }
+            } else if (catChoice === 4) {
+                // Skilling
+                player.inventory.add(14, 100); // Logs
+                player.inventory.add(150, 50); // Copper ore
+                player.inventory.add(251, 50); // Guam leaf
+                player.inventory.add(373, 10); // Lobsters
+                player.message('Skilling items spawned!');
+            }
+            break;
+        }
+        case 'qol': {
+            const qolChoice = await player.ask([
+                'Teleport',
+                'Restore HP/Prayer',
+                'Full Inventory Setup',
+                'Quick Skills Menu',
+                '[Close]'
+            ]);
+            if (qolChoice === 0) {
+                player.message('Use ::teleport or ::commands for teleport options');
+            } else if (qolChoice === 1) {
+                player.skills.hits.current = player.skills.hits.base;
+                player.skills.prayer.current = player.skills.prayer.base;
+                player.sendStats();
+                player.message('HP and Prayer restored!');
+            } else if (qolChoice === 2) {
+                player.message('Use ::inv to spawn full inventory setups');
+            } else if (qolChoice === 3) {
+                player.message('Use ::set <skill> <level> to set individual skills');
+            }
+            break;
+        }
 }
 
+
+}
 module.exports = { command };

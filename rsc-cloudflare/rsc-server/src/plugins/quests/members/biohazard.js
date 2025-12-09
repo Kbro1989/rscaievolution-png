@@ -17,41 +17,43 @@
  * -1 - Complete (Talk to King Lathas)
  */
 
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
 const QUEST_NAME = 'Biohazard';
 const QUEST_POINTS = 3;
 
-// NPC IDs
-const NPC_ELENA_HOUSE = 483;
-const NPC_OMART = 484;
-const NPC_JERICO = 486;
-const NPC_KILRON = 487;
-const NPC_NURSE_SARAH = 500;
-const NPC_CHEMIST = 504;
-const NPC_CHANCY = 505;
-const NPC_HOPS = 506;
-const NPC_DEVINCI = 507;
-const NPC_GUIDOR = 508;
-const NPC_CHANCY_BAR = 509;
+// NPC IDs - Using project's ids.js constants
+const NPC_ELENA_HOUSE = Npcs.ELENA; // 465
+const NPC_OMART = Npcs.OMART; // 484
+const NPC_JERICO = Npcs.JERICO; // 486
+const NPC_KILRON = Npcs.KILRON; // 487
+const NPC_NURSE_SARAH = Npcs.NURSE_SARAH; // 500
+const NPC_CHEMIST = Npcs.CHEMIST; // 490
+const NPC_CHANCY = Npcs.CHANCY; // 505
+const NPC_HOPS = Npcs.HOPS; // 506
+const NPC_DEVINCI = Npcs.DA_VINCI; // 507
+const NPC_GUIDOR = Npcs.GUIDOR; // 508
+const NPC_CHANCY_BAR = 509; // Keep hardcoded if not in ids.js
 const NPC_HOPS_BAR = 510;
 const NPC_DEVINCI_BAR = 511;
-const NPC_KING_LATHAS = 512;
-const NPC_GUIDORS_WIFE = 488;
+const NPC_KING_LATHAS = Npcs.KING_LATHAS; // 512
+const NPC_GUIDORS_WIFE = Npcs.GUIDORS_WIFE; // 488
 
 // Item IDs
-const ITEM_PIGEON_CAGE = 798;
-const ITEM_BIRD_FEED = 800;
-const ITEM_ROTTEN_APPLES = 801;
-const ITEM_DOCTORS_GOWN = 802;
-const ITEM_BIOHAZARD_BRONZE_KEY = 803;
-const ITEM_DISTILLATOR = 804;
-const ITEM_PRIEST_ROBE = 807;
-const ITEM_PRIEST_GOWN = 808;
-const ITEM_LIQUID_HONEY = 809;
-const ITEM_ETHENEA = 810;
-const ITEM_SULPHURIC_BROLINE = 811;
-const ITEM_PLAGUE_SAMPLE = 812;
-const ITEM_TOUCH_PAPER = 813;
-const ITEM_KING_LATHAS_AMULET = 826;
+const ITEM_PIGEON_CAGE = Items.PIGEON_CAGE; // 798
+const ITEM_BIRD_FEED = Items.BIRD_FEED; // 800
+const ITEM_ROTTEN_APPLES = Items.ROTTEN_APPLES; // 801
+const ITEM_DOCTORS_GOWN = Items.DOCTORS_GOWN; // 802
+const ITEM_BIOHAZARD_BRONZE_KEY = 242; // Keep hardcoded
+const ITEM_DISTILLATOR = Items.DISTILLATOR; // 804
+const ITEM_PRIEST_ROBE = Items.PRIEST_ROBE; // 807
+const ITEM_PRIEST_GOWN = Items.PRIEST_GOWN; // 808
+const ITEM_LIQUID_HONEY = Items.LIQUID_HONEY; // 809
+const ITEM_ETHENEA = Items.ETHENEA; // 810
+const ITEM_SULPHURIC_BROLINE = Items.SULPHURIC_BROLINE; // 811
+const ITEM_PLAGUE_SAMPLE = Items.PLAGUE_SAMPLE; // 812
+const ITEM_TOUCH_PAPER = Items.TOUCH_PAPER; // 813
+const ITEM_KING_LATHAS_AMULET = Items.KING_LATHAS_AMULET; // 826
 
 // Object IDs
 const OBJ_ELENAS_DOOR = 152;

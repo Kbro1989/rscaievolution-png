@@ -1,9 +1,11 @@
 // https://classic.runescape.wiki/w/Count_Draynor
 
-const COUNT_DRAYNOR_ID = 96;
-const GARLIC_ID = 218;
-const HAMMER_ID = 168;
-const STAKE_ID = 217;
+const { Items, Npcs } = require('../../../../constants/ids');
+
+const COUNT_DRAYNOR_ID = Npcs.COUNT_DRAYNOR; // 96
+const GARLIC_ID = Items.GARLIC; // 218
+const HAMMER_ID = Items.HAMMER; // 168
+const STAKE_ID = Items.STAKE; // 217
 
 async function onNPCAttack(player, npc) {
     if (npc.id !== COUNT_DRAYNOR_ID) {

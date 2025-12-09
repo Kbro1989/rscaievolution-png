@@ -1,4 +1,6 @@
-const GAIUS_ID = 228;
+const { Npcs } = require('../../../constants/ids');
+
+const GAIUS_ID = Npcs.GAIUS || 228; // 228
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== GAIUS_ID) {

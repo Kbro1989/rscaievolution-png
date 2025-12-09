@@ -1,9 +1,11 @@
 // https://classic.runescape.wiki/w/Imp_catcher
 // https://classic.runescape.wiki/w/Transcript:Wizard_Mizgog
 
-const ACCURACY_AMULET_ID = 235;
-const BEAD_IDS = [231, 232, 233, 234];
-const MIZGOG_ID = 117;
+const { Items, Npcs } = require('../../../constants/ids');
+
+const ACCURACY_AMULET_ID = Items.ACCURACY_AMULET; // 235
+const BEAD_IDS = [Items.WHITE_BEAD, Items.RED_BEAD, Items.YELLOW_BEAD, Items.BLACK_BEAD]; // 231, 232, 233, 234
+const MIZGOG_ID = Npcs.WIZARD_MIZGOG; // 117
 
 async function quietFriends(npc) {
     await npc.say(
@@ -52,7 +54,7 @@ async function onTalkToNPC(player, npc) {
                             'Well seeing as you asked nicely',
                             'I could do some help',
                             "The wizard Grayzag next door decided he didn't " +
-                                'like me',
+                            'like me',
                             'So he cast of spell of summoning',
                             'And summoned hundred of little imps',
                             'These imps stole all sorts of my things',
@@ -60,9 +62,9 @@ async function onTalkToNPC(player, npc) {
                             "They're just eggs and balls of string and things",
                             'But they stole my 4 magical beads',
                             'There was a red one, a yellow one, a black one ' +
-                                'and a white one',
+                            'and a white one',
                             'These imps have now spread out all over the ' +
-                                'kingdom',
+                            'kingdom',
                             'Could you get my beads back for me'
                         );
 
@@ -104,7 +106,7 @@ async function onTalkToNPC(player, npc) {
             await npc.say(
                 'Well get on with it',
                 "I've lost a white bead, a red bead, a black bead and a " +
-                    'yellow bead',
+                'yellow bead',
                 'Go kill some imps'
             );
         } else if (beadsFound <= 3) {

@@ -1,11 +1,12 @@
 // https://classic.runescape.wiki/w/Transcript:Wydin
 // > There are numerous discrepancies between what the dialogue choice is and
 // > what your player says with this NPC.
+const { Items, Npcs, Objects } = require('../../../constants/ids');
 
-const APRON_ID = 182;
-const DOORFRAME_ID = 11;
-const DOOR_ID = 47;
-const WYDIN_ID = 129;
+const APRON_ID = Items.WHITE_APRON || 182; // 182
+const DOORFRAME_ID = Objects.DOORFRAME || 11; // 11
+const DOOR_ID = Objects.DOOR || 47; // 47
+const WYDIN_ID = Npcs.WYDIN || 129; // 129
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== WYDIN_ID) {
@@ -130,7 +131,7 @@ async function onWallObjectCommandOne(player, wallObject) {
                             await npc.say(
                                 "Wow you are prepared, you're hired",
                                 'Go through to the back and tidy up for me ' +
-                                    'please'
+                                'please'
                             );
 
                             player.cache.wydinJobStage = 1;
@@ -139,7 +140,7 @@ async function onWallObjectCommandOne(player, wallObject) {
 
                             await npc.say(
                                 "Well you can't work here unless you have an " +
-                                    'apron',
+                                'apron',
                                 'Health and safety regulations, you understand'
                             );
                         }

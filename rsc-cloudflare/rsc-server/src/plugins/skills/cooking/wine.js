@@ -1,11 +1,12 @@
 // https://classic.runescape.wiki/w/Wine
 
 const { rollSkillSuccess } = require('../../../rolls');
+const { Items } = require('../../../constants/ids');
 
-const BAD_WINE_ID = 180;
-const GRAPES_ID = 143;
-const JUG_OF_WATER_ID = 141;
-const WINE_ID = 142;
+const BAD_WINE_ID = Items.BAD_WINE;
+const GRAPES_ID = Items.GRAPES;
+const JUG_OF_WATER_ID = Items.WATER_141;
+const WINE_ID = Items.WINE;
 
 // same level (35) as pizza, osrs wiki also says that wine stops failing at
 // level 68, the same level pizza stops burning as well. using the same rolls

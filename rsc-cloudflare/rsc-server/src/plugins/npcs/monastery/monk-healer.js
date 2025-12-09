@@ -1,31 +1,46 @@
 
 
-module.exports = (router) => {
-    // Monk Healer (ID 93) & Abbot Langley (ID 174)
-    router.on('talk', [93, 174], (player, npc) => {
-        npc.message('Greetings traveller');
+const { Npcs } = require('../../../constants/ids');
 
-        player.options('Can you heal me? I\'m injured', 'Isn\'t this place built a bit out the way?', (option) => {
-            if (option === 0) {
-                player.message('Can you heal me?');
-                player.message('I\'m injured');
-                npc.message('Ok');
-                player.message('The monk places his hands on your head');
+const MONK_IDS = new Set([
+    Npcs.MONK_HEALER || 93,
+    Npcs.ABBOT_LANGLEY || 174
+]);
 
-                setTimeout(() => {
-                    player.message('You feel a little better');
-                    // Heal 5 HP, up to Max
-                    const current = player.skills.hits.current;
-                    const max = player.skills.hits.level;
-                    if (current < max) {
-                        player.skills.hits.current = Math.min(max, current + 5);
-                        player.sendStat(3); // 3 = Hits stat index
-                    }
-                }, 2000);
-            } else {
-                player.message('Isn\'t this place built a bit out the way?');
-                npc.message('We like it that way', 'We get disturbed less', 'We still get rather a large amount of travellers', 'looking for sanctuary and healing here as it is');
-            }
-        });
-    });
-};
+async function onTalkToNPC(player, npc) {
+    if (!MONK_IDS.has(npc.id)) {
+        return false;
+    }
+
+    player.engage(npc);
+
+    await npc.say('Greetings traveller');
+
+    const option = await player.ask([
+        'Can you heal me? I\'m injured',
+        'Isn\'t this place built a bit out the way?'
+    ], true);
+
+    if (option === 0) {
+        await npc.say('Ok');
+        player.message('The monk places his hands on your head');
+
+        await player.world.sleepTicks(2);
+        player.message('You feel a little better');
+
+        const current = player.skills.hits.current;
+        const max = player.skills.hits.level;
+        if (current < max) {
+            player.skills.hits.current = Math.min(max, current + 10); // Standard heal amount?
+            player.skills.hits.current = Math.min(max, player.skills.hits.current); // Clamp again just in case
+            player.sendStat(3); // 3 = Hits stat index
+        }
+    } else {
+        await npc.say('We like it that way', 'We get disturbed less', 'We still get rather a large amount of travellers', 'looking for sanctuary and healing here as it is');
+    }
+
+    player.disengage();
+    return true;
+}
+
+module.exports = { onTalkToNPC };

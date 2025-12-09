@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Flynn
+const { Npcs } = require('../../../constants/ids');
 
-const FLYNN_ID = 115;
+const FLYNN_ID = Npcs.FLYNN || 115; // 115
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== FLYNN_ID) {

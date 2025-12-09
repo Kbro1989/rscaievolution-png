@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Oracle
+const { Npcs } = require('../../../../constants/ids');
 
-const ORACLE_ID = 197;
+const ORACLE_ID = Npcs.ORACLE || 197; // 197
 
 const WISE_KNOWLEDGE = [
     'You must search from within to find your true destiny',

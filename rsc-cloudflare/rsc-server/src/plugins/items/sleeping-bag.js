@@ -1,4 +1,6 @@
-const SLEEPING_BAG_ID = 1263;
+const { Items } = require('../../constants/ids');
+
+const SLEEPING_BAG_ID = Items.SLEEPING_BAG;
 
 async function onInventoryCommand(player, item) {
     if (item.id !== SLEEPING_BAG_ID) {

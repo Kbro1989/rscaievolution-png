@@ -1,9 +1,11 @@
 // Arhein (Catherby General Store)
-const ARHEIN = 280;
+const { Npcs } = require('../../../constants/ids');
+
+const ARHEIN_ID = Npcs.ARHEIN || 280; // 280
 const SHOP_ID = "arheins-general";
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== ARHEIN) return false;
+    if (npc.id !== ARHEIN_ID) return false;
     player.engage(npc);
 
     await npc.say("Hello would you like to trade");

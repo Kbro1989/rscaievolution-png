@@ -27,7 +27,7 @@ const ITEM_STEW = 346;
 const OBJ_CRATE_SEARCH = 1039; // Search for kittens
 const OBJ_BARREL_SEARCH = 1041;
 const OBJ_CRATE_FIND = 1040; // Find kittens here
-const OBJ_FENCE_BROKEN = 199; // Lumberyard entrance
+const OBJ_FENCE_BROKEN = 185; // Lumberyard entrance
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;
@@ -119,8 +119,8 @@ async function onOpLoc(player, object) {
     // --- Broken Fence ---
     if (object.id === OBJ_FENCE_BROKEN) {
         player.message('You squeeze through the broken fence');
-        if (player.x <= 50) player.teleport(51, 438);
-        else player.teleport(50, 438);
+        if (player.x <= 50) player.teleport(51, 165);
+        else player.teleport(50, 165);
         return true;
     }
 

@@ -1,11 +1,11 @@
 // https://classic.runescape.wiki/w/Banana_tree
-
+const { Items, Objects } = require('../../constants/ids');
 const GameObject = require('../../model/game-object');
 
-const BANANA_TREE_ID = 183;
-const EMPTY_BANANA_TREE_ID = 184;
+const BANANA_TREE_ID = Objects.BANANA_TREE || 183; // 183
+const EMPTY_BANANA_TREE_ID = Objects.EMPTY_BANANA_TREE || 184; // 184
 
-const BANANA_ID = 249;
+const BANANA_ID = Items.BANANA || 249; // 249
 
 const TREE_RESPAWN_TICKS = 750; // 750 * 640ms = 8 minutes
 

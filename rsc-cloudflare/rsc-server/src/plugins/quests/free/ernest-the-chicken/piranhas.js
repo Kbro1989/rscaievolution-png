@@ -1,12 +1,13 @@
 // https://classic.runescape.wiki/w/Fish_Food
 // https://classic.runescape.wiki/w/Fountain_(Draynor_Manor)
 // https://classic.runescape.wiki/w/Poisoned_fish_food
+const { Items, Objects } = require('../../../../constants/ids');
 
-const FISH_FOOD_ID = 176;
-const FOUNTAIN_ID = 86;
-const POISONED_FISH_FOOD_ID = 178;
-const POISON_ID = 177;
-const PRESSURE_GAUGE_ID = 175;
+const FISH_FOOD_ID = Items.FISH_FOOD || 176; // 176
+const FOUNTAIN_ID = Objects.FOUNTAIN || 86; // 86
+const POISONED_FISH_FOOD_ID = Items.POISONED_FISH_FOOD || 178; // 178
+const POISON_ID = Items.POISON || 177; // 177
+const PRESSURE_GAUGE_ID = Items.PRESSURE_GAUGE || 175; // 175
 
 async function onUseWithInventory(player, item, target) {
     if (

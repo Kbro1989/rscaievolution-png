@@ -1,8 +1,9 @@
+const { Items, Objects } = require('../../constants/ids');
 const Item = require('../../model/item');
 
-const BUCKET_ID = 21;
+const BUCKET_ID = Items.BUCKET; // 21
 const SOURCE_IDS = new Set([26, 48, 86, 1130]);
-const WELL_IDS = new Set([2, 466, 814]);
+const WELL_IDS = new Set([Objects.WELL || 2, 466, 814]);
 
 async function onUseWithGameObject(player, gameObject, item) {
     const refilledID = Item.getFullWater(item.id);
@@ -26,7 +27,7 @@ async function onUseWithGameObject(player, gameObject, item) {
 
     player.message(
         `You fill the ${item.definition.name.toLowerCase()} from the ` +
-            gameObject.definition.name.toLowerCase()
+        gameObject.definition.name.toLowerCase()
     );
 
     return true;

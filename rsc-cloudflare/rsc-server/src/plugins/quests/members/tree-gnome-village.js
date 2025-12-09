@@ -12,22 +12,24 @@
  * Reward: 2 Quest Points, 11450 Attack XP, Gnome Amulet of Protection
  */
 
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
 const QUEST_NAME = 'Tree Gnome Village';
 const QUEST_POINTS = 2;
 
-// NPC IDs
-const NPC_KING_BOLREN = 392;
-const NPC_COMMANDER_MONTAI = 393;
-const NPC_TRACKER_1 = 394;
+// NPC IDs - Using project's ids.js constants
+const NPC_KING_BOLREN = Npcs.KING_BOLREN; // Need to verify if exists, else keep hardcoded
+const NPC_COMMANDER_MONTAI = Npcs.COMMANDER_MONTAI; // 408
+const NPC_TRACKER_1 = 394; // Keep hardcoded if not in ids.js
 const NPC_TRACKER_2 = 395;
 const NPC_TRACKER_3 = 396;
-const NPC_KHAZARD_WARLORD = 397;
-const NPC_ELKOY = 398;
+const NPC_KHAZARD_WARLORD = Npcs.KHAZARD_WARLORD; // 410
+const NPC_ELKOY = Npcs.ELKOY; // 396
 
 // Item IDs
-const ITEM_ORB_OF_PROTECTION = 674;
-const ITEM_GNOME_AMULET = 675;
-const ITEM_ORBS_OF_PROTECTION = 676; // All 3 orbs
+const ITEM_ORB_OF_PROTECTION = Items.ORB_OF_PROTECTION; // 674
+const ITEM_GNOME_AMULET = Items.GNOME_AMULET; // 675
+const ITEM_ORBS_OF_PROTECTION = Items.ORBS_OF_PROTECTION; // 676
 
 // Object IDs
 const OBJ_GNOME_MAZE = 350;

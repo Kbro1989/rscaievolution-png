@@ -1,11 +1,13 @@
 // https://classic.runescape.wiki/w/Transcript:Cook
 // https://classic.runescape.wiki/w/Cook%27s_assistant
 
-const COOKS_RANGE_ID = 119;
-const COOK_ID = 7;
-const EGG_ID = 19;
-const FLOUR_ID = 136;
-const MILK_ID = 22;
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
+const COOKS_RANGE_ID = Objects.COOK_S_RANGE; // 119
+const COOK_ID = Npcs.COOK; // 7
+const EGG_ID = Items.EGG; // 19
+const FLOUR_ID = Items.FLOUR_136; // 136
+const MILK_ID = Items.MILK; // 22
 
 async function whatsWrong(player, npc) {
     await npc.say(
@@ -90,7 +92,7 @@ async function onTalkToNPC(player, npc) {
                     case 1: // day off
                         await npc.say(
                             "No, that's the worst thing I could do - I'd get " +
-                                'in terrible trouble'
+                            'in terrible trouble'
                         );
                         await player.say("What's wrong?");
                         await whatsWrong(player, npc);

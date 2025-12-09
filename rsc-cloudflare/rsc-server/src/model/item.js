@@ -1,5 +1,12 @@
 const items = require('@2003scape/rsc-data/config/items');
-const wieldable = require('@2003scape/rsc-data/wieldable');
+let wieldable;
+try {
+    // Try to load from installed package first
+    wieldable = require('@2003scape/rsc-data/wieldable');
+} catch (e) {
+    // Fall back to local wieldable.json if package module doesn't exist
+    wieldable = require('@2003scape/rsc-data/wieldable.json');
+}
 
 // { emptyID: filledID }
 const REFILL_IDS = {

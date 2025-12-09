@@ -5,11 +5,12 @@
 
 const items = require('@2003scape/rsc-data/config/items');
 const { combinations } = require('@2003scape/rsc-data/skills/cooking');
+const { Items } = require('../../../constants/ids');
 
-const BOWL_OF_WATER_ID = 342;
-const CHEESE_ID = 319;
-const KNIFE_ID = 13;
-const PIZZA_BASE_ID = 321;
+const BOWL_OF_WATER_ID = Items.BOWL_OF_WATER;
+const CHEESE_ID = Items.CHEESE;
+const KNIFE_ID = Items.KNIFE;
+const PIZZA_BASE_ID = Items.PIZZA_BASE;
 
 function isRawMeat(item) {
     return item.definition.sprite === 60 && /raw/i.test(item.definition.name);

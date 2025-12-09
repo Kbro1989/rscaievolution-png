@@ -1,9 +1,10 @@
 // https://classic.runescape.wiki/w/Melzar%27s_Maze
+const { Items, Objects } = require('../../../../constants/ids');
 
-const ENTRANCE_DOOR_ID = 60;
-const EXIT_DOOR_ID = 54;
-const LESSER_DEMON_DOOR_ID = 52;
-const MAZE_KEY_ID = 421;
+const ENTRANCE_DOOR_ID = Objects.MAZE_ENTRANCE_DOOR || 60; // 60
+const EXIT_DOOR_ID = Objects.MAZE_EXIT_DOOR || 53; // 53  
+const LESSER_DEMON_DOOR_ID = Objects.MAZE_LESSER_DEMON_DOOR || 52; // 52
+const MAZE_KEY_ID = Items.MAZE_KEY || 421; // 421
 
 // { doorWallObjectID: keyItemID }
 const DOOR_KEY_IDS = {

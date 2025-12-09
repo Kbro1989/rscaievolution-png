@@ -1,30 +1,32 @@
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
 const QUEST_NAME = 'Temple of Ikov';
 const QUEST_POINTS = 1;
 
-// NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_LUCIEN = 360;       // "Lucien" (Flying Horse Inn) (was 364)
-const NPC_LUCIEN_EDGE = 364;  // "Lucien" (Edgeville) (was 365)
-const NPC_WINELDA = 365;      // "Winelda" (was 366)
-const NPC_GUARDIAN_FEMALE = 362; // "Guardian of Armadyl" (was 367)
-const NPC_GUARDIAN_MALE = 363;   // "Guardian of Armadyl" (was 368)
-const NPC_FIRE_WARRIOR = 361;    // "The Fire warrior of lesarkus" (was 369)
+// NPCs - Using project's ids.js constants
+const NPC_LUCIEN = Npcs.LUCIEN; // 360
+const NPC_LUCIEN_EDGE = 364; // Keep hardcoded if not in ids.js
+const NPC_WINELDA = Npcs.WINELDA; // 365
+const NPC_GUARDIAN_FEMALE = Npcs.GUARDIAN_OF_ARMADYL_362; // 362
+const NPC_GUARDIAN_MALE = Npcs.GUARDIAN_OF_ARMADYL_363; // 363
+const NPC_FIRE_WARRIOR = Npcs.FIRE_WARRIOR_OF_LESARKUS; // 361
 
 // Items
-const ITEM_PENDANT_LUCIEN = 720;
-const ITEM_PENDANT_ARMADYL = 721;
-const ITEM_STAFF_ARMADYL = 722;
-const ITEM_ICE_ARROWS = 723;
-const ITEM_LIMPWURT = 220;
+const ITEM_PENDANT_LUCIEN = Items.PENDANT_OF_LUCIEN; // 721
+const ITEM_PENDANT_ARMADYL = Items.PENDANT_OF_ARMADYL; // 720
+const ITEM_STAFF_ARMADYL = Items.STAFF_OF_ARMADYL; // 722
+const ITEM_ICE_ARROWS = Items.ICE_ARROWS; // 723
+const ITEM_LIMPWURT = Items.LIMPWURT_ROOT; // 220
 const ITEM_LEVER = 725;
-const ITEM_LIT_CANDLE = 36;
-const ITEM_LIT_TORCH = 249;
+const ITEM_LIT_CANDLE = Items.LIT_CANDLE; // 36
+const ITEM_LIT_TORCH = Items.LIT_TORCH; // 249
 
 // Objects
 const OBJ_STAIR_DOWN = 370;
 const OBJ_STAIR_UP = 369;
 const OBJ_LEVER = 361;
 const OBJ_LEVER_BRACKET = 367;
-const OBJ_COMPLETE_LEVER = 368;
+const OBJ_COMPLETE_LEVER = 353;
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;

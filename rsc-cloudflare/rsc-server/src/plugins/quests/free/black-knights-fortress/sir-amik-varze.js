@@ -1,8 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Sir_Amik_Varze
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const SIR_AMIK_VARZE_ID = 110;
-
-const COINS_ID = 10;
+const SIR_AMIK_VARZE_ID = Npcs.SIR_AMIK_VARZE || 110; // 110
+const COINS_ID = Items.COINS; // 10
 
 // minimum qp needed to start the quest
 const MINIMUM_QP = 12;
@@ -62,12 +62,12 @@ async function onTalkToNPC(player, npc) {
                         'Well i do have a task, but it is very dangerous',
                         "and it's critical to us that no mistakes are made",
                         "I couldn't possibly let an unexperienced quester " +
-                            'like yourself go'
+                        'like yourself go'
                     );
 
                     player.message(
                         `@que@You need at least ${MINIMUM_QP} quest points ` +
-                            'before you may attempt this quest'
+                        'before you may attempt this quest'
                     );
                     break;
                 }
@@ -101,7 +101,7 @@ async function onTalkToNPC(player, npc) {
                             'Err',
                             'Well',
                             'spy work does involve a little hiding in little ' +
-                                'corners I suppose'
+                            'corners I suppose'
                         );
 
                         const choice = await player.ask(

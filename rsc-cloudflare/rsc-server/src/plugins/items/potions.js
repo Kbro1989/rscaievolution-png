@@ -1,6 +1,6 @@
+const { Items } = require('../../constants/ids');
 
-
-const VIAL_ID = 465;
+const VIAL_ID = Items.VIAL || 465; // 465
 
 const POTIONS = {
     // Attack Potion

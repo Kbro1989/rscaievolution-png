@@ -1,13 +1,14 @@
 // https://classic.runescape.wiki/w/Transcript:Border_Guard
+const { Npcs, Objects } = require('../../../constants/ids');
 
-const CLOSED_GATE_ID = 180;
-const OPEN_GATE_ID = 181;
+const CLOSED_GATE_ID = Objects.AL_KHARID_GATE_CLOSED || 180; // 180
+const OPEN_GATE_ID = Objects.AL_KHARID_GATE_OPEN || 181; // 181
 
 // the guard outside of al-kharid (from lumbridge to al-kharid)
-const BORDER_GUARD_ENTRY = 161;
+const BORDER_GUARD_ENTRY = Npcs.BORDER_GUARD || 161; // 161
 
 // the guard inside of al-kharid (to lumbridge from al-kharid)
-const BORDER_GUARD_EXIT = 162;
+const BORDER_GUARD_EXIT = Npcs.BORDER_GUARD_162 || 162; // 162
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== BORDER_GUARD_ENTRY && npc.id !== BORDER_GUARD_EXIT) {

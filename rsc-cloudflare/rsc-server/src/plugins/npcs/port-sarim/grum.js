@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Grum
+const { Npcs, Objects } = require('../../../constants/ids');
 
-const DOORFRAME_ID = 11;
-const DOOR_ID = 85;
-const GRUM_ID = 157;
+const DOORFRAME_ID = Objects.DOORFRAME || 11; // 11
+const DOOR_ID = Objects.DOOR || 85; // 85
+const GRUM_ID = Npcs.GRUM || 157; // 157
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== GRUM_ID) {

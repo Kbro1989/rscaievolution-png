@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Lumbridge_Guide
+const { Npcs } = require('../../../constants/ids');
 
-const GUIDE_ID = 196;
+const GUIDE_ID = Npcs.LUMBRIDGE_GUIDE || 196; // 196
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== GUIDE_ID) {

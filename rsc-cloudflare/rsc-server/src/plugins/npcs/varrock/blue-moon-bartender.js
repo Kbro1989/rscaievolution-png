@@ -1,12 +1,14 @@
 // https://classic.runescape.wiki/w/Transcript:Bartender#Bartender_(Blue_Moon_Inn)
+const { Items, Npcs } = require('../../../constants/ids');
 
 const {
     shouldHandleBar,
     blueMoonBarcrawl
 } = require('../../miniquests/barcrawl');
 
-const BARTENDER_ID = 12;
-const BEER_ID = 193;
+const BARTENDER_ID = Npcs.BARTENDER || 12; // 12
+const BEER_ID = Items.BEER || 193; // 193
+const COINS_ID = Items.COINS || 10; // 10
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== BARTENDER_ID) {
@@ -33,8 +35,8 @@ async function onTalkToNPC(player, npc) {
         case 0: // glass of ale
             await npc.say('No problemo', "That'll be 2 coins");
 
-            if (player.inventory.has(10, 2)) {
-                player.inventory.remove(10, 2);
+            if (player.inventory.has(COINS_ID, 2)) {
+                player.inventory.remove(COINS_ID, 2);
                 player.inventory.add(BEER_ID);
                 player.message('You buy a pint of beer');
             } else {
@@ -70,7 +72,7 @@ async function onTalkToNPC(player, npc) {
                     );
                     await player.say(
                         "Nope, still don't understand what you are talking " +
-                            'about',
+                        'about',
                         "What's a computer?"
                     );
                     await npc.say(

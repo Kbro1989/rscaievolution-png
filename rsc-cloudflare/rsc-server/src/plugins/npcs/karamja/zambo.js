@@ -1,4 +1,6 @@
-const ZAMBO_ID = 165;
+const { Npcs } = require('../../../constants/ids');
+
+const ZAMBO_ID = Npcs.ZAMBO || 165; // 165
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== ZAMBO_ID) {

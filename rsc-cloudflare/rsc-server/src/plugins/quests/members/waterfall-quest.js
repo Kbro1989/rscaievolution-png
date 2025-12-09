@@ -1,43 +1,45 @@
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
 const QUEST_NAME = 'Waterfall Quest';
 const QUEST_POINTS = 1;
 
-// NPC IDs
-const NPC_ALMERA = 304;
-const NPC_HUDON = 305;
-const NPC_GERALD = 306; // Fisherman
-const NPC_HADLEY = 307; // Tourist Guide
-const NPC_GOLRIE = 308; // Dwarf in cave
+// NPC IDs - Using project's ids.js constants
+const NPC_ALMERA = Npcs.ALMERA; // 470
+const NPC_HUDON = Npcs.HUDON; // 471
+const NPC_GERALD = Npcs.GERALD; // 481 - Fisherman
+const NPC_HADLEY = Npcs.HADLEY; // 472
+const NPC_GOLRIE = Npcs.GOLRIE; // 475 - Dwarf in cave
 
 // Item IDs
-const ITEM_ROPE = 237;
-const ITEM_BOOK_ON_BAXTORIAN = 782; // Verify ID
-const ITEM_LARGE_KEY = 783; // For Golrie's door
-const ITEM_GLARIALS_PEBBLE = 784;
-const ITEM_GLARIALS_AMULET = 785;
-const ITEM_GLARIALS_URN = 786;
-const ITEM_OLD_KEY = 787; // Inside dungeon
-const ITEM_AIR_RUNE = 33;
-const ITEM_WATER_RUNE = 32;
-const ITEM_EARTH_RUNE = 34;
-const ITEM_MITHRIL_SEEDS = 788; // Reward
-const ITEM_GOLD_BAR = 172;
-const ITEM_DIAMOND = 161;
+const ITEM_ROPE = Items.ROPE; // 237
+const ITEM_BOOK_ON_BAXTORIAN = Items.BOOK_ON_BAXTORIAN; // 782
+const ITEM_LARGE_KEY = 783; // Keep hardcoded if not in ids.js
+const ITEM_GLARIALS_PEBBLE = Items.GLARIALS_PEBBLE; // 784
+const ITEM_GLARIALS_AMULET = Items.GLARIALS_AMULET; // 785
+const ITEM_GLARIALS_URN = Items.GLARIALS_URN; // 786
+const ITEM_OLD_KEY = 787;
+const ITEM_AIR_RUNE = Items.AIR_RUNE; // 33
+const ITEM_WATER_RUNE = Items.WATER_RUNE; // 32
+const ITEM_EARTH_RUNE = Items.EARTH_RUNE; // 34
+const ITEM_MITHRIL_SEEDS = 788;
+const ITEM_GOLD_BAR = Items.GOLD_BAR; // 172
+const ITEM_DIAMOND = Items.DIAMOND; // 161
 
 // Object IDs
 const OBJ_RAFT = 464;
-const OBJ_TREE_1 = 462; // Jump/Rope
+const OBJ_TREE_1 = 462;
 const OBJ_TREE_2 = 463;
-const OBJ_ROCK_LEDGE = 482; // "Jump off" or Rope
+const OBJ_ROCK_LEDGE = 482;
 const OBJ_BOOKCASE = 470;
-const OBJ_CRATE_KEY = 481; // Golrie's Key
+const OBJ_CRATE_KEY = 481;
 const OBJ_DOOR_GOLRIE = 480;
 const OBJ_TOMBSTONE_GLARIAL = 479;
 const OBJ_COFFIN_AMULET = 467;
-const OBJ_CUPBOARD_URN = 507; // 506 closed, 507 open
-const OBJ_DOOR_DUNGEON = 135; // Needs Old Key
+const OBJ_CUPBOARD_URN = 507;
+const OBJ_DOOR_DUNGEON = 135;
 const OBJ_CRATE_OLD_KEY = 492;
 const OBJ_CHALICE = 485;
-const OBJ_PILLAR_STAND = 473; // Stand range 473-478
+const OBJ_PILLAR_STAND = 473;
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;

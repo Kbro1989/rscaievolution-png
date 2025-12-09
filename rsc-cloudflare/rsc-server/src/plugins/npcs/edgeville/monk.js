@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Monk
 // https://classic.runescape.wiki/w/Transcript:Abbot_Langley
+const { Npcs } = require('../../../constants/ids');
 
-const ABBOT_LANGLEY_ID = 174;
-const MONK_ID = 93;
+const ABBOT_LANGLEY_ID = Npcs.ABBOT_LANGLEY || 174; // 174
+const MONK_ID = Npcs.MONK_HEALER || 93; // 93
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== ABBOT_LANGLEY_ID && npc.id !== MONK_ID) {

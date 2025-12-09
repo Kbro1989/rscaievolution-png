@@ -1,7 +1,8 @@
+const { Items } = require('../../../constants/ids');
 const items = require('@2003scape/rsc-data/config/items');
 const { stringing } = require('@2003scape/rsc-data/skills/crafting');
 
-const BALL_OF_WOOL_ID = 207;
+const BALL_OF_WOOL_ID = Items.BALL_OF_WOOL || 207; // 207
 const UNSTRUNG_IDS = new Set(Object.keys(stringing).map(Number));
 
 async function onUseWithInventory(player, item, target) {

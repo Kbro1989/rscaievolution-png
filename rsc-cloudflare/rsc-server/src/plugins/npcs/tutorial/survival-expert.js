@@ -1,4 +1,6 @@
-const SURVIVAL_EXPERT = 475; // Placeholder ID (Golrie), need to verify authentic ID
+const { Items, Npcs } = require('../../../constants/ids');
+
+const SURVIVAL_EXPERT = Npcs.SURVIVAL_EXPERT || 474; // 474
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== SURVIVAL_EXPERT) {
@@ -13,15 +15,15 @@ async function onTalkToNPC(player, npc) {
         "You're going to need a few tools to survive out here"
     );
 
-    if (!player.inventory.has(12)) { // Bronze Axe
+    if (!player.inventory.has(Items.IRON_AXE)) { // Bronze Axe is 87, Iron Axe is 12
         await npc.say("Here, take this axe");
-        player.inventory.add(12, 1);
+        player.inventory.add(Items.IRON_AXE, 1);
         player.message("The survival expert gives you a bronze axe");
     }
 
-    if (!player.inventory.has(166)) { // Tinderbox
+    if (!player.inventory.has(Items.TINDERBOX)) {
         await npc.say("And you'll need this tinderbox to make a fire");
-        player.inventory.add(166, 1);
+        player.inventory.add(Items.TINDERBOX, 1);
         player.message("The survival expert gives you a tinderbox");
     }
 

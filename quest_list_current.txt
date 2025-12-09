@@ -1,0 +1,18 @@
+total 88
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 black-knights-fortress
+-rw-rw-rw-  1 codespace root 7061 Dec  8 00:18 cooks-assistant.js
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 demon-slayer
+-rw-rw-rw-  1 codespace root 6118 Dec  8 00:18 dorics-quest.js
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 dragon-slayer
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 ernest-the-chicken
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 goblin-diplomacy
+-rw-rw-rw-  1 codespace root 5803 Dec  8 00:18 imp-catcher.js
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 knights-sword
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 pirates-treasure
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 prince-ali-rescue
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 restless-ghost
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 romeo-and-juliet
+-rw-rw-rw-  1 codespace root 7766 Dec  8 00:18 sheep-shearer.js
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 shield-of-arrav
+drwxrwxrwx+ 2 codespace root 4096 Dec  8 00:18 vampire-slayer
+-rw-rw-rw-  1 codespace root 8083 Dec  8 00:18 witchs-potion.js

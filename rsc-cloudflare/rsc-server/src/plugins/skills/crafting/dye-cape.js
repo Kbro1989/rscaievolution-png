@@ -1,21 +1,23 @@
 // https://classic.runescape.wiki/w/Cape
 
-const BLACK_CAPE_ID = 209;
+const { Items } = require('../../../constants/ids');
+
+const BLACK_CAPE_ID = Items.CAPE_209;
 
 // { dyeID: capeID }
 const DYE_CAPE_IDS = {
     // red
-    238: 183,
+    [Items.REDDYE]: Items.CAPE,
     // orange
-    292: 513,
+    [Items.ORANGEDYE]: 513, // Orange cape - need to verify constant
     // yellow
-    239: 512,
+    [Items.YELLOWDYE]: 512, // Yellow cape - need to verify constant
     // green
-    515: 511,
+    515: 511, // Green dye -> Green cape
     // blue
-    272: 229,
+    [Items.BLUEDYE]: Items.CAPE_229,
     // purple
-    516: 514
+    516: 514 // Purple dye -> Purple cape
 };
 
 const DYE_IDS = new Set(Object.keys(DYE_CAPE_IDS).map(Number));

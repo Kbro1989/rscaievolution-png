@@ -2,14 +2,17 @@
 
 const items = require('@2003scape/rsc-data/config/items');
 const { smithing } = require('@2003scape/rsc-data/skills/smithing');
+const { Items, Objects } = require('../../../constants/ids');
 
-const ANVIL_ID = 50;
-const BRONZE_BAR_ID = 169;
-const BRONZE_WIRE_ID = 979;
-const DORICS_ANVIL_ID = 177;
-const HAMMER_ID = 168;
-const STEEL_BAR_ID = 171;
-const STEEL_NAILS_ID = 419;
+const ANVIL_ID = 50; // Standard Anvil Object ID? Objects.ANVIL is 50 in ids.js? (Usually Anvil is 50)
+// Let's rely on Objects.ANVIL if exists, or keep 50 if it's a "class" of objects.
+// Actually, ids.js generated Objects.
+const BRONZE_BAR_ID = Items.BRONZE_BAR;
+const BRONZE_WIRE_ID = 979; // Items.BRONZE_WIRE (if exists) or 979
+const DORICS_ANVIL_ID = 177; // Objects.DORICS_ANVIL
+const HAMMER_ID = Items.HAMMER;
+const STEEL_BAR_ID = Items.STEEL_BAR;
+const STEEL_NAILS_ID = 419; // Items.NAILS? 419 is Nails. check ids.js: NAILS: 419.
 
 // for when you initially use the bar on the anvil
 // { barID: minimumSmithingLevel }
@@ -184,7 +187,7 @@ async function onUseWithGameObject(player, gameObject, item) {
 
         player.message(
             `You need at least level ${minimumLevel} smithing to work ` +
-                `with ${metalName}`
+            `with ${metalName}`
         );
 
         return true;

@@ -1,7 +1,8 @@
 const items = require('@2003scape/rsc-data/config/items');
 const { battlestaves } = require('@2003scape/rsc-data/skills/crafting');
+const { Items } = require('../../../constants/ids');
 
-const BATTLESTAFF_ID = 614;
+const BATTLESTAFF_ID = Items.BATTLESTAFF;
 
 module.exports = {
     onUseWithInventory: async (player, item1, item2) => {

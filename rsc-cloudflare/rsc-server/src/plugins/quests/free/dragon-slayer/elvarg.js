@@ -1,7 +1,9 @@
 // https://classic.runescape.wiki/w/Dragon_(Dragon_Slayer)
 // firebreathing handled in ./src/plugins/npcs/dragon.js
 
-const ELVARG_ID = 196;
+const { Npcs } = require('../../../../constants/ids');
+
+const ELVARG_ID = Npcs.ELVARG; // 196
 
 async function onNPCDeath(player, npc) {
     if (npc.id !== ELVARG_ID) {

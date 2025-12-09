@@ -3,17 +3,18 @@
 const items = require('@2003scape/rsc-data/config/items');
 const { pottery } = require('@2003scape/rsc-data/skills/crafting');
 const { rollSkillSuccess } = require('../../../rolls');
+const { Items, Objects } = require('../../../constants/ids');
 
 // { fullID: emptyID }
 const WATER_IDS = {
-    141: 140,
-    50: 21
+    [Items.WATER_141]: Items.BUCKET,
+    [Items.WATER]: Items.BUCKET
 };
 
-const CLAY_ID = 149;
-const POTTERY_OVEN_ID = 178;
-const POTTERY_WHEEL_ID = 179;
-const SOFT_CLAY_ID = 243;
+const CLAY_ID = Items.CLAY; // 149
+const POTTERY_OVEN_ID = Objects.POTTERY_OVEN; // 178
+const POTTERY_WHEEL_ID = Objects.POTTER_S_WHEEL; // 179
+const SOFT_CLAY_ID = Items.SOFT_CLAY; // 243
 
 // { unfiredID: { id, experience, roll, alias } }
 const FIRED_POTTERY = {};
@@ -77,7 +78,7 @@ async function doMoulding(player) {
     if (craftingLevel < level) {
         player.message(
             `@que@You need to have a crafting level of ${level} or higher to ` +
-                `make ${alias}`
+            `make ${alias}`
         );
 
         return;
@@ -112,7 +113,7 @@ async function doFiring(player, item) {
     if (craftingLevel < level) {
         player.message(
             `@que@You need to have a crafting level of ${level} or higher to ` +
-                `make ${alias}`
+            `make ${alias}`
         );
 
         return;

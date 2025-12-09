@@ -1,8 +1,11 @@
+const { Items, Npcs } = require('../../../constants/ids');
+
 module.exports = (router) => {
     // Jonny the Beard (ID 25)
     // Drops "Intel Report" (need ID) for Shield of Arrav.
 
-    const JONNY_THE_BEARD_ID = 25;
+    const JONNY_THE_BEARD_ID = Npcs.JONNY_THE_BEARD || 25; // 25
+    const BEER_ID = Items.BEER || 193; // 193
 
     router.on('talk', JONNY_THE_BEARD_ID, (player, npc) => {
         player.message('You speak to the bearded man.');
@@ -14,8 +17,8 @@ module.exports = (router) => {
         player.options('Ok, I\'ll buy you a beer', 'No, I don\'t think I will', (option) => {
             if (option === 0) {
                 player.message('Ok, I\'ll buy you a beer');
-                if (player.inventory.contains(193)) { // Beer
-                    player.inventory.remove(193, 1);
+                if (player.inventory.contains(BEER_ID)) { // Beer
+                    player.inventory.remove(BEER_ID, 1);
                     player.message('You give a beer to the man');
                     npc.message('Thanks mate');
                     player.message('The man downs the beer in one go');

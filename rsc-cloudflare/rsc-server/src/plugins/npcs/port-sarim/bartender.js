@@ -1,4 +1,5 @@
 // https://classic.runescape.wiki/w/Transcript:Bartender#Bartender_(The_Rusty_Anchor)
+const { Items, Npcs } = require('../../../constants/ids');
 
 const {
     shouldHandleBar,
@@ -9,8 +10,9 @@ const {
     initiateQuest
 } = require('../../quests/free/goblin-diplomacy/bartender');
 
-const BARTENDER_ID = 150;
-const BEER_ID = 193;
+const BARTENDER_ID = Npcs.BARTENDER_RUSTY_ANCHOR || 150; // 150
+const BEER_ID = Items.BEER || 193; // 193
+const COINS_ID = Items.COINS || 10; // 10
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== BARTENDER_ID) {
@@ -38,9 +40,9 @@ async function onTalkToNPC(player, npc) {
         await player.say('Could i buy a beer please?');
         await npc.say('Sure that will be 2 gold coins please');
 
-        if (player.inventory.has(10, 2)) {
+        if (player.inventory.has(COINS_ID, 2)) {
             await player.say('Ok here you go thanks');
-            player.inventory.remove(10, 2);
+            player.inventory.remove(COINS_ID, 2);
             player.inventory.add(BEER_ID);
             player.message('you buy a pint of beer');
         } else {

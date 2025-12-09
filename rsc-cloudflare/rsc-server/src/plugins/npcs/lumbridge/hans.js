@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Hans
+const { Npcs } = require('../../../constants/ids');
 
-const HANS_ID = 5;
+const HANS_ID = Npcs.HANS || 5; // 5
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== HANS_ID) {

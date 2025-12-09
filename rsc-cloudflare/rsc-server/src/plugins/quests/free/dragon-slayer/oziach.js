@@ -1,7 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Oziach
 
-const MAZE_KEY_ID = 421;
-const OZIACH_ID = 187;
+const { Items, Npcs } = require('../../../../constants/ids');
+
+const MAZE_KEY_ID = Items.MAZE_KEY; // 421
+const OZIACH_ID = Npcs.OZIACH; // 187
 
 async function getEverything(npc) {
     await npc.say('Fare ye well');
@@ -120,7 +122,7 @@ async function whereIsDragon(player, npc) {
         'But it was torn up into three pieces',
         'Which are now scattered across Asgarnia',
         "You'll also struggle to find someone bold enough to take a ship to " +
-            'Crandor Island'
+        'Crandor Island'
     );
 
     const choice = await player.ask(
@@ -211,7 +213,7 @@ async function proveToMe(player, npc) {
     await npc.say(
         'This is armour fit for a hero to be sure',
         "So you'll need to prove to me that you're a hero before you can buy " +
-            'some'
+        'some'
     );
 
     const choice = await player.ask(
@@ -230,7 +232,7 @@ async function proveToMe(player, npc) {
                 'A dragon, that sounds like fun',
                 'And will i need anything to defeat this dragon',
                 "I may be a champion, but I don't think I'm up to dragon " +
-                    'killing yet'
+                'killing yet'
             ],
             false
         );
@@ -251,7 +253,7 @@ async function proveToMe(player, npc) {
             case 2: // not up to it
                 await player.say(
                     "I may be a champion, but I don't think I'm up to dragon " +
-                        'killing yet'
+                    'killing yet'
                 );
 
                 await npc.say('Yes I can understand that');
@@ -303,9 +305,9 @@ async function onTalkToNPC(player, npc) {
                             "Well if you're worthy of his advise",
                             'You must have something going for you',
                             "He has been known to let some weeklin's into " +
-                                'his guild though',
+                            'his guild though',
                             "I don't want just any old pumpkinmush to have " +
-                                'this armour',
+                            'this armour',
                             'jus cos they have a large amount of cash'
                         );
 
@@ -321,7 +323,7 @@ async function onTalkToNPC(player, npc) {
             case 1: // not your friend
                 await npc.say(
                     "I'd be surprised if your anyone's friend with that sort " +
-                        'of manners'
+                    'of manners'
                 );
                 break;
             case 2: // nice day

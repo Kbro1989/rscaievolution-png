@@ -1,16 +1,18 @@
 // https://classic.runescape.wiki/w/Doric%27s_quest
 // https://classic.runescape.wiki/w/Transcript:Doric
 
-const DORIC_ANVIL_ID = 177;
-const DORIC_ID = 144;
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
+const DORIC_ANVIL_ID = Objects.DORIC_S_ANVIL; // 177
+const DORIC_ID = Npcs.DORIC; // 144
 
 const ORES = [
     // clay
-    { id: 149, amount: 6 },
+    { id: Items.CLAY, amount: 6 },
     // copper
-    { id: 150, amount: 4 },
+    { id: Items.COPPER_ORE, amount: 4 },
     // iron
-    { id: 151, amount: 2 }
+    { id: Items.IRON_ORE, amount: 2 }
 ];
 
 async function onTalkToNPC(player, npc) {
@@ -42,7 +44,7 @@ async function onTalkToNPC(player, npc) {
                     'My anvils get enough work with my own use',
                     'I make amulets, it takes a lot of work.',
                     'If you could get me some more materials I could let you ' +
-                        'use them'
+                    'use them'
                 );
 
                 const choice = await player.ask(
@@ -59,9 +61,9 @@ async function onTalkToNPC(player, npc) {
 
                         await npc.say(
                             'Well, clay is what I use more than anything. I ' +
-                                'make casts',
+                            'make casts',
                             'Could you get me 6 clay, and 4 copper ore and 2 ' +
-                                'iron ore please?',
+                            'iron ore please?',
                             'I could pay a little, and let you use my anvils'
                         );
 
@@ -87,14 +89,14 @@ async function onTalkToNPC(player, npc) {
                 await npc.say(
                     'How nice to meet someone with such pleasant manners',
                     'Do come again when you need to shout at someone smaller ' +
-                        'than you'
+                    'than you'
                 );
                 break;
             case 2: // landscape
                 await npc.say(
                     'We have a fine town here, it suits us very well',
                     'Please enjoy your travels. And do visit my friends in ' +
-                        'their mine'
+                    'their mine'
                 );
                 break;
             case 3: // what do you make

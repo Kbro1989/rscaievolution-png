@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Aubury
+const { Npcs } = require('../../../constants/ids');
 
-const AUBRY_ID = 54;
+const AUBRY_ID = Npcs.AUBURY || 54; // 54
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== AUBRY_ID) {

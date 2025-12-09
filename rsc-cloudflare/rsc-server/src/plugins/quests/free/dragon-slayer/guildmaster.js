@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Guildmaster
+const { Npcs } = require('../../../../constants/ids');
 
-const GUILDMASTER_ID = 111;
+const GUILDMASTER_ID = Npcs.GUILDMASTER; // 111
 
 async function whatIsThisPlace(npc) {
     await npc.say(
@@ -42,7 +43,7 @@ async function onTalkToNPC(player, npc) {
                     'I have a friend called Oziach who lives by the cliffs',
                     'He has a supply of rune plate mail',
                     "He may sell you some if you're lucky, he can be a " +
-                        'little strange though'
+                    'little strange though'
                 );
 
                 if (!questStage || questStage < 1) {

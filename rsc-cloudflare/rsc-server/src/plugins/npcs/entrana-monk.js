@@ -1,16 +1,19 @@
-const NpcId = {
-    MONK_OF_ENTRANA_PORTSARIM: 212,
-    MONK_OF_ENTRANA_ENTRANA: 213
-};
+const { Npcs, Objects } = require('../../constants/ids');
 
-const ObjectIds = {
-    SHIP_ENTRANA_1: 238,
-    SHIP_ENTRANA_2: 239,
-    SHIP_ENTRANA_3: 240,
-    SHIP_PORTSARIM_1: 241,
-    SHIP_PORTSARIM_2: 242,
-    SHIP_PORTSARIM_3: 243
-};
+const MONK_OF_ENTRANA_PORTSARIM_ID = Npcs.MONK_OF_ENTRANA || 212; // 212
+const MONK_OF_ENTRANA_ENTRANA_ID = Npcs.MONK_OF_ENTRANA_213 || 213; // 213
+
+const SHIP_ENTRANA_IDS = new Set([
+    Objects.SHIP_GANGPLANK_238 || 238,
+    Objects.SHIP_GANGPLANK_239 || 239,
+    Objects.SHIP_GANGPLANK_240 || 240
+]);
+
+const SHIP_PORTSARIM_IDS = new Set([
+    Objects.SHIP_GANGPLANK_241 || 241,
+    Objects.SHIP_GANGPLANK_242 || 242,
+    Objects.SHIP_GANGPLANK_243 || 243
+]);
 
 // Basic list of prohibited items (Weapons & Armor)
 // This is a simplified list. A full implementation would check item definitions.
@@ -65,7 +68,7 @@ function isProhibited(item) {
 }
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id === NpcId.MONK_OF_ENTRANA_PORTSARIM) {
+    if (npc.id === MONK_OF_ENTRANA_PORTSARIM_ID) {
         player.engage(npc);
         await npc.say("Are you looking to take passage to our holy island?", "If so your weapons and armour must be left behind");
 
@@ -86,7 +89,7 @@ async function onTalkToNPC(player, npc) {
         }
         player.disengage();
         return true;
-    } else if (npc.id === NpcId.MONK_OF_ENTRANA_ENTRANA) {
+    } else if (npc.id === MONK_OF_ENTRANA_ENTRANA_ID) {
         player.engage(npc);
         await npc.say("Are you looking to take passage back to port sarim?");
 
@@ -106,7 +109,7 @@ async function onTalkToNPC(player, npc) {
 
 async function onWallObjectCommandOne(player, object) {
     // Port Sarim -> Entrana
-    if (object.id === ObjectIds.SHIP_ENTRANA_1 || object.id === ObjectIds.SHIP_ENTRANA_2 || object.id === ObjectIds.SHIP_ENTRANA_3) {
+    if (SHIP_ENTRANA_IDS.has(object.id)) {
         if (player.y >= 600 && player.y <= 700) { // Port Sarim check
             player.message("I need to speak to the monk before boarding the ship.");
             return true;
@@ -114,7 +117,7 @@ async function onWallObjectCommandOne(player, object) {
     }
 
     // Entrana -> Port Sarim
-    if (object.id === ObjectIds.SHIP_PORTSARIM_1 || object.id === ObjectIds.SHIP_PORTSARIM_2 || object.id === ObjectIds.SHIP_PORTSARIM_3) {
+    if (SHIP_PORTSARIM_IDS.has(object.id)) {
         if (player.x >= 400 && player.x <= 450) { // Entrana check
             player.message("I need to speak to the monk before boarding the ship.");
             return true;

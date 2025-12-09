@@ -20,7 +20,7 @@ async function heal(player, amount) {
     }
 }
 
-async function onInventoryCommand(player, item) {
+async function onEat(player, item) {
     if (!/eat/i.test(item.definition.command)) {
         return false;
     }
@@ -66,4 +66,4 @@ async function onInventoryCommand(player, item) {
     return false;
 }
 
-module.exports = { onInventoryCommand };
+module.exports = { onEat };

@@ -6,11 +6,11 @@ const REQ_QUEST = "Merlin's Crystal";
 
 // NPCs
 // NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_KING_ARTHUR = 275;
+const NPC_KING_ARTHUR = 273;
 const NPC_MERLIN = 393;          // Unverified (Estimated)
 const NPC_BLACK_KNIGHT_TITAN = 401; // "Black Knight titan" (was 370)
 const NPC_FISHERMAN = 414;       // "Fisherman" (was 372)
-const NPC_FISHER_KING = 412;     // "Fisher king" (was 373)
+const NPC_FISHER_KING = 27;     // "Fisher king" (was 373)
 const NPC_SIR_PERCIVAL = 411;    // "Sir Percival" (was 374)
 const NPC_KING_PERCIVAL = 415;   // "King Percival" (was 375)
 
@@ -19,7 +19,7 @@ const ITEM_EXCALIBUR = 606;      // "Excalibur" (was 400 = Rune Chain!)
 const ITEM_MAGIC_WHISTLE = 738;  // "magic whistle" (was 725 = Staff of Armadyl!)
 const ITEM_BELL = 743;           // "bell" (was 726 = Pendant of Armadyl!)
 const ITEM_MAGIC_FEATHER = 745;  // "magic golden feather" (was 727 = Large cog!)
-const ITEM_HOLY_GRAIL = 746;     // "Holy grail" (was 728 = Large cog!)
+const ITEM_HOLY_GRAIL = 746;     // "Holy grail" (was 727 = Large cog!)
 const ITEM_BIG_BONES = 413;
 
 function getQuestStage(player) {

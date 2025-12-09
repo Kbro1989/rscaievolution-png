@@ -1,10 +1,12 @@
-const COMBAT_INSTRUCTOR = 474;
-const RAT_TUTORIAL = 473;
-const WOODEN_SHIELD = 4;
-const BRONZE_LONG_SWORD = 70;
+const { Items, Npcs } = require('../../../constants/ids');
+
+const COMBAT_INSTRUCTOR_ID = Npcs.COMBAT_INSTRUCTOR || 474; // 474
+const RAT_TUTORIAL_ID = Npcs.RAT_473 || 473; // 473
+const WOODEN_SHIELD_ID = Items.WOODEN_SHIELD || 4; // 4
+const BRONZE_LONG_SWORD_ID = Items.BRONZE_LONG_SWORD || 70; // 70
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== COMBAT_INSTRUCTOR) {
+    if (npc.id !== COMBAT_INSTRUCTOR_ID) {
         return false;
     }
 
@@ -13,15 +15,15 @@ async function onTalkToNPC(player, npc) {
     const tutorialStage = player.cache.tutorial || 0;
 
     if (tutorialStage === 15) {
-        if (!player.inventory.has(WOODEN_SHIELD) && !player.inventory.has(BRONZE_LONG_SWORD)) {
+        if (!player.inventory.has(WOODEN_SHIELD_ID) && !player.inventory.has(BRONZE_LONG_SWORD_ID)) {
             await player.say("Aha a new recruit");
             await npc.say(
                 "I'm here to teach you the basics of fighting",
                 "First of all you need weapons"
             );
 
-            player.inventory.add(WOODEN_SHIELD);
-            player.inventory.add(BRONZE_LONG_SWORD);
+            player.inventory.add(WOODEN_SHIELD_ID);
+            player.inventory.add(BRONZE_LONG_SWORD_ID);
             player.message("The instructor gives you a sword and shield");
             await player.world.sleepTicks(3);
 
@@ -37,14 +39,14 @@ async function onTalkToNPC(player, npc) {
             player.cache.tutorial = 16;
         }
     } else if (tutorialStage === 16) {
-        const hasShieldEquipped = player.inventory.isWearing(WOODEN_SHIELD);
-        const hasSwordEquipped = player.inventory.isWearing(BRONZE_LONG_SWORD);
+        const hasShieldEquipped = player.inventory.isWearing(WOODEN_SHIELD_ID);
+        const hasSwordEquipped = player.inventory.isWearing(BRONZE_LONG_SWORD_ID);
 
         if (hasShieldEquipped && hasSwordEquipped) {
             await npc.say("Today we're going to be killing giant rats");
 
             // Check for nearby rats
-            // const nearbyRat = player.world.npcs.find(n => n.id === RAT_TUTORIAL && n.withinRange(player, 10));
+            // const nearbyRat = player.world.npcs.find(n => n.id === RAT_TUTORIAL_ID && n.withinRange(player, 10));
             // For now, assume rats are there or spawn one logic (simplified)
 
             await npc.say(

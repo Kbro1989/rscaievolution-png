@@ -24,22 +24,32 @@ const zeneshaShop = {
     // NOTE: Current system uses IDs in shop definitions mostly.
 };
 
-module.exports = {
-    npcIds: [555], // Zenesha ID (Verify!)
+const { Npcs } = require('../../../../constants/ids');
+const ZENESHA_ID = Npcs.ZENESHA || 555; // 555
 
-    async onTalk(player, npc) {
-        npc.chat("hello I sell plate mail tops");
-        const option = await player.ask([
-            "I'm not interested",
-            "I may be interested"
-        ]);
-
-        if (option === 0) {
-            player.chat("I'm not interested");
-        } else if (option === 1) {
-            player.chat("I may be interested");
-            npc.chat("Look at these fine samples then");
-            player.openShop(zeneshaShop);
-        }
+async function onTalkToNPC(player, npc) {
+    if (npc.id !== ZENESHA_ID) {
+        return false;
     }
-};
+
+    player.engage(npc);
+
+    await npc.say("hello I sell plate mail tops");
+    const option = await player.ask([
+        "I'm not interested",
+        "I may be interested"
+    ], true);
+
+    if (option === 0) {
+        await player.say("I'm not interested");
+    } else if (option === 1) {
+        await player.say("I may be interested");
+        await npc.say("Look at these fine samples then");
+        player.openShop(zeneshaShop);
+    }
+
+    player.disengage();
+    return true;
+}
+
+module.exports = { onTalkToNPC };

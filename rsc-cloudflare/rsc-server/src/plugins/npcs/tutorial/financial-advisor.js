@@ -1,7 +1,9 @@
-const FINANCIAL_ADVISOR = 476;
+const { Npcs } = require('../../../constants/ids');
+
+const FINANCIAL_ADVISOR_ID = Npcs.FINANCIAL_ADVISOR || 480; // 480
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== FINANCIAL_ADVISOR) {
+    if (npc.id !== FINANCIAL_ADVISOR_ID) {
         return false;
     }
 

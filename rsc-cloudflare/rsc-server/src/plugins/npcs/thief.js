@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Thief
+const { Npcs } = require('../../constants/ids');
 
-const THIEF_ID = 64;
+const THIEF_ID = Npcs.THIEF || 64; // 64
 
 const {
     killingCitizens,

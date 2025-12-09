@@ -1,6 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Luthas
+const { Items, Npcs } = require('../../../constants/ids');
 
-const LUTHAS_ID = 164;
+const LUTHAS_ID = Npcs.LUTHAS || 164; // 164
+const COINS_ID = Items.COINS || 10; // 10
 
 async function annoyingOfficer(npc) {
     await npc.say(
@@ -34,7 +36,7 @@ async function onTalkToNPC(player, npc) {
                 await npc.say(
                     'Yes, I can sort something out',
                     "Yes there's a crate outside ready for loading up on the " +
-                        'ship',
+                    'ship',
                     'If you could fill it up with bananas',
                     "I'll pay you 30 gold"
                 );
@@ -69,7 +71,7 @@ async function onTalkToNPC(player, npc) {
         await player.say("I've filled a crate with bananas");
         await npc.say('Well done here is your payment');
 
-        player.inventory.add(10, 30);
+        player.inventory.add(COINS_ID, 30);
         player.message('Luthas hands you 30 coins');
 
         delete player.cache.crateBananas;
@@ -93,7 +95,7 @@ async function onTalkToNPC(player, npc) {
                 await npc.say(
                     'Yes certainly',
                     'If you go outside you should see the old crate has ' +
-                        'been loaded on to the ship',
+                    'been loaded on to the ship',
                     "and there is another empty crate in it's place"
                 );
 
@@ -102,7 +104,7 @@ async function onTalkToNPC(player, npc) {
             case 2: // delivered to where
                 await npc.say(
                     'I sell them to Wydin who runs a grocery store in Port ' +
-                        'Sarim'
+                    'Sarim'
                 );
                 break;
             case 3: // annoying officer

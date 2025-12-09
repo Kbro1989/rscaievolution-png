@@ -1,9 +1,10 @@
 // https://classic.runescape.wiki/w/Drain
+const { Items, Objects } = require('../../../../constants/ids');
 
-const BUCKET_ID = 21;
-const DRAIN_ID = 77;
-const DRAIN_KEY_ID = 51;
-const WATER_ID = 50;
+const BUCKET_ID = Items.BUCKET; // 21
+const DRAIN_ID = Objects.DRAIN || 77; // 77
+const DRAIN_KEY_ID = Items.DRAIN_KEY || 51; // 51
+const WATER_ID = Items.BUCKET_OF_WATER || 50; // 50
 
 const DRAIN_MESSAGES = [
     'This is the drainpipe',

@@ -1,8 +1,10 @@
 // https://classic.runescape.wiki/w/Transcript:Dr_Harlow
 
-const BEER_ID = 193;
-const DR_HARLOW_ID = 98;
-const STAKE_ID = 217;
+const { Items, Npcs } = require('../../../../constants/ids');
+
+const BEER_ID = Items.BEER; // 193
+const DR_HARLOW_ID = Npcs.DR_HARLOW; // 98
+const STAKE_ID = Items.STAKE; // 217
 
 async function giveBeer(player, npc) {
     if (player.inventory.has(BEER_ID)) {

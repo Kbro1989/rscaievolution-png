@@ -2,8 +2,8 @@ const QUEST_NAME = 'Dwarf Cannon';
 const QUEST_POINTS = 1;
 
 // NPC IDs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_CAPTAIN_LAWGOF = 693;
-const NPC_DWARF_COMMANDER = 693; // Alias for Lawgof
+const NPC_CAPTAIN_LAWGOF = 291;
+const NPC_DWARF_COMMANDER = 291; // Alias for Lawgof
 const NPC_GILOB_GUARD = 694; // TODO: Verify - Gilob is missing, find remains.
 const NPC_LOLLK = 695;
 const NPC_NULODION = 698;
@@ -32,7 +32,7 @@ const OBJ_RAILING_6 = 186;
 const OBJ_BROKEN_RAILING_SEARCH = 193; // "You search the railing but find nothing"
 
 const OBJ_CRATE_LOLLK = 987;
-const OBJ_CANNON_BROKEN = 994;
+const OBJ_CANNON_BROKEN = 991;
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;

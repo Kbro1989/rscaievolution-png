@@ -1,7 +1,9 @@
-const COMMUNITY_INSTRUCTOR = 496;
+const { Npcs } = require('../../../constants/ids');
+
+const COMMUNITY_INSTRUCTOR_ID = Npcs.COMMUNITY_INSTRUCTOR || 496; // 496
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== COMMUNITY_INSTRUCTOR) {
+    if (npc.id !== COMMUNITY_INSTRUCTOR_ID) {
         return false;
     }
 

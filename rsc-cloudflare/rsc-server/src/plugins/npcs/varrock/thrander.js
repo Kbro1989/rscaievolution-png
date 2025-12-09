@@ -1,40 +1,41 @@
 // https://classic.runescape.wiki/w/Thrander
 // https://classic.runescape.wiki/w/Transcript:Thrander
 
+const { Items, Npcs } = require('../../../constants/ids');
 const Item = require('../../../model/item');
 
-const THRANDER_ID = 160;
+const THRANDER_ID = Npcs.THRANDER || 160;
 
 // { fromItemID: toItemID }
 const CONVERSION_IDS = {
     // bronze plate mail -> plate top
-    117: 308,
+    [Items.BRONZE_PLATE_MAIL_BODY || 117]: Items.BRONZE_PLATE_MAIL_TOP || 308,
     // iron plate mail -> plate top
-    8: 312,
+    [Items.IRON_PLATE_MAIL_BODY || 8]: Items.IRON_PLATE_MAIL_TOP || 312,
     // steel plate mail -> plate top
-    118: 309,
+    [Items.STEEL_PLATE_MAIL_BODY || 118]: Items.STEEL_PLATE_MAIL_TOP || 309,
     // black plate mail -> plate top
-    196: 313,
+    [Items.BLACK_PLATE_MAIL_BODY || 196]: Items.BLACK_PLATE_MAIL_TOP || 313,
     // mithril plate mail -> plate top
-    119: 310,
+    [Items.MITHRIL_PLATE_MAIL_BODY || 119]: Items.MITHRIL_PLATE_MAIL_TOP || 310,
     // adamantite plate mail -> plate top
-    120: 311,
+    [Items.ADAMANTITE_PLATE_MAIL_BODY || 120]: Items.ADAMANTITE_PLATE_MAIL_TOP || 311,
     // rune plate mail -> plate top
-    401: 407,
+    [Items.RUNE_PLATE_MAIL_BODY || 401]: Items.RUNE_PLATE_MAIL_TOP || 407,
     // bronze plate legs -> skirt
-    206: 214,
+    [Items.BRONZE_PLATE_LEGS || 206]: Items.BRONZE_PLATE_SKIRT || 214,
     // iron plate legs -> skirt
-    9: 215,
+    [Items.IRON_PLATE_LEGS || 9]: Items.IRON_PLATE_SKIRT || 215,
     // steel plate legs -> skirt
-    121: 225,
+    [Items.STEEL_PLATE_LEGS || 121]: Items.STEEL_PLATE_SKIRT || 225,
     // black plate legs -> skirt
-    248: 434,
+    [Items.BLACK_PLATE_LEGS || 248]: Items.BLACK_PLATE_SKIRT || 434,
     // mithril plate legs -> skirt
-    122: 226,
+    [Items.MITHRIL_PLATE_LEGS || 122]: Items.MITHRIL_PLATE_SKIRT || 226,
     // adamantite plate legs -> skirt
-    123: 227,
+    [Items.ADAMANTITE_PLATE_LEGS || 123]: Items.ADAMANTITE_PLATE_SKIRT || 227,
     // rune plate legs -> skirt
-    402: 406
+    [Items.RUNE_PLATE_LEGS || 402]: Items.RUNE_PLATE_SKIRT || 406
 };
 
 for (const [from, to] of Object.entries(CONVERSION_IDS)) {

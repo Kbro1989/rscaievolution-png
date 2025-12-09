@@ -1,10 +1,22 @@
 // Generic Shop Keeper / Assistant Plugin
 // Handles generic IDs (Shop Keeper, Shop Assistant) by opening the shop appropriate for the player's location.
 
-const SHOP_KEEPER = 528;
-const SHOP_ASSISTANT_IDS = [82, 83, 88, 101, 106, 115, 130, 131, 146, 169, 173, 186, 223, 250, 435, 528]; // Broad list to catch all variants if needed, or just specific generic ones.
-// Precise Generic IDs: 
-const GENERIC_IDS = [528, 82, 83, 88, 106, 130, 146, 169, 186];
+const { Npcs } = require('../../../constants/ids');
+
+const SHOP_KEEPER_ID = Npcs.SHOPKEEPER || 528; // 528 generic
+
+// Broad list to catch all variants if needed, or just specific generic ones.
+const GENERIC_IDS = [
+    Npcs.SHOPKEEPER || 528,
+    Npcs.BOB || 82, // Bob (Lumbridge axes) - might be handled by bob.js
+    Npcs.SHOPKEEPER_ASSISTANT_LUMBRIDGE_GENERAL || 83,
+    Npcs.SHOPKEEPER_ASSISTANT_VARROCK_SWORD || 88,
+    Npcs.SHOPKEEPER_ASSISTANT_FALADOR_GENERAL || 106,
+    Npcs.SHOPKEEPER_ASSISTANT_VARROCK_GENERAL || 130, // Verify?
+    Npcs.SHOPKEEPER_ASSISTANT_AL_KHARID_GENERAL || 146,
+    Npcs.SHOPKEEPER_ASSISTANT_KARAMJA_GENERAL || 169,
+    Npcs.SHOPKEEPER_ASSISTANT_EDGEVILLE_GENERAL || 186
+];
 
 async function onTalkToNPC(player, npc) {
     if (!GENERIC_IDS.includes(npc.id)) return false;

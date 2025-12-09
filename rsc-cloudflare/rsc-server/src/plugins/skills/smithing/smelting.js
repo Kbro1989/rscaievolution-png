@@ -2,21 +2,22 @@
 
 const items = require('@2003scape/rsc-data/config/items');
 const { smelting } = require('@2003scape/rsc-data/skills/smithing');
+const { Items, Objects } = require('../../../constants/ids');
 
-const BRONZE_BAR_ID = 169;
-const COAL_ID = 155;
-const FURNACE_ID = 118;
-const GOLD_BAR_ID = 172;
-const IRON_BAR_ID = 170;
-const IRON_ORE = 151;
-const SILVER_BAR_ID = 384;
-const STEEL_BAR_ID = 171;
-const CANNONBALL_ID = 1041;
-const AMMO_MOULD_ID = 1026;
-const RING_OF_FORGING_ID = 1205; // Check authentic ID. rsc-data should have it. 
-const GAUNTLETS_OF_GOLDSMITHING_ID = 1008; // Family Crest gauntlets (gold)
-const CANNONBALL_XP = 25.6; // 25.6 * 4 approx? OpenRSC says 50, so maybe 12.5? Wiki says 25.6. OpenRSC is... weird with XP. Let's trust Wiki or use standard.
-const IRON_FAIL_CHANCE = 0.5; // 50%
+const BRONZE_BAR_ID = Items.BRONZE_BAR;
+const COAL_ID = Items.COAL;
+const FURNACE_ID = 118; // Objects.FURNACE (Usually 118)
+const GOLD_BAR_ID = Items.GOLD_BAR;
+const IRON_BAR_ID = Items.IRON_BAR;
+const IRON_ORE = Items.IRON_ORE;
+const SILVER_BAR_ID = Items.SILVER_BAR;
+const STEEL_BAR_ID = Items.STEEL_BAR;
+const CANNONBALL_ID = 1041; // Items.CANNONBALL? (Check ids.js if exists, otherwise raw)
+const AMMO_MOULD_ID = 1026; // Items.AMMO_MOULD?
+const RING_OF_FORGING_ID = 1205; // Items.RING_OF_FORGING?
+const GAUNTLETS_OF_GOLDSMITHING_ID = Items.GAUNTLETS_OF_GOLDSMITHING;
+const CANNONBALL_XP = 25.6;
+const IRON_FAIL_CHANCE = 0.5;
 
 
 const ORE_IDS = new Set();

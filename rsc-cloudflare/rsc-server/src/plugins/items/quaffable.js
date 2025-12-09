@@ -304,6 +304,35 @@ const DRINK_EFFECTS = {
         player.message('@que@You have finished your potion');
     },
 
+    // Super Strength Potion (3/2/1 dose) - Boosts strength by 15% + 5 (RSC IDs: 492/493/494)
+    492: async (player, item) => {
+        player.sendBubble(item.id);
+        const boost = Math.floor(player.skills.strength.base * 0.15) + 5;
+        player.skills.strength.current = player.skills.strength.base + boost;
+        player.sendStats();
+        player.inventory.add(493);
+        player.message('@que@You drink some of your super strength potion');
+        player.message('@que@You have 2 doses of potion left');
+    },
+    493: async (player, item) => {
+        player.sendBubble(item.id);
+        const boost = Math.floor(player.skills.strength.base * 0.15) + 5;
+        player.skills.strength.current = player.skills.strength.base + boost;
+        player.sendStats();
+        player.inventory.add(494);
+        player.message('@que@You drink some of your super strength potion');
+        player.message('@que@You have 1 dose of potion left');
+    },
+    494: async (player, item) => {
+        player.sendBubble(item.id);
+        const boost = Math.floor(player.skills.strength.base * 0.15) + 5;
+        player.skills.strength.current = player.skills.strength.base + boost;
+        player.sendStats();
+        player.inventory.add(465);
+        player.message('@que@You drink some of your super strength potion');
+        player.message('@que@You have finished your potion');
+    },
+
     // Attack Potion (3/2/1 dose) - Boosts attack by 10% + 3 (RSC IDs: 474/475/476)
     474: async (player, item) => {
         player.sendBubble(item.id);
@@ -569,7 +598,7 @@ const DRINK_EFFECTS = {
     }
 };
 
-async function onInventoryCommand(player, item) {
+async function onDrink(player, item) {
     if (!DRINK_EFFECTS.hasOwnProperty(item.id)) {
         return false;
     }
@@ -580,4 +609,4 @@ async function onInventoryCommand(player, item) {
     return true;
 }
 
-module.exports = { onInventoryCommand };
+module.exports = { onDrink };

@@ -1,6 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Kaqemeex
 
-const KAQEMEEX_ID = 219; // Need to verify ID, assuming 219 for now based on list order or lookup
+const { Npcs } = require('../../../constants/ids');
+
+const KAQEMEEX_ID = Npcs.KAQEMEEX || 219; // 219
 
 async function onTalkToNPC(player, npc) {
     // Only handle Kaqemeex

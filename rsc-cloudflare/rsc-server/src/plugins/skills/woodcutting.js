@@ -3,8 +3,9 @@
 const items = require('@2003scape/rsc-data/config/items');
 const { axes, trees } = require('@2003scape/rsc-data/skills/woodcutting');
 const { rollSkillSuccess } = require('../../rolls');
+const { Objects } = require('../../constants/ids');
 
-const NORMAL_TREES = new Set([0, 1, 70]);
+const NORMAL_TREES = new Set([Objects.TREE, Objects.TREE_1, Objects.TREE_70]);
 const TREE_IDS = new Set(Object.keys(trees).map(Number));
 
 // in order of best to worst

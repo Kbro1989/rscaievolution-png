@@ -1,11 +1,12 @@
 // https://classic.runescape.wiki/w/Transcript:General_Bentnoze
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const ARMOUR_ID = 273;
-const BENTNOZE_ID = 152;
-const BLUE_ARMOUR_ID = 275;
-const GOLD_BAR_ID = 172;
-const ORANGE_ARMOUR_ID = 274;
-const WARTFACE_ID = 151;
+const ARMOUR_ID = Items.GOBLIN_ARMOUR || 273; // 273
+const BENTNOZE_ID = Npcs.GENERAL_BENTNOZE; // 152
+const BLUE_ARMOUR_ID = Items.GOBLIN_ARMOUR || 273; // 273
+const GOLD_BAR_ID = Items.GOLD_BAR; // 172
+const ORANGE_ARMOUR_ID = Items.GOBLIN_ARMOUR || 273; // 273
+const WARTFACE_ID = Npcs.GENERAL_WARTFACE; // 151
 
 function switchGoblins(player, wartface, bentnoze) {
     if (wartface.locked) {

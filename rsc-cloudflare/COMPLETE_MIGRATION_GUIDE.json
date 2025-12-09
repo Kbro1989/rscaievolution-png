@@ -1,0 +1,463 @@
+{
+  "generatedAt": "2025-12-08T04:45:23.726Z",
+  "description": "Complete guide for updating quest files after ID consolidation",
+  "itemReplacements": {
+    "54": {
+      "oldId": 54,
+      "newId": 53,
+      "oldName": "Broken shield",
+      "newName": "Broken shield"
+    },
+    "194": {
+      "oldId": 194,
+      "newId": 187,
+      "oldName": "skirt",
+      "newName": "skirt"
+    },
+    "195": {
+      "oldId": 195,
+      "newId": 187,
+      "oldName": "skirt",
+      "newName": "skirt"
+    },
+    "199": {
+      "oldId": 199,
+      "newId": 185,
+      "oldName": "wizardshat",
+      "newName": "wizardshat"
+    },
+    "228": {
+      "oldId": 228,
+      "newId": 18,
+      "oldName": "Cabbage",
+      "newName": "Cabbage"
+    },
+    "274": {
+      "oldId": 274,
+      "newId": 273,
+      "oldName": "Goblin Armour",
+      "newName": "Goblin Armour"
+    },
+    "275": {
+      "oldId": 275,
+      "newId": 273,
+      "oldName": "Goblin Armour",
+      "newName": "Goblin Armour"
+    },
+    "360": {
+      "oldId": 360,
+      "newId": 353,
+      "oldName": "Burnt fish",
+      "newName": "Burnt fish"
+    },
+    "365": {
+      "oldId": 365,
+      "newId": 353,
+      "oldName": "Burnt fish",
+      "newName": "Burnt fish"
+    },
+    "368": {
+      "oldId": 368,
+      "newId": 353,
+      "oldName": "Burnt fish",
+      "newName": "Burnt fish"
+    },
+    "412": {
+      "oldId": 412,
+      "newId": 27,
+      "oldName": "skull",
+      "newName": "skull"
+    },
+    "417": {
+      "oldId": 417,
+      "newId": 416,
+      "oldName": "Map Piece",
+      "newName": "Map Piece"
+    },
+    "418": {
+      "oldId": 418,
+      "newId": 416,
+      "oldName": "Map Piece",
+      "newName": "Map Piece"
+    },
+    "435": {
+      "oldId": 435,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "436": {
+      "oldId": 436,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "437": {
+      "oldId": 437,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "438": {
+      "oldId": 438,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "439": {
+      "oldId": 439,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "440": {
+      "oldId": 440,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "441": {
+      "oldId": 441,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "442": {
+      "oldId": 442,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "443": {
+      "oldId": 443,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "527": {
+      "oldId": 527,
+      "newId": 526,
+      "oldName": "Half of a key",
+      "newName": "Half of a key"
+    },
+    "577": {
+      "oldId": 577,
+      "newId": 576,
+      "oldName": "Party Hat",
+      "newName": "Party Hat"
+    },
+    "578": {
+      "oldId": 578,
+      "newId": 576,
+      "oldName": "Party Hat",
+      "newName": "Party Hat"
+    },
+    "579": {
+      "oldId": 579,
+      "newId": 576,
+      "oldName": "Party Hat",
+      "newName": "Party Hat"
+    },
+    "580": {
+      "oldId": 580,
+      "newId": 576,
+      "oldName": "Party Hat",
+      "newName": "Party Hat"
+    },
+    "581": {
+      "oldId": 581,
+      "newId": 576,
+      "oldName": "Party Hat",
+      "newName": "Party Hat"
+    },
+    "690": {
+      "oldId": 690,
+      "newId": 152,
+      "oldName": "gold",
+      "newName": "gold"
+    },
+    "691": {
+      "oldId": 691,
+      "newId": 172,
+      "oldName": "gold bar",
+      "newName": "gold bar"
+    },
+    "692": {
+      "oldId": 692,
+      "newId": 286,
+      "oldName": "Ruby ring",
+      "newName": "Ruby ring"
+    },
+    "693": {
+      "oldId": 693,
+      "newId": 291,
+      "oldName": "Ruby necklace",
+      "newName": "Ruby necklace"
+    },
+    "696": {
+      "oldId": 696,
+      "newId": 695,
+      "oldName": "Crest fragment",
+      "newName": "Crest fragment"
+    },
+    "697": {
+      "oldId": 697,
+      "newId": 695,
+      "oldName": "Crest fragment",
+      "newName": "Crest fragment"
+    },
+    "728": {
+      "oldId": 728,
+      "newId": 727,
+      "oldName": "Large cog",
+      "newName": "Large cog"
+    },
+    "729": {
+      "oldId": 729,
+      "newId": 727,
+      "oldName": "Large cog",
+      "newName": "Large cog"
+    },
+    "730": {
+      "oldId": 730,
+      "newId": 727,
+      "oldName": "Large cog",
+      "newName": "Large cog"
+    },
+    "762": {
+      "oldId": 762,
+      "newId": 758,
+      "oldName": "Plagued sheep remains",
+      "newName": "Plagued sheep remains"
+    },
+    "763": {
+      "oldId": 763,
+      "newId": 758,
+      "oldName": "Plagued sheep remains",
+      "newName": "Plagued sheep remains"
+    },
+    "764": {
+      "oldId": 764,
+      "newId": 758,
+      "oldName": "Plagued sheep remains",
+      "newName": "Plagued sheep remains"
+    },
+    "803": {
+      "oldId": 803,
+      "newId": 242,
+      "oldName": "Bronze key",
+      "newName": "Bronze key"
+    },
+    "815": {
+      "oldId": 815,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "817": {
+      "oldId": 817,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "819": {
+      "oldId": 819,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "821": {
+      "oldId": 821,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "823": {
+      "oldId": 823,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "831": {
+      "oldId": 831,
+      "newId": 828,
+      "oldName": "halloween mask",
+      "newName": "halloween mask"
+    },
+    "832": {
+      "oldId": 832,
+      "newId": 828,
+      "oldName": "halloween mask",
+      "newName": "halloween mask"
+    },
+    "837": {
+      "oldId": 837,
+      "newId": 836,
+      "oldName": "gnome robe",
+      "newName": "gnome robe"
+    },
+    "838": {
+      "oldId": 838,
+      "newId": 836,
+      "oldName": "gnome robe",
+      "newName": "gnome robe"
+    },
+    "839": {
+      "oldId": 839,
+      "newId": 836,
+      "oldName": "gnome robe",
+      "newName": "gnome robe"
+    },
+    "840": {
+      "oldId": 840,
+      "newId": 836,
+      "oldName": "gnome robe",
+      "newName": "gnome robe"
+    },
+    "842": {
+      "oldId": 842,
+      "newId": 841,
+      "oldName": "gnomeshat",
+      "newName": "gnomeshat"
+    },
+    "843": {
+      "oldId": 843,
+      "newId": 841,
+      "oldName": "gnomeshat",
+      "newName": "gnomeshat"
+    },
+    "844": {
+      "oldId": 844,
+      "newId": 841,
+      "oldName": "gnomeshat",
+      "newName": "gnomeshat"
+    },
+    "845": {
+      "oldId": 845,
+      "newId": 841,
+      "oldName": "gnomeshat",
+      "newName": "gnomeshat"
+    },
+    "928": {
+      "oldId": 928,
+      "newId": 927,
+      "oldName": "Pebble",
+      "newName": "Pebble"
+    },
+    "929": {
+      "oldId": 929,
+      "newId": 927,
+      "oldName": "Pebble",
+      "newName": "Pebble"
+    },
+    "930": {
+      "oldId": 930,
+      "newId": 927,
+      "oldName": "Pebble",
+      "newName": "Pebble"
+    },
+    "933": {
+      "oldId": 933,
+      "newId": 165,
+      "oldName": "Herb",
+      "newName": "Herb"
+    },
+    "964": {
+      "oldId": 964,
+      "newId": 963,
+      "oldName": "Potion of Zamorak",
+      "newName": "Potion of Zamorak"
+    },
+    "965": {
+      "oldId": 965,
+      "newId": 963,
+      "oldName": "Potion of Zamorak",
+      "newName": "Potion of Zamorak"
+    },
+    "992": {
+      "oldId": 992,
+      "newId": 991,
+      "oldName": "Orb of light",
+      "newName": "Orb of light"
+    },
+    "993": {
+      "oldId": 993,
+      "newId": 991,
+      "oldName": "Orb of light",
+      "newName": "Orb of light"
+    },
+    "994": {
+      "oldId": 994,
+      "newId": 991,
+      "oldName": "Orb of light",
+      "newName": "Orb of light"
+    },
+    "999": {
+      "oldId": 999,
+      "newId": 998,
+      "oldName": "Coat of Arms",
+      "newName": "Coat of Arms"
+    },
+    "1049": {
+      "oldId": 1049,
+      "newId": 1048,
+      "oldName": "Ogre relic part",
+      "newName": "Ogre relic part"
+    },
+    "1050": {
+      "oldId": 1050,
+      "newId": 1048,
+      "oldName": "Ogre relic part",
+      "newName": "Ogre relic part"
+    },
+    "1148": {
+      "oldId": 1148,
+      "newId": 1117,
+      "oldName": "Rock Sample",
+      "newName": "Rock Sample"
+    },
+    "1149": {
+      "oldId": 1149,
+      "newId": 1117,
+      "oldName": "Rock Sample",
+      "newName": "Rock Sample"
+    },
+    "1158": {
+      "oldId": 1158,
+      "newId": 1157,
+      "oldName": "Damaged armour",
+      "newName": "Damaged armour"
+    },
+    "1184": {
+      "oldId": 1184,
+      "newId": 1032,
+      "oldName": "Dwarf cannon base",
+      "newName": "Dwarf cannon base"
+    },
+    "1185": {
+      "oldId": 1185,
+      "newId": 1033,
+      "oldName": "Dwarf cannon stand",
+      "newName": "Dwarf cannon stand"
+    },
+    "1186": {
+      "oldId": 1186,
+      "newId": 1034,
+      "oldName": "Dwarf cannon barrels",
+      "newName": "Dwarf cannon barrels"
+    },
+    "1324": {
+      "oldId": 1324,
+      "newId": 1323,
+      "oldName": "Rock sample",
+      "newName": "Rock sample"
+    },
+    "1325": {
+      "oldId": 1325,
+      "newId": 1323,
+      "oldName": "Rock sample",
+      "newName": "Rock sample"
+    }
+  },
+  "questFilesAffected": []
+}

@@ -16,26 +16,28 @@
  * Reward: 3 Quest Points, access to Zanaris
  */
 
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
 const QUEST_NAME = 'Lost City';
 const QUEST_POINTS = 3;
 
-// NPC IDs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_ADVENTURER_ARCHER = 207;   // "Adventurer" (was 219 = Fairy Lunderwin!)
-const NPC_ADVENTURER_CLERIC = 208;   // "Adventurer" (was 220 = Jakut!)
-const NPC_ADVENTURER_WARRIOR = 209;  // "Adventurer" (was 221 = Doorman!)
-const NPC_ADVENTURER_WIZARD = 210;   // "Adventurer" (was 222 = Fairy Shopkeeper!)
-const NPC_LEPRECHAUN = 211;          // "Leprechaun" (was 223 = Fairy Shop Assistant!)
-const NPC_TREE_SPIRIT = 216;         // "tree spirit" (was 224 = Fairy banker!)
-const NPC_MONK_ENTRANA = 212;        // "Monk of entrana" - correct!
+// NPC IDs - Authentic 2003scape IDs
+const NPC_ADVENTURER_ARCHER = Npcs.ADVENTURER_207; // 207
+const NPC_ADVENTURER_CLERIC = Npcs.ADVENTURER_208; // 208
+const NPC_ADVENTURER_WARRIOR = Npcs.ADVENTURER_209; // 209
+const NPC_ADVENTURER_WIZARD = Npcs.ADVENTURER_210; // 210
+const NPC_LEPRECHAUN = Npcs.LEPRECHAUN; // 211
+const NPC_TREE_SPIRIT = Npcs.TREE_SPIRIT; // 216
+const NPC_MONK_ENTRANA = Npcs.MONK_OF_ENTRANA; // 212
 
 // Item IDs
-const ITEM_DRAMEN_BRANCH = 511;
-const ITEM_DRAMEN_STAFF = 512;
-const ITEM_KNIFE = 13;
+const ITEM_DRAMEN_BRANCH = Items.DRAMEN_BRANCH; // 511
+const ITEM_DRAMEN_STAFF = Items.DRAMEN_STAFF; // 512
+const ITEM_KNIFE = Items.KNIFE; // 13
 
 // Object IDs
-const OBJ_LEPRECHAUN_TREE = 237;
-const OBJ_DRAMEN_TREE = 245;
+const OBJ_LEPRECHAUN_TREE = Objects.LEPRECHAUN_TREE; // 237
+const OBJ_DRAMEN_TREE = Objects.DRAMEN_TREE; // 245
 const DOOR_ZANARIS = 66;
 
 // Adventurer NPC IDs

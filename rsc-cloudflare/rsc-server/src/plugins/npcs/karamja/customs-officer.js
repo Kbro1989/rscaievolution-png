@@ -1,9 +1,11 @@
 // https://classic.runescape.wiki/w/Transcript:Customs_Officer
+const { Items, Npcs } = require('../../../constants/ids');
 
-const CUSTOMS_OFFICER_ID = 163;
-const RUM_ID = 318;
+const CUSTOMS_OFFICER_ID = Npcs.CUSTOMS_OFFICER || 163; // 163
+const RUM_ID = Items.KARAMJAN_RUM || 318; // 318
+const COINS_ID = Items.COINS || 10; // 10
 
-const SHIP_IDS = new Set([161, 162, 163]);
+const SHIP_IDS = new Set([161, 162, 163]); // Hardcoded for now unless Objects.SHIP_GANGPLANK_KARAMJA?
 
 const portSarim = require('@2003scape/rsc-data/regions')['port-sarim'];
 
@@ -44,8 +46,8 @@ async function talkToOfficer(player, npc) {
                 );
 
                 if (choice === 0) {
-                    if (player.inventory.has(10, 30)) {
-                        player.inventory.remove(10, 30);
+                    if (player.inventory.has(COINS_ID, 30)) {
+                        player.inventory.remove(COINS_ID, 30);
                         player.message('@que@You pay 30 gold');
                         await world.sleepTicks(2);
                         player.message('@que@You board the ship');
@@ -122,7 +124,7 @@ async function onGameObjectCommandOne(player, gameObject) {
     } else {
         player.message(
             '@que@I need to speak to the customs officer before boarding the ' +
-                'ship.'
+            'ship.'
         );
     }
 

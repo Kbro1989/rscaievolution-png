@@ -1,6 +1,6 @@
-// https://classic.runescape.wiki/w/Transcript:Noterazzo
+const { Npcs } = require('../../../constants/ids');
 
-const NOTERAZZO_ID = 233;
+const NOTERAZZO_ID = Npcs.NOTERAZZO || 233; // 233
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== NOTERAZZO_ID) {
@@ -28,7 +28,7 @@ async function onTalkToNPC(player, npc) {
         case 2: // good deals
             await npc.say(
                 'The general stores in Asgarnia and Misthalin are heavily ' +
-                    'taxed',
+                'taxed',
                 'It really makes it hard for them to run an effective buisness',
                 "For some reason taxmen don't visit my store"
             );

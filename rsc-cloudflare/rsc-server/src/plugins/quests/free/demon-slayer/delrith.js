@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Delrith
 // https://classic.runescape.wiki/w/Transcript:Delrith
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const DELRITH_ID = 35;
-const SILVERLIGHT_ID = 52;
+const DELRITH_ID = Npcs.DELRITH || 35; // 35
+const SILVERLIGHT_ID = Items.SILVERLIGHT || 52; // 52
 
 async function onNPCAttack(player, npc) {
     if (npc.id !== DELRITH_ID) {
@@ -18,7 +19,7 @@ async function onNPCAttack(player, npc) {
         if (player.inventory.isEquipped(SILVERLIGHT_ID)) {
             player.message(
                 'As you strike the demon with silverlight he appears to ' +
-                    'weaken a lot'
+                'weaken a lot'
             );
 
             for (const skillName of ['attack', 'strength', 'defense']) {
@@ -72,7 +73,7 @@ async function onNPCDeath(player, npc) {
         if (choice === 3) {
             player.message(
                 'Delrith is sucked back into the dark dimension from which ' +
-                    'he came'
+                'he came'
             );
 
             await world.sleepTicks(3);

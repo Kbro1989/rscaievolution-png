@@ -1,4 +1,5 @@
 // https://classic.runescape.wiki/w/Transcript:Ned
+const { Items, Npcs } = require('../../../constants/ids');
 
 const {
     otherThingsFromWool
@@ -6,9 +7,10 @@ const {
 
 const { takeMeToCrandor } = require('../../quests/free/dragon-slayer/ned');
 
-const BALL_OF_WOOL_ID = 207;
-const NED_ID = 124;
-const ROPE_ID = 237;
+const BALL_OF_WOOL_ID = Items.BALL_OF_WOOL || 207; // 207
+const NED_ID = Npcs.NED || 124; // 124
+const ROPE_ID = Items.ROPE || 237; // 237
+const COINS_ID = Items.COINS || 10; // 10
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== NED_ID) {
@@ -82,9 +84,9 @@ async function onTalkToNPC(player, npc) {
 
             switch (choice) {
                 case 0: // sell me rope
-                    if (player.inventory.has(10, 15)) {
+                    if (player.inventory.has(COINS_ID, 15)) {
                         await player.say('Okay, please sell me some Rope');
-                        player.inventory.remove(10, 15);
+                        player.inventory.remove(COINS_ID, 15);
                         player.message('You hand Ned 15 coins');
                         await npc.say('There you go, finest rope in Runescape');
                         player.inventory.add(ROPE_ID);
@@ -106,7 +108,7 @@ async function onTalkToNPC(player, npc) {
                     if (hasWool) {
                         await player.say(
                             'I have some balls of wool. could you make me ' +
-                                'some Rope?'
+                            'some Rope?'
                         );
 
                         await npc.say('Sure I can.');
@@ -119,7 +121,7 @@ async function onTalkToNPC(player, npc) {
                         await npc.say(
                             'Aye, you do that',
                             'Remember, it takes 4 balls of wool to make ' +
-                                'strong rope'
+                            'strong rope'
                         );
                     }
                     break;

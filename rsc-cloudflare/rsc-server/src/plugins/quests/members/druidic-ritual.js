@@ -1,25 +1,27 @@
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
 const QUEST_NAME = "Druidic Ritual";
 const QUEST_POINTS = 4;
 
-// NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_KAQEMEEX = 204;
-const NPC_SANFEW = 205;
+// NPCs - Authentic 2003scape IDs
+const NPC_KAQEMEEX = Npcs.KAQEMEEX; // 204
+const NPC_SANFEW = Npcs.SANFEW; // 205
 const NPC_SUIT_OF_ARMOUR = 206;
 
-// Items - Raw meats (verified via @2003scape/rsc-data)
-const ITEM_RAW_CHICKEN = 133;        // "raw chicken" - correct!
-const ITEM_RAW_BEEF = 504;           // "raw beef" (was 132 = cookedmeat!)
-const ITEM_RAW_RAT_MEAT = 503;       // "raw rat meat" - correct!
-const ITEM_RAW_BEAR_MEAT = 502;      // "raw bear meat" (was 504 = raw beef!)
+// Items - Raw meats
+const ITEM_RAW_CHICKEN = Items.RAW_CHICKEN; // 133
+const ITEM_RAW_BEEF = Items.RAW_BEEF; // 504
+const ITEM_RAW_RAT_MEAT = Items.RAW_RAT_MEAT; // 503
+const ITEM_RAW_BEAR_MEAT = Items.RAW_BEAR_MEAT; // 502
 
-// Items - Enchanted meats (verified via @2003scape/rsc-data)
-const ITEM_ENCHANTED_CHICKEN = 508;  // "enchanted chicken meat" (was 505)
-const ITEM_ENCHANTED_BEEF = 507;     // "enchanted beef" (was 506)
-const ITEM_ENCHANTED_RAT = 506;      // "enchanted rat meat" (was 507)
-const ITEM_ENCHANTED_BEAR = 505;     // "enchanted bear meat" (was 508)
+// Items - Enchanted meats
+const ITEM_ENCHANTED_CHICKEN = Items.ENCHANTED_CHICKEN_MEAT; // 508
+const ITEM_ENCHANTED_BEEF = Items.ENCHANTED_BEEF; // 507
+const ITEM_ENCHANTED_RAT = Items.ENCHANTED_RAT_MEAT; // 506
+const ITEM_ENCHANTED_BEAR = Items.ENCHANTED_BEAR_MEAT; // 505
 
 // Objects
-const OBJ_CAULDRON = 236;
+const OBJ_CAULDRON = Objects.CAULDRON_OF_THUNDER; // 236
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;

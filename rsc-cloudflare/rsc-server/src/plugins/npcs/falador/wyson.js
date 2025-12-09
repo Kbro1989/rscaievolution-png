@@ -1,7 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Wyson_the_gardener
+const { Items, Npcs } = require('../../../constants/ids');
 
-const WOAD_LEAF_ID = 281;
-const WYSON_ID = 116;
+const WOAD_LEAF_ID = Items.WOAD_LEAF || 281; // 281
+const WYSON_ID = Npcs.WYSON_THE_GARDENER || 116; // 116
+const COINS_ID = Items.COINS || 10; // 10
 
 async function howMuch(player, npc) {
     await npc.say('How much are you willing to pay?');
@@ -21,28 +23,28 @@ async function howMuch(player, npc) {
         case 1: // 10
             await npc.say(
                 'No No thats far too little. Woad leaves are hard to get you ' +
-                    'know',
+                'know',
                 'I used to have plenty but someone kept stealing them off me'
             );
             break;
         case 2: // 15
             await npc.say('Mmmm Ok that sounds fair.');
-            if (player.inventory.has(10, 15)) {
-                player.inventory.remove(10, 15);
+            if (player.inventory.has(COINS_ID, 15)) {
+                player.inventory.remove(COINS_ID, 15);
                 player.message('You give wyson 15 coins');
                 player.inventory.add(WOAD_LEAF_ID);
                 player.message('Wyson the gardener gives you some woad leaves');
             } else {
                 await player.say(
                     "I dont have enough coins to buy the leaves. I'll come " +
-                        'back later'
+                    'back later'
                 );
             }
             break;
         case 3: // 20
             await npc.say("Ok that's more than fair.");
-            if (player.inventory.has(10, 20)) {
-                player.inventory.remove(10, 20);
+            if (player.inventory.has(COINS_ID, 20)) {
+                player.inventory.remove(COINS_ID, 20);
                 player.message('You give wyson 20 coins');
                 player.inventory.add(WOAD_LEAF_ID);
                 player.message('Wyson the gardener gives you some woad leaves');
@@ -52,7 +54,7 @@ async function howMuch(player, npc) {
             } else {
                 await player.say(
                     "I dont have enough coins to buy the leaves. I'll come " +
-                        'back later'
+                    'back later'
                 );
             }
             break;

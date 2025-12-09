@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Betty
+const { Npcs } = require('../../../constants/ids');
 
-const BETTY_ID = 149;
+const BETTY_ID = Npcs.BETTY || 149; // 149
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== BETTY_ID) {

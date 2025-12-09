@@ -1,12 +1,13 @@
+const { Items, Npcs, Objects } = require('../../../../constants/ids');
 const { randomBlackKnightAttack } = require('./other-doors');
 
-const GUARD_ID = 100;
+const GUARD_ID = Npcs.GUARD || 100; // 100
 
-const ENTRANCE_ID = 38;
-const GUARDED_DOOR_ID = 39;
+const ENTRANCE_ID = Objects.BKF_ENTRANCE_DOOR || 38; // 38
+const GUARDED_DOOR_ID = Objects.BKF_GUARDED_DOOR || 39; // 39
 
-const IRON_CHAIN_ID = 7;
-const MED_BRONZE_ID = 104;
+const IRON_CHAIN_ID = Items.IRON_CHAIN_MAIL_BODY; // 7
+const MED_BRONZE_ID = Items.MEDIUM_BRONZE_HELMET; // 104
 
 function getRandomGuard(player) {
     const guards = player
@@ -90,7 +91,7 @@ async function enterExitFortress(player, wallObject) {
         case 2: // who owns this place?
             await guard.say(
                 'This fortress belongs to the order of black knights' +
-                    'known as the Kinshra'
+                'known as the Kinshra'
             );
             break;
     }

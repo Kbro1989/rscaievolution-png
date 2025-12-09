@@ -1,20 +1,21 @@
 // https://classic.runescape.wiki/w/Transcript:Hetty
 
-const HETTY_ID = 148;
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
+const HETTY_ID = Npcs.HETTY; // 148
 
 // the rats that can drop a tail
-const RAT_IDS = new Set([19, 29, 47, 177, 367, 473]);
+const RAT_IDS = new Set([Npcs.RAT, Npcs.RAT_29, Npcs.RAT_47, Npcs.RAT_177, Npcs.RAT_367, Npcs.RAT_473]);
 
-const COOKS_RANGE_ID = 119;
+const COOKS_RANGE_ID = Objects.COOK_S_RANGE; // 119
+const CAULDRON_ID = Objects.CAULDRON; // 147
+const COOKABLE_IDS = new Set([Objects.COOK_S_RANGE, Objects.RANGE, Objects.FIRE, Objects.COOK_S_RANGE, 273, 491]);
 
-const CAULDRON_ID = 147;
-const COOKABLE_IDS = new Set([COOKS_RANGE_ID, 11, 97, 119, 274, 491]);
-
-const BURNTMEAT_ID = 134;
-const COOKEDMEAT_ID = 132;
-const EYE_OF_NEWT_ID = 270;
-const ONION_ID = 241;
-const RAT_TAIL_ID = 271;
+const BURNTMEAT_ID = Items.BURNT_MEAT; // 134
+const COOKEDMEAT_ID = Items.COOKED_MEAT; // 132
+const EYE_OF_NEWT_ID = Items.EYE_OF_NEWT; // 270
+const ONION_ID = Items.ONION; // 241
+const RAT_TAIL_ID = Items.RAT_S_TAIL; // 271
 
 async function initiateQuest(player, npc) {
     await npc.say(
@@ -27,7 +28,7 @@ async function initiateQuest(player, npc) {
 
     await npc.say(
         "You need an eye of newt, a rat's tail," +
-            'an onion and a piece of burnt meat'
+        'an onion and a piece of burnt meat'
     );
 
     player.questStages.witchsPotion = 1;
@@ -104,7 +105,7 @@ async function onTalkToNPC(player, npc) {
                                 await npc.say(
                                     "Many aren't to start off with",
                                     "But I think you'll be drawn back to " +
-                                        'this place'
+                                    'this place'
                                 );
                                 break;
                             case 2: // enthused yes
@@ -120,7 +121,7 @@ async function onTalkToNPC(player, npc) {
                 await npc.say(
                     'Yes it does seem to be getting fairly common knowledge',
                     'I fear I may get a visit from the witch hunters of ' +
-                        'Falador before long'
+                    'Falador before long'
                 );
                 break;
         }

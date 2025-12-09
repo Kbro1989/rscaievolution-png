@@ -1,4 +1,6 @@
-const PEKSA_ID = 75;
+const { Npcs } = require('../../../constants/ids');
+
+const PEKSA_ID = Npcs.PEKSA || 75; // 75
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== PEKSA_ID) {

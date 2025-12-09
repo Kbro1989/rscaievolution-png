@@ -1,12 +1,13 @@
 // https://classic.runescape.wiki/w/Monastery_(Prayer_Guild)
 // https://classic.runescape.wiki/w/Transcript:Brother_Jered
+const { Items, Npcs, Objects } = require('../../constants/ids');
 
-const ABBOT_LANGLEY_ID = 174;
-const BLESSED_HOLY_SYMBOL_ID = 385;
-const BROTHER_JERED_ID = 176;
-const LADDER_ID = 198;
-const UNBLESSED_HOLY_SYMBOL_ID = 45;
-const UNSTRUNG_HOLY_SYMBOL_ID = 44;
+const ABBOT_LANGLEY_ID = Npcs.ABBOT_LANGLEY || 174; // 174
+const BLESSED_HOLY_SYMBOL_ID = Items.HOLY_SYMBOL_OF_SARADOMIN || 385; // 385
+const BROTHER_JERED_ID = Npcs.BROTHER_JERED || 176; // 176
+const LADDER_ID = Objects.PRAYER_GUILD_LADDER || 198; // 198
+const UNBLESSED_HOLY_SYMBOL_ID = Items.UNBLESSED_HOLY_SYMBOL || 45; // 45
+const UNSTRUNG_HOLY_SYMBOL_ID = Items.UNSTRUNG_HOLY_SYMBOL || 44; // 44
 
 async function onGameObjectCommandOne(player, gameObject) {
     if (gameObject.id !== LADDER_ID) {
@@ -93,7 +94,7 @@ async function onTalkToNPC(player, npc) {
 
                 player.message(
                     '@que@Jered closes his eyes and places his hand on the ' +
-                        'symbol'
+                    'symbol'
                 );
 
                 await world.sleepTicks(3);

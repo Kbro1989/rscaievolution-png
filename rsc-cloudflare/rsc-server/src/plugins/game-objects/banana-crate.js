@@ -1,7 +1,9 @@
-const BANANA_ID = 249;
-const KARAMJA_CRATE_ID = 182;
-const RUM_ID = 318;
-const WYDIN_CRATE_ID = 185;
+const { Items, Objects } = require('../../constants/ids');
+
+const BANANA_ID = Items.BANANA || 249; // 249
+const KARAMJA_CRATE_ID = Objects.KARAMJA_CRATE || 182; // 182
+const RUM_ID = Items.RUM || 318; // 318
+const WYDIN_CRATE_ID = Objects.WYDIN_CRATE || 185; // 185
 
 async function onGameObjectCommandTwo(player, gameObject) {
     if (gameObject.id === KARAMJA_CRATE_ID) {

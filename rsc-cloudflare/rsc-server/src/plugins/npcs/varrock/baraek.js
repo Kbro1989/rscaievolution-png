@@ -1,10 +1,12 @@
 // https://classic.runescape.wiki/w/Transcript:Baraek
+const { Items, Npcs } = require('../../../constants/ids');
 
 const { whereIsPhoenix } = require('../../quests/free/shield-of-arrav/baraek');
 
-const BARAEK_ID = 26;
-const FUR_ID = 146;
-const GREY_WOLF_FUR_ID = 541;
+const BARAEK_ID = Npcs.BARAEK || 26; // 26
+const FUR_ID = Items.BEAR_FUR || 146; // 146
+const GREY_WOLF_FUR_ID = Items.GREY_WOLF_FUR || 541; // 541
+const COINS_ID = Items.COINS || 10; // 10
 
 async function eighteenCoins(player, npc) {
     await npc.say("Well, okay I'll go down to 18");
@@ -16,9 +18,9 @@ async function eighteenCoins(player, npc) {
 
     switch (choice) {
         case 0: // ok
-            if (player.inventory.has(10, 18)) {
+            if (player.inventory.has(COINS_ID, 18)) {
                 await player.say('Okay here you go');
-                player.inventory.remove(10, 18);
+                player.inventory.remove(COINS_ID, 18);
                 player.inventory.add(FUR_ID);
                 player.message('You buy a fur from Baraek');
             }
@@ -88,10 +90,10 @@ async function onTalkToNPC(player, npc) {
 
             switch (choice) {
                 case 0: // yeah
-                    if (player.inventory.has(10, 20)) {
+                    if (player.inventory.has(COINS_ID, 20)) {
                         await player.say('Yeah okay here you go');
                         player.message('You buy a fur from Baraek');
-                        player.inventory.remove(10, 20);
+                        player.inventory.remove(COINS_ID, 20);
                         player.inventory.add(FUR_ID);
                     } else {
                         await player.say(
@@ -136,7 +138,7 @@ async function onTalkToNPC(player, npc) {
                     await world.sleepTicks(2);
 
                     player.message('And he gives you twelve coins');
-                    player.inventory.add(10, 12);
+                    player.inventory.add(COINS_ID, 12);
                     await world.sleepTicks(2);
                     break;
                 case 1: // no
@@ -167,7 +169,7 @@ async function onTalkToNPC(player, npc) {
 
                 while (player.inventory.has(GREY_WOLF_FUR_ID)) {
                     player.inventory.remove(GREY_WOLF_FUR_ID);
-                    player.inventory.add(10, 120);
+                    player.inventory.add(COINS_ID, 120);
                 }
             }
             break;

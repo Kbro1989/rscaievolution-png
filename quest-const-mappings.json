@@ -1,0 +1,258 @@
+{
+  "members/heros-quest.js": {
+    "ITEM_FIREBIRD_FEATHER": {
+      "ours": 557,
+      "openrsc": 564
+    },
+    "ITEM_ICE_GLOVES": {
+      "ours": 556,
+      "openrsc": 567
+    },
+    "ITEM_LAVA_EEL": {
+      "ours": 591,
+      "openrsc": 565
+    },
+    "ITEM_MASTER_THIEF_ARMBAND": {
+      "ours": 586,
+      "openrsc": 566
+    },
+    "NPC_ALFONSE": {
+      "ours": 260,
+      "openrsc": 319
+    },
+    "NPC_GARV": {
+      "ours": 257,
+      "openrsc": 173
+    },
+    "NPC_GRIP": {
+      "ours": 259,
+      "openrsc": 174
+    },
+    "NPC_GRUBOR": {
+      "ours": 255,
+      "openrsc": 171
+    },
+    "NPC_KATRINE": {
+      "ours": 27,
+      "openrsc": 168
+    },
+    "NPC_STRAVEN": {
+      "ours": 258,
+      "openrsc": 171
+    },
+    "NPC_TROBERT": {
+      "ours": 256,
+      "openrsc": 172
+    }
+  },
+  "members/family-crest.js": {
+    "ITEM_CHAOS_GAUNTLETS": {
+      "ours": 701,
+      "openrsc": 722
+    },
+    "ITEM_COOKING_GAUNTLETS": {
+      "ours": 700,
+      "openrsc": 723
+    },
+    "ITEM_CREST_FRAGMENT_ONE": {
+      "ours": 695,
+      "openrsc": 717
+    },
+    "ITEM_CREST_FRAGMENT_THREE": {
+      "ours": 697,
+      "openrsc": 719
+    },
+    "ITEM_CREST_FRAGMENT_TWO": {
+      "ours": 696,
+      "openrsc": 718
+    },
+    "ITEM_FAMILY_CREST": {
+      "ours": 694,
+      "openrsc": 716
+    },
+    "ITEM_GOLDSMITH_GAUNTLETS": {
+      "ours": 699,
+      "openrsc": 721
+    },
+    "ITEM_STEEL_GAUNTLETS": {
+      "ours": 698,
+      "openrsc": 720
+    },
+    "NPC_AVAN": {
+      "ours": 308,
+      "openrsc": 256
+    },
+    "NPC_BOOT": {
+      "ours": 313,
+      "openrsc": null
+    },
+    "NPC_CHEF": {
+      "ours": 310,
+      "openrsc": 263
+    },
+    "NPC_CHRONOZON": {
+      "ours": 315,
+      "openrsc": 267
+    },
+    "NPC_DIMINTHEIS": {
+      "ours": 309,
+      "openrsc": 262
+    },
+    "NPC_JOHNATHON": {
+      "ours": 314,
+      "openrsc": 268
+    }
+  },
+  "members/gertrudes-cat.js": {
+    "ITEM_COOKED_SARDINE": {
+      "ours": 355,
+      "openrsc": 356
+    },
+    "ITEM_DOOGLE_LEAVES": {
+      "ours": 1100,
+      "openrsc": 1102
+    },
+    "ITEM_KITTEN": {
+      "ours": 1096,
+      "openrsc": 1098
+    },
+    "ITEM_KITTENS_BOX": {
+      "ours": 1095,
+      "openrsc": 1101
+    },
+    "ITEM_SEASONED_SARDINE": {
+      "ours": 1094,
+      "openrsc": 1103
+    },
+    "NPC_GERTRUDE": {
+      "ours": 714,
+      "openrsc": 303
+    },
+    "NPC_SHILOP": {
+      "ours": 715,
+      "openrsc": 302
+    },
+    "NPC_WILOUGH": {
+      "ours": 781,
+      "openrsc": 301
+    }
+  },
+  "members/holy-grail.js": {
+    "ITEM_BELL": {
+      "ours": 743,
+      "openrsc": 726
+    },
+    "ITEM_EXCALIBUR": {
+      "ours": 606,
+      "openrsc": 400
+    },
+    "ITEM_HOLY_GRAIL": {
+      "ours": 746,
+      "openrsc": 728
+    },
+    "ITEM_MAGIC_FEATHER": {
+      "ours": 745,
+      "openrsc": 727
+    },
+    "ITEM_MAGIC_WHISTLE": {
+      "ours": 738,
+      "openrsc": 725
+    },
+    "NPC_BLACK_KNIGHT_TITAN": {
+      "ours": 401,
+      "openrsc": 370
+    },
+    "NPC_FISHERMAN": {
+      "ours": 414,
+      "openrsc": 372
+    },
+    "NPC_FISHER_KING": {
+      "ours": 412,
+      "openrsc": 373
+    },
+    "NPC_KING_PERCIVAL": {
+      "ours": 415,
+      "openrsc": 375
+    },
+    "NPC_SIR_PERCIVAL": {
+      "ours": 411,
+      "openrsc": 374
+    }
+  },
+  "members/jungle-potion.js": {
+    "ITEM_ARDRIGAL": {
+      "ours": 818,
+      "openrsc": 976
+    },
+    "ITEM_ROGUES_PURSE": {
+      "ours": 824,
+      "openrsc": 979
+    },
+    "ITEM_SITO_FOIL": {
+      "ours": 820,
+      "openrsc": 977
+    },
+    "ITEM_SNAKE_WEED": {
+      "ours": 816,
+      "openrsc": 975
+    },
+    "ITEM_VOLENCIA_MOSS": {
+      "ours": 822,
+      "openrsc": 978
+    },
+    "NPC_TRUFITUS": {
+      "ours": 517,
+      "openrsc": 771
+    },
+    "OBJ_ARDRIGAL_PALM": {
+      "ours": 553,
+      "openrsc": 710
+    },
+    "OBJ_SITO_FOIL_SCORCHED": {
+      "ours": 554,
+      "openrsc": 711
+    }
+  },
+  "members/dwarf-cannon.js": {
+    "ITEM_AMMO_MOULD": {
+      "ours": 1057,
+      "openrsc": 1098
+    },
+    "ITEM_DWARF_REMAINS": {
+      "ours": 1046,
+      "openrsc": 211
+    },
+    "ITEM_NULODIONS_NOTES": {
+      "ours": 1056,
+      "openrsc": 1099
+    },
+    "ITEM_RAILING": {
+      "ours": 1042,
+      "openrsc": 210
+    },
+    "ITEM_TOOL_KIT": {
+      "ours": 1055,
+      "openrsc": 1097
+    },
+    "NPC_CAPTAIN_LAWGOF": {
+      "ours": 693,
+      "openrsc": 208
+    },
+    "NPC_DWARF_COMMANDER": {
+      "ours": 693,
+      "openrsc": 208
+    },
+    "NPC_GILOB_GUARD": {
+      "ours": 694,
+      "openrsc": 209
+    },
+    "NPC_LOLLK": {
+      "ours": 695,
+      "openrsc": 210
+    },
+    "NPC_NULODION": {
+      "ours": 698,
+      "openrsc": 207
+    }
+  }
+}

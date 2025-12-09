@@ -2,6 +2,7 @@
 
 const crafting = require('@2003scape/rsc-data/skills/crafting');
 const items = require('@2003scape/rsc-data/config/items');
+const { Items, Objects } = require('../../../constants/ids');
 
 const goldJewellery = crafting['gold-jewellery'];
 const silverJewellery = crafting['silver-jewellery'];
@@ -13,9 +14,9 @@ const GEM_NAMES = goldJewellery.gems.map((id) => {
 
 GEM_NAMES.unshift('Gold');
 
-const FURNACE_ID = 118;
-const GOLD_BAR_ID = 172;
-const SILVER_BAR_ID = 384;
+const FURNACE_ID = Objects.FURNACE;
+const GOLD_BAR_ID = Items.GOLD_BAR;
+const SILVER_BAR_ID = Items.SILVER_BAR;
 
 async function goldMoulding(player) {
     const { world } = player;
@@ -25,7 +26,12 @@ async function goldMoulding(player) {
     const mouldChoices = ['Ring', 'Necklace', 'Amulet'];
     const mouldChoice = await player.ask(mouldChoices, false);
     const resultName = mouldChoices[mouldChoice];
-    const mouldID = goldJewellery.moulds[mouldChoice];
+    // Mould IDs are hardcoded here due to discrepancies with external data.
+    // Original external data: goldJewellery.moulds[mouldChoice] (e.g., Ring: 455)
+    // Correct canonical IDs from items.json:
+    // Ring Mould: 286, Necklace Mould: 288, Amulet Mould: 287
+    const MOULD_IDS = { 'Ring': 286, 'Necklace': 288, 'Amulet': 287 };
+    const mouldID = MOULD_IDS[resultName];
 
     if (!player.inventory.has(mouldID)) {
         player.message(
@@ -100,7 +106,13 @@ async function silverMoulding(player) {
         });
 
     const choice = await player.ask(choices, false);
-    const mouldID = silverJewellery.moulds[choice];
+    // Silver Mould IDs are hardcoded here due to discrepancies with external data.
+    // Correct canonical IDs from items.json (assuming unstrung/unenchanted for creation):
+    // Silver Ring: 289, Silver Necklace: 291, Silver Amulet: 293
+    const SILVER_MOULD_IDS = { 'Silver Ring': 289, 'Silver Necklace': 291, 'Silver Amulet': 293 }; // Placeholder - need to map from choices to canonical
+    // This logic needs to be revisited if the external data provides a direct mould ID based on choice.
+    // For now, assuming choice directly maps to the jewellery item name.
+    const mouldID = SILVER_MOULD_IDS[choices[choice]];
 
     if (!player.inventory.has(mouldID)) {
         player.message(

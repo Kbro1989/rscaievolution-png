@@ -1,6 +1,6 @@
-// https://classic.runescape.wiki/w/Transcript:Fat_Tony
+const { Npcs } = require('../../../constants/ids');
 
-const FAT_TONY_ID = 235;
+const FAT_TONY_ID = Npcs.FAT_TONY || 235; // 235
 
 async function canIHavePizza(player, npc) {
     await npc.say(

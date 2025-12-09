@@ -1,7 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Captain_Rovin
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const CAPTAIN_ROVIN_ID = 18;
-const ROVIN_KEY_ID = 26;
+const CAPTAIN_ROVIN_ID = Npcs.CAPTAIN_ROVIN || 18; // 18
+const ROVIN_KEY_ID = Items.ROVIN_KEY || 26; // 26
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== CAPTAIN_ROVIN_ID) {
@@ -102,7 +103,7 @@ async function onTalkToNPC(player, npc) {
                     await npc.say(
                         'Well as good as the palace guards are',
                         "I don't think they're up to taking on a very " +
-                            'powerful demon'
+                        'powerful demon'
                     );
 
                     await player.say(

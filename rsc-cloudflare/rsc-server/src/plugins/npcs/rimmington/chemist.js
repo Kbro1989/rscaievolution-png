@@ -1,15 +1,16 @@
 // Chemist (Rimmington)
 // Biohazard Quest (Stage 6, 7)
+const { Items, Npcs } = require('../../../constants/ids');
 
-const CHEMIST_490 = 490;
-const CHEMIST_504 = 504;
+const CHEMIST_490 = Npcs.CHEMIST || 490; // 490
+const CHEMIST_504 = Npcs.CHEMIST_504 || 504; // 504
 
-const DOCTORS_GOWN = 802;
-const PLAGUE_SAMPLE = 815; // Verify ID
-const TOUCH_PAPER = 816; // Verify ID
-const LIQUID_HONEY = 817;
-const ETHENEA = 818;
-const SULPHURIC_BROLINE = 819;
+const DOCTORS_GOWN = Items.DOCTORS_GOWN || 802; // 802
+const PLAGUE_SAMPLE = Items.PLAGUE_SAMPLE || 815; // 815
+const TOUCH_PAPER = Items.TOUCH_PAPER || 816; // 816
+const LIQUID_HONEY = Items.LIQUID_HONEY || 817; // 817
+const ETHENEA = Items.ETHENEA || 818; // 818
+const SULPHURIC_BROLINE = Items.SULPHURIC_BROLINE || 819; // 819
 
 // Quest Keys
 // 'biohazard'

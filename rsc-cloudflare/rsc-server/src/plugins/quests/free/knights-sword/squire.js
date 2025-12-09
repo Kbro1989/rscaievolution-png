@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Squire
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const FALADIAN_KNIGHTS_SWORD_ID = 265;
-const PORTRAIT_ID = 264;
-const SQUIRE_ID = 132;
+const FALADIAN_KNIGHTS_SWORD_ID = Items.FALADIAN_KNIGHTS_SWORD || 265; // 265
+const PORTRAIT_ID = Items.PORTRAIT || 264; // 264
+const SQUIRE_ID = Npcs.SQUIRE || 132; // 132
 
 async function findItSoon(npc) {
     await npc.say(
@@ -18,7 +19,7 @@ async function dwarvesMakeAnother(player, npc) {
         'I should think Reldo the palace librarian in Varrock will know',
         'He has done a lot of research on the races of Runescape',
         "I don't suppose you could try and track down the Imcando dwarves " +
-            'for me?',
+        'for me?',
         "I've got so much work to do"
     );
 
@@ -40,7 +41,7 @@ async function dwarvesMakeAnother(player, npc) {
 async function vagueArea(player, npc) {
     await npc.say(
         'No I was carrying it for him all the way from where he had it ' +
-            'stored in Lumbridge',
+        'stored in Lumbridge',
         'It must have slipped from my pack during the trip',
         'And you know what people are like these days',
         'Someone will have just picked it up and kept it for themselves'
@@ -222,7 +223,7 @@ async function onTalkToNPC(player, npc) {
         await npc.say(
             'A picture eh?',
             'The only one I can think of is in a small portrait of Sir ' +
-                "Vyvin's father",
+            "Vyvin's father",
             'Sir Vyvin keeps it in a cupboard in his room I think'
         );
     } else if (questStage === 5) {

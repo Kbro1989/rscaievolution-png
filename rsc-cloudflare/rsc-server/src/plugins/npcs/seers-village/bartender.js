@@ -5,10 +5,12 @@ const {
     foresterArmsBarcrawl
 } = require('../../miniquests/barcrawl');
 
-const BARTENDER_ID = 306;
-const BEER_ID = 193;
-const PIE_ID = 259;
-const STEW_ID = 346;
+const { Items, Npcs } = require('../../../constants/ids');
+
+const BARTENDER_ID = Npcs.BARTENDER_FORESTERS_ARMS || 306; // 306
+const BEER_ID = Items.BEER || 193; // 193
+const PIE_ID = Items.MEAT_PIE || 259; // 259
+const STEW_ID = Items.STEW || 346; // 346
 
 // check if the player has amount of coins and remove them. if not, say a
 // message.
@@ -58,7 +60,7 @@ async function onTalkToNPC(player, npc) {
         await npc.say(
             'Well we have beer',
             'Or if you want some food, we have our home made stew and ' +
-                'meat pies'
+            'meat pies'
         );
 
         const choice = await player.ask(

@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Horvik_the_Armourer
+const { Npcs } = require('../../../constants/ids');
 
-const HORVIK_ID = 48;
+const HORVIK_ID = Npcs.HORVIK || 48; // 48
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== HORVIK_ID) {

@@ -1,5 +1,6 @@
 // https://classic.runescape.wiki/w/Transcript:Miles
 
+const { Npcs } = require('../../constants/ids');
 const items = require('@2003scape/rsc-data/config/items');
 
 const {
@@ -17,7 +18,7 @@ for (const [itemID, certificateID] of Object.entries(CERTIFICATE_IDS)) {
 const CERTER_IDS = new Set(Object.keys(certers).map(Number));
 
 // remove sidney smith since she's a special case
-CERTER_IDS.delete(778);
+CERTER_IDS.delete(Npcs.SIDNEY_SMITH || 778); // 778
 
 function getCerter(id) {
     if (certers[id].reference) {
@@ -111,7 +112,7 @@ async function onTalkToNPC(player, npc) {
             'I have some certificates to trade in',
             `I have some ${typePlural} to trade in`,
             `What is a${certer.type === 'ore' ? 'n' : ''} ${certer.type} ` +
-                'exchange stall?'
+            'exchange stall?'
         ],
         true
     );
@@ -130,13 +131,13 @@ async function onTalkToNPC(player, npc) {
                 `You may exchange your ${typePlural} here`,
                 'For certificates which are light and easy to carry',
                 'You can carry many of these certificates at once unlike ' +
-                    typePlural,
+                typePlural,
                 `5 ${typePlural} will give you one certificate`,
                 'You may also redeem these certificates here for ' +
-                    `${typePlural} again`,
+                `${typePlural} again`,
                 'The advantage of doing this is',
                 `You can trade large amounts of ${typePlural} with other ` +
-                    'players quickly and safely'
+                'players quickly and safely'
             );
 
             player.disengage();

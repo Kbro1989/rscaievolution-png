@@ -1,12 +1,14 @@
 // https://classic.runescape.wiki/w/Transcript:Bartender#Bartender_(Jolly_Boar_Inn)
+const { Items, Npcs } = require('../../../constants/ids');
 
 const {
     shouldHandleBar,
     jollyBoarBarcrawl
 } = require('../../miniquests/barcrawl');
 
-const BARTENDER_ID = 44;
-const BEER_ID = 193;
+const BARTENDER_ID = Npcs.BARTENDER_JOLLY_BOAR || 44; // 44
+const BEER_ID = Items.BEER || 193; // 193
+const COINS_ID = Items.COINS || 10; // 10
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== BARTENDER_ID) {
@@ -34,8 +36,8 @@ async function onTalkToNPC(player, npc) {
             await player.say("I'll have a pint of beer please");
             await npc.say("Ok, that'll be two coins");
 
-            if (player.inventory.has(10, 2)) {
-                player.inventory.remove(10, 2);
+            if (player.inventory.has(COINS_ID, 2)) {
+                player.inventory.remove(COINS_ID, 2);
                 player.inventory.add(BEER_ID);
                 player.message('You buy a pint of beer');
             } else {
@@ -60,9 +62,9 @@ async function onTalkToNPC(player, npc) {
             await player.say('Heard any good gossip?');
             await npc.say(
                 "I've heard that the bartender in the Blue Moon Inn has gone " +
-                    'a little crazy',
+                'a little crazy',
                 'He keeps claiming he is part of something called a computer ' +
-                    'game',
+                'game',
                 "What that means, I don't know",
                 "That's probably old news by now though"
             );

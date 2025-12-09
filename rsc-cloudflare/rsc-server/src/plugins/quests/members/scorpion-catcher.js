@@ -14,9 +14,9 @@ const ITEM_CAGE_ONE = 686;     // Taverly
 const ITEM_CAGE_TWO = 687;     // Barbarian  
 const ITEM_CAGE_THREE = 688;   // Monastery
 const ITEM_CAGE_ONE_TWO = 689;
-const ITEM_CAGE_ONE_THREE = 690;
-const ITEM_CAGE_TWO_THREE = 691;
-const ITEM_CAGE_FULL = 692;
+const ITEM_CAGE_ONE_THREE = 152;
+const ITEM_CAGE_TWO_THREE = 172;
+const ITEM_CAGE_FULL = 286;
 const ITEM_COINS = 10;
 
 function getQuestStage(player) {

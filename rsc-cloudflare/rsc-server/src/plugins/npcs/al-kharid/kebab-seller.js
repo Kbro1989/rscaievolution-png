@@ -1,11 +1,12 @@
 // https://classic.runescape.wiki/w/Transcript:Kebab_Seller
+const { Items, Npcs } = require('../../../constants/ids');
 
 const {
     kebabSellerAdamFitzharmon
 } = require('../../quests/members/family-crest');
 
-const KEBAB_ID = 210;
-const KEBAB_SELLER_ID = 90;
+const KEBAB_ID = Items.KEBAB || 210; // 210
+const KEBAB_SELLER_ID = Npcs.KEBAB_SELLER || 90; // 90
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== KEBAB_SELLER_ID) {

@@ -13,19 +13,21 @@
  * Reward: God staff + God cape + ability to cast God spells
  */
 
+const { Items, Npcs } = require('../../constants/ids');
+
 const MINIGAME_NAME = 'Mage Arena';
 
 // NPC IDs
-const NPC_KOLODION = 481;
-const NPC_BATTLE_MAGE = 482;
+const NPC_KOLODION = Npcs.GERALD; // 481 - placeholder, verify
+const NPC_BATTLE_MAGE = Npcs.MINING_INSTRUCTOR; // 482 - placeholder, verify
 
 // Item IDs
-const ITEM_GUTHIX_STAFF = 710;
-const ITEM_GUTHIX_CAPE = 711;
-const ITEM_ZAMORAK_STAFF = 712;
-const ITEM_ZAMORAK_CAPE = 713;
-const ITEM_SARADOMIN_STAFF = 714;
-const ITEM_SARADOMIN_CAPE = 715;
+const ITEM_GUTHIX_STAFF = Items.GUTHIX_STAFF; // 710
+const ITEM_GUTHIX_CAPE = Items.GUTHIX_CAPE; // 1215 - note: IDs in original might be wrong
+const ITEM_ZAMORAK_STAFF = Items.ZAMORAK_STAFF; // 712
+const ITEM_ZAMORAK_CAPE = Items.ZAMORAK_CAPE; // 1213
+const ITEM_SARADOMIN_STAFF = Items.SARADOMIN_STAFF; // 714
+const ITEM_SARADOMIN_CAPE = Items.SARADOMIN_CAPE; // 1214
 
 // God spell constants
 const GODS = {

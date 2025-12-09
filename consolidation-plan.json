@@ -1,0 +1,1140 @@
+{
+  "items": [
+    {
+      "name": "Book",
+      "keepId": 30,
+      "removeIds": [
+        728
+      ],
+      "price": 1
+    },
+    {
+      "name": "key",
+      "keepId": 47,
+      "removeIds": [
+        48
+      ],
+      "price": 1
+    },
+    {
+      "name": "Apron",
+      "keepId": 181,
+      "removeIds": [
+        190
+      ],
+      "price": 2
+    },
+    {
+      "name": "Cape",
+      "keepId": 224,
+      "removeIds": [
+        489,
+        490,
+        491,
+        492
+      ],
+      "price": 32
+    },
+    {
+      "name": "wig",
+      "keepId": 239,
+      "removeIds": [
+        240
+      ],
+      "price": 2
+    },
+    {
+      "name": "Incomplete stew",
+      "keepId": 336,
+      "removeIds": [
+        337
+      ],
+      "price": 4
+    },
+    {
+      "name": "Plank",
+      "keepId": 400,
+      "removeIds": [
+        1209
+      ],
+      "price": 1
+    },
+    {
+      "name": "Vial",
+      "keepId": 442,
+      "removeIds": [
+        443
+      ],
+      "price": 2
+    },
+    {
+      "name": "Unicorn horn",
+      "keepId": 444,
+      "removeIds": [
+        932
+      ],
+      "price": 20
+    },
+    {
+      "name": "Firebird Feather",
+      "keepId": 534,
+      "removeIds": [
+        535
+      ],
+      "price": 2
+    },
+    {
+      "name": "Whisky",
+      "keepId": 556,
+      "removeIds": [
+        812
+      ],
+      "price": 5
+    },
+    {
+      "name": "Candle",
+      "keepId": 571,
+      "removeIds": [
+        573
+      ],
+      "price": 3
+    },
+    {
+      "name": "black Candle",
+      "keepId": 572,
+      "removeIds": [
+        574
+      ],
+      "price": 3
+    },
+    {
+      "name": "scorpion cage",
+      "keepId": 650,
+      "removeIds": [
+        651,
+        652,
+        653,
+        658,
+        659,
+        660,
+        661
+      ],
+      "price": 10
+    },
+    {
+      "name": "Torch",
+      "keepId": 733,
+      "removeIds": [
+        734
+      ],
+      "price": 4
+    },
+    {
+      "name": "Broken glass",
+      "keepId": 738,
+      "removeIds": [
+        1099
+      ],
+      "price": 0
+    },
+    {
+      "name": "Glarial's urn",
+      "keepId": 764,
+      "removeIds": [
+        765
+      ],
+      "price": 1
+    },
+    {
+      "name": "gnome top",
+      "keepId": 790,
+      "removeIds": [
+        791,
+        792,
+        793,
+        794
+      ],
+      "price": 180
+    },
+    {
+      "name": "cocktail glass",
+      "keepId": 797,
+      "removeIds": [
+        798
+      ],
+      "price": 2
+    },
+    {
+      "name": "gnomebatta",
+      "keepId": 828,
+      "removeIds": [
+        830
+      ],
+      "price": 2
+    },
+    {
+      "name": "gnomebowl",
+      "keepId": 829,
+      "removeIds": [
+        832
+      ],
+      "price": 2
+    },
+    {
+      "name": "gnomecrunchie",
+      "keepId": 831,
+      "removeIds": [
+        844
+      ],
+      "price": 2
+    },
+    {
+      "name": "Boots",
+      "keepId": 904,
+      "removeIds": [
+        905,
+        906,
+        907,
+        908
+      ],
+      "price": 200
+    },
+    {
+      "name": "Railing",
+      "keepId": 930,
+      "removeIds": [
+        976
+      ],
+      "price": 10
+    },
+    {
+      "name": "Staff of Iban",
+      "keepId": 934,
+      "removeIds": [
+        965
+      ],
+      "price": 15
+    },
+    {
+      "name": "Cat",
+      "keepId": 937,
+      "removeIds": [
+        1025
+      ],
+      "price": 2
+    },
+    {
+      "name": "Unholy Symbol of Zamorak",
+      "keepId": 961,
+      "removeIds": [
+        963
+      ],
+      "price": 200
+    },
+    {
+      "name": "Panning tray",
+      "keepId": 1043,
+      "removeIds": [
+        1044,
+        1045
+      ],
+      "price": 1
+    },
+    {
+      "name": "Radimus Scrolls",
+      "keepId": 1092,
+      "removeIds": [
+        1159
+      ],
+      "price": 5
+    },
+    {
+      "name": "Mixed chemicals",
+      "keepId": 1107,
+      "removeIds": [
+        1109
+      ],
+      "price": 2
+    },
+    {
+      "name": "Annas Silver Necklace",
+      "keepId": 1120,
+      "removeIds": [
+        1150
+      ],
+      "price": 1
+    },
+    {
+      "name": "Bobs Silver Teacup",
+      "keepId": 1121,
+      "removeIds": [
+        1151
+      ],
+      "price": 1
+    },
+    {
+      "name": "Carols Silver Bottle",
+      "keepId": 1122,
+      "removeIds": [
+        1152
+      ],
+      "price": 1
+    },
+    {
+      "name": "Davids Silver Book",
+      "keepId": 1123,
+      "removeIds": [
+        1153
+      ],
+      "price": 1
+    },
+    {
+      "name": "Elizabeths Silver Needle",
+      "keepId": 1124,
+      "removeIds": [
+        1154
+      ],
+      "price": 1
+    },
+    {
+      "name": "Franks Silver Pot",
+      "keepId": 1125,
+      "removeIds": [
+        1155
+      ],
+      "price": 1
+    },
+    {
+      "name": "Thread",
+      "keepId": 1126,
+      "removeIds": [
+        1127,
+        1128
+      ],
+      "price": 1
+    },
+    {
+      "name": "A Silver Dagger",
+      "keepId": 1131,
+      "removeIds": [
+        1156
+      ],
+      "price": 1
+    },
+    {
+      "name": "Staff of Saradomin",
+      "keepId": 1144,
+      "removeIds": [
+        1233
+      ],
+      "price": 80000
+    }
+  ],
+  "npcs": [
+    {
+      "name": "Chicken",
+      "keepId": 3,
+      "removeIds": [
+        91
+      ],
+      "stats": {
+        "attack": 3,
+        "strength": 4,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Goblin",
+      "keepId": 4,
+      "removeIds": [
+        153,
+        154
+      ],
+      "stats": {
+        "attack": 16,
+        "strength": 14,
+        "defense": 12
+      }
+    },
+    {
+      "name": "cow",
+      "keepId": 6,
+      "removeIds": [
+        217
+      ],
+      "stats": {
+        "attack": 9,
+        "strength": 8,
+        "defense": 8
+      }
+    },
+    {
+      "name": "Man",
+      "keepId": 11,
+      "removeIds": [
+        72,
+        318,
+        750
+      ],
+      "stats": {
+        "attack": 11,
+        "strength": 8,
+        "defense": 7
+      }
+    },
+    {
+      "name": "Lesser Demon",
+      "keepId": 22,
+      "removeIds": [
+        181
+      ],
+      "stats": {
+        "attack": 78,
+        "strength": 79,
+        "defense": 79
+      }
+    },
+    {
+      "name": "Rat",
+      "keepId": 29,
+      "removeIds": [
+        241
+      ],
+      "stats": {
+        "attack": 3,
+        "strength": 4,
+        "defense": 2
+      }
+    },
+    {
+      "name": "zombie",
+      "keepId": 41,
+      "removeIds": [
+        359
+      ],
+      "stats": {
+        "attack": 23,
+        "strength": 28,
+        "defense": 24
+      }
+    },
+    {
+      "name": "skeleton",
+      "keepId": 45,
+      "removeIds": [
+        179
+      ],
+      "stats": {
+        "attack": 32,
+        "strength": 30,
+        "defense": 29
+      }
+    },
+    {
+      "name": "Rat",
+      "keepId": 47,
+      "removeIds": [
+        177
+      ],
+      "stats": {
+        "attack": 16,
+        "strength": 12,
+        "defense": 10
+      }
+    },
+    {
+      "name": "Ghost",
+      "keepId": 53,
+      "removeIds": [
+        80,
+        178
+      ],
+      "stats": {
+        "attack": 23,
+        "strength": 30,
+        "defense": 25
+      }
+    },
+    {
+      "name": "farmer",
+      "keepId": 63,
+      "removeIds": [
+        319
+      ],
+      "stats": {
+        "attack": 15,
+        "strength": 16,
+        "defense": 12
+      }
+    },
+    {
+      "name": "Thief",
+      "keepId": 64,
+      "removeIds": [
+        351
+      ],
+      "stats": {
+        "attack": 24,
+        "strength": 22,
+        "defense": 17
+      }
+    },
+    {
+      "name": "Black Knight",
+      "keepId": 66,
+      "removeIds": [
+        108,
+        189
+      ],
+      "stats": {
+        "attack": 45,
+        "strength": 50,
+        "defense": 42
+      }
+    },
+    {
+      "name": "zombie",
+      "keepId": 68,
+      "removeIds": [
+        180,
+        214
+      ],
+      "stats": {
+        "attack": 32,
+        "strength": 31,
+        "defense": 30
+      }
+    },
+    {
+      "name": "Scorpion",
+      "keepId": 70,
+      "removeIds": [
+        666
+      ],
+      "stats": {
+        "attack": 21,
+        "strength": 24,
+        "defense": 17
+      }
+    },
+    {
+      "name": "Guide",
+      "keepId": 73,
+      "removeIds": [
+        147,
+        476
+      ],
+      "stats": {
+        "attack": 0,
+        "strength": 0,
+        "defense": 7
+      }
+    },
+    {
+      "name": "Witch",
+      "keepId": 79,
+      "removeIds": [
+        107
+      ],
+      "stats": {
+        "attack": 35,
+        "strength": 25,
+        "defense": 10
+      }
+    },
+    {
+      "name": "Wizard",
+      "keepId": 81,
+      "removeIds": [
+        314
+      ],
+      "stats": {
+        "attack": 18,
+        "strength": 15,
+        "defense": 14
+      }
+    },
+    {
+      "name": "Shop Assistant",
+      "keepId": 82,
+      "removeIds": [
+        83,
+        88,
+        106,
+        146,
+        169,
+        186
+      ],
+      "stats": {
+        "attack": 0,
+        "strength": 0,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Dwarf",
+      "keepId": 94,
+      "removeIds": [
+        694,
+        699
+      ],
+      "stats": {
+        "attack": 20,
+        "strength": 17,
+        "defense": 16
+      }
+    },
+    {
+      "name": "Banker",
+      "keepId": 95,
+      "removeIds": [
+        268
+      ],
+      "stats": {
+        "attack": 11,
+        "strength": 8,
+        "defense": 7
+      }
+    },
+    {
+      "name": "Moss Giant",
+      "keepId": 104,
+      "removeIds": [
+        594
+      ],
+      "stats": {
+        "attack": 62,
+        "strength": 61,
+        "defense": 60
+      }
+    },
+    {
+      "name": "Ned",
+      "keepId": 124,
+      "removeIds": [
+        194
+      ],
+      "stats": {
+        "attack": 20,
+        "strength": 20,
+        "defense": 20
+      }
+    },
+    {
+      "name": "Warrior",
+      "keepId": 159,
+      "removeIds": [
+        320
+      ],
+      "stats": {
+        "attack": 35,
+        "strength": 25,
+        "defense": 20
+      }
+    },
+    {
+      "name": "Monk of entrana",
+      "keepId": 212,
+      "removeIds": [
+        213,
+        215
+      ],
+      "stats": {
+        "attack": 12,
+        "strength": 13,
+        "defense": 15
+      }
+    },
+    {
+      "name": "Bandit",
+      "keepId": 232,
+      "removeIds": [
+        234
+      ],
+      "stats": {
+        "attack": 32,
+        "strength": 33,
+        "defense": 27
+      }
+    },
+    {
+      "name": "lady",
+      "keepId": 283,
+      "removeIds": [
+        284,
+        285
+      ],
+      "stats": {
+        "attack": 0,
+        "strength": 0,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Merlin",
+      "keepId": 287,
+      "removeIds": [
+        393
+      ],
+      "stats": {
+        "attack": 20,
+        "strength": 15,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Kharid Scorpion",
+      "keepId": 302,
+      "removeIds": [
+        303,
+        304
+      ],
+      "stats": {
+        "attack": 21,
+        "strength": 24,
+        "defense": 17
+      }
+    },
+    {
+      "name": "Ogre",
+      "keepId": 312,
+      "removeIds": [
+        525,
+        706
+      ],
+      "stats": {
+        "attack": 72,
+        "strength": 33,
+        "defense": 60
+      }
+    },
+    {
+      "name": "Paladin",
+      "keepId": 323,
+      "removeIds": [
+        632,
+        633
+      ],
+      "stats": {
+        "attack": 85,
+        "strength": 55,
+        "defense": 57
+      }
+    },
+    {
+      "name": "Lucien",
+      "keepId": 360,
+      "removeIds": [
+        364
+      ],
+      "stats": {
+        "attack": 24,
+        "strength": 22,
+        "defense": 17
+      }
+    },
+    {
+      "name": "Mourner",
+      "keepId": 444,
+      "removeIds": [
+        445,
+        451,
+        491,
+        492
+      ],
+      "stats": {
+        "attack": 2,
+        "strength": 2,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Holgart",
+      "keepId": 456,
+      "removeIds": [
+        457,
+        458
+      ],
+      "stats": {
+        "attack": 20,
+        "strength": 20,
+        "defense": 20
+      }
+    },
+    {
+      "name": "Platform Fisherman",
+      "keepId": 462,
+      "removeIds": [
+        463,
+        464
+      ],
+      "stats": {
+        "attack": 15,
+        "strength": 60,
+        "defense": 30
+      }
+    },
+    {
+      "name": "Elena",
+      "keepId": 465,
+      "removeIds": [
+        483
+      ],
+      "stats": {
+        "attack": 1,
+        "strength": 1,
+        "defense": 5
+      }
+    },
+    {
+      "name": "Chancy",
+      "keepId": 505,
+      "removeIds": [
+        509
+      ],
+      "stats": {
+        "attack": 32,
+        "strength": 33,
+        "defense": 27
+      }
+    },
+    {
+      "name": "Hops",
+      "keepId": 506,
+      "removeIds": [
+        510
+      ],
+      "stats": {
+        "attack": 32,
+        "strength": 33,
+        "defense": 27
+      }
+    },
+    {
+      "name": "DeVinci",
+      "keepId": 507,
+      "removeIds": [
+        511
+      ],
+      "stats": {
+        "attack": 32,
+        "strength": 33,
+        "defense": 27
+      }
+    },
+    {
+      "name": "King Narnode Shareen",
+      "keepId": 541,
+      "removeIds": [
+        545
+      ],
+      "stats": {
+        "attack": 3,
+        "strength": 3,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Glough",
+      "keepId": 547,
+      "removeIds": [
+        566
+      ],
+      "stats": {
+        "attack": 3,
+        "strength": 3,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Shipyard worker",
+      "keepId": 557,
+      "removeIds": [
+        558,
+        559
+      ],
+      "stats": {
+        "attack": 48,
+        "strength": 42,
+        "defense": 40
+      }
+    },
+    {
+      "name": "Shipyard foreman",
+      "keepId": 560,
+      "removeIds": [
+        561
+      ],
+      "stats": {
+        "attack": 60,
+        "strength": 60,
+        "defense": 59
+      }
+    },
+    {
+      "name": "Femi",
+      "keepId": 563,
+      "removeIds": [
+        564
+      ],
+      "stats": {
+        "attack": 3,
+        "strength": 3,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Yanille Watchman",
+      "keepId": 574,
+      "removeIds": [
+        685
+      ],
+      "stats": {
+        "attack": 41,
+        "strength": 30,
+        "defense": 22
+      }
+    },
+    {
+      "name": "Gnome Trainer",
+      "keepId": 576,
+      "removeIds": [
+        577,
+        578,
+        579
+      ],
+      "stats": {
+        "attack": 11,
+        "strength": 11,
+        "defense": 11
+      }
+    },
+    {
+      "name": "Gnome child",
+      "keepId": 583,
+      "removeIds": [
+        585,
+        586,
+        591
+      ],
+      "stats": {
+        "attack": 3,
+        "strength": 3,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Gnome Baller",
+      "keepId": 595,
+      "removeIds": [
+        597,
+        598,
+        599,
+        600,
+        602,
+        603,
+        604,
+        605,
+        606,
+        607,
+        608,
+        609,
+        610
+      ],
+      "stats": {
+        "attack": 70,
+        "strength": 70,
+        "defense": 70
+      }
+    },
+    {
+      "name": "Cheerleader",
+      "keepId": 611,
+      "removeIds": [
+        612
+      ],
+      "stats": {
+        "attack": 3,
+        "strength": 3,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Cart Driver",
+      "keepId": 618,
+      "removeIds": [
+        619
+      ],
+      "stats": {
+        "attack": 15,
+        "strength": 16,
+        "defense": 12
+      }
+    },
+    {
+      "name": "Koftik",
+      "keepId": 626,
+      "removeIds": [
+        627,
+        628,
+        629,
+        650,
+        659
+      ],
+      "stats": {
+        "attack": 18,
+        "strength": 15,
+        "defense": 14
+      }
+    },
+    {
+      "name": "slave",
+      "keepId": 634,
+      "removeIds": [
+        635,
+        636,
+        637,
+        638,
+        639,
+        640
+      ],
+      "stats": {
+        "attack": 17,
+        "strength": 15,
+        "defense": 16
+      }
+    },
+    {
+      "name": "Mercenary",
+      "keepId": 670,
+      "removeIds": [
+        690,
+        692
+      ],
+      "stats": {
+        "attack": 48,
+        "strength": 30,
+        "defense": 48
+      }
+    },
+    {
+      "name": "Skavid",
+      "keepId": 674,
+      "removeIds": [
+        678,
+        679,
+        696,
+        707,
+        708,
+        709
+      ],
+      "stats": {
+        "attack": 3,
+        "strength": 3,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Ogre trader",
+      "keepId": 687,
+      "removeIds": [
+        688,
+        689
+      ],
+      "stats": {
+        "attack": 72,
+        "strength": 33,
+        "defense": 60
+      }
+    },
+    {
+      "name": "kolodion",
+      "keepId": 712,
+      "removeIds": [
+        713
+      ],
+      "stats": {
+        "attack": 20,
+        "strength": 15,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Workman",
+      "keepId": 722,
+      "removeIds": [
+        738
+      ],
+      "stats": {
+        "attack": 11,
+        "strength": 8,
+        "defense": 7
+      }
+    },
+    {
+      "name": "civillian",
+      "keepId": 730,
+      "removeIds": [
+        731
+      ],
+      "stats": {
+        "attack": 0,
+        "strength": 0,
+        "defense": 3
+      }
+    },
+    {
+      "name": "Murphy",
+      "keepId": 733,
+      "removeIds": [
+        734,
+        739
+      ],
+      "stats": {
+        "attack": 15,
+        "strength": 16,
+        "defense": 12
+      }
+    },
+    {
+      "name": "Sir Radimus Erkle",
+      "keepId": 735,
+      "removeIds": [
+        785
+      ],
+      "stats": {
+        "attack": 10,
+        "strength": 20,
+        "defense": 8
+      }
+    },
+    {
+      "name": "Ungadulu",
+      "keepId": 766,
+      "removeIds": [
+        767
+      ],
+      "stats": {
+        "attack": 75,
+        "strength": 75,
+        "defense": 75
+      }
+    },
+    {
+      "name": "Battle mage",
+      "keepId": 789,
+      "removeIds": [
+        790,
+        791
+      ],
+      "stats": {
+        "attack": 0,
+        "strength": 90,
+        "defense": 120
+      }
+    }
+  ],
+  "timestamp": "2025-12-08T04:54:29.910Z",
+  "totalItemConsolidations": 39,
+  "totalNpcConsolidations": 62
+}

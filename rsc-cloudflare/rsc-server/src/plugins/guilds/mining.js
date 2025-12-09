@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Dwarf_(Mining_Guild)
+const { Npcs, Objects } = require('../../constants/ids');
 
-const DOOR_ID = 55;
-const DWARF_ID = 191;
-const LADDER_ID = 223;
+const DOOR_ID = Objects.MINING_GUILD_DOOR || 55; // 55
+const DWARF_ID = Npcs.DWARF || 191; // 191
+const LADDER_ID = Objects.MINING_GUILD_LADDER || 223; // 223
 
 async function checkMiningLevel(player) {
     const miningLevel = player.skills.mining.current;

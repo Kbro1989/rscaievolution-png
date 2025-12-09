@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Wayne
+const { Npcs } = require('../../../constants/ids');
 
-const WAYNE_ID = 141;
+const WAYNE_ID = Npcs.WAYNE || 141; // 141
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== WAYNE_ID) {

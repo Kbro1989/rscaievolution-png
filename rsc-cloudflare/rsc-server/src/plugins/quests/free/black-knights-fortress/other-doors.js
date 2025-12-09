@@ -1,7 +1,9 @@
-const BLACK_KNIGHT_ID = 66;
+const { Npcs, Objects } = require('../../../../constants/ids');
 
-const ODD_WALL_ID = 22;
-const SIDE_DOOR_ID = 40;
+const BLACK_KNIGHT_ID = Npcs.BLACK_KNIGHT || 66; // 66
+
+const ODD_WALL_ID = Objects.ODD_WALL || 22; // 22
+const SIDE_DOOR_ID = Objects.SIDE_DOOR || 40; // 40
 
 const BLOCKBLANK_ID = 86;
 

@@ -17,35 +17,37 @@
  * NOTE: Lever puzzle system deferred to future enhancement - core quest functional
  */
 
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
 const QUEST_NAME = "Family Crest";
 const QUEST_POINTS = 1;
 
-// NPCs (verified from 2003scape configs + OpenRSC)
-const NPC_DIMINTHEIS = 309;  // "Dimintheis" (was 262 = Guard Dog!)
-const NPC_CHEF = 310;        // "chef" (Caleb) (was 263 = Ice spider!)
-const NPC_AVAN = 308;        // "gem trader" (Estimated as Avan/Goldsmith) (was 256 = Trobert!)
-const NPC_JOHNATHON = 314;   // "Wizard" (Johnathon) (was 268 = Banker!)
-const NPC_CHRONOZON = 315;   // "Chronozon" (was 267 = Seth!)
-const NPC_BOOT = 313;        // "Boot the Dwarf" (New)
+// NPCs - Using project's ids.js constants
+const NPC_DIMINTHEIS = Npcs.DIMINTHEIS; // 309
+const NPC_CHEF = Npcs.CALEB; // 310
+const NPC_AVAN = Npcs.AVAN; // 308
+const NPC_JOHNATHON = Npcs.JOHNATHON; // 314
+const NPC_CHRONOZON = Npcs.CHRONOZON; // 315
+const NPC_BOOT = Npcs.BOOT; // 313
 
-// Items - Verified via @2003scape/rsc-data
-const ITEM_FAMILY_CREST = 694;           // "Family crest" (was 716)
-const ITEM_CREST_FRAGMENT_ONE = 695;     // "Crest fragment" (was 717)
-const ITEM_CREST_FRAGMENT_TWO = 696;     // "Crest fragment" (was 718)
-const ITEM_CREST_FRAGMENT_THREE = 697;   // "Crest fragment" (was 719)
-const ITEM_STEEL_GAUNTLETS = 698;        // "Steel gauntlets" (was 720)
-const ITEM_GOLDSMITH_GAUNTLETS = 699;    // "gauntlets of goldsmithing" (was 721)
-const ITEM_COOKING_GAUNTLETS = 700;      // "gauntlets of cooking" (was 723)
-const ITEM_CHAOS_GAUNTLETS = 701;        // "gauntlets of chaos" (was 722)
+// Items - Using project's ids.js constants
+const ITEM_FAMILY_CREST = Items.FAMILY_CREST; // 694
+const ITEM_CREST_FRAGMENT_ONE = Items.CREST_FRAGMENT; // 695
+const ITEM_CREST_FRAGMENT_TWO = Items.CREST_FRAGMENT; // 695
+const ITEM_CREST_FRAGMENT_THREE = Items.CREST_FRAGMENT; // 695
+const ITEM_STEEL_GAUNTLETS = Items.STEEL_GAUNTLETS; // 698
+const ITEM_GOLDSMITH_GAUNTLETS = Items.GOLDSMITH_GAUNTLETS; // 699
+const ITEM_COOKING_GAUNTLETS = Items.COOKING_GAUNTLETS; // 700
+const ITEM_CHAOS_GAUNTLETS = Items.CHAOS_GAUNTLETS; // 701
 
 // Perfect gold jewelry
-const ITEM_RUBY_RING_PERFECT = 724;      // Estimate
-const ITEM_RUBY_NECKLACE_PERFECT = 725;  // Estimate
+const ITEM_RUBY_RING_PERFECT = Items.PERFECT_RUBY_RING; // 724
+const ITEM_RUBY_NECKLACE_PERFECT = Items.PERFECT_RUBY_NECKLACE; // 725
 
 // Cure poison potions
-const ITEM_CURE_POISON_FULL = 567;       // Estimate
-const ITEM_CURE_POISON_2DOSE = 568;      // Estimate
-const ITEM_CURE_POISON_1DOSE = 569;      // Estimate
+const ITEM_CURE_POISON_FULL = Items.CURE_POISON_3_DOSE; // 567
+const ITEM_CURE_POISON_2DOSE = Items.CURE_POISON_2_DOSE; // 568
+const ITEM_CURE_POISON_1DOSE = Items.CURE_POISON_1_DOSE; // 569
 
 // Gauntlet types (for cache tracking)
 const GAUNTLET_STEEL = 0;

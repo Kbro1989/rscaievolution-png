@@ -11,33 +11,35 @@
  * Requirements: None (10 Fishing recommended)
  * Rewards: 1 QP, Fishing XP, White Wolf Mountain shortcut access
  * 
- * NOTE: Simplified MV - complex NPC dialogues (vampire, competition NPCs) deferred
+ * NOTE: Simplified MVP - complex NPC dialogues (vampire, competition NPCs) deferred
  */
+
+const { Items, Npcs, Objects } = require('../../../constants/ids');
 
 const QUEST_NAME = "Fishing Contest";
 const QUEST_POINTS = 1;
 
-// NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_MOUNTAIN_DWARF = 355;      // "Mountain Dwarf" (was 300 = Thormac!)
-const NPC_BONZO = 347;               // "Bonzo" (was 293 = Monk of Zamorak!)
-const NPC_GRANDPA_JACK = 345;        // "Grandpa Jack" (was 296 = Black Unicorn!)
-const NPC_MORRIS = 349;              // "Morris" (was 295 = Animated axe!)
+// NPCs - Using project's ids.js constants
+const NPC_MOUNTAIN_DWARF = Npcs.MOUNTAIN_DWARF; // 355
+const NPC_BONZO = Npcs.BONZO; // 347
+const NPC_GRANDPA_JACK = Npcs.GRANDPA_JACK; // 345
+const NPC_MORRIS = Npcs.MORRIS; // 349
 
-// Items (from items.json)
-const ITEM_FISHING_PASS = 741; // Line 9886
-const ITEM_FISHING_TROPHY = 742; // Line 9899
-const ITEM_RED_VINE_WORMS = 740; // Estimate
-const ITEM_RAW_GIANT_CARP = 369; // Estimate
-const ITEM_SPADE = 211;
-const ITEM_FISHING_ROD = 377;
-const ITEM_FISHING_BAIT = 622;
+// Items
+const ITEM_FISHING_PASS = Items.FISHING_PASS; // 741
+const ITEM_FISHING_TROPHY = Items.FISHING_TROPHY; // 742
+const ITEM_RED_VINE_WORMS = Items.RED_VINE_WORM; // 740
+const ITEM_RAW_GIANT_CARP = Items.RAW_GIANT_CARP; // 369
+const ITEM_SPADE = Items.SPADE; // 211
+const ITEM_FISHING_ROD = Items.FISHING_ROD; // 377
+const ITEM_FISHING_BAIT = Items.FISHING_BAIT; // 622
 
 // Objects/Scenery
-const OBJ_VINE_RED = 350; // Red vines for digging worms
-const OBJ_FISHING_SPOT_CARP = 351; // Carp fishing spot (by pipes)
-const OBJ_FISHING_SPOT_REGULAR = 352; // Regular spot (by tree)
-const OBJ_CONTEST_GATE = 353; // Competition entrance gate
-const OBJ_WWM_STAIRS = 354; // White Wolf Mountain stairs
+const OBJ_VINE_RED = 350;
+const OBJ_FISHING_SPOT_CARP = 351;
+const OBJ_FISHING_SPOT_REGULAR = 352;
+const OBJ_CONTEST_GATE = 353;
+const OBJ_WWM_STAIRS = 354;
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;

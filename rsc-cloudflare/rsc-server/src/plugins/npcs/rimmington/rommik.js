@@ -1,7 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Rommik
 // identical to dommik
+const { Npcs } = require('../../../constants/ids');
 
-const ROMMIK_ID = 156;
+const ROMMIK_ID = Npcs.ROMMIK || 156; // 156
 
 async function buyEquipment(player, npc, shop) {
     player.engage(npc);

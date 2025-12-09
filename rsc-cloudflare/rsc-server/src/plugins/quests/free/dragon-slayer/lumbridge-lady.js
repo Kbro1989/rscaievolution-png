@@ -1,16 +1,16 @@
 // https://classic.runescape.wiki/w/Lumbridge_Lady
-
+const { Items, Npcs, Objects } = require('../../../../constants/ids');
 const { onTalkToNPC } = require('./klarense');
 const regions = require('@2003scape/rsc-data/regions');
 
 const CRANDOR_SHIP_IDS = new Set([233, 234]);
-const HAMMER_ID = 168;
+const HAMMER_ID = Items.HAMMER; // 168
 const HOLE_IDS = new Set([226, 232]);
-const LADDER_ID = 227;
-const PLANK_ID = 410;
+const LADDER_ID = Objects.LADDER || 227; // 227
+const PLANK_ID = Items.PLANK; // 410
 const PORT_SARIM_SHIP_IDS = new Set([224, 225]);
-const STEEL_NAILS_ID = 419;
-const KLARENSE_ID = 193;
+const STEEL_NAILS_ID = Items.STEEL_NAILS || 419; // 419
+const KLARENSE_ID = Npcs.KLARENSE; // 193
 
 async function enterShip(player) {
     if (player.cache.lumbridgeLadyFixStage === -1) {

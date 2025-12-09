@@ -1,9 +1,11 @@
 // Harry's Fishing Shack (Catherby)
-const HARRY = 250;
+const { Npcs } = require('../../../constants/ids');
+
+const HARRY_ID = Npcs.HARRY || 250; // 250
 const SHOP_ID = "harrys-fishing-shack";
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== HARRY) return false;
+    if (npc.id !== HARRY_ID) return false;
     player.engage(npc);
 
     await npc.say("Welcome you can buy fishing equipment at my store", "We'll also buy fish that you catch off you");

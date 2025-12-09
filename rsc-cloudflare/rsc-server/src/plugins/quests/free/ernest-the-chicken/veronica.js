@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Veronica
+const { Npcs } = require('../../../../constants/ids');
 
-const VERONICA_ID = 36;
+const VERONICA_ID = Npcs.VERONICA || 36; // 36
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== VERONICA_ID) {

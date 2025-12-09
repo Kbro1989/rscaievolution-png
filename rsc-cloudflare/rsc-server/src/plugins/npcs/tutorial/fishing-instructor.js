@@ -1,8 +1,10 @@
-const FISHING_INSTRUCTOR = 479;
-const NET = 376;
+const { Items, Npcs } = require('../../../constants/ids');
+
+const FISHING_INSTRUCTOR_ID = Npcs.FISHING_INSTRUCTOR || 479; // 479
+const NET_ID = Items.NET || 376; // 376
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== FISHING_INSTRUCTOR) {
+    if (npc.id !== FISHING_INSTRUCTOR_ID) {
         return false;
     }
 
@@ -21,7 +23,7 @@ async function onTalkToNPC(player, npc) {
             "you'll need this"
         );
         player.message("the fishing instructor gives you a somewhat old looking net");
-        player.inventory.add(NET);
+        player.inventory.add(NET_ID);
         await npc.say(
             "Go catch some shrimp",
             "left click on that sparkling piece of water",
@@ -33,13 +35,13 @@ async function onTalkToNPC(player, npc) {
             "Left click on that splashing sparkling water",
             "then you can catch some shrimp"
         );
-        if (!player.inventory.has(NET)) {
+        if (!player.inventory.has(NET_ID)) {
             await player.say("I have lost my net");
             await npc.say(
                 "Hmm a good fisherman doesn't lose his net",
                 "Ah well heres another one"
             );
-            player.inventory.add(NET);
+            player.inventory.add(NET_ID);
         }
     } else if (tutorialStage === 42) {
         await npc.say(

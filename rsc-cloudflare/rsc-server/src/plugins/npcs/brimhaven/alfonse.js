@@ -1,9 +1,11 @@
 // Alfonse the Waiter (Brimhaven Shrimp and Parrot)
-const ALFONSE = 260;
+const { Npcs } = require('../../../constants/ids');
+
+const ALFONSE_ID = Npcs.ALFONSE_THE_WAITER || 260; // 260
 const SHOP_ID = "alfonses-shrimp-and-parrot";
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== ALFONSE) return false;
+    if (npc.id !== ALFONSE_ID) return false;
     player.engage(npc);
 
     await npc.say("Welcome to the shrimp and parrot", "Would you like to order sir?");

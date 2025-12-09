@@ -16,29 +16,30 @@
  * Reward: 1 Quest Point, Access to Heroes Guild, 3075 XP (Def/Str/Atk/Hits/Range/Cook/WC/FM/Fish/Smith/Mining)
  */
 
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
 const QUEST_NAME = "Hero's Quest";
 const QUEST_POINTS = 1;
 
-// NPCs (2003scape IDs from rsc-data-local/config/npcs.json)
-// NPCs - Authentic 2003scape IDs (verified via @2003scape/rsc-data)
-const NPC_ACHIETTIES = 316;     // TODO: Verify (Lookup failed)
-const NPC_GRUBOR = 255;         // "Grubor" (was 171 = Seaman Thresnor!)
-const NPC_TROBERT = 256;        // "Trobert" (was 172 = Tanner!)
-const NPC_GARV = 257;           // "Garv" (was 173 = Dommik!)
-const NPC_GRIP = 259;           // "Grip" (was 174 = Abbot Langley!)
-const NPC_ALFONSE = 260;        // "Alfonse the waiter" (was 319 = farmer!)
-const NPC_STRAVEN = 258;        // "Straven" (Estimated, gap in 255-260)
-const NPC_KATRINE = 27;         // "Katrine" (was 168 = Shopkeeper!)
+// NPCs - Using project's ids.js constants
+const NPC_ACHIETTIES = Npcs.ACHIETTIES; // 316
+const NPC_GRUBOR = Npcs.GRUBOR; // 255
+const NPC_TROBERT = Npcs.TROBERT; // 256
+const NPC_GARV = Npcs.GARV; // 257
+const NPC_GRIP = Npcs.GRIP; // 259
+const NPC_ALFONSE = Npcs.ALFONSE; // 260
+const NPC_STRAVEN = Npcs.STRAVEN; // 258
+const NPC_KATRINE = Npcs.KATRINE; // 27
 
-// Items (from items.json)
-const ITEM_FIREBIRD_FEATHER = 557;     // "Firebird Feather" (was 564)
-const ITEM_LAVA_EEL = 591;             // "Raw lava eel" (was 565)
-const ITEM_MASTER_THIEF_ARMBAND = 586; // "Master thief armband" (was 566)
-const ITEM_ICE_GLOVES = 556;           // "Ice Gloves" (was 567)
-const ITEM_CANDLESTICK = 573; // line 8066
-const ITEM_ID_PAPER = 574;
-const ITEM_MISC_KEY = 575;
-const ITEM_BUNCH_OF_KEYS = 576;
+// Items
+const ITEM_FIREBIRD_FEATHER = Items.FIREBIRD_FEATHER; // 557
+const ITEM_LAVA_EEL = Items.LAVA_EEL; // 590
+const ITEM_MASTER_THIEF_ARMBAND = Items.MASTER_THIEF_ARMBAND; // 586
+const ITEM_ICE_GLOVES = Items.ICE_GLOVES; // 556
+const ITEM_CANDLESTICK = Items.CANDLESTICK; // 573
+const ITEM_ID_PAPER = Items.ID_PAPER; // 574
+const ITEM_MISC_KEY = Items.MISC_KEY; // 575
+const ITEM_BUNCH_OF_KEYS = Items.BUNCH_OF_KEYS; // 576
 
 // Objects
 const OBJ_GRIPS_CUPBOARD_CLOSED = 263;
@@ -47,13 +48,13 @@ const OBJ_CANDLESTICK_CHEST_CLOSED = 266;
 const OBJ_CANDLESTICK_CHEST_OPEN = 265;
 
 // Boundaries (doors)
-const DOOR_SHRIMP_PARROT = 78; // x:448, y:682
-const DOOR_GRUBOR_HIDEOUT = 76; // x:439, y:694
-const DOOR_PETE_MANSION_ENTRANCE = 75; // x:463, y:681
-const DOOR_GRIP_QUARTERS = 77; // x:463, y:676
+const DOOR_SHRIMP_PARROT = 78;
+const DOOR_GRUBOR_HIDEOUT = 76;
+const DOOR_PETE_MANSION_ENTRANCE = 75;
+const DOOR_GRIP_QUARTERS = 77;
 const SECRET_PANEL = 79;
-const DOOR_TREASURE_ROOM_LOCKED = 80; // x:459, y:674
-const DOOR_CANDLESTICK_ROOM = 81; // x:472, y:674
+const DOOR_TREASURE_ROOM_LOCKED = 80;
+const DOOR_CANDLESTICK_ROOM = 81;
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;
@@ -448,7 +449,7 @@ async function onOperateBoundary(player, object) {
     }
 
     // Grubor's hideout door
-    if (object.id === DOOR_GRUBOR_HIDEOUT && object.x === 439 && object.y === 694) {
+    if (object.id === DOOR_GRUBOR_HIDEOUT && object.x === 165 && object.y === 694) {
         if (stage === -1) {
             const option = await player.ask([
                 "Would you like to have your windows refitting?",

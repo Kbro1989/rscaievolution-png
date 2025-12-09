@@ -1,8 +1,9 @@
 // https://classic.runescape.wiki/w/Transcript:Tanner
+const { Items, Npcs } = require('../../../constants/ids');
 
-const HIDE_ID = 147;
-const LEATHER_ID = 148;
-const TANNER_ID = 172;
+const HIDE_ID = Items.COWHIDE; // 147
+const LEATHER_ID = Items.LEATHER; // 148
+const TANNER_ID = Npcs.TANNER || 172; // 172
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== TANNER_ID) {
@@ -57,7 +58,7 @@ async function onTalkToNPC(player, npc) {
             await player.say('Leather is rather weak stuff');
             await npc.say(
                 "Well yes if all you're concerned with how much it will " +
-                    'protect you in a fight'
+                'protect you in a fight'
             );
             break;
     }

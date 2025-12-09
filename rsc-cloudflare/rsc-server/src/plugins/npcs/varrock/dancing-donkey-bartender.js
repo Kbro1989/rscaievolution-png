@@ -1,14 +1,16 @@
 // https://classic.runescape.wiki/w/Transcript:Bartender#Bartender_(Dancing_Donkey_Inn)
+const { Items, Npcs } = require('../../../constants/ids');
 
-const BARTENDER_ID = 520;
-const BEER_ID = 193;
+const BARTENDER_ID = Npcs.BARTENDER_DANCING_DONKEY || 520; // 520
+const BEER_ID = Items.BEER || 193; // 193
+const COINS_ID = Items.COINS || 10; // 10
 
 async function yesPlease(player, npc) {
     await npc.say("ok then, that's two gold coins please");
 
-    if (player.inventory.has(10, 2)) {
+    if (player.inventory.has(COINS_ID, 2)) {
         player.message('you give two coins to the barman');
-        player.inventory.remove(10, 2);
+        player.inventory.remove(COINS_ID, 2);
         await player.sendInventory();
         player.message('he gives you a cold beer');
         player.inventory.add(BEER_ID);

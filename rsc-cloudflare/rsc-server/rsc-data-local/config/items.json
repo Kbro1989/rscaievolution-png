@@ -17379,7 +17379,7 @@
         "name": "Dragon Square Shield",
         "description": "An ancient and powerful looking Dragon Square shield.",
         "command": "",
-        "sprite": 3,
+        "sprite": 426,
         "price": 500000,
         "stackable": false,
         "special": false,

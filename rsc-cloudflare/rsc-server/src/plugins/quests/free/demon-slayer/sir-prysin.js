@@ -1,10 +1,11 @@
 // https://classic.runescape.wiki/w/Transcript:Sir_Prysin
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const DRAIN_KEY_ID = 51;
-const ROVIN_KEY_ID = 26;
-const SILVERLIGHT_ID = 52;
-const SIR_PRYSIN_ID = 16;
-const TRAIBORN_KEY_ID = 25;
+const DRAIN_KEY_ID = Items.DRAIN_KEY || 51; // 51
+const ROVIN_KEY_ID = Items.ROVIN_KEY || 26; // 26
+const SILVERLIGHT_ID = Items.SILVERLIGHT || 52; // 52
+const SIR_PRYSIN_ID = Npcs.SIR_PRYSIN || 16; // 16
+const TRAIBORN_KEY_ID = Items.TRAIBORN_KEY || 25; // 25
 
 async function keyHunting(npc) {
     await npc.say('Ok goodbye');
@@ -319,7 +320,7 @@ async function onTalkToNPC(player, npc) {
                 await world.sleepTicks(3);
 
                 // it doesn't remove the keys until he gives you the sword
-                // https://youtu.be/izkjtqCBRX4?t=418
+                // https://youtu.be/izkjtqCBRX4?t=416
                 player.inventory.remove(TRAIBORN_KEY_ID);
                 player.inventory.remove(ROVIN_KEY_ID);
                 player.inventory.remove(DRAIN_KEY_ID);

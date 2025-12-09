@@ -1,8 +1,10 @@
-const MINING_INSTRUCTOR = 482;
-const BRONZE_PICKAXE = 156;
+const { Items, Npcs } = require('../../../constants/ids');
+
+const MINING_INSTRUCTOR_ID = Npcs.MINING_INSTRUCTOR || 482; // 482
+const BRONZE_PICKAXE_ID = Items.BRONZE_PICKAXE || 156; // 156
 
 async function onTalkToNPC(player, npc) {
-    if (npc.id !== MINING_INSTRUCTOR) {
+    if (npc.id !== MINING_INSTRUCTOR_ID) {
         return false;
     }
 
@@ -37,17 +39,17 @@ async function onTalkToNPC(player, npc) {
         await player.world.sleepTicks(3);
         player.message("The instructor gives you the pickaxe");
         await player.world.sleepTicks(3);
-        player.inventory.add(BRONZE_PICKAXE);
+        player.inventory.add(BRONZE_PICKAXE_ID);
         await npc.say("Now hit those rocks");
         player.cache.tutorial = 51;
     } else if (tutorialStage === 51) {
-        if (!player.inventory.has(BRONZE_PICKAXE)) {
+        if (!player.inventory.has(BRONZE_PICKAXE_ID)) {
             await player.say("I have lost my pickaxe");
             player.message("The instructor somehow produces a large pickaxe from inside his jacket");
             await player.world.sleepTicks(3);
             player.message("The instructor gives you the pickaxe");
             await player.world.sleepTicks(3);
-            player.inventory.add(BRONZE_PICKAXE);
+            player.inventory.add(BRONZE_PICKAXE_ID);
         }
         await npc.say(
             "to mine a rock just left click on it",

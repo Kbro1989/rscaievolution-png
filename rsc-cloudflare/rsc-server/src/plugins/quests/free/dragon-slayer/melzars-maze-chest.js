@@ -1,6 +1,8 @@
-const CLOSED_CHEST_ID = 229;
-const OPEN_CHEST_ID = 228;
-const SECOND_MAP_PIECE_ID = 417;
+const { Items, Objects } = require('../../../../constants/ids');
+
+const CLOSED_CHEST_ID = Objects.CLOSED_CHEST_229 || 229; // 229
+const OPEN_CHEST_ID = Objects.OPEN_CHEST || 18; // 18
+const SECOND_MAP_PIECE_ID = Items.MAP_PIECE; // 416
 
 async function onGameObjectCommandOne(player, gameObject) {
     if (gameObject.id === OPEN_CHEST_ID) {

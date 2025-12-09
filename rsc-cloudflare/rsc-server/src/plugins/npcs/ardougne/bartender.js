@@ -1,7 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Bartender#Bartender_(Flying_Horse_Inn)
+const { Items, Npcs } = require('../../../constants/ids');
 
-const BARTENDER_ID = 340;
-const BEER_ID = 193;
+const BARTENDER_ID = Npcs.BARTENDER_FLYING_HORSE_INN || 340; // 340
+const BEER_ID = Items.BEER || 193; // 193
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== BARTENDER_ID) {

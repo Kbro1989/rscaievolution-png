@@ -12,32 +12,34 @@
  * Reward: 2425 Mining XP, 2 Quest Points, Ardougne teleport
  */
 
+const { Items, Npcs, Objects } = require('../../../constants/ids');
+
 const QUEST_NAME = 'Plague City';
 const QUEST_POINTS = 2;
 
-// NPC IDs
-const NPC_EDMOND = 342;
-const NPC_ALRENA = 343;
-const NPC_ELENA = 344;
-const NPC_JETHICK = 345;
-const NPC_MILLI = 346;
-const NPC_TED = 347;
-const NPC_BRAVEK = 348;
+// NPC IDs - Using project's ids.js constants
+const NPC_EDMOND = Npcs.EDMOND; // 437
+const NPC_ALRENA = Npcs.ALRENA; // 450
+const NPC_ELENA = Npcs.ELENA; // 465
+const NPC_JETHICK = Npcs.JETHICK; // Verify
+const NPC_MILLI = Npcs.MILLI; // Verify
+const NPC_TED = Npcs.TED; // Verify
+const NPC_BRAVEK = Npcs.BRAVEK; // 454
 
 // Item IDs
-const ITEM_GAS_MASK = 657;
-const ITEM_PLAGUE_SAMPLE = 658;
-const ITEM_DWELLBERRIES = 765;
-const ITEM_ROPE = 237;
-const ITEM_SPADE = 5;
-const ITEM_BUCKET_WATER = 50;
-const ITEM_PICTURE_ELENA = 659;
-const ITEM_PLAGUE_KEY = 660;
-const ITEM_HANGOVER_CURE = 771;
-const ITEM_CHOCOLATE_DUST = 772;
-const ITEM_MILK = 22;
-const ITEM_CHOCOLATE_MILK = 770;
-const ITEM_SNAPE_GRASS = 469;
+const ITEM_GAS_MASK = Items.GAS_MASK; // 657
+const ITEM_PLAGUE_SAMPLE = Items.PLAGUE_SAMPLE; // 658
+const ITEM_DWELLBERRIES = Items.DWELLBERRIES; // 765
+const ITEM_ROPE = Items.ROPE; // 237
+const ITEM_SPADE = Items.SPADE; // 211 (not 5)
+const ITEM_BUCKET_WATER = Items.BUCKET_OF_WATER; // 50
+const ITEM_PICTURE_ELENA = Items.PICTURE; // 659
+const ITEM_PLAGUE_KEY = Items.DOOR_KEY; // 660
+const ITEM_HANGOVER_CURE = Items.HANGOVER_CURE; // 771
+const ITEM_CHOCOLATE_DUST = Items.CHOCOLATE_DUST; // 772
+const ITEM_MILK = Items.MILK; // 22
+const ITEM_CHOCOLATE_MILK = Items.CHOCOLATE_MILK; // 770
+const ITEM_SNAPE_GRASS = Items.SNAPE_GRASS; // 469
 
 function getQuestStage(player) {
     return player.questStages[QUEST_NAME] || 0;

@@ -1,7 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Duke_of_Lumbridge
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const ANTI_DRAGON_BREATH_SHIELD_ID = 420;
-const DUKE_ID = 198;
+const ANTI_DRAGON_BREATH_SHIELD_ID = Items.ANTI_DRAGON_BREATH_SHIELD; // 420
+const DUKE_ID = Npcs.DUKE_OF_LUMBRIDGE; // 198
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== DUKE_ID) {
@@ -49,7 +50,7 @@ async function onTalkToNPC(player, npc) {
         case 2: // money
             await npc.say(
                 "I've heard the blacksmiths are prosperous amoung the " +
-                    'peasantry',
+                'peasantry',
                 'Maybe you could try your hand at that'
             );
             break;

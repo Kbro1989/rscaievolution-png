@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-12-08T05:07:26.062Z",
+  "status": "COMPLETED",
+  "before": {
+    "items": 1254,
+    "npcs": 797,
+    "totalIds": 2051
+  },
+  "after": {
+    "items": 1198,
+    "npcs": 677,
+    "totalIds": 1875
+  },
+  "removed": {
+    "items": 56,
+    "npcs": 120,
+    "total": 176
+  },
+  "preserved": {
+    "itemVariants": 18,
+    "npcLocationVariants": 10,
+    "total": 28
+  },
+  "reduction": {
+    "items": "4.5%",
+    "npcs": "15.1%",
+    "total": "8.6%"
+  },
+  "backupFiles": [
+    "rsc-cloudflare/rsc-server/rsc-data-local/config/items.json.backup",
+    "rsc-cloudflare/rsc-server/rsc-data-local/config/npcs.json.backup"
+  ]
+}

@@ -1,6 +1,8 @@
 // https://classic.runescape.wiki/w/Brass_key
 
-const BRASS_KEY_ID = 99;
+const { Items } = require('../../constants/ids');
+
+const BRASS_KEY_ID = Items.BRASS_KEY;
 const DOOR_ID = 23;
 
 async function onWallObjectCommandOne(player, wallObject) {

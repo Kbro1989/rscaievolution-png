@@ -1,7 +1,9 @@
-const HOLE_ID = 154;
+const { Items, Objects } = require('../../../../constants/ids');
 
-const CABBAGE_ID = 18; // right cababge
-const DRAYNOR_CABBAGE_ID = 228; // wrong cabbage
+const HOLE_ID = Objects.HOLE || 154; // 154
+
+const CABBAGE_ID = Items.CABBAGE || 18; // right cabbage (18)
+const DRAYNOR_CABBAGE_ID = Items.DRAYNOR_CABBAGE || 18; // wrong cabbage (18)
 
 async function onUseWithGameObject(player, gameObject, item) {
     if (gameObject.id !== HOLE_ID) {

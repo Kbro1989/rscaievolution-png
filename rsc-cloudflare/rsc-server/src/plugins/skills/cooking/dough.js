@@ -3,12 +3,13 @@
 const Item = require('../../../model/item');
 const items = require('@2003scape/rsc-data/config/items');
 const { doughs } = require('@2003scape/rsc-data/skills/cooking');
+const { Items } = require('../../../constants/ids');
 
-const FLOUR_ID = 136;
-const POT_ID = 135;
+const FLOUR_ID = Items.FLOUR_136;
+const POT_ID = Items.POT;
 
-// bucket and jug
-const WATER_IDS = new Set([50, 141]);
+// bucket and jug (Water bucket = 50, Water jug = 141)
+const WATER_IDS = new Set([Items.WATER, Items.WATER_141]);
 
 async function onUseWithInventory(player, item, target) {
     if (
@@ -39,7 +40,7 @@ async function onUseWithInventory(player, item, target) {
 
     player.message(
         '@que@You mix the water and flour to make some ' +
-            items[id].name.toLowerCase()
+        items[id].name.toLowerCase()
     );
 
     return true;

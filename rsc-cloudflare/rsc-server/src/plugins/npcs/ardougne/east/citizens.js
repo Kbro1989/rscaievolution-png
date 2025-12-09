@@ -1,9 +1,15 @@
 
 
+const { Npcs } = require('../../../../constants/ids');
+
 module.exports = (router) => {
     // Paladins (323, 632, 633), Heroes (324), Knights (various)
-    const PALADINS = [323, 632, 633];
-    const HEROES = [324];
+    const PALADINS = [
+        Npcs.PALADIN || 323,
+        Npcs.PALADIN_632 || 632,
+        Npcs.PALADIN_633 || 633
+    ];
+    const HEROES = [Npcs.HERO || 324];
 
     router.on('talk', PALADINS, (player, npc) => {
         player.message('You speak to the Paladin.');

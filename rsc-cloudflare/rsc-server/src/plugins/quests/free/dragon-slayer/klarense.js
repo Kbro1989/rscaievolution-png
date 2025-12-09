@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Klarense
+const { Npcs } = require('../../../../constants/ids');
 
-const KLARENSE_ID = 193;
+const KLARENSE_ID = Npcs.KLARENSE; // 193
 
 async function isntSeaworthy(npc) {
     await npc.say(
@@ -60,7 +61,7 @@ async function onTalkToNPC(player, npc) {
                     'Well even if I knew how to get there',
                     "I wouldn't like to risk it",
                     'Especially after to goin to all the effort of fixing ' +
-                        'the old girl up'
+                    'the old girl up'
                 );
                 break;
             // buy it
@@ -68,7 +69,7 @@ async function onTalkToNPC(player, npc) {
                 await npc.say(
                     'I guess you could',
                     "I'm sure the work needed to do on it wouldn't be too " +
-                        'expensive',
+                    'expensive',
                     'How does 2000 gold sound for a price?'
                 );
 
@@ -95,7 +96,7 @@ async function onTalkToNPC(player, npc) {
                     case 1: // no
                         await npc.say(
                             "That's Ok, I didn't particularly want to sell " +
-                                'anyway'
+                            'anyway'
                         );
                         break;
                 }

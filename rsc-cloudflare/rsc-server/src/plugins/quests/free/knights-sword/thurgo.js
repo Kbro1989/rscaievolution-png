@@ -1,11 +1,12 @@
 // https://classic.runescape.wiki/w/Transcript:Thurgo
+const { Items, Npcs } = require('../../../../constants/ids');
 
-const BLURITE_ORE_ID = 266;
-const FALADIAN_KNIGHTS_SWORD_ID = 265;
-const IRON_BAR_ID = 170;
-const PORTRAIT_ID = 264;
-const REDBERRY_PIE = 258;
-const THURGO_ID = 134;
+const BLURITE_ORE_ID = Items.BLURITE_ORE || 266; // 266
+const FALADIAN_KNIGHTS_SWORD_ID = Items.FALADIAN_KNIGHTS_SWORD || 265; // 265
+const IRON_BAR_ID = Items.IRON_BAR; // 170
+const PORTRAIT_ID = Items.PORTRAIT || 264; // 264
+const REDBERRY_PIE = Items.REDBERRY_PIE; // 258
+const THURGO_ID = Npcs.THURGO || 134; // 134
 
 const SMITHING_MESSAGES = [
     'You give some blurite ore and two iron bars to Thurgo',
@@ -125,7 +126,7 @@ async function onTalkToNPC(player, npc) {
             "Well I'd need to know exactly how it looked",
             'Before I could make a new one',
             'All the Faladian knights used to have swords with different ' +
-                'designs',
+            'designs',
             'could you bring me a picture or something?'
         );
 

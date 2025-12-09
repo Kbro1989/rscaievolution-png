@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Banker
+const { Npcs } = require('../../constants/ids');
 
-const BANKER_IDS = new Set([95, 224, 268, 540, 617]);
+const BANKER_IDS = new Set([Npcs.BANKER || 95, 224, 268, 540, 617]);
 
 async function onTalkToNPC(player, npc) {
     if (!BANKER_IDS.has(npc.id)) {
@@ -41,16 +42,16 @@ async function onTalkToNPC(player, npc) {
                     await npc.say(
                         'We will look after your items and money for you',
                         'So leave your valuables with us if you want to keep ' +
-                            'them safe'
+                        'them safe'
                     );
                     break;
                 case 1: // bank of varrock
                     await npc.say(
                         'Yes we did, but people kept on coming into our ' +
-                            'branches outside of varrock',
+                        'branches outside of varrock',
                         'And telling us our signs were wrong',
                         "As if we didn't know what town we were in or " +
-                            'something!'
+                        'something!'
                     );
                     break;
             }

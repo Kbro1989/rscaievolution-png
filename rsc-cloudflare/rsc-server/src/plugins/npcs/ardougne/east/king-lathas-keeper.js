@@ -1,4 +1,7 @@
 // King Lathas Keeper NPC (Training Camp Shop)
+const { Npcs } = require('../../../../constants/ids');
+
+const SHOP_KEEPER_ID = Npcs.SHOPKEEPER_ARDOUGNE_TRAINING_CAMP_GENERAL || 528; // 528 (Generic, but specific location logic might be needed if multiple 528s exist)
 
 const trainingCampShop = {
     name: 'Training Camp Shop',
@@ -30,21 +33,28 @@ const trainingCampShop = {
     }
 };
 
-module.exports = {
-    npcIds: [528],
-
-    async onTalk(player, npc) {
-        player.chat("hello");
-        npc.chat("so are you looking to buy some weapons?", "king lathas keeps us very well stocked");
-
-        const option = await player.ask([
-            "what do you have?",
-            "no thanks"
-        ]);
-
-        if (option === 0) {
-            npc.chat("take a look");
-            player.openShop(trainingCampShop);
-        }
+async function onTalkToNPC(player, npc) {
+    if (npc.id !== SHOP_KEEPER_ID) {
+        return false;
     }
-};
+
+    player.engage(npc);
+
+    await player.say("hello");
+    await npc.say("so are you looking to buy some weapons?", "king lathas keeps us very well stocked");
+
+    const option = await player.ask([
+        "what do you have?",
+        "no thanks"
+    ], true);
+
+    if (option === 0) {
+        await npc.say("take a look");
+        player.openShop(trainingCampShop);
+    }
+
+    player.disengage();
+    return true;
+}
+
+module.exports = { onTalkToNPC };

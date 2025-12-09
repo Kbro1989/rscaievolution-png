@@ -1,4 +1,5 @@
 // https://classic.runescape.wiki/w/Transcript:Warrior
+const { Items, Npcs } = require('../../../constants/ids');
 
 const {
     wishToTrade,
@@ -12,8 +13,8 @@ const {
     worriedAboutGoblins
 } = require('../man');
 
-const WARRIOR_ID = 86;
-const FLIER_ID = 201;
+const WARRIOR_ID = Npcs.WARRIOR || 86; // 86
+const FLIER_ID = Items.FLIER || 201; // 201
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== WARRIOR_ID) {
@@ -31,7 +32,7 @@ async function onTalkToNPC(player, npc) {
             await npc.say('Do I know you?');
             await player.say(
                 'No, I was just wondering if you had anything interesting to ' +
-                    'say'
+                'say'
             );
             break;
         case 1:

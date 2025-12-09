@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { latLonToCartesian, degToRad } from '../utils/sphericalMath';
+import { isBlocked } from '../utils/collision';
 
 export interface SphericalPosition {
     lat: number; // -90 .. 90 (degrees)
@@ -33,12 +34,15 @@ export function useSphericalMovement(initialRadius: number = 100) {
 
             const deltaLon = distance * Math.sin(headingRad) / (initialRadius * safeCosLat) * (180 / Math.PI);
 
-            setPosition(prev => ({
-                lat: Math.max(-90, Math.min(90, prev.lat + deltaLat)),
-                lon: ((prev.lon + deltaLon + 180) % 360) - 180,
-            }));
+            const newLat = Math.max(-90, Math.min(90, position.lat + deltaLat));
+            const newLon = ((position.lon + deltaLon + 180) % 360) - 180;
+
+            if (!isBlocked(newLat, newLon)) {
+                setPosition({ lat: newLat, lon: newLon });
+            }
+            // else: movement blocked by object
         },
-        [heading, initialRadius, position.lat]
+        [heading, initialRadius, position.lat, position.lon]
     );
 
     const turnLeft = useCallback((angle: number) => {

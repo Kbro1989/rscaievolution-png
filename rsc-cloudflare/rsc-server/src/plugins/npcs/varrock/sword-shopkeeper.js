@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Shopkeeper_(Varrock_Swords)
+const { Npcs } = require('../../../constants/ids');
 
-const SHOPKEEPER_IDS = new Set([56, 130]);
+const SHOPKEEPER_IDS = new Set([Npcs.SHOPKEEPER_VARROCK_SWORD || 56, Npcs.SHOPKEEPER_ASSISTANT_VARROCK_SWORD || 130]); // 56, 130
 
 async function onTalkToNPC(player, npc) {
     if (!SHOPKEEPER_IDS.has(npc.id)) {

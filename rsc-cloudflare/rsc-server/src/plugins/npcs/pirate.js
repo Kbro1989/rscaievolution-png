@@ -1,6 +1,7 @@
 // https://classic.runescape.wiki/w/Transcript:Pirate
+const { Npcs } = require('../../constants/ids');
 
-const PIRATE_IDS = new Set([137, 264]);
+const PIRATE_IDS = new Set([Npcs.PIRATE || 137, 264]);
 
 const DIALOGUE_LINES = [
     "I'm the scourge of the seven seas",
@@ -33,7 +34,7 @@ async function onTalkToNPC(player, npc) {
         return false;
     }
 
-    player.engange(npc);
+    player.engage(npc);
 
     const roll = Math.floor(Math.random() * (DIALOGUE_LINES.length + 2));
 
