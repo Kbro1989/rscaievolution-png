@@ -1,16 +1,28 @@
 const fs = require('fs');
 
 const items = JSON.parse(fs.readFileSync('./rsc-cloudflare/rsc-server/rsc-data-local/config/items.json', 'utf8'));
+const { battlestaves } = require('../rsc-cloudflare/rsc-server/rsc-data-local/skills/crafting.json');
 
 const itemNamesToFind = [
-  'Ball of Wool',
-  'Bowstring',
-  'Flax',
-  'Wool'
+  'Battlestaff'
 ];
 
+for (const orbId in battlestaves) {
+    const def = battlestaves[orbId];
+    // Add orb name to search list if possible, otherwise just use its ID
+    const orbItem = items[orbId];
+    if (orbItem && orbItem.name) {
+        itemNamesToFind.push(orbItem.name);
+    }
+    // Add resulting battlestaff name to search list if possible, otherwise just use its ID
+    const resultItem = items[def.id];
+    if (resultItem && resultItem.name) {
+        itemNamesToFind.push(resultItem.name);
+    }
+}
+
 console.log('╔══════════════════════════════════════════════════════════════════════════════╗');
-console.log('║                 FINDING CORRECT IDs FOR SPINNING WHEEL ITEMS               ║
+console.log('║                 FINDING CORRECT IDs FOR BATTLESTAFF ITEMS                  ║');
 console.log('╚══════════════════════════════════════════════════════════════════════════════╝\n');
 
 const corrections = {};
@@ -56,9 +68,18 @@ for (const name of itemNamesToFind) {
   }
 }
 
-console.log('--------------------------- CORRECT ID MAPPING (SPINNING) ------------------------');
+console.log('--------------------------- CORRECT ID MAPPING (BATTLESTAFF) ------------------------');
 for (const [name, id] of Object.entries(corrections)) {
   const dbName = items[id] ? items[id].name : 'N/A';
   console.log(`'${name}': ${id}, // Canonical Name: '${dbName}'`);
+}
+console.log('---------------------------------------------------------------------------------\n');
+
+console.log('--------------------------- BATTLESTAFF DATA (ORB_ID: { level, experience, id }) ------------------------');
+for (const orbId in battlestaves) {
+    const def = battlestaves[orbId];
+    const orbName = items[orbId] ? items[orbId].name : 'Unknown Orb';
+    const resultName = items[def.id] ? items[def.id].name : 'Unknown Result';
+    console.log(`'${orbName}' (ID: ${orbId}): { level: ${def.level}, experience: ${def.experience}, id: ${def.id}, // Result: '${resultName}' }`);
 }
 console.log('---------------------------------------------------------------------------------\n');
