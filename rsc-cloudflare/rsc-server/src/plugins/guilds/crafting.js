@@ -1,9 +1,8 @@
 // https://classic.runescape.wiki/w/Transcript:Master_Crafter
-const { Items, Npcs, Objects } = require('../../constants/ids');
 
-const BROWN_APRON_ID = Items.BROWN_APRON || 191; // 191
-const DOOR_ID = Objects.CRAFTING_GUILD_DOOR || 68; // 68
-const MASTER_CRAFTER_ID = Npcs.MASTER_CRAFTER || 231; // 231
+const BROWN_APRON_ID = 191;
+const DOOR_ID = 68;
+const MASTER_CRAFTER_ID = 231;
 
 async function onWallObjectCommandOne(player, wallObject) {
     if (wallObject.id !== DOOR_ID) {

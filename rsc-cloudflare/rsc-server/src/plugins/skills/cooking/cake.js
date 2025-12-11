@@ -1,13 +1,11 @@
 // https://classic.runescape.wiki/w/Cake
 
-const { Items } = require('../../../constants/ids');
-
-const CAKE_TIN_ID = Items.CAKE_TIN;
-const EGG_ID = Items.EGG;
-const FLOUR_ID = Items.FLOUR_136;
-const MILK_ID = Items.MILK;
-const POT_ID = Items.POT;
-const UNCOOKED_CAKE_ID = Items.UNCOOKED_CAKE;
+const CAKE_TIN_ID = 338;
+const EGG_ID = 19;
+const FLOUR_ID = 136;
+const MILK_ID = 22;
+const POT_ID = 135;
+const UNCOOKED_CAKE_ID = 339;
 
 const INGREDIENT_IDS = new Set([FLOUR_ID, EGG_ID, MILK_ID]);
 

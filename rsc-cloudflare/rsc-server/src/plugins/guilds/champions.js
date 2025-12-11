@@ -1,12 +1,11 @@
 // https://classic.runescape.wiki/w/Transcript:Guildmaster
 // https://classic.runescape.wiki/w/Transcript:Scavvo
 // https://classic.runescape.wiki/w/Transcript:Valaine
-const { Npcs, Objects } = require('../../constants/ids');
 
-const DOOR_ID = Objects.CHAMPIONS_GUILD_DOOR || 44; // 44
-const GUILDMASTER_ID = Npcs.GUILDMASTER; // 111
-const SCAVVO_ID = Npcs.SCAVVO || 183; // 183
-const VALAINE_ID = Npcs.VALAINE || 112; // 112
+const DOOR_ID = 44;
+const GUILDMASTER_ID = 111;
+const SCAVVO_ID = 183;
+const VALAINE_ID = 112;
 
 async function onWallObjectCommandOne(player, wallObject) {
     if (wallObject.id !== DOOR_ID) {
