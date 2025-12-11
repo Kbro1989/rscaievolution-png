@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
     "partyserver": "^0.0.75",
     "partysocket": "^1.1.6",
