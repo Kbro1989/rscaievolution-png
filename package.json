@@ -10,7 +10,7 @@
     "validate-setup": "tsx scripts/validate-setup.ts",
     "generate-models": "tsx scripts/generate-models.ts",
     "create-placeholders": "tsx scripts/create-placeholders.ts",
-    "deploy": "wrangler pages deploy"
+    "deploy": "cd rsc-cloudflare && npx wrangler deploy"
   },
   "engines": {
     "node": ">=20.0.0"
