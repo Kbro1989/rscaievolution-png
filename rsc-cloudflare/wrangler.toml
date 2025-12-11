@@ -1,23 +1,21 @@
 name = "rsc-cloudflare"
 main = "worker.js"
-pages_build_output_dir = "public"
 compatibility_date = "2024-11-28"
+compatibility_flags = ["nodejs_compat"]
 
 # 1. CORE STORAGE
 [[kv_namespaces]]
-binding = "KV"
-id = "f2881801ac59415a86236d0841f27103"  # Hot data: Player saves, Items, NPCs
+binding = "KV_BINDING"
+id = "f2881801ac59415a86236d0841f27103"
 
 [[d1_databases]]
 binding = "DB"
 database_name = "rsc-d1"
-database_id = "d021ab5b-ab13-47b8-9287-1aabebfe51df" # Authoritative: Players, Logs
+database_id = "d021ab5b-ab13-47b8-9287-1aabebfe51df"
 
-# Asset Storage (Optional)
 [[r2_buckets]]
 binding = "RSC_ASSETS"
-bucket_name = "rsc-assets"
-preview_bucket_name = "rsc-assets-preview"
+bucket_name = "rscserver"
 
 # 2. DURABLE OBJECTS
 # Main Game Server (World State)
@@ -35,13 +33,13 @@ class_name = "PlayerDO"
 tag = "v1"
 new_classes = ["RSCServerDO", "PlayerDO"]
 
-# 4. QUEUES (Async Persistence)
-[[queues.producers]]
-binding = "PLAYER_QUEUE"
-queue = "player-save-queue"
+# 4. QUEUES (Async Persistence - requires Workers Paid plan)
+# [[queues.producers]]
+# binding = "PLAYER_QUEUE"
+# queue = "player-save-queue"
 
-[[queues.consumers]]
-queue = "player-save-queue"
+# [[queues.consumers]]
+# queue = "player-save-queue"
 # processed by this same worker
 
 

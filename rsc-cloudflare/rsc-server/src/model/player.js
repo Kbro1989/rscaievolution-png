@@ -737,27 +737,6 @@ class Player extends Character {
         this.animations[2] = 3;
     }
 
-    // update our sprites, combat level, skull status, etc. to us and the
-    // players we know about
-    broadcastPlayerAppearance(self = false) {
-        const { world } = this;
-        const update = this.getAppearanceUpdate();
-
-        world.nextTick(() => {
-            if (self) {
-                this.localEntities.characterUpdates.playerAppearances.push(
-                    update
-                );
-            }
-
-            for (const player of this.localEntities.known.players) {
-                player.localEntities.characterUpdates.playerAppearances.push(
-                    update
-                );
-            }
-        });
-    }
-
     // let everyone around us know about a message (don't send to self). if
     // dialogue is true, don't record the message in chat logs to the nearby
     // players.
