@@ -18,6 +18,60 @@ if (typeof process !== 'undefined' && process.env && process.env.NODE_ENV !== 'w
 
 const TIMEOUT = 10000;
 
+// Default new player data - must match browser-data-client.js
+const DEFAULT_PLAYER = {
+    username: '',
+    password: '',
+    group: 0, // 0=player, 2=mod, 3=admin
+    x: 213,
+    y: 436,
+    fatigue: 0,
+    combatStyle: 0,
+    blockChat: 0,
+    blockPrivateChat: 0,
+    blockTrade: 0,
+    blockDuel: 0,
+    cameraAuto: 0,
+    oneMouseButton: 0,
+    soundOn: 1,
+    hairColour: 2,
+    topColour: 8,
+    trouserColour: 14,
+    skinColour: 0,
+    headSprite: 1,
+    bodySprite: 2,
+    skulled: 0,
+    friends: [],
+    ignores: [],
+    inventory: [],
+    bank: [],
+    questPoints: 0,
+    questStages: {},
+    skills: {
+        attack: { current: 1, experience: 0 },
+        defense: { current: 1, experience: 0 },
+        strength: { current: 1, experience: 0 },
+        hits: { current: 9, experience: 2304 }, // RSC Level 9 with 4x multiplier
+        ranged: { current: 1, experience: 0 },
+        prayer: { current: 1, experience: 0 },
+        magic: { current: 1, experience: 0 },
+        cooking: { current: 1, experience: 0 },
+        woodcutting: { current: 1, experience: 0 },
+        fletching: { current: 1, experience: 0 },
+        fishing: { current: 1, experience: 0 },
+        firemaking: { current: 1, experience: 0 },
+        crafting: { current: 1, experience: 0 },
+        smithing: { current: 1, experience: 0 },
+        mining: { current: 1, experience: 0 },
+        herblaw: { current: 1, experience: 0 },
+        agility: { current: 1, experience: 0 },
+        thieving: { current: 1, experience: 0 }
+    },
+    cache: {},
+    loginIP: null,
+    world: 0
+};
+
 class DataClient {
     constructor(server) {
         this.server = server;
@@ -298,20 +352,11 @@ class DataClient {
 
             console.log(`[DataClient] Registering new user: ${cleanUser}`);
 
-            const newPlayer = {
-                username: cleanUser,
-                pass: password,
-                x: 329, y: 552,
-                fatigue: 0,
-                combatStyle: 0,
-                blockChat: 0, blockPrivateChat: 0, blockTrade: 0, blockDuel: 0,
-                cameraAuto: 0, oneMouseButton: 0,
-                loginDate: Date.now(),
-                friends: [], ignores: [],
-                skills: {},
-                inventory: [], bank: [],
-                questPoints: 0, questStages: {}
-            };
+            // Clone DEFAULT_PLAYER and set user-specific values
+            const newPlayer = JSON.parse(JSON.stringify(DEFAULT_PLAYER));
+            newPlayer.username = cleanUser;
+            newPlayer.password = password;
+            newPlayer.loginDate = Date.now();
 
             await this.performSave(cleanUser, newPlayer);
 
