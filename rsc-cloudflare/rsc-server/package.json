@@ -8,7 +8,8 @@
     "fly": "node src/fly-server.js",
     "deploy": "fly deploy",
     "build-browser-dev": "mkdir -p dist && browserify -t brfs src/browser-index.js > dist/browser.bundle.js",
-    "build-browser": "npm run build-browser-dev && cp dist/browser.bundle.js dist/browser.bundle.min.js"
+    "build-browser": "npm run build-browser-dev && cp dist/browser.bundle.js dist/browser.bundle.min.js",
+    "postinstall": "node scripts/fix-bwtc.js"
   },
   "repository": {
     "type": "git",
