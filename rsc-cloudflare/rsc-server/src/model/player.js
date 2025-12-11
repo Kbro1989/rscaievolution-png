@@ -934,18 +934,6 @@ class Player extends Character {
         }
     }
 
-    getAppearanceUpdate() {
-        return {
-            index: this.index,
-            appearanceIndex: this.appearanceIndex,
-            username: this.username,
-            animations: this.animations,
-            ...this.appearance,
-            combatLevel: this.combatLevel,
-            skulled: this.isSkulled()
-        };
-    }
-
     // get a player's base level in a skill, without stat modifiers like potions
     // or beer
     getBaseLevel(skillName) {

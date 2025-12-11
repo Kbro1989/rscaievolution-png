@@ -31,7 +31,7 @@ class_name = "PlayerDO"
 # 3. MIGRATIONS
 [[migrations]]
 tag = "v1"
-new_classes = ["RSCServerDO", "PlayerDO"]
+new_sqlite_classes = ["RSCServerDO", "PlayerDO"]
 
 # 4. QUEUES (Async Persistence - requires Workers Paid plan)
 # [[queues.producers]]
