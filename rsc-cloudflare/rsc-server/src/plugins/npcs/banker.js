@@ -1,13 +1,15 @@
 // https://classic.runescape.wiki/w/Transcript:Banker
 const { Npcs } = require('../../constants/ids');
 
-const BANKER_IDS = new Set([Npcs.BANKER || 95, 224, 268, 540, 617]);
+const BANKER_IDS = new Set([Npcs.BANKER || 95, 224, Npcs.BANKER_268 || 268, 540, 617]);
 
 async function onTalkToNPC(player, npc) {
+    console.log(`[BankerPlugin] Checking NPC ${npc.id} (Banker IDs: ${[...BANKER_IDS].join(',')})`);
     if (!BANKER_IDS.has(npc.id)) {
         return false;
     }
 
+    console.log(`[BankerPlugin] Engaging NPC ${npc.id}`);
     player.engage(npc);
     await npc.say('Good day, how may I help you?');
 

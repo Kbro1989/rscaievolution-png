@@ -1414,6 +1414,7 @@ const Npcs = {
     MONK: 93,
     DWARF: 94,
     BANKER: 95,
+    BANKER_268: 268,
     COUNT_DRAYNOR: 96,
     MORGAN: 97,
     DR_HARLOW: 98,
