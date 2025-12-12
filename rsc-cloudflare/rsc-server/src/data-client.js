@@ -158,7 +158,7 @@ class DataClient {
 
     send(message) {
         if (!this.connected) return;
-        if (this.db) {
+        if (this.db || this.kv) {
             // For fire-and-forget messages in D1 mode
             if (message.handler === 'playerLogout') {
                 // Nothing urgent, saved on logout anyway
