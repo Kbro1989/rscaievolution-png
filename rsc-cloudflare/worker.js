@@ -74,7 +74,24 @@ export default {
             return await handleAsset(request, env, url);
         }
 
-        // --- 4. REGIONAL GAME SHARDING ---
+        // --- 4. STATIC ASSETS (Serve from ./public) ---
+        // For non-WebSocket requests, try to serve from ASSETS binding first
+        if (request.headers.get('Upgrade') !== 'websocket') {
+            // Check if ASSETS binding exists and try to serve the file
+            if (env.ASSETS) {
+                try {
+                    const assetResponse = await env.ASSETS.fetch(request);
+                    // If we got a valid response (not 404), return it
+                    if (assetResponse.status !== 404) {
+                        return assetResponse;
+                    }
+                } catch (e) {
+                    // Asset not found, continue to API/DO routing
+                }
+            }
+        }
+
+        // --- 5. REGIONAL GAME SHARDING ---
         // Route WebSocket/API traffic to the nearest regional Durable Object
         const country = request.cf?.country || 'US';
         const shardMapping = env.SHARD_MAPPING ? JSON.parse(env.SHARD_MAPPING) : {};
@@ -96,6 +113,7 @@ export default {
             return stub.fetch(request);
         }
 
+        // For non-WebSocket requests that weren't handled by assets, forward to DO
         return stub.fetch(request);
     },
 
