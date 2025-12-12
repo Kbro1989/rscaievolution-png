@@ -4,6 +4,10 @@ main = "worker.js"
 compatibility_date = "2024-11-28"
 compatibility_flags = ["nodejs_compat"]
 
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
 # 1. CORE STORAGE
 [[kv_namespaces]]
 binding = "KV_BINDING"
