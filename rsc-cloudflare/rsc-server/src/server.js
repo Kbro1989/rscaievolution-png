@@ -257,6 +257,21 @@ class Server {
             }
         }
     }
+    async tick() {
+        if (this.env && this.env.KV_BINDING) {
+            // Optional: Log tick start to ensure it's running (can remove later to reduce noise)
+            // await this.env.KV_BINDING.put('debug_tick_' + Date.now(), 'tick').catch(() => {});
+        }
+
+        // Process incoming packets (like REGISTER, LOGIN)
+        this.readMessages();
+
+        // Run game logic (movement, combat, etc)
+        await this.world.tick();
+
+        // Flush outgoing packets
+        this.sendMessages();
+    }
 }
 
 module.exports = Server;
