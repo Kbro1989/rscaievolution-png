@@ -66,10 +66,17 @@ if (typeof window === 'undefined') {
     const isMultiplayer = modeParam !== 'solo';
 
     if (isMultiplayer) {
-        // Multiplayer mode: Connect to Fly.io Backend
-        console.log('🌐 Multiplayer mode - connecting to Fly.io Game Server...');
-        mc.server = 'rscaievolution-png.fly.dev';
-        mc.port = 443;
+        // Multiplayer mode
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('🌐 Local Dev mode - connecting to local Worker (127.0.0.1:8787)...');
+            mc.server = '127.0.0.1';
+            mc.port = 8787;
+        } else {
+            console.log('🌐 Multiplayer mode - connecting to Cloudflare Worker...');
+            // TODO: Update this to your deployed Worker URL (e.g. rsc-server.yourname.workers.dev)
+            mc.server = 'rsc-server.destiny.workers.dev';
+            mc.port = 443;
+        }
     } else if (!args[1]) {
         // Solo mode: Use browser Worker
         console.log('⚔️ Solo mode - initializing standalone server worker...');
