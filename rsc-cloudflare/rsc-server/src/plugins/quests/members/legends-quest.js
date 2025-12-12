@@ -1,5 +1,5 @@
-const { IDS } = require('../../ids');
-const { random } = require('../../utils');
+// Inline random utility
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 // IDs
 const RADIMUS = 735;
