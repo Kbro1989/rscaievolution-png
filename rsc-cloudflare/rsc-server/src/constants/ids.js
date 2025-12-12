@@ -1315,6 +1315,21 @@ const Items = {
     CAPE_OF_SARADOMIN: 1310,
     CAPE_OF_ZAMORAK: 1311,
     SOUL_RUNE_1312: 1312,
+
+    // Hand-restored missing Constants (rsc-cloudflare additions)
+    MISC_KEY: 582,
+    LIT_BLACK_CANDLE: 602,
+    INSECT_REPELLENT: 603,
+    GAS_MASK: 766,
+    DOOR_KEY: 538,
+    CHOCOLATE_MILK: 22, // FALLBACK: Authentic "Chocolatey milk" ID missing in config
+    LIT_CANDLE: 601,
+    LIT_TORCH: 774,
+    GNOME_AMULET: 744,
+    GLARIALS_AMULET: 782,
+    GLARIALS_URN: 805,
+    CHARCOAL: 983,
+    BUCKET_OF_WATER: 50,
 };
 
 const Npcs = {
@@ -2115,6 +2130,22 @@ const Npcs = {
     CHARLIE_794: 794,
     MOSOL_REI: 795,
     WATCHTOWER_WIZARD_796: 796,
+
+    // Hand-restored missing Constants (rsc-cloudflare additions)
+    SURVIVAL_EXPERT: 797,
+
+    DA_VINCI: 507,
+    GUIDORS_WIFE: 488,
+    ACHIETTIES: 253,
+    ALFONSE: 260,
+    STRAVEN: 24,
+    ADVENTURER_207: 207,
+    MILLI: 449,
+    TED: 446,
+    GUARDIAN_OF_ARMADYL_362: 362,
+    FIRE_WARRIOR_OF_LESARKUS: 361,
+    KING_BOLREN: 400,
+    LADY_OF_THE_LAKE: 283,
 };
 
 const Objects = {
@@ -3307,6 +3338,10 @@ const Objects = {
     DAMAGED_EARTH: 1186,
     LADDER_1187: 1187,
     LADDER_1188: 1188,
+
+    // Hand-restored missing Constants (rsc-cloudflare additions)
+    CAULDRON_OF_THUNDER: 236,
+    LEPRECHAUN_TREE: 1, // Generic Tree
 };
 
 module.exports = { Items, Npcs, Objects };
