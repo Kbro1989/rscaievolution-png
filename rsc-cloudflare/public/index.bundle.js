@@ -66,32 +66,31 @@ if (typeof window === 'undefined') {
     const modeParam = urlParams.get('mode');
     const isMultiplayer = modeParam !== 'solo';
 
-    if (isMultiplayer) {
-        // Multiplayer mode: Connect to Fly.io Backend
-        console.log('🌐 Multiplayer mode - connecting to Fly.io Game Server...');
-        mc.server = 'rscaievolution-png.fly.dev';
-        mc.port = 443;
-    } else if (!args[1]) {
-        // Solo mode: Use browser Worker
-        console.log('⚔️ Solo mode - initializing standalone server worker...');
-        const serverWorker = new Worker('./server.bundle.min.js');
-        serverWorker.postMessage({
-            type: 'start',
-            config: {
-                worldID: 1,
-                version: 204,
-                members: true,
-                experienceRate: 1,
-                fatigue: true,
-                rememberCombatStyle: false
-            }
-        });
-        mc.server = serverWorker;
+    // FORCE MULTIPLAYER MODE
+    console.log('🌐 Multiplayer Mode Active');
+
+    // Detect Localhost OR Private Network IPs (RFC 1918)
+    const isLocal = window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1' ||
+        window.location.hostname.match(/^192\.168\./) ||
+        window.location.hostname.match(/^10\./) ||
+        window.location.hostname.match(/^172\.(1[6-9]|2[0-9]|3[0-1])\./);
+
+    if (isLocal) {
+        console.log(`🌐 Local Dev mode - connecting to local Worker (${window.location.hostname}:8787)...`);
+        mc.server = window.location.hostname; // Connect to same IP
+        mc.port = 8787;
     } else {
-        // Custom server from URL hash
-        mc.server = args[1];
-        mc.port = args[2] && !isNaN(+args[2]) ? +args[2] : 43595;
+        console.log('🌐 Production mode - connecting to Cloudflare Worker...');
+
+        // Production: Hardcoded Cloudflare Worker URL
+        const PROD_WORKER_URL = 'rscaievolution-png.kristain33rs.workers.dev';
+
+        console.log(`Using Production Worker: ${PROD_WORKER_URL}`);
+        mc.server = PROD_WORKER_URL;
+        mc.port = 443;
     }
+    // Solo and Custom logic removed for Multiplayer-only build
 
     mc.threadSleep = 10;
 
