@@ -84,11 +84,18 @@ if (typeof window === 'undefined') {
             // Try to get URL from storage (persists across reloads)
             let workerUrl = localStorage.getItem('rsc_worker_url');
 
+            // Auto-clear invalid URLs (e.g. user entered email)
+            if (workerUrl && (workerUrl.includes('@') || workerUrl.includes('pick-of-gods'))) {
+                console.log('Detected invalid Worker URL, clearing...');
+                workerUrl = null;
+                localStorage.removeItem('rsc_worker_url');
+            }
+
             if (!workerUrl || workerUrl.includes('pick-of-gods')) {
                 // First run: Ask user for their Worker URL
                 const defaultUrl = 'rscaievolution-png.SUBDOMAIN.workers.dev';
                 workerUrl = prompt(
-                    "Enter your Cloudflare Worker URL for Multiplayer:\n(Check Cloudflare Dashboard for your Subdomain)",
+                    "Enter your Cloudflare Worker URL:\nFormat: rscaievolution-png.<YOUR-SUBDOMAIN>.workers.dev\n(Do NOT use your email address!)",
                     defaultUrl
                 );
 
