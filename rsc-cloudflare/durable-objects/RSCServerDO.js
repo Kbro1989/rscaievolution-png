@@ -53,7 +53,7 @@ export class RSCServerDO {
 
             // Handle /health endpoint
             if (url.pathname === '/health' || url.pathname.endsWith('/health')) {
-                return new Response('RSCServerDO Online', { status: 200 });
+                return new Response('RSCServerDO v2 Online', { status: 200 });
             }
 
             // WebSocket upgrade required for game connections
