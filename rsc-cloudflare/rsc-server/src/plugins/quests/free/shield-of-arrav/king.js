@@ -1,6 +1,6 @@
 // https://classic.runescape.wiki/w/Transcript:King
 
-const BLACK_ARM_BROKEN_SHIELD_ID = 53;
+const BLACK_ARM_BROKEN_SHIELD_ID = 54;
 const CERTIFICATE_ID = 61;
 const KING_ID = 42;
 const PHOENIX_BROKEN_SHIELD_ID = 53;

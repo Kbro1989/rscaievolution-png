@@ -8,7 +8,7 @@ const KEYPRINT_ID = 247;
 const OSMAN_ID = 120;
 const PASTE_ID = 240;
 const ROPE_ID = 237;
-const SKIRT_ID = 187;
+const SKIRT_ID = 194;
 
 async function findSomeThings(player, npc) {
     await npc.say(

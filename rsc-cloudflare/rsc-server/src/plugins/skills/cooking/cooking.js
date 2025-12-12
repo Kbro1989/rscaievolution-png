@@ -16,7 +16,7 @@ const UNCOOKED_SWAMP_PASTE_ID = 744;
 const SWAMP_PASTE_ID = 745;
 const BURNT_MEAT_ID = 133;
 
-const CAKE_TIN_ID = 331;
+const CAKE_TIN_ID = 338; // 2003scape authentic
 const COOKS_RANGE_ID = 119;
 const FIRE_IDS = new Set([97, 274]);
 const RANGE_IDS = new Set([11, 491]);

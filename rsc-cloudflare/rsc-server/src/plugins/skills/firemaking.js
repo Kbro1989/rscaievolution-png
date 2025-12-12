@@ -12,6 +12,7 @@ const { Items, Objects } = require('../../constants/ids');
 const ASHES_ID = Items.ASHES;
 const FIRE_ID = 97; // Objects.FIRE? If verified. 97 is standard fire.
 const TINDERBOX_ID = Items.TINDERBOX;
+const LOGS_ID = 14; // 2003scape authentic
 const { logs } = require('@2003scape/rsc-data/skills/firemaking');
 
 // 25% at level 1, 100% at level 60

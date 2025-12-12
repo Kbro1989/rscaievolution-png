@@ -5,7 +5,7 @@ const BRONZE_KEY_ID = 242;
 const PASTE_ID = 240;
 const PRINCE_ALI_DRAG_ID = 126;
 const PRINCE_ALI_ID = 118;
-const SKIRT_ID = 187;
+const SKIRT_ID = 194;
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== PRINCE_ALI_ID) {
