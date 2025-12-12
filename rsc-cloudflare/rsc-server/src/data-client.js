@@ -421,7 +421,7 @@ class DataClient {
     }
 
     async playerLogin(data) {
-        if (this.db) return this.d1PlayerLogin(data);
+        if (this.db) return this.storagePlayerLogin(data);
         return this.sendAndReceive({ handler: 'playerLogin', ...data });
     }
 
@@ -436,7 +436,7 @@ class DataClient {
     }
 
     async playerRegister(data) {
-        if (this.db) return this.d1PlayerRegister(data);
+        if (this.db) return this.storagePlayerRegister(data);
         return this.sendAndReceive({ handler: 'playerRegister', ...data });
     }
 
