@@ -11,6 +11,14 @@ function secureInt() {
 }
 
 async function session(socket) {
+    try {
+        if (socket.server && socket.server.dataClient && socket.server.dataClient.kv) {
+            await socket.server.dataClient.kv.put('debug_session_' + Date.now(), 'Session Handler Invoked. Connected: ' + ((socket.server.dataClient.connected) ? 'true' : 'false'));
+        }
+    } catch (e) {
+        // console.error(e);
+    }
+
     if (!socket.server.dataClient.connected) {
         const failure = Buffer.alloc(8);
         socket.send(failure);

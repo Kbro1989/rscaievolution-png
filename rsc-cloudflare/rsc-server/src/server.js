@@ -59,16 +59,35 @@ class Server {
     }
 
     handleConnection(socket) {
+        if (this.env && this.env.KV_BINDING) {
+            this.env.KV_BINDING.put('debug_srv_conn_' + Date.now(), 'server.handleConnection called').catch(() => { });
+        }
+
         socket = new RSCSocket(socket);
         socket.setTimeout(5000);
         socket.server = this;
 
         this.incomingMessages.set(socket, []);
 
-        socket.on('error', (err) => log.error(err));
-        socket.on('timeout', () => socket.close());
+        socket.on('error', (err) => {
+            log.error(err);
+            if (socket.server && socket.server.env && socket.server.env.KV_BINDING) {
+                socket.server.env.KV_BINDING.put('debug_srv_err_' + Date.now(), err.message).catch(() => { });
+            }
+        });
+        socket.on('timeout', () => {
+            if (socket.server && socket.server.env && socket.server.env.KV_BINDING) {
+                socket.server.env.KV_BINDING.put('debug_srv_to_' + Date.now(), 'Socket Timeout').catch(() => { });
+            }
+            socket.close();
+        });
 
         socket.on('message', async (message) => {
+            try {
+                if (socket.server && socket.server.env && socket.server.env.KV_BINDING) {
+                    await socket.server.env.KV_BINDING.put('debug_msg_recv_' + Date.now() + '_' + Math.random(), `Recv: ${message.type}`);
+                }
+            } catch (e) { }
             if (
                 !socket.player &&
                 !/register|login|session|closeConnection/.test(message.type)
@@ -90,6 +109,11 @@ class Server {
         });
 
         socket.on('close', async () => {
+            try {
+                if (socket.server && socket.server.env && socket.server.env.KV_BINDING) {
+                    await socket.server.env.KV_BINDING.put('debug_close_' + Date.now() + '_' + Math.random(), 'Socket Closed');
+                }
+            } catch (e) { }
             if (socket.player) {
                 if (socket.player.loggedIn) {
                     await socket.player.logout();

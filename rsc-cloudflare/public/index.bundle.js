@@ -38775,14 +38775,14 @@ class GameConnection extends GameShell {
                 window.location.hostname === '127.0.0.1');
 
         if (isLocal) {
-            // Local development - Force connect to Fly.io (Multiplayer)
-            this.server = 'rscaievolution-png.fly.dev';
+            // Local development - Connect to Cloudflare Worker
+            this.server = 'rscaievolution-png.kristain33rs.workers.dev';
             this.port = 443;
             // this.server = window.location.hostname;
             // this.port = parseInt(window.location.port) || 8788;
         } else {
-            // Production - Fly.io (Game Server)
-            this.server = 'rscaievolution-png.fly.dev';
+            // Production - Connect to Cloudflare Worker
+            this.server = 'rscaievolution-png.kristain33rs.workers.dev';
             this.port = 443;
         }
 

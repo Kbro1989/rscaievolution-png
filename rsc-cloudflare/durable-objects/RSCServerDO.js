@@ -57,6 +57,18 @@ export class RSCServerDO {
                 return new Response('RSCServerDO v4 Online', { status: 200 });
             }
 
+            // Handle /debug/logs endpoint
+            if (url.pathname === '/debug/logs' || url.pathname.endsWith('/debug/logs')) {
+                const list = await this.env.KV_BINDING.list({ prefix: 'debug_' });
+                const logs = {};
+                for (const key of list.keys) {
+                    logs[key.name] = await this.env.KV_BINDING.get(key.name);
+                }
+                return new Response(JSON.stringify(logs, null, 2), {
+                    headers: { 'Content-Type': 'application/json' }
+                });
+            }
+
             // WebSocket upgrade required for game connections
             if (upgradeHeader !== 'websocket') {
                 return new Response('Expected WebSocket connection', {
@@ -114,7 +126,9 @@ export class RSCServerDO {
                 connected: true
             });
 
-            console.log(`[DO] New session connected: ${sessionId} (Total: ${this.sessions.size})`);
+            const msgStart = `[DO] New session connected: ${sessionId} (Total: ${this.sessions.size})`;
+            console.log(msgStart);
+            this.env.KV_BINDING.put(`debug_sess_start_${sessionId}`, msgStart).catch(() => { });
 
             // Create a socket wrapper that bridges WebSocket to RSC Server
             const socketBridge = this.createSocketBridge(sessionId, webSocket);
@@ -123,6 +137,7 @@ export class RSCServerDO {
             try {
                 this.server.handleConnection(socketBridge);
                 console.log(`[DO] handleConnection success for ${sessionId}`);
+                this.env.KV_BINDING.put(`debug_sess_handled_${sessionId}`, 'true').catch(() => { });
             } catch (connErr) {
                 const msg = `CONN_ERROR: ${connErr.message}\n${connErr.stack}`;
                 console.error(msg);
@@ -132,6 +147,9 @@ export class RSCServerDO {
 
             // Handle WebSocket messages
             webSocket.addEventListener('message', async (event) => {
+                const dataSize = event.data instanceof ArrayBuffer ? event.data.byteLength : event.data.length;
+                this.env.KV_BINDING.put(`debug_sess_msg_${sessionId}_${Date.now()}`, `Size: ${dataSize}`).catch(() => { });
+
                 try {
                     const data = event.data;
 
@@ -211,6 +229,10 @@ export class RSCServerDO {
             await this.server.init();
 
             console.log('[DO] RSC Server initialized successfully');
+
+            // Start the tick loop
+            console.log('[DO] Starting tick loop via alarm...');
+            await this.state.storage.setAlarm(Date.now() + 100);
         } catch (err) {
             const msg = `INIT_ERROR: ${err.message}\n${err.stack}`;
             await this.env.KV_BINDING.put('debug_error_init', msg);
@@ -310,7 +332,19 @@ export class RSCServerDO {
      * Alarm handler for periodic tasks (optional)
      */
     async alarm() {
-        // Could be used for periodic world saves or cleanup
-        console.log('[DO] Alarm triggered');
+        if (!this.server) return;
+
+        try {
+            // Run server tick
+            await this.server.tick();
+        } catch (e) {
+            console.error('Tick Error:', e);
+            // Log error to KV but don't fail the alarm loop
+            this.env.KV_BINDING.put('debug_error_tick_' + Date.now(), e.message).catch(() => {});
+        }
+
+        // Schedule next tick (600ms for authentic RSC)
+        // We use setAlarm to ensure the DO stays alive and processes the next tick
+        await this.state.storage.setAlarm(Date.now() + 600);
     }
 }

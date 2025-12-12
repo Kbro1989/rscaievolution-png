@@ -54,6 +54,27 @@ export class GameWorld {
             });
         }
 
+        if (url.pathname === '/debug/logs') {
+            const kv = this.env.KV || this.env.KV_BINDING;
+            if (!kv) return new Response('KV not found', { status: 500 });
+
+            try {
+                const list = await kv.list({ prefix: 'debug_' });
+                const logs = {};
+
+                // Fetch latest 20 logs to avoid timeout
+                for (const key of list.keys.slice(0, 20)) {
+                    logs[key.name] = await kv.get(key.name);
+                }
+
+                return new Response(JSON.stringify(logs, null, 2), {
+                    headers: { 'Content-Type': 'application/json' }
+                });
+            } catch (e) {
+                return new Response('Error fetching logs: ' + e.message, { status: 500 });
+            }
+        }
+
         return new Response('RSC Game World - Use WebSocket for game connection', { status: 200 });
     }
 
