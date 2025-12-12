@@ -199,7 +199,8 @@ export class RSCServerDO {
                 mapsJag: Buffer.from(maps63),
                 landMem: Buffer.from(landmem63),
                 mapsMem: Buffer.from(mapsmem63)
-            }
+            },
+            skipDataServer: true // Run in standalone mode (use KV)
         };
 
         try {
