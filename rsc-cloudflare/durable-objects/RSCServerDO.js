@@ -45,7 +45,8 @@ export class RSCServerDO {
                     npcs: this.server?.world?.npcs?.length || 0,
                     ticks: this.server?.world?.tickCounter || 0,
                     serverInitialized: !!this.server,
-                    status: 'Online'
+                    status: 'Online',
+                    envKeys: Object.keys(this.env || {})
                 }), {
                     headers: { 'Content-Type': 'application/json' }
                 });
