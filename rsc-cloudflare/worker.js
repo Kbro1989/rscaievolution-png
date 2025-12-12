@@ -13,21 +13,62 @@ import { processQueue } from './worker-queue.js';
 
 export { RSCServerDO, PlayerDO };
 
+// Default new player data - must match data-client.js
+const DEFAULT_PLAYER = {
+    username: '', password: '', group: 0, x: 213, y: 436, fatigue: 0, combatStyle: 0,
+    blockChat: 0, blockPrivateChat: 0, blockTrade: 0, blockDuel: 0, cameraAuto: 0, oneMouseButton: 0,
+    soundOn: 1, hairColour: 2, topColour: 8, trouserColour: 14, skinColour: 0, headSprite: 1, bodySprite: 2,
+    skulled: 0, friends: [], ignores: [], inventory: [], bank: [], questPoints: 0, questStages: {},
+    skills: {
+        attack: { current: 1, experience: 0 }, defense: { current: 1, experience: 0 }, strength: { current: 1, experience: 0 },
+        hits: { current: 9, experience: 2304 }, ranged: { current: 1, experience: 0 }, prayer: { current: 1, experience: 0 },
+        magic: { current: 1, experience: 0 }, cooking: { current: 1, experience: 0 }, woodcutting: { current: 1, experience: 0 },
+        fletching: { current: 1, experience: 0 }, fishing: { current: 1, experience: 0 }, firemaking: { current: 1, experience: 0 },
+        crafting: { current: 1, experience: 0 }, smithing: { current: 1, experience: 0 }, mining: { current: 1, experience: 0 },
+        herblaw: { current: 1, experience: 0 }, agility: { current: 1, experience: 0 }, thieving: { current: 1, experience: 0 }
+    },
+    cache: {}, loginIP: null, world: 0
+};
+
 export default {
     async fetch(request, env, ctx) {
         const url = new URL(request.url);
 
-        // --- 1. HEALTH CHECKS & ADMIN ---
-        if (url.pathname === '/health') {
-            return new Response('RSC Zero-Cost Router Online', { status: 200 });
+        // --- CVS PREFLIGHT (CORS) ---
+        if (request.method === 'OPTIONS') {
+            return new Response(null, {
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                }
+            });
         }
 
-        // --- 2. ASSET SERVING (R2 -> KV Fallback) ---
+        const corsHeaders = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Content-Type',
+        };
+
+        // --- 1. HEALTH CHECKS & ADMIN ---
+        if (url.pathname === '/health') {
+            return new Response('RSC Zero-Cost Router Online', { status: 200, headers: corsHeaders });
+        }
+
+        // --- 2. UNIFIED AUTH API ---
+        if (url.pathname === '/api/register' && request.method === 'POST') {
+            return handleRegister(request, env, corsHeaders);
+        }
+        if (url.pathname === '/api/login' && request.method === 'POST') {
+            return handleLogin(request, env, corsHeaders);
+        }
+
+        // --- 3. ASSET SERVING (R2 -> KV Fallback) ---
         if (url.pathname.startsWith('/asset/')) {
             return await handleAsset(request, env, url);
         }
 
-        // --- 3. REGIONAL GAME SHARDING ---
+        // --- 4. REGIONAL GAME SHARDING ---
         // Route WebSocket/API traffic to the nearest regional Durable Object
         const country = request.cf?.country || 'US';
         const shardMapping = env.SHARD_MAPPING ? JSON.parse(env.SHARD_MAPPING) : {};
@@ -37,7 +78,7 @@ export default {
         const doBinding = env[shardBindingName];
 
         if (!doBinding) {
-            return new Response(`Configuration Error: Region ${shardBindingName} not found`, { status: 500 });
+            return new Response(`Configuration Error: Region ${shardBindingName} not found`, { status: 500, headers: corsHeaders });
         }
 
         // Use a stable ID for the region (singleton per region)
@@ -56,6 +97,111 @@ export default {
         await processQueue(batch, env);
     }
 };
+
+/**
+ * Handles Unified Register API
+ */
+async function handleRegister(request, env, corsHeaders) {
+    try {
+        const { username, password } = await request.json();
+        if (!username || !password || username.length < 2 || password.length < 2) {
+            return new Response(JSON.stringify({ success: false, error: 'Invalid credentials' }), { status: 400, headers: corsHeaders });
+        }
+        const cleanUser = username.toLowerCase();
+
+        // Check DB (DB preferred, fallback KV)
+        let exists = false;
+        if (env.DB) {
+            const res = await env.DB.prepare('SELECT 1 FROM players WHERE username = ?').bind(cleanUser).first();
+            exists = !!res;
+        } else if (env.KV_BINDING || env.KV) {
+            const kv = env.KV_BINDING || env.KV;
+            exists = await kv.get(`player:${cleanUser}`) !== null;
+        }
+
+        if (exists) {
+            return new Response(JSON.stringify({ success: false, error: 'Username taken' }), { status: 409, headers: corsHeaders });
+        }
+
+        // Create Player
+        const newPlayer = JSON.parse(JSON.stringify(DEFAULT_PLAYER));
+        newPlayer.username = cleanUser;
+        newPlayer.password = password; // In real prod, hash this! keeping plain for RSC legacy match
+        newPlayer.loginDate = Date.now();
+
+        // Save
+        if (env.DB) {
+            await env.DB.prepare('INSERT INTO players (username, data, updated_at) VALUES (?, ?, ?)')
+                .bind(cleanUser, JSON.stringify(newPlayer), Date.now()).run();
+        } else if (env.KV_BINDING || env.KV) {
+            const kv = env.KV_BINDING || env.KV;
+            await kv.put(`player:${cleanUser}`, JSON.stringify(newPlayer));
+        }
+
+        return new Response(JSON.stringify({ success: true, message: 'Account created' }), { status: 201, headers: corsHeaders });
+
+    } catch (e) {
+        return new Response(JSON.stringify({ success: false, error: e.message }), { status: 500, headers: corsHeaders });
+    }
+}
+
+/**
+ * Handles Unified Login API
+ */
+async function handleLogin(request, env, corsHeaders) {
+    try {
+        const { username, password } = await request.json();
+        const cleanUser = (username || '').toLowerCase();
+
+        let data = null;
+
+        if (env.DB) {
+            const res = await env.DB.prepare('SELECT data FROM players WHERE username = ?').bind(cleanUser).first();
+            if (res) data = JSON.parse(res.data);
+        } else if (env.KV_BINDING || env.KV) {
+            const kv = env.KV_BINDING || env.KV;
+            data = await kv.get(`player:${cleanUser}`, { type: 'json' });
+        }
+
+        if (!data) {
+            return new Response(JSON.stringify({ success: false, error: 'User not found' }), { status: 404, headers: corsHeaders });
+        }
+
+        if (data.pass !== password && data.password !== password) {
+            return new Response(JSON.stringify({ success: false, error: 'Invalid password' }), { status: 401, headers: corsHeaders });
+        }
+
+        // Success - return basic session info
+        return new Response(JSON.stringify({
+            success: true,
+            username: cleanUser,
+            group: data.group || 0,
+            combat: calculateCombat(data.skills)
+        }), { status: 200, headers: corsHeaders });
+
+    } catch (e) {
+        return new Response(JSON.stringify({ success: false, error: e.message }), { status: 500, headers: corsHeaders });
+    }
+}
+
+function calculateCombat(skills) {
+    if (!skills) return 3;
+    const att = skills.attack ? skills.attack.current : 1;
+    const def = skills.defense ? skills.defense.current : 1;
+    const str = skills.strength ? skills.strength.current : 1;
+    const hits = skills.hits ? skills.hits.current : 10;
+    const pray = skills.prayer ? skills.prayer.current : 1;
+    const mag = skills.magic ? skills.magic.current : 1;
+    const adp = skills.ranged ? skills.ranged.current : 1;
+
+    const base = 0.25 * (def + hits + Math.floor(pray / 2));
+    const melee = 0.325 * (att + str);
+    const range = 0.325 * (Math.floor(adp / 2) + adp);
+    const magic = 0.325 * (Math.floor(mag / 2) + mag);
+
+    const max = Math.max(melee, range, magic);
+    return Math.floor(base + max);
+}
 
 /**
  * Handles asset serving with cost-saving fallback logic
