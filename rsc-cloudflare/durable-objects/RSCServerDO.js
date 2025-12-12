@@ -125,7 +125,7 @@ export class RSCServerDO {
             } catch (connErr) {
                 const msg = `CONN_ERROR: ${connErr.message}\n${connErr.stack}`;
                 console.error(msg);
-                await this.env.KV.put('debug_error_conn', msg);
+                await this.env.KV_BINDING.put('debug_error_conn', msg);
                 throw connErr; // Re-throw to be caught by outer block
             }
 
@@ -150,7 +150,7 @@ export class RSCServerDO {
                     const msg = `MSG_ERROR: ${error.message}\n${error.stack}`;
                     console.error('[DO] Error processing message:', msg);
                     // Fire and forget KV logging (async)
-                    this.env.KV.put('debug_error_msg_' + Date.now(), msg).catch(() => { });
+                    this.env.KV_BINDING.put('debug_error_msg_' + Date.now(), msg).catch(() => { });
                 }
             });
 
@@ -173,7 +173,7 @@ export class RSCServerDO {
             const msg = `CRITICAL_ERROR: ${err.message}\n${err.stack}`;
             console.error(msg);
             try {
-                await this.env.KV.put('debug_error_session', msg);
+                await this.env.KV_BINDING.put('debug_error_session', msg);
                 webSocket.send(msg);
                 webSocket.close(1011, "Internal Error");
             } catch (e) { /* ignore */ }
@@ -212,7 +212,7 @@ export class RSCServerDO {
             console.log('[DO] RSC Server initialized successfully');
         } catch (err) {
             const msg = `INIT_ERROR: ${err.message}\n${err.stack}`;
-            await this.env.KV.put('debug_error_init', msg);
+            await this.env.KV_BINDING.put('debug_error_init', msg);
             throw err;
         }
     }
