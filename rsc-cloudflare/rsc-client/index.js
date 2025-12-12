@@ -67,9 +67,16 @@ if (typeof window === 'undefined') {
 
     if (isMultiplayer) {
         // Multiplayer mode
-        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            console.log('🌐 Local Dev mode - connecting to local Worker (127.0.0.1:8787)...');
-            mc.server = '127.0.0.1';
+        // Detect Localhost OR Private Network IPs (RFC 1918)
+        const isLocal = window.location.hostname === 'localhost' ||
+            window.location.hostname === '127.0.0.1' ||
+            window.location.hostname.match(/^192\.168\./) ||
+            window.location.hostname.match(/^10\./) ||
+            window.location.hostname.match(/^172\.(1[6-9]|2[0-9]|3[0-1])\./);
+
+        if (isLocal) {
+            console.log(`🌐 Local Dev mode - connecting to local Worker (${window.location.hostname}:8787)...`);
+            mc.server = window.location.hostname; // Connect to same IP
             mc.port = 8787;
         } else {
             console.log('🌐 Multiplayer mode - connecting to Cloudflare Worker...');
