@@ -1,6 +1,6 @@
 const { Items, Npcs } = require('../../../constants/ids');
 
-const SURVIVAL_EXPERT = Npcs.SURVIVAL_EXPERT || 474; // 474
+const SURVIVAL_EXPERT = Npcs.SURVIVAL_EXPERT || 795; // Unique ID from Tutorial Island cache
 
 async function onTalkToNPC(player, npc) {
     if (npc.id !== SURVIVAL_EXPERT) {
