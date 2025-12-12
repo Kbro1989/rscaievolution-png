@@ -31,12 +31,32 @@ export class RSCServerDO {
     }
 
     /**
-     * Handle incoming fetch requests (WebSocket upgrades)
+     * Handle incoming fetch requests (WebSocket upgrades and status)
      */
     async fetch(request) {
         try {
+            const url = new URL(request.url);
             const upgradeHeader = request.headers.get('Upgrade');
 
+            // Handle /status endpoint for monitoring
+            if (url.pathname === '/status' || url.pathname.endsWith('/status')) {
+                return new Response(JSON.stringify({
+                    players: this.sessions.size,
+                    npcs: this.server?.world?.npcs?.length || 0,
+                    ticks: this.server?.world?.tickCounter || 0,
+                    serverInitialized: !!this.server,
+                    status: 'Online'
+                }), {
+                    headers: { 'Content-Type': 'application/json' }
+                });
+            }
+
+            // Handle /health endpoint
+            if (url.pathname === '/health' || url.pathname.endsWith('/health')) {
+                return new Response('RSCServerDO Online', { status: 200 });
+            }
+
+            // WebSocket upgrade required for game connections
             if (upgradeHeader !== 'websocket') {
                 return new Response('Expected WebSocket connection', {
                     status: 426,
