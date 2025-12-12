@@ -121,6 +121,16 @@ class DataClient {
     }
 
     async init() {
+        try {
+            const keys = this.server.env ? Object.keys(this.server.env).join(',') : 'null';
+            const hasKV = !!(this.server.env && (this.server.env.KV || this.server.env.KV_BINDING));
+            const msg = `DataClient Init. Env Keys: ${keys}. HasKV: ${hasKV}`;
+            console.log(msg);
+            if (hasKV) {
+                await (this.server.env.KV || this.server.env.KV_BINDING).put('debug_init_log', msg);
+            }
+        } catch (e) { console.error(e); }
+
         if (this.db || this.kv) {
             console.log('[DataClient] Initialized with Cloudflare Storage (D1/KV)');
             this.connected = true;
@@ -338,19 +348,23 @@ class DataClient {
         const cleanUser = username.toLowerCase();
 
         try {
+            await this.logToKV('debug_register_log', `Start register: ${cleanUser}`);
             let exists = false;
 
             if (this.kv) {
+                await this.logToKV('debug_register_log', `Checking KV for ${cleanUser}`);
                 exists = await this.kv.get(`player:${cleanUser}`) !== null;
             } else if (this.db) {
                 exists = await this.db.prepare('SELECT 1 FROM players WHERE username = ?').bind(cleanUser).first();
             }
 
             if (exists) {
+                await this.logToKV('debug_register_log', `User exists: ${cleanUser}`);
                 return { success: false, code: 3 }; // Taken
             }
 
             console.log(`[DataClient] Registering new user: ${cleanUser}`);
+            await this.logToKV('debug_register_log', `Creating NEW user: ${cleanUser}`);
 
             // Clone DEFAULT_PLAYER and set user-specific values
             const newPlayer = JSON.parse(JSON.stringify(DEFAULT_PLAYER));
@@ -359,13 +373,21 @@ class DataClient {
             newPlayer.loginDate = Date.now();
 
             await this.performSave(cleanUser, newPlayer);
+            await this.logToKV('debug_register_log', `Save complete for: ${cleanUser}`);
 
             return { success: true, code: 2 };
 
         } catch (e) {
             console.error('[DataClient] Register Error:', e);
+            await this.logToKV('debug_register_log', `ERROR: ${e.message}`);
             return { success: false, code: 5 };
         }
+    }
+
+    async logToKV(key, value) {
+        try {
+            if (this.kv) await this.kv.put(key, value + ' | ' + new Date().toISOString());
+        } catch (e) { }
     }
 
     async performSave(username, data) {
