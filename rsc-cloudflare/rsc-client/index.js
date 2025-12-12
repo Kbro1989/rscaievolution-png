@@ -81,38 +81,14 @@ if (typeof window === 'undefined') {
         } else {
             console.log('🌐 Multiplayer mode - connecting to Cloudflare Worker...');
 
-            // Try to get URL from storage (persists across reloads)
-            let workerUrl = localStorage.getItem('rsc_worker_url');
+            // Production: Hardcoded Cloudflare Worker URL
+            const PROD_WORKER_URL = 'rscaievolution-png.kristain33rs.workers.dev';
 
-            // Auto-clear invalid URLs (e.g. user entered email)
-            if (workerUrl && (workerUrl.includes('@') || workerUrl.includes('pick-of-gods'))) {
-                console.log('Detected invalid Worker URL, clearing...');
-                workerUrl = null;
-                localStorage.removeItem('rsc_worker_url');
-            }
-
-            if (!workerUrl || workerUrl.includes('pick-of-gods')) {
-                // First run: Ask user for their Worker URL
-                const defaultUrl = 'rscaievolution-png.SUBDOMAIN.workers.dev';
-                workerUrl = prompt(
-                    "Enter your Cloudflare Worker URL:\nFormat: rscaievolution-png.<YOUR-SUBDOMAIN>.workers.dev\n(Do NOT use your email address!)",
-                    defaultUrl
-                );
-
-                if (workerUrl && workerUrl !== defaultUrl) {
-                    // Strip protocol if user pasted generic URL
-                    workerUrl = workerUrl.replace(/^https?:\/\//, '').replace(/^wss?:\/\//, '').replace(/\/$/, '');
-                    localStorage.setItem('rsc_worker_url', workerUrl);
-                } else {
-                    // User cancelled or kept default -> Alert and fail
-                    alert("Connection Failed: You must provide your valid Worker URL (Subdomain) to connect.");
-                    workerUrl = null;
-                }
-            }
-
-            console.log(`Using Worker URL: ${workerUrl}`);
-            mc.server = workerUrl;
+            console.log(`Using Production Worker: ${PROD_WORKER_URL}`);
+            mc.server = PROD_WORKER_URL;
             mc.port = 443;
+
+            // Connection configured.
         }
     } else if (!args[1]) {
         // Solo mode: Use browser Worker
