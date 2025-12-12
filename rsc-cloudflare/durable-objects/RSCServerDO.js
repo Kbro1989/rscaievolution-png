@@ -27,7 +27,7 @@ export class RSCServerDO {
         // Session counter for unique IDs
         this.sessionCounter = 0;
 
-        console.log('RSCServerDO initialized');
+        console.log('RSCServerDO initialized. Env keys:', Object.keys(env));
     }
 
     /**
