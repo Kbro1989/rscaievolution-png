@@ -214,7 +214,7 @@ class DataClient {
     // --- Storage Implementation (KV or D1) ---
 
     get kv() {
-        return this.server.env && this.server.env.KV;
+        return this.server.env && (this.server.env.KV || this.server.env.KV_BINDING);
     }
 
     async handleD1Message(message) {

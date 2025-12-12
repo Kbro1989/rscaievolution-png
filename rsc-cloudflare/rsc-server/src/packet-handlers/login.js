@@ -43,7 +43,7 @@ async function login(socket, message) {
         return;
     }
 
-    if (username.length < 3 || password.length < 5) {
+    if (username.length < 2 || password.length < 2) {
         socket.send(Buffer.from([3]));
         process.nextTick(() => socket.close());
         return;
