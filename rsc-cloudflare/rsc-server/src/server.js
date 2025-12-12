@@ -33,7 +33,7 @@ class Server {
         this.config = config;
         this.env = env; // Store env for KV access in Durable Objects
         this.isBrowser = !!process.browser;
-        this.isDurableObject = !!(env && env.KV && !process.browser); // Detect DO mode
+        this.isDurableObject = !!(env && (env.KV || env.KV_BINDING) && !process.browser); // Detect DO mode
 
         this.world = new World(this);
         this.dataClient = new DataClient(this);
