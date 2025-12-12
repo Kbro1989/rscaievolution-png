@@ -97,7 +97,7 @@ class DataClient {
     }
 
     connect() {
-        if (this.db) {
+        if (this.db || this.kv) {
             this.connected = true;
             return Promise.resolve();
         }
@@ -121,8 +121,8 @@ class DataClient {
     }
 
     async init() {
-        if (this.db) {
-            console.log('[DataClient] Initialized with Cloudflare D1 Storage');
+        if (this.db || this.kv) {
+            console.log('[DataClient] Initialized with Cloudflare Storage (D1/KV)');
             this.connected = true;
             return;
         }
@@ -173,7 +173,7 @@ class DataClient {
     }
 
     async sendAndReceive(message) {
-        if (this.db) {
+        if (this.db || this.kv) {
             return this.handleD1Message(message);
         }
 
@@ -403,12 +403,12 @@ class DataClient {
 
     // --- Legacy Passthroughs ---
     async authenticate() {
-        if (this.db) return;
+        if (this.db || this.kv) return;
         return this.sendAndReceive({ handler: 'authenticate', password: this.server.config.dataServerPassword });
     }
 
     async worldConnect() {
-        if (this.db) return;
+        if (this.db || this.kv) return;
         const { config } = this.server;
         return this.sendAndReceive({
             handler: 'worldConnect',
@@ -421,27 +421,27 @@ class DataClient {
     }
 
     async playerLogin(data) {
-        if (this.db) return this.storagePlayerLogin(data);
+        if (this.db || this.kv) return this.storagePlayerLogin(data);
         return this.sendAndReceive({ handler: 'playerLogin', ...data });
     }
 
     playerLogout(username) {
-        if (this.db) return; // Save handled by player.save() -> playerUpdate
+        if (this.db || this.kv) return; // Save handled by player.save() -> playerUpdate
         this.send({ handler: 'playerLogout', username });
     }
 
     playerWorldChange(username, worldID) {
-        if (this.db) return;
+        if (this.db || this.kv) return;
         this.send({ handler: 'playerWorldChange', username, world: worldID });
     }
 
     async playerRegister(data) {
-        if (this.db) return this.storagePlayerRegister(data);
+        if (this.db || this.kv) return this.storagePlayerRegister(data);
         return this.sendAndReceive({ handler: 'playerRegister', ...data });
     }
 
     playerMessage(fromUsername, toUsername, message) {
-        if (this.db) return; // private messages between shards not supported yet
+        if (this.db || this.kv) return; // private messages between shards not supported yet
         this.send({ handler: 'playerMessage', fromUsername, toUsername, message });
     }
 }
