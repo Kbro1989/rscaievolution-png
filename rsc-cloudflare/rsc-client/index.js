@@ -73,8 +73,29 @@ if (typeof window === 'undefined') {
             mc.port = 8787;
         } else {
             console.log('🌐 Multiplayer mode - connecting to Cloudflare Worker...');
-            // Guessing subdomain based on path/secrets. If 'pick-of-gods' is wrong, please update this!
-            mc.server = 'rscaievolution-png.pick-of-gods.workers.dev';
+
+            // Try to get URL from storage (persists across reloads)
+            let workerUrl = localStorage.getItem('rsc_worker_url');
+
+            if (!workerUrl) {
+                // First run: Ask user for their Worker URL
+                workerUrl = prompt(
+                    "Enter your Cloudflare Worker URL for Multiplayer:\n(e.g. rscaievolution-png.YOUR-SUBDOMAIN.workers.dev)",
+                    "rscaievolution-png.pick-of-gods.workers.dev"
+                );
+
+                if (workerUrl) {
+                    // Strip protocol if user pasted generic URL
+                    workerUrl = workerUrl.replace(/^https?:\/\//, '').replace(/^wss?:\/\//, '').replace(/\/$/, '');
+                    localStorage.setItem('rsc_worker_url', workerUrl);
+                } else {
+                    // Fallback if they cancelled
+                    workerUrl = 'rscaievolution-png.pick-of-gods.workers.dev';
+                }
+            }
+
+            console.log(`Using Worker URL: ${workerUrl}`);
+            mc.server = workerUrl;
             mc.port = 443;
         }
     } else if (!args[1]) {
