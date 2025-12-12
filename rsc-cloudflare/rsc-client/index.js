@@ -84,20 +84,22 @@ if (typeof window === 'undefined') {
             // Try to get URL from storage (persists across reloads)
             let workerUrl = localStorage.getItem('rsc_worker_url');
 
-            if (!workerUrl) {
+            if (!workerUrl || workerUrl.includes('pick-of-gods')) {
                 // First run: Ask user for their Worker URL
+                const defaultUrl = 'rscaievolution-png.SUBDOMAIN.workers.dev';
                 workerUrl = prompt(
-                    "Enter your Cloudflare Worker URL for Multiplayer:\n(e.g. rscaievolution-png.YOUR-SUBDOMAIN.workers.dev)",
-                    "rscaievolution-png.pick-of-gods.workers.dev"
+                    "Enter your Cloudflare Worker URL for Multiplayer:\n(Check Cloudflare Dashboard for your Subdomain)",
+                    defaultUrl
                 );
 
-                if (workerUrl) {
+                if (workerUrl && workerUrl !== defaultUrl) {
                     // Strip protocol if user pasted generic URL
                     workerUrl = workerUrl.replace(/^https?:\/\//, '').replace(/^wss?:\/\//, '').replace(/\/$/, '');
                     localStorage.setItem('rsc_worker_url', workerUrl);
                 } else {
-                    // Fallback if they cancelled
-                    workerUrl = 'rscaievolution-png.pick-of-gods.workers.dev';
+                    // User cancelled or kept default -> Alert and fail
+                    alert("Connection Failed: You must provide your valid Worker URL (Subdomain) to connect.");
+                    workerUrl = null;
                 }
             }
 
