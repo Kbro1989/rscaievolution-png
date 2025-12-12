@@ -55,12 +55,18 @@ export default {
             return new Response('RSC Zero-Cost Router Online', { status: 200, headers: corsHeaders });
         }
 
-        // --- 2. UNIFIED AUTH API ---
+        // --- 2. UNIFIED AUTH API & STATUS ---
         if (url.pathname === '/api/register' && request.method === 'POST') {
             return handleRegister(request, env, corsHeaders);
         }
         if (url.pathname === '/api/login' && request.method === 'POST') {
             return handleLogin(request, env, corsHeaders);
+        }
+        if (url.pathname === '/api/status') {
+            return handleStatus(request, env, corsHeaders);
+        }
+        if (url.pathname === '/api/highscores') {
+            return handleHighscores(request, env, corsHeaders);
         }
 
         // --- 3. ASSET SERVING (R2 -> KV Fallback) ---
@@ -201,6 +207,74 @@ function calculateCombat(skills) {
 
     const max = Math.max(melee, range, magic);
     return Math.floor(base + max);
+}
+
+async function handleStatus(request, env, corsHeaders) {
+    try {
+        // Fetch from DO (Americas default)
+        const shardMapping = env.SHARD_MAPPING ? JSON.parse(env.SHARD_MAPPING) : {};
+        const country = request.cf?.country || 'US';
+        const shardBindingName = shardMapping[country] || 'DO_AMERICAS';
+        const doBinding = env[shardBindingName];
+
+        if (!doBinding) return new Response(JSON.stringify({ players: 0, status: 'Offline' }), { headers: corsHeaders });
+
+        const id = doBinding.idFromName(shardBindingName);
+        const stub = doBinding.get(id);
+
+        // Call the DO's /status endpoint
+        const response = await stub.fetch('http://do/status');
+        const data = await response.json();
+
+        return new Response(JSON.stringify({
+            players: data.players,
+            npcs: data.npcs,
+            ticks: data.ticks,
+            region: shardBindingName
+        }), { headers: corsHeaders });
+
+    } catch (e) {
+        return new Response(JSON.stringify({ players: 0, error: e.message }), { headers: corsHeaders });
+    }
+}
+
+async function handleHighscores(request, env, corsHeaders) {
+    try {
+        let players = [];
+
+        // 1. Fetch Raw Data (Limit 50 to avoid memory limit)
+        if (env.DB) {
+            const { results } = await env.DB.prepare('SELECT username, data FROM players ORDER BY updated_at DESC LIMIT 50').all();
+            players = results.map(r => {
+                const p = JSON.parse(r.data);
+                return { username: r.username, skills: p.skills, group: p.group };
+            });
+        } else if (env.KV_BINDING || env.KV) {
+            // KV Listing is slow/limited, return empty for now or use List
+            // Skipping detailed KV highscores for prototype speed
+        }
+
+        // 2. Calculate Totals
+        const leaders = players.map(p => {
+            let totalLevel = 0;
+            let totalXp = 0;
+            if (p.skills) {
+                for (const key in p.skills) {
+                    totalLevel += p.skills[key].current;
+                    totalXp += p.skills[key].experience;
+                }
+            }
+            return { username: p.username, totalLevel, totalXp, group: p.group };
+        });
+
+        // 3. Sort
+        leaders.sort((a, b) => b.totalLevel - a.totalLevel || b.totalXp - a.totalXp); // Descending
+
+        return new Response(JSON.stringify(leaders.slice(0, 10)), { headers: corsHeaders });
+
+    } catch (e) {
+        return new Response(JSON.stringify([]), { headers: corsHeaders });
+    }
 }
 
 /**
