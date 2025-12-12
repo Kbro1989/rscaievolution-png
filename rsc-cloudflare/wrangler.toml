@@ -7,7 +7,7 @@ compatibility_flags = ["nodejs_compat"]
 [assets]
 directory = "./public"
 binding = "ASSETS"
-serve_directly = false
+run_worker_first = true
 
 # 1. CORE STORAGE
 [[kv_namespaces]]
