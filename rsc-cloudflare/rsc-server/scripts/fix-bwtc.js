@@ -9,44 +9,42 @@ if (fs.existsSync(filePath)) {
     console.log('[Fix-BWTC] File found. Reading content...');
     let content = fs.readFileSync(filePath, 'utf8');
 
-    // 1. Check if already patched
+    // 1. Check if already properly declared
     if (content.includes('var BWTC = {};')) {
-        console.log('[Fix-BWTC] File appears to be already patched.');
-        // Verify we don't ALSO have the bad one
+        console.log('[Fix-BWTC] "var BWTC = {};" found. Checking for bad pattern...');
         if (!content.includes('Object.create(null)')) {
-            console.log('[Fix-BWTC] and Object.create(null) is gone. Exiting.');
+            console.log('[Fix-BWTC] File is already correctly patched. Exiting.');
             process.exit(0);
+        } else {
+            console.log('[Fix-BWTC] Found "var BWTC = {};" BUT also "Object.create(null)". fixing...');
         }
     }
+
+    let patched = false;
 
     // 2. Try Standard Regex Replacement
     const regex = /var\s+BWTC\s*=\s*Object\.create\(null\);/;
     if (regex.test(content)) {
         console.log('[Fix-BWTC] Found "Object.create(null)" pattern. Replacing...');
         content = content.replace(regex, 'var BWTC = {};');
-        fs.writeFileSync(filePath, content);
-        console.log('[Fix-BWTC] Patch applied successfully (Standard Regex).');
-        process.exit(0);
+        patched = true;
     }
 
-    // 3. Fallback: If decl is missing entirely (as suggested by logs), inject it before usage.
-    // Look for: BWTC.MAGIC = "bwtc";
-    console.log('[Fix-BWTC] Standard pattern not found. Checking for missing declaration...');
-
-    const magicUsage = 'BWTC.MAGIC = "bwtc";';
-    if (content.includes(magicUsage) && !content.includes('var BWTC')) {
-        console.log('[Fix-BWTC] Found usage "BWTC.MAGIC" but NO "var BWTC". Injecting declaration...');
-        content = content.replace(magicUsage, 'var BWTC = {};\n' + magicUsage);
-        fs.writeFileSync(filePath, content);
-        console.log('[Fix-BWTC] Patch applied successfully (Injection).');
-        process.exit(0);
+    // 3. Fallback: If still not present, force injection at the top.
+    if (!content.includes('var BWTC = {};')) {
+        console.log('[Fix-BWTC] "var BWTC = {};" still NOT found. Force injecting at top of file...');
+        // We inject it right after any potential requires or strict mode, or just at the very top.
+        // Safest is to prepend it, but let's put it after "use strict" if exists, or just at the start.
+        content = 'var BWTC = {};\n' + content;
+        patched = true;
     }
 
-    // 4. Debugging Output if all failed
-    console.log('[Fix-BWTC] FAILED to patch. Dumping first 200 chars for analysis:');
-    console.log('--- START FILE CONTENT ---');
-    console.log(content.substring(0, 200));
-    console.log('--- END FILE CONTENT ---');
+    if (patched) {
+        fs.writeFileSync(filePath, content);
+        console.log('[Fix-BWTC] Patch applied successfully.');
+    } else {
+        console.log('[Fix-BWTC] No changes needed (logic fell through).');
+    }
 
 } else {
     console.warn('[Fix-BWTC] BWTC.js not found at expected path. Skipping.');
