@@ -73,8 +73,8 @@ if (typeof window === 'undefined') {
             mc.port = 8787;
         } else {
             console.log('🌐 Multiplayer mode - connecting to Cloudflare Worker...');
-            // TODO: Update this to your deployed Worker URL (e.g. rsc-server.yourname.workers.dev)
-            mc.server = 'rsc-server.destiny.workers.dev';
+            // Guessing subdomain based on path/secrets. If 'pick-of-gods' is wrong, please update this!
+            mc.server = 'rscaievolution-png.pick-of-gods.workers.dev';
             mc.port = 443;
         }
     } else if (!args[1]) {
