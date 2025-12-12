@@ -11,7 +11,7 @@ binding = "ASSETS"
 # 1. CORE STORAGE
 [[kv_namespaces]]
 binding = "KV_BINDING"
-id = "f2881801ac59415a86236d0841f27103"
+id = "8c5a2eb8be934b078487ae615c0de92e"
 
 [[d1_databases]]
 binding = "DB"
