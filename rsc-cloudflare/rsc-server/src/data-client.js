@@ -96,6 +96,10 @@ class DataClient {
         return this.server.env && this.server.env.DB;
     }
 
+    get kv() {
+        return this.server.env && (this.server.env.KV_BINDING || this.server.env.KV);
+    }
+
     connect() {
         if (this.db || this.kv) {
             this.connected = true;
@@ -222,10 +226,6 @@ class DataClient {
     }
 
     // --- Storage Implementation (KV or D1) ---
-
-    get kv() {
-        return this.server.env && (this.server.env.KV || this.server.env.KV_BINDING);
-    }
 
     async handleD1Message(message) {
         // Renamed concept mentally, keeping name compatibility or just dispatching

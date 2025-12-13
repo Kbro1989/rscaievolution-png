@@ -340,11 +340,11 @@ export class RSCServerDO {
         } catch (e) {
             console.error('Tick Error:', e);
             // Log error to KV but don't fail the alarm loop
-            this.env.KV_BINDING.put('debug_error_tick_' + Date.now(), e.message).catch(() => {});
+            this.env.KV_BINDING.put('debug_error_tick_' + Date.now(), e.message).catch(() => { });
         }
 
         // Schedule next tick (600ms for authentic RSC)
         // We use setAlarm to ensure the DO stays alive and processes the next tick
-        await this.state.storage.setAlarm(Date.now() + 600);
+        await this.state.storage.setAlarm(Date.now() + 640);
     }
 }
