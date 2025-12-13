@@ -48,7 +48,7 @@ const entityConstructors = {
 };
 
 // ms per each cycle of player/entity movement and delay updates
-const TICK_INTERVAL = 600;
+const TICK_INTERVAL = 640;
 
 // ms between each global player save
 const PLAYER_SAVE_INTERVAL = 1000 * 60 * 1; // (1 min)
