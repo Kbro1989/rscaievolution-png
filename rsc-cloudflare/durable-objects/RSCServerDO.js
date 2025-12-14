@@ -336,7 +336,16 @@ export class RSCServerDO {
 
         try {
             // Run server tick
-            await this.server.tick();
+            if (typeof this.server.tick === 'function') {
+                await this.server.tick();
+            } else if (this.server.world && typeof this.server.world.tick === 'function') {
+                console.warn('[DO] server.tick missing, falling back to world.tick');
+                await this.server.world.tick();
+            } else {
+                const msg = '[DO] CRITICAL: No tick method available on server or world';
+                console.error(msg);
+                await this.env.KV_BINDING.put('debug_fatal_tick_' + Date.now(), msg);
+            }
         } catch (e) {
             console.error('Tick Error:', e);
             // Log error to KV but don't fail the alarm loop
