@@ -1,3 +1,4 @@
+```javascript
 // :: commands
 
 const NPC = require('../model/npc');
@@ -104,8 +105,21 @@ async function command({ player }, { command, args }) {
             player.faceDirection(+args[0], +args[1]);
             break;
         case 'item':
-            player.inventory.add(+args[0], +args[1] || 1);
+        case 'spawn':
+        case 'spawnitem': {
+            if (!args[0] || Number.isNaN(+args[0])) {
+                player.message('Usage: ::spawn <itemID> [amount]');
+                player.message('Example: ::spawn 373 10');
+                break;
+            }
+            
+            const itemID = +args[0];
+            const spawnAmount = (args[1] && !Number.isNaN(+args[1])) ? +args[1] : 1;
+            
+            player.inventory.add(itemID, spawnAmount);
+            player.message(`Spawned ${ spawnAmount }x item #${ itemID } `);
             break;
+        }
         case 'sound':
             player.sendSound(args[0]);
             break;
@@ -120,7 +134,7 @@ async function command({ player }, { command, args }) {
             break;
         case 'coords':
             player.message(
-                `${player.x}, ${player.y}, facing=${player.direction}`
+                `${ player.x }, ${ player.y }, facing = ${ player.direction } `
             );
             break;
         case 'teleport':
@@ -159,10 +173,10 @@ async function command({ player }, { command, args }) {
 
             if (other) {
                 other.inventory.add(+args[1], +args[2] || 1);
-                other.message(`${player.username} gave you an item`);
-                player.message(`gave ${args[0]} item ${args[1]}`);
+                other.message(`${ player.username } gave you an item`);
+                player.message(`gave ${ args[0] } item ${ args[1] } `);
             } else {
-                player.message(`unable to find player ${args[0]}`);
+                player.message(`unable to find player ${ args[0] } `);
             }
             break;
         }
@@ -255,7 +269,7 @@ async function command({ player }, { command, args }) {
         // === NEW COMMANDS ===
         case 'online': {
             const playerCount = world.players.size;
-            player.message(`Players online: ${playerCount}`);
+            player.message(`Players online: ${ playerCount } `);
             break;
         }
         case 'summon': {
@@ -266,10 +280,10 @@ async function command({ player }, { command, args }) {
             const targetPlayer = world.getPlayerByUsername(args[0]);
             if (targetPlayer) {
                 targetPlayer.teleport(player.x, player.y, true);
-                player.message(`Summoned ${args[0]} to your location`);
-                targetPlayer.message(`You have been summoned by ${player.username}`);
+                player.message(`Summoned ${ args[0] } to your location`);
+                targetPlayer.message(`You have been summoned by ${ player.username } `);
             } else {
-                player.message(`Player not found: ${args[0]}`);
+                player.message(`Player not found: ${ args[0] } `);
             }
             break;
         }
@@ -284,7 +298,7 @@ async function command({ player }, { command, args }) {
                 'herblaw', 'agility', 'thieving'];
             const skillIndex = skillNames.indexOf(args[0].toLowerCase());
             if (skillIndex === -1) {
-                player.message(`Unknown skill: ${args[0]}`);
+                player.message(`Unknown skill: ${ args[0] } `);
                 break;
             }
             const level = Math.min(99, Math.max(1, +args[1]));
@@ -292,7 +306,7 @@ async function command({ player }, { command, args }) {
             player.skills[skillName].current = level;
             player.skills[skillName].base = level;
             player.sendStats();
-            player.message(`Set ${args[0]} to level ${level}`);
+            player.message(`Set ${ args[0] } to level ${ level } `);
             break;
         }
         case 'commands':
@@ -304,6 +318,7 @@ async function command({ player }, { command, args }) {
                     '::set <skill> <lvl>',
                     '::heal - Restore HP',
                     '::save - Save char',
+                    '::spawn <id> [amt]',
                     '[Close]'
                 ]);
 
@@ -329,9 +344,9 @@ async function command({ player }, { command, args }) {
                             ];
                         } else if (consumeChoice === 1) {
                             itemsToShow = [
-                                { id: 221, name: 'Strength Potion (4)' }, { id: 474, name: 'Attack Potion (3)' },
-                                { id: 480, name: 'Defense Potion (3)' }, { id: 486, name: 'Super Attack Potion (3)' },
-                                { id: 483, name: 'Prayer Potion (3)' }, { id: 492, name: 'Super Strength (3)' }
+                                { id: 224, name: 'Strength Potion (4)' }, { id: 476, name: 'Attack Potion (3)' },
+                                { id: 482, name: 'Defense Potion (3)' }, { id: 488, name: 'Super Attack Potion (3)' },
+                                { id: 485, name: 'Prayer Potion (3)' }, { id: 494, name: 'Super Strength (3)' }
                             ];
                         } else if (consumeChoice === 2) {
                             itemsToShow = [
@@ -343,8 +358,8 @@ async function command({ player }, { command, args }) {
                         const armorChoice = await player.ask(['Helmets >>', 'Bodies >>', 'Legs >>', 'Shields >>', 'Gloves/Other >>', '[Back]']);
                         if (armorChoice === 0) {
                             itemsToShow = [
-                                { id: 107, name: 'Bronze Medium Helmet' }, { id: 108, name: 'Steel Medium Helmet' },
-                                { id: 113, name: 'Adamantite Helmet' }, { id: 114, name: 'Rune Medium Helmet' },
+                                { id: 104, name: 'Bronze Medium Helmet' }, { id: 105, name: 'Steel Medium Helmet' },
+                                { id: 107, name: 'Adamantite Helmet' }, { id: 399, name: 'Rune Medium Helmet' },
                                 { id: 795, name: 'Dragon Medium Helmet' }
                             ];
                         } else if (armorChoice === 1) {
@@ -365,8 +380,8 @@ async function command({ player }, { command, args }) {
                             ];
                         } else if (armorChoice === 4) {
                             itemsToShow = [
-                                { id: 137, name: 'Iron Chainbody' }, { id: 138, name: 'Steel Chainbody' },
-                                { id: 140, name: 'Mithril Chainbody' }, { id: 141, name: 'Adamantite Chainbody' }
+                                { id: 7, name: 'Iron Chainbody' }, { id: 114, name: 'Steel Chainbody' },
+                                { id: 115, name: 'Mithril Chainbody' }, { id: 116, name: 'Adamantite Chainbody' }
                             ];
                         }
                     } else if (catChoice === 2) {
@@ -398,7 +413,7 @@ async function command({ player }, { command, args }) {
                             itemsToShow = [
                                 { id: 100, name: 'Oak Staff' }, { id: 101, name: 'Willow Staff' },
                                 { id: 102, name: 'Teak Staff' }, { id: 103, name: 'Yew Staff' },
-                                { id: 1000, name: 'Staff of Iban' }
+                                { id: 1031, name: 'Staff of Iban' }
                             ];
                         } else if (weaponChoice === 5) {
                             // God items - paired staff + cape sets (Wilderness Mage Arena rewards)
@@ -429,14 +444,14 @@ async function command({ player }, { command, args }) {
                         const rareChoice = await player.ask(['Partyhats >>', 'H\'ween Masks >>', 'Seasonal >>', '[Back]']);
                         if (rareChoice === 0) {
                             itemsToShow = [
-                                { id: 576, name: 'Party Hat' }, { id: 577, name: 'Party Hat' },
-                                { id: 578, name: 'Party Hat' }, { id: 579, name: 'Party Hat' },
-                                { id: 580, name: 'Party Hat' }, { id: 581, name: 'Party Hat' }
+                                { id: 581, name: 'Party Hat' }, { id: 581, name: 'Party Hat' },
+                                { id: 581, name: 'Party Hat' }, { id: 581, name: 'Party Hat' },
+                                { id: 581, name: 'Party Hat' }, { id: 581, name: 'Party Hat' }
                             ];
                         } else if (rareChoice === 1) {
                             itemsToShow = [
-                                { id: 831, name: 'halloween mask' }, { id: 832, name: 'halloween mask' },
-                                { id: 828, name: 'halloween mask' }
+                                { id: 832, name: 'halloween mask' }, { id: 832, name: 'halloween mask' },
+                                { id: 832, name: 'halloween mask' }
                             ];
                         } else if (rareChoice === 2) {
                             itemsToShow = [
@@ -460,12 +475,12 @@ async function command({ player }, { command, args }) {
                         } else if (skillChoice === 2) {
                             itemsToShow = [
                                 { id: 373, name: 'Lobster' }, { id: 370, name: 'Swordfish' },
-                                { id: 546, name: 'Shark' }, { id: 355, name: 'Raw Shark' }
+                                { id: 546, name: 'Shark' }, { id: 545, name: 'Raw Shark' }
                             ];
                         } else if (skillChoice === 3) {
                             itemsToShow = [
-                                { id: 251, name: 'Guam Leaf' }, { id: 253, name: 'Marrentill' },
-                                { id: 255, name: 'Tarromin' }, { id: 257, name: 'Harralander' }
+                                { id: 444, name: 'Guam Leaf' }, { id: 445, name: 'Marrentill' },
+                                { id: 446, name: 'Tarromin' }, { id: 447, name: 'Harralander' }
                             ];
                         }
                     } else if (catChoice === 5) {
@@ -502,7 +517,7 @@ async function command({ player }, { command, args }) {
                         if (itemChoice < itemsToShow.length) {
                             const item = itemsToShow[itemChoice];
                             player.inventory.add(item.id, item.amount || 1);
-                            player.message(`Added ${item.amount || 1}x ${item.name}`);
+                            player.message(`Added ${ item.amount || 1 }x ${ item.name } `);
                         }
                     }
                 } else if (mainChoice === 1) {
@@ -554,7 +569,7 @@ async function command({ player }, { command, args }) {
                             if (locChoice < locs.length) {
                                 const loc = locs[locChoice];
                                 player.teleport(loc.x, loc.y, true);
-                                player.message(`Teleported to ${loc.name}`);
+                                player.message(`Teleported to ${ loc.name } `);
                             }
                         }
                     } else if (teleChoice === 1) {
@@ -608,10 +623,15 @@ async function command({ player }, { command, args }) {
                             if (npcChoice < npcs.length) {
                                 const npc = npcs[npcChoice];
                                 player.teleport(npc.x, npc.y, true);
-                                player.message(`Teleported to ${npc.name}`);
+                                player.message(`Teleported to ${ npc.name } `);
                             }
                         }
                     }
+                } else if (mainChoice === 5) {
+                    // Spawn command help
+                    player.message('Usage: ::spawn <itemID> [amount]');
+                    player.message('Example: ::spawn 373 10');
+                    player.message('Use ::commands > Spawn Items for a visual menu');
                 } else if (mainChoice === 3) {
                     player.skills.hits.current = player.skills.hits.base;
                     player.sendStats();
@@ -647,9 +667,9 @@ async function command({ player }, { command, args }) {
             const victim = world.getPlayerByUsername(args[0]);
             if (victim) {
                 victim.damage(victim.skills.hits.current);
-                player.message(`Killed ${args[0]}`);
+                player.message(`Killed ${ args[0] } `);
             } else {
-                player.message(`Player not found: ${args[0]}`);
+                player.message(`Player not found: ${ args[0] } `);
             }
             break;
         }
@@ -660,7 +680,7 @@ async function command({ player }, { command, args }) {
             }
             const broadcastMsg = args.join(' ');
             for (const p of world.players.values()) {
-                p.message(`[BROADCAST] ${broadcastMsg}`);
+                p.message(`[BROADCAST] ${ broadcastMsg } `);
             }
             break;
         }
@@ -801,8 +821,10 @@ async function command({ player }, { command, args }) {
             }
             break;
         }
+    }
 }
 
 
 }
 module.exports = { command };
+```

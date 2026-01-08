@@ -83,8 +83,18 @@ class Inventory {
             id = id.id;
         }
 
-        if (!this.player.world.members && items[id].members) {
+        if (!items[id]) {
+            this.player.message(`Error: Item ID ${id} does not exist.`);
             return;
+        }
+
+        if (!this.player.world.members && items[id].members) {
+            if (this.player.isAdministrator()) {
+                this.player.message('@org@Warning: Spawning members item in F2P world.');
+            } else {
+                this.player.message("You can't use that item on a non-members world.");
+                return;
+            }
         }
 
         if (items[id].stackable) {
@@ -102,7 +112,7 @@ class Inventory {
         if (this.isFull()) {
             this.player.message(
                 `Your Inventory is full, the ${items[id].name} drops to ` +
-                    'ground!'
+                'ground!'
             );
 
             this.player.world.addPlayerDrop(this.player, { id, amount });
@@ -263,7 +273,7 @@ class Inventory {
                     this.player.message(
                         'You are not a high enough level to use this item',
                         `You need to have a ${formatSkillName(skillName)} ` +
-                            `level of ${level}`
+                        `level of ${level}`
                     );
 
                     return;
@@ -464,7 +474,7 @@ class Inventory {
 
         const crossbowEquipped = equippedItem
             ? equippedItem.id === PHOENIX_CROSSBOW_ID ||
-              equippedItem.id === CROSSBOW_ID
+            equippedItem.id === CROSSBOW_ID
             : false;
 
         if (crossbowEquipped) {

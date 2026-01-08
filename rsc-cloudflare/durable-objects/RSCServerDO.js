@@ -1,13 +1,11 @@
 /**
  * RSCServerDO - Durable Object for RuneScape Classic Server
- * 
- * This Durable Object hosts a single, shared RSC server instance that all
- * players connect to via WebSocket. It maintains the game world state in
- * memory and persists player data to KV storage.
+ * Production Version with JSON Auth
  */
 
 import { Buffer } from 'node:buffer';
 import Server from '../rsc-server/src/server.js';
+import { AuthService } from './auth.js';
 import land63 from '../rsc-server/node_modules/@2003scape/rsc-data/landscape/land63.jag';
 import maps63 from '../rsc-server/node_modules/@2003scape/rsc-data/landscape/maps63.jag';
 import landmem63 from '../rsc-server/node_modules/@2003scape/rsc-data/landscape/land63.mem';
@@ -18,27 +16,30 @@ export class RSCServerDO {
         this.state = state;
         this.env = env;
 
+        // Auth Service
+        this.auth = new AuthService(env);
+
         // Track WebSocket sessions
         this.sessions = new Map();
 
-        // Shared RSC Server instance (initialized on first connection)
+        // Shared RSC Server instance
         this.server = null;
 
-        // Session counter for unique IDs
+        // Session counter
         this.sessionCounter = 0;
+
+        // Auto-save tracking
+        this.lastAutoSave = Date.now();
 
         console.log('RSCServerDO initialized. Env keys:', Object.keys(env));
     }
 
-    /**
-     * Handle incoming fetch requests (WebSocket upgrades and status)
-     */
     async fetch(request) {
         try {
             const url = new URL(request.url);
             const upgradeHeader = request.headers.get('Upgrade');
 
-            // Handle /status endpoint for monitoring
+            // Monitoring Endpoints
             if (url.pathname === '/status' || url.pathname.endsWith('/status')) {
                 return new Response(JSON.stringify({
                     players: this.sessions.size,
@@ -47,49 +48,34 @@ export class RSCServerDO {
                     serverInitialized: !!this.server,
                     status: 'Online',
                     envKeys: Object.keys(this.env || {})
-                }), {
-                    headers: { 'Content-Type': 'application/json' }
-                });
+                }), { headers: { 'Content-Type': 'application/json' } });
             }
 
-            // Handle /health endpoint
             if (url.pathname === '/health' || url.pathname.endsWith('/health')) {
                 return new Response('RSCServerDO v4 Online', { status: 200 });
             }
 
-            // Handle /debug/logs endpoint
             if (url.pathname === '/debug/logs' || url.pathname.endsWith('/debug/logs')) {
                 const list = await this.env.KV_BINDING.list({ prefix: 'debug_' });
                 const logs = {};
                 for (const key of list.keys) {
                     logs[key.name] = await this.env.KV_BINDING.get(key.name);
                 }
-                return new Response(JSON.stringify(logs, null, 2), {
-                    headers: { 'Content-Type': 'application/json' }
-                });
+                return new Response(JSON.stringify(logs, null, 2), { headers: { 'Content-Type': 'application/json' } });
             }
 
-            // WebSocket upgrade required for game connections
+            // WebSocket Upgrade
             if (upgradeHeader !== 'websocket') {
-                return new Response('Expected WebSocket connection', {
-                    status: 426,
-                    headers: { 'Upgrade': 'websocket' }
-                });
+                return new Response('Expected WebSocket connection', { status: 426, headers: { 'Upgrade': 'websocket' } });
             }
 
-            // Create WebSocket pair
             const [client, server] = Object.values(new WebSocketPair());
 
-            // Handle the session
             await this.handleSession(server);
 
-            // Check for subprotocol request (client sends 'binary')
             const requestedProtocol = request.headers.get('Sec-WebSocket-Protocol');
-
-            // Return the client WebSocket to the caller with subprotocol if requested
             const responseHeaders = {};
             if (requestedProtocol) {
-                // Echo back the first requested protocol (client expects 'binary')
                 responseHeaders['Sec-WebSocket-Protocol'] = requestedProtocol.split(',')[0].trim();
             }
 
@@ -98,121 +84,181 @@ export class RSCServerDO {
                 webSocket: client,
                 headers: responseHeaders
             });
+
         } catch (err) {
             return new Response(`Durable Object Error: ${err.message}\n${err.stack}`, { status: 500 });
         }
     }
 
-    /**
-     * Handle a new WebSocket session
-     */
     async handleSession(webSocket) {
-        // Initialize server on first connection
         if (!this.server) {
             await this.initializeServer();
         }
 
-        // Accept the WebSocket
         webSocket.accept();
 
-        // Generate unique session ID
         const sessionId = `session-${++this.sessionCounter}-${Date.now()}`;
 
-        try {
-            // Store session
-            this.sessions.set(sessionId, {
-                socket: webSocket,
-                id: sessionId,
-                connected: true
-            });
+        const session = {
+            socket: webSocket,
+            id: sessionId,
+            connected: true,
+            authenticated: false,
+            username: null,
+            playerData: null
+        };
 
-            const msgStart = `[DO] New session connected: ${sessionId} (Total: ${this.sessions.size})`;
-            console.log(msgStart);
-            this.env.KV_BINDING.put(`debug_sess_start_${sessionId}`, msgStart).catch(() => { });
+        this.sessions.set(sessionId, session);
+        console.log(`[DO] New session connected: ${sessionId}`);
 
-            // Create a socket wrapper that bridges WebSocket to RSC Server
-            const socketBridge = this.createSocketBridge(sessionId, webSocket);
+        // Debug Log
+        this.env.KV_BINDING.put(`debug_sess_start_${sessionId}`, `Started`).catch(() => { });
 
-            // Connect to the RSC server
-            try {
-                this.server.handleConnection(socketBridge);
-                console.log(`[DO] handleConnection success for ${sessionId}`);
-                this.env.KV_BINDING.put(`debug_sess_handled_${sessionId}`, 'true').catch(() => { });
-            } catch (connErr) {
-                const msg = `CONN_ERROR: ${connErr.message}\n${connErr.stack}`;
-                console.error(msg);
-                await this.env.KV_BINDING.put('debug_error_conn', msg);
-                throw connErr; // Re-throw to be caught by outer block
-            }
+        // Create socket bridge but DO NOT CONNECT until auth
+        const socketBridge = this.createSocketBridge(sessionId, webSocket);
 
-            // Handle WebSocket messages
-            webSocket.addEventListener('message', async (event) => {
-                const dataSize = event.data instanceof ArrayBuffer ? event.data.byteLength : event.data.length;
-                this.env.KV_BINDING.put(`debug_sess_msg_${sessionId}_${Date.now()}`, `Size: ${dataSize}`).catch(() => { });
-
+        webSocket.addEventListener('message', async (event) => {
+            // 1. JSON Auth Handling (Pre-Auth)
+            if (!session.authenticated && typeof event.data === 'string') {
                 try {
-                    const data = event.data;
+                    const jsonMsg = JSON.parse(event.data);
 
-                    // Convert WebSocket message to Buffer-like format
-                    let buffer;
-                    if (typeof data === 'string') {
-                        buffer = Buffer.from(data, 'utf8');
-                    } else if (data instanceof ArrayBuffer) {
-                        buffer = Buffer.from(data);
-                    } else {
-                        buffer = Buffer.from(data);
+                    if (jsonMsg.type === 'register') {
+                        await this.handleRegister(sessionId, jsonMsg);
+                        return;
                     }
 
-                    // Emit as 'data' event to the socket bridge
-                    socketBridge.emit('data', buffer);
-                } catch (error) {
-                    const msg = `MSG_ERROR: ${error.message}\n${error.stack}`;
-                    console.error('[DO] Error processing message:', msg);
-                    // Fire and forget KV logging (async)
-                    this.env.KV_BINDING.put('debug_error_msg_' + Date.now(), msg).catch(() => { });
+                    if (jsonMsg.type === 'login') {
+                        const success = await this.handleLogin(sessionId, jsonMsg);
+                        if (success) {
+                            session.authenticated = true;
+                            // Connect to Server using NEW method that injects player
+                            await this.server.handleAuthenticatedConnection(
+                                socketBridge,
+                                session.username,
+                                session.playerData
+                            );
+                        }
+                        return;
+                    }
+                } catch (e) { /* ignore JSON parse errors in pre-auth */ }
+            }
+
+            // 2. Authenticated Message Handling
+            if (session.authenticated) {
+                // Check for Logout (JSON)
+                if (typeof event.data === 'string') {
+                    try {
+                        const jsonMsg = JSON.parse(event.data);
+                        if (jsonMsg.type === 'logout') {
+                            await this.handleLogout(sessionId);
+                            return;
+                        }
+                    } catch (e) { }
                 }
-            });
 
-            // Handle WebSocket close
-            webSocket.addEventListener('close', () => {
-                console.log(`[DO] Session closed: ${sessionId}`);
-                this.sessions.delete(sessionId);
-                socketBridge.emit('close', false);
-            });
+                // Forward ALL packets (binary or text) to Bridge
+                // RSC Protocol is binary, but we might have text extensions
+                let buffer;
+                if (typeof event.data === 'string') {
+                    buffer = Buffer.from(event.data, 'utf8');
+                } else if (event.data instanceof ArrayBuffer) {
+                    buffer = Buffer.from(event.data);
+                } else {
+                    buffer = Buffer.from(event.data);
+                }
+                socketBridge.emit('data', buffer);
+            }
+        });
 
-            // Handle WebSocket errors
-            webSocket.addEventListener('error', (error) => {
-                console.error('[DO] WebSocket error:', error);
-                this.sessions.delete(sessionId);
-                socketBridge.emit('error', error);
-            });
+        webSocket.addEventListener('close', async () => {
+            console.log(`[DO] Session closed: ${sessionId}`);
+            this.sessions.delete(sessionId);
 
-        } catch (err) {
-            // Critical Runtime Error AFTER accept
-            const msg = `CRITICAL_ERROR: ${err.message}\n${err.stack}`;
-            console.error(msg);
-            try {
-                await this.env.KV_BINDING.put('debug_error_session', msg);
-                webSocket.send(msg);
-                webSocket.close(1011, "Internal Error");
-            } catch (e) { /* ignore */ }
+            // Bridge close
+            socketBridge.emit('close', false);
+
+            // Save on disconnect
+            if (session.username && session.playerData) {
+                try {
+                    await this.auth.savePlayerData(session.username, session.playerData);
+                } catch (e) { console.error('Save Error:', e); }
+            }
+        });
+
+        webSocket.addEventListener('error', (error) => {
+            console.error('[DO] WebSocket error:', error);
+            this.sessions.delete(sessionId);
+            socketBridge.emit('error', error);
+        });
+    }
+
+    // --- Auth Handlers ---
+
+    async handleRegister(sessionId, { username, password }) {
+        try {
+            const result = await this.auth.createUser(username, password);
+            const session = this.sessions.get(sessionId);
+            if (session) session.socket.send(JSON.stringify({ type: 'register_success', username: result.username }));
+        } catch (error) {
+            const session = this.sessions.get(sessionId);
+            if (session) session.socket.send(JSON.stringify({ type: 'register_failure', reason: error.message }));
         }
     }
 
-    /**
-     * Initialize the RSC Server instance
-     */
+    async handleLogin(sessionId, { username, password }) {
+        try {
+            const { playerData } = await this.auth.login(username, password);
+            const session = this.sessions.get(sessionId);
+            if (!session) return false;
+
+            session.username = username;
+            session.playerData = playerData;
+
+            this.broadcastPlayerJoined(username, sessionId);
+            session.socket.send(JSON.stringify({ type: 'login_success', username, playerData }));
+
+            return true;
+        } catch (error) {
+            const session = this.sessions.get(sessionId);
+            if (session) session.socket.send(JSON.stringify({ type: 'login_failure', reason: error.message }));
+            return false;
+        }
+    }
+
+    async handleLogout(sessionId) {
+        const session = this.sessions.get(sessionId);
+        if (!session || !session.username) return;
+
+        try {
+            await this.auth.savePlayerData(session.username, session.playerData);
+            this.broadcastPlayerLeft(session.username, sessionId);
+            session.socket.send(JSON.stringify({ type: 'logout_success' }));
+
+            // Should we disconnect logic? The close listener handles the bridge.
+            session.authenticated = false;
+        } catch (error) {
+            console.error(`[DO] Logout error:`, error);
+        }
+    }
+
+    broadcastPlayerJoined(username, excludeSessionId) {
+        // Optional: Broadcast to others? RSC usually handles this via binary updates.
+    }
+
+    broadcastPlayerLeft(username, excludeSessionId) {
+    }
+
     async initializeServer() {
         console.log('[DO] Initializing RSC Server...');
-
-        // Server configuration
+        // Production Configuration
         const config = {
             worldID: 1,
-            version: 204,  // Must match client version
+            version: 204,
             members: true,
-            experienceRate: 4,  // Authentic RSC: server stores 4x, client displays 1x
-            tcpPort: null, // Not used in DO mode
-            websocketPort: null, // Not used in DO mode
+            experienceRate: 4,
+            tcpPort: null,
+            websocketPort: null,
             landscapeData: {
                 landMsg: Buffer.from(land63),
                 mapsJag: Buffer.from(maps63),
@@ -222,15 +268,9 @@ export class RSCServerDO {
         };
 
         try {
-            // Create server instance with env for KV access
             this.server = new Server(config, this.env);
-
-            // Initialize server
             await this.server.init();
-
             console.log('[DO] RSC Server initialized successfully');
-
-            // Start the tick loop
             console.log('[DO] Starting tick loop via alarm...');
             await this.state.storage.setAlarm(Date.now() + 100);
         } catch (err) {
@@ -240,120 +280,74 @@ export class RSCServerDO {
         }
     }
 
-    /**
-     * Create a socket bridge that connects WebSocket to RSC Server
-     * This mimics the Node.js socket interface expected by RSC Server
-     */
     createSocketBridge(sessionId, webSocket) {
         const EventEmitter = require('events');
-
         class DurableObjectWebSocket extends EventEmitter {
             constructor(id, ws) {
                 super();
                 this.id = id;
                 this.ws = ws;
-                this.remoteAddress = '0.0.0.0'; // Cloudflare doesn't expose real IP
+                this.remoteAddress = '0.0.0.0';
                 this.destroyed = false;
-
-                // RSCSocket accesses _socket.remoteAddress, _socket.setTimeout, and _socket.on('timeout')
-                // _socket needs to be an EventEmitter for timeout binding
                 const socketSelf = this;
                 this._socket = new EventEmitter();
                 this._socket.remoteAddress = '0.0.0.0';
-                this._socket.setTimeout = () => { }; // No-op for DO
+                this._socket.setTimeout = () => { };
             }
-
-            // RSCSocket.send() calls socket.send() for WebSocket mode
             send(data) {
-                if (this.destroyed || this.ws.readyState !== 1) {
-                    return;
-                }
-
+                if (this.destroyed || this.ws.readyState !== 1) return;
                 try {
-                    // Convert Buffer to ArrayBuffer for WebSocket
                     if (Buffer.isBuffer(data)) {
-                        this.ws.send(data.buffer.slice(
-                            data.byteOffset,
-                            data.byteOffset + data.byteLength
-                        ));
+                        this.ws.send(data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength));
                     } else {
                         this.ws.send(data);
                     }
-                } catch (error) {
-                    console.error('[DO] Error sending to WebSocket:', error);
-                }
+                } catch (error) { console.error('[DO] Error sending to WebSocket:', error); }
             }
-
-            // Keep write() for backwards compatibility
-            write(data) {
-                this.send(data);
-            }
-
-            connect() {
-                // No-op, already connected
-            }
-
-            // RSCSocket.close() calls socket.terminate() for WebSocket mode
+            write(data) { this.send(data); }
+            connect() { }
             terminate() {
                 this.destroyed = true;
-                try {
-                    this.ws.close();
-                } catch (e) {
-                    // Ignore close errors
-                }
+                try { this.ws.close(); } catch (e) { }
             }
-
-            destroy() {
-                this.terminate();
-            }
-
-            end() {
-                this.terminate();
-            }
-
-            setKeepAlive() {
-                // WebSocket handles this automatically
-            }
-
-            setTimeout(timeout) {
-                // Store timeout for potential use
-                this._timeout = timeout;
-            }
-
-            toString() {
-                return `[DurableObjectWebSocket ${this.id}]`;
-            }
+            destroy() { this.terminate(); }
+            end() { this.terminate(); }
+            setKeepAlive() { }
+            setTimeout(timeout) { this._timeout = timeout; }
+            toString() { return `[DurableObjectWebSocket ${this.id}]`; }
         }
-
         return new DurableObjectWebSocket(sessionId, webSocket);
     }
 
-    /**
-     * Alarm handler for periodic tasks (optional)
-     */
     async alarm() {
         if (!this.server) return;
 
         try {
-            // Run server tick
+            // Tick
             if (typeof this.server.tick === 'function') {
                 await this.server.tick();
             } else if (this.server.world && typeof this.server.world.tick === 'function') {
-                console.warn('[DO] server.tick missing, falling back to world.tick');
                 await this.server.world.tick();
-            } else {
-                const msg = '[DO] CRITICAL: No tick method available on server or world';
-                console.error(msg);
-                await this.env.KV_BINDING.put('debug_fatal_tick_' + Date.now(), msg);
             }
+
+            // Auto-Save Check (Every 5 minutes)
+            if (Date.now() - this.lastAutoSave > 300000) { // 5 mins
+                this.lastAutoSave = Date.now();
+                // console.log('[DO] Running Auto-Save...');
+                const promises = [];
+                for (const [sid, s] of this.sessions) {
+                    if (s.username && s.playerData) {
+                        promises.push(this.auth.savePlayerData(s.username, s.playerData).catch(e => { }));
+                    }
+                }
+                await Promise.all(promises);
+            }
+
         } catch (e) {
             console.error('Tick Error:', e);
-            // Log error to KV but don't fail the alarm loop
             this.env.KV_BINDING.put('debug_error_tick_' + Date.now(), e.message).catch(() => { });
         }
 
-        // Schedule next tick (600ms for authentic RSC)
-        // We use setAlarm to ensure the DO stays alive and processes the next tick
         await this.state.storage.setAlarm(Date.now() + 640);
     }
 }

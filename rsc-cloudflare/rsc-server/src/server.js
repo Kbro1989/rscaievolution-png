@@ -2,6 +2,7 @@ console.log('Loading ./browser-socket...');
 const BrowserSocket = require('./browser-socket');
 const RSCSocket = require('@2003scape/rsc-socket');
 const World = require('./model/world');
+const Player = require('./model/player');
 const packetHandlers = require('./packet-handlers');
 const toBuffer = process.browser ? require('typedarray-to-buffer') : undefined;
 
@@ -131,6 +132,60 @@ class Server {
         log.info(`${socket} connected`);
     }
 
+    /**
+     * Handle a connection that has already been authenticated via JSON Auth (Durable Object)
+     * @param {object} socket - The socket/bridge
+     * @param {string} username - The authenticated username
+     * @param {object} playerData - The loaded player data
+     */
+    async handleAuthenticatedConnection(socket, username, playerData) {
+        if (this.env && this.env.KV_BINDING) {
+            this.env.KV_BINDING.put('debug_auth_conn_' + Date.now(), `Handling auth conn: ${username}`).catch(() => { });
+        }
+
+        socket = new RSCSocket(socket);
+        socket.setTimeout(5000);
+        socket.server = this;
+
+        this.incomingMessages.set(socket, []);
+
+        // Listen for errors/close to cleanup
+        socket.on('error', (err) => log.error(err));
+        socket.on('timeout', () => socket.close());
+
+        // Standard message listener (for game packets)
+        socket.on('message', async (message) => {
+            // Bypass login check since we inject player immediately
+            if (!socket.player) {
+                // Should not happen if we inject correctly below
+            }
+            const queue = this.incomingMessages.get(socket);
+            queue.push(message);
+            if (queue.length >= 10) queue.shift();
+        });
+
+        socket.on('close', async () => {
+            if (socket.player && socket.player.loggedIn) {
+                await socket.player.logout();
+            }
+            delete socket.player;
+            delete socket.server;
+            socket.removeAllListeners();
+            this.incomingMessages.delete(this);
+        });
+
+        // Inject Player
+        try {
+            const player = new Player(socket, playerData);
+            socket.player = player;
+            await this.world.registerPlayer(player);
+            log.info(`${username} connected (authenticated)`);
+        } catch (e) {
+            log.error(`Failed to register player ${username}:`, e);
+            socket.close();
+        }
+    }
+
     bindTCP() {
         this.tcpServer = new net.Server();
 
@@ -201,11 +256,14 @@ class Server {
                 const handler = this.handlers[message.type];
 
                 if (!handler) {
+                    console.log(`[DEBUG] No handler for message type: ${message.type} (Opcode? ${message.opcode})`);
                     log.warn(`${socket} no handler for type ${message.type}`);
                     continue;
                 }
 
+                console.log(`[DEBUG] Invoking handler for: ${message.type}`);
                 handler(socket, message).catch((e) => {
+                    console.error(`[DEBUG] Handler error for ${message.type}:`, e);
                     log.error(e, socket.toString());
                 });
             }

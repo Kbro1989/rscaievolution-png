@@ -16,7 +16,7 @@ module.exports = {
     "ping": require('./ping.js'),
     "player": require('./player.js'),
     "prayer": require('./prayer.js'),
-    "register": require('./register.js'),
+    "register": require('./register.js').register,
     "settings": require('./settings.js'),
     "shop": require('./shop.js'),
     "sleep": require('./sleep.js'),

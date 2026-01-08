@@ -440,7 +440,7 @@
         "members": true
     },
     {
-        "name": "Fire-rune",
+        "name": "Fire-Rune",
         "description": "One of the 4 basic elemental runes",
         "command": "",
         "sprite": 30,
@@ -453,7 +453,7 @@
         "members": false
     },
     {
-        "name": "Water-rune",
+        "name": "Water-Rune",
         "description": "One of the 4 basic elemental runes",
         "command": "",
         "sprite": 31,
@@ -466,7 +466,7 @@
         "members": false
     },
     {
-        "name": "Air-rune",
+        "name": "Air-Rune",
         "description": "One of the 4 basic elemental runes",
         "command": "",
         "sprite": 32,
@@ -479,7 +479,7 @@
         "members": false
     },
     {
-        "name": "Earth-rune",
+        "name": "Earth-Rune",
         "description": "One of the 4 basic elemental runes",
         "command": "",
         "sprite": 33,
@@ -492,7 +492,7 @@
         "members": false
     },
     {
-        "name": "Mind-rune",
+        "name": "Mind-Rune",
         "description": "Used for low level missile spells",
         "command": "",
         "sprite": 34,
@@ -505,7 +505,7 @@
         "members": false
     },
     {
-        "name": "Body-rune",
+        "name": "Body-Rune",
         "description": "Used for curse spells",
         "command": "",
         "sprite": 35,
@@ -518,7 +518,7 @@
         "members": false
     },
     {
-        "name": "Life-rune",
+        "name": "Life-Rune",
         "description": "Used for summon spells",
         "command": "",
         "sprite": 36,
@@ -531,7 +531,7 @@
         "members": true
     },
     {
-        "name": "Death-rune",
+        "name": "Death-Rune",
         "description": "Used for high level missile spells",
         "command": "",
         "sprite": 37,
@@ -557,7 +557,7 @@
         "members": false
     },
     {
-        "name": "Nature-rune",
+        "name": "Nature-Rune",
         "description": "Used for alchemy spells",
         "command": "",
         "sprite": 39,
@@ -570,7 +570,7 @@
         "members": false
     },
     {
-        "name": "Chaos-rune",
+        "name": "Chaos-Rune",
         "description": "Used for mid level missile spells",
         "command": "",
         "sprite": 40,
@@ -583,7 +583,7 @@
         "members": false
     },
     {
-        "name": "Law-rune",
+        "name": "Law-Rune",
         "description": "Used for teleport spells",
         "command": "",
         "sprite": 41,
@@ -639,7 +639,7 @@
         "members": false
     },
     {
-        "name": "Cosmic-rune",
+        "name": "Cosmic-Rune",
         "description": "Used for enchant spells",
         "command": "",
         "sprite": 45,
@@ -3713,7 +3713,7 @@
         "members": false
     },
     {
-        "name": "Half an Apple Pie",
+        "name": "Half An Apple Pie",
         "description": "Mmm Apple pie",
         "command": "eat",
         "sprite": 113,
@@ -8541,7 +8541,7 @@
         "members": true
     },
     {
-        "name": "Blood-rune",
+        "name": "Blood-Rune",
         "description": "Used for high level missile spells",
         "command": "",
         "sprite": 200,
@@ -11305,7 +11305,7 @@
         "members": true
     },
     {
-        "name": "Soul-rune",
+        "name": "Soul-Rune",
         "description": "Used for high level curse spells",
         "command": "",
         "sprite": 235,
@@ -13076,7 +13076,7 @@
         "members": true
     },
     {
-        "name": "Stone-plaque",
+        "name": "Stone-Plaque",
         "description": "A stone plaque with carved letters in it",
         "command": "Read",
         "sprite": 236,
