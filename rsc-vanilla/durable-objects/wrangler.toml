@@ -1,0 +1,47 @@
+name = "rscaievolution-png"
+account_id = "6872653edcee9c791787c1b783173793"
+main = "index.js"
+compatibility_date = "2024-11-28"
+compatibility_flags = [ "nodejs_compat" ]
+
+[[rules]]
+type = "Data"
+globs = ["**/*.jag", "**/*.mem"]
+fallthrough = false
+
+# KV Namespace bindings
+[[kv_namespaces]]
+binding = "KV"
+id = "88142cf6969b4547ab17f2d97f6249a1"
+
+# Auth KV - User credentials (username/password)
+# Using same namespace with 'user:' prefix
+[[kv_namespaces]]
+binding = "AUTH_KV"
+id = "88142cf6969b4547ab17f2d97f6249a1"
+
+# Player Data KV - Save data (inventory, skills, position, etc)
+# Using same namespace with 'player:' prefix
+[[kv_namespaces]]
+binding = "PLAYER_DATA_KV"
+id = "88142cf6969b4547ab17f2d97f6249a1"
+
+# Durable Object bindings
+[[durable_objects.bindings]]
+name = "RSCServerDO"
+class_name = "RSCServerDO"
+
+[[durable_objects.bindings]]
+name = "PlayerDO"
+class_name = "PlayerDO"
+
+# D1 Binding for Event Sourcing
+[[d1_databases]]
+binding = "DB"
+database_name = "ai-architect-db"
+database_id = "e8cea666-e70f-43e4-9a5e-54fd7fc80fa4"
+
+# Durable Object migration
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RSCServerDO", "PlayerDO"]
