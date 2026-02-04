@@ -1,0 +1,33 @@
+# Manual Deployment Steps
+
+Since local deployment failed, please follow these steps to deploy via the Cloudflare Dashboard.
+
+**Files are prepared in:** `durable-objects/manual-deploy/`
+
+## 1. Open Dashboard
+Go to: https://dash.cloudflare.com/6872653edcee9c791787c1b783173793/workers/view/rscaievolution-png/edit
+
+## 2. Upload Files
+In the online editor:
+
+1.  **Right-click** in the file sidebar -> **Upload file** (or create new)
+2.  Upload `durable-objects/manual-deploy/auth.js`
+3.  Upload `durable-objects/manual-deploy/RSCServerDO.js`
+4.  Replace contents of `worker.js` (or `index.js`) with `durable-objects/manual-deploy/worker.js`
+
+## 3. Add Bindings (Settings Tab)
+Go to **Settings -> Variables** within the worker editor:
+
+1.  **KV Namespace Bindings**:
+    *   Variable name: `AUTH_KV` -> Select namespace ID `88142cf6969b4547ab17f2d97f6249a1`
+    *   Variable name: `PLAYER_DATA_KV` -> Select namespace ID `88142cf6969b4547ab17f2d97f6249a1`
+
+2.  **Durable Object Bindings**: 
+    *   Variable name: `RSCServerDO`
+    *   Namespace: `rscaievolution-png_RSCServerDO` (or create new if needed, but select the class `RSCServerDO`)
+
+## 4. Deploy
+Click **Deploy** in the top right.
+
+## 5. Verify
+The worker should now accept WebSocket connections and handle auth!

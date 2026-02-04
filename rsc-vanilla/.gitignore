@@ -40,3 +40,20 @@ verify_*.txt
 audit-report.txt
 comparison_output.txt
 functionality-gap-report.txt
+verify_report.txt
+verify_output.txt
+item_search_results.txt
+misc_npc_results*.txt
+shopkeeper_results.txt
+shopkeeper_ids.txt
+trainer_ids.txt
+npc_search_results.txt
+d1_list.txt
+kv_list.txt
+r2_list.txt
+build_log.txt
+
+# Large binary examples
+glb examples/
+../2003scape-repo-clean/
+../glb examples/
