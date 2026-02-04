@@ -12,7 +12,7 @@ run_worker_first = true
 # 1. CORE STORAGE
 [[kv_namespaces]]
 binding = "KV_BINDING"
-id = "8c5a2eb8be934b078487ae615c0de92e"
+id = "6b8ebd5a1a134b67b6e12a5a5675e884"
 
 [[d1_databases]]
 binding = "DB"
