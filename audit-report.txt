@@ -1,0 +1,18 @@
+--- ID AUDIT REPORT ---
+Run at: 2025-12-12T02:54:45.242Z
+
+[ITEMS]
+CF: 1313, ORSC: 1290
+ITEMS Mismatches/Missing: 0
+
+[NPCS]
+CF: 797, ORSC: 794
+NPCS Mismatches/Missing: 0
+
+[OBJECTS]
+CF: 1296, ORSC: 1296
+OBJECTS Mismatches/Missing: 0
+
+[WALL_OBJECTS]
+CF: 214, ORSC: 214
+WALL_OBJECTS Mismatches/Missing: 0

@@ -894,5 +894,188 @@
                 "amount": 3
             }
         ]
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+        "name": "Raise Minor Undead",
+        "description": "Summons a level 12 zombie to fight for you",
+        "level": 10,
+        "type": "summon",
+        "runes": [
+            {
+                "id": 37,
+                "amount": 1
+            },
+            {
+                "id": 33,
+                "amount": 3
+            }
+        ]
+    },
+    {
+        "name": "Raise Undead",
+        "description": "Summons a level 42 zombie to fight for you",
+        "level": 40,
+        "type": "summon",
+        "runes": [
+            {
+                "id": 37,
+                "amount": 2
+            },
+            {
+                "id": 34,
+                "amount": 4
+            }
+        ]
+    },
+    {
+        "name": "Raise Greater Undead",
+        "description": "Summons a level 82 zombie to fight for you",
+        "level": 70,
+        "type": "summon",
+        "runes": [
+            {
+                "id": 37,
+                "amount": 5
+            },
+            {
+                "id": 38,
+                "amount": 5
+            },
+            {
+                "id": 619,
+                "amount": 5
+            }
+        ]
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+        "name": "Raise Skeleton",
+        "description": "Summons a level 21 skeleton to fight for you",
+        "level": 20,
+        "type": "summon",
+        "runes": [
+            {
+                "id": 37,
+                "amount": 2
+            },
+            {
+                "id": 33,
+                "amount": 5
+            }
+        ]
+    },
+    {
+        "name": "Raise Greater Skeleton",
+        "description": "Summons a level 54 skeleton to fight for you",
+        "level": 50,
+        "type": "summon",
+        "runes": [
+            {
+                "id": 37,
+                "amount": 4
+            },
+            {
+                "id": 34,
+                "amount": 6
+            }
+        ]
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    {
+        "name": "Raise Ghost",
+        "description": "Summons a level 19 ghost to fight for you",
+        "level": 15,
+        "type": "summon",
+        "runes": [
+            {
+                "id": 37,
+                "amount": 2
+            },
+            {
+                "id": 32,
+                "amount": 5
+            }
+        ]
+    },
+    {
+        "name": "Raise Greater Ghost",
+        "description": "Summons a level 63 ghost to fight for you",
+        "level": 60,
+        "type": "summon",
+        "runes": [
+            {
+                "id": 37,
+                "amount": 5
+            },
+            {
+                "id": 42,
+                "amount": 2
+            }
+        ]
     }
 ]
