@@ -1,0 +1,42 @@
+# Node modules (recursive)
+**/node_modules/
+package-lock.json
+
+# Build and IDE
+dist/
+.wrangler/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# RSC Specific ignore
+decompiled_jar/
+local-node/
+temp_rscplus/
+temp_client.zip
+*.class
+rsmv/rsmv.exe
+saves/
+
+# Logs and Debug
+*.log
+*.tmp
+.gemini/
+scripts/find-*.cjs
+scripts/find-*.js
+*_results.txt
+*_list.txt
+*.json.backup
+restore.json
+login_*.json
+debug_*.txt
+item-*-verification*.json
+verify_*.txt
+audit-report.txt
+comparison_output.txt
+functionality-gap-report.txt

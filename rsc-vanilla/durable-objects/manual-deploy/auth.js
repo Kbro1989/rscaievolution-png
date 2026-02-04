@@ -7,6 +7,7 @@ export class AuthService {
     constructor(env) {
         this.kv = env.RSC_PLAYERS_v2;
         this.authKV = this.kv;
+        this.playerDataKV = this.kv;
     }
 
     /**
