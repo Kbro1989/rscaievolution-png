@@ -1,0 +1,560 @@
+﻿App_preswitch_backup.tsx(367,18): error TS2739: Type '{ children: Element[]; player: any; ai: any; world: any; logs: LogMessage[]; contextMenu: ContextMenuState; activeItem: InventoryItem; ... 22 more ...; xpDrops: XPDrop[]; }' is missing the following properties from type 'GameUIProps': setGameState, onLog, onContextMenuShow
+chanfana-openapi-template/src/endpoints/dummyEndpoint.ts(1,43): error TS2307: Cannot find module 'chanfana' or its corresponding type declarations.
+chanfana-openapi-template/src/endpoints/dummyEndpoint.ts(36,27): error TS2339: Property 'getValidatedData' does not exist on type 'DummyEndpoint'.
+chanfana-openapi-template/src/endpoints/tasks/router.ts(2,26): error TS2307: Cannot find module 'chanfana' or its corresponding type declarations.
+chanfana-openapi-template/src/endpoints/tasks/taskCreate.ts(1,34): error TS2307: Cannot find module 'chanfana' or its corresponding type declarations.
+chanfana-openapi-template/src/endpoints/tasks/taskDelete.ts(1,34): error TS2307: Cannot find module 'chanfana' or its corresponding type declarations.
+chanfana-openapi-template/src/endpoints/tasks/taskList.ts(1,32): error TS2307: Cannot find module 'chanfana' or its corresponding type declarations.
+chanfana-openapi-template/src/endpoints/tasks/taskRead.ts(1,32): error TS2307: Cannot find module 'chanfana' or its corresponding type declarations.
+chanfana-openapi-template/src/endpoints/tasks/taskUpdate.ts(1,34): error TS2307: Cannot find module 'chanfana' or its corresponding type declarations.
+chanfana-openapi-template/src/index.ts(1,40): error TS2307: Cannot find module 'chanfana' or its corresponding type declarations.
+chanfana-openapi-template/src/index.ts(14,34): error TS2339: Property 'buildResponse' does not exist on type 'Error | HTTPResponseError'.
+  Property 'buildResponse' does not exist on type 'Error'.
+chanfana-openapi-template/src/index.ts(15,8): error TS2339: Property 'status' does not exist on type 'Error | HTTPResponseError'.
+  Property 'status' does not exist on type 'Error'.
+chanfana-openapi-template/tests/apply-migrations.ts(1,40): error TS2307: Cannot find module 'cloudflare:test' or its corresponding type declarations.
+chanfana-openapi-template/tests/integration/dummyEndpoint.test.ts(1,22): error TS2307: Cannot find module 'cloudflare:test' or its corresponding type declarations.
+chanfana-openapi-template/tests/integration/dummyEndpoint.test.ts(2,54): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+chanfana-openapi-template/tests/integration/tasks.test.ts(1,22): error TS2307: Cannot find module 'cloudflare:test' or its corresponding type declarations.
+chanfana-openapi-template/tests/integration/tasks.test.ts(2,54): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+components/GameUI.tsx(1025,41): error TS2339: Property 'state' does not exist on type 'unknown'.
+components/GameUI.tsx(1025,100): error TS2339: Property 'state' does not exist on type 'unknown'.
+components/GameUI.tsx(1041,37): error TS2339: Property 'state' does not exist on type 'unknown'.
+components/GameUI.tsx(1041,96): error TS2339: Property 'state' does not exist on type 'unknown'.
+components/GameUI.tsx(1056,37): error TS2339: Property 'state' does not exist on type 'unknown'.
+components/GameUI.tsx(1056,96): error TS2339: Property 'state' does not exist on type 'unknown'.
+durable-chat-template/d1-starter-sessions-api-template/src/index.ts(1,25): error TS2307: Cannot find module 'durable-utils' or its corresponding type declarations.
+durable-chat-template/d1-starter-sessions-api-template/src/index.ts(133,24): error TS2345: Argument of type 'Request<CfHostMetadata, Cf>' is not assignable to parameter of type 'Request<unknown, CfProperties<unknown>>'.
+  Type 'Cf' is not assignable to type 'CfProperties<unknown>'.
+    Type 'Cf' is not assignable to type 'RequestInitCfProperties'.
+durable-chat-template/d1-starter-sessions-api-template/src/index.ts(137,25): error TS2345: Argument of type 'Request<CfHostMetadata, Cf>' is not assignable to parameter of type 'Request<unknown, CfProperties<unknown>>'.
+  Type 'Cf' is not assignable to type 'CfProperties<unknown>'.
+    Type 'Cf' is not assignable to type 'RequestInitCfProperties'.
+durable-chat-template/d1-starter-sessions-api-template/test/index.spec.ts(7,8): error TS2307: Cannot find module 'cloudflare:test' or its corresponding type declarations.
+durable-chat-template/d1-starter-sessions-api-template/test/index.spec.ts(8,38): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+durable-chat-template/d1-starter-sessions-api-template/test/index.spec.ts(13,33): error TS2635: Type '{ new (input: URL | RequestInfo, init?: RequestInit<CfProperties<unknown>>): Request<unknown, CfProperties<unknown>>; prototype: Request<...>; }' has no signatures for which the type argument list is applicable.
+durable-chat-template/d1-starter-sessions-api-template/test/index.spec.ts(17,23): error TS2351: This expression is not constructable.
+  Type '{ prototype: Request<unknown, CfProperties<unknown>>; }' has no construct signatures.
+durable-chat-template/d1-starter-sessions-api-template/test/index.spec.ts(30,23): error TS2351: This expression is not constructable.
+  Type '{ prototype: Request<unknown, CfProperties<unknown>>; }' has no construct signatures.
+durable-chat-template/src/client/index.tsx(2,32): error TS2307: Cannot find module 'partysocket/react' or its corresponding type declarations.
+durable-chat-template/src/client/index.tsx(10,8): error TS2307: Cannot find module 'react-router' or its corresponding type declarations.
+durable-chat-template/src/server/index.ts(6,8): error TS2307: Cannot find module 'partyserver' or its corresponding type declarations.
+durable-chat-template/src/server/index.ts(16,8): error TS2339: Property 'broadcast' does not exist on type 'Chat'.
+durable-chat-template/src/server/index.ts(24,8): error TS2339: Property 'ctx' does not exist on type 'Chat'.
+durable-chat-template/src/server/index.ts(29,24): error TS2339: Property 'ctx' does not exist on type 'Chat'.
+durable-chat-template/src/server/index.ts(57,8): error TS2339: Property 'ctx' does not exist on type 'Chat'.
+durable-chat-template/src/server/index.ts(70,8): error TS2339: Property 'broadcast' does not exist on type 'Chat'.
+durable-chat-template/src/server/index.ts(84,8): error TS2339: Property 'ASSETS' does not exist on type 'Env'.
+hello-world-do-template/src/index.ts(57,35): error TS2339: Property 'MY_DURABLE_OBJECT' does not exist on type 'Env'.
+hello-world-do-template/src/index.ts(63,20): error TS2339: Property 'MY_DURABLE_OBJECT' does not exist on type 'Env'.
+libs/rsmv/src/3d/animationskeletal.ts(86,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+libs/rsmv/src/3d/animationskeletal.ts(251,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+libs/rsmv/src/3d/jmat.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+libs/rsmv/src/3d/proceduraltexture.ts(86,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+libs/rsmv/src/3d/proceduraltexture.ts(98,27): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLDivElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+libs/rsmv/src/3d/proceduraltexture.ts(108,31): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLDivElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+libs/rsmv/src/cache/compression.ts(115,17): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/cache/fscache.ts(16,20): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/cache/fscache.ts(18,13): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/cache/sqlite.ts(66,16): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/cache/sqlitewasm.ts(81,17): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/cache/sqlitewasm.ts(86,30): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/clientscript/index.ts(19,102): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<ClientScriptFunction>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: ClientScriptFunction; }'.
+libs/rsmv/src/cliparser.ts(10,10): error TS2865: Import 'FileRange' conflicts with local value, so must be declared with a type-only import when 'isolatedModules' is enabled.
+libs/rsmv/src/headless/api.ts(18,10): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+libs/rsmv/src/headless/api.ts(106,9): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/headless/cli.ts(5,48): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+libs/rsmv/src/libs/sqlite3wrap.ts(6,18): error TS2304: Cannot find name '__non_webpack_require__'.
+libs/rsmv/src/libs/yieldparser.ts(118,41): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+libs/rsmv/src/libs/yieldparser.ts(119,52): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+libs/rsmv/src/map/chunksummary.ts(654,24): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+libs/rsmv/src/map/progressui.ts(124,14): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+libs/rsmv/src/opcode_reader.ts(838,3): error TS2322: Type '() => { const: unknown; }' is not assignable to type '() => JSONSchema6Definition'.
+  Type '{ const: unknown; }' is not assignable to type 'JSONSchema6Definition'.
+    Type '{ const: unknown; }' is not assignable to type 'JSONSchema6'.
+      Types of property 'const' are incompatible.
+        Type 'unknown' is not assignable to type 'JSONSchema6Type'.
+libs/rsmv/src/opdecoder.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+libs/rsmv/src/scripts/indexoverview.ts(3,33): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+libs/rsmv/src/viewer/commoncontrols.tsx(5,29): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+libs/rsmv/src/viewer/commoncontrols.tsx(6,36): error TS2307: Cannot find module 'scripts/filetypes' or its corresponding type declarations.
+libs/rsmv/src/viewer/commoncontrols.tsx(102,66): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type '"params" | "test" | "items" | "enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | ... 32 more ... | "clientscriptops"'.
+  Type 'string' is not assignable to type '"params" | "test" | "items" | "enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | ... 32 more ... | "clientscriptops"'.
+libs/rsmv/src/viewer/commoncontrols.tsx(229,11): error TS2322: Type '{ onChange: any; value: any; defaultValue: string | number | readonly string[]; ref: string | ((el: HTMLInputElement) => void) | RefObject<HTMLInputElement>; ... 291 more ...; onTransitionEndCapture?: TransitionEventHandler<...>; }' is not assignable to type 'DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>'.
+  Type '{ onChange: any; value: any; defaultValue: string | number | readonly string[]; ref: string | ((el: HTMLInputElement) => void) | RefObject<HTMLInputElement>; ... 291 more ...; onTransitionEndCapture?: TransitionEventHandler<...>; }' is not assignable to type 'InputHTMLAttributes<HTMLInputElement>'.
+    The types of 'style.alignmentBaseline' are incompatible between these types.
+      Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+        Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/maincomponents.tsx(210,19): error TS2304: Cannot find name 'showDirectoryPicker'.
+libs/rsmv/src/viewer/maincomponents.tsx(231,39): error TS2339: Property 'requestPermission' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/viewer/maincomponents.tsx(247,14): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+libs/rsmv/src/viewer/maincomponents.tsx(248,35): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+libs/rsmv/src/viewer/maincomponents.tsx(256,36): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/viewer/maincomponents.tsx(402,35): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+libs/rsmv/src/viewer/scenenodes.tsx(107,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(108,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(116,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(117,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(127,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(128,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(137,11): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(138,13): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(141,11): error TS2322: Type '{ gridTemplateColumns: string; accentColor?: Property.AccentColor | undefined; alignContent?: Property.AlignContent | undefined; ... 821 more ...; vectorEffect?: Property.VectorEffect | undefined; }' is not assignable to type 'CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(156,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(157,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(168,10): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(169,12): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(551,6): error TS2322: Type 'string | number' is not assignable to type 'number'.
+  Type 'string' is not assignable to type 'number'.
+libs/rsmv/src/viewer/scenenodes.tsx(1983,77): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(2105,84): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scenenodes.tsx(2134,104): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scriptsui.tsx(60,8): error TS2416: Property 'readDir' in type 'WebFsScriptFS' is not assignable to the same property in base type 'ScriptFS'.
+  Type '(dirname: string) => Promise<void>' is not assignable to type '(dir: string) => Promise<ScriptFSEntry[]>'.
+    Type 'Promise<void>' is not assignable to type 'Promise<ScriptFSEntry[]>'.
+      Type 'void' is not assignable to type 'ScriptFSEntry[]'.
+libs/rsmv/src/viewer/scriptsui.tsx(65,14): error TS2339: Property 'writeFile' does not exist on type 'WebFsScriptFS'.
+libs/rsmv/src/viewer/scriptsui.tsx(357,28): error TS2322: Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/@types/react/index").CSSProperties' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/@types/react/index").CSSProperties'.
+  Types of property 'alignmentBaseline' are incompatible.
+    Type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/libs/rsmv/node_modules/csstype/index").Property.AlignmentBaseline' is not assignable to type 'import("C:/Users/Destiny/Desktop/ai-architect-mmorpg/copy-of-rsc-evolution-ai/node_modules/csstype/index").Property.AlignmentBaseline'.
+      Type '"auto"' is not assignable to type 'AlignmentBaseline'.
+libs/rsmv/src/viewer/scriptsui.tsx(520,21): error TS2304: Cannot find name 'showDirectoryPicker'.
+libs/rsmv/src/viewer/scriptsui.tsx(522,5): error TS2739: Type 'WebFsScriptFS' is missing the following properties from type 'ScriptFS': writeFile, unlink
+libs/rsmv/src/viewer/threejsrender.ts(3,31): error TS2307: Cannot find module 'three/examples/jsm/controls/OrbitControls' or its corresponding type declarations.
+libs/rsmv/src/viewer/threejsrender.ts(7,30): error TS2307: Cannot find module 'three/examples/jsm/exporters/GLTFExporter' or its corresponding type declarations.
+libs/rsmv/src/viewer/threejsrender.ts(8,29): error TS2307: Cannot find module 'three/examples/jsm/exporters/STLExporter' or its corresponding type declarations.
+multiplayer-globe-template/src/client/index.tsx(6,28): error TS2307: Cannot find module 'partysocket/react' or its corresponding type declarations.
+multiplayer-globe-template/src/server/index.ts(1,46): error TS2307: Cannot find module 'partyserver' or its corresponding type declarations.
+multiplayer-globe-template/src/server/index.ts(4,52): error TS2307: Cannot find module 'partyserver' or its corresponding type declarations.
+multiplayer-globe-template/src/server/index.ts(34,33): error TS2339: Property 'getConnections' does not exist on type 'Globe'.
+multiplayer-globe-template/src/server/index.ts(62,8): error TS2339: Property 'broadcast' does not exist on type 'Globe'.
+openauth-template/src/index.ts(1,24): error TS2307: Cannot find module '@openauthjs/openauth' or its corresponding type declarations.
+openauth-template/src/index.ts(2,35): error TS2307: Cannot find module '@openauthjs/openauth/storage/cloudflare' or its corresponding type declarations.
+openauth-template/src/index.ts(3,34): error TS2307: Cannot find module '@openauthjs/openauth/provider/password' or its corresponding type declarations.
+openauth-template/src/index.ts(4,28): error TS2307: Cannot find module '@openauthjs/openauth/ui/password' or its corresponding type declarations.
+openauth-template/src/index.ts(5,32): error TS2307: Cannot find module '@openauthjs/openauth/subject' or its corresponding type declarations.
+openauth-template/src/index.ts(6,32): error TS2307: Cannot find module 'valibot' or its corresponding type declarations.
+openauth-template/src/index.ts(42,20): error TS2339: Property 'AUTH_STORAGE' does not exist on type 'Env'.
+openauth-template/src/index.ts(81,27): error TS2339: Property 'AUTH_DB' does not exist on type 'Env'.
+openrsc-vanilla/party-worker/src/index.ts(1,77): error TS2307: Cannot find module 'partyserver' or its corresponding type declarations.
+openrsc-vanilla/party-worker/src/index.ts(13,38): error TS2339: Property 'getConnections' does not exist on type 'RSCServer'.
+openrsc-vanilla/party-worker/src/index.ts(37,22): error TS2339: Property 'broadcast' does not exist on type 'RSCServer'.
+openrsc-vanilla/party-worker/src/index.ts(49,14): error TS2339: Property 'broadcast' does not exist on type 'RSCServer'.
+openrsc-vanilla/rsmv/src/3d/animationskeletal.ts(86,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+openrsc-vanilla/rsmv/src/3d/animationskeletal.ts(251,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+openrsc-vanilla/rsmv/src/3d/jmat.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/3d/mapsquare.ts(1497,21): error TS2339: Property 'width' does not exist on type 'unknown'.
+openrsc-vanilla/rsmv/src/3d/mapsquare.ts(1498,21): error TS2339: Property 'height' does not exist on type 'unknown'.
+openrsc-vanilla/rsmv/src/3d/modelnodes.ts(6,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/3d/modelnodes.ts(16,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/3d/modeltothree.ts(15,39): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/3d/proceduraltexture.ts(86,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+openrsc-vanilla/rsmv/src/3d/proceduraltexture.ts(98,27): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLDivElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+openrsc-vanilla/rsmv/src/3d/proceduraltexture.ts(108,31): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLDivElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+openrsc-vanilla/rsmv/src/cache/compression.ts(115,17): error TS2304: Cannot find name '__non_webpack_require__'.
+openrsc-vanilla/rsmv/src/cache/downloader.ts(4,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/cache/fscache.ts(16,20): error TS2304: Cannot find name '__non_webpack_require__'.
+openrsc-vanilla/rsmv/src/cache/fscache.ts(18,13): error TS2304: Cannot find name '__non_webpack_require__'.
+openrsc-vanilla/rsmv/src/cache/openrs2loader.ts(4,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/cache/sqlite.ts(66,16): error TS2304: Cannot find name '__non_webpack_require__'.
+openrsc-vanilla/rsmv/src/cache/sqlitewasm.ts(81,17): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+openrsc-vanilla/rsmv/src/cache/sqlitewasm.ts(86,30): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+openrsc-vanilla/rsmv/src/cache/sqlitewasmworker.ts(3,48): error TS2307: Cannot find module 'sql.js' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/cli.ts(1,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/clicommands.ts(2,39): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/clicommands.ts(7,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/clientscript/callibrator.ts(17,28): error TS2307: Cannot find module 'idb-keyval' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/clientscript/codewriter.ts(1,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/clientscript/index.ts(19,102): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<ClientScriptFunction>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: ClientScriptFunction; }'.
+openrsc-vanilla/rsmv/src/cliparser.ts(1,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/cliparser.ts(2,27): error TS2307: Cannot find module 'cmd-ts/dist/cjs/argparser' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/cliparser.ts(10,10): error TS2865: Import 'FileRange' conflicts with local value, so must be declared with a type-only import when 'isolatedModules' is enabled.
+openrsc-vanilla/rsmv/src/headless/api.ts(18,10): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+openrsc-vanilla/rsmv/src/headless/api.ts(106,9): error TS2304: Cannot find name '__non_webpack_require__'.
+openrsc-vanilla/rsmv/src/headless/cli.ts(3,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/headless/cli.ts(5,48): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/imgutils.ts(273,31): error TS2339: Property 'width' does not exist on type 'unknown'.
+openrsc-vanilla/rsmv/src/imgutils.ts(274,32): error TS2339: Property 'height' does not exist on type 'unknown'.
+openrsc-vanilla/rsmv/src/imgutils.ts(275,17): error TS2769: No overload matches this call.
+  Overload 1 of 6, '(image: CanvasImageSource, dx: number, dy: number): void', gave the following error.
+    Argument of type 'unknown' is not assignable to parameter of type 'CanvasImageSource'.
+  Overload 2 of 6, '(image: CanvasImageSource, dx: number, dy: number): void', gave the following error.
+    Argument of type 'unknown' is not assignable to parameter of type 'CanvasImageSource'.
+openrsc-vanilla/rsmv/src/jsonschemas.ts(1,52): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/libs/sqlite3wrap.ts(6,18): error TS2304: Cannot find name '__non_webpack_require__'.
+openrsc-vanilla/rsmv/src/libs/yieldparser.ts(118,41): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+openrsc-vanilla/rsmv/src/libs/yieldparser.ts(119,52): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+openrsc-vanilla/rsmv/src/map/chunksummary.ts(654,24): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+openrsc-vanilla/rsmv/src/map/mapcli.ts(3,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/map/progressui.ts(124,14): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+openrsc-vanilla/rsmv/src/opcode_reader.ts(2,34): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/opdecoder.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/scripts/filetypes.ts(8,39): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/scripts/indexoverview.ts(3,33): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/scripts/scrapeavatars.ts(2,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/scripts/searchmap.ts(2,82): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(2,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(4,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(5,29): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(6,36): error TS2307: Cannot find module 'scripts/filetypes' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(102,66): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type '"params" | "test" | "items" | "enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | ... 32 more ... | "clientscriptops"'.
+  Type 'string' is not assignable to type '"params" | "test" | "items" | "enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | ... 32 more ... | "clientscriptops"'.
+openrsc-vanilla/rsmv/src/viewer/index.tsx(5,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/index.tsx(6,28): error TS2307: Cannot find module 'idb-keyval' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/index.tsx(12,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/index.tsx(15,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/jsonsearch.tsx(5,73): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/maincomponents.tsx(4,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/maincomponents.tsx(7,28): error TS2307: Cannot find module 'idb-keyval' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/maincomponents.tsx(19,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/maincomponents.tsx(210,19): error TS2304: Cannot find name 'showDirectoryPicker'.
+openrsc-vanilla/rsmv/src/viewer/maincomponents.tsx(231,39): error TS2339: Property 'requestPermission' does not exist on type 'FileSystemDirectoryHandle'.
+openrsc-vanilla/rsmv/src/viewer/maincomponents.tsx(247,14): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+openrsc-vanilla/rsmv/src/viewer/maincomponents.tsx(248,35): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+openrsc-vanilla/rsmv/src/viewer/maincomponents.tsx(256,36): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+openrsc-vanilla/rsmv/src/viewer/maincomponents.tsx(402,35): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+openrsc-vanilla/rsmv/src/viewer/scenenodes.tsx(3,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/scenenodes.tsx(9,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/scenenodes.tsx(25,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/scenenodes.tsx(38,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/scenenodes.tsx(551,6): error TS2322: Type 'string | number' is not assignable to type 'number'.
+  Type 'string' is not assignable to type 'number'.
+openrsc-vanilla/rsmv/src/viewer/scriptsui.tsx(63,35): error TS2339: Property 'entries' does not exist on type 'FileSystemDirectoryHandle'.
+openrsc-vanilla/rsmv/src/viewer/scriptsui.tsx(537,21): error TS2304: Cannot find name 'showDirectoryPicker'.
+openrsc-vanilla/rsmv/src/viewer/threejsrender.ts(3,31): error TS2307: Cannot find module 'three/examples/jsm/controls/OrbitControls' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/threejsrender.ts(6,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/threejsrender.ts(7,30): error TS2307: Cannot find module 'three/examples/jsm/exporters/GLTFExporter' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/threejsrender.ts(8,29): error TS2307: Cannot find module 'three/examples/jsm/exporters/STLExporter' or its corresponding type declarations.
+openrsc-vanilla/rsmv/src/viewer/threejsrender.ts(124,12): error TS2339: Property 'useLegacyLights' does not exist on type 'WebGLRenderer'.
+openrsc-vanilla/rsmv/src/viewer/threejsrender.ts(446,5): error TS2322: Type 'string' is not assignable to type 'ColorSpace'.
+openrsc-vanilla/rsmv/src/viewer/threejsrender.ts(690,6): error TS2322: Type 'string' is not assignable to type 'ColorSpace'.
+openrsc-vanilla/rsmv/src/viewer/vr360camera.ts(1,132): error TS2305: Module '"three"' has no exported member 'Renderer'.
+openrsc-vanilla/rsmv/src/viewer/vr360camera.ts(50,4): error TS2322: Type 'string' is not assignable to type 'ColorSpace'.
+rsc-cloudflare/rsmv/src/3d/animationskeletal.ts(86,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-cloudflare/rsmv/src/3d/animationskeletal.ts(251,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-cloudflare/rsmv/src/3d/jmat.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/3d/mapsquare.ts(1497,21): error TS2339: Property 'width' does not exist on type 'unknown'.
+rsc-cloudflare/rsmv/src/3d/mapsquare.ts(1498,21): error TS2339: Property 'height' does not exist on type 'unknown'.
+rsc-cloudflare/rsmv/src/3d/modelnodes.ts(6,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/3d/modelnodes.ts(16,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/3d/modeltothree.ts(15,39): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/3d/proceduraltexture.ts(86,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-cloudflare/rsmv/src/3d/proceduraltexture.ts(98,27): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLDivElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-cloudflare/rsmv/src/3d/proceduraltexture.ts(108,31): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLDivElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-cloudflare/rsmv/src/cache/compression.ts(115,17): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-cloudflare/rsmv/src/cache/downloader.ts(4,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/cache/fscache.ts(16,20): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-cloudflare/rsmv/src/cache/fscache.ts(18,13): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-cloudflare/rsmv/src/cache/openrs2loader.ts(4,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/cache/sqlite.ts(66,16): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-cloudflare/rsmv/src/cache/sqlitewasm.ts(81,17): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-cloudflare/rsmv/src/cache/sqlitewasm.ts(86,30): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-cloudflare/rsmv/src/cache/sqlitewasmworker.ts(3,48): error TS2307: Cannot find module 'sql.js' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/cli.ts(1,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/clicommands.ts(2,39): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/clicommands.ts(7,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/clientscript/callibrator.ts(17,28): error TS2307: Cannot find module 'idb-keyval' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/clientscript/codewriter.ts(1,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/clientscript/index.ts(19,102): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<ClientScriptFunction>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: ClientScriptFunction; }'.
+rsc-cloudflare/rsmv/src/cliparser.ts(1,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/cliparser.ts(2,27): error TS2307: Cannot find module 'cmd-ts/dist/cjs/argparser' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/cliparser.ts(10,10): error TS2865: Import 'FileRange' conflicts with local value, so must be declared with a type-only import when 'isolatedModules' is enabled.
+rsc-cloudflare/rsmv/src/headless/api.ts(18,10): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+rsc-cloudflare/rsmv/src/headless/api.ts(106,9): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-cloudflare/rsmv/src/headless/cli.ts(3,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/headless/cli.ts(5,48): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/imgutils.ts(273,31): error TS2339: Property 'width' does not exist on type 'unknown'.
+rsc-cloudflare/rsmv/src/imgutils.ts(274,32): error TS2339: Property 'height' does not exist on type 'unknown'.
+rsc-cloudflare/rsmv/src/imgutils.ts(275,17): error TS2769: No overload matches this call.
+  Overload 1 of 6, '(image: CanvasImageSource, dx: number, dy: number): void', gave the following error.
+    Argument of type 'unknown' is not assignable to parameter of type 'CanvasImageSource'.
+  Overload 2 of 6, '(image: CanvasImageSource, dx: number, dy: number): void', gave the following error.
+    Argument of type 'unknown' is not assignable to parameter of type 'CanvasImageSource'.
+rsc-cloudflare/rsmv/src/jsonschemas.ts(1,52): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/libs/sqlite3wrap.ts(6,18): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-cloudflare/rsmv/src/libs/yieldparser.ts(118,41): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+rsc-cloudflare/rsmv/src/libs/yieldparser.ts(119,52): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+rsc-cloudflare/rsmv/src/map/chunksummary.ts(654,24): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-cloudflare/rsmv/src/map/mapcli.ts(3,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/map/progressui.ts(124,14): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-cloudflare/rsmv/src/opcode_reader.ts(2,34): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/opdecoder.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/scripts/filetypes.ts(8,39): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/scripts/indexoverview.ts(3,33): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/scripts/scrapeavatars.ts(2,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/scripts/searchmap.ts(2,82): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/commoncontrols.tsx(2,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/commoncontrols.tsx(4,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/commoncontrols.tsx(5,29): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/commoncontrols.tsx(6,36): error TS2307: Cannot find module 'scripts/filetypes' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/commoncontrols.tsx(102,66): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type '"params" | "test" | "items" | "enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | ... 32 more ... | "clientscriptops"'.
+  Type 'string' is not assignable to type '"params" | "test" | "items" | "enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | ... 32 more ... | "clientscriptops"'.
+rsc-cloudflare/rsmv/src/viewer/index.tsx(5,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/index.tsx(6,28): error TS2307: Cannot find module 'idb-keyval' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/index.tsx(12,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/index.tsx(15,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/jsonsearch.tsx(5,73): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/maincomponents.tsx(4,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/maincomponents.tsx(7,28): error TS2307: Cannot find module 'idb-keyval' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/maincomponents.tsx(19,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/maincomponents.tsx(210,19): error TS2304: Cannot find name 'showDirectoryPicker'.
+rsc-cloudflare/rsmv/src/viewer/maincomponents.tsx(231,39): error TS2339: Property 'requestPermission' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-cloudflare/rsmv/src/viewer/maincomponents.tsx(247,14): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+rsc-cloudflare/rsmv/src/viewer/maincomponents.tsx(248,35): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+rsc-cloudflare/rsmv/src/viewer/maincomponents.tsx(256,36): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-cloudflare/rsmv/src/viewer/maincomponents.tsx(402,35): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-cloudflare/rsmv/src/viewer/scenenodes.tsx(3,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/scenenodes.tsx(9,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/scenenodes.tsx(25,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/scenenodes.tsx(38,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/scenenodes.tsx(551,6): error TS2322: Type 'string | number' is not assignable to type 'number'.
+  Type 'string' is not assignable to type 'number'.
+rsc-cloudflare/rsmv/src/viewer/scriptsui.tsx(63,35): error TS2339: Property 'entries' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-cloudflare/rsmv/src/viewer/scriptsui.tsx(537,21): error TS2304: Cannot find name 'showDirectoryPicker'.
+rsc-cloudflare/rsmv/src/viewer/threejsrender.ts(3,31): error TS2307: Cannot find module 'three/examples/jsm/controls/OrbitControls' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/threejsrender.ts(6,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/threejsrender.ts(7,30): error TS2307: Cannot find module 'three/examples/jsm/exporters/GLTFExporter' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/threejsrender.ts(8,29): error TS2307: Cannot find module 'three/examples/jsm/exporters/STLExporter' or its corresponding type declarations.
+rsc-cloudflare/rsmv/src/viewer/threejsrender.ts(124,12): error TS2339: Property 'useLegacyLights' does not exist on type 'WebGLRenderer'.
+rsc-cloudflare/rsmv/src/viewer/threejsrender.ts(446,5): error TS2322: Type 'string' is not assignable to type 'ColorSpace'.
+rsc-cloudflare/rsmv/src/viewer/threejsrender.ts(690,6): error TS2322: Type 'string' is not assignable to type 'ColorSpace'.
+rsc-cloudflare/rsmv/src/viewer/vr360camera.ts(1,132): error TS2305: Module '"three"' has no exported member 'Renderer'.
+rsc-cloudflare/rsmv/src/viewer/vr360camera.ts(50,4): error TS2322: Type 'string' is not assignable to type 'ColorSpace'.
+rsc-vanilla/rsmv/src/3d/animationskeletal.ts(86,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-vanilla/rsmv/src/3d/animationskeletal.ts(251,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-vanilla/rsmv/src/3d/jmat.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/3d/mapsquare.ts(1497,21): error TS2339: Property 'width' does not exist on type 'unknown'.
+rsc-vanilla/rsmv/src/3d/mapsquare.ts(1498,21): error TS2339: Property 'height' does not exist on type 'unknown'.
+rsc-vanilla/rsmv/src/3d/modelnodes.ts(6,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/3d/modelnodes.ts(16,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/3d/modeltothree.ts(15,39): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/3d/proceduraltexture.ts(86,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-vanilla/rsmv/src/3d/proceduraltexture.ts(98,27): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLDivElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-vanilla/rsmv/src/3d/proceduraltexture.ts(108,31): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLDivElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-vanilla/rsmv/src/cache/compression.ts(115,17): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-vanilla/rsmv/src/cache/downloader.ts(4,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/cache/fscache.ts(16,20): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-vanilla/rsmv/src/cache/fscache.ts(18,13): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-vanilla/rsmv/src/cache/openrs2loader.ts(4,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/cache/sqlite.ts(66,16): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-vanilla/rsmv/src/cache/sqlitewasm.ts(81,17): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-vanilla/rsmv/src/cache/sqlitewasm.ts(86,30): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-vanilla/rsmv/src/cache/sqlitewasmworker.ts(3,48): error TS2307: Cannot find module 'sql.js' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/cli.ts(1,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/clicommands.ts(2,39): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/clicommands.ts(7,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/clientscript/callibrator.ts(17,28): error TS2307: Cannot find module 'idb-keyval' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/clientscript/codewriter.ts(1,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/clientscript/index.ts(19,102): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<ClientScriptFunction>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: ClientScriptFunction; }'.
+rsc-vanilla/rsmv/src/cliparser.ts(1,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/cliparser.ts(2,27): error TS2307: Cannot find module 'cmd-ts/dist/cjs/argparser' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/cliparser.ts(10,10): error TS2865: Import 'FileRange' conflicts with local value, so must be declared with a type-only import when 'isolatedModules' is enabled.
+rsc-vanilla/rsmv/src/headless/api.ts(18,10): error TS1205: Re-exporting a type when 'isolatedModules' is enabled requires using 'export type'.
+rsc-vanilla/rsmv/src/headless/api.ts(106,9): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-vanilla/rsmv/src/headless/cli.ts(3,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/headless/cli.ts(5,48): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/imgutils.ts(273,31): error TS2339: Property 'width' does not exist on type 'unknown'.
+rsc-vanilla/rsmv/src/imgutils.ts(274,32): error TS2339: Property 'height' does not exist on type 'unknown'.
+rsc-vanilla/rsmv/src/imgutils.ts(275,17): error TS2769: No overload matches this call.
+  Overload 1 of 6, '(image: CanvasImageSource, dx: number, dy: number): void', gave the following error.
+    Argument of type 'unknown' is not assignable to parameter of type 'CanvasImageSource'.
+  Overload 2 of 6, '(image: CanvasImageSource, dx: number, dy: number): void', gave the following error.
+    Argument of type 'unknown' is not assignable to parameter of type 'CanvasImageSource'.
+rsc-vanilla/rsmv/src/jsonschemas.ts(1,52): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/libs/sqlite3wrap.ts(6,18): error TS2304: Cannot find name '__non_webpack_require__'.
+rsc-vanilla/rsmv/src/libs/yieldparser.ts(118,41): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+rsc-vanilla/rsmv/src/libs/yieldparser.ts(119,52): error TS2339: Property 'failedOn' does not exist on type 'ParseResult<unknown>'.
+  Property 'failedOn' does not exist on type '{ success: true; remaining: string; result: unknown; }'.
+rsc-vanilla/rsmv/src/map/chunksummary.ts(654,24): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLCanvasElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-vanilla/rsmv/src/map/mapcli.ts(3,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/map/progressui.ts(124,14): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'HTMLElement' is not assignable to parameter of type 'string | Response | ReadableStream<any>'.
+rsc-vanilla/rsmv/src/opcode_reader.ts(2,34): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/opdecoder.ts(4,38): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/scripts/filetypes.ts(8,39): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/scripts/indexoverview.ts(3,33): error TS2307: Cannot find module 'cache' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/scripts/scrapeavatars.ts(2,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/scripts/searchmap.ts(2,82): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(2,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(4,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(5,29): error TS2307: Cannot find module '3d/modeltothree' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(6,36): error TS2307: Cannot find module 'scripts/filetypes' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/commoncontrols.tsx(102,66): error TS2345: Argument of type 'string | number | symbol' is not assignable to parameter of type '"params" | "test" | "items" | "enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | ... 32 more ... | "clientscriptops"'.
+  Type 'string' is not assignable to type '"params" | "test" | "items" | "enums" | "mapscenes" | "sequences" | "framemaps" | "frames" | "models" | "oldmodels" | "classicmodels" | "materials" | "oldmaterials" | "environments" | ... 32 more ... | "clientscriptops"'.
+rsc-vanilla/rsmv/src/viewer/index.tsx(5,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/index.tsx(6,28): error TS2307: Cannot find module 'idb-keyval' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/index.tsx(12,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/index.tsx(15,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/jsonsearch.tsx(5,73): error TS2307: Cannot find module 'json-schema' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/maincomponents.tsx(4,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/maincomponents.tsx(7,28): error TS2307: Cannot find module 'idb-keyval' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/maincomponents.tsx(19,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/maincomponents.tsx(210,19): error TS2304: Cannot find name 'showDirectoryPicker'.
+rsc-vanilla/rsmv/src/viewer/maincomponents.tsx(231,39): error TS2339: Property 'requestPermission' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-vanilla/rsmv/src/viewer/maincomponents.tsx(247,14): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+rsc-vanilla/rsmv/src/viewer/maincomponents.tsx(248,35): error TS2339: Property 'getAsFileSystemHandle' does not exist on type 'DataTransferItem'.
+rsc-vanilla/rsmv/src/viewer/maincomponents.tsx(256,36): error TS2339: Property 'values' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-vanilla/rsmv/src/viewer/maincomponents.tsx(402,35): error TS2339: Property 'queryPermission' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-vanilla/rsmv/src/viewer/scenenodes.tsx(3,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/scenenodes.tsx(9,24): error TS2307: Cannot find module 'classnames' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/scenenodes.tsx(25,19): error TS2307: Cannot find module 'node-fetch' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/scenenodes.tsx(38,24): error TS2307: Cannot find module 'cmd-ts' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/scenenodes.tsx(551,6): error TS2322: Type 'string | number' is not assignable to type 'number'.
+  Type 'string' is not assignable to type 'number'.
+rsc-vanilla/rsmv/src/viewer/scriptsui.tsx(63,35): error TS2339: Property 'entries' does not exist on type 'FileSystemDirectoryHandle'.
+rsc-vanilla/rsmv/src/viewer/scriptsui.tsx(537,21): error TS2304: Cannot find name 'showDirectoryPicker'.
+rsc-vanilla/rsmv/src/viewer/threejsrender.ts(3,31): error TS2307: Cannot find module 'three/examples/jsm/controls/OrbitControls' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/threejsrender.ts(6,29): error TS2307: Cannot find module 'autobind-decorator' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/threejsrender.ts(7,30): error TS2307: Cannot find module 'three/examples/jsm/exporters/GLTFExporter' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/threejsrender.ts(8,29): error TS2307: Cannot find module 'three/examples/jsm/exporters/STLExporter' or its corresponding type declarations.
+rsc-vanilla/rsmv/src/viewer/threejsrender.ts(124,12): error TS2339: Property 'useLegacyLights' does not exist on type 'WebGLRenderer'.
+rsc-vanilla/rsmv/src/viewer/threejsrender.ts(446,5): error TS2322: Type 'string' is not assignable to type 'ColorSpace'.
+rsc-vanilla/rsmv/src/viewer/threejsrender.ts(690,6): error TS2322: Type 'string' is not assignable to type 'ColorSpace'.
+rsc-vanilla/rsmv/src/viewer/vr360camera.ts(1,132): error TS2305: Module '"three"' has no exported member 'Renderer'.
+rsc-vanilla/rsmv/src/viewer/vr360camera.ts(50,4): error TS2322: Type 'string' is not assignable to type 'ColorSpace'.
+services/lmStudioClient.ts(86,25): error TS2339: Property 'choices' does not exist on type 'unknown'.
+services/lmStudioClient.ts(125,39): error TS2339: Property 'choices' does not exist on type 'unknown'.
+services/lmStudioClient.ts(178,25): error TS2339: Property 'data' does not exist on type 'unknown'.
+services/lmStudioClient.ts(178,48): error TS2339: Property 'data' does not exist on type 'unknown'.
+services/lmStudioClient.ts(220,25): error TS2339: Property 'data' does not exist on type 'unknown'.
+temp/multiplayer-template/src/client/index.tsx(6,28): error TS2307: Cannot find module 'partysocket/react' or its corresponding type declarations.
+temp/multiplayer-template/src/server/index.ts(1,46): error TS2307: Cannot find module 'partyserver' or its corresponding type declarations.
+temp/multiplayer-template/src/server/index.ts(4,52): error TS2307: Cannot find module 'partyserver' or its corresponding type declarations.
+temp/multiplayer-template/src/server/index.ts(34,33): error TS2339: Property 'getConnections' does not exist on type 'Globe'.
+temp/multiplayer-template/src/server/index.ts(62,8): error TS2339: Property 'broadcast' does not exist on type 'Globe'.
+text-to-image-template/src/index.ts(7,30): error TS2339: Property 'AI' does not exist on type 'Env'.
+to-do-list-kv-template/app/entry.client.tsx(7,30): error TS2307: Cannot find module '@remix-run/react' or its corresponding type declarations.
+to-do-list-kv-template/app/entry.server.tsx(7,51): error TS2307: Cannot find module '@remix-run/cloudflare' or its corresponding type declarations.
+to-do-list-kv-template/app/entry.server.tsx(8,29): error TS2307: Cannot find module '@remix-run/react' or its corresponding type declarations.
+to-do-list-kv-template/app/entry.server.tsx(9,23): error TS2307: Cannot find module 'isbot' or its corresponding type declarations.
+to-do-list-kv-template/app/root.tsx(7,8): error TS2307: Cannot find module '@remix-run/react' or its corresponding type declarations.
+to-do-list-kv-template/app/root.tsx(8,36): error TS2307: Cannot find module '@remix-run/cloudflare' or its corresponding type declarations.
+to-do-list-kv-template/app/routes/$id.tsx(4,8): error TS2307: Cannot find module '@remix-run/cloudflare' or its corresponding type declarations.
+to-do-list-kv-template/app/routes/$id.tsx(5,37): error TS2307: Cannot find module '@remix-run/react' or its corresponding type declarations.
+to-do-list-kv-template/app/routes/$id.tsx(6,29): error TS2307: Cannot find module '~/to-do-manager' or its corresponding type declarations.
+to-do-list-kv-template/app/routes/_index.tsx(1,26): error TS2307: Cannot find module '@remix-run/react' or its corresponding type declarations.
+to-do-list-kv-template/load-context.ts(13,16): error TS2664: Invalid module name in augmentation, module '@remix-run/cloudflare' cannot be found.
+to-do-list-kv-template/server.ts(1,56): error TS2307: Cannot find module '@remix-run/cloudflare' or its corresponding type declarations.
+to-do-list-kv-template/server.ts(22,7): error TS2741: Property 'props' is missing in type '{ waitUntil: any; passThroughOnException: any; }' but required in type 'ExecutionContext'.
+to-do-list-kv-template/test/env.ts(1,16): error TS2664: Invalid module name in augmentation, module 'cloudflare:test' cannot be found.
+to-do-list-kv-template/test/to-do-manager.test.ts(1,61): error TS2307: Cannot find module 'vitest' or its corresponding type declarations.
+to-do-list-kv-template/test/to-do-manager.test.ts(3,21): error TS2307: Cannot find module 'cloudflare:test' or its corresponding type declarations.
+to-do-list-kv-template/vite.config.ts(5,8): error TS2307: Cannot find module '@remix-run/dev' or its corresponding type declarations.
+to-do-list-kv-template/vite.config.ts(6,27): error TS2307: Cannot find module 'vite-tsconfig-paths' or its corresponding type declarations.
+to-do-list-kv-template/vite.config.ts(9,16): error TS2664: Invalid module name in augmentation, module '@remix-run/cloudflare' cannot be found.
+to-do-list-kv-template/vitest.config.ts(1,37): error TS2307: Cannot find module '@cloudflare/vitest-pool-workers/config' or its corresponding type declarations.

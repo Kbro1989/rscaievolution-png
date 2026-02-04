@@ -38,6 +38,15 @@
     "pre_switch",
     "working_backup",
     "node_modules",
-    "dist"
+    "dist",
+    "chanfana-openapi-template",
+    "durable-chat-template",
+    "hello-world-do-template",
+    "multiplayer-globe-template",
+    "openauth-template",
+    "text-to-image-template",
+    "to-do-list-kv-template",
+    "App_preswitch_backup.tsx",
+    "temp"
   ]
 }
