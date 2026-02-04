@@ -1291,4 +1291,61 @@ const Items = {
     CAPE_OF_LEGENDS: 1288,
     SCYTHE: 1289,
 };
-module.exports = Items;
+
+// Objects constants - plugins use fallback pattern (e.g., Objects.BANANA_TREE || 183)
+const Objects = {
+    // Common objects used by plugins with their fallback IDs
+    TREE: 0,
+    TREE_1: 1,
+    TREE_70: 70,
+    ALTAR: 20,
+    CHAOS_ALTAR: 36,
+    MONKS_ALTAR: 200,
+    DUMMY: 50,
+    SPINNING_WHEEL: 121,
+    FURNACE: 118,
+    POTTERY_OVEN: 178,
+    POTTER_S_WHEEL: 179,
+    COOK_S_RANGE: 119,
+    RANGE: 12,
+    FIRE: 97,
+    CAULDRON: 147,
+    CAULDRON_OF_THUNDER: 236,
+    LEPRECHAUN_TREE: 237,
+    DRAMEN_TREE: 245,
+    BANANA_TREE: 183,
+    EMPTY_BANANA_TREE: 184,
+    KARAMJA_CRATE: 182,
+    WYDIN_CRATE: 185,
+    DOORFRAME: 11,
+    DOOR: 85,
+    LADDER: 130,
+    FOUNTAIN: 86,
+    CLOSED_CUPBOARD: 174,
+    OPEN_CUPBOARD: 175,
+    GRAVE_OF_SCORPIUS: 941,
+    SHANTAY_GATE: 916,
+    BANK_CHEST: 942,
+    GANGPLANK: 157,
+    GANGPLANK_161: 161,
+    GANGPLANK_162: 162,
+    GANGPLANK_163: 163,
+    GANGPLANK_320: 320,
+    GANGPLANK_321: 321,
+    SHIP_GANGPLANK_KARAMJA: 155,
+    SHIP_GANGPLANK_KARAMJA_156: 156,
+    SHIP_GANGPLANK_KARAMJA_157: 157,
+    SHIP_GANGPLANK_238: 238,
+    SHIP_GANGPLANK_239: 239,
+    SHIP_GANGPLANK_240: 240,
+    SHIP_GANGPLANK_241: 241,
+    SHIP_GANGPLANK_242: 242,
+    SHIP_GANGPLANK_243: 243,
+};
+
+// Npcs constants - plugins use fallback pattern
+const Npcs = {
+    // Common NPCs used by plugins
+};
+
+module.exports = { Items, Objects, Npcs };

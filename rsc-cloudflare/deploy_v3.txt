@@ -1,0 +1,25 @@
+﻿
+ Γ¢à∩╕Å wrangler 4.53.0 (update available 4.62.0)
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+≡ƒîÇ Building list of assets...
+Γ£¿ Read 37 files from the assets directory C:\Users\Destiny\Desktop\ai-architect-mmorpg\copy-of-rsc-evolution-ai\rsc-cloudflare\public
+≡ƒîÇ Starting asset upload...
+No updated asset files to upload. Proceeding with deployment...
+Total Upload: 5986.82 KiB / gzip: 1062.05 KiB
+Worker Startup Time: 135 ms
+Your Worker has access to the following bindings:
+Binding                                                     Resource                  
+env.DO_AMERICAS (RSCServerDO)                               Durable Object            
+env.PlayerDO (PlayerDO)                                     Durable Object            
+env.KV_BINDING (6b8ebd5a1a134b67b6e12a5a5675e884)           KV Namespace              
+env.DB (rsc-d1)                                             D1 Database               
+env.RSC_ASSETS (rscserver)                                  R2 Bucket                 
+env.ASSETS                                                  Assets                    
+env.MEMBERS ("true")                                        Environment Variable      
+env.SAFETY_REQ_CAP ("90000")                                Environment Variable      
+env.FEATURE_BACKUPS ("true")                                Environment Variable      
+
+Uploaded rscaievolution-png (12.20 sec)
+Deployed rscaievolution-png triggers (1.30 sec)
+  https://rscaievolution-png.kristain33rs.workers.dev
+Current Version ID: 5ecfd0a8-5826-48b6-946b-d40e86d879bd

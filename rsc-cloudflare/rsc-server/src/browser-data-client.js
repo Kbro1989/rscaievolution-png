@@ -60,8 +60,10 @@ class BrowserDataClient {
         this.connected = true;
 
         // Check if we have direct KV access (Durable Object mode)
-        this.isDurableObject = !!(server.env && server.env.KV);
+        this.isDurableObject = !!(server.env && (server.env.KV || server.env.KV_BINDING));
         this.env = server.env;
+        // Normalize KV access across different binding names
+        this.kv = server.env?.KV || server.env?.KV_BINDING || null;
 
         // { playerID: username }
         this.playerUsernames = new Map();
@@ -113,7 +115,7 @@ class BrowserDataClient {
             if (this.isDurableObject) {
                 // Direct KV access in Durable Object mode
                 const key = `player:${player.username.toLowerCase()}`;
-                await this.env.KV.put(key, JSON.stringify(player));
+                await this.kv.put(key, JSON.stringify(player));
             } else {
                 // Browser fetch mode
                 await fetch('/api/player/save', {
@@ -135,7 +137,7 @@ class BrowserDataClient {
             throw new Error('getPlayerFromKV only available in Durable Object mode');
         }
         const key = `player:${username.toLowerCase()}`;
-        const data = await this.env.KV.get(key, 'json');
+        const data = await this.kv.get(key, 'json');
         return data;
     }
 
@@ -147,7 +149,7 @@ class BrowserDataClient {
             throw new Error('savePlayerToKV only available in Durable Object mode');
         }
         const key = `player:${player.username.toLowerCase()}`;
-        await this.env.KV.put(key, JSON.stringify(player));
+        await this.kv.put(key, JSON.stringify(player));
     }
 
 

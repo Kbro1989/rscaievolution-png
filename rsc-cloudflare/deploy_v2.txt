@@ -1,0 +1,148 @@
+﻿
+ Γ¢à∩╕Å wrangler 4.53.0 (update available 4.62.0)
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+≡ƒîÇ Building list of assets...
+Γ£¿ Read 37 files from the assets directory C:\Users\Destiny\Desktop\ai-architect-mmorpg\copy-of-rsc-evolution-ai\rsc-cloudflare\public
+≡ƒîÇ Starting asset upload...
+No updated asset files to upload. Proceeding with deployment...
+Total Upload: 5985.52 KiB / gzip: 1061.73 KiB
+Your Worker has access to the following bindings:
+Binding                                                     Resource                  
+env.DO_AMERICAS (RSCServerDO)                               Durable Object            
+env.PlayerDO (PlayerDO)                                     Durable Object            
+env.KV_BINDING (6b8ebd5a1a134b67b6e12a5a5675e884)           KV Namespace              
+env.DB (rsc-d1)                                             D1 Database               
+env.RSC_ASSETS (rscserver)                                  R2 Bucket                 
+env.ASSETS                                                  Assets                    
+env.MEMBERS ("true")                                        Environment Variable      
+env.SAFETY_REQ_CAP ("90000")                                Environment Variable      
+env.FEATURE_BACKUPS ("true")                                Environment Variable      
+
+
+node.exe : [31mX [41
+;31m[[41;97mERROR[41
+;31m][0m [1mA 
+request to the 
+Cloudflare API (/accou
+nts/6872653edcee9c7917
+87c1b783173793/workers
+/scripts/rscaievolutio
+n-png/versions) 
+failed.[0m
+At C:\Users\Destiny\Ap
+pData\Roaming\npm\npx.
+ps1:24 char:5
++     & "node$exe"  "$
+basedir/node_modules/n
+pm/bin/npx-cli.js" 
+$args
++     ~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo    
+          : 
+NotSpecified    : 
+([31mX [41;31m.    
+..ns) failed.[0m:S   
+ tring) [], RemoteEx  
+  ception
+    + 
+FullyQualifiedErr    
+orId : NativeComman   
+ dError
+ 
+
+  Uncaught TypeError: 
+Cannot read 
+properties of 
+undefined (reading 
+'BANANA_TREE')
+    at 
+null.<anonymous> (file
+:///C:/Users/Destiny/D
+esktop/ai-architect-mm
+orpg/copy-of-rsc-evolu
+tion-ai/rsc-cloudflare
+/rsc-server/src/plugin
+s/game-objects/banana-
+tree.js:5:32) in rsc-s
+erver/src/plugins/game
+-objects/banana-tree.j
+s
+    at 
+null.<anonymous> 
+(worker.js:12:50) in 
+__require
+    at 
+null.<anonymous> (file
+:///C:/Users/Destiny/D
+esktop/ai-architect-mm
+orpg/copy-of-rsc-evolu
+tion-ai/rsc-cloudflare
+/rsc-server/src/plugin
+s/index.js:4:33) in rs
+c-server/src/plugins/i
+ndex.js
+    at 
+null.<anonymous> 
+(worker.js:12:50) in 
+__require
+    at 
+null.<anonymous> (file
+:///C:/Users/Destiny/D
+esktop/ai-architect-mm
+orpg/copy-of-rsc-evolu
+tion-ai/rsc-cloudflare
+/rsc-server/src/model/
+world.js:28:21) in rsc
+-server/src/model/worl
+d.js
+    at 
+null.<anonymous> 
+(worker.js:12:50) in 
+__require
+    at 
+null.<anonymous> (file
+:///C:/Users/Destiny/D
+esktop/ai-architect-mm
+orpg/copy-of-rsc-evolu
+tion-ai/rsc-cloudflare
+/rsc-server/src/server
+.js:4:15) in rsc-serve
+r/src/server.js
+    at 
+null.<anonymous> 
+(worker.js:12:50) in 
+__require
+    at 
+null.<anonymous> (file
+:///C:/Users/Destiny/D
+esktop/ai-architect-mm
+orpg/copy-of-rsc-evolu
+tion-ai/rsc-cloudflare
+/durable-objects/RSCSe
+rverDO.js:7:20)
+   [code: 10021]
+  To learn more about 
+this error, visit: [4
+mhttps://developers.cl
+oudflare.com/workers/o
+bservability/errors/#v
+alidation-errors-10021
+[0m
+
+  
+  If you think this 
+is a bug, please open 
+an issue at: [4mhttps
+://github.com/cloudfla
+re/workers-sdk/issues/
+new/choose[0m
+
+
+≡ƒ¬╡  Logs were 
+written to "C:\Users\D
+estiny\.wrangler\logs\
+wrangler-2026-02-04_23
+-51-17_973.log"
