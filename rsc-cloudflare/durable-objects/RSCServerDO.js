@@ -144,6 +144,24 @@ export class RSCServerDO {
                 } catch (e) { /* ignore JSON parse errors in pre-auth */ }
             }
 
+            // 2. Binary Protocol Fallback (Pre-Auth) - for clients using native RSC protocol
+            if (!session.authenticated && (event.data instanceof ArrayBuffer || Buffer.isBuffer(event.data))) {
+                // First binary packet triggers connection to RSC server's native protocol handler
+                if (!session.binaryAuthStarted) {
+                    session.binaryAuthStarted = true;
+                    console.log(`[DO] Binary protocol detected for ${sessionId}, using native RSC auth`);
+
+                    // Connect socketBridge to server's normal connection handler
+                    // This handles SESSION/LOGIN/REGISTER opcodes natively
+                    this.server.handleConnection(socketBridge);
+                }
+
+                // Forward the binary packet to the socket bridge
+                const buffer = Buffer.from(event.data);
+                socketBridge.emit('data', buffer);
+                return;
+            }
+
             // 2. Authenticated Message Handling
             if (session.authenticated) {
                 // Check for Logout (JSON)
