@@ -19,6 +19,9 @@ export class RSCServerDO {
         // Auth Service
         this.auth = new AuthService(env);
 
+        // Helper for KV access (handles renaming)
+        this.kv = env.RSC_PLAYERS_v2 || env.KV_BINDING || env.KV;
+
         // Track WebSocket sessions
         this.sessions = new Map();
 
@@ -56,10 +59,11 @@ export class RSCServerDO {
             }
 
             if (url.pathname === '/debug/logs' || url.pathname.endsWith('/debug/logs')) {
-                const list = await this.env.KV_BINDING.list({ prefix: 'debug_' });
+                if (!this.kv) return new Response('KV not connected', { status: 500 });
+                const list = await this.kv.list({ prefix: 'debug_' });
                 const logs = {};
                 for (const key of list.keys) {
-                    logs[key.name] = await this.env.KV_BINDING.get(key.name);
+                    logs[key.name] = await this.kv.get(key.name);
                 }
                 return new Response(JSON.stringify(logs, null, 2), { headers: { 'Content-Type': 'application/json' } });
             }
