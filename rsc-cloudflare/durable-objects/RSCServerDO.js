@@ -116,7 +116,7 @@ export class RSCServerDO {
         console.log(`[DO] New session connected: ${sessionId}`);
 
         // Debug Log
-        this.env.KV_BINDING.put(`debug_sess_start_${sessionId}`, `Started`).catch(() => { });
+        if (this.kv) this.kv.put(`debug_sess_start_${sessionId}`, `Started`).catch(() => { });
 
         // Create socket bridge but DO NOT CONNECT until auth
         const socketBridge = this.createSocketBridge(sessionId, webSocket);
@@ -298,8 +298,8 @@ export class RSCServerDO {
                 console.log(`[DO] DataClient connected state before force: ${this.server.dataClient.connected}`);
                 this.server.dataClient.connected = true;
 
-                if (this.env.KV_BINDING) {
-                    await this.env.KV_BINDING.put('debug_init_force', 'Forced connected=true');
+                if (this.kv) {
+                    await this.kv.put('debug_init_force', 'Forced connected=true');
                 }
             }
 
@@ -308,7 +308,7 @@ export class RSCServerDO {
             await this.state.storage.setAlarm(Date.now() + 100);
         } catch (err) {
             const msg = `INIT_ERROR: ${err.message}\n${err.stack}`;
-            await this.env.KV_BINDING.put('debug_error_init', msg);
+            if (this.kv) await this.kv.put('debug_error_init', msg).catch(() => { });
             throw err;
         }
     }
@@ -378,7 +378,7 @@ export class RSCServerDO {
 
         } catch (e) {
             console.error('Tick Error:', e);
-            this.env.KV_BINDING.put('debug_error_tick_' + Date.now(), e.message).catch(() => { });
+            if (this.kv) this.kv.put('debug_error_tick_' + Date.now(), e.message).catch(() => { });
         }
 
         await this.state.storage.setAlarm(Date.now() + 640);
