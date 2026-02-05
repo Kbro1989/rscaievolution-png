@@ -23,8 +23,8 @@ const DEFAULT_PLAYER = {
     username: '',
     password: '',
     group: 0, // 0=player, 2=mod, 3=admin
-    x: 213,
-    y: 436,
+    x: 122,
+    y: 657,
     fatigue: 0,
     combatStyle: 0,
     blockChat: 0,
@@ -33,7 +33,7 @@ const DEFAULT_PLAYER = {
     blockDuel: 0,
     cameraAuto: 0,
     oneMouseButton: 0,
-    soundOn: 1,
+    soundOn: 1, // Keeping soundOn=1 as it's a good fix for web
     hairColour: 2,
     topColour: 8,
     trouserColour: 14,
@@ -51,7 +51,7 @@ const DEFAULT_PLAYER = {
         attack: { current: 1, experience: 0 },
         defense: { current: 1, experience: 0 },
         strength: { current: 1, experience: 0 },
-        hits: { current: 9, experience: 2304 }, // RSC Level 9 with 4x multiplier
+        hits: { current: 10, experience: 4616 }, // 2003scape default (Level 20)
         ranged: { current: 1, experience: 0 },
         prayer: { current: 1, experience: 0 },
         magic: { current: 1, experience: 0 },
@@ -287,20 +287,11 @@ class DataClient {
                 // New Player? Auto-register
                 console.log(`[DataClient] Creating new user: ${cleanUser}`);
 
-                const newPlayer = {
-                    username: cleanUser,
-                    pass: password,
-                    x: 329, y: 552,
-                    fatigue: 0,
-                    combatStyle: 0,
-                    blockChat: 0, blockPrivateChat: 0, blockTrade: 0, blockDuel: 0,
-                    cameraAuto: 0, oneMouseButton: 0,
-                    loginDate: Date.now(),
-                    friends: [], ignores: [],
-                    skills: {},
-                    inventory: [], bank: [],
-                    questPoints: 0, questStages: {}
-                };
+                // Clone DEFAULT_PLAYER
+                const newPlayer = JSON.parse(JSON.stringify(DEFAULT_PLAYER));
+                newPlayer.username = cleanUser;
+                newPlayer.pass = password;
+                newPlayer.loginDate = Date.now();
 
                 // Save to KV or D1
                 await this.performSave(cleanUser, newPlayer);
