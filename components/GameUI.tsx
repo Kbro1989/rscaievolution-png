@@ -1,22 +1,18 @@
-
 import React, { useEffect, useRef, useState } from 'react';
-import { PlayerState, InventoryItem, AIState, AIEquipment, LogMessage, ResourceEntity, NPC, WorldState, ContextMenuState, QuestCompletion, Spell, SkillName, CombatStyle, Recipe, XPDrop, Skill } from '../types';
+import { PlayerState, InventoryItem, LogMessage, ResourceEntity, NPC, WorldState, ContextMenuState, QuestCompletion, Spell, SkillName, CombatStyle, Recipe, XPDrop, Skill } from '../types';
 import { SPELLS, SKILL_GUIDES, SKILL_REGISTRY, SKILL_DEFINITIONS, backend, ERA_DATA, PRAYERS } from '../services/gameBackend';
 import {
     Backpack, Shield, Zap, Settings, X,
     Sword, Crown, Map as MapIcon,
-    User, Heart, Star, ChevronUp, ChevronDown,
+    Heart, Star, ChevronUp, ChevronDown,
     Plus, Minus, Music, LogOut, Maximize, Minimize,
-    Globe as GlobeIcon, Crosshair, Hammer, Pickaxe, ChefHat, HardHat, Sun, Speaker, Volume2, Activity as ActivityIcon,
+    Globe as GlobeIcon, Hammer, Pickaxe, ChefHat, HardHat, Sun, Speaker, Volume2, Activity as ActivityIcon,
     Play, Pause, ShoppingBag, Landmark
 } from 'lucide-react';
 import { ContextMenu } from './ContextMenu';
-import { DualInventory } from './DualInventory';
 import { BankModal } from './BankModal';
-import { EquipmentToggle } from './EquipmentToggle';
 import { soundManager } from '../services/soundManager';
 import { SlayerTaskWidget } from './SlayerTaskWidget';
-import { GronkSkillPanel } from './GronkSkillPanel';
 
 const COLORS = {
     bg: '#3e3529',
@@ -89,80 +85,46 @@ const Minimap = ({ player, resources, npcs, onRotate, onZoom }: { player: Player
     );
 };
 
-const ItemSlot = ({ item, index, isActive, onClick, onContextMenu, shopMode, isBank, onDragStart, onDragOver, onDrop }: any) => (
+const ItemSlot = ({ item, index, isActive, onClick, onContextMenu, isBank, onDragStart, onDragOver, onDrop }: any) => (
     <div
         onClick={() => onClick(item, index)}
         onContextMenu={(e) => { e.preventDefault(); e.stopPropagation(); if (item) onContextMenu(item, e.nativeEvent.clientX, e.nativeEvent.clientY); }}
         draggable={!!item}
-        onDragStart={(e) => item && onDragStart && onDragStart(e, item, index)}
+        onDragStart={(e) => item && onDragStart && onDragStart(e, 'PLAYER', item, index)}
         onDragOver={(e) => onDragOver && onDragOver(e)}
         onDrop={(e) => onDrop && onDrop(e, index)}
-        className={`w-[36px] h-[32px] flex items-center justify-center relative cursor-pointer ${isActive ? 'outline outline-2 outline-white bg-white/20' : ''} ${shopMode ? 'border border-[#ff981f]/30' : ''} ${isBank ? 'bg-[#40362c] border border-[#2b2319]' : ''} hover:bg-white/10`}
+        className={`w-[36px] h-[32px] flex items-center justify-center relative cursor-pointer ${isActive ? 'outline outline-2 outline-white bg-white/20' : ''} ${isBank ? 'bg-[#40362c] border border-[#2b2319]' : ''} hover:bg-white/10`}
     >
-        {item ? (<><span className="text-2xl drop-shadow-md filter">{item.icon}</span>{item.count > 1 && (<span className="absolute -top-1 left-0 text-[10px] text-yellow-300 font-bold drop-shadow-md">{item.count >= 1000000 ? `${(item.count / 1000000).toFixed(1)}M` : item.count >= 1000 ? `${(item.count / 1000).toFixed(1)}k` : item.count}</span>)}</>) : null}
+        {item ? (
+            <>
+                <span className="text-2xl drop-shadow-md filter">{item.icon}</span>
+                {item.count > 1 && (
+                    <span className="absolute -top-1 left-0 text-[10px] text-yellow-300 font-bold drop-shadow-md">
+                        {item.count >= 1000000 ? `${(item.count / 1000000).toFixed(1)}M` : item.count >= 1000 ? `${(item.count / 1000).toFixed(1)}k` : item.count}
+                    </span>
+                )}
+            </>
+        ) : null}
     </div>
 );
 
 const TabButton = ({ icon: Icon, active, onClick, alert }: any) => (
     <button onClick={onClick} className={`flex-1 h-[35px] flex items-center justify-center border-r border-b border-[#1a1510] relative ${active ? 'bg-[#4e4336]' : 'bg-[#352d24] hover:bg-[#3e3529]'}`}>
-        <Icon size={18} color={active ? '#ffffff' : '#9eaab6'} />{alert && <div className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse" />}
+        <Icon size={18} color={active ? '#ffffff' : '#9eaab6'} />
+        {alert && <div className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse" />}
     </button>
 );
 
-// Quantity Selector Component
-const QuantitySelector = ({ item, onSelect, onClose, mode }: { item: InventoryItem, onSelect: (qty: number | 'ALL') => void, onClose: () => void, mode: 'DEPOSIT' | 'WITHDRAW' | 'BUY' | 'SELL' }) => {
-    const [customQty, setCustomQty] = useState('');
-    const maxQty = item.count;
+const EquipSlot = ({ item, placeholder }: { item: InventoryItem | null | undefined, placeholder: string }) => (
+    <div className="w-[32px] h-[32px] bg-[#1a1510] border border-[#3e3529] flex items-center justify-center relative shadow-inner">
+        {item ? <span className="text-xl drop-shadow-md">{item.icon}</span> : <span className="text-zinc-500 text-sm">{placeholder}</span>}
+    </div>
+);
 
-    const handleSelect = (qty: number | 'ALL') => {
-        onSelect(qty);
-        onClose();
-    };
-
-    return (
-        <div className="absolute inset-0 z-[70] flex items-center justify-center bg-black/50" onClick={onClose}>
-            <div className="bg-[#3e3529] border-[3px] border-[#5b5247] p-4 shadow-2xl min-w-[250px]" onClick={e => e.stopPropagation()}>
-                <div className="text-center mb-3">
-                    <div className="text-2xl mb-1">{item.icon}</div>
-                    <div className="text-sm text-[#ff981f] font-bold">{item.name}</div>
-                    <div className="text-xs text-zinc-400">{mode} Quantity (Max: {maxQty})</div>
-                </div>
-                <div className="grid grid-cols-3 gap-2 mb-3">
-                    {[1, 5, 10].map(qty => (
-                        <button
-                            key={qty}
-                            onClick={() => handleSelect(Math.min(qty, maxQty))}
-                            disabled={qty > maxQty}
-                            className="px-3 py-2 bg-[#2b2319] border border-[#5b5247] text-white text-sm font-bold hover:bg-[#4e4336] disabled:opacity-30 disabled:cursor-not-allowed"
-                        >
-                            {qty}
-                        </button>
-                    ))}
-                    <button
-                        onClick={() => {
-                            const input = prompt('Enter quantity:', '');
-                            if (input) {
-                                const qty = Math.min(parseInt(input) || 1, maxQty);
-                                handleSelect(qty);
-                            }
-                        }}
-                        className="px-3 py-2 bg-[#2b2319] border border-[#5b5247] text-white text-sm font-bold hover:bg-[#4e4336]"
-                    >
-                        X
-                    </button>
-                    <button
-                        onClick={() => handleSelect('ALL')}
-                        className="col-span-2 px-3 py-2 bg-[#2b2319] border border-[#5b5247] text-white text-sm font-bold hover:bg-[#4e4336]"
-                    >
-                        ALL ({maxQty})
-                    </button>
-                </div>
-                <button onClick={onClose} className="w-full py-1 bg-red-900/50 hover:bg-red-900/70 text-white text-xs">Cancel</button>
-            </div>
-        </div>
-    );
+const AdminBtn = ({ label, onClick, color }: any) => {
+    const bg = color === 'red' ? 'bg-red-900/50 hover:bg-red-800' : color === 'green' ? 'bg-green-900/50 hover:bg-green-800' : color === 'purple' ? 'bg-purple-900/50 hover:bg-purple-800' : 'bg-yellow-900/50 hover:bg-yellow-800';
+    return <button onClick={onClick} className={`w-full py-2 ${bg} text-white font-bold text-[10px] border border-white/10 uppercase tracking-wider`}>{label}</button>;
 };
-
 
 const ShopModal = ({ stock, onClose, onBuy }: { stock: InventoryItem[], onClose: () => void, onBuy: (item: InventoryItem) => void }) => (
     <div className="absolute inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-sm pointer-events-auto" onClick={onClose}>
@@ -187,7 +149,6 @@ const ShopModal = ({ stock, onClose, onBuy }: { stock: InventoryItem[], onClose:
 );
 
 const SkillGuideModal = ({ skill, onClose }: { skill: SkillName, onClose: () => void }) => {
-    // Merge static guide data with definition data
     const guideData = SKILL_GUIDES[skill] || [];
     const definition = SKILL_DEFINITIONS[skill];
 
@@ -199,15 +160,24 @@ const SkillGuideModal = ({ skill, onClose }: { skill: SkillName, onClose: () => 
                     Unlocked at Era: <b>{ERA_DATA.find(e => e.id === definition.eraUnlocked)?.name || definition.eraUnlocked}</b> | Max Level: <b>{definition.maxLevel}</b>
                 </div>
                 <div className="max-h-[500px] overflow-y-auto custom-scrollbar p-1 bg-[#e6cca0]">
-                    {/* Items from definition */}
                     {definition.items.map((item, idx) => (
                         <div key={`unlock-${idx}`} className={`flex items-center p-2 border-b border-[#c8aa7e] bg-[#e6cca0]`}>
                             <div className="w-10 text-center font-bold text-[#3e2723]">?</div>
                             <div className="flex-1 pl-2 border-l border-[#c8aa7e] text-[#3e2723] font-bold">{item}</div>
                         </div>
                     ))}
-                    {/* Manual Guide Data */}
-                    {guideData.map((item, idx) => (<div key={idx} className={`flex items-center p-2 border-b border-[#c8aa7e] ${idx % 2 === 0 ? 'bg-[#e6cca0]' : 'bg-[#d7b587]'}`}><div className="w-10 text-center font-bold text-[#3e2723]">{item.level}</div><div className="flex-1 flex items-center gap-3 pl-2 border-l border-[#c8aa7e]"><div className="text-2xl drop-shadow-sm">{item.icon}</div><div className="flex flex-col"><span className="font-bold text-[#3e2723] leading-tight">{item.name}</span>{item.description && <span className="text-xs text-[#5d4037]">{item.description}</span>}</div></div></div>))}
+                    {guideData.map((item, idx) => (
+                        <div key={idx} className={`flex items-center p-2 border-b border-[#c8aa7e] ${idx % 2 === 0 ? 'bg-[#e6cca0]' : 'bg-[#d7b587]'}`}>
+                            <div className="w-10 text-center font-bold text-[#3e2723]">{item.level}</div>
+                            <div className="flex-1 flex items-center gap-3 pl-2 border-l border-[#c8aa7e]">
+                                <div className="text-2xl drop-shadow-sm">{item.icon}</div>
+                                <div className="flex flex-col">
+                                    <span className="font-bold text-[#3e2723] leading-tight">{item.name}</span>
+                                    {item.description && <span className="text-xs text-[#5d4037]">{item.description}</span>}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
@@ -232,37 +202,11 @@ const getBonus = (eq: any, stat: string) => {
     return total;
 };
 
-// --- GRONK SKILL ACTIONS ---
-const GRONK_SKILL_ACTIONS = {
-    WOODCUTTING: [{ label: 'Normal Trees', cmd: 'chop trees' }, { label: 'Oak Trees', cmd: 'chop oak' }, { label: 'Willow Trees', cmd: 'chop willow' }, { label: 'Maple Trees', cmd: 'chop maple' }, { label: 'Yew Trees', cmd: 'chop yew' }, { label: '🤖 Auto (AI Decides)', cmd: 'gather wood' }],
-    MINING: [{ label: 'Copper Ore', cmd: 'mine copper' }, { label: 'Tin Ore', cmd: 'mine tin' }, { label: 'Iron Ore', cmd: 'mine iron' }, { label: 'Coal', cmd: 'mine coal' }, { label: 'Mithril Ore', cmd: 'mine mithril' }, { label: 'Adamant Ore', cmd: 'mine adamant' }, { label: '🤖 Auto (AI Decides)', cmd: 'mine rocks' }],
-    FISHING: [{ label: 'Net Fishing (Shrimp)', cmd: 'fish shrimp' }, { label: 'Bait Fishing', cmd: 'fish bait' }, { label: 'Cage Fishing', cmd: 'fish cage' }, { label: 'Harpoon Fishing', cmd: 'fish harpoon' }, { label: 'Shark Fishing', cmd: 'fish shark' }, { label: '🤖 Auto (AI Decides)', cmd: 'fish' }],
-    ATTACK: [{ label: 'Chickens', cmd: 'kill chickens' }, { label: 'Cows', cmd: 'kill cows' }, { label: 'Goblins', cmd: 'kill goblins' }, { label: 'Giant Rats', cmd: 'kill rats' }, { label: 'Guards', cmd: 'kill guards' }, { label: '🤖 Auto (AI Decides)', cmd: 'hunt' }],
-    STRENGTH: [{ label: '🤖 Auto Combat', cmd: 'hunt' }],
-    DEFENSE: [{ label: '🤖 Auto Combat', cmd: 'hunt' }],
-    HITS: [{ label: '(Passive Skill)', cmd: '' }],
-    PRAYER: [{ label: '(Use Bones in Inv)', cmd: '' }],
-    COOKING: [{ label: '(Manual Crafting Only)', cmd: '' }],
-    SMITHING: [{ label: '(Manual Crafting Only)', cmd: '' }],
-    CRAFTING: [{ label: '(Manual Crafting Only)', cmd: '' }],
-    FIREMAKING: [{ label: '(Manual Crafting Only)', cmd: '' }],
-    MAGIC: [{ label: '🤖 Auto Casting', cmd: 'use magic' }],
-    FLETCHING: [{ label: '(Manual Crafting Only)', cmd: '' }],
-    EVOLUTION: [{ label: '(Passive XP)', cmd: '' }],
-};
-
-const sendAICommand = (command: string) => {
-    if (!command) return;
-    const evt = new CustomEvent('chat-submit', { detail: { message: command, channel: 'AI-CMD' } });
-    window.dispatchEvent(evt);
-};
-
 // --- MAIN UI COMPONENT ---
 
 interface GameUIProps {
     children?: React.ReactNode;
     player: PlayerState;
-    ai: AIState;
     world: WorldState;
     logs: LogMessage[];
     contextMenu: ContextMenuState | null;
@@ -288,7 +232,6 @@ interface GameUIProps {
     onAdminAction: (action: string) => void;
     onToggleMap: () => void;
     onSetCombatStyle: (style: CombatStyle) => void;
-    onToggleAIEquipment: (slot: keyof AIEquipment, enabled: boolean) => void;
     xpDrops?: XPDrop[];
     setGameState: React.Dispatch<React.SetStateAction<any>>;
     onLog: (text: string, sender?: string, type?: any) => void;
@@ -296,12 +239,10 @@ interface GameUIProps {
 }
 
 export const GameUI: React.FC<GameUIProps> = (props) => {
-    const { player, ai, world, logs, children, hoverText, hoverColor, xpDrops, setGameState } = props;
-    const [activeTab, setActiveTab] = useState<'INV' | 'EQUIP' | 'PRAYER' | 'MAGIC' | 'COMBAT' | 'STATS' | 'QUEST' | 'FRIENDS' | 'SETTINGS' | 'ADMIN'>('INV');
-    // Separate tab state for AI Companion HUD to avoid interfering with main UI (chat, player tabs)
-    const [aiActiveTab, setAIActiveTab] = useState<'AI_SKILLS' | 'AI_INV' | 'AI_EQUIP' | 'AI_PRAYER' | 'AI_MAGIC' | 'AI_COMBAT' | 'AI_CHAT'>('AI_SKILLS');
+    const { player, world, logs, children, hoverText, hoverColor, xpDrops, setGameState } = props;
+    const [activeTab, setActiveTab] = useState<'INV' | 'EQUIP' | 'PRAYER' | 'MAGIC' | 'COMBAT' | 'STATS' | 'QUEST' | 'SETTINGS' | 'ADMIN'>('INV');
     const [chatInput, setChatInput] = useState("");
-    const [activeChannel, setActiveChannel] = useState<'PUBLIC' | 'PRIVATE' | 'FRIENDS' | 'AI-CMD'>('PUBLIC');
+    const [activeChannel, setActiveChannel] = useState<'PUBLIC' | 'PRIVATE' | 'FRIENDS'>('PUBLIC');
     const [minimized, setMinimized] = useState(false);
     const chatRef = useRef<HTMLDivElement>(null);
     const [showSkillGuide, setShowSkillGuide] = useState<SkillName | null>(null);
@@ -327,7 +268,7 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
         const itemId = e.dataTransfer.getData('itemId');
         const sourceIndex = parseInt(e.dataTransfer.getData('index'));
 
-        if (source === target) return; // No re-ordering within same inventory for now
+        if (source === target) return;
         if (props.onTransferItem) {
             props.onTransferItem(source, target, itemId, sourceIndex);
         }
@@ -339,18 +280,14 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
         e.preventDefault();
         if (!chatInput.trim()) return;
 
-        // Parse commands and route to appropriate channel
         let channel = activeChannel;
         let message = chatInput;
 
-        // Handle special prefixes
         if (chatInput.startsWith('/w ')) {
             channel = 'PRIVATE';
         } else if (chatInput.startsWith('/f ')) {
             channel = 'FRIENDS';
             message = chatInput.substring(3);
-        } else if (chatInput.startsWith('/ai ')) {
-            channel = 'AI-CMD';
         }
 
         const event = new CustomEvent('chat-submit', { detail: { message, channel } });
@@ -651,7 +588,7 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
             <div className={`absolute bottom-0 left-0 z-20 w-[420px] h-[180px] pointer-events-auto flex flex-col transition-opacity duration-300 ${minimized ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
                 {/* Channel Tabs */}
                 <div className="flex bg-[#2b2319] border-b border-[#1a1510]">
-                    {(['PUBLIC', 'PRIVATE', 'FRIENDS', 'AI-CMD'] as const).map(channel => (
+                    {(['PUBLIC', 'PRIVATE', 'FRIENDS'] as const).map(channel => (
                         <button
                             key={channel}
                             onClick={() => setActiveChannel(channel)}
@@ -660,7 +597,7 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
                                 : 'bg-[#352d24] text-zinc-300 hover:bg-[#3e3529]'
                                 }`}
                         >
-                            {channel === 'AI-CMD' ? 'AI' : channel}
+                            {channel}
                         </button>
                     ))}
                 </div>
@@ -672,28 +609,24 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
                 >
                     {logs
                         .filter(log => {
-                            // Filter messages by active channel
-                            if (!log.channel) return activeChannel === 'PUBLIC'; // Legacy messages default to PUBLIC
-                            if (activeChannel === 'AI-CMD') return log.channel === 'AI-CMD' || log.type === 'AI';
+                            if (!log.channel) return activeChannel === 'PUBLIC';
                             return log.channel === activeChannel;
                         })
                         .map(log => (
                             <div key={log.id} className="mb-0.5 break-words">
                                 {log.sender && <span className={`font-bold mr-1 ${log.type === 'NPC' ? 'text-yellow-500' :
-                                    log.type === 'AI' || log.channel === 'AI-CMD' ? 'text-cyan-400' :
-                                        log.type === 'COMBAT' ? 'text-red-500' :
-                                            log.channel === 'PRIVATE' ? 'text-magenta-400' :
-                                                log.channel === 'FRIENDS' ? 'text-cyan-300' :
-                                                    log.type === 'CHAT_USER' ? 'text-white' :
-                                                        'text-zinc-500'
+                                    log.type === 'COMBAT' ? 'text-red-500' :
+                                        log.channel === 'PRIVATE' ? 'text-magenta-400' :
+                                            log.channel === 'FRIENDS' ? 'text-cyan-300' :
+                                                log.type === 'CHAT_USER' ? 'text-white' :
+                                                    'text-zinc-500'
                                     }`}>{log.sender}:</span>}
                                 <span className={
                                     log.type === 'ERROR' ? 'text-red-500' :
                                         log.type === 'INFO' ? 'text-yellow-200' :
                                             log.channel === 'PRIVATE' ? 'text-magenta-300' :
                                                 log.channel === 'FRIENDS' ? 'text-cyan-200' :
-                                                    log.channel === 'AI-CMD' || log.type === 'AI' ? 'text-cyan-300' :
-                                                        'text-[#c0c0c0]'
+                                                    'text-[#c0c0c0]'
                                 }>{log.text}</span>
                             </div>
                         ))
@@ -704,10 +637,9 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
                 <div className="h-[30px] bg-[#3e3529] border-t border-[#5b5247] flex items-center px-2 gap-2">
                     <span className={`text-xs font-bold ${activeChannel === 'PRIVATE' ? 'text-magenta-400' :
                         activeChannel === 'FRIENDS' ? 'text-cyan-400' :
-                            activeChannel === 'AI-CMD' ? 'text-yellow-400' :
-                                'text-[#ff981f]'
+                            'text-[#ff981f]'
                         }`}>
-                        {activeChannel === 'PRIVATE' ? '📨 ' : activeChannel === 'FRIENDS' ? '👥 ' : activeChannel === 'AI-CMD' ? '🤖 ' : ''}
+                        {activeChannel === 'PRIVATE' ? '📨 ' : activeChannel === 'FRIENDS' ? '👥 ' : ''}
                         {player.name}:
                     </span>
                     <form onSubmit={submitChat} className="flex-1">
@@ -719,275 +651,10 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
                             placeholder={
                                 activeChannel === 'PRIVATE' ? '/w name message' :
                                     activeChannel === 'FRIENDS' ? 'Message friends...' :
-                                        activeChannel === 'AI-CMD' ? '/ai command' :
-                                            'Type to chat...'
+                                        'Type to chat...'
                             }
                         />
                     </form>
-                </div>
-
-                {/* Quick Companion Commands */}
-                <div className="h-[25px] bg-[#2b2319] border-t border-[#5b5247] flex items-center px-2 gap-1">
-                    <span className="text-[10px] text-zinc-400 uppercase tracking-wider mr-1">Gronk:</span>
-                    <button
-                        onClick={() => { const evt = new CustomEvent('chat-submit', { detail: { message: 'idle', channel: 'AI-CMD' } }); window.dispatchEvent(evt); }}
-                        className="px-2 py-[2px] bg-red-900/50 hover:bg-red-800 text-white text-[9px] font-bold uppercase tracking-wide border border-red-700/50">
-                        ⏸ Idle
-                    </button>
-                    <button
-                        onClick={() => { const evt = new CustomEvent('chat-submit', { detail: { message: 'follow', channel: 'AI-CMD' } }); window.dispatchEvent(evt); }}
-                        className="px-2 py-[2px] bg-blue-900/50 hover:bg-blue-800 text-white text-[9px] font-bold uppercase tracking-wide border border-blue-700/50">
-                        👣 Follow
-                    </button>
-                    <button
-                        onClick={() => { const evt = new CustomEvent('chat-submit', { detail: { message: 'gather', channel: 'AI-CMD' } }); window.dispatchEvent(evt); }}
-                        className="px-2 py-[2px] bg-green-900/50 hover:bg-green-800 text-white text-[9px] font-bold uppercase tracking-wide border border-green-700/50">
-                        ⛏ Gather
-                    </button>
-                    <button
-                        onClick={() => { const evt = new CustomEvent('chat-submit', { detail: { message: 'bank', channel: 'AI-CMD' } }); window.dispatchEvent(evt); }}
-                        className="px-2 py-[2px] bg-yellow-900/50 hover:bg-yellow-800 text-white text-[9px] font-bold uppercase tracking-wide border border-yellow-700/50">
-                        🏦 Bank
-                    </button>
-                </div>
-            </div>
-
-
-
-            {/* AI Companion Interface */}
-            <div className={`absolute bottom-2 right-[250px] z-20 pointer-events-auto transition-transform duration-300 ${minimized ? 'translate-y-[280px]' : ''}`}>
-                <div className="w-[240px] h-[320px] bg-[#3e3529] border-[4px] border-[#2b2319] shadow-2xl flex flex-col relative">
-                    {/* Tab Headers */}
-                    <div className="flex flex-wrap bg-[#2b2319]">
-                        <TabButton icon={User} active={aiActiveTab === 'AI_SKILLS'} onClick={() => setAIActiveTab('AI_SKILLS')} />
-                        <TabButton icon={Backpack} active={aiActiveTab === 'AI_INV'} onClick={() => setAIActiveTab('AI_INV')} />
-                        <TabButton icon={Shield} active={aiActiveTab === 'AI_EQUIP'} onClick={() => setAIActiveTab('AI_EQUIP')} />
-                        <TabButton icon={Star} active={aiActiveTab === 'AI_PRAYER'} onClick={() => setAIActiveTab('AI_PRAYER')} />
-                        <TabButton icon={Zap} active={aiActiveTab === 'AI_MAGIC'} onClick={() => setAIActiveTab('AI_MAGIC')} />
-                        <TabButton icon={Crosshair} active={aiActiveTab === 'AI_COMBAT'} onClick={() => setAIActiveTab('AI_COMBAT')} />
-                        <TabButton icon={User} active={aiActiveTab === 'AI_CHAT'} onClick={() => setAIActiveTab('AI_CHAT')} />
-                    </div>
-
-                    {/* Content Area */}
-                    <div className="flex-1 p-2 overflow-y-auto custom-scrollbar bg-[#3e3529] relative">
-                        {/* AI Skills Tab */}
-                        {aiActiveTab === 'AI_SKILLS' && (
-                            <GronkSkillPanel
-                                currentLevel={Object.fromEntries(SKILL_REGISTRY.map(s => [s, player.skills[s]?.level || 1])) as Record<SkillName, number>}
-                                onCommandSkill={sendAICommand}
-                            />
-                        )}
-
-                        {/* AI Inventory Tab */}
-                        {aiActiveTab === 'AI_INV' && (
-                            <div className="grid grid-cols-4 gap-1"
-                                onDragOver={handleDragOver}
-                                onDrop={(e) => handleDrop(e, 'AI')}
-                            >
-                                {player.follower.inventory.map((item, i) => (
-                                    <ItemSlot
-                                        key={i}
-                                        item={item}
-                                        index={i}
-                                        onClick={() => props.onItemClick(item, i)}
-                                        onContextMenu={(e: React.MouseEvent) => { if (e && typeof e.preventDefault === 'function') { e.preventDefault(); } props.onContextMenu(item, e.clientX, e.clientY); }}
-                                        onDragStart={(e: React.DragEvent) => handleDragStart(e, 'AI', item, i)}
-                                        onDragOver={handleDragOver}
-                                        onDrop={(e: React.DragEvent) => handleDrop(e, 'AI', i)}
-                                    />
-                                ))}
-                                {[...Array(Math.max(0, 28 - player.follower.inventory.length))].map((_, i) => (
-                                    <div key={`ai-empty-${i}`} className="w-[48px] h-[48px] bg-[#1a1510] border border-[#2b2319]"
-                                        onDragOver={handleDragOver}
-                                        onDrop={(e) => handleDrop(e, 'AI')}
-                                    />
-                                ))}
-                            </div>
-                        )}
-
-                        {/* AI Equipment Tab */}
-                        {aiActiveTab === 'AI_EQUIP' && (() => {
-                            // Safety check: ensure aiEquipmentSwitch exists
-                            if (!player.follower.aiEquipmentSwitch) {
-                                return (
-                                    <div className="flex flex-col items-center gap-2 pt-2">
-                                        <div className="text-[#ff981f] font-bold text-sm mb-2">AI Companion Equipment</div>
-                                        <div className="text-xs text-zinc-400 mb-1">Loading equipment settings...</div>
-                                        <div className="text-xs text-red-400">Please re-login to initialize AI equipment toggles.</div>
-                                    </div>
-                                );
-                            }
-
-                            return (
-                                <div className="flex flex-col items-center gap-2 pt-2">
-                                    <div className="text-[#ff981f] font-bold text-sm mb-2">AI Companion Equipment</div>
-                                    <div className="text-xs text-zinc-400 mb-1">Toggle auto-equip per slot</div>
-
-                                    {/* Main Equipment Grid */}
-                                    <div className="grid grid-cols-3 gap-2">
-                                        <div></div>
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.head} placeholder="⛑️" />
-                                            <EquipmentToggle
-                                                slot="head"
-                                                enabled={player.follower.aiEquipmentSwitch.head || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-                                        <div></div>
-
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.neck} placeholder="📿" />
-                                            <EquipmentToggle
-                                                slot="neck"
-                                                enabled={player.follower.aiEquipmentSwitch.neck || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.ammo} placeholder="🏹" />
-                                            <EquipmentToggle
-                                                slot="ammo"
-                                                enabled={player.follower.aiEquipmentSwitch.ammo || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.aura} placeholder="✨" />
-                                            <EquipmentToggle
-                                                slot="aura"
-                                                enabled={player.follower.aiEquipmentSwitch.aura || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.mainHand} placeholder="⚔️" />
-                                            <EquipmentToggle
-                                                slot="mainHand"
-                                                enabled={player.follower.aiEquipmentSwitch.mainHand || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.body} placeholder="🛡️" />
-                                            <EquipmentToggle
-                                                slot="body"
-                                                enabled={player.follower.aiEquipmentSwitch.body || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.offHand} placeholder="🛡️" />
-                                            <EquipmentToggle
-                                                slot="offHand"
-                                                enabled={player.follower.aiEquipmentSwitch.offHand || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.hands} placeholder="🧤" />
-                                            <EquipmentToggle
-                                                slot="hands"
-                                                enabled={player.follower.aiEquipmentSwitch.hands || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.legs} placeholder="👖" />
-                                            <EquipmentToggle
-                                                slot="legs"
-                                                enabled={player.follower.aiEquipmentSwitch.legs || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <EquipSlot item={player.follower.equipment.feet} placeholder="👢" />
-                                            <EquipmentToggle
-                                                slot="feet"
-                                                enabled={player.follower.aiEquipmentSwitch.feet || false}
-                                                onToggle={props.onToggleAIEquipment}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {/* Rings */}
-                                    <div className="grid grid-cols-4 gap-1 mt-2">
-                                        {([1, 2, 3, 4, 5, 6, 7, 8] as const).map(i => {
-                                            const slot = `ring${i}` as keyof AIEquipment;
-                                            return (
-                                                <div key={`ai-ring-${i}`} className="flex flex-col items-center gap-0.5">
-                                                    <EquipSlot item={player.follower.equipment[slot] as any} placeholder={`💍`} />
-                                                    <EquipmentToggle
-                                                        slot={slot}
-                                                        enabled={player.follower.aiEquipmentSwitch[slot] || false}
-                                                        onToggle={props.onToggleAIEquipment}
-                                                    />
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-                            );
-                        })()}
-
-
-                        {/* AI Prayer Tab */}
-                        {aiActiveTab === 'AI_PRAYER' && (
-                            <div>
-                                <div className="text-[#ff981f] font-bold text-sm mb-2 text-center">AI Prayer Book</div>
-                                <div className="text-xs text-zinc-400 text-center mb-2">Auto-switching: {player.follower.prayerEnabled ? 'Enabled' : 'Disabled'}</div>
-                                <div className="text-xs text-center text-zinc-500">Prayer features coming soon...</div>
-                            </div>
-                        )}
-
-                        {/* AI Magic Tab */}
-                        {aiActiveTab === 'AI_MAGIC' && (
-                            <div>
-                                <div className="text-[#ff981f] font-bold text-sm mb-2 text-center">AI Spell Book</div>
-                                <div className="text-xs text-center text-zinc-500">Spell combo features coming soon...</div>
-                            </div>
-                        )}
-
-                        {/* AI Combat Settings Tab */}
-                        {aiActiveTab === 'AI_COMBAT' && (
-                            <div>
-                                <div className="text-[#ff981f] font-bold text-sm mb-2 text-center">Combat AI Settings</div>
-                                <div className="space-y-2 text-xs">
-                                    <div className="bg-[#2b2319] p-2 border border-[#5b5247]">
-                                        <div className="text-[#ff981f] font-bold">Mode: {player.follower.action || 'FOLLOW'}</div>
-                                        <div className="text-zinc-400">Current behavior</div>
-                                    </div>
-                                    <div className="bg-[#2b2319] p-2 border border-[#5b5247]">
-                                        <div className="text-zinc-400">Auto prayer switching</div>
-                                        <div className="text-zinc-400">Auto weapon switching</div>
-                                        <div className="text-zinc-400">Spec usage</div>
-                                    </div>
-                                    <div className="text-center text-zinc-500 mt-4">Advanced AI features coming soon...</div>
-                                </div>
-                            </div>
-                        )}
-
-                        {/* AI Chat Tab */}
-                        {aiActiveTab === 'AI_CHAT' && (
-                            <div className="flex flex-col h-full">
-                                <div className="text-[#ff981f] font-bold text-sm mb-2 text-center">Talk to {player.follower.name}</div>
-                                <div className="flex-1 bg-[#2b2319] border border-[#5b5247] p-2 text-xs overflow-y-auto custom-scrollbar">
-                                    <div className="text-zinc-400">AI Chatbot integration coming soon...</div>
-                                    <div className="mt-2 text-cyan-300">{player.follower.name}: Ready to assist!</div>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Minimize Button */}
-                    <button
-                        onClick={() => setMinimized(!minimized)}
-                        className="absolute -top-1 -right-1 w-6 h-6 bg-[#2b2319] border border-[#5b5247] flex items-center justify-center hover:bg-[#3e3529] text-[#ff981f]"
-                    >
-                        {minimized ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
-                    </button>
                 </div>
             </div>
 
@@ -1008,7 +675,6 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
                         props.onBankAction('DEPOSIT', itemId, amount);
                     }}
                     onWithdraw={(itemId, amount, placeholderMode) => {
-                        // Pass placeholderMode to backend via specialized action
                         if (placeholderMode) {
                             fetch('/api/game', {
                                 method: 'POST',
@@ -1021,7 +687,7 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
                                     amount,
                                     placeholderMode: true
                                 })
-                            }).then(r => r.json()).then(res => {
+                            }).then(r => r.json()).then((res: any) => {
                                 if (res.state) setGameState((prev: any) => ({ ...prev, player: res.state }));
                             });
                         } else {
@@ -1037,7 +703,7 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
                                 userId: 'player',
                                 action: 'ADD_TAB'
                             })
-                        }).then(r => r.json()).then(res => {
+                        }).then(r => r.json()).then((res: any) => {
                             if (res.state) setGameState((prev: any) => ({ ...prev, player: res.state }));
                         });
                     }}
@@ -1052,12 +718,11 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
                                 itemId,
                                 toTab
                             })
-                        }).then(r => r.json()).then(res => {
+                        }).then(r => r.json()).then((res: any) => {
                             if (res.state) setGameState((prev: any) => ({ ...prev, player: res.state }));
                         });
                     }}
                     onContextMenu={(item, x, y) => {
-                        // Context menu for items IN THE BANK (Withdraw options)
                         const opts = [];
                         opts.push({ label: `Withdraw 1`, action: () => props.onBankAction('WITHDRAW', item.id, 1) });
                         opts.push({ label: `Withdraw 5`, action: () => props.onBankAction('WITHDRAW', item.id, 5) });
@@ -1074,7 +739,6 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
                         props.onContextMenuShow({ x, y, title: item.name, options: opts as any });
                     }}
                     onInventoryContextMenu={(item, x, y) => {
-                        // Context menu for items IN INVENTORY while Bank is Open (Deposit options)
                         const opts = [];
                         opts.push({ label: `Deposit 1`, action: () => props.onBankAction('DEPOSIT', item.id, 1) });
                         opts.push({ label: `Deposit 5`, action: () => props.onBankAction('DEPOSIT', item.id, 5) });
@@ -1103,15 +767,4 @@ export const GameUI: React.FC<GameUIProps> = (props) => {
 
         </div>
     );
-};
-
-const EquipSlot = ({ item, placeholder }: { item: InventoryItem | null | undefined, placeholder: string }) => (
-    <div className="w-[32px] h-[32px] bg-[#1a1510] border border-[#3e3529] flex items-center justify-center relative shadow-inner">
-        {item ? <span className="text-xl drop-shadow-md">{item.icon}</span> : <span className="text-zinc-500 text-sm">{placeholder}</span>}
-    </div>
-);
-
-const AdminBtn = ({ label, onClick, color }: any) => {
-    const bg = color === 'red' ? 'bg-red-900/50 hover:bg-red-800' : color === 'green' ? 'bg-green-900/50 hover:bg-green-800' : color === 'purple' ? 'bg-purple-900/50 hover:bg-purple-800' : 'bg-yellow-900/50 hover:bg-yellow-800';
-    return <button onClick={onClick} className={`w-full py-2 ${bg} text-white font-bold text-[10px] border border-white/10 uppercase tracking-wider`}>{label}</button>;
 };
