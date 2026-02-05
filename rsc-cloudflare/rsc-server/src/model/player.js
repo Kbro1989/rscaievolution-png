@@ -1689,6 +1689,7 @@ class Player extends Character {
 
     async save() {
         let message = { handler: 'playerUpdate' };
+        message.username = this.username; // Required for KV storage identification
 
         for (const property of SAVE_PROPERTIES) {
             if (typeof this.property === 'object') {

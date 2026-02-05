@@ -97,7 +97,7 @@ class DataClient {
     }
 
     get kv() {
-        return this.server.env && (this.server.env.KV_BINDING || this.server.env.KV);
+        return this.server.env && (this.server.env.RSC_PLAYERS_v2 || this.server.env.KV_BINDING || this.server.env.KV);
     }
 
     connect() {

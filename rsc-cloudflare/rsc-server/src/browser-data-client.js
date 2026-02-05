@@ -60,10 +60,10 @@ class BrowserDataClient {
         this.connected = true;
 
         // Check if we have direct KV access (Durable Object mode)
-        this.isDurableObject = !!(server.env && (server.env.KV || server.env.KV_BINDING));
+        this.isDurableObject = !!(server.env && (server.env.RSC_PLAYERS_v2 || server.env.KV || server.env.KV_BINDING));
         this.env = server.env;
         // Normalize KV access across different binding names
-        this.kv = server.env?.KV || server.env?.KV_BINDING || null;
+        this.kv = server.env?.RSC_PLAYERS_v2 || server.env?.KV || server.env?.KV_BINDING || null;
 
         // { playerID: username }
         this.playerUsernames = new Map();

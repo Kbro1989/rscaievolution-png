@@ -11,8 +11,8 @@ run_worker_first = true
 
 # 1. CORE STORAGE
 [[kv_namespaces]]
-binding = "KV_BINDING"
-id = "6b8ebd5a1a134b67b6e12a5a5675e884"
+binding = "RSC_PLAYERS_v2"
+id = "f2881801ac59415a86236d0841f27103"
 
 [[d1_databases]]
 binding = "DB"

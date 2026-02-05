@@ -19,7 +19,11 @@ async function session(socket) {
         // console.error(e);
     }
 
-    if (!socket.server.dataClient.connected) {
+    // In Cloudflare DO/Worker mode, we are always "connected" (stateless/KV).
+    // Bypass the check if running in that environment.
+    const isCloudflare = socket.server.isDurableObject || (socket.server.env && (socket.server.env.KV_BINDING || socket.server.env.DB));
+
+    if (!socket.server.dataClient.connected && !isCloudflare) {
         const failure = Buffer.alloc(8);
         socket.send(failure);
         process.nextTick(() => socket.close());

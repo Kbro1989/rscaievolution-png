@@ -5,8 +5,8 @@
 
 export class AuthService {
     constructor(env) {
-        // Use KV_BINDING as defined in wrangler.toml (will be updated)
-        this.kv = env.KV_BINDING || env.KV;
+        // Use RSC_PLAYERS_v2 or KV_BINDING as defined in wrangler.toml
+        this.kv = env.RSC_PLAYERS_v2 || env.KV_BINDING || env.KV;
         if (!this.kv) {
             console.error('[Auth] KV_BINDING not found in env!');
         }
