@@ -288,6 +288,17 @@ export class RSCServerDO {
         try {
             this.server = new Server(config, this.env);
             await this.server.init();
+
+            // FORCE connected state for DO mode authentication
+            if (this.server.dataClient) {
+                console.log(`[DO] DataClient connected state before force: ${this.server.dataClient.connected}`);
+                this.server.dataClient.connected = true;
+
+                if (this.env.KV_BINDING) {
+                    await this.env.KV_BINDING.put('debug_init_force', 'Forced connected=true');
+                }
+            }
+
             console.log('[DO] RSC Server initialized successfully');
             console.log('[DO] Starting tick loop via alarm...');
             await this.state.storage.setAlarm(Date.now() + 100);
