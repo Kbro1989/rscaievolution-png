@@ -21,7 +21,7 @@ export class AuthService {
     async createUser(username, password) {
         if (!this.kv) throw new Error('Database connection failed');
 
-        const key = `player_${username.toLowerCase()}`;
+        const key = `player:${username.toLowerCase()}`;
         const existing = await this.kv.get(key);
 
         if (existing) {
@@ -48,7 +48,7 @@ export class AuthService {
     async login(username, password) {
         if (!this.kv) throw new Error('Database connection failed');
 
-        const key = `player_${username.toLowerCase()}`;
+        const key = `player:${username.toLowerCase()}`;
         const dataStr = await this.kv.get(key);
 
         if (!dataStr) {
@@ -82,7 +82,7 @@ export class AuthService {
     async savePlayerData(username, playerData) {
         if (!this.kv) return;
 
-        const key = `player_${username.toLowerCase()}`;
+        const key = `player:${username.toLowerCase()}`;
         await this.kv.put(key, JSON.stringify(playerData));
         // console.log(`[Auth] Player data saved: ${username}`);
     }
