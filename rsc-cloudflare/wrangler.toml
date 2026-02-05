@@ -1,4 +1,4 @@
-name = "rscaievolution-png"
+name = 'rscaievolution-png'
 account_id = "6872653edcee9c791787c1b783173793"
 main = "worker.js"
 compatibility_date = "2024-11-28"
@@ -55,11 +55,12 @@ MEMBERS = "true"
 SAFETY_REQ_CAP = "90000"
 FEATURE_BACKUPS = "true"
 
-[env.production]
-name = "rsc-authentic-prod"
+[observability]
+[observability.logs]
+enabled = true
+invocation_logs = true
 
-[env.demo]
-name = "rsc-authentic-demo"
+
 
 # 6. BUILD RULES
 [[rules]]
