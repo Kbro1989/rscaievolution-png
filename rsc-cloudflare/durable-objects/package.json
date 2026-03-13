@@ -8,7 +8,7 @@
         "dev": "wrangler dev"
     },
     "devDependencies": {
-        "esbuild": "^0.19.0"
+        "esbuild": "^0.25.0"
     },
     "dependencies": {
         "@2003scape/rsc-landscape": "^2.0.1",
