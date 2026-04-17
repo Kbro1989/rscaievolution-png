@@ -43,6 +43,7 @@ function setQuestStage(player, stage) {
 
 async function onTalkToNPC(player, npc) {
     if (npc.id === NPC_ARCHAEOLOGICAL_EXPERT) {
+        player.engage(npc);
         const stage = getQuestStage(player);
 
         if (stage === -1) {
@@ -64,6 +65,7 @@ async function onTalkToNPC(player, npc) {
                 await npc.say("Yes indeed, I am currently studying the lives of the settlers", "During the end of the third age, this used to be a great city", "It's inhabitants were humans, supporters of the god Saradomin", "It's not recorded what happened to the community here", "I suspect nobody has lived here for over a millenium!");
             }
         }
+        player.disengage();
         return true;
     }
     return false;

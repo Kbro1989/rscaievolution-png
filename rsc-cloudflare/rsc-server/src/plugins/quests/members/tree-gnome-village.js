@@ -43,8 +43,10 @@ function setQuestStage(player, stage) {
     player.questStages[QUEST_NAME] = stage;
 }
 
-async function onTalkToNpc(player, npc) {
+async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
+
+    player.engage(npc);
 
     // King Bolren
     if (npc.id === NPC_KING_BOLREN) {
@@ -112,6 +114,7 @@ async function onTalkToNpc(player, npc) {
             await npc.say("Thank you again for saving our village, friend!");
             await npc.say("You are always welcome here");
         }
+        player.disengage();
         return true;
     }
 
@@ -132,6 +135,7 @@ async function onTalkToNpc(player, npc) {
         } else {
             await npc.say("Speak to King Bolren if you wish to help");
         }
+        player.disengage();
         return true;
     }
 
@@ -144,6 +148,7 @@ async function onTalkToNpc(player, npc) {
             // Combat would be initiated
             player.message("The Khazard Warlord attacks you!");
         }
+        player.disengage();
         return true;
     }
 
@@ -162,6 +167,7 @@ async function onTalkToNpc(player, npc) {
             // Teleport to village center
             player.teleport(703, 3430, true);
         }
+        player.disengage();
         return true;
     }
 
@@ -202,7 +208,7 @@ module.exports = {
     name: 'tree-gnome-village',
     questName: QUEST_NAME,
     questPoints: QUEST_POINTS,
-    onTalkToNpc,
+    onTalkToNPC,
     onOperateObject,
     onKillNpc,
     npcs: [NPC_KING_BOLREN, NPC_COMMANDER_MONTAI, NPC_TRACKER_1, NPC_TRACKER_2, NPC_TRACKER_3, NPC_KHAZARD_WARLORD, NPC_ELKOY],

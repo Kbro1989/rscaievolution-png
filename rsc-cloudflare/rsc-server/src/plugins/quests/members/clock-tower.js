@@ -38,9 +38,10 @@ function setQuestStage(player, stage) {
 }
 
 // Brother Kojo Dialogue
-async function onTalkToNpc(player, npc) {
+async function onTalkToNPC(player, npc) {
     if (npc.id !== NPC_BROTHER_KOJO) return false;
 
+    player.engage(npc);
     const stage = getQuestStage(player);
 
     if (stage === 0) {
@@ -109,6 +110,7 @@ async function onTalkToNpc(player, npc) {
         await npc.say('You\'ve done a grand job with the clock');
         await npc.say('It\'s just like new');
     }
+    player.disengage();
     return true;
 }
 
@@ -269,7 +271,7 @@ module.exports = {
     name: 'clock-tower',
     questName: QUEST_NAME,
     questPoints: QUEST_POINTS,
-    onTalkToNpc,
+    onTalkToNPC,
     onUseItemOnObject,
     onUseItemOnGroundItem, // Need to verify if this hook exists in rsc-server
     onOpObject,

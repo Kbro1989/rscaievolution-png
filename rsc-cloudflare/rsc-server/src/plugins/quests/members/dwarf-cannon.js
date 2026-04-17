@@ -51,6 +51,7 @@ async function onTalkToNPC(player, npc) {
 
     // --- Captain Lawgof (Quest Giver) ---
     if (npc.id === NPC_CAPTAIN_LAWGOF) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say('Hello traveller, I\'m pleased to see you');
             await npc.say('We were hoping to find an extra pair of hands');
@@ -204,6 +205,7 @@ async function onTalkToNPC(player, npc) {
 
     // --- Nulodion (Engineer) ---
     if (npc.id === NPC_NULODION) {
+        player.engage(npc);
         if (stage === 5) {
             await npc.say('Can I help you?');
             await player.say('The Dwarf Commander sent me');

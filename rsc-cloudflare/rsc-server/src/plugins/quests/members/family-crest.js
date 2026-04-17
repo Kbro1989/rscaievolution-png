@@ -67,11 +67,12 @@ function getGauntletEnchantment(player) {
     return player.cache.famcrest_gauntlets || GAUNTLET_STEEL;
 }
 
-async function onTalkToNpc(player, npc) {
+async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
     // ==================== DIMINTHEIS - QUEST GIVER ====================
     if (npc.id === NPC_DIMINTHEIS) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say("Hello, my name is Dimintheis");
             await npc.say("Of the noble family of Fitzharmon");
@@ -165,11 +166,13 @@ async function onTalkToNpc(player, npc) {
             await npc.say("Thank you for saving our family honour");
             await npc.say("We will never forget you");
         }
+        player.disengage();
         return true;
     }
 
     // ==================== CHEF/CALEB - 1ST SON (CATHERBY) ====================
     if (npc.id === NPC_CHEF) {
+        player.engage(npc);
         if (stage === -1) {
             // Post-quest: Cooking gauntlets enchantment
             if (player.inventory.has(ITEM_STEEL_GAUNTLETS) &&
@@ -216,11 +219,13 @@ async function onTalkToNpc(player, npc) {
             await npc.say("You should find my brother Avan in Al Kharid");
             await npc.say("He's working as a goldsmith in the mines");
         }
+        player.disengage();
         return true;
     }
 
     // ==================== AVAN - 2ND SON (AL KHARID GOLDSMITH) ====================
     if (npc.id === NPC_AVAN) {
+        player.engage(npc);
         if (stage === -1) {
             // Post-quest: Goldsmith gauntlets enchantment
             if (player.inventory.has(ITEM_STEEL_GAUNTLETS) &&
@@ -298,11 +303,13 @@ async function onTalkToNpc(player, npc) {
                 await player.say("I am still working on it");
             }
         }
+        player.disengage();
         return true;
     }
 
     // ==================== JOHNATHON - 3RD SON (WILDERNESS WIZARD) ====================
     if (npc.id === NPC_JOHNATHON) {
+        player.engage(npc);
         if (stage === -1) {
             // Post-quest: Chaos gauntlets enchantment
             if (player.inventory.has(ITEM_STEEL_GAUNTLETS) &&
@@ -362,6 +369,7 @@ async function onTalkToNpc(player, npc) {
                 await npc.say("He is in the wilderness, somewhere below the obelisk of air");
             }
         }
+        player.disengage();
         return true;
     }
 
@@ -501,7 +509,7 @@ module.exports = {
     name: 'family-crest',
     questName: QUEST_NAME,
     questPoints: QUEST_POINTS,
-    onTalkToNpc,
+    onTalkToNPC,
     onUseItemOnNpc,
     onKillNpc,
     onCastSpellOnNpc,

@@ -49,11 +49,12 @@ function setQuestStage(player, stage) {
     player.questStages[QUEST_NAME] = stage;
 }
 
-async function onTalkToNpc(player, npc) {
+async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
     // ==================== MOUNTAIN DWARF - QUEST START ====================
     if (npc.id === NPC_MOUNTAIN_DWARF) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say("Hmmph what do you want");
 
@@ -182,11 +183,13 @@ async function onTalkToNpc(player, npc) {
             await npc.say("Welcome oh great fishing champion");
             await npc.say("Feel free to pop by any time");
         }
+        player.disengage();
         return true;
     }
 
     // ==================== BONZO - COMPETITION ORGANIZER ====================
     if (npc.id === NPC_BONZO) {
+        player.engage(npc);
         if (stage === -1) {
             await npc.say("Hello champ");
             await npc.say("So any hints on how to fish so well");
@@ -221,6 +224,7 @@ async function onTalkToNpc(player, npc) {
                 await npc.say("Hello champ");
                 await npc.say("So any hints on how to fish so well");
                 await player.say("I think I'll keep them to myself");
+                player.disengage();
                 return true;
             }
 
@@ -251,11 +255,13 @@ async function onTalkToNpc(player, npc) {
                 }
             }
         }
+        player.disengage();
         return true;
     }
 
     // ==================== GRANDPA JACK - HINTS ====================
     if (npc.id === NPC_GRANDPA_JACK) {
+        player.engage(npc);
         if (stage === 1 || stage === 2) {
             await npc.say("Hello young one"); await npc.say("Come to visit old Grandpa Jack?");
             await npc.say("I can tell ye stories for sure");
@@ -307,6 +313,7 @@ async function onTalkToNpc(player, npc) {
             await npc.say("Hello young one");
             await npc.say("Come to visit old Grandpa Jack?");
         }
+        player.disengage();
         return true;
     }
 
@@ -419,7 +426,7 @@ module.exports = {
     name: 'fishing-contest',
     questName: QUEST_NAME,
     questPoints: QUEST_POINTS,
-    onTalkToNpc,
+    onTalkToNPC,
     onUseItemOnObject,
     onOperateObject,
     handleReward,

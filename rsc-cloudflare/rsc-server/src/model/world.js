@@ -584,7 +584,9 @@ class World {
             this.deltaTickTimes.length = 0;
         }
 
-        setTimeout(this.boundTick, TICK_INTERVAL - deltaTime);
+        if (!this.server.isDurableObject) {
+            setTimeout(this.boundTick, TICK_INTERVAL - deltaTime);
+        }
     }
 
     async saveAllPlayers() {

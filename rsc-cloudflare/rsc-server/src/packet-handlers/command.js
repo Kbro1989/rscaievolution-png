@@ -343,8 +343,8 @@ async function command({ player }, { command, args }) {
                         const armorChoice = await player.ask(['Helmets >>', 'Bodies >>', 'Legs >>', 'Shields >>', 'Gloves/Other >>', '[Back]']);
                         if (armorChoice === 0) {
                             itemsToShow = [
-                                { id: 107, name: 'Bronze Medium Helmet' }, { id: 108, name: 'Steel Medium Helmet' },
-                                { id: 113, name: 'Adamantite Helmet' }, { id: 114, name: 'Rune Medium Helmet' },
+                                { id: 104, name: 'Bronze Medium Helmet' }, { id: 105, name: 'Steel Medium Helmet' },
+                                { id: 107, name: 'Adamantite Medium Helmet' }, { id: 399, name: 'Rune Medium Helmet' },
                                 { id: 795, name: 'Dragon Medium Helmet' }
                             ];
                         } else if (armorChoice === 1) {
@@ -365,8 +365,8 @@ async function command({ player }, { command, args }) {
                             ];
                         } else if (armorChoice === 4) {
                             itemsToShow = [
-                                { id: 137, name: 'Iron Chainbody' }, { id: 138, name: 'Steel Chainbody' },
-                                { id: 140, name: 'Mithril Chainbody' }, { id: 141, name: 'Adamantite Chainbody' }
+                                { id: 7, name: 'Iron Chainbody' }, { id: 114, name: 'Steel Chainbody' },
+                                { id: 115, name: 'Mithril Chainbody' }, { id: 116, name: 'Adamantite Chainbody' }
                             ];
                         }
                     } else if (catChoice === 2) {
@@ -396,8 +396,8 @@ async function command({ player }, { command, args }) {
                             ];
                         } else if (weaponChoice === 4) {
                             itemsToShow = [
-                                { id: 100, name: 'Oak Staff' }, { id: 101, name: 'Willow Staff' },
-                                { id: 102, name: 'Teak Staff' }, { id: 103, name: 'Yew Staff' },
+                                { id: 100, name: 'Staff' }, { id: 101, name: 'Staff of Air' },
+                                { id: 102, name: 'Staff of Water' }, { id: 103, name: 'Staff of Earth' },
                                 { id: 1000, name: 'Staff of Iban' }
                             ];
                         } else if (weaponChoice === 5) {
@@ -410,19 +410,18 @@ async function command({ player }, { command, args }) {
                             ]);
                             if (godChoice === 0) {
                                 // Staff of Guthix + Cape of Guthix
-                                player.inventory.add(1306, 1);
-                                player.inventory.add(1309, 1);
+                                player.inventory.add(1217, 1);
+                                player.inventory.add(1215, 1);
                                 await player.message(`Given: Staff of Guthix + Cape of Guthix`);
                             } else if (godChoice === 1) {
                                 // Staff of Saradomin + Cape of Saradomin
-                                player.inventory.add(1307, 1);
-                                player.inventory.add(1310, 1);
+                                player.inventory.add(1218, 1);
+                                player.inventory.add(1214, 1);
                                 await player.message(`Given: Staff of Saradomin + Cape of Saradomin`);
                             } else if (godChoice === 2) {
                                 // Staff of Zamorak + Cape of Zamorak
-                                player.inventory.add(1308, 1);
-                                player.inventory.add(1311, 1);
-                                await player.message(`Given: Staff of Zamorak + Cape of Zamorak`);
+                                player.inventory.add(1216, 1);
+                                player.inventory.add(1213, 1);
                             }
                         }
                     } else if (catChoice === 3) {
@@ -460,12 +459,12 @@ async function command({ player }, { command, args }) {
                         } else if (skillChoice === 2) {
                             itemsToShow = [
                                 { id: 373, name: 'Lobster' }, { id: 370, name: 'Swordfish' },
-                                { id: 546, name: 'Shark' }, { id: 355, name: 'Raw Shark' }
+                                { id: 546, name: 'Shark' }, { id: 545, name: 'Raw Shark' }
                             ];
                         } else if (skillChoice === 3) {
                             itemsToShow = [
-                                { id: 251, name: 'Guam Leaf' }, { id: 253, name: 'Marrentill' },
-                                { id: 255, name: 'Tarromin' }, { id: 257, name: 'Harralander' }
+                                { id: 444, name: 'Guam Leaf' }, { id: 445, name: 'Marrentill' },
+                                { id: 446, name: 'Tarromin' }, { id: 447, name: 'Harralander' }
                             ];
                         }
                     } else if (catChoice === 5) {
@@ -701,17 +700,17 @@ async function command({ player }, { command, args }) {
             if (catChoice === 0) {
                 // Full combat setup
                 player.inventory.add(81, 1); // Rune 2H
-                player.inventory.add(114, 1); // Rune med
+                player.inventory.add(399, 1); // Rune med
                 player.inventory.add(401, 1); // Rune plate
                 player.inventory.add(402, 1); // Rune legs
                 player.inventory.add(1278, 1); // Dragon shield
                 player.inventory.add(373, 5); // Lobsters
-                player.inventory.add(230, 2); // Super restore
+                player.inventory.add(477, 2); // Stat restoration
                 player.message('Full combat setup spawned!');
             } else if (catChoice === 1) {
                 // Combat setup
                 player.inventory.add(81, 1);
-                player.inventory.add(114, 1);
+                player.inventory.add(399, 1); // Rune med
                 player.inventory.add(401, 1);
                 player.inventory.add(402, 1);
                 player.inventory.add(404, 1);
@@ -735,8 +734,8 @@ async function command({ player }, { command, args }) {
 
                 if (godChoice === 0) {
                     // Guthix god items
-                    player.inventory.add(1306, 1); // Staff of Guthix
-                    player.inventory.add(1309, 1); // Cape of Guthix
+                    player.inventory.add(1217, 1); // Staff of Guthix
+                    player.inventory.add(1215, 1); // Cape of Guthix
                     player.inventory.add(33, 1000); // Air runes
                     player.inventory.add(32, 1000); // Water runes
                     player.inventory.add(31, 1000); // Fire runes
@@ -744,8 +743,8 @@ async function command({ player }, { command, args }) {
                     player.message('God Magic gear (Guthix) spawned! Magic +25 bonus from cape!');
                 } else if (godChoice === 1) {
                     // Saradomin god items
-                    player.inventory.add(1307, 1); // Staff of Saradomin
-                    player.inventory.add(1310, 1); // Cape of Saradomin
+                    player.inventory.add(1218, 1); // Staff of Saradomin
+                    player.inventory.add(1214, 1); // Cape of Saradomin
                     player.inventory.add(33, 1000); // Air runes
                     player.inventory.add(32, 1000); // Water runes
                     player.inventory.add(31, 1000); // Fire runes
@@ -753,8 +752,8 @@ async function command({ player }, { command, args }) {
                     player.message('God Magic gear (Saradomin) spawned! Magic +25 bonus from cape!');
                 } else if (godChoice === 2) {
                     // Zamorak god items
-                    player.inventory.add(1308, 1); // Staff of Zamorak
-                    player.inventory.add(1311, 1); // Cape of Zamorak
+                    player.inventory.add(1216, 1); // Staff of Zamorak
+                    player.inventory.add(1213, 1); // Cape of Zamorak
                     player.inventory.add(33, 1000); // Air runes
                     player.inventory.add(32, 1000); // Water runes
                     player.inventory.add(31, 1000); // Fire runes
@@ -762,7 +761,7 @@ async function command({ player }, { command, args }) {
                     player.message('God Magic gear (Zamorak) spawned! Magic +25 bonus from cape!');
                 } else if (godChoice === 3) {
                     // Regular staff setup
-                    player.inventory.add(1308, 1); // Staff of Zamorak
+                    player.inventory.add(1216, 1); // Staff of Zamorak
                     player.inventory.add(33, 1000); // Air runes
                     player.inventory.add(32, 1000); // Water runes
                     player.inventory.add(31, 1000); // Fire runes

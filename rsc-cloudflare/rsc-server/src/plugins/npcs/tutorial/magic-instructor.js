@@ -16,8 +16,20 @@ async function onTalkToNPC(player, npc) {
     }
 
     player.engage(npc);
+
     try {
         const tutorialStage = player.cache.tutorial || 0;
+
+        if (tutorialStage < 70) {
+            await npc.say("You should speak to the wilderness guide first");
+            return true;
+        }
+
+        if (tutorialStage >= 80) {
+            await npc.say("You've already completed magic training",
+                "Continue through the next door");
+            return true;
+        }
 
         if (tutorialStage === 70) {
             await npc.say(
@@ -35,20 +47,23 @@ async function onTalkToNPC(player, npc) {
             } else if (menu === 1) {
                 await npc.say("Teacher, yes I am one of them");
             }
+            // menu === -1: interrupted, falls through to finally
 
-            await npc.say(
-                "Ok move your mouse over the book icon on the menu bar",
-                "this is your magic menu",
-                "You will see at level 1 magic you can only cast wind strike",
-                "move your mouse over the wind strike text",
-                "If you look at the bottom of the magic window",
-                "You will see more information about the spell",
-                "runes required for the spell have two numbers over them",
-                "The first number is how many runes you have",
-                "The second is how many runes the spell requires",
-                "Speak to me again when you have checked this"
-            );
-            player.cache.tutorial = 75;
+            if (menu >= 0) {
+                await npc.say(
+                    "Ok move your mouse over the book icon on the menu bar",
+                    "this is your magic menu",
+                    "You will see at level 1 magic you can only cast wind strike",
+                    "move your mouse over the wind strike text",
+                    "If you look at the bottom of the magic window",
+                    "You will see more information about the spell",
+                    "runes required for the spell have two numbers over them",
+                    "The first number is how many runes you have",
+                    "The second is how many runes the spell requires",
+                    "Speak to me again when you have checked this"
+                );
+                player.cache.tutorial = 75;
+            }
 
         } else if (tutorialStage === 75) {
             await player.say("I don't have the runes to cast wind strike");
@@ -71,10 +86,6 @@ async function onTalkToNPC(player, npc) {
             player.cache.tutorial = 76;
 
         } else if (tutorialStage === 76 || tutorialStage === 77) {
-            // Check for chicken
-            // const chicken = player.world.npcs.find(n => n.id === CHICKEN_ID && n.withinRange(player, 10));
-            // Simplified: assume chicken exists or spawn one
-
             if (tutorialStage === 76) {
                 await npc.say(
                     "Aha a chicken",
@@ -93,20 +104,19 @@ async function onTalkToNPC(player, npc) {
                 player.cache.tutorial = 78;
             }
 
-        } else {
+        } else if (tutorialStage >= 78 && tutorialStage < 80) {
             await npc.say(
                 "Well done",
                 "As you get a higher magic level",
                 "You will be able to cast all sorts of interesting spells",
                 "Now go through the next door"
             );
-            if (tutorialStage < 80) {
-                player.cache.tutorial = 80;
-            }
+            player.cache.tutorial = 80;
         }
     } finally {
         player.disengage();
     }
+
     return true;
 }
 

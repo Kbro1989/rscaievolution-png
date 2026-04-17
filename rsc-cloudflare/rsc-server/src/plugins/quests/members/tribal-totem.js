@@ -36,6 +36,7 @@ async function onTalkToNPC(player, npc) {
 
     // Kangai Mau - quest giver in Brimhaven
     if (npc.id === NPC_KANGAI_MAU) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say('Hello, I Kangai Mau of Rantuki tribe.');
             const choice = await player.ask(['I\'m in search of adventure', 'What are you doing here?'], true);
@@ -69,11 +70,13 @@ async function onTalkToNPC(player, npc) {
                 await npc.say('Bah, you no good!');
             }
         }
+        player.disengage();
         return true;
     }
 
     // Horacio the gardener - hints about lock combo
     if (npc.id === NPC_HORACIO) {
+        player.engage(npc);
         await npc.say('It\'s a fine day to be in the garden!');
         if (stage >= 1) {
             const choice = await player.ask(['Do you garden round back too?', 'Who are you?'], true);
@@ -87,11 +90,13 @@ async function onTalkToNPC(player, npc) {
                 // Hint: Lord Handelmort's middle name is DORIAN (or similar)
             }
         }
+        player.disengage();
         return true;
     }
 
     // Wizard Cromperty - teleporter
     if (npc.id === NPC_CROMPERTY) {
+        player.engage(npc);
         await npc.say('I am Cromperty, a wizard and inventor!');
         await npc.say('My latest invention is my patent pending teleport block.');
         const choice = await player.ask(['Can I be teleported?', 'Where is the other block?'], true);
@@ -110,11 +115,13 @@ async function onTalkToNPC(player, npc) {
             await npc.say('Somewhere between here and Wizard\'s Tower.');
             await npc.say('I\'m using RPDT to deliver it.');
         }
+        player.disengage();
         return true;
     }
 
     // RPDT Employee - delivers crate
     if (npc.id === NPC_RPDT_EMPLOYEE) {
+        player.engage(npc);
         await npc.say('Welcome to RPDT!');
         if (player.getCache('label') && stage === 1) {
             const choice = await player.ask(['When will you deliver this crate?', 'Thanks'], true);
@@ -126,6 +133,7 @@ async function onTalkToNPC(player, npc) {
                 setQuestStage(player, 2);
             }
         }
+        player.disengage();
         return true;
     }
 

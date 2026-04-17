@@ -11,76 +11,92 @@ async function onTalkToNPC(player, npc) {
     }
 
     player.engage(npc);
-    const tutorialStage = player.cache.tutorial || 0;
 
-    if (tutorialStage === 25) {
-        await npc.say(
-            "looks like you've been fighting",
-            "If you get hurt in a fight",
-            "You will slowly heal",
-            "Eating food will heal you much more quickly",
-            "I'm here to show you some simple cooking"
-        );
+    try {
+        const tutorialStage = player.cache.tutorial || 0;
 
-        if (!player.inventory.has(RAW_RAT_MEAT_ID)) {
-            player.inventory.add(RAW_RAT_MEAT_ID);
-            await npc.say("First you need something to cook");
-            player.message("the instructor gives you a piece of meat");
-        } else {
-            await npc.say("I see you have bought your own meat", "good stuff");
+        if (tutorialStage < 25) {
+            await npc.say("You're not ready for cooking yet",
+                "Speak to the combat instructor first");
+            return true;
         }
 
-        await npc.say(
-            "ok cook it on the range",
-            "To use an item you are holding",
-            "Open your inventory and click on the item you wish to use",
-            "Then click on whatever you wish to use it on",
-            "In this case use it on the range"
-        );
-    } else if (tutorialStage === 30) { // Burnt meat state
-        await player.say("I burnt the meat");
-        await npc.say(
-            "Well I'm sure you'll get the hang of it soon",
-            "Let's try again"
-        );
-        if (!player.inventory.has(RAW_RAT_MEAT_ID)) {
-            await npc.say("Here's another piece of meat to cook");
-            player.inventory.add(RAW_RAT_MEAT_ID);
-        }
-    } else if (tutorialStage === 31) { // Cooked meat state
-        await player.say("I've cooked the meat correctly this time");
-        await npc.say(
-            "Very well done",
-            "Now you can tell whether you need to eat or not",
-            "look in your stats menu",
-            "Click on bar graph icon in the menu bar",
-            "Your stats are low right now",
-            "As you use the various skills, these stats will increase",
-            "If you look at your hits you will see 2 numbers",
-            "The number on the right is your hits when you are at full health",
-            "The number on the left is your current hits",
-            "If the number on the left is lower eat some food to be healed"
-        );
-        player.cache.tutorial = 34;
-    } else if (tutorialStage >= 34) {
-        if (player.inventory.has(COOKED_MEAT_ID) && player.skills.hits.current < 10) {
-            await npc.say("to eat the food left click on it in your inventory");
-        } else {
+        if (tutorialStage === 25) {
             await npc.say(
-                "There are many other sorts of food you can cook",
-                "As your cooking level increases you will be able to cook even more",
-                "Some of these dishes are more complicated to prepare",
-                "If you want to know more about cookery",
-                "You could consult the online manual",
-                "Now proceed through the next door"
+                "looks like you've been fighting",
+                "If you get hurt in a fight",
+                "You will slowly heal",
+                "Eating food will heal you much more quickly",
+                "I'm here to show you some simple cooking"
             );
-            if (tutorialStage < 35) {
-                player.cache.tutorial = 35;
+
+            if (!player.inventory.has(RAW_RAT_MEAT_ID)) {
+                player.inventory.add(RAW_RAT_MEAT_ID);
+                await npc.say("First you need something to cook");
+                player.message("the instructor gives you a piece of meat");
+            } else {
+                await npc.say("I see you have bought your own meat", "good stuff");
+            }
+
+            await npc.say(
+                "ok cook it on the range",
+                "To use an item you are holding",
+                "Open your inventory and click on the item you wish to use",
+                "Then click on whatever you wish to use it on",
+                "In this case use it on the range"
+            );
+            // Always advance stage so player can proceed
+            player.cache.tutorial = 26;
+        } else if (tutorialStage === 26) {
+            // Waiting for the player to cook
+            await npc.say("Use the raw meat on the range to cook it");
+        } else if (tutorialStage === 30) { // Burnt meat state
+            await player.say("I burnt the meat");
+            await npc.say(
+                "Well I'm sure you'll get the hang of it soon",
+                "Let's try again"
+            );
+            if (!player.inventory.has(RAW_RAT_MEAT_ID)) {
+                await npc.say("Here's another piece of meat to cook");
+                player.inventory.add(RAW_RAT_MEAT_ID);
+            }
+            player.cache.tutorial = 26;
+        } else if (tutorialStage === 31) { // Cooked meat state
+            await player.say("I've cooked the meat correctly this time");
+            await npc.say(
+                "Very well done",
+                "Now you can tell whether you need to eat or not",
+                "look in your stats menu",
+                "Click on bar graph icon in the menu bar",
+                "Your stats are low right now",
+                "As you use the various skills, these stats will increase",
+                "If you look at your hits you will see 2 numbers",
+                "The number on the right is your hits when you are at full health",
+                "The number on the left is your current hits",
+                "If the number on the left is lower eat some food to be healed"
+            );
+            player.cache.tutorial = 34;
+        } else if (tutorialStage >= 34) {
+            if (player.inventory.has(COOKED_MEAT_ID) && player.skills.hits.current < 10) {
+                await npc.say("to eat the food left click on it in your inventory");
+            } else {
+                await npc.say(
+                    "There are many other sorts of food you can cook",
+                    "As your cooking level increases you will be able to cook even more",
+                    "Some of these dishes are more complicated to prepare",
+                    "If you want to know more about cookery",
+                    "You could consult the online manual",
+                    "Now proceed through the next door"
+                );
+                if (tutorialStage < 35) {
+                    player.cache.tutorial = 35;
+                }
             }
         }
+    } finally {
+        player.disengage();
     }
 
-    player.disengage();
     return true;
 }
 

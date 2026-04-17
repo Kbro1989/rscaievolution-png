@@ -9,36 +9,53 @@ async function onTalkToNPC(player, npc) {
 
     player.engage(npc);
 
-    await npc.say(
-        "Hi are you someone who likes to fight other players?",
-        "Granted it has big risks",
-        "but it can be very rewarding too"
-    );
+    try {
+        const tutorialStage = player.cache.tutorial || 0;
 
-    const menu = await player.ask([
-        "Yes I'm up for a bit of a fight",
-        "I'd prefer to avoid that"
-    ]);
+        if (tutorialStage < 65) {
+            await npc.say("You should speak to the quest advisor first");
+            return true;
+        }
 
-    if (menu === 0) {
+        if (tutorialStage >= 70) {
+            await npc.say("You've already heard my safety warnings",
+                "Continue through the next door");
+            return true;
+        }
+
         await npc.say(
-            "Then the wilderness is the place for you",
-            "That is the area of the game where you can attack other players",
-            "Be careful though",
-            "Other players can be a lot more dangerous than monsters",
-            "they will be much more persistant in chasing after you",
-            "Especially when they hunt in groups"
+            "Hi are you someone who likes to fight other players?",
+            "Granted it has big risks",
+            "but it can be very rewarding too"
         );
-        await optionsDialogue(player, npc);
-    } else if (menu === 1) {
-        await npc.say(
-            "Then don't stray into the wilderness",
-            "That is the area of the game where you can attack other players"
-        );
-        await optionsDialogue(player, npc);
+
+        const menu = await player.ask([
+            "Yes I'm up for a bit of a fight",
+            "I'd prefer to avoid that"
+        ]);
+
+        if (menu === 0) {
+            await npc.say(
+                "Then the wilderness is the place for you",
+                "That is the area of the game where you can attack other players",
+                "Be careful though",
+                "Other players can be a lot more dangerous than monsters",
+                "they will be much more persistant in chasing after you",
+                "Especially when they hunt in groups"
+            );
+            await optionsDialogue(player, npc);
+        } else if (menu === 1) {
+            await npc.say(
+                "Then don't stray into the wilderness",
+                "That is the area of the game where you can attack other players"
+            );
+            await optionsDialogue(player, npc);
+        }
+        // menu === -1 (interrupted): no stage change, finally handles cleanup
+    } finally {
+        player.disengage();
     }
 
-    player.disengage();
     return true;
 }
 
@@ -54,14 +71,13 @@ async function optionsDialogue(player, npc) {
     } else if (menu === 1) {
         await optionsDialogue_die(player, npc);
         await optionsDialogue_where(player, npc);
+    } else {
+        // menu === -1 (interrupted): bail out, let try/finally handle cleanup
+        return;
     }
 
-    if (menu !== -1) {
-        await npc.say("Now proceed through the next door");
-        if (player.cache.tutorial && player.cache.tutorial < 70) {
-            player.cache.tutorial = 70;
-        }
-    }
+    await npc.say("Now proceed through the next door");
+    player.cache.tutorial = 70;
 }
 
 async function optionsDialogue_where(player, npc) {

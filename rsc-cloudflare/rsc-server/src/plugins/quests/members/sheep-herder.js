@@ -40,6 +40,7 @@ async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
     if (npc.id === NPC_HALGRIVE) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say('A plague has spread to West Ardougne!');
             await npc.say('Four infected sheep escaped. They must be destroyed.');
@@ -67,14 +68,17 @@ async function onTalkToNPC(player, npc) {
         } else if (stage === -1) {
             await npc.say('Thank you for handling those sheep.');
         }
+        player.disengage();
         return true;
     }
 
     if (npc.id === NPC_FARMER_BRUMTY) {
+        player.engage(npc);
         if (stage === 2) {
             await npc.say('Use the cattle prod to herd sheep to enclosure.');
             await npc.say('Don\'t touch them without protection!');
         }
+        player.disengage();
         return true;
     }
 
@@ -98,6 +102,7 @@ async function onUseItemOnNPC(player, item, npc) {
         player.message('Baaaaaa!!!');
         // In real implementation, move sheep toward enclosure
         if (stage === 1) setQuestStage(player, 2);
+        player.disengage();
         return true;
     }
 
@@ -115,6 +120,7 @@ async function onUseItemOnNPC(player, item, npc) {
             [NPC_PLAGUE_SHEEP_4]: ITEM_SHEEP_REMAINS_4
         };
         player.inventory.add(remainsMap[npc.id], 1);
+        player.disengage();
         return true;
     }
 

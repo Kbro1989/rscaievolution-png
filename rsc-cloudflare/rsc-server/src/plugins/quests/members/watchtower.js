@@ -29,12 +29,14 @@ function setQuestStage(player, stage) {
 
 async function onTalkToNPC(player, npc) {
     if (npc.id === NPC_WATCHTOWER_WIZARD) {
+        player.engage(npc);
         // The quest start is handled inside the WatchTowerDialogues.java file,
         // specifically in the watchtowerWizardDialogue method.
         // The initial dialogue is not in the onTalkNpc method, so it's not
         // immediately obvious how the quest starts.
         // I will add a placeholder message here for you to fill in.
         player.message("The Watchtower Wizard seems busy.");
+        player.disengage();
         return true;
     }
     return false;

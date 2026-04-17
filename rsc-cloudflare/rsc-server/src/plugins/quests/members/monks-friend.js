@@ -24,6 +24,7 @@ async function onTalkToNPC(player, npc) {
 
     // Brother Omad in monastery
     if (npc.id === NPC_BROTHER_OMAD) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say('...yawn...oh, hello...yawn...');
             await npc.say('I\'m sorry, I\'m just so tired. Haven\'t slept in a week.');
@@ -75,11 +76,13 @@ async function onTalkToNPC(player, npc) {
         } else if (stage === -1) {
             await npc.say('Dum dee do la la... hiccup... that\'s good wine!');
         }
+        player.disengage();
         return true;
     }
 
     // Brother Cedric in forest
     if (npc.id === NPC_BROTHER_CEDRIC) {
+        player.engage(npc);
         if (stage < 3) {
             await npc.say('honey...money...woman...wine...hic...');
             player.message('The monk has had too much to drink.');
@@ -110,6 +113,7 @@ async function onTalkToNPC(player, npc) {
         } else if (stage === -1) {
             await npc.say('Brother Omad sends his thanks!');
         }
+        player.disengage();
         return true;
     }
 
@@ -126,6 +130,7 @@ async function onUseItemOnNPC(player, item, npc) {
         await npc.say('Aah, that\'s better. Now I just need to fix this cart.');
         await npc.say('Could you help?');
         setQuestStage(player, 5);
+        player.disengage();
         return true;
     }
     return false;

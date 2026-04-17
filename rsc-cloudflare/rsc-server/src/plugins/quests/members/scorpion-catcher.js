@@ -30,6 +30,8 @@ function setQuestStage(player, stage) {
 async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
+    player.engage(npc);
+
     if (npc.id === NPC_THORMAC) {
         if (stage === 0) {
             await npc.say('I\'ve lost my 3 pet kharid scorpions!');
@@ -55,6 +57,7 @@ async function onTalkToNPC(player, npc) {
         } else if (stage === -1) {
             await npc.say('Want me to enchant a battlestaff? 40,000 coins.');
         }
+        player.disengage();
         return true;
     }
 
@@ -84,6 +87,7 @@ async function onTalkToNPC(player, npc) {
                 await npc.say('Last scorpion upstairs, brown clothing nearby.');
             }
         }
+        player.disengage();
         return true;
     }
 
@@ -124,9 +128,11 @@ async function onUseItemOnNPC(player, item, npc) {
     }
 
     if (newCage) {
+        player.engage(npc);
         player.inventory.remove(item.id, 1);
         player.inventory.add(newCage, 1);
         player.message('You catch a scorpion!');
+        player.disengage();
         return true;
     }
 

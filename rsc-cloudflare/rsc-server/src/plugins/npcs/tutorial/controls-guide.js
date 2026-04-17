@@ -9,25 +9,40 @@ async function onTalkToNPC(player, npc) {
 
     player.engage(npc);
 
-    await npc.say("Hello I'm here to tell you more about the game's controls");
-    await player.message("Most of your options and character information");
-    await player.message("can be accessed by the menus in the top right corner of the screen");
-    await player.message("moving your mouse over the map icon");
-    await player.message("which is the second icon from the right");
-    await player.message("gives you a view of the area you are in");
-    await player.message("clicking on this map is an effective way of walking around");
-    await player.message("though if the route is blocked, for example by a closed door");
-    await player.message("then your character won't move");
-    await player.message("Also notice the compass on the map which may be of help to you");
+    try {
+        const tutorialStage = player.cache.tutorial || 0;
 
-    await player.say("Thank you for your help");
-    await npc.say("Now carry on to speak to the combat instructor");
+        if (tutorialStage >= 15) {
+            await npc.say("You've already learned about controls",
+                "Continue to the combat instructor");
+            return true;
+        }
 
-    if (player.cache.tutorial && player.cache.tutorial < 15) {
+        if (tutorialStage < 10) {
+            await npc.say("You should speak to the guide first",
+                "He's in the building to the south");
+            return true;
+        }
+
+        await npc.say("Hello I'm here to tell you more about the game's controls");
+        await player.message("Most of your options and character information");
+        await player.message("can be accessed by the menus in the top right corner of the screen");
+        await player.message("moving your mouse over the map icon");
+        await player.message("which is the second icon from the right");
+        await player.message("gives you a view of the area you are in");
+        await player.message("clicking on this map is an effective way of walking around");
+        await player.message("though if the route is blocked, for example by a closed door");
+        await player.message("then your character won't move");
+        await player.message("Also notice the compass on the map which may be of help to you");
+
+        await player.say("Thank you for your help");
+        await npc.say("Now carry on to speak to the combat instructor");
+
         player.cache.tutorial = 15;
+    } finally {
+        player.disengage();
     }
 
-    player.disengage();
     return true;
 }
 

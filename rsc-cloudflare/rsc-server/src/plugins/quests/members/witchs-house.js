@@ -30,6 +30,7 @@ function setQuestStage(player, stage) {
 
 async function onTalkToNPC(player, npc) {
     if (npc.id === NPC_BOY) {
+        player.engage(npc);
         const stage = getQuestStage(player);
 
         if (stage === 0) {
@@ -62,8 +63,9 @@ async function onTalkToNPC(player, npc) {
                 await npc.say("Well it's in the shed in that garden");
             }
         } else { // Quest Complete
-             await npc.say("Thankyou for getting my ball back");
+            await npc.say("Thankyou for getting my ball back");
         }
+        player.disengage();
         return true;
     }
     return false;

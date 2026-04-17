@@ -20,13 +20,13 @@ const QUEST_POINTS = 6;
 
 // NPCs - Using project's ids.js constants
 const NPC_KING_ARTHUR = Npcs.KING_ARTHUR; // 275
-const NPC_SIR_GAWAIN = Npcs.SIR_GAWAIN; // Need to verify
-const NPC_SIR_LANCELOT = Npcs.SIR_LANCELOT; // Need to verify
-const NPC_SIR_MORDRED = Npcs.SIR_MORDRED; // 276
-const NPC_MORGAN_LE_FAYE = Npcs.MORGAN_LE_FAYE; // 281
-const NPC_THRANTAX = Npcs.THRANTAX; // 288
-const NPC_LADY_LAKE = Npcs.LADY_OF_THE_LAKE; // 279
-const NPC_BEGGAR = Npcs.BEGGAR; // 286
+const NPC_SIR_GAWAIN = Npcs.SIR_GAWAIN;
+const NPC_SIR_LANCELOT = Npcs.SIR_LANCELOT;
+const NPC_SIR_MORDRED = Npcs.SIR_MORDRED;
+const NPC_MORGAN_LE_FAYE = Npcs.MORGAN_LE_FAYE;
+const NPC_THRANTAX = Npcs.THRANTAX;
+const NPC_LADY_LAKE = Npcs.LADY_OF_THE_LAKE;
+const NPC_BEGGAR = Npcs.BEGGAR;
 
 // Item IDs
 const ITEM_EXCALIBUR = Items.EXCALIBUR; // 606
@@ -51,11 +51,12 @@ function setQuestStage(player, stage) {
 }
 
 // Talk to NPC handlers
-async function onTalkToNpc(player, npc) {
+async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
     // King Arthur
     if (npc.id === NPC_KING_ARTHUR) {
+        player.engage(npc);
         if (stage === 0 || stage === 1) {
             await npc.say('Welcome to the court of King Arthur');
             await npc.say('I am King Arthur');
@@ -106,11 +107,13 @@ async function onTalkToNpc(player, npc) {
             await npc.say('I was wondering if you too would like to take up this quest?');
             // Holy Grail quest start would go here
         }
+        player.disengage();
         return true;
     }
 
     // Sir Gawain
     if (npc.id === NPC_SIR_GAWAIN) {
+        player.engage(npc);
         await npc.say('Good day to you sir');
 
         if (stage === 1) {
@@ -129,11 +132,13 @@ async function onTalkToNpc(player, npc) {
                 player.cache.talked_to_gawain = true;
             }
         }
+        player.disengage();
         return true;
     }
 
     // Sir Lancelot
     if (npc.id === NPC_SIR_LANCELOT) {
+        player.engage(npc);
         await npc.say('Greetings I am Sir Lancelot the greatest knight in the land');
         await npc.say('What do you want?');
 
@@ -155,11 +160,13 @@ async function onTalkToNpc(player, npc) {
                 delete player.cache.talked_to_gawain;
             }
         }
+        player.disengage();
         return true;
     }
 
     // Morgan Le Faye (appears when Mordred is defeated)
     if (npc.id === NPC_MORGAN_LE_FAYE) {
+        player.engage(npc);
         await npc.say('Please spare my son');
 
         const option = await player.ask([
@@ -199,6 +206,7 @@ async function onTalkToNpc(player, npc) {
                 await npc.say('Which chaos altar I cannot remember');
             }
         }
+        player.disengage();
         return true;
     }
 
@@ -296,7 +304,7 @@ module.exports = {
     name: 'merlins-crystal',
     questName: QUEST_NAME,
     questPoints: QUEST_POINTS,
-    onTalkToNpc,
+    onTalkToNPC,
     onOperateObject,
     onUseItemOnObject,
     onDropItem,

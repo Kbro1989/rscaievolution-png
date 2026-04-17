@@ -121,9 +121,9 @@ export class GameWorld {
 
     // Tick loop using Durable Object alarms
     async alarm() {
-        // Run game tick (authentic RSC logic)
-        this.server.readMessages();
-        this.server.sendMessages();
+        // Run game logic (authentic RSC world tick)
+        // Note: server.tick() calls world.tick() which handles read/send messages internally
+        await this.server.tick();
 
         // Schedule next tick (640ms = authentic RSC tick rate)
         await this.state.storage.setAlarm(Date.now() + 640);

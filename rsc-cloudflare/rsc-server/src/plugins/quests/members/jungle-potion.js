@@ -30,6 +30,8 @@ function setQuestStage(player, stage) {
 async function onTalkToNPC(player, npc) {
     if (npc.id !== NPC_TRUFITUS) return false;
 
+    player.engage(npc);
+
     const stage = getQuestStage(player);
 
     if (stage === 0) {
@@ -85,6 +87,7 @@ async function onTalkToNPC(player, npc) {
     } else if (stage === -1) {
         await npc.say('Greetings Bwana! The gods are pleased!');
     }
+    player.disengage();
     return true;
 }
 

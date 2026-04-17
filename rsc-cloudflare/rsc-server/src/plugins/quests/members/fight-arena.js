@@ -43,6 +43,8 @@ function setQuestStage(player, stage) {
 async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
+    player.engage(npc);
+
     // --- Lady Servil (Start) ---
     if (npc.id === NPC_LADY_SERVIL) {
         if (stage === 0) {
@@ -74,6 +76,8 @@ async function onTalkToNPC(player, npc) {
         } else {
             await npc.say('Please bring back my family');
         }
+        player.disengage();
+        return true;
     }
 
     // --- Khazard Guard (Entrance/Patrol) ---
@@ -84,6 +88,8 @@ async function onTalkToNPC(player, npc) {
             await npc.say('Halt! Only Khazard\'s men allowed');
             // Could attack or block entry authentic
         }
+        player.disengage();
+        return true;
     }
 
     // --- Drunk Guard (Keys) ---
@@ -96,6 +102,7 @@ async function onTalkToNPC(player, npc) {
                 } else {
                     player.message('The guard is fast asleep');
                 }
+                player.disengage();
                 return true;
             }
 
@@ -114,6 +121,8 @@ async function onTalkToNPC(player, npc) {
                 await npc.say('Get lost unless you have some Khali Brew');
             }
         }
+        player.disengage();
+        return true;
     }
 
     // --- Jeremy Servil (In Cell) ---
@@ -121,6 +130,7 @@ async function onTalkToNPC(player, npc) {
         if (stage === 1 || stage === 2) {
             if (player.getCache('freed_jeremy')) {
                 await npc.say('Go help my father!');
+                player.disengage();
                 return true;
             }
 
@@ -140,6 +150,8 @@ async function onTalkToNPC(player, npc) {
                 await npc.say('The guard has the keys');
             }
         }
+        player.disengage();
+        return true;
     }
 
     // --- Hengrad (Prisoner) ---
@@ -153,6 +165,8 @@ async function onTalkToNPC(player, npc) {
             const scorpion = player.world.spawnNpc(NPC_KHAZARD_SCORPION, 609, 707);
             scorpion.setTarget(player);
         }
+        player.disengage();
+        return true;
     }
 
     return true;

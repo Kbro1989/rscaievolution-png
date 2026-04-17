@@ -47,6 +47,7 @@ function setQuestStage(player, stage) {
 
 async function onTalkToNPC(player, npc) {
     if (npc.id === NPC_KING_NARNODE_SHAREEN) {
+        player.engage(npc);
         const stage = getQuestStage(player);
 
         if (stage === 0) {
@@ -100,6 +101,7 @@ async function onTalkToNPC(player, npc) {
                 await npc.say("ok then, enjoy your stay with us", "there's many shops and sights to see");
             }
         }
+        player.disengage();
         return true;
     }
     return false;

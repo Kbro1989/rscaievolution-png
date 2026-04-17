@@ -52,11 +52,12 @@ function setQuestStage(player, stage) {
 }
 
 // NPC Talk handler
-async function onTalkToNpc(player, npc) {
+async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
     // Adventurer NPCs
     if (ADVENTURER_NPCS.includes(npc.id)) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say('Hello traveller');
             const option = await player.ask([
@@ -117,11 +118,13 @@ async function onTalkToNpc(player, npc) {
             await npc.say('Where is Zanaris?');
             await player.say('I think I will keep that to myself');
         }
+        player.disengage();
         return true;
     }
 
     // Leprechaun
     if (npc.id === NPC_LEPRECHAUN) {
+        player.engage(npc);
         await npc.say('Ay you big elephant');
         await npc.say('You have caught me');
         await npc.say('What would you be wanting with old Shamus then?');
@@ -131,6 +134,7 @@ async function onTalkToNpc(player, npc) {
             await npc.say("Well you'll have to catch me again when you are");
             player.message('The leprechaun magically disappears');
             // Remove NPC
+            player.disengage();
             return true;
         } else if (stage === 1) {
             await player.say('I want to find Zanaris');
@@ -168,6 +172,7 @@ async function onTalkToNpc(player, npc) {
 
             setQuestStage(player, 2);
             player.message('The leprechaun magically disappears');
+            player.disengage();
             return true;
         } else {
             const menu = await player.ask([
@@ -186,6 +191,7 @@ async function onTalkToNpc(player, npc) {
                 await npc.say('Cut from the dramen tree on the island of Entrana');
             }
             player.message('The leprechaun magically disappears');
+            player.disengage();
             return true;
         }
     }
@@ -344,7 +350,7 @@ module.exports = {
     name: 'lost-city',
     questName: QUEST_NAME,
     questPoints: QUEST_POINTS,
-    onTalkToNpc,
+    onTalkToNPC,
     onOperateObject,
     onOperateBoundary,
     onUseItem,

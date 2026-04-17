@@ -43,6 +43,8 @@ function setQuestStage(player, stage) {
 async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
+    player.engage(npc);
+
     if (npc.id === NPC_PROFESSOR) {
         if (stage === 0) {
             await npc.say('My telescope is broken!');
@@ -97,6 +99,7 @@ async function onTalkToNPC(player, npc) {
         } else if (stage === -1) {
             await npc.say('Thanks for repairing my telescope!');
         }
+        player.disengage();
         return true;
     }
 
@@ -109,12 +112,14 @@ async function onTalkToNPC(player, npc) {
             await npc.say('Here, have some wine for helping!');
             player.inventory.add(ITEM_WINE, 1);
         }
+        player.disengage();
         return true;
     }
 
     if (npc.id === NPC_GOBLIN_GUARD) {
         await npc.say('Leave this place human!');
         // Start combat
+        player.disengage();
         return true;
     }
 

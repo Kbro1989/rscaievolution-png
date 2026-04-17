@@ -26,6 +26,8 @@ function setQuestStage(player, stage) {
 async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
+    player.engage(npc);
+
     if (npc.id === NPC_CAROLINE) {
         if (stage === 0) {
             await npc.say('My husband and son are on a fishing platform.');
@@ -45,6 +47,7 @@ async function onTalkToNPC(player, npc) {
         } else if (stage > 0 && stage < 6) {
             await npc.say('Please find my family!');
         }
+        player.disengage();
         return true;
     }
 
@@ -65,6 +68,7 @@ async function onTalkToNPC(player, npc) {
         } else if (stage >= 3) {
             player.message('Holgart takes you to the platform.');
         }
+        player.disengage();
         return true;
     }
 
@@ -80,6 +84,7 @@ async function onTalkToNPC(player, npc) {
                 await npc.say('I won\'t go near those sea slugs!');
             }
         }
+        player.disengage();
         return true;
     }
 
@@ -90,6 +95,7 @@ async function onTalkToNPC(player, npc) {
             await npc.say('Get Kennith off that platform!');
             setQuestStage(player, 5);
         }
+        player.disengage();
         return true;
     }
 
@@ -102,11 +108,13 @@ async function onTalkToNPC(player, npc) {
             await npc.say('Light it and the fishermen won\'t approach.');
             player.setCache('need_lit_torch', true);
         }
+        player.disengage();
         return true;
     }
 
     if (npc.id === NPC_FISHERMAN) {
         await npc.say('Must find family... deep under the blue...');
+        player.disengage();
         return true;
     }
 

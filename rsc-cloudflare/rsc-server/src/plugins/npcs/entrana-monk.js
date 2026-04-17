@@ -33,17 +33,11 @@ const PROHIBITED_KEYWORDS = [
 // For now, let's just check for "wieldable" items if we can, or just common weapons.
 
 function hasProhibitedItems(player) {
-    // Check inventory
-    const inventory = player.inventory.items; // Assuming array of items
-    for (const item of inventory) {
-        if (isProhibited(item)) return true;
+    for (const item of player.inventory.items) {
+        if (isProhibited(item)) {
+            return true;
+        }
     }
-
-    // Check equipment
-    // Assuming player.equipment.items is available or similar
-    // If not, we might skip equipment check or need to access it differently
-    // player.equipment.get(slot) ?
-
     return false;
 }
 
@@ -51,17 +45,39 @@ function isProhibited(item) {
     if (!item || !item.definition) return false;
     const name = item.definition.name.toLowerCase();
 
-    // Allow religious robes
+    // Whitelist for religious items and common accessories
     if (name.includes("monk") || name.includes("priest") || name.includes("vestment")) return false;
-    if (name.includes("amulet") || name.includes("symbol") || name.includes("ring") || name.includes("necklace")) return false;
+    if (name.includes("amulet") || name.includes("symbol") || name.includes("ring") || name.includes("necklace") || name.includes("holy")) return false;
+    if (name.includes("unfired") || name.includes("pottery")) return false;
 
-    // Check for weapons/armor keywords
-    if (name.includes("dagger") || name.includes("sword") || name.includes("scimitar") || name.includes("mace") ||
-        (name.includes("axe") && !name.includes("pickaxe")) || // Allow pickaxe? No, Entrana prohibits weapons/armor. Hatchet/Pickaxe might be allowed? Authentic: No weapons. Tools?
-        name.includes("battleaxe") || name.includes("spear") || name.includes("bow") || name.includes("arrow") ||
-        name.includes("shield") || name.includes("helmet") || name.includes("plate") || name.includes("chain") ||
-        name.includes("leather body") || name.includes("leather chaps")) {
-        return true;
+    // Explicitly check for weapons/armor keywords
+    // In RSC, any weapon or armor (wieldable for combat) is prohibited.
+    // Tools like pickaxes and hatchets are technically wieldable but were often handled specifically.
+    // Authentic RSC Entrana: No weapons or armor.
+
+    if (item.definition.wieldable) {
+        // Broad keywords for weapons/armor
+        const weaponArmorKeywords = [
+            "dagger", "sword", "scimitar", "mace", "axe", "battleaxe", "2h", "spear", "halberd",
+            "bow", "arrow", "bolt", "shield", "helmet", "plate", "chain", "leather body", "chaps",
+            "staff", "wand"
+        ];
+
+        for (const keyword of weaponArmorKeywords) {
+            if (name.includes(keyword)) {
+                // Special case: "axe" matches "pickaxe" and "hatchet" (if they are called that)
+                // In 2003scape, they are "Bronze Pickaxe", "Iron Axe", etc.
+                // We typically allow the woodcutting/mining tools if the server logic allows it,
+                // but strictly speaking, "Iron Axe" IS a weapon.
+                if (name.includes("pickaxe")) continue;
+                if (name === "bronze axe" || name === "iron axe" || name === "steel axe" || name === "mithril axe" || name === "adamantite axe" || name === "rune axe") {
+                    // These are woodcutting axes but double as weapons. 
+                    // On Entrana, they are usually prohibited.
+                    return true;
+                }
+                return true;
+            }
+        }
     }
 
     return false;

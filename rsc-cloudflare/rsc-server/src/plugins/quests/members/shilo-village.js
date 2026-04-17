@@ -29,6 +29,7 @@ function setQuestStage(player, stage) {
 
 async function onTalkToNPC(player, npc) {
     if (npc.id === NPC_MOSOL_REI) {
+        player.engage(npc);
         const stage = getQuestStage(player);
 
         if (stage === 0) {
@@ -65,6 +66,7 @@ async function onTalkToNPC(player, npc) {
                 }
             }
         }
+        player.disengage();
         return true;
     }
     return false;

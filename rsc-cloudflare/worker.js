@@ -68,6 +68,9 @@ export default {
         if (url.pathname === '/api/highscores') {
             return handleHighscores(request, env, corsHeaders);
         }
+        if (url.pathname === '/api/sync' && request.method === 'POST') {
+            return handleSync(request, env, corsHeaders);
+        }
 
         // --- 3. ASSET SERVING (R2 -> KV Fallback) ---
         if (url.pathname.startsWith('/asset/')) {
@@ -202,6 +205,31 @@ async function handleLogin(request, env, corsHeaders) {
             group: data.group || 0,
             combat: calculateCombat(data.skills)
         }), { status: 200, headers: corsHeaders });
+
+    } catch (e) {
+        return new Response(JSON.stringify({ success: false, error: e.message }), { status: 500, headers: corsHeaders });
+    }
+}
+
+/**
+ * Handles SovereignEye Synchronization
+ * Stores world perception and ChromaNumbers in KV
+ */
+async function handleSync(request, env, corsHeaders) {
+    try {
+        const data = await request.json();
+        const kv = env.KV_BINDING || env.KV;
+        if (!kv) {
+            return new Response(JSON.stringify({ success: false, error: 'KV Store missing' }), { status: 500, headers: corsHeaders });
+        }
+
+        // Store by entity ID (e.g., sovereigneye_Username)
+        const id = data.id || 'sovereigneye_global';
+        await kv.put(id, JSON.stringify(data), {
+            expirationTtl: 3600 // 1 hour expiration for live perception data
+        });
+
+        return new Response(JSON.stringify({ success: true, message: 'Eyes synchronized' }), { status: 200, headers: corsHeaders });
 
     } catch (e) {
         return new Response(JSON.stringify({ success: false, error: e.message }), { status: 500, headers: corsHeaders });

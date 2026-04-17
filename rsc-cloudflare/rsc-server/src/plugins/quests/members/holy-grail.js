@@ -33,10 +33,13 @@ function setQuestStage(player, stage) {
 async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
+    player.engage(npc);
+
     // King Arthur starts quest (handled with Merlin's Crystal checks)
     if (npc.id === NPC_KING_ARTHUR) {
         if (player.questStages[REQ_QUEST] !== -1) {
             await npc.say('Complete Merlin\'s Crystal first!');
+            player.disengage();
             return true;
         }
         if (stage === 0) {
@@ -56,6 +59,7 @@ async function onTalkToNPC(player, npc) {
             setQuestStage(player, -1);
             player.message('You have completed the Holy Grail quest!');
         }
+        player.disengage();
         return true;
     }
 
@@ -70,6 +74,7 @@ async function onTalkToNPC(player, npc) {
         } else if (stage === -1) {
             await npc.say('I\'m working on a spell to turn people into hedgehogs!');
         }
+        player.disengage();
         return true;
     }
 
@@ -81,6 +86,7 @@ async function onTalkToNPC(player, npc) {
         if (choice === 0) {
             npc.setTarget(player);
         }
+        player.disengage();
         return true;
     }
 
@@ -95,6 +101,7 @@ async function onTalkToNPC(player, npc) {
             player.message('A bell appears near the castle entrance.');
             // Bell would spawn at entrance
         }
+        player.disengage();
         return true;
     }
 
@@ -104,6 +111,7 @@ async function onTalkToNPC(player, npc) {
         if (stage === 3) setQuestStage(player, 4);
         await npc.say('I fear my life is running short.');
         await npc.say('Find my son Percival. He is a knight of the Round Table.');
+        player.disengage();
         return true;
     }
 
@@ -120,6 +128,7 @@ async function onTalkToNPC(player, npc) {
         } else {
             await player.say('I will get you a whistle.');
         }
+        player.disengage();
         return true;
     }
 
@@ -128,6 +137,7 @@ async function onTalkToNPC(player, npc) {
         await npc.say('The land has been restored!');
         await npc.say('You may now take the Holy Grail!');
         setQuestStage(player, 6);
+        player.disengage();
         return true;
     }
 

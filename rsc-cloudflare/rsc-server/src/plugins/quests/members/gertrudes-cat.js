@@ -44,6 +44,8 @@ function setQuestStage(player, stage) {
 async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
+    player.engage(npc);
+
     // --- Gertrude ---
     if (npc.id === NPC_GERTRUDE) {
         if (stage === 0) {
@@ -108,6 +110,8 @@ async function onTalkToNPC(player, npc) {
         } else if (stage === 2) {
             await npc.say('I told you, she\'s at the Lumber Yard');
         }
+        player.disengage();
+        return true;
     }
 }
 

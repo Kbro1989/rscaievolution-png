@@ -46,6 +46,8 @@ async function onTalkToNPC(player, npc) {
     const isGood = player.getCache('good_side');
     const isEvil = player.getCache('evil_side');
 
+    player.engage(npc);
+
     // --- Ceril (Quest Start) ---
     if (npc.id === NPC_CERIL) {
         if (stage === 0) {
@@ -84,8 +86,15 @@ async function onTalkToNPC(player, npc) {
             await npc.say('Hello. Thank you again for saving my family!');
         } else if (stage === -1 && isEvil) {
             await npc.say('Ever since I asked for your help, things got worse');
-            await npc.say('I think you should keep out of my way.');
+            await npc.say('Oh, Ceril is so worried about the cult.');
         }
+        player.disengage();
+        return true;
+    }
+
+    if (npc.id === NPC_KHAZARD_GUARD) {
+        await npc.say('Move along, nothing to see here.');
+        player.disengage();
         return true;
     }
 
@@ -122,10 +131,12 @@ async function onTalkToNPC(player, npc) {
                     setQuestStage(player, 3);
                 }
             }
+            player.disengage();
             return true;
         } else if (stage >= 3 && isEvil) {
             await npc.say('Have you poisoned them yet? Return once the deed is done.');
         }
+        player.disengage();
         return true;
     }
 
@@ -156,9 +167,10 @@ async function onTalkToNPC(player, npc) {
                 setQuestStage(player, -1);
                 player.message('You have completed the Hazeel Cult quest (Evil Path)');
             } else {
-                await npc.say('We need the script if Hazeel is to return.');
+                await npc.say('Please help my family find the armor again.');
             }
         }
+        player.disengage();
         return true;
     }
 
@@ -172,11 +184,25 @@ async function onTalkToNPC(player, npc) {
             }
         } else if (isGood && stage >= 5) {
             await npc.say('You fool! Did you think you could accuse me?');
-            await npc.say('Ceril trusts me completely.');
+            await npc.say('Praise Hazeel!');
         }
+        player.disengage();
         return true;
     }
 
+    // --- Butler ---
+    if (npc.id === NPC_BUTLER) {
+        await npc.say('The master is in his study.');
+        player.disengage();
+        return true;
+    }
+
+    // --- Alrena ---
+    if (npc.id === NPC_ALRENA) {
+        // No dialogue provided, just engage/disengage
+    }
+
+    player.disengage();
     return true;
 }
 

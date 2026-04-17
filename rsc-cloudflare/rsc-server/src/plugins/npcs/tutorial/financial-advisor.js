@@ -9,36 +9,50 @@ async function onTalkToNPC(player, npc) {
 
     player.engage(npc);
 
-    await npc.say("Hello there", "I'm your designated financial advisor");
-    await player.say(
-        "That's good because I don't have any money at the moment",
-        "How do I get rich?"
-    );
+    try {
+        const tutorialStage = player.cache.tutorial || 0;
 
-    await npc.say(
-        "There are many different ways to make money in runescape",
-        "for example certain monsters will drop a bit of loot",
-        "To start with killing men and goblins might be a good idea",
-        "Some higher level monsters will drop quite a lot of treasure",
-        "several of runescapes skills are good money making skills",
-        "two of these skills are mining and fishing",
-        "there are instructors on the island who will help you with this",
-        "using skills and combat to make money is a good plan",
-        "because using a skill also slowly increases your level in that skill",
-        "A high level in a skill opens up many more oppurtunites",
-        "Some other ways of making money include taking quests and tasks",
-        "You can find these by talking to certain game controlled characters",
-        "Our quest advisors will tell you about this",
-        "Sometimes you will find items lying around",
-        "Selling these to the shops makes some money too",
-        "Now continue through the next door"
-    );
+        if (tutorialStage < 35) {
+            await npc.say("You should speak to the cooking instructor first");
+            return true;
+        }
 
-    if (player.cache.tutorial && player.cache.tutorial < 40) {
+        if (tutorialStage >= 40) {
+            await npc.say("You've already heard my advice",
+                "Continue through the next door");
+            return true;
+        }
+
+        await npc.say("Hello there", "I'm your designated financial advisor");
+        await player.say(
+            "That's good because I don't have any money at the moment",
+            "How do I get rich?"
+        );
+
+        await npc.say(
+            "There are many different ways to make money in runescape",
+            "for example certain monsters will drop a bit of loot",
+            "To start with killing men and goblins might be a good idea",
+            "Some higher level monsters will drop quite a lot of treasure",
+            "several of runescapes skills are good money making skills",
+            "two of these skills are mining and fishing",
+            "there are instructors on the island who will help you with this",
+            "using skills and combat to make money is a good plan",
+            "because using a skill also slowly increases your level in that skill",
+            "A high level in a skill opens up many more oppurtunites",
+            "Some other ways of making money include taking quests and tasks",
+            "You can find these by talking to certain game controlled characters",
+            "Our quest advisors will tell you about this",
+            "Sometimes you will find items lying around",
+            "Selling these to the shops makes some money too",
+            "Now continue through the next door"
+        );
+
         player.cache.tutorial = 40;
+    } finally {
+        player.disengage();
     }
 
-    player.disengage();
     return true;
 }
 

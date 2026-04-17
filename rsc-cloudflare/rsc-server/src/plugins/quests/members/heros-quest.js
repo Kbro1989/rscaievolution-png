@@ -94,11 +94,12 @@ function hasPrerequisites(player) {
         player.skills[14] >= 50;  // Mining
 }
 
-async function onTalkToNpc(player, npc) {
+async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
     // ==================== ACHIETTIES - HEROES GUILD MASTER ====================
     if (npc.id === NPC_ACHIETTIES) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say("Greetings welcome to the hero's guild");
             await npc.say("Only the foremost hero's of the land can enter here");
@@ -121,6 +122,7 @@ async function onTalkToNpc(player, npc) {
                     await player.delay(3);
                     player.message("Merlin's crystal and dragon slayer");
                     await player.delay(3);
+                    player.disengage();
                     return true;
                 }
 
@@ -193,11 +195,13 @@ async function onTalkToNpc(player, npc) {
         } else if (stage === -1) {
             await npc.say("Greetings welcome to the hero's guild");
         }
+        player.disengage();
         return true;
     }
 
     // ==================== GARV - PETE'S MANSION GUARD ====================
     if (npc.id === NPC_GARV) {
+        player.engage(npc);
         await npc.say("Hello, what do you want?");
 
         if (isBlackArmGang(player) && player.cache.hq_impersonate && !player.cache.garv_door) {
@@ -236,11 +240,13 @@ async function onTalkToNpc(player, npc) {
                 await npc.say("You're one of a very lucky few then");
             }
         }
+        player.disengage();
         return true;
     }
 
     // ==================== GRIP - HEAD GUARD ====================
     if (npc.id === NPC_GRIP) {
+        player.engage(npc);
         if (player.cache.talked_grip || stage === -1) {
             const option = await player.ask([
                 "So can I guard the treasure room please",
@@ -255,6 +261,7 @@ async function onTalkToNpc(player, npc) {
             } else {
                 await npc.say("Yeah I'll give you time to settle in");
             }
+            player.disengage();
             return true;
         }
 
@@ -288,12 +295,17 @@ async function onTalkToNpc(player, npc) {
                 await npc.say("Yeah I'll give you time to settle in");
             }
         }
+        player.disengage();
         return true;
     }
 
     // ==================== TROBERT - BLACK ARM GANG (BRIMHAVEN) ====================
     if (npc.id === NPC_TROBERT) {
-        if (stage === -1) return true;
+        player.engage(npc);
+        if (stage === -1) {
+            player.disengage();
+            return true;
+        }
 
         if (player.cache.hq_impersonate) {
             if (!player.inventory.has(ITEM_ID_PAPER)) {
@@ -304,9 +316,11 @@ async function onTalkToNpc(player, npc) {
                 player.inventory.add(ITEM_ID_PAPER, 1);
                 await npc.say("Be more careful this time");
             }
+            player.disengage();
             return true;
         }
 
+        await npc.say("Hi, welcome to our Brimhaven headquarters");
         await npc.say("Hi, welcome to our Brimhaven headquarters");
         await npc.say("I'm Trobert and I'm in charge here");
 
@@ -341,13 +355,16 @@ async function onTalkToNpc(player, npc) {
         } else {
             await player.say("Pleased to meet you");
         }
+        player.disengage();
         return true;
     }
 
     // ==================== GRUBOR - BLACK ARM HIDEOUT GUARD ====================
     if (npc.id === NPC_GRUBOR) {
+        player.engage(npc);
         await player.say("Hi");
         await npc.say("Hi, I'm a little busy right now");
+        player.disengage();
         return true;
     }
 
@@ -655,7 +672,7 @@ module.exports = {
     name: 'heros-quest',
     questName: QUEST_NAME,
     questPoints: QUEST_POINTS,
-    onTalkToNpc,
+    onTalkToNPC,
     onOperateBoundary,
     onUseItemOnBoundary,
     onOperateObject,

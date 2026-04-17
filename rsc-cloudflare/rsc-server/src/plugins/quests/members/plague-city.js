@@ -49,8 +49,10 @@ function setQuestStage(player, stage) {
     player.questStages[QUEST_NAME] = stage;
 }
 
-async function onTalkToNpc(player, npc) {
+async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
+
+    player.engage(npc);
 
     // Edmond - Quest giver
     if (npc.id === NPC_EDMOND) {
@@ -101,6 +103,7 @@ async function onTalkToNpc(player, npc) {
             await npc.say('Perhaps you could help investigate?');
             // This leads to Biohazard quest
         }
+        player.disengage();
         return true;
     }
 
@@ -120,6 +123,7 @@ async function onTalkToNpc(player, npc) {
                 player.message('Alrena gives you a picture of Elena');
             }
         }
+        player.disengage();
         return true;
     }
 
@@ -142,6 +146,7 @@ async function onTalkToNpc(player, npc) {
             await npc.say("Tell my father I'm safe, I'll make my own way home");
             player.message('Go speak to Edmond to complete the quest');
         }
+        player.disengage();
         return true;
     }
 
@@ -169,9 +174,10 @@ async function onTalkToNpc(player, npc) {
                     await npc.say("Hmm that doesn't narrow it down a huge amount");
                 }
             } else { // Who's in charge
-                await npc.say('The city warder Bravek is in charge at the moment');
+                await npc.say("The city warder Bravek is in charge at the moment");
             }
         }
+        player.disengage();
         return true;
     }
 
@@ -197,6 +203,7 @@ async function onTalkToNpc(player, npc) {
                 // TODO: Give scruffy note logic here or via Jethick/Clerk
             }
         }
+        player.disengage();
         return true;
     }
 
@@ -261,7 +268,7 @@ module.exports = {
     name: 'plague-city',
     questName: QUEST_NAME,
     questPoints: QUEST_POINTS,
-    onTalkToNpc,
+    onTalkToNPC,
     onUseItemOnObject,
     npcs: [NPC_EDMOND, NPC_ALRENA, NPC_ELENA, NPC_JETHICK, NPC_MILLI, NPC_TED, NPC_BRAVEK],
     objects: [321, 447] // sewer grate, mud patch

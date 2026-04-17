@@ -3,6 +3,8 @@
  * Handles user registration, login, and player data management via Cloudflare KV
  */
 
+import { DEFAULT_PLAYER } from '../rsc-server/src/constants/player-template';
+
 export class AuthService {
     constructor(env) {
         // Use RSC_PLAYERS_v2 or KV_BINDING as defined in wrangler.toml
@@ -94,56 +96,8 @@ export class AuthService {
      */
     getDefaultPlayerData(username) {
         return {
+            ...DEFAULT_PLAYER,
             username: username,
-            password: null,
-            group: 0,
-            x: 207,
-            y: 441,
-            fatigue: 32,
-            combatStyle: 0,
-            blockChat: 0,
-            blockPrivateChat: 0,
-            blockTrade: 0,
-            blockDuel: 0,
-            cameraAuto: true,
-            oneMouseButton: 0,
-            soundOn: 1,
-            hairColour: 9,
-            topColour: 9,
-            trouserColour: 11,
-            skinColour: 0,
-            headSprite: 7,
-            bodySprite: 2,
-            skulled: 0,
-            friends: [],
-            ignores: [],
-            inventory: [{ "id": 10, "amount": 3 }],
-            bank: [],
-            questPoints: 0,
-            questStages: {},
-            skills: {
-                attack: { current: 1, experience: 0, base: 1 },
-                defense: { current: 1, experience: 0, base: 1 },
-                strength: { current: 1, experience: 0, base: 1 },
-                hits: { current: 6, experience: 2304, base: 6 },
-                ranged: { current: 1, experience: 0, base: 1 },
-                prayer: { current: 1, experience: 0, base: 1 },
-                magic: { current: 1, experience: 0, base: 1 },
-                cooking: { current: 1, experience: 0, base: 1 },
-                woodcutting: { current: 1, experience: 0, base: 1 },
-                fletching: { current: 1, experience: 0, base: 1 },
-                fishing: { current: 1, experience: 0, base: 1 },
-                firemaking: { current: 1, experience: 0, base: 1 },
-                crafting: { current: 1, experience: 0, base: 1 },
-                smithing: { current: 1, experience: 0, base: 1 },
-                mining: { current: 1, experience: 0, base: 1 },
-                herblaw: { current: 1, experience: 0, base: 1 },
-                agility: { current: 1, experience: 0, base: 1 },
-                thieving: { current: 1, experience: 8, base: 1 }
-            },
-            cache: {},
-            loginIP: null,
-            world: 0,
             id: Math.floor(Math.random() * 1000000),
             loginDate: Date.now()
         };

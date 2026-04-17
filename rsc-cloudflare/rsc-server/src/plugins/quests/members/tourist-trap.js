@@ -34,6 +34,7 @@ function setQuestStage(player, stage) {
 
 async function onTalkToNPC(player, npc) {
     if (npc.id === NPC_IRENA) {
+        player.engage(npc);
         const stage = getQuestStage(player);
 
         if (stage === 0) {
@@ -51,6 +52,7 @@ async function onTalkToNPC(player, npc) {
                 // TODO: Implement these conversation branches
             }
         }
+        player.disengage();
         return true;
     }
     return false;

@@ -41,6 +41,7 @@ async function onTalkToNPC(player, npc) {
 
     // Lucien at Flying Horse Inn - starts quest
     if (npc.id === NPC_LUCIEN) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say('I seek a hero to enter Temple of Ikov tunnels.');
             await npc.say('Kill the Fire Warrior of Lesarkus and retrieve Staff of Armadyl.');
@@ -59,11 +60,13 @@ async function onTalkToNPC(player, npc) {
                 await npc.say('Do not meet me here again. Go to my shack!');
             }
         }
+        player.disengage();
         return true;
     }
 
     // Lucien at Edgeville - gives staff for evil ending
     if (npc.id === NPC_LUCIEN_EDGE) {
+        player.engage(npc);
         if (stage === -1 || stage === -2) {
             player.message('You have already completed this quest');
             return true;
@@ -84,11 +87,13 @@ async function onTalkToNPC(player, npc) {
         } else {
             await player.say('No, not yet.');
         }
+        player.disengage();
         return true;
     }
 
     // Winelda - teleports across lava
     if (npc.id === NPC_WINELDA) {
+        player.engage(npc);
         if (player.inventory.count(ITEM_LIMPWURT) >= 20) {
             await player.say('I have 20 limpwurt roots.');
             await npc.say('Marvellous! Brace yourself!');
@@ -98,28 +103,33 @@ async function onTalkToNPC(player, npc) {
             await npc.say('Want to cross the lava stream?');
             await npc.say('Bring me 20 limpwurt roots and I\'ll teleport you.');
         }
+        player.disengage();
         return true;
     }
 
     // Guardians of Armadyl - good path
     if (npc.id === NPC_GUARDIAN_FEMALE || npc.id === NPC_GUARDIAN_MALE) {
+        player.engage(npc);
         if (stage === 2) {
             await npc.say('Any luck against Lucien?');
             if (!player.inventory.has(ITEM_PENDANT_ARMADYL)) {
                 await npc.say('Here, take another pendant.');
                 player.inventory.add(ITEM_PENDANT_ARMADYL, 1);
             }
+            player.disengage();
             return true;
         }
         if (stage === -1) {
             await player.say('I have defeated Lucien!');
             await npc.say('Well done. We hope that keeps him quiet a while.');
+            player.disengage();
             return true;
         }
 
         if (player.equipment.has(ITEM_PENDANT_LUCIEN)) {
             await npc.say('Ahh! A foul agent of Lucien! Begone!');
             npc.setTarget(player);
+            player.disengage();
             return true;
         }
 
@@ -144,6 +154,7 @@ async function onTalkToNPC(player, npc) {
         } else {
             await npc.say('We are Guardians of Armadyl. We protect this place.');
         }
+        player.disengage();
         return true;
     }
 

@@ -81,6 +81,7 @@ async function onTalkToNPC(player, npc) {
 
     // Kaqemeex at stone circle - starts quest, finishes quest
     if (npc.id === NPC_KAQEMEEX) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say('What brings you to our holy Monument?');
             const choice = await player.ask([
@@ -157,11 +158,13 @@ async function onTalkToNPC(player, npc) {
             ], true);
             // Just acknowledge, no 99 cape (not RSC authentic)
         }
+        player.disengage();
         return true;
     }
 
     // Sanfew in Taverley - gives meat task
     if (npc.id === NPC_SANFEW) {
+        player.engage(npc);
         if (stage === 0) {
             await npc.say('What can I do for you young \'un?');
             const choice = await player.ask([
@@ -261,6 +264,7 @@ async function onTalkToNPC(player, npc) {
                 await player.delay(3);
             }
         }
+        player.disengage();
         return true;
     }
 

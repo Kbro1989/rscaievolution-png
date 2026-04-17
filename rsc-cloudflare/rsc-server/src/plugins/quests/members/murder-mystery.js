@@ -59,6 +59,8 @@ function setMurderer(player) {
 async function onTalkToNPC(player, npc) {
     const stage = getQuestStage(player);
 
+    player.engage(npc);
+
     // Guard - Quest Start
     if (npc.id === NPC_GUARD) {
         if (stage === 0) {
@@ -90,6 +92,7 @@ async function onTalkToNPC(player, npc) {
         } else if (stage === -1) {
             await npc.say('Thanks for solving the murder!');
         }
+        player.disengage();
         return true;
     }
 
@@ -113,6 +116,7 @@ async function onTalkToNPC(player, npc) {
                 player.message('This alibi seems suspicious...');
             }
         }
+        player.disengage();
         return true;
     }
 
@@ -120,6 +124,7 @@ async function onTalkToNPC(player, npc) {
     if (npc.id === NPC_POISON_SALESMAN && stage === 1) {
         await npc.say('I sold poison to someone at the Sinclair Mansion.');
         await npc.say('Search around for evidence of who bought it.');
+        player.disengage();
         return true;
     }
 
